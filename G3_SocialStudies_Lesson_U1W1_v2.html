@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 1 Social Studies: What Is a Community? | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🏘️ KCE Pathways — Grade 3 &mdash; Week 1</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 1 &bull; Social Studies</span>
+  <h1>Base Camp: Our Community</h1>
+  <h2>What Is a Community? 🏘️🤝</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome to KCE Social Studies! This week we explore what a <b>community</b> is and the different helpers who make one work. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions! (Parent-led lesson &mdash; see the Parent Plan for how to run today.)</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up by thinking about the place you live</li><li>Watch a short video about community helpers</li><li>Learn what makes a community</li><li>Meet different community helpers, then Match-Up, Type-It, Pencil Break &amp; the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up (What You Already Know)</h2>
+<p>Warm up by thinking about the place you live and the people you see every day.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A firefighter's JOB is to help keep other people safe — that's what makes someone a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these people has a job that helps OTHER people?</p>
+    <div class="opts">
+      <button class="opt">a rock</button>
+      <button class="opt">none of them do</button>
+      <button class="opt">a cloud</button>
+      <button class="opt" data-c="1">a firefighter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Waiting your turn is a shared guideline everyone follows — that's a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">When you wait your turn in line instead of pushing ahead, you are ___?</p>
+    <div class="opts">
+      <button class="opt">ignoring everyone</button>
+      <button class="opt">being unsafe</button>
+      <button class="opt">breaking a rule</button>
+      <button class="opt" data-c="1">following a rule</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Working together toward the same goal (cooperation) helps everyone, so it's a good idea.">
+    <span class="pts">+5</span>
+    <p class="qtext">Working together with others toward the same goal is usually a ___ idea.</p>
+    <div class="opts">
+      <button class="opt">impossible</button>
+      <button class="opt">bad</button>
+      <button class="opt" data-c="1">good</button>
+      <button class="opt">silly</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="teacher" data-logic="A person who teaches you at school is called a teacher.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person who teaches you at school is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="A doctor's JOB is to help keep other people healthy — that's a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these people has a job that helps OTHER people?</p>
+    <div class="opts">
+      <button class="opt">a tree</button>
+      <button class="opt">none of them do</button>
+      <button class="opt" data-c="1">a doctor</button>
+      <button class="opt">a rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Not littering is a shared guideline everyone follows — that's a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">When you throw your trash in a can instead of on the ground, you are ___?</p>
+    <div class="opts">
+      <button class="opt">breaking a rule</button>
+      <button class="opt" data-c="1">following a rule</button>
+      <button class="opt">being unsafe</button>
+      <button class="opt">ignoring everyone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Nobody is forced to help clean the park, but people choose to pitch in together — that's cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Everyone pitching in to clean a park is an example of ___?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">cooperation</button>
+      <button class="opt">a bad idea</button>
+      <button class="opt">being unsafe</button>
+      <button class="opt">breaking a rule</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="doctor|nurse" data-logic="A person who helps sick people feel better is called a doctor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person who helps sick people feel better is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A mail carrier's JOB is to deliver mail to other people — that's a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these people has a job that helps OTHER people?</p>
+    <div class="opts">
+      <button class="opt">a rock</button>
+      <button class="opt" data-c="1">a mail carrier</button>
+      <button class="opt">none of them do</button>
+      <button class="opt">a cloud</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Stopping at a red light is a shared guideline everyone follows — that's a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">When you stop at a red light while walking or biking, you are ___?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">following a rule</button>
+      <button class="opt">breaking a rule</button>
+      <button class="opt">ignoring everyone</button>
+      <button class="opt">being unsafe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Choosing to share supplies with a classmate, without being forced, is cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sharing supplies with a classmate is an example of ___?</p>
+    <div class="opts">
+      <button class="opt">a bad idea</button>
+      <button class="opt" data-c="1">cooperation</button>
+      <button class="opt">breaking a rule</button>
+      <button class="opt">being unsafe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="mail carrier|mailman" data-logic="A person who delivers letters and packages is called a mail carrier.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person who delivers letters and packages is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this video from PBS KIDS about the people who help keep a community running.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Together We Can | Learn About the Helpers in Your Community | PBS KIDS</b></p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=lzY6aX8ZT9s" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">What to do:</p>
+    <p style="margin:0 0 4px 0">1. Click the button above.</p>
+    <p style="margin:0 0 4px 0">2. Watch the whole video.</p>
+    <p style="margin:0">3. Come back to this tab and click Next below.</p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:16px">
+<h3>&#128218; Explore Further</h3>
+<ul class="tips"><li><a href="https://pbskids.org" target="_blank" rel="noopener">PBS KIDS</a> &mdash; Free games and videos for kids — no sign-in needed to watch or play.</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Tap each card to flip it &mdash; these power today's lesson! Tap the &#128266; to hear the word said aloud.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">community<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('community', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A group of people who live, work, and help each other in the same area.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">community helper<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('community helper', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A person whose job helps keep a community safe, healthy, or running smoothly.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">rule<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('rule', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A guideline that helps people in a community stay safe and get along.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">cooperation<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('cooperation', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Working together toward a shared goal.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">neighborhood<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('neighborhood', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A smaller area within a community where people live near each other.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128296; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>Let's apply this week's Phonics &amp; Spelling skill (closed syllables &amp; short vowels) to a word from today's Social Studies lesson!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-q="ss1" data-pts="5" data-bonus="1" data-logic="'Helper' ends in an -er sound that isn't clearly short or long — it's a soft, unstressed sound.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Is the vowel sound in 'helper' short or long?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">silent</button>
+      <button class="opt">there isn't one</button>
+      <button class="opt">long</button>
+      <button class="opt">short</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-ans="helper" data-bonus="1" data-logic="help + er = helper. Say each syllable, then blend them together.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Put the syllables together. What word do they make?</p>
+    <div class="fillrow">
+      <span class="eq">help + er =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🏘️ What Makes a Community?</h2>
+<div class="card">
+<p>Now that you’ve watched the video, let’s put a name to what you saw: a <b>community</b> is a group of people who live and work in the same area and depend on each other. Communities can be small (a <b>neighborhood</b>, which is a smaller area within a bigger community) or larger (a whole town or city).</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let’s zoom in and out like a map app. Zoomed all the way in: my own street, where I know my neighbors’ names &mdash; that’s a small <b>neighborhood</b>. Zoom out a little: my whole town, with its stores, school, and library &mdash; that’s a bigger community made of MANY neighborhoods like mine. Zoom out even more: my state, my country &mdash; those are communities too, just at a much bigger size. Same idea, different zoom level.</p></div><div class="pictureit"><h4>&#129513; Picture It: Zooming Out</h4>MY STREET (neighborhood) &rarr; MY TOWN (community of neighborhoods) &rarr; MY STATE &rarr; MY COUNTRY<br><br>Every bigger circle is made up of many smaller ones, just like your town is made of many neighborhoods.</div><div class="guidedbox"><h4>&#129309; Let’s Try Together</h4><p>Think about your OWN street or apartment building. Who do you see there regularly &mdash; neighbors, a mail carrier, maybe a crossing guard nearby? That collection of people, all depending on each other in that one small area, is already a neighborhood community &mdash; even before we zoom out to the whole town.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="A community is a group of people living and working together in the same area.">
+    <span class="pts">+5</span>
+    <p class="qtext">A community is best described as ___?</p>
+    <div class="opts">
+      <button class="opt">a single family</button>
+      <button class="opt" data-c="1">people living and working together in one area</button>
+      <button class="opt">a single building</button>
+      <button class="opt">a map</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="neighborhood" data-logic="A smaller area within a community where people live is called a neighborhood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A smaller area within a community where people live is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="town" data-logic="The parking lot, gas station, and neighborhoods are all part of the same town — the next zoom level up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">The trailhead parking lot, the gas station, and three neighborhoods are all part of the same what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="A whole town is a bigger community made up of many neighborhoods — an example of a LARGE community.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is an example of a LARGE community?</p>
+    <div class="opts">
+      <button class="opt">one classroom</button>
+      <button class="opt" data-c="1">a whole town</button>
+      <button class="opt">one house</button>
+      <button class="opt">one family</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s1" data-pts="5" data-ans="neighborhoods" data-logic="A whole town is made up of many smaller neighborhoods.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A whole town is made up of many smaller ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="state" data-logic="Zooming out past a whole town gets you to the state.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Zoom out past your whole town. What is the next bigger community called?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="Your street and neighbors is a small, close-in community — a neighborhood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is an example of a SMALL community?</p>
+    <div class="opts">
+      <button class="opt">the whole world</button>
+      <button class="opt">an entire continent</button>
+      <button class="opt">an entire country</button>
+      <button class="opt" data-c="1">your street and neighbors</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s2" data-pts="5" data-ans="area" data-logic="People in a community live and work in the same area.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">People in a community live and work in the same ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="yes" data-logic="Yes — a street of neighbors depending on each other is already a real community, even before zooming out to the town.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Is your street's neighborhood still a real community even before you zoom out to the whole town? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128660; Meet the Community Helpers</h2>
+<div class="card card-sky">
+<p>A <b>community helper</b> is anyone whose JOB helps keep the community safe, healthy, or running well. You probably saw several in the video!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let’s sort helpers by what problem they solve. If there’s a fire, who do I need? A firefighter &mdash; SAFE. If I’m sick, who do I need? A doctor &mdash; HEALTHY. If I want to learn to read, who helps? A teacher &mdash; LEARN. If I’m waiting for a letter from a faraway friend, who brings it? A mail carrier &mdash; CONNECTED. Every helper solves a DIFFERENT problem &mdash; that’s exactly why a community needs so many different jobs, not just one.</p></div><div class="pictureit"><h4>&#129513; Picture It: Helper &rarr; Job</h4>Fire &rarr; Firefighter &rarr; SAFE<br>Sickness &rarr; Doctor &rarr; HEALTHY<br>Not knowing how to read &rarr; Teacher &rarr; LEARN<br>A letter to deliver &rarr; Mail carrier &rarr; CONNECTED<br><br>Every problem in a community has a matching helper trained to solve it.</div><div class="guidedbox"><h4>&#129309; Let’s Try Together</h4><p>New problem: trash is piling up on the street. Who solves that? A sanitation worker. New problem: you need to cross a busy street safely on the way to school. Who helps? A crossing guard. See the pattern &mdash; name the PROBLEM first, then the helper who solves it becomes obvious.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t4a_s0" data-pts="5" data-logic="A firefighter's job is to keep people safe from fires.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which community helper keeps people safe from fires?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">firefighter</button>
+      <button class="opt">mail carrier</button>
+      <button class="opt">librarian</button>
+      <button class="opt">teacher</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s0" data-pts="5" data-ans="helper" data-logic="A person whose job helps the community is called a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person whose job helps the community is called a community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s0" data-pts="5" data-ans="sanitation worker|garbage collector" data-logic="Name the problem first (trash piling up), then the matching helper: a sanitation worker.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">New problem: trash is piling up on the street. Name the PROBLEM first, then figure out the helper. Who solves it?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t4a_s1" data-pts="5" data-logic="A doctor's job is to keep people healthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which community helper keeps people healthy?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">doctor</button>
+      <button class="opt">librarian</button>
+      <button class="opt">mail carrier</button>
+      <button class="opt">firefighter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s1" data-pts="5" data-ans="safe" data-logic="A firefighter's job is to keep the community safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A firefighter’s job is to keep the community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s1" data-pts="5" data-ans="crossing guard" data-logic="Name the problem first (crossing a busy street safely), then the matching helper: a crossing guard.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">New problem: you need to cross a busy street safely on the way to school. Who solves it?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t4a_s2" data-pts="5" data-logic="A teacher's job is to help people learn.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which community helper helps people learn?</p>
+    <div class="opts">
+      <button class="opt">firefighter</button>
+      <button class="opt">mail carrier</button>
+      <button class="opt" data-c="1">teacher</button>
+      <button class="opt">doctor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s2" data-pts="5" data-ans="connected" data-logic="A mail carrier helps the community stay connected by delivering letters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A mail carrier helps the community stay ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s2" data-pts="5" data-ans="librarian" data-logic="Name the problem first (finding a book), then the matching helper: a librarian.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">New problem: you want to borrow a book but don't know where to find it. Who helps?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#129309; Rules &amp; Cooperation</h2>
+<div class="card card-grass">
+<p>Communities work best when everyone follows shared <b>rules</b> and practices <b>cooperation</b> &mdash; working together toward a common goal, the way community helpers do every day.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let’s think about a red light. Why does everyone stop, even when no police officer is watching? Because it’s a RULE everyone agreed to follow, and it keeps EVERYONE safer, including the person following it. Now think about a park cleanup day &mdash; nobody is forced to show up, but when everyone pitches in anyway, that’s COOPERATION. Rules are things everyone must do; cooperation is something people choose to do together.</p></div><div class="pictureit"><h4>&#129513; Picture It: Rule vs. Cooperation</h4>RULE (must follow): stop at red lights, wear a seatbelt<br>COOPERATION (choose together): cleaning a park, sharing supplies, taking turns<br><br>A community needs BOTH &mdash; rules for safety, cooperation for community spirit.</div><div class="guidedbox"><h4>&#129309; Let’s Try Together</h4><p>Is "no littering" a rule or cooperation? It’s a rule &mdash; something everyone is expected to follow. Is "neighbors taking turns watering a shared garden" a rule or cooperation? That’s cooperation &mdash; nobody is forcing them, they’re choosing to work together. Try sorting a few more examples from your own life the same way.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t5a_s0" data-pts="5" data-logic="Waiting your turn is something everyone is expected to do — that's a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Waiting your turn in line at the store is an example of following a ___?</p>
+    <div class="opts">
+      <button class="opt">map</button>
+      <button class="opt">continent</button>
+      <button class="opt" data-c="1">rule</button>
+      <button class="opt">habitat</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s0" data-pts="5" data-ans="cooperation" data-logic="Working together toward a shared goal is called cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Working together toward a shared goal is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s0" data-pts="5" data-ans="cooperation" data-logic="Nobody forces the neighbors to take turns — they choose to, so it's cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Neighbors take turns watering a shared garden. Nobody is forcing them. Is that a rule or cooperation?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t5a_s1" data-pts="5" data-logic="Stopping at a red light is something everyone must do — that's a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stopping at a red light is an example of following a ___?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">rule</button>
+      <button class="opt">continent</button>
+      <button class="opt">habitat</button>
+      <button class="opt">map</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s1" data-pts="5" data-ans="rule" data-logic="A guideline that helps people stay safe and get along is called a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A guideline that helps people stay safe and get along is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s1" data-pts="5" data-ans="no littering|littering" data-logic="'No littering' is a rule about littering — keeping trash off the ground.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">"No littering" is a rule, not a choice. What is it a rule ABOUT?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t5a_s2" data-pts="5" data-logic="Nobody is forced to clean the park, but people choose to pitch in — that's cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Everyone pitching in to clean up a local park is an example of ___?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">cooperation</button>
+      <button class="opt">a continent</button>
+      <button class="opt">a map</button>
+      <button class="opt">a habitat</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s2" data-pts="5" data-ans="rules" data-logic="Communities work best when everyone follows shared rules.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Communities work best when everyone follows shared ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s2" data-pts="5" data-ans="both" data-logic="A healthy community needs both rules (for safety) and cooperation (for community spirit).">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Does a healthy community need ONLY rules, ONLY cooperation, or BOTH?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#128300; Community Power Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card">
+<p>Keep thinking about your own community!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="d1" data-pts="5" data-ans="doctor|nurse" data-bonus="1" data-logic="A doctor helps sick people feel better.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Name a community helper who helps sick people.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d2" data-pts="5" data-ans="mail carrier|mailman|mail person" data-bonus="1" data-logic="A mail carrier delivers letters and packages.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Name a community helper who delivers mail.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d3" data-pts="5" data-ans="stop at red lights|wear a seatbelt|look both ways|follow traffic signs|no littering" data-bonus="1" data-logic="Stopping at red lights, wearing a seatbelt, and not littering are all real community safety rules.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Name one rule that helps keep your community safe.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each community studies term, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="community" data-logic="A group of people who live and work together in one area is a community.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A group of people who live and work together in one area is a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="rule" data-logic="A guideline that helps people stay safe and get along is called a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A guideline that helps people stay safe and get along is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="cooperation" data-logic="Working together toward a shared goal is called cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Working together toward a shared goal is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="helper" data-logic="A person whose job helps the community is a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person whose job helps the community is a community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="neighborhood" data-logic="A smaller area within a community is called a neighborhood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A smaller area within a community is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="safe" data-logic="A firefighter's job is to keep the community safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A firefighter’s job is to keep the community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="healthy" data-logic="A doctor's job is to keep the community healthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A doctor’s job is to keep the community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="learn" data-logic="A teacher's job is to help the community learn.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A teacher’s job is to help the community ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="connected" data-logic="A mail carrier helps the community stay connected.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A mail carrier helps the community stay ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-ans="firefighter" data-bonus="1" data-logic="A firefighter's job is to keep people safe from fires.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Who keeps people safe from fires?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="teacher" data-bonus="1" data-logic="A teacher's job is to help you learn at school.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Who helps you learn at school?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="cooperation" data-bonus="1" data-logic="Cooperation is the word that means 'working together.'">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What word means "working together"?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Grab your <b>Pre/Post sheet</b> and a pencil. <b>Draw your own community</b> and label three helpers, then type your answers. Neat work earns handwriting points!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="firefighter|doctor|teacher|mail carrier|police officer|nurse|librarian" data-logic="Any real community helper works, as long as it matches what you drew.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw a map of your community. Label one community helper you drew. Type who it is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s0" data-pts="5" data-ans="stop at red lights|wear a seatbelt|no littering|follow traffic signs|look both ways" data-logic="Any real community rule works — stopping at red lights, wearing a seatbelt, or not littering.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Label one rule your community follows. Type the rule you wrote:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="teacher|librarian|nurse|principal|crossing guard" data-logic="Any real school helper works — teacher, librarian, nurse, or crossing guard.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw your school. Label one community helper who works there. Type who it is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s1" data-pts="5" data-ans="sharing|taking turns|helping each other|working in groups|cleaning up together" data-logic="Any real way students cooperate works — sharing, taking turns, or working in groups.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Label one way students cooperate at school. Type what you wrote:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="cashier|police officer|park ranger|sanitation worker|firefighter" data-logic="Any real helper you might see at that place works — cashier, officer, or ranger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw a local business or park in your community. Label one helper you might see there. Type who it is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s2" data-pts="5" data-ans="wait in line|stay on the path|no littering|be quiet|follow the signs" data-logic="Any real rule people follow at that place works, as long as it matches what you drew.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Label one rule people follow at that place. Type the rule you wrote:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>👑 Boss Battle: The Community Challenge</h2>
+<p>Show what you know about communities and helpers!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="People living and working together, depending on each other, in the same area — that's the definition of a community.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which best describes a community?</p>
+    <div class="opts">
+      <button class="opt">a map of the world</button>
+      <button class="opt" data-c="1">people living and working together in one area</button>
+      <button class="opt">a type of animal</button>
+      <button class="opt">a single house</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A police officer's JOB is to help keep people safe — that's a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">A police officer helping people stay safe is an example of a ___?</p>
+    <div class="opts">
+      <button class="opt">rule</button>
+      <button class="opt">habitat</button>
+      <button class="opt" data-c="1">community helper</button>
+      <button class="opt">continent</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Nobody is forced to recycle, but everyone choosing to do it together is cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Everyone recycling together to keep the community clean is an example of ___?</p>
+    <div class="opts">
+      <button class="opt">a map</button>
+      <button class="opt">a habitat</button>
+      <button class="opt" data-c="1">cooperation</button>
+      <button class="opt">a rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="A person whose job helps the community — safe, healthy, or running well — is a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which best describes a community helper?</p>
+    <div class="opts">
+      <button class="opt">a building</button>
+      <button class="opt">a person who never works</button>
+      <button class="opt" data-c="1">a person whose job helps the community</button>
+      <button class="opt">a type of weather</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Everyone stopping at stop signs is a shared guideline everyone must follow — a rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Everyone stopping at stop signs to keep streets safe is an example of a ___?</p>
+    <div class="opts">
+      <button class="opt">continent</button>
+      <button class="opt">habitat</button>
+      <button class="opt">community helper</button>
+      <button class="opt" data-c="1">rule</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Nobody forces the neighbors to take turns, so watering the garden together is cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Neighbors taking turns watering a shared garden is an example of ___?</p>
+    <div class="opts">
+      <button class="opt">a rule</button>
+      <button class="opt">a map</button>
+      <button class="opt">a habitat</button>
+      <button class="opt" data-c="1">cooperation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Your street and the neighbors who live there is a small, close-in community — a neighborhood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is an example of a small community (a neighborhood)?</p>
+    <div class="opts">
+      <button class="opt">an entire country</button>
+      <button class="opt">an ocean</button>
+      <button class="opt">a single classroom desk</button>
+      <button class="opt" data-c="1">your street and the neighbors who live there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="A librarian's JOB is to help people — that makes them a community helper.">
+    <span class="pts">+5</span>
+    <p class="qtext">A librarian helping people find books is an example of a ___?</p>
+    <div class="opts">
+      <button class="opt">rule</button>
+      <button class="opt" data-c="1">community helper</button>
+      <button class="opt">habitat</button>
+      <button class="opt">continent</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Choosing to share crayons, without being forced, is cooperation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Classmates sharing crayons so everyone can finish a project is an example of ___?</p>
+    <div class="opts">
+      <button class="opt">a habitat</button>
+      <button class="opt">a rule</button>
+      <button class="opt">a map</button>
+      <button class="opt" data-c="1">cooperation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">First Steps Complete!</h1>
+    <h2 id="finalTitle">Rising Citizen! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-socialstudies-w1';
+const MASTERY_THRESHOLD = 85;
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'REPLACE_WITH_REAL_FORMSPREE_ID';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = state.score; document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Firefighter','keeps people safe from fires'],['Doctor','keeps people healthy'],['Teacher','helps people learn'],['Rule','keeps a community safe'],['Cooperation','working together']],[['Mail carrier','delivers letters and packages'],['Police officer','keeps people safe'],['Librarian','helps people find books'],['Neighborhood','a small part of a community'],['Community','people living and working together']],[['Nurse','helps sick people'],['Crossing guard','keeps students safe crossing streets'],['Sanitation worker','keeps the community clean'],['Rule','a guideline for safety'],['Cooperation','a shared goal, worked toward together']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = state.score;
+  const rec = saveModuleResult(state.score);
+  reportProgress(state.score, rec);
+  const passed = state.score >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Citizen! ⭐';
+  if (state.score >= 90) tierTitle = 'Community Champion! 🏘️👑';
+  else if (state.score >= 75) tierTitle = 'Helpers Master! 🌟';
+  else if (state.score >= 50) tierTitle = 'Neighborhood Pro! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + state.score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + state.score + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
