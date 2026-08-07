@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 2 Math: Comparing &amp; Ordering Numbers | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🧭 KCE Pathways — Grade 3 &mdash; Week 2</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 2 &bull; Math</span>
+  <h1>Base Camp 2: Bigger or Smaller?</h1>
+  <h2>Comparing &amp; Ordering Numbers 🧭🔍</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome back to KCE Pathways! Last week you learned what each digit in a number is worth. This week we use that to <b>compare</b> numbers &mdash; figuring out which is bigger, smaller, or the same &mdash; and put a whole group of numbers in <b>order</b>. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with place value from last week</li><li>Watch a short video about comparing numbers</li><li>Learn to compare numbers using &lt;, &gt;, and =</li><li>Put a whole group of numbers in order</li><li>Compare, order, then Match-Up, Type-It, Pencil Break &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up (What You Already Know)</h2>
+<p>Before we hit the trail, let&rsquo;s warm up with what we learned last week.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="462: the 6 is in the tens place, so it's worth 60.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the value of the 6 in 462?</p>
+    <div class="opts">
+      <button class="opt">6</button>
+      <button class="opt" data-c="1">60</button>
+      <button class="opt">600</button>
+      <button class="opt">620</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Look at the ones digit (8). 5 or more rounds UP, so 68 rounds to 70.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 68 to the nearest ten.</p>
+    <div class="opts">
+      <button class="opt">60</button>
+      <button class="opt">65</button>
+      <button class="opt" data-c="1">70</button>
+      <button class="opt">80</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="315 breaks into 300 + 10 + 5 &mdash; each digit's place tells you its value.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the expanded form of 315?</p>
+    <div class="opts">
+      <button class="opt">30 + 10 + 5</button>
+      <button class="opt" data-c="1">300 + 10 + 5</button>
+      <button class="opt">300 + 1 + 5</button>
+      <button class="opt">3 + 1 + 5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="200" data-logic="Look at the tens digit (4). 4 or less stays DOWN, so 240 rounds to 200.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Round 240 to the nearest hundred =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="583: the 8 is in the tens place, so it's worth 80.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the value of the 8 in 583?</p>
+    <div class="opts">
+      <button class="opt">8</button>
+      <button class="opt" data-c="1">80</button>
+      <button class="opt">800</button>
+      <button class="opt">830</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Look at the ones digit (4). 4 or less stays DOWN, so 84 rounds to 80.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 84 to the nearest ten.</p>
+    <div class="opts">
+      <button class="opt">70</button>
+      <button class="opt" data-c="1">80</button>
+      <button class="opt">85</button>
+      <button class="opt">90</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="726 breaks into 700 + 20 + 6 &mdash; each digit's place tells you its value.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the expanded form of 726?</p>
+    <div class="opts">
+      <button class="opt">70 + 20 + 6</button>
+      <button class="opt" data-c="1">700 + 20 + 6</button>
+      <button class="opt">700 + 2 + 6</button>
+      <button class="opt">7 + 2 + 6</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="200" data-logic="Look at the tens digit (5). 5 or more rounds UP, so 150 rounds to 200.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Round 150 to the nearest hundred =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="691: the 9 is in the tens place, so it's worth 90.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the value of the 9 in 691?</p>
+    <div class="opts">
+      <button class="opt">9</button>
+      <button class="opt" data-c="1">90</button>
+      <button class="opt">900</button>
+      <button class="opt">910</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Look at the ones digit (2). 4 or less stays DOWN, so 22 rounds to 20.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 22 to the nearest ten.</p>
+    <div class="opts">
+      <button class="opt">10</button>
+      <button class="opt" data-c="1">20</button>
+      <button class="opt">25</button>
+      <button class="opt">30</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="458 breaks into 400 + 50 + 8 &mdash; each digit's place tells you its value.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the expanded form of 458?</p>
+    <div class="opts">
+      <button class="opt">40 + 50 + 8</button>
+      <button class="opt" data-c="1">400 + 50 + 8</button>
+      <button class="opt">400 + 5 + 8</button>
+      <button class="opt">4 + 5 + 8</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="700" data-logic="Look at the tens digit (5). 5 or more rounds UP, so 650 rounds to 700.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Round 650 to the nearest hundred =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this video that teaches how to compare numbers using place value.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Compare 3-Digit Numbers: Greater, Less, Equal &mdash; JoAnn's School</b></p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=ptHDJghHRM0" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">What to do:</p>
+    <p style="margin:0 0 4px 0">1. Click the button above.</p>
+    <p style="margin:0 0 4px 0">2. Watch the video (you can skip ahead once you get the idea).</p>
+    <p style="margin:0">3. Come back to this tab and click Next below.</p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:16px">
+<h3>&#128218; Explore Further</h3>
+<ul class="tips"><li><a href="https://www.youtube.com/playlist?list=PLKi4WTp6PRGUL-MlUdbT5DeAsigMuQc4o" target="_blank" rel="noopener">More JoAnn's School 2nd Grade Math videos</a> &mdash; Free step-by-step math lessons, no sign-in needed to watch.</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Tap each card to flip it &mdash; these power today's lesson! Tap the &#128266; to hear the word said aloud.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">compare<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('compare', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To look at two numbers and decide which is bigger, smaller, or equal.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">order<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('order', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To arrange numbers from smallest to largest, or largest to smallest.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">greater than (&gt;)<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('greater than', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The symbol that shows one number is bigger than another. It points AWAY from the bigger number.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">less than (&lt;)<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('less than', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The symbol that shows one number is smaller than another. It points TOWARD the smaller number.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">equal (=)<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('equal', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The symbol that shows two numbers have the exact same value.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128296; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>Let's apply this week's Phonics &amp; Spelling skill (open syllables &amp; long vowels) to a word from today's Math lesson!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-q="ss1" data-pts="5" data-bonus="1" data-logic="In 'equal,' the e makes a long sound because the syllable is open &mdash; it's a single vowel letter with nothing after it in that syllable.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Is the vowel sound in 'equal' short or long?</p>
+    <div class="opts">
+      <button class="opt">there isn't one</button>
+      <button class="opt" data-c="1">long</button>
+      <button class="opt">short</button>
+      <button class="opt">silent</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-ans="equal" data-bonus="1" data-logic="e + qual = equal. Say each syllable, then blend them together.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Put the syllables together. What word do they make?</p>
+    <div class="fillrow">
+      <span class="eq">e + qual =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🏕️ Basecamp: Comparing Numbers</h2>
+<div class="card">
+<p>You spot two trail signs: <b>Trail A is 452 feet</b>, <b>Trail B is 397 feet</b>. Which one is taller? To find out, you <b>compare</b> &mdash; and you use place value to do it, starting with the BIGGEST place.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>452 vs 397. I compare the hundreds digit first: <b>4</b> vs <b>3</b>. Since 4 is bigger than 3, I already know 452 is bigger &mdash; I don't even need to look at the other digits!</p><p>452 &gt; 397. The symbol always points at the smaller number, like an alligator's mouth opening toward the bigger meal.</p></div><div class="pictureit"><h4>&#129513; Picture It: Two Backpacks on a Scale</h4>Backpack A: 452 &mdash; [4 hundreds][5 tens][2 ones]<br>Backpack B: 397 &mdash; [3 hundreds][9 tens][7 ones]<br><br>4 hundreds beats 3 hundreds right away. Backpack A wins &mdash; heavier &mdash; before you even weigh the rest.</div><div class="guidedbox"><h4>&#129309; Let's Try Together: 268 vs 271</h4><p>Hundreds digit: <b>2</b> and <b>2</b> &mdash; a tie! When hundreds tie, move to the tens place. Your turn: tens digit is <b>6</b> in 268, and <b>7</b> in 271. Which is bigger? (7 &gt; 6.) So 271 wins: <b>268 &lt; 271</b>.</p></div><div class="reminder">&#128161; If a place value TIES, don't stop &mdash; move one place to the right and keep comparing. Only when every digit matches are the numbers truly EQUAL.</div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="Hundreds digits are tied (5=5). Tens digit: 8 is bigger than 4, so 583 is greater than 549.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 583 and 549. Which symbol makes it true? 583 ___ 549</p>
+    <div class="opts">
+      <button class="opt">&lt;</button>
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="461" data-logic="Hundreds digits are tied (4=4). Tens digit: 6 is bigger than 1, so 461 is the greater number.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two trail markers read 416 and 461. Which number is greater? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="=" data-logic="A campsite has 350 tents both days &mdash; every digit matches (3=3, 5=5, 0=0), so the numbers are equal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A campsite has 350 tents on Saturday and 350 tents on Sunday. Type the symbol that compares them: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="Hundreds digits are tied (6=6). Tens digit: 7 is smaller than 8, so 674 is less than 689.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 674 and 689. Which symbol makes it true? 674 ___ 689</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&lt;</button>
+      <button class="opt">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s1" data-pts="5" data-ans="582" data-logic="Hundreds digits are tied (5=5). Tens digit: 8 is bigger than 2, so 582 is the greater number.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two trail markers read 528 and 582. Which number is greater? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="=" data-logic="215 packed and 215 unpacked &mdash; every digit matches, so the numbers are equal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A hiker packed 215 granola bars and unpacked 215 granola bars at camp. Type the symbol that compares them: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="Hundreds digits are tied (7=7). Tens digit: 9 is bigger than 2, so 792 is greater than 729.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 792 and 729. Which symbol makes it true? 792 ___ 729</p>
+    <div class="opts">
+      <button class="opt">&lt;</button>
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s2" data-pts="5" data-ans="360" data-logic="Hundreds digits are tied (3=3). Tens digit: 6 is bigger than 0, so 360 is the greater number.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two trail markers read 306 and 360. Which number is greater? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="=" data-logic="A backpack weighs 140 ounces both times &mdash; every digit matches, so the numbers are equal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A backpack weighs 140 ounces empty and 140 ounces after repacking the same gear. Type the symbol that compares them: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128506;&#65039; Lining Up the Trail Markers</h2>
+<div class="card card-sky">
+<p>Once you can compare two numbers, you can <b>order</b> a whole group of them &mdash; smallest to biggest, or biggest to smallest.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Order 452, 268, 397 from LEAST to GREATEST. I compare hundreds digits first: 2, 3, 4. Smallest hundreds digit goes first: 268, then 397, then 452.</p></div><div class="pictureit"><h4>&#129513; Picture It: Trail Markers Lined Up</h4>268 -------- 397 -------- 452<br>SMALLEST &rarr;&rarr;&rarr; BIGGEST<br><br>Same idea as lining up hikers by height &mdash; shortest to tallest.</div><div class="guidedbox"><h4>&#129309; Let's Try Together: 583, 549, 618 &mdash; GREATEST to LEAST</h4><p>Hundreds digits: 5, 5, 6. 618 has the biggest hundreds digit (6), so it goes first. Now compare 583 and 549 &mdash; hundreds tie (5=5), so check tens: 8 &gt; 4, so 583 is bigger. Your turn: what's the order? <b>618, 583, 549.</b></p></div><div class="reminder">&#128161; When two numbers tie on hundreds, don't guess &mdash; move to tens and keep comparing, just like Basecamp 1.</div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t4a_s0" data-pts="5" data-logic="Compare hundreds digits: 2, 3, 4. Smallest first: 268, then 397, then 452.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order from LEAST to GREATEST: 452, 268, 397</p>
+    <div class="opts">
+      <button class="opt">452, 397, 268</button>
+      <button class="opt" data-c="1">268, 397, 452</button>
+      <button class="opt">397, 268, 452</button>
+      <button class="opt">268, 452, 397</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s0" data-pts="5" data-ans="549" data-logic="Hundreds: 5, 5, 6 &mdash; 618 is biggest. Between 583 and 549, hundreds tie (5=5), so compare tens: 4 is smaller than 8, so 549 is the smallest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the SMALLEST: 583, 549, or 618? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s0" data-pts="5" data-ans="152" data-logic="Compare hundreds digits: 2, 2, 1, 5. The smallest hundreds digit is 1, so 152 is the smallest number &mdash; the fastest time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Four hikers finished the trail at 215, 251, 152, and 512 minutes. Who finished FASTEST (the smallest number)? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t4a_s1" data-pts="5" data-logic="Compare hundreds digits: 6, 6, 6 &mdash; a three-way tie! Compare tens: 0, 7, 8. Smallest tens first: 602, then 674, then 689.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order from LEAST to GREATEST: 674, 689, 602</p>
+    <div class="opts">
+      <button class="opt">689, 674, 602</button>
+      <button class="opt" data-c="1">602, 674, 689</button>
+      <button class="opt">674, 602, 689</button>
+      <button class="opt">602, 689, 674</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s1" data-pts="5" data-ans="602" data-logic="All three tie on hundreds (6=6=6). 602 has the smallest tens digit (0), so it's the smallest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the SMALLEST: 674, 689, or 602? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s1" data-pts="5" data-ans="430" data-logic="Compare hundreds digits: 3, 3, 4, 4. Between 430 and 403, hundreds tie (4=4), so compare tens: 3 is bigger than 0, so 430 is the largest &mdash; the slowest time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Four hikers finished the trail at 340, 304, 430, and 403 minutes. Who finished SLOWEST (the largest number)? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t4a_s2" data-pts="5" data-logic="Compare hundreds digits: 7, 7, 8. Between 729 and 792, hundreds tie (7=7), so compare tens: 2 is smaller than 9, so 729 is smallest, then 792, then 812.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order from LEAST to GREATEST: 792, 729, 812</p>
+    <div class="opts">
+      <button class="opt">812, 792, 729</button>
+      <button class="opt" data-c="1">729, 792, 812</button>
+      <button class="opt">792, 729, 812</button>
+      <button class="opt">729, 812, 792</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s2" data-pts="5" data-ans="812" data-logic="812 has the biggest hundreds digit (8), so it's the largest of the three.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the LARGEST: 792, 729, or 812? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s2" data-pts="5" data-ans="516" data-logic="Compare hundreds digits: 5, 5, 6, 6. Between 561 and 516, hundreds tie (5=5), so compare tens: 1 is smaller than 6, so 516 is the smallest &mdash; the fastest time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Four hikers finished the trail at 561, 516, 651, and 615 minutes. Who finished FASTEST (the smallest number)? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#128205; Trail Race Results</h2>
+<div class="card">
+<p>Comparing isn't just about "bigger" &mdash; sometimes the SMALLER number wins! In a race, the smallest time means the FASTEST finish.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Maya finished a trail race in 245 minutes. Sam finished in 198 minutes. Compare hundreds: 2 vs 1 &mdash; 245 &gt; 198. But in a RACE, a bigger time means it took LONGER. So Sam, with the smaller number, actually finished FASTER.</p></div><div class="pictureit"><h4>&#129513; Picture It: Two Finish-Line Clocks</h4>Sam's clock: 198 minutes<br>Maya's clock: 245 minutes<br><br>198 &lt; 245, so Sam's clock stopped SOONER. Smaller number, faster finish.</div><div class="guidedbox"><h4>&#129309; Let's Try Together: Order 312, 298, 305 from FASTEST to SLOWEST</h4><p>Fastest = smallest number first. Compare hundreds: 2, 3, 3. 298 has the smallest hundreds digit, so it's fastest. Between 312 and 305, hundreds tie (3=3) &mdash; compare tens: 0 &lt; 1, so 305 is faster than 312. Your turn: what's the full order? <b>298, 305, 312.</b></p></div><div class="reminder">&#128161; Always read the problem first: does WINNING mean the biggest number or the smallest? Racing and rounds are opposite from things like "most visitors."</div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t5a_s0" data-pts="5" data-logic="198 is smaller than 245 (hundreds: 1 &lt; 2). In a race, the smaller time means Sam finished faster.">
+    <span class="pts">+5</span>
+    <p class="qtext">Maya finished the trail in 245 minutes. Sam finished in 198 minutes. Who took LESS time (finished faster)?</p>
+    <div class="opts">
+      <button class="opt">Maya</button>
+      <button class="opt" data-c="1">Sam</button>
+      <button class="opt">They tied</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s0" data-pts="5" data-ans="298" data-logic="Compare hundreds digits: 3, 2, 3. 298 has the smallest hundreds digit, so it's the lightest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Three campers carried backpacks weighing 312, 298, and 305 ounces. Type the LIGHTEST weight.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s0" data-pts="5" data-ans="410" data-logic="410 is the bigger number in '410 &gt; 401.' In a race, the bigger time means it took longer, so 410 is the slower time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A race sentence reads "410 &gt; 401." Which time was SLOWER? Type just the number.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t5a_s1" data-pts="5" data-logic="Hundreds are tied (3=3). Tens digit: 6 is bigger than 5, so 365 is bigger &mdash; Ana took more time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Leo hiked for 356 minutes. Ana hiked for 365 minutes. Who took MORE time (was slower)?</p>
+    <div class="opts">
+      <button class="opt">Leo</button>
+      <button class="opt" data-c="1">Ana</button>
+      <button class="opt">They tied</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s1" data-pts="5" data-ans="472" data-logic="All three tie on hundreds (4=4=4). 472 has the biggest tens digit (7), so it's the heaviest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Three campers carried backpacks weighing 427, 472, and 419 ounces. Type the HEAVIEST weight.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s1" data-pts="5" data-ans="523" data-logic="523 is the smaller number in '523 &lt; 532.' In a race, the smaller time means it took less time, so 523 is the faster time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A race sentence reads "523 &lt; 532." Which time was FASTER? Type just the number.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t5a_s2" data-pts="5" data-logic="Hundreds and tens tie (2=2, 8=8). Ones digit: 0 is smaller than 8, so 280 is smaller &mdash; Ken took less time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Priya paddled for 288 minutes. Ken paddled for 280 minutes. Who took LESS time (was faster)?</p>
+    <div class="opts">
+      <button class="opt">Priya</button>
+      <button class="opt" data-c="1">Ken</button>
+      <button class="opt">They tied</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s2" data-pts="5" data-ans="605" data-logic="All three tie on hundreds (6=6=6). 605 has the smallest tens digit (0), so it's the lightest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Three campers carried backpacks weighing 615, 651, and 605 ounces. Type the LIGHTEST weight.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s2" data-pts="5" data-ans="674" data-logic="674 is the bigger number in '674 &gt; 647.' In a race, the bigger time means it took longer, so 674 is the slower time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A race sentence reads "674 &gt; 647." Which time was SLOWER? Type just the number.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#128300; Trail Number Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card">
+<p>Keep building your number sense!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="d1" data-pts="5" data-ans=">" data-bonus="1" data-logic="Hundreds tie (6=6). Tens: 7 is bigger than 3, so 673 is bigger than 638. Symbol is &gt;.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">673 ___ 638. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d2" data-pts="5" data-ans="209" data-bonus="1" data-logic="Compare hundreds: 2, 2, 3. Between 209 and 290, hundreds tie (2=2), so compare tens: 0 is smaller than 9, so 209 is the smallest.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the SMALLEST: 290, 209, or 320? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d3" data-pts="5" data-ans="=" data-bonus="1" data-logic="481 and 481 have every digit matching, so they're equal.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">481 ___ 481. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Solve each comparing or ordering problem, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans=">" data-logic="Hundreds tie (5=5). Tens: 2 is bigger than 1, so 521 is bigger than 512.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">521 ___ 512. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="430" data-logic="Compare hundreds: 3, 3, 4. 430 has the biggest hundreds digit, so it's the largest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the LARGEST: 340, 304, or 430? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="256" data-logic="In '256 &lt; 265,' the smaller number (the one the arrow points at) is 256.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"256 &lt; 265" &mdash; which number is SMALLER? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="<" data-logic="Hundreds tie (7=7). Tens: 3 is smaller than 8, so 738 is less than 783.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">738 ___ 783. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="561" data-logic="Compare hundreds: 6, 6, 5. 561 has the smallest hundreds digit, so it's the smallest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the SMALLEST: 615, 651, or 561? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="492" data-logic="In '492 &gt; 429,' the bigger number (the wide side of the symbol) is 492.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"492 &gt; 429" &mdash; which number is BIGGER? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="<" data-logic="Hundreds tie (8=8). Tens: 4 is smaller than 7, so 847 is less than 874.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">847 ___ 874. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="302" data-logic="Compare hundreds: 2, 2, 3. 302 has the biggest hundreds digit, so it's the largest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the LARGEST: 203, 230, or 302? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="618" data-logic="In '618 &lt; 681,' the smaller number (the one the arrow points at) is 618.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"618 &lt; 681" &mdash; which number is SMALLER? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-ans=">" data-bonus="1" data-logic="Hundreds digit: 5 is bigger than 2, so 521 is greater than 251.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">521 ___ 251. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="3" data-bonus="1" data-logic="638: counting from the left (hundreds, tens, ones), the tens digit is 3.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 638, what digit is in the tens place?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="140" data-bonus="1" data-logic="Compare hundreds: 4, 4, 1. 140 has the smallest hundreds digit, so it's the smallest.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which is the SMALLEST: 410, 401, or 140? Type it.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65039; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="i can compare and order numbers using less than, greater than, and equal to." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I can compare and order numbers using less than, greater than, and equal to.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Grab your <b>Pre/Post sheet</b> and a pencil. <b>Write each set of numbers in order</b> on paper first, then type your answers. Neat work earns handwriting points!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="452" data-logic="Compare hundreds: 5, 5, 4. 452 has the smallest hundreds digit, so it's the smallest of the three.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, order these from LEAST to GREATEST: 542, 524, 452. Type the smallest one:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s0" data-pts="5" data-ans="<" data-logic="Hundreds tie (6=6). Tens: 1 is smaller than 8, so 618 is less than 681.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, write the comparison: 618 ___ 681. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="357" data-logic="Compare hundreds: 3, 3, 7. Between 375 and 357, hundreds tie (3=3); tens 5 is smaller than 7, so 357 is the smallest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, order these from LEAST to GREATEST: 375, 357, 735. Type the smallest one:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s1" data-pts="5" data-ans=">" data-logic="Hundreds tie (4=4). Tens: 9 is bigger than 3, so 493 is greater than 439.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, write the comparison: 493 ___ 439. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="618" data-logic="Compare hundreds: 8, 8, 6. 618 has the smallest hundreds digit, so it's the smallest of the three.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, order these from LEAST to GREATEST: 816, 861, 618. Type the smallest one:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s2" data-pts="5" data-ans=">" data-logic="Hundreds tie (2=2). Tens: 7 is bigger than 5, so 275 is greater than 257.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, write the comparison: 275 ___ 257. Type the symbol: &lt;, &gt;, or =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>👑 Boss Battle: The Basecamp Challenge</h2>
+<p>Show what you know about comparing and ordering numbers!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Hundreds tie (5=5). Tens: 8 is bigger than 3, so 583 is greater than 538.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two campsites counted hikers: 583 and 538. Which symbol makes it true? 583 ___ 538</p>
+    <div class="opts">
+      <button class="opt">&lt;</button>
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Compare hundreds: 4, 4, 5. Between 452 and 425, hundreds tie (4=4); tens 2 is smaller than 5, so 425 is the shortest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Three trails are 452, 425, and 524 feet long. Which trail is the SHORTEST?</p>
+    <div class="opts">
+      <button class="opt">452</button>
+      <button class="opt" data-c="1">425</button>
+      <button class="opt">524</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="316 &lt; 361 means 361 is the bigger number &mdash; the wide side of the symbol faces it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hiker read a trail sign out loud: "316 is less than 361." Which number is BIGGER?</p>
+    <div class="opts">
+      <button class="opt">316</button>
+      <button class="opt" data-c="1">361</button>
+      <button class="opt">They're equal</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Hundreds tie (7=7). Tens: 4 is smaller than 9, so 749 is less than 794.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two trail counters read 749 and 794. Which symbol makes it true? 749 ___ 794</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&lt;</button>
+      <button class="opt">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Compare hundreds: 6, 6, 3. Between 638 and 683, hundreds tie (6=6); tens 8 is bigger than 3, so 683 is the longest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Three trails are 638, 683, and 386 feet long. Which trail is the LONGEST?</p>
+    <div class="opts">
+      <button class="opt">638</button>
+      <button class="opt" data-c="1">683</button>
+      <button class="opt">386</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="527 &gt; 257 means 257 is the smaller number &mdash; the narrow point of the symbol faces it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hiker read a trail sign out loud: "527 is greater than 257." Which number is SMALLER?</p>
+    <div class="opts">
+      <button class="opt">527</button>
+      <button class="opt" data-c="1">257</button>
+      <button class="opt">They're equal</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Hundreds tie (9=9). Tens: 1 is smaller than 6, so 916 is less than 961.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two trail counters read 916 and 961. Which symbol makes it true? 916 ___ 961</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&lt;</button>
+      <button class="opt">&gt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Compare hundreds: 2, 2, 7. Between 274 and 247, hundreds tie (2=2); tens 4 is smaller than 7, so 247 is the shortest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Three trails are 274, 247, and 724 feet long. Which trail is the SHORTEST?</p>
+    <div class="opts">
+      <button class="opt">274</button>
+      <button class="opt" data-c="1">247</button>
+      <button class="opt">724</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="835 &gt; 385 means 835 is the bigger number &mdash; the wide side of the symbol faces it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hiker read a trail sign out loud: "835 is greater than 385." Which number is BIGGER?</p>
+    <div class="opts">
+      <button class="opt">385</button>
+      <button class="opt" data-c="1">835</button>
+      <button class="opt">They're equal</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">First Steps Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 2 of 8</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-math-w2';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 325;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* ===== KCE Pathways Progress Report (v2 addition) =====
+   Posts a lesson result to a Formspree form the moment a student finishes.
+   Formspree forwards it by email AND (via the same Zapier pattern already
+   live for KCE Instructor Training completions) appends a row to a
+   "Pathways Progress Log" Google Sheet, so a parent/teacher never has to
+   check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard →
+   New Form → copy the ID from the endpoint URL). */
+const PATHWAYS_FORMSPREE_ID = 'REPLACE_WITH_REAL_FORMSPREE_ID';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['523 ___ 253','>'],['416 ___ 461','<'],['680 ___ 680','='],['729 ___ 792','<'],['905 ___ 590','>']],[['647 ___ 476','>'],['258 ___ 285','<'],['413 ___ 413','='],['861 ___ 816','>'],['394 ___ 439','<']],[['762 ___ 726','>'],['519 ___ 591','<'],['227 ___ 227','='],['845 ___ 854','<'],['630 ___ 360','>']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! ⭐';
+  if (displayScore() >= 90) tierTitle = 'Basecamp Number Champion! 🧭👑';
+  else if (displayScore() >= 75) tierTitle = 'Comparing Master! 🌟';
+  else if (displayScore() >= 50) tierTitle = 'Ordering Pro! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>

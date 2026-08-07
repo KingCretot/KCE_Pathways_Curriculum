@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 2 Science: Life Cycles | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 2</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 2 &bull; Science</span>
+  <h1>Base Camp 2: Growing Up</h1>
+  <h2>Life Cycles &mdash; How Living Things Grow and Change 🐸🦋</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome back to KCE Science! Last week you learned that all living things GROW &mdash; one of the four traits of an organism. This week we zoom in on exactly HOW living things grow, from the very start of life to becoming an adult. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions! (Parent-led lesson &mdash; see the Parent Plan for how to run today.)</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with what you remember about living things</li><li>Watch a short video about life cycles</li><li>Learn the stages of a life cycle</li><li>Learn what metamorphosis is</li><li>Compare life cycles, then Match-Up, Type-It, Pencil Break &amp; the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up (What You Already Know)</h2>
+<p>Look around you right now &mdash; warm up by thinking about things you already know are alive or not alive.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A living thing (organism) grows, needs food/water, responds, and reproduces.">
+    <span class="pts">+5</span>
+    <p class="qtext">A living thing is called an ___?</p>
+    <div class="opts">
+      <button class="opt">habitat</button>
+      <button class="opt" data-c="1">organism</button>
+      <button class="opt">shelter</button>
+      <button class="opt">nutrient</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Food, water, air, and shelter are the four basic needs of every organism.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is one of the four basic needs of living things?</p>
+    <div class="opts">
+      <button class="opt">toys</button>
+      <button class="opt">money</button>
+      <button class="opt" data-c="1">water</button>
+      <button class="opt">a compass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="The natural home of a living thing is called its habitat.">
+    <span class="pts">+5</span>
+    <p class="qtext">The natural home of a living thing is called its ___?</p>
+    <div class="opts">
+      <button class="opt">nutrient</button>
+      <button class="opt" data-c="1">habitat</button>
+      <button class="opt">organism</button>
+      <button class="opt">shelter only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="grow" data-logic="Getting bigger over time is one of the four traits of living things: grow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Getting bigger over time is one of the four traits of a living thing, called to ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="To stay alive is called to survive.">
+    <span class="pts">+5</span>
+    <p class="qtext">To stay alive is called to ___?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">survive</button>
+      <button class="opt">reproduce</button>
+      <button class="opt">respond</button>
+      <button class="opt">shelter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A safe place protecting a living thing from weather and danger is shelter.">
+    <span class="pts">+5</span>
+    <p class="qtext">A safe place that protects a living thing from weather and danger is called ___?</p>
+    <div class="opts">
+      <button class="opt">nutrients</button>
+      <button class="opt" data-c="1">shelter</button>
+      <button class="opt">habitat only</button>
+      <button class="opt">organism</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="A rock doesn't grow, need food, respond, or reproduce — nonliving.">
+    <span class="pts">+5</span>
+    <p class="qtext">A rock is an example of something ___?</p>
+    <div class="opts">
+      <button class="opt">alive</button>
+      <button class="opt" data-c="1">nonliving</button>
+      <button class="opt">an organism</button>
+      <button class="opt">a habitat</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="nutrients" data-logic="The parts of food that living things need to grow and stay healthy are called nutrients.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The parts of food that help living things grow and stay healthy are called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A squirrel meets all four traits of a living thing — it's an organism.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is an organism?</p>
+    <div class="opts">
+      <button class="opt">a backpack</button>
+      <button class="opt" data-c="1">a squirrel</button>
+      <button class="opt">a tent</button>
+      <button class="opt">a rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Making more of your own kind is called reproducing — one of the four traits of living things.">
+    <span class="pts">+5</span>
+    <p class="qtext">Making more of your own kind is called ___?</p>
+    <div class="opts">
+      <button class="opt">surviving</button>
+      <button class="opt">sheltering</button>
+      <button class="opt" data-c="1">reproducing</button>
+      <button class="opt">responding</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="A fish's habitat is usually a body of water.">
+    <span class="pts">+5</span>
+    <p class="qtext">A fish's habitat is usually a body of ___?</p>
+    <div class="opts">
+      <button class="opt">sand</button>
+      <button class="opt">rock</button>
+      <button class="opt" data-c="1">water</button>
+      <button class="opt">air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="air" data-logic="Air is one of the four basic needs, already all around us outdoors.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Besides food, water, and shelter, what is the fourth basic need every organism needs to survive?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this video about how a caterpillar becomes a butterfly &mdash; a great example of a life cycle.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>How Does a Caterpillar Become a Butterfly? | SciShow Kids</b></p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=V5RSpMQQOpw" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">What to do:</p>
+    <p style="margin:0 0 4px 0">1. Click the button above.</p>
+    <p style="margin:0 0 4px 0">2. Watch the whole video.</p>
+    <p style="margin:0">3. Come back to this tab and click Next below.</p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:16px">
+<h3>&#128218; Explore Further</h3>
+<ul class="tips"><li><a href="https://www.youtube.com/user/scishowkids" target="_blank" rel="noopener">SciShow Kids (YouTube channel)</a> &mdash; More short, fun science videos for curious kids, made by the same team as SciShow.</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Tap each card to flip it &mdash; these power today's lesson! Tap the &#128266; to hear the word said aloud.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">life cycle<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('life cycle', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The stages a living thing goes through, from the start of life to becoming an adult that can have young of its own.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">egg<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('egg', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The stage where many animals begin life, growing inside a protected shell or case.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">larva<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('larva', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A young insect's early stage, before it looks like the adult &mdash; like a caterpillar.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">metamorphosis<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('metamorphosis', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A big change in body shape as an animal grows into its adult form.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">adult<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('adult', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The final, grown-up stage of a life cycle, able to have young of its own.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128296; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>Let's apply this week's Phonics &amp; Spelling skill (open syllables &amp; long vowels) to a word from today's Science lesson!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-q="ss1" data-pts="5" data-bonus="1" data-logic="In 'cycle,' the first syllable 'cy' is open &mdash; it ends in the vowel y with nothing after it in that syllable &mdash; so it makes a long i sound (like 'sigh').">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Is the vowel sound in 'cycle' short or long?</p>
+    <div class="opts">
+      <button class="opt">there isn't one</button>
+      <button class="opt">silent</button>
+      <button class="opt">short</button>
+      <button class="opt" data-c="1">long</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-ans="cycle" data-bonus="1" data-logic="cy + cle = cycle. Say each syllable, then blend them together.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Put the syllables together. What word do they make?</p>
+    <div class="fillrow">
+      <span class="eq">cy + cle =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#129419; The Butterfly's Life Cycle</h2>
+<div class="card">
+<p>Every organism has a <b>life cycle</b> &mdash; the stages it goes through from the start of life to becoming an adult that can have young of its own. A butterfly's life cycle has FOUR stages, and each stage looks completely different from the last.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Stage 1: EGG &mdash; tiny, laid on a leaf. Stage 2: LARVA &mdash; hatches out as a caterpillar, and all it does is eat and grow. Stage 3: PUPA &mdash; forms a hard case called a chrysalis, and inside, its whole body rebuilds. Stage 4: ADULT &mdash; breaks out as a butterfly, ready to fly and lay its own eggs. Four totally different-looking stages, one life cycle.</p></div><div class="pictureit"><h4>&#129513; Picture It: The Four Stages</h4>EGG (tiny, on a leaf) &rarr; LARVA (caterpillar, eats a lot) &rarr; PUPA (chrysalis, rebuilding) &rarr; ADULT (butterfly, can lay eggs)<br><br>Then the adult lays new eggs, and the whole cycle starts again &mdash; that's why it's called a CYCLE.</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Which stage eats the most? The LARVA (caterpillar) stage &mdash; that's its whole job, growing bigger before it changes shape. Which stage looks the LEAST like a butterfly? Also the larva &mdash; a caterpillar doesn't look anything like the adult it will become. That huge change in body shape is called <b>metamorphosis</b>.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="A butterfly's life cycle has four stages: egg, larva, pupa, and adult.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many stages does a butterfly's life cycle have?</p>
+    <div class="opts">
+      <button class="opt">two</button>
+      <button class="opt">three</button>
+      <button class="opt" data-c="1">four</button>
+      <button class="opt">six</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="larva|caterpillar" data-logic="The larva (caterpillar) stage is when a butterfly eats the most, storing up energy for the next stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which stage of a butterfly's life cycle eats the most?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="egg" data-logic="The life cycle starts over when the new adult lays eggs — back to the very first stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">After the adult butterfly lays new eggs, which stage does the whole cycle start over at?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="The pupa (chrysalis) stage is when the caterpillar's body rebuilds into a butterfly.">
+    <span class="pts">+5</span>
+    <p class="qtext">During which stage does a caterpillar's body rebuild into a butterfly?</p>
+    <div class="opts">
+      <button class="opt">the egg stage</button>
+      <button class="opt">the larva stage</button>
+      <button class="opt" data-c="1">the pupa stage</button>
+      <button class="opt">the adult stage</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s1" data-pts="5" data-ans="chrysalis" data-logic="The hard case a caterpillar forms during the pupa stage is called a chrysalis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The hard case a caterpillar forms around itself is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="larva" data-logic="A caterpillar looks nothing like the adult butterfly it will become — the larva stage looks the least like the adult.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Which stage looks the LEAST like the adult butterfly?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="A big change in body shape as an animal grows into its adult form is called metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">A big change in body shape as an animal grows up is called ___?</p>
+    <div class="opts">
+      <button class="opt">a habitat</button>
+      <button class="opt">a nutrient</button>
+      <button class="opt" data-c="1">metamorphosis</button>
+      <button class="opt">a shelter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s2" data-pts="5" data-ans="adult" data-logic="The final, grown-up stage able to have young of its own is called the adult stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The final, grown-up stage of a life cycle is called the ___ stage.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="leaf|leaves" data-logic="Female butterflies lay their tiny eggs on leaves, which the larva will eat once it hatches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A butterfly's tiny egg is usually laid on what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128038; The Frog's Life Cycle</h2>
+<div class="card card-sky">
+<p>Butterflies aren't the only animals with a dramatic life cycle. A frog's life cycle also has big changes &mdash; but the stages look very different from a butterfly's.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Stage 1: EGG &mdash; laid in water, in a clump. Stage 2: TADPOLE &mdash; hatches out swimming, with a long tail and NO legs, breathing through gills like a fish. Stage 3: FROGLET &mdash; grows legs, and its tail starts shrinking. Stage 4: ADULT FROG &mdash; no tail at all, breathes air, can hop on land or swim in water. Same big idea as the butterfly &mdash; huge body changes &mdash; totally different stages.</p></div><div class="pictureit"><h4>&#129513; Picture It: Two Life Cycles, Side by Side</h4>BUTTERFLY: egg &rarr; larva (caterpillar) &rarr; pupa (chrysalis) &rarr; adult<br>FROG: egg &rarr; tadpole &rarr; froglet &rarr; adult<br><br>Different animals, different stages &mdash; but both go through metamorphosis to become adults.</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Which frog stage looks the LEAST like the adult? The TADPOLE &mdash; no legs, a long tail, living only underwater, breathing with gills instead of lungs. Just like the caterpillar was the butterfly's "least adult-looking" stage, the tadpole is the frog's.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t4a_s0" data-pts="5" data-logic="A tadpole lives underwater, has a tail, and no legs — the stage right after hatching from the egg.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which stage of a frog's life cycle lives underwater with a tail, but no legs?</p>
+    <div class="opts">
+      <button class="opt">egg</button>
+      <button class="opt" data-c="1">tadpole</button>
+      <button class="opt">froglet</button>
+      <button class="opt">adult frog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s0" data-pts="5" data-ans="shrinks|gets smaller|disappears" data-logic="As a tadpole grows into a froglet, its tail shrinks while its legs grow in.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What happens to a tadpole's tail as it grows into a froglet?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s0" data-pts="5" data-ans="metamorphosis" data-logic="Both a caterpillar becoming a butterfly and a tadpole becoming a frog are examples of metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Both butterflies and frogs go through a big change in body shape as they grow up. What is this change called?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t4a_s1" data-pts="5" data-logic="Frogs lay their eggs in water, usually in ponds or slow streams.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where does a frog usually lay its eggs?</p>
+    <div class="opts">
+      <button class="opt">in a tree</button>
+      <button class="opt">underground</button>
+      <button class="opt" data-c="1">in water</button>
+      <button class="opt">on a rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s1" data-pts="5" data-ans="gills" data-logic="A tadpole breathes underwater using gills, just like a fish does.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tadpole breathes underwater using body parts called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s1" data-pts="5" data-ans="legs" data-logic="A tadpole grows legs during the froglet stage, which is what lets it eventually hop on land.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">An adult frog can hop on land, but a tadpole cannot. What body part does it grow first to make this possible?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t4a_s2" data-pts="5" data-logic="Only the adult stage of a frog's life cycle is able to lay its own eggs and start the cycle again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which frog stage is able to lay its own eggs?</p>
+    <div class="opts">
+      <button class="opt">egg</button>
+      <button class="opt">tadpole</button>
+      <button class="opt">froglet</button>
+      <button class="opt" data-c="1">adult frog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s2" data-pts="5" data-ans="tail" data-logic="A froglet has grown legs but still has a shrinking tail — a mix of tadpole and adult features.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A froglet has grown legs but still has a short, shrinking ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s2" data-pts="5" data-ans="four|4" data-logic="Both the butterfly and the frog life cycles have four main stages, even though the stages themselves look totally different.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A butterfly's life cycle has four stages. How many main stages does a frog's life cycle have (egg, tadpole, froglet, adult)?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#128062; Life Cycles on the Trail</h2>
+<div class="card card-grass">
+<p>Not every life cycle has metamorphosis! A hiker who spots a baby deer (a <b>fawn</b>) on the trail will notice something different from a caterpillar: the fawn already looks like a small deer &mdash; four legs, ears, a tail &mdash; just smaller. It doesn't change body SHAPE as it grows. It just gets bigger.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I compare the fawn to the caterpillar. Caterpillar &rarr; chrysalis &rarr; butterfly is a HUGE shape change. Fawn &rarr; bigger fawn &rarr; adult deer is basically the SAME shape, just larger, with some new features like antlers added later. Both are still life cycles &mdash; egg or birth, growth, adulthood &mdash; but only one of them includes metamorphosis.</p></div><div class="pictureit"><h4>&#129513; Picture It: Two Kinds of Life Cycles</h4>WITH METAMORPHOSIS: butterfly, frog &mdash; body shape changes dramatically<br>WITHOUT METAMORPHOSIS: deer, dogs, humans, most birds &mdash; born looking like a small version of the adult, just grows bigger<br><br>Both are still life cycles &mdash; they just look very different along the way.</div><div class="guidedbox"><h4>&#129309; Let's Try Together: A Baby Bird in a Nest</h4><p>A hiker spots a baby bird in a nest. Does it go through metamorphosis like a caterpillar? No &mdash; it grows feathers and gets bigger over time, but it doesn't change its basic body shape the way an insect or a frog does. Same idea as the fawn: growth without a dramatic shape change.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t5a_s0" data-pts="5" data-logic="A fawn is already shaped like a small deer at birth — it just grows bigger, with no dramatic body-shape change.">
+    <span class="pts">+5</span>
+    <p class="qtext">A baby deer (fawn) already looks like a small deer when it's born. Does a deer's life cycle include metamorphosis?</p>
+    <div class="opts">
+      <button class="opt">Yes, always</button>
+      <button class="opt" data-c="1">No, it just grows bigger</button>
+      <button class="opt">Only in the winter</button>
+      <button class="opt">Only male deer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s0" data-pts="5" data-ans="metamorphosis" data-logic="Dogs, deer, and humans are born looking like small versions of their parents, so their life cycle does not include metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Dogs, deer, and humans are born already looking like small versions of their parents. Their life cycle does NOT include what big change?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s0" data-pts="5" data-ans="metamorphosis" data-logic="A caterpillar changes body shape dramatically (metamorphosis); a puppy does not — that's the key difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">A caterpillar looks nothing like a butterfly, but a puppy already looks like a small dog. What word names the big difference between these two life cycles?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t5a_s1" data-pts="5" data-logic="A puppy is born already dog-shaped and just grows bigger — no metamorphosis, unlike a butterfly, frog, or tadpole.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these does NOT go through metamorphosis as it grows up?</p>
+    <div class="opts">
+      <button class="opt">a butterfly</button>
+      <button class="opt">a frog</button>
+      <button class="opt" data-c="1">a puppy</button>
+      <button class="opt">a tadpole</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s1" data-pts="5" data-ans="bigger" data-logic="A puppy is already shaped like a small dog; growing up mostly just means getting bigger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A puppy is born already shaped like a small dog. As it grows up, it mostly just gets ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s1" data-pts="5" data-ans="caterpillar" data-logic="The caterpillar changes body shape completely to become a butterfly; the puppy's shape barely changes at all.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Both a caterpillar and a puppy are young animals. Which one changes body SHAPE the most as it becomes an adult?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t5a_s2" data-pts="5" data-logic="A baby bird grows feathers and gets bigger, without the dramatic body-shape change of metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hiker spots a baby bird in a nest. Compared to a caterpillar becoming a butterfly, how does a baby bird usually grow up?</p>
+    <div class="opts">
+      <button class="opt">It also goes through metamorphosis</button>
+      <button class="opt" data-c="1">It grows feathers and gets bigger, without changing body shape as dramatically</button>
+      <button class="opt">It stays an egg forever</button>
+      <button class="opt">It has five life stages</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s2" data-pts="5" data-ans="metamorphosis" data-logic="Life cycles without metamorphosis (dogs, humans, birds, deer) look different from life cycles that DO include it (butterflies, frogs).">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Humans, dogs, and birds are all born looking somewhat like small versions of their parents. This is different from a life cycle WITH ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s2" data-pts="5" data-ans="a small deer|like a small deer|small deer" data-logic="Since deer don't undergo metamorphosis, a fawn already looks like a small deer, not something totally different.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">On the trail, would you expect a baby deer to look totally different from its parents, or basically like a small deer?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#128300; Life Cycle Power Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card">
+<p>Keep building your life cycle knowledge!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="d1" data-pts="5" data-ans="egg" data-bonus="1" data-logic="Both a butterfly and a frog's life cycle begins at the egg stage.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Both the butterfly and the frog life cycles start at which stage?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d2" data-pts="5" data-ans="caterpillar|larva" data-bonus="1" data-logic="A caterpillar is the larva stage of a butterfly's life cycle.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What is the larva stage of a butterfly usually called?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d3" data-pts="5" data-ans="no|does not" data-bonus="1" data-logic="A puppy is born already shaped like a small dog — no dramatic metamorphosis.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Does a puppy go through metamorphosis as it grows into an adult dog? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each life cycle term, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="life cycle" data-logic="The stages a living thing goes through as it grows up is called its life cycle.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The stages a living thing goes through as it grows up is called its ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="chrysalis" data-logic="A caterpillar's pupa stage is called a chrysalis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A caterpillar's hard protective case during the pupa stage is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="gills" data-logic="Tadpoles breathe underwater using gills.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tadpole breathes underwater using body parts called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="metamorphosis" data-logic="A big change in body shape as an animal grows up is called metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A big change in body shape as an animal grows up is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="larva" data-logic="A young insect's early stage, before it looks like the adult, is called the larva.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A young insect's early stage, before it looks like the adult, is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="adult" data-logic="The final, grown-up stage of a life cycle is the adult stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The final, grown-up stage of a life cycle is called the ___ stage</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="tadpole" data-logic="A tadpole is the stage right after a frog egg hatches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The swimming, tailed stage right after a frog egg hatches is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="froglet" data-logic="A froglet has grown legs but still has a shrinking tail.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A young frog with legs but a shrinking tail is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="egg" data-logic="Every life cycle in this lesson starts at the egg stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Both the butterfly and frog life cycles begin at the ___ stage</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-ans="tadpole" data-bonus="1" data-logic="A frog egg hatches into a tadpole.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What does a frog egg hatch into?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="caterpillar" data-bonus="1" data-logic="A butterfly egg hatches into a caterpillar (larva).">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What does a butterfly egg hatch into?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="no" data-bonus="1" data-logic="A fawn is already deer-shaped at birth — no metamorphosis.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Does a fawn (baby deer) go through metamorphosis? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Grab your <b>Pre/Post sheet</b> and a pencil. <b>Draw the four stages of a butterfly or frog life cycle</b> in order before typing your answers. Neat work earns handwriting points!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="egg" data-logic="Every life cycle in this lesson starts with the egg stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw the FIRST stage of a butterfly or frog life cycle. Type which stage you drew:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s0" data-pts="5" data-ans="caterpillar|larva|tadpole" data-logic="The second stage is the larva (caterpillar) for a butterfly, or tadpole for a frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw the SECOND stage. Type which stage you drew:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="chrysalis|pupa|froglet" data-logic="The third stage is the pupa (chrysalis) for a butterfly, or froglet for a frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw the THIRD stage of the life cycle you chose. Type which stage you drew:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s1" data-pts="5" data-ans="adult|butterfly|frog" data-logic="The final stage of every life cycle in this lesson is the adult stage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw the LAST (fourth) stage. Type which stage you drew:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="metamorphosis" data-logic="A big change in body shape as an animal grows is called metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Label an arrow between two stages that show a big body-shape change. Write the word for this change. Type it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s2" data-pts="5" data-ans="deer|dog|human|bird|puppy|fawn" data-logic="Any animal that does not undergo metamorphosis works — a deer, dog, human, or bird, since they grow gradually instead of changing body shape dramatically.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Draw one animal whose life cycle does NOT include metamorphosis. Type which animal you drew:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>👑 Boss Battle: The Life Cycle Challenge</h2>
+<p>Show what you know about life cycles and metamorphosis!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="A butterfly's four stages, in order, are egg, larva (caterpillar), pupa (chrysalis), and adult.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the correct order of a butterfly's life cycle?</p>
+    <div class="opts">
+      <button class="opt">adult, pupa, larva, egg</button>
+      <button class="opt" data-c="1">egg, larva, pupa, adult</button>
+      <button class="opt">larva, egg, adult, pupa</button>
+      <button class="opt">pupa, egg, larva, adult</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A tadpole has no legs and breathes with gills; a froglet has grown legs and its tail is shrinking.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the main difference between a tadpole and a froglet?</p>
+    <div class="opts">
+      <button class="opt">A tadpole is bigger</button>
+      <button class="opt">A froglet lives only in water</button>
+      <button class="opt" data-c="1">A froglet has grown legs and its tail is shrinking</button>
+      <button class="opt">There is no difference</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="A fawn is born already deer-shaped and just grows bigger — its life cycle does not include metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a fawn NOT go through metamorphosis, unlike a caterpillar?</p>
+    <div class="opts">
+      <button class="opt">Deer are not organisms</button>
+      <button class="opt" data-c="1">It's already shaped like a small deer and just grows bigger</button>
+      <button class="opt">Deer live underwater</button>
+      <button class="opt">Fawns hatch from eggs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="A frog's four stages, in order, are egg, tadpole, froglet, and adult frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the correct order of a frog's life cycle?</p>
+    <div class="opts">
+      <button class="opt">tadpole, egg, froglet, adult</button>
+      <button class="opt" data-c="1">egg, tadpole, froglet, adult</button>
+      <button class="opt">adult, froglet, tadpole, egg</button>
+      <button class="opt">froglet, adult, egg, tadpole</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Metamorphosis is a big change in body shape, like a caterpillar becoming a butterfly or a tadpole becoming a frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which word means "a big change in body shape as an animal grows up"?</p>
+    <div class="opts">
+      <button class="opt">habitat</button>
+      <button class="opt">nutrient</button>
+      <button class="opt" data-c="1">metamorphosis</button>
+      <button class="opt">shelter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Both life cycles (with and without metamorphosis) begin at birth or hatching and end at the adult stage able to reproduce.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do a butterfly's life cycle and a puppy's life cycle have in common?</p>
+    <div class="opts">
+      <button class="opt">Both include a pupa stage</button>
+      <button class="opt">Both change body shape dramatically</button>
+      <button class="opt" data-c="1">Both go from young to adult, able to have young of their own</button>
+      <button class="opt">Neither one grows</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="The pupa stage (chrysalis) is when the caterpillar's body completely rebuilds into a butterfly.">
+    <span class="pts">+5</span>
+    <p class="qtext">During which butterfly stage does the body completely rebuild inside a hard case?</p>
+    <div class="opts">
+      <button class="opt">egg</button>
+      <button class="opt">larva</button>
+      <button class="opt" data-c="1">pupa</button>
+      <button class="opt">adult</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="A tadpole uses gills to breathe underwater, since it hasn't developed lungs or legs yet.">
+    <span class="pts">+5</span>
+    <p class="qtext">How does a tadpole breathe underwater?</p>
+    <div class="opts">
+      <button class="opt">with lungs</button>
+      <button class="opt" data-c="1">with gills</button>
+      <button class="opt">it doesn't need to breathe</button>
+      <button class="opt">through its legs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="A baby bird grows feathers and gets bigger without dramatically changing its body shape — no metamorphosis, like the fawn.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hiker spots a baby bird in a nest. Which of these is TRUE?</p>
+    <div class="opts">
+      <button class="opt">It will go through a pupa stage</button>
+      <button class="opt" data-c="1">It grows bigger and grows feathers, without a dramatic shape change</button>
+      <button class="opt">It started as a tadpole</button>
+      <button class="opt">It cannot grow at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">First Steps Complete!</h1>
+    <h2 id="finalTitle">Rising Naturalist! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-science-w2';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 325;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'REPLACE_WITH_REAL_FORMSPREE_ID';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Life cycle','the stages a living thing grows through'],['Egg','the first stage of both a butterfly and a frog'],['Larva','a caterpillar\'s stage name'],['Metamorphosis','a big change in body shape'],['Adult','the final, grown-up stage']],[['Chrysalis','a caterpillar\'s hard case'],['Tadpole','the stage right after a frog egg hatches'],['Gills','how a tadpole breathes underwater'],['Froglet','a young frog with legs and a shrinking tail'],['Fawn','a baby deer that already looks deer-shaped']],[['Puppy','an animal that does not undergo metamorphosis'],['Nectar','what adult butterflies drink'],['Legs','what a tadpole grows to become a froglet'],['Habitat','a living thing\'s natural home'],['Organism','any living thing']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Naturalist! ⭐';
+  if (displayScore() >= 90) tierTitle = 'Living Things Champion! 🌱👑';
+  else if (displayScore() >= 75) tierTitle = 'Metamorphosis Master! 🌟';
+  else if (displayScore() >= 50) tierTitle = 'Life Cycle Scout Pro! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
