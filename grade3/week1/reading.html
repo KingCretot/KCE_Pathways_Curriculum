@@ -1217,6 +1217,8 @@ const TOTAL_SLIDES = 15;
 const FINAL_INDEX = 14;
 const MODULE_ID = 'grade3-reading-w1';
 const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 325;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const NEXT_LESSON_URL = '';
 const PROGRESS_KEY = 'kce_pathways_progress';
 
@@ -1271,7 +1273,7 @@ function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l
 function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
 function addXP(x){ state.xp += x; updateHud(); }
 function addCoins(c){ state.coins += c; updateHud(); }
-function updateHud(){ document.getElementById('hudScore').textContent = state.score; document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
 
 function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
 function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
@@ -1377,14 +1379,14 @@ function checkFill(fid){
 
 function showFinal(){
   go(FINAL_INDEX);
-  document.getElementById('finalScore').textContent = state.score;
-  const rec = saveModuleResult(state.score);
-  reportProgress(state.score, rec);
-  const passed = state.score >= MASTERY_THRESHOLD;
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
   let tierTitle = 'Rising Storyteller! ⭐';
-  if (state.score >= 90) tierTitle = 'Story Elements Champion! 🎒👑';
-  else if (state.score >= 75) tierTitle = 'Character &amp; Setting Master! 🌟';
-  else if (state.score >= 50) tierTitle = 'Trail Reader Pro! &#10024;';
+  if (displayScore() >= 90) tierTitle = 'Story Elements Champion! 🎒👑';
+  else if (displayScore() >= 75) tierTitle = 'Character &amp; Setting Master! 🌟';
+  else if (displayScore() >= 50) tierTitle = 'Trail Reader Pro! &#10024;';
   document.getElementById('finalTitle').textContent = tierTitle;
 
   const headline = document.getElementById('finalHeadline');
@@ -1398,7 +1400,7 @@ function showFinal(){
     badge.textContent = 'Lesson Mastered';
     headline.textContent = '🎉 Outstanding Work!';
     msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
-    msgBody.innerHTML = 'You scored ' + state.score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
     if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
       continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
     } else {
@@ -1409,7 +1411,7 @@ function showFinal(){
     badge.textContent = 'Keep Practicing';
     headline.textContent = '💪 Great Effort Today!';
     msgHeading.innerHTML = '&#127793; Practice makes progress.';
-    msgBody.innerHTML = 'You scored ' + state.score + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
     continueLink.style.display = 'none';
     if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
   }
