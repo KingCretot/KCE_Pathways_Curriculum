@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 4 Math: Word Problems &amp; Estimation | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🧭 KCE Pathways — Grade 3 &mdash; Week 4</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 4 &bull; Math</span>
+  <h1>Base Camp 2: Bigger or Smaller?</h1>
+  <h2>Comparing &amp; Ordering Numbers 🧭🔍</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome back to KCE Pathways! Last week you learned what each digit in a number is worth. This week we use that to <b>compare</b> numbers &mdash; figuring out which is bigger, smaller, or the same &mdash; and put a whole group of numbers in <b>order</b>. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with place value from last week</li><li>Watch a short video about comparing numbers</li><li>Learn to compare numbers using &lt;, &gt;, and =</li><li>Put a whole group of numbers in order</li><li>Compare, order, then Match-Up, Type-It, Pencil Break &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127959;&#65039; Warm-Up: What You Already Know</h2>
+<p>Let's warm up with regrouping from last week!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Ones: 6+7=13, that's 10 or more, so you regroup.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 236 + 147: the ones column is 6 + 7 = 13. Do you need to regroup?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Yes, write 3 and carry 1 ten</button>
+      <button class="opt">No, just write 13</button>
+      <button class="opt">Yes, but carry 1 hundred</button>
+      <button class="opt">Start the problem over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="521" data-logic="Ones: 8+3=11, write 1 carry 1. Tens: 6+5+1=12, write 2 carry 1. Hundreds: 2+2+1=5. Answer: 521.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">268 + 253 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="2 is smaller than 6, so you can't subtract directly — you borrow 1 ten from the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Subtracting 342 &minus; 126: the ones column is 2 &minus; 6. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write a negative number</button>
+      <button class="opt" data-c="1">Borrow 1 ten from the tens column</button>
+      <button class="opt">Subtract backwards (6-2)</button>
+      <button class="opt">Skip this column</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="regroup" data-logic="Trading 10 of one place for 1 of the next is called regrouping.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Trading 10 ones for 1 ten is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="1 is smaller than 8, so you must borrow 1 ten from the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Subtracting 451 &minus; 238: the ones column is 1 &minus; 8. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write a negative number</button>
+      <button class="opt" data-c="1">Borrow 1 ten from the tens column</button>
+      <button class="opt">Subtract backwards (8-1)</button>
+      <button class="opt">Skip this column</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="623" data-logic="Ones: 8+5=13, write 3 carry 1. Tens: 5+6+1=12, write 2 carry 1. Hundreds: 1+4+1=6. Answer: 623.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">158 + 465 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Tens: 3+4=7, plus the carried 1 = 8. That's less than 10, so no further regrouping is needed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 237 + 148: after regrouping the ones, the tens column is 3 + 4 + 1(carried) = 8. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Regroup again</button>
+      <button class="opt" data-c="1">Just write 8, no more regrouping needed</button>
+      <button class="opt">Skip the tens column</button>
+      <button class="opt">Start over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="borrow" data-logic="Regrouping 1 ten into 10 ones so you can subtract is called borrowing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Regrouping to subtract, when the top digit is too small, is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Ones: 9+4=13. That's 10 or more, so you regroup — write 3, carry 1 ten.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 329 + 154: the ones column is 9 + 4 = 13. Do you need to regroup?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Yes, write 3 and carry 1 ten</button>
+      <button class="opt">No, just write 13</button>
+      <button class="opt">Yes, but carry 1 hundred</button>
+      <button class="opt">Start the problem over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="184" data-logic="452 minus 268: direct subtraction gives 184.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">452 &minus; 268 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Carrying moves a regrouped ten (or hundred) to the next column when ADDING, while borrowing moves one when SUBTRACTING.">
+    <span class="pts">+5</span>
+    <p class="qtext">What's the difference between carrying and borrowing?</p>
+    <div class="opts">
+      <button class="opt">They mean the exact same thing</button>
+      <button class="opt" data-c="1">Carrying is for adding; borrowing is for subtracting</button>
+      <button class="opt">Carrying is for subtracting; borrowing is for adding</button>
+      <button class="opt">Neither one is a real math term</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="carry" data-logic="Moving a regrouped ten (or hundred) over to the next column when adding is called carrying.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Moving a regrouped amount to the next column when adding is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this video about estimating sums.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today's Video</p>
+  <p style="margin:0 0 16px 0"><b>Estimating Sums (Math, Grade 3)</b></p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=HlvT3IS8lGE" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">What to do:</p>
+    <p style="margin:0 0 4px 0">1. Click the button above.</p>
+    <p style="margin:0 0 4px 0">2. Watch the whole video.</p>
+    <p style="margin:0">3. Come back to this tab and click Next below.</p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:16px">
+<h3>&#128218; Explore Further</h3>
+<ul class="tips"><li><a href="https://www.mathworksheets4kids.com/estimating-sums-differences.php" target="_blank" rel="noopener">Math Worksheets 4 Kids</a> &mdash; Free printable estimation practice sheets.</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Flip each card to learn this week's words!</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">estimate<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('estimate', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A smart, close guess at an answer, made by rounding first.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">round<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('round', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To change a number to the nearest ten or hundred to make it easier to work with.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">reasonable<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('reasonable', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An answer that makes sense &mdash; close to what you'd expect, not way off.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">word problem<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('word problem', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A math problem written as a story, using real-life situations.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">total<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('total', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The whole amount you get after adding everything together.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128220; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>Let's apply this week's Phonics &amp; Spelling skill (vowel teams) to a word from today's Math lesson!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-q="ss1" data-pts="5" data-bonus="1" data-logic="In 'team,' the two letters E-A work together as a vowel team, standing for one long e sound.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">In the word 'team,' which two letters work TOGETHER as a vowel team?</p>
+    <div class="opts">
+      <button class="opt">t and m</button>
+      <button class="opt" data-c="1">e and a</button>
+      <button class="opt">t and e</button>
+      <button class="opt">a and m</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-ans="team" data-bonus="1" data-logic="t + ea + m = team. The EA vowel team makes the long e sound.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Put the parts together. What word do they make?</p>
+    <div class="fillrow">
+      <span class="eq">t + ea + m =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#127959;&#65039; Addition Word Problems</h2>
+<div class="card">
+<p>A <b>word problem</b> tells a math story. The hard part isn't the adding &mdash; it's figuring out WHICH numbers to add. Look for clue words like <i>total</i>, <i>altogether</i>, or <i>in all</i>.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>&ldquo;A trail has 145 pine trees and 168 oak trees. How many trees in all?&rdquo; The words &ldquo;how many in all&rdquo; tell me I need the TOTAL &mdash; that means ADD. 145 + 168. Ones: 5+8=13, write3 carry1. Tens: 4+6+1=11, write1 carry1. Hundreds: 1+1+1=3. Answer: 313 trees.</p></div><div class="pictureit"><h4>&#129513; Picture It: Finding the Clue Word</h4>&ldquo;How many in all?&rdquo; &rarr; ADD<br>&ldquo;How many altogether?&rdquo; &rarr; ADD<br>&ldquo;What is the total?&rdquo; &rarr; ADD</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>&ldquo;A hiking group has 234 adults and 156 kids. How many people altogether?&rdquo; &ldquo;Altogether&rdquo; means add: 234 + 156 = 390 people.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="The words 'how many in all' signal that you need the total, which means you should add.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;A campsite has 128 tents and 214 campers. How many tents and campers are there IN ALL?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Addition</button>
+      <button class="opt">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="342" data-logic="128+214: ones 8+4=12 write2 carry1. Tens 2+1+1=4. Hundreds 1+2=3. Answer: 342.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">128 tents + 214 campers = ___ in all</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="altogether|in all|total" data-logic="Clue words like altogether, in all, and total all signal addition.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Name one clue word that tells you to ADD in a word problem.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="'How many altogether' signals the total, which means addition.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;A trail crew planted 176 maples and 145 oaks. How many trees ALTOGETHER?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Addition</button>
+      <button class="opt">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s1" data-pts="5" data-ans="321" data-logic="176+145: ones 6+5=11 write1 carry1. Tens 7+4+1=12 write2 carry1. Hundreds 1+1+1=3. Answer: 321.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">176 maples + 145 oaks = ___ altogether</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="the total" data-logic="Word problems with addition clue words are asking for the total amount.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">When you see &ldquo;in all&rdquo; or &ldquo;altogether,&rdquo; what are you being asked to find?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="'What is the total number of visitors' signals addition.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;185 visitors came Saturday and 209 came Sunday. What is the TOTAL number of visitors?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Addition</button>
+      <button class="opt">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="394" data-logic="185+209: ones 5+9=14 write4 carry1. Tens 8+0+1=9. Hundreds 1+2=3. Answer: 394.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">185 + 209 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s2" data-pts="5" data-ans="clue words" data-logic="Words like total, in all, and altogether are called clue words because they signal which operation to use.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Words like &ldquo;total,&rdquo; &ldquo;in all,&rdquo; and &ldquo;altogether&rdquo; are called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#9971;&#65039; Subtraction Word Problems</h2>
+<div class="card card-sky">
+<p>Subtraction word problems use different clue words: <i>left</i>, <i>remaining</i>, <i>how many more</i>, or <i>difference</i>. These signal you need to find what's LEFT or the GAP between two amounts.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>&ldquo;A trail is 420 steps long. A hiker has climbed 185 steps. How many steps are LEFT?&rdquo; The word &ldquo;left&rdquo; tells me to SUBTRACT: 420 &minus; 185. Ones: 0-5? borrow, 10-5=5. Tens: 1(after lending)-8? borrow, 11-8=3. Hundreds: 3(after lending)-1=2. Answer: 235 steps left.</p></div><div class="pictureit"><h4>&#129513; Picture It: Finding the Clue Word</h4>&ldquo;How many are LEFT?&rdquo; &rarr; SUBTRACT<br>&ldquo;How many MORE do you need?&rdquo; &rarr; SUBTRACT<br>&ldquo;What is the DIFFERENCE?&rdquo; &rarr; SUBTRACT</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>&ldquo;A campground has 300 spots. 165 are taken. How many spots are left?&rdquo; &ldquo;Left&rdquo; means subtract: 300 &minus; 165 = 135 spots.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t4a_s0" data-pts="5" data-logic="The word 'left' signals you need to subtract to find what remains.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;A backpack can hold 350 supplies. 218 are packed. How many MORE can fit?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt">Addition</button>
+      <button class="opt" data-c="1">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s0" data-pts="5" data-ans="132" data-logic="350-218: ones 0-8? borrow, 10-8=2. Tens 4(after lend)-1=3. Hundreds 3(after lend? no)-2=1. Answer: 132.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">350 &minus; 218 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s0" data-pts="5" data-ans="left|more|difference|remaining" data-logic="Clue words like left, more, difference, and remaining all signal subtraction.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Name one clue word that tells you to SUBTRACT in a word problem.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t4a_s1" data-pts="5" data-logic="'How many are remaining' signals subtraction — you need to find what's left.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;A trail has 275 markers. 138 have been checked. How many are REMAINING?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt">Addition</button>
+      <button class="opt" data-c="1">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s1" data-pts="5" data-ans="137" data-logic="275-138: ones 5-8? borrow, 15-8=7. Tens 6(after lend)-3=3. Hundreds 2-1=1. Answer: 137.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">275 &minus; 138 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s1" data-pts="5" data-ans="the gap or difference" data-logic="Subtraction word problems ask you to find the gap, or difference, between two amounts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Subtraction word problems ask you to find what, between two amounts?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t4a_s2" data-pts="5" data-logic="'What is the difference' directly signals subtraction.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;One trail is 480 steps. Another is 295 steps. What is the DIFFERENCE?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt">Addition</button>
+      <button class="opt" data-c="1">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s2" data-pts="5" data-ans="185" data-logic="480-295: ones 0-5? borrow, 10-5=5. Tens 7(after lend)-9? borrow, 17-9=8. Hundreds 3(after lend)-2=1. Answer: 185.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">480 &minus; 295 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s2" data-pts="5" data-ans="no" data-logic="Add and subtract word problems use different clue words — you have to read carefully to know which one to use.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Do addition and subtraction word problems use the SAME clue words? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#127775; Estimating Sums</h2>
+<div class="card card-grass">
+<p>Sometimes you don't need an EXACT answer &mdash; just a close, reasonable guess. To <b>estimate</b>, round each number first, then add the rounded numbers. It's much faster than adding the exact numbers!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let's estimate 287 + 412. First, round each number to the nearest hundred: 287 rounds to 300 (since 87 is closer to 100 than 0). 412 rounds to 400 (since 12 is closer to 0 than 100). Now add the ROUNDED numbers: 300 + 400 = 700. That's my estimate &mdash; much faster than adding 287 + 412 exactly, and still a reasonable answer.</p></div><div class="pictureit"><h4>&#129513; Picture It: Estimating Sums</h4>287 + 412<br>Round: 287&rarr;300, 412&rarr;400<br>Add rounded numbers: 300+400=700<br>Estimate: about 700</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Estimate 156 + 338. Round: 156&rarr;200, 338&rarr;300. Add: 200+300=500. Estimate: about 500.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t5a_s0" data-pts="5" data-logic="243 has a tens digit of 4, so it rounds down to the nearest hundred: 200.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 243 to the nearest hundred.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">200</button>
+      <button class="opt">300</button>
+      <button class="opt">240</button>
+      <button class="opt">250</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s0" data-pts="5" data-ans="600" data-logic="243 rounds to 200, 368 rounds to 400. Estimate: 200+400=600.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 243 + 368 by rounding each number to the nearest hundred, then adding.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s0" data-pts="5" data-ans="round" data-logic="To estimate, you round each number first, then add the rounded numbers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">What's the first step when estimating a sum?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t5a_s1" data-pts="5" data-logic="176 has a tens digit of 7, so it rounds up to the nearest hundred: 200.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 176 to the nearest hundred.</p>
+    <div class="opts">
+      <button class="opt">100</button>
+      <button class="opt" data-c="1">200</button>
+      <button class="opt">180</button>
+      <button class="opt">170</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s1" data-pts="5" data-ans="700" data-logic="176 rounds to 200, 519 rounds to 500. Estimate: 200+500=700.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 176 + 519 by rounding each number to the nearest hundred, then adding.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s1" data-pts="5" data-ans="reasonable" data-logic="An estimate doesn't have to be exact, but it should be reasonable — close to what you'd expect.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Does an estimate need to be EXACT, or just ___?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t5a_s2" data-pts="5" data-logic="352 has a tens digit of 5, so it rounds up to the nearest hundred: 400.">
+    <span class="pts">+5</span>
+    <p class="qtext">Round 352 to the nearest hundred.</p>
+    <div class="opts">
+      <button class="opt">300</button>
+      <button class="opt" data-c="1">400</button>
+      <button class="opt">350</button>
+      <button class="opt">360</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s2" data-pts="5" data-ans="800" data-logic="352 rounds to 400, 449 rounds to 400. Estimate: 400+400=800.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 352 + 449 by rounding each number to the nearest hundred, then adding.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s2" data-pts="5" data-ans="faster" data-logic="Estimating with rounded numbers is much faster than adding the exact numbers, which is why it's a useful skill.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Why is estimating useful, compared to always finding the exact answer?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#128300; Trail Word Problem Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card">
+<p>Keep practicing word problems and estimating!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="d1" data-pts="5" data-ans="500" data-bonus="1" data-logic="264 rounds to 300, 218 rounds to 200. Estimate: 300+200=500.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 264 + 218 by rounding to the nearest hundred first.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d2" data-pts="5" data-ans="194" data-bonus="1" data-logic="412-218: ones 2-8? borrow, 12-8=4. Tens 0(after lend)-1? borrow, 10-1=9. Hundreds 3(after lend)-2=1. Answer: 194.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">412 &minus; 218 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d3" data-pts="5" data-ans="estimate" data-bonus="1" data-logic="A close, reasonable guess made by rounding first is called an estimate.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A close, reasonable guess made by rounding first is called an ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each word problem answer, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="estimate" data-logic="A close, reasonable guess made by rounding first is called an estimate.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A close, reasonable guess made by rounding is called an ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="322" data-logic="167+155: ones 7+5=12 write2 carry1. Tens 6+5+1=12 write2 carry1. Hundreds 1+1+1=3. Answer: 322.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">167 + 155 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="left" data-logic="The clue word 'left' signals subtraction — you need to find what remains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Name a clue word that signals subtraction (not &ldquo;more&rdquo; or &ldquo;difference&rdquo;).</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="round" data-logic="To estimate, you round each number to the nearest ten or hundred first.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The first step in estimating is to ___ each number.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="216" data-logic="384-168: ones 4-8? borrow, 14-8=6. Tens 7(after lend)-6=1. Hundreds 2-1=2. Answer: 216.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">384 &minus; 168 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="total" data-logic="The clue word 'total' signals addition — you need to find the whole amount.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Name a clue word that signals addition (not &ldquo;in all&rdquo; or &ldquo;altogether&rdquo;).</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="reasonable" data-logic="An estimate should be reasonable — close to what you'd expect, even though it's not exact.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An estimate should be close and ___, even though it isn't exact.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="700" data-logic="238 rounds to 200, 452 rounds to 500. Estimate: 200+500=700.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 238 + 452 by rounding to the nearest hundred first.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="word problem" data-logic="A math problem written as a story is called a word problem.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A math problem written as a story is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-ans="add" data-bonus="1" data-logic="The clue word 'altogether' signals you should add.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Does &ldquo;altogether&rdquo; mean add or subtract?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="600" data-bonus="1" data-logic="342 rounds to 300, 289 rounds to 300. Estimate: 300+300=600.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 342 + 289 by rounding first.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="subtract" data-bonus="1" data-logic="The clue word 'left' signals you should subtract.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Does &ldquo;how many are left&rdquo; mean add or subtract?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65039; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="i can solve word problems and estimate sums by rounding." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I can solve word problems and estimate sums by rounding.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9997;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Grab your <b>Pre/Post sheet</b> and a pencil. <b>Solve each word problem on paper first</b> &mdash; circle the clue word, decide add or subtract, then show your work, then type your answers. Neat work earns handwriting points!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="391" data-logic="A campsite has 178 pine trees and 213 oak trees. 'How many in all' signals addition. 178+213=391.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A campsite has 178 pine trees and 213 oak trees. How many trees in all? Show your work on paper, then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s0" data-pts="5" data-ans="600" data-logic="248 rounds to 200 (tens digit 4 rounds down). 367 rounds to 400 (tens digit 6 rounds up). Estimate: 200+400=600.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 248 + 367 by rounding each to the nearest hundred first. Show your work on paper, then type the estimate:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="128" data-logic="A trail has 312 total steps. A hiker has climbed 184. 'How many left' signals subtraction. 312-184=128.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A trail has 312 steps total. A hiker has climbed 184 steps. How many steps are left? Show your work on paper, then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s1" data-pts="5" data-ans="500" data-logic="Estimate 156+329 by rounding: 156 rounds to 200, 329 rounds to 300. Estimate: 200+300=500.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 156 + 329 by rounding each to the nearest hundred first. Show your work on paper, then type the estimate:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="429" data-logic="A supply drop brings 216 water bottles and 213 granola bars. 'Altogether' signals addition. 216+213=429.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A supply drop brings 216 water bottles and 213 granola bars. How many items altogether? Show your work on paper, then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s2" data-pts="5" data-ans="200" data-logic="Estimate 425-218 by rounding: 425 rounds to 400, 218 rounds to 200. Estimate: 400-200=200.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 425 &minus; 218 by rounding each to the nearest hundred first. Show your work on paper, then type the estimate:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#128081; Boss Battle: The Word Problem Challenge</h2>
+<p>Show what you know about word problems and estimating!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="5" data-ans="342" data-logic="Two groups of hikers: 178 and 164. 'How many in all' signals addition. 178+164=342.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">One hiking group has 178 people. Another has 164. How many hikers in all?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A budget is 500 dollars. 285 has been spent. 500-285=215 dollars left.">
+    <span class="pts">+5</span>
+    <p class="qtext">A trip budget is $500. So far $285 has been spent. How much money is LEFT?</p>
+    <div class="opts">
+      <button class="opt">785</button>
+      <button class="opt">225</button>
+      <button class="opt" data-c="1">215</button>
+      <button class="opt">315</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="5" data-ans="round" data-logic="To estimate, you round each number first, then add or subtract the rounded numbers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What do you do to each number BEFORE adding or subtracting, when estimating?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="5" data-ans="513" data-logic="Two supply crates: 247 and 266 items. 'Total' signals addition. 247+266=513.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">One crate has 247 items. Another has 266. What is the total?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="A trail is 450 steps. 275 have been climbed. 450-275=175 steps remaining.">
+    <span class="pts">+5</span>
+    <p class="qtext">A trail is 450 steps long. A hiker has climbed 275 steps. How many steps REMAIN?</p>
+    <div class="opts">
+      <button class="opt">725</button>
+      <button class="opt">185</button>
+      <button class="opt" data-c="1">175</button>
+      <button class="opt">225</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s1" data-pts="5" data-ans="yes" data-logic="Estimates are useful for checking whether an exact answer is reasonable — if your estimate and exact answer are far apart, you likely made a mistake.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Can an estimate help you check if your exact answer makes sense? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="5" data-ans="700" data-logic="Estimate: two supply groups roughly 320 and 380 items. Round: 320 rounds to 300, 380 rounds to 400. 300+400=700.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate: a trail crew plants about 320 trees one week and 380 the next. Round first, then estimate the total.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="A water tank holds 380 liters. 165 liters have been used. 380-165=215 liters remain.">
+    <span class="pts">+5</span>
+    <p class="qtext">A water tank holds 380 liters. Hikers have used 165 liters. How many liters are LEFT?</p>
+    <div class="opts">
+      <button class="opt">545</button>
+      <button class="opt">225</button>
+      <button class="opt" data-c="1">215</button>
+      <button class="opt">205</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s2" data-pts="5" data-ans="clue words" data-logic="Reading a word problem carefully for clue words (like total, in all, left, more) tells you which operation to use.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What should you look for in a word problem to know whether to add or subtract?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">First Steps Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 4 of 8</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-math-w4';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 325;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* ===== KCE Pathways Progress Report (v2 addition) =====
+   Posts a lesson result to a Formspree form the moment a student finishes.
+   Formspree forwards it by email AND (via the same Zapier pattern already
+   live for KCE Instructor Training completions) appends a row to a
+   "Pathways Progress Log" Google Sheet, so a parent/teacher never has to
+   check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard →
+   New Form → copy the ID from the endpoint URL). */
+const PATHWAYS_FORMSPREE_ID = 'REPLACE_WITH_REAL_FORMSPREE_ID';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Estimate','a close, reasonable guess made by rounding first'],['Round','change a number to the nearest ten or hundred'],['Total','the whole amount after adding'],['In all / Altogether','clue words for addition'],['Left / Remaining','clue words for subtraction']],[['178 + 213','391'],['312 \u2212 184','128'],['247 + 266','513'],['450 \u2212 275','175'],['167 + 155','322']],[['243 + 368 (estimate)','about 600'],['176 + 519 (estimate)','about 700'],['352 + 449 (estimate)','about 800'],['264 + 218 (estimate)','about 500'],['342 + 289 (estimate)','about 600']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! ⭐';
+  if (displayScore() >= 90) tierTitle = 'Basecamp Number Champion! 🧭👑';
+  else if (displayScore() >= 75) tierTitle = 'Word Problem Master! 🌟';
+  else if (displayScore() >= 50) tierTitle = 'Estimation Pro! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
