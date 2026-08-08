@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 3 Math: Addition &amp; Subtraction with Regrouping | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🧭 KCE Pathways — Grade 3 &mdash; Week 3</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 3 &bull; Math</span>
+  <h1>Base Camp 2: Bigger or Smaller?</h1>
+  <h2>Comparing &amp; Ordering Numbers 🧭🔍</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome back to KCE Pathways! Last week you learned what each digit in a number is worth. This week we use that to <b>compare</b> numbers &mdash; figuring out which is bigger, smaller, or the same &mdash; and put a whole group of numbers in <b>order</b>. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with place value from last week</li><li>Watch a short video about comparing numbers</li><li>Learn to compare numbers using &lt;, &gt;, and =</li><li>Put a whole group of numbers in order</li><li>Compare, order, then Match-Up, Type-It, Pencil Break &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127959;&#65039; Warm-Up: What You Already Know</h2>
+<p>Let's warm up with some comparing and ordering from last week!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Hundreds tie (5=5). Tens digit: 8 is bigger than 3, so 583 is greater than 532.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 583 and 532. Which symbol makes it true? 583 ___ 532</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">&lt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Compare hundreds digits: 2, 4, 3. Smallest first: 245, then 361, then 428.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order, smallest first: 428, 245, 361</p>
+    <div class="opts">
+      <button class="opt">428, 245, 361</button>
+      <button class="opt" data-c="1">245, 361, 428</button>
+      <button class="opt">361, 245, 428</button>
+      <button class="opt">245, 428, 361</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="614 has hundreds digit 6, which is bigger than 5, so 614 is the largest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the LARGEST: 614, 599, or 608?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">614</button>
+      <button class="opt">599</button>
+      <button class="opt">608</button>
+      <button class="opt">They're equal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="=" data-logic="370 and 370 have every digit matching, so they are equal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Write &lt;, &gt;, or = : 370 ___ 370</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Hundreds tie (4=4). Tens digit: 1 is smaller than 7, so 417 is less than 471.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 417 and 471. Which symbol makes it true? 417 ___ 471</p>
+    <div class="opts">
+      <button class="opt">&gt;</button>
+      <button class="opt" data-c="1">&lt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Compare hundreds digits: 7, 2, 5. Largest first: 792, then 518, then 236.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order, LARGEST first: 236, 792, 518</p>
+    <div class="opts">
+      <button class="opt">236, 518, 792</button>
+      <button class="opt" data-c="1">792, 518, 236</button>
+      <button class="opt">518, 236, 792</button>
+      <button class="opt">792, 236, 518</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="303 has the smallest hundreds digit (3, tied with 330, but tens digit 0 is smaller than 3), so 303 is the smallest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the SMALLEST: 330, 303, or 340?</p>
+    <div class="opts">
+      <button class="opt">330</button>
+      <button class="opt" data-c="1">303</button>
+      <button class="opt">340</button>
+      <button class="opt">They're equal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="<" data-logic="Hundreds tie (2=2), tens tie (5=5), ones digit: 4 is smaller than 9, so 254 is less than 259.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Write &lt;, &gt;, or = : 254 ___ 259</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Hundreds digit: 9 is bigger than 8, so 902 is greater than 899.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare 902 and 899. Which symbol makes it true? 902 ___ 899</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">&lt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Compare hundreds digits: 1, 1, 2. The two 1xx numbers tie on hundreds, so compare tens: 4 &lt; 8. Order: 145, 182, 260.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these in order, smallest first: 260, 145, 182</p>
+    <div class="opts">
+      <button class="opt">260, 145, 182</button>
+      <button class="opt" data-c="1">145, 182, 260</button>
+      <button class="opt">182, 145, 260</button>
+      <button class="opt">145, 260, 182</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="716 has the biggest hundreds digit (7), so it's the largest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the LARGEST: 683, 716, or 699?</p>
+    <div class="opts">
+      <button class="opt">683</button>
+      <button class="opt" data-c="1">716</button>
+      <button class="opt">699</button>
+      <button class="opt">They're equal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans=">" data-logic="Hundreds tie (5=5), tens digit: 8 is bigger than 1, so 581 is greater than 512.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Write &lt;, &gt;, or = : 581 ___ 512</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this video about adding 3-digit numbers with regrouping.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today's Video</p>
+  <p style="margin:0 0 16px 0"><b>Adding three digit numbers with regrouping (Khan Academy)</b></p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=9hM32lsQ4aI" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">What to do:</p>
+    <p style="margin:0 0 4px 0">1. Click the button above.</p>
+    <p style="margin:0 0 4px 0">2. Watch the whole video.</p>
+    <p style="margin:0">3. Come back to this tab and click Next below.</p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:16px">
+<h3>&#128218; Explore Further</h3>
+<ul class="tips"><li><a href="https://www.khanacademy.org/math/cc-third-grade-math" target="_blank" rel="noopener">Khan Academy</a> &mdash; Free math practice for every grade, no sign-in needed to watch.</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Flip each card to learn this week's words!</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">regroup<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('regroup', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To trade 10 of one place value for 1 of the next (like 10 ones for 1 ten) when adding or subtracting.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">sum<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('sum', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The answer you get when you add numbers together.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">difference<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('difference', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The answer you get when you subtract one number from another.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">borrow<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('borrow', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To regroup 1 ten into 10 ones (or 1 hundred into 10 tens) so you can subtract.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">carry<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('carry', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To move a regrouped ten (or hundred) over to the next column when adding.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128220; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>Let's apply this week's Phonics &amp; Spelling skill (silent e / magic e) to a word from today's Math lesson!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-q="ss1" data-pts="5" data-bonus="1" data-logic="In 'hike,' the silent e at the end makes the i say its own name (long i). Without the silent e, 'hik' would have a short i sound.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Is the vowel sound in 'hike' short or long?</p>
+    <div class="opts">
+      <button class="opt">silent</button>
+      <button class="opt">there isn't one</button>
+      <button class="opt">short</button>
+      <button class="opt" data-c="1">long</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-ans="hike" data-bonus="1" data-logic="hik + e = hike. The silent e at the end is what makes the i long.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Put the parts together. What word do they make?</p>
+    <div class="fillrow">
+      <span class="eq">hik + e =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#127959;&#65039; Regrouping the Ones</h2>
+<div class="card">
+<p>When you add two numbers and the <b>ones</b> column adds up to 10 or more, you <b>regroup</b>: trade 10 ones for 1 ten, and carry that ten over to the tens column.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let's add 247 + 168. Start with the ones: 7 + 8 = 15. That's more than 9, so I can't just write 15 in the ones column &mdash; I regroup: write the 5, carry the 1 ten over to the tens column. Now the tens: 4 + 6 = 10, PLUS the 1 I carried = 11. That's still 10 or more, so I regroup again: write the 1, carry 1 hundred over. Hundreds: 2 + 1 = 3, plus the 1 I carried = 4. Final answer: 415.</p></div><div class="pictureit"><h4>&#129513; Picture It: Regrouping the Ones</h4>247 + 168<br>Ones: 7 + 8 = 15 &rarr; write 5, carry 1 ten<br>Tens: 4 + 6 + 1(carried) = 11 &rarr; write 1, carry 1 hundred<br>Hundreds: 2 + 1 + 1(carried) = 4<br>Answer: 415</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Try 156 + 137. Ones: 6 + 7 = 13 &rarr; write 3, carry 1. Tens: 5 + 3 + 1 = 9 &rarr; no more regrouping needed there. Hundreds: 1 + 1 = 2. Answer: 293.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="Ones: 5+8=13. That's 10 or more, so you regroup — write 3, carry 1 ten.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 235 + 148: the ones column is 5 + 8 = 13. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 13 in the ones column</button>
+      <button class="opt" data-c="1">Write 3, carry 1 ten to the tens column</button>
+      <button class="opt">Ignore the extra 1</button>
+      <button class="opt">Start over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="512" data-logic="Ones: 6+6=12, write 2 carry 1. Tens: 3+7+1=11, write 1 carry 1. Hundreds: 1+3+1=5. Answer: 512.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">136 + 376 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="ones" data-logic="Regrouping starts with the ones column — you always add right to left.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">When adding, which column do you ALWAYS start with?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="Ones: 9+4=13. That's 10 or more, so you regroup — write 3, carry 1 ten.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 419 + 254: the ones column is 9 + 4 = 13. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 13 in the ones column</button>
+      <button class="opt" data-c="1">Write 3, carry 1 ten to the tens column</button>
+      <button class="opt">Ignore the extra 1</button>
+      <button class="opt">Start over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s1" data-pts="5" data-ans="623" data-logic="Ones: 8+5=13, write 3 carry 1. Tens: 2+9+1=12, write 2 carry 1. Hundreds: 3+2+1=6. Answer: 623.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">328 + 295 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="ten" data-logic="Regrouping 10 ones means trading them for 1 ten, which gets carried to the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">10 ones get traded for 1 what, when you regroup?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="Ones: 7+6=13. That's 10 or more, so you regroup — write 3, carry 1 ten.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 527 + 316: the ones column is 7 + 6 = 13. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 13 in the ones column</button>
+      <button class="opt" data-c="1">Write 3, carry 1 ten to the tens column</button>
+      <button class="opt">Ignore the extra 1</button>
+      <button class="opt">Start over</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s2" data-pts="5" data-ans="481" data-logic="Ones: 9+2=11, write 1 carry 1. Tens: 2+5+1=8. Hundreds: 2+2=4. Answer: 481.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">229 + 252 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="no" data-logic="If the ones column adds up to less than 10, you don't need to regroup at all — just write the answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">If the ones column adds up to LESS than 10, do you need to regroup? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#127958;&#65039; Regrouping the Tens</h2>
+<div class="card card-sky">
+<p>Sometimes you have to regroup MORE than once in the same problem &mdash; once in the ones, and again in the tens. Just take it one column at a time, left to right doesn't matter, always go right to left.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let's add 385 + 267. Ones: 5 + 7 = 12 &rarr; write 2, carry 1 ten. Tens: 8 + 6 = 14, PLUS the carried 1 = 15. That's 10 or more again! Write 5, carry 1 hundred. Hundreds: 3 + 2 = 5, plus carried 1 = 6. Final answer: 652. Two regroups in one problem &mdash; totally normal, just do each column its own turn.</p></div><div class="pictureit"><h4>&#129513; Picture It: Double Regrouping</h4>385 + 267<br>Ones: 5+7=12 &rarr; write 2, carry 1<br>Tens: 8+6+1=15 &rarr; write 5, carry 1<br>Hundreds: 3+2+1=6<br>Answer: 652</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Try 456 + 378. Ones: 6+8=14 &rarr; write 4, carry 1. Tens: 5+7+1=13 &rarr; write 3, carry 1. Hundreds: 4+3+1=8. Answer: 834.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t4a_s0" data-pts="5" data-logic="Tens: 7+5=12, plus the carried 1 = 13. That's 10 or more, so you regroup again — write 3, carry 1 hundred.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 476 + 258: after regrouping the ones, the tens column is 7 + 5 + 1(carried) = 13. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 13 in the tens column</button>
+      <button class="opt" data-c="1">Write 3, carry 1 hundred</button>
+      <button class="opt">Skip the tens column</button>
+      <button class="opt">Ignore the carried 1</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s0" data-pts="5" data-ans="723" data-logic="Ones:7+6=13 write3 carry1. Tens:4+7+1=12 write2 carry1. Hundreds:3+3+1=7. Answer: 723.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">347 + 376 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s0" data-pts="5" data-ans="yes" data-logic="You can regroup more than once in the same problem — once in the ones, once in the tens, or even both, one column at a time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Can you regroup MORE than once in the same addition problem? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t4a_s1" data-pts="5" data-logic="Tens: 6+9=15, plus the carried 1 = 16. That's 10 or more, so you regroup again — write 6, carry 1 hundred.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 265 + 397: after regrouping the ones, the tens column is 6 + 9 + 1(carried) = 16. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 16 in the tens column</button>
+      <button class="opt" data-c="1">Write 6, carry 1 hundred</button>
+      <button class="opt">Skip the tens column</button>
+      <button class="opt">Ignore the carried 1</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s1" data-pts="5" data-ans="612" data-logic="Ones:5+7=12, write 2 carry 1. Tens:6+4+1=11, write 1 carry 1. Hundreds:2+3+1=6. Answer: 612.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">265 + 347 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s1" data-pts="5" data-ans="right to left" data-logic="Regrouping addition always works right to left: ones first, then tens, then hundreds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">Do you add columns right to left, or left to right?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t4a_s2" data-pts="5" data-logic="Tens: 8+4=12, plus the carried 1 = 13. That's 10 or more, so you regroup again — write 3, carry 1 hundred.">
+    <span class="pts">+5</span>
+    <p class="qtext">Adding 189 + 443: after regrouping the ones, the tens column is 8 + 4 + 1(carried) = 13. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write 13 in the tens column</button>
+      <button class="opt" data-c="1">Write 3, carry 1 hundred</button>
+      <button class="opt">Skip the tens column</button>
+      <button class="opt">Ignore the carried 1</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4b_s2" data-pts="5" data-ans="524" data-logic="Ones:8+6=14 write4 carry1. Tens:1+4+1=6. Hundreds:2+3=5. Answer: 524.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">218 + 306 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t4c_s2" data-pts="5" data-ans="hundreds" data-logic="After the ones and tens columns, the last column you add is the hundreds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">After ones and tens, which column do you add last in a 3-digit problem?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t4c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9968;&#65039; Subtracting with Regrouping</h2>
+<div class="card card-grass">
+<p>Subtracting works the opposite way. If the TOP digit in a column is SMALLER than the bottom digit, you <b>borrow</b> 1 from the column to the left.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let's subtract 342 &minus; 168. Ones: 2 &minus; 8? I can't do that, 2 is smaller than 8! So I borrow 1 ten from the tens column. Now I have 12 ones (2+10) minus 8 = 4. The tens column lost 1 ten, so it's now 3 (was 4). Tens: 3 &minus; 6? Still can't do that! Borrow 1 hundred. Now I have 13 tens (3+10) minus 6 = 7. Hundreds column lost 1, so it's now 2 (was 3). Hundreds: 2 &minus; 1 = 1. Final answer: 174.</p></div><div class="pictureit"><h4>&#129513; Picture It: Borrowing</h4>342 &minus; 168<br>Ones: 2 is smaller than 8 &rarr; borrow 1 ten &rarr; 12&minus;8=4<br>Tens: 3(now 3 after lending) is smaller than 6 &rarr; borrow 1 hundred &rarr; 13&minus;6=7<br>Hundreds: 2(after lending)&minus;1=1<br>Answer: 174</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Try 523 &minus; 267. Ones: 3&minus;7? Borrow &rarr; 13&minus;7=6. Tens: 1(after lending)&minus;6? Borrow again &rarr; 11&minus;6=5. Hundreds: 4(after lending)&minus;2=2. Answer: 256.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t5a_s0" data-pts="5" data-logic="4 is smaller than 9, so you can't subtract directly — you must borrow 1 ten from the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Subtracting 254 &minus; 129: the ones column is 4 &minus; 9. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write a negative number</button>
+      <button class="opt" data-c="1">Borrow 1 ten from the tens column</button>
+      <button class="opt">Subtract the other way (9-4)</button>
+      <button class="opt">Skip this column</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s0" data-pts="5" data-ans="238" data-logic="Ones: 6-8? borrow 1 ten, 16-8=8. Tens: 5(after lending)-2=3. Hundreds: 3-1=2. Answer: 238.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">366 &minus; 128 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s0" data-pts="5" data-ans="10" data-logic="When you borrow 1 ten and add it to the ones column, you're really adding 10 to that column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">When you borrow 1 ten to help the ones column, how much does that ten add to the ones digit?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t5a_s1" data-pts="5" data-logic="1 is smaller than 5, so you can't subtract directly — you must borrow 1 ten from the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Subtracting 631 &minus; 275: the ones column is 1 &minus; 5. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write a negative number</button>
+      <button class="opt" data-c="1">Borrow 1 ten from the tens column</button>
+      <button class="opt">Subtract the other way (5-1)</button>
+      <button class="opt">Skip this column</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s1" data-pts="5" data-ans="146" data-logic="Ones: 3-7? borrow 1 ten, 13-7=6. Tens: 1(after lending)-7? borrow 1 hundred, 11-7=4. Hundreds: 3(after lending)-2=1. Answer: 146.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">423 &minus; 277 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s1" data-pts="5" data-ans="1 less" data-logic="When a column lends 1 ten to help its neighbor, that column's own digit goes down by 1.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">When the tens column lends 1 ten to the ones column, what happens to the tens digit?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t5a_s2" data-pts="5" data-logic="2 is smaller than 8, so you can't subtract directly — you must borrow 1 ten from the tens column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Subtracting 452 &minus; 198: the ones column is 2 &minus; 8. What do you do?</p>
+    <div class="opts">
+      <button class="opt">Write a negative number</button>
+      <button class="opt" data-c="1">Borrow 1 ten from the tens column</button>
+      <button class="opt">Subtract the other way (8-2)</button>
+      <button class="opt">Skip this column</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5b_s2" data-pts="5" data-ans="254" data-logic="Ones: 2-8? borrow 1 ten, 12-8=4. Tens: 4(after lending)-9? borrow 1 hundred, 14-9=5. Hundreds: 3(after lending)-1=2. Answer: 254.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">452 &minus; 198 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t5c_s2" data-pts="5" data-ans="no" data-logic="You only need to borrow when the top digit in a column is smaller than the bottom digit — otherwise you just subtract normally.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stretch question:</p>
+    <div class="fillrow">
+      <span class="eq">If the top digit is BIGGER than the bottom digit in a column, do you need to borrow? (yes or no)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t5c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#128300; Trail Regrouping Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card">
+<p>Keep practicing regrouping!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="d1" data-pts="5" data-ans="245" data-bonus="1" data-logic="Ones: 8+7=15, write 5 carry 1. Tens: 6+7+1=14, write 4 carry 1. Hundreds: 1+0+1=2. Answer: 245.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">168 + 77 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d2" data-pts="5" data-ans="176" data-bonus="1" data-logic="Ones: 2-6? borrow 1 ten, 12-6=6. Tens: 4(after lending)-7? borrow 1 hundred, 14-7=7. Hundreds: 3(after lending)-2=1. Answer: 176.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">452 &minus; 276 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="d3" data-pts="5" data-ans="regroup" data-bonus="1" data-logic="Trading 10 of one place value for 1 of the next is called regrouping.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Trading 10 ones for 1 ten (or 10 tens for 1 hundred) is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each regrouping answer, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="regroup" data-logic="Trading 10 of one place for 1 of the next is called regrouping.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Trading 10 ones for 1 ten is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="124" data-logic="Ones: 8+6=14, write 4 carry 1. Tens: 5+6+1=12, write 2 carry 1. Hundreds: 0+0+1=1. Answer: 124.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">58 + 66 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="borrow" data-logic="Regrouping 1 ten into 10 ones so you can subtract is called borrowing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Regrouping to subtract, when the top digit is too small, is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="sum" data-logic="The answer you get when you add numbers together is called the sum.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The answer to an addition problem is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="189" data-logic="Ones: 6-7? borrow, 16-7=9. Tens: 3(after lending)-5? borrow, 13-5=8. Hundreds: 1(after lending)-0=1. Answer: 189.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">246 &minus; 57 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="difference" data-logic="The answer you get when you subtract one number from another is called the difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The answer to a subtraction problem is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="carry" data-logic="Moving a regrouped ten (or hundred) to the next column when adding is called carrying.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Moving a regrouped ten to the next column when adding is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="521" data-logic="Ones: 7+4=11, write 1 carry 1. Tens: 8+3+1=12, write 2 carry 1. Hundreds: 3+1+1=5. Answer: 521.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">387 + 134 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="right to left" data-logic="You always add or subtract multi-digit numbers starting from the ones column and working right to left.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Do you add/subtract columns right to left, or left to right?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-ans="regroup" data-bonus="1" data-logic="Trading 10 of one place value for 1 of the next is called regrouping.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What's it called when you trade 10 ones for 1 ten?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="315" data-bonus="1" data-logic="Ones: 8+7=15, write 5 carry 1. Tens: 2+8+1=11, write 1 carry 1. Hundreds: 0+2+1=3. Answer: 315.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">28 + 287 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="borrow" data-bonus="1" data-logic="Regrouping 1 ten into 10 ones so you can subtract is called borrowing.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What's it called when the top digit is too small to subtract, and you regroup?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65039; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="i can add and subtract 3-digit numbers using regrouping." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I can add and subtract 3-digit numbers using regrouping.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9997;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Grab your <b>Pre/Post sheet</b> and a pencil. <b>Add and subtract with regrouping on paper first</b> &mdash; write out every carry and borrow, don't do it in your head, then type your answers. Neat work earns handwriting points!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="463" data-logic="Ones: 8+5=13, write 3 carry 1. Tens: 6+7+1=14, write 4 carry 1. Hundreds: 2+1+1=4. Answer: 463.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, add 268 + 195, writing every carry. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s0" data-pts="5" data-ans="167" data-logic="Ones: 2-5? borrow, 12-5=7. Tens: 4(after lending)-8? borrow, 14-8=6. Hundreds: 2(after lending)-1=1. Answer: 167.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, subtract 352 &minus; 185, writing every borrow. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="623" data-logic="Ones: 7+6=13, write 3 carry 1. Tens: 4+7+1=12, write 2 carry 1. Hundreds: 3+2+1=6. Answer: 623.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, add 347 + 276, writing every carry. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s1" data-pts="5" data-ans="284" data-logic="Ones: 1-7? borrow, 11-7=4. Tens: 7(after lending)-9? borrow, 17-9=8. Hundreds: 3(after lending)-1=2. Answer: 284.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, subtract 481 &minus; 197, writing every borrow. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="511" data-logic="Ones: 6+5=11, write 1 carry 1. Tens: 3+7+1=11, write 1 carry 1. Hundreds: 1+3+1=5. Answer: 511.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, add 136 + 375, writing every carry. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p2_s2" data-pts="5" data-ans="256" data-logic="Ones: 3-7? borrow, 13-7=6. Tens: 1(after lending)-6? borrow, 11-6=5. Hundreds: 4(after lending)-2=2. Answer: 256.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On paper, subtract 523 &minus; 267, writing every borrow. Then type the answer:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="p2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#128081; Boss Battle: The Regrouping Challenge</h2>
+<p>Show what you know about adding and subtracting with regrouping!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="5" data-ans="384" data-logic="Two campsites have 156 and 228 hikers signed up. Ones: 6+8=14, write4 carry1. Tens: 5+2+1=8. Hundreds: 1+2=3. Answer: 384.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two campsites have 156 and 228 hikers signed up. How many hikers total?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A trail has 342 total steps. If you've climbed 168, you still need 342-168=174 more steps to reach the top.">
+    <span class="pts">+5</span>
+    <p class="qtext">A trail has 342 steps total. You've climbed 168 steps. How many steps are LEFT?</p>
+    <div class="opts">
+      <button class="opt">510</button>
+      <button class="opt" data-c="1">174</button>
+      <button class="opt">184</button>
+      <button class="opt">142</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="5" data-ans="regroup" data-logic="When a column adds up to 10 or more (or when subtracting a bigger digit from a smaller one), you regroup.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When a column in addition adds up to 10 or more, what do you need to do?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="5" data-ans="521" data-logic="Two supply drops bring 273 and 248 granola bars. Ones: 3+8=11 write1 carry1. Tens: 7+4+1=12 write2 carry1. Hundreds: 2+2+1=5. Answer: 521.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two supply drops bring 273 and 248 granola bars. How many granola bars total?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="A water tank holds 450 liters. If 275 liters have been used, 450-275=175 liters remain.">
+    <span class="pts">+5</span>
+    <p class="qtext">A water tank holds 450 liters. Hikers have used 275 liters. How many liters are LEFT?</p>
+    <div class="opts">
+      <button class="opt">725</button>
+      <button class="opt">185</button>
+      <button class="opt" data-c="1">175</button>
+      <button class="opt">225</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s1" data-pts="5" data-ans="borrow" data-logic="When the top digit in a subtraction column is smaller than the bottom digit, you borrow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When the top digit in subtraction is SMALLER than the bottom digit, what do you need to do?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="5" data-ans="612" data-logic="A trail crew plants 385 and 227 trees. Ones: 5+7=12 write2 carry1. Tens: 8+2+1=11 write1 carry1. Hundreds: 3+2+1=6. Answer: 612.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A trail crew plants 385 trees one week and 227 the next. How many trees total?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="A campsite budget is 500 dollars. If 235 dollars were spent, 500-235=265 dollars remain.">
+    <span class="pts">+5</span>
+    <p class="qtext">A campsite budget is $500. So far, $235 has been spent. How much money is LEFT?</p>
+    <div class="opts">
+      <button class="opt">735</button>
+      <button class="opt">255</button>
+      <button class="opt" data-c="1">265</button>
+      <button class="opt">275</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s2" data-pts="5" data-ans="carry" data-logic="Moving a regrouped ten (or hundred) over to the next column when adding is called carrying.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Moving a regrouped amount to the next column when adding is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">First Steps Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 3 of 8</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-math-w3';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 325;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* ===== KCE Pathways Progress Report (v2 addition) =====
+   Posts a lesson result to a Formspree form the moment a student finishes.
+   Formspree forwards it by email AND (via the same Zapier pattern already
+   live for KCE Instructor Training completions) appends a row to a
+   "Pathways Progress Log" Google Sheet, so a parent/teacher never has to
+   check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard →
+   New Form → copy the ID from the endpoint URL). */
+const PATHWAYS_FORMSPREE_ID = 'REPLACE_WITH_REAL_FORMSPREE_ID';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Regroup','trade 10 of one place for 1 of the next'],['Sum','the answer to an addition problem'],['Difference','the answer to a subtraction problem'],['Borrow','regroup 1 ten into 10 ones to subtract'],['Carry','move a regrouped ten to the next column']],[['168 + 77','245'],['452 \u2212 276','176'],['58 + 66','124'],['246 \u2212 57','189'],['387 + 134','521']],[['28 + 287','315'],['268 + 195','463'],['352 \u2212 185','167'],['347 + 276','623'],['481 \u2212 197','284']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! ⭐';
+  if (displayScore() >= 90) tierTitle = 'Basecamp Number Champion! 🧭👑';
+  else if (displayScore() >= 75) tierTitle = 'Regrouping Master! 🌟';
+  else if (displayScore() >= 50) tierTitle = 'Carry & Borrow Pro! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
