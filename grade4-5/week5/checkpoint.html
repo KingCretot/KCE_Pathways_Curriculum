@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Checkpoint 1 | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.badge-passport{background:linear-gradient(135deg,var(--purple),#A785DE);color:#fff}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillin{width:150px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.1rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.8rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.box-passport{background:linear-gradient(135deg,#F3EBFF,#E8D9FF);border:3px solid var(--purple)}
+.box-passport .icon{background:var(--purple);color:#fff}
+.box-passport h4{color:#5B3A96}
+.sectiontag{display:inline-block;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.tag-math{background:var(--sky);color:var(--navy)}
+.tag-reading{background:var(--rose);color:#fff}
+.tag-mixed{background:var(--purple);color:#fff}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🗺️ KCE Pathways — Grade 4-5 — Checkpoint 1</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0: INTRO -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Grade 4-5 &bull; Unit 1: First Steps &bull; Week 5</span>
+  <h1>Checkpoint 1</h1>
+  <h2>Everything You've Learned So Far 🗺️</h2>
+  <div class="box box-passport">
+    <div class="icon">🎫</div>
+    <h4>Portfolio Passport</h4>
+    <p>Today isn't a new lesson — it's a chance to show off everything you've learned across Weeks 1-4: multiplication, division, fractions, decimals, and all the reading skills that came with them. Finish today and earn your first Passport stamp!</p>
+  </div>
+  <div class="box box-story">
+    <div class="icon">🔄</div>
+    <h4>Meet the Whole Cast Again</h4>
+    <p>You'll see questions built around Mia's food truck, Zoe &amp; Milo's babysitting afternoon, Marcus's canceled weekend, and Priya &amp; Jordan's lemonade stand — all in one place.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why.</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Start Checkpoint &rarr;</button></div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 1: WARM-UP 1 - MATH TRAIL REVIEW -->
+<div class="slide" data-slide="1">
+<span class="sectiontag tag-math">Math Trail Review</span>
+<h2>🔢 Warm-Up 1: One From Each Week</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_1" data-pts="8" data-logic="4 is in the hundreds place of 3,482, so it's worth 400.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 1 skill: In 3,482, what is the digit 4 worth?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">40</button><button class="opt" data-c="1">400</button><button class="opt">4,000</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w1_2" data-pts="8" data-ans="7r1|7 r1" data-logic="5x7=35, 36-35=1 remainder. 36÷5=7 R1.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 2 skill: 36 &divide; 5 = ___ (write like "7 R1")</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w1_3" data-pts="8" data-ans="5/8" data-logic="Same denominator, add numerators: 3+2=5. 5/8.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 3 skill: 3/8 + 2/8 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w1_4" data-pts="8" data-logic="0.6=0.60, and 60 is greater than 45, so 0.6 is greater than 0.45.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 4 skill: Which is GREATER: 0.6 or 0.45?</p>
+    <div class="opts"><button class="opt" data-c="1">0.6</button><button class="opt">0.45</button><button class="opt">They're equal</button><button class="opt">Can't tell</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 2: WARM-UP 2 - READING TRAIL REVIEW -->
+<div class="slide" data-slide="2">
+<span class="sectiontag tag-reading">Reading Trail Review</span>
+<h2>📖 Warm-Up 2: One From Each Week</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w2_1" data-pts="8" data-logic="A problem a character faces is called the conflict.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 1 skill: A problem a character faces in a story is called the ___?</p>
+    <div class="opts"><button class="opt">Setting</button><button class="opt" data-c="1">Conflict</button><button class="opt">Theme</button><button class="opt">Sequence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_2" data-pts="8" data-logic="The particular way one character sees or feels about events is perspective.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 2 skill: The way one character sees or feels about events is called their ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Perspective</button><button class="opt">Motive</button><button class="opt">Dialogue</button><button class="opt">Theme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_3" data-pts="8" data-logic="The reason something happens is the cause.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 3 skill: The REASON something happens is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Cause</button><button class="opt">Effect</button><button class="opt">Evidence</button><button class="opt">Reasoning</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_4" data-pts="8" data-logic="The single most important point of a story is the main idea.">
+    <span class="pts">+8</span>
+    <p class="qtext">Week 4 skill: The single most important point in a story is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Main idea</button><button class="opt">Sequence</button><button class="opt">Summary</button><button class="opt">Detail</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 3: VOCABULARY ROUND-UP -->
+<div class="slide" data-slide="3">
+<span class="sectiontag tag-mixed">Vocabulary Round-Up</span>
+<h2>🌟 The Whole Unit's Vocabulary</h2>
+<p>Flip each card — these words come from every week of the unit.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">factor</div><div class="flip-face flip-back">A number being multiplied. (Week 1 Math)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quotient</div><div class="flip-face flip-back">The answer to a division problem. (Week 2 Math)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">equivalent</div><div class="flip-face flip-back">Fractions that represent the same amount. (Week 3 Math)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">decimal point</div><div class="flip-face flip-back">The dot separating whole numbers from decimal parts. (Week 4 Math)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">conflict</div><div class="flip-face flip-back">The problem a character faces. (Week 1 &amp; 2 Reading)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">perspective</div><div class="flip-face flip-back">How one character sees or feels about events. (Week 1 &amp; 2 Reading)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">evidence</div><div class="flip-face flip-back">Specific facts that support an argument. (Weeks 1, 3 &amp; 4 Reading — the most-used word this unit!)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">compromise</div><div class="flip-face flip-back">An agreement where both sides give a little. (Week 3 &amp; 4 Reading)</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 4: VOCABULARY QUIZ -->
+<div class="slide" data-slide="4">
+<span class="sectiontag tag-mixed">Vocabulary Round-Up</span>
+<h2>✍️ Your Turn: Using the Words</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="v1" data-pts="7" data-ans="factors" data-logic="Numbers being multiplied together are called factors.">
+    <span class="pts">+7</span>
+    <p class="qtext">In a multiplication problem, the numbers being multiplied are called ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:180px" placeholder="?"><button class="btn btn-pri" data-check="v1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v2" data-pts="7" data-logic="The answer to a division problem is the quotient.">
+    <span class="pts">+7</span>
+    <p class="qtext">The answer to a division problem is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Quotient</button><button class="opt">Dividend</button><button class="opt">Divisor</button><button class="opt">Remainder</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3" data-pts="7" data-logic="Fractions that represent the same amount are equivalent.">
+    <span class="pts">+7</span>
+    <p class="qtext">Fractions that represent the same amount, even if they look different, are called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent</button><button class="opt">Whole</button><button class="opt">Compare</button><button class="opt">Estimate</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v4" data-pts="7" data-ans="decimal point" data-logic="The dot separating whole numbers from parts is the decimal point.">
+    <span class="pts">+7</span>
+    <p class="qtext">The dot separating whole numbers from decimal parts is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v4">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v5" data-pts="7" data-logic="Specific facts that support an argument are evidence.">
+    <span class="pts">+7</span>
+    <p class="qtext">Specific facts or details that support an argument are called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Evidence</button><button class="opt">Motive</button><button class="opt">Dialogue</button><button class="opt">Sequence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v6" data-pts="7" data-ans="compromise" data-logic="An agreement where both sides give a little is a compromise.">
+    <span class="pts">+7</span>
+    <p class="qtext">An agreement where both sides give a little to reach a fair solution is called a ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:200px" placeholder="?"><button class="btn btn-pri" data-check="v6">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 5: REMEMBER THIS? NUMBERS & OPERATIONS (WEEKS 1-2 MATH) -->
+<div class="slide" data-slide="5">
+<span class="sectiontag tag-math">Remember This?</span>
+<h2>🔢 Numbers &amp; Operations (Weeks 1-2)</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_1" data-pts="8" data-ans="312" data-logic="24x13: area model (20+4)x(10+3) = 200+60+40+12 = 312.">
+    <span class="pts">+8</span>
+    <p class="qtext">24 &times; 13 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r1_2" data-pts="8" data-ans="7r3|7 r3" data-logic="6x7=42, 45-42=3 remainder. 45÷6=7 R3.">
+    <span class="pts">+8</span>
+    <p class="qtext">45 &divide; 6 = ___ (write like "7 R3")</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 6: REMEMBER THIS? CHARACTER & PERSPECTIVE (WEEKS 1-2 READING) -->
+<div class="slide" data-slide="6">
+<span class="sectiontag tag-reading">Remember This?</span>
+<h2>📖 Character &amp; Perspective (Weeks 1-2)</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r2_1" data-pts="8" data-logic="A physical detail like 'shoulders felt tight' signals stress without stating a feeling word directly — that's inference.">
+    <span class="pts">+8</span>
+    <p class="qtext">If a character's "shoulders felt tight," what can you INFER about how they feel?</p>
+    <div class="opts"><button class="opt" data-c="1">Stressed or under pressure</button><button class="opt">Excited</button><button class="opt">Bored</button><button class="opt">Hungry</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_2" data-pts="8" data-logic="Two characters can experience the same event and feel completely different things, and both feelings can be equally real.">
+    <span class="pts">+8</span>
+    <p class="qtext">Two characters can experience the exact same event and feel ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Completely different things, and both can be valid</button><button class="opt">Exactly the same thing, always</button><button class="opt">Nothing at all</button><button class="opt">Only what the narrator feels</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 7: REMEMBER THIS? FRACTIONS & DECIMALS (WEEKS 3-4 MATH) -->
+<div class="slide" data-slide="7">
+<span class="sectiontag tag-math">Remember This?</span>
+<h2>🔢 Fractions &amp; Decimals (Weeks 3-4)</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r3_1" data-pts="8" data-ans="3/6" data-logic="Same denominator, subtract numerators: 5-2=3. 3/6.">
+    <span class="pts">+8</span>
+    <p class="qtext">5/6 &minus; 2/6 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r3_2" data-pts="8" data-ans="4.25" data-logic="2.50+1.75: line up decimal points, add. 2.50+1.75=4.25.">
+    <span class="pts">+8</span>
+    <p class="qtext">$2.50 + $1.75 = ___</p>
+    <div class="fillrow"><input class="fillin" style="width:130px" placeholder="?"><button class="btn btn-pri" data-check="r3_2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 8: REMEMBER THIS? CAUSE/EFFECT & MAIN IDEA (WEEKS 3-4 READING) -->
+<div class="slide" data-slide="8">
+<span class="sectiontag tag-reading">Remember This?</span>
+<h2>📖 Cause/Effect &amp; Main Idea (Weeks 3-4)</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r4_1" data-pts="8" data-logic="What happens as a RESULT of a cause is the effect.">
+    <span class="pts">+8</span>
+    <p class="qtext">What happens as a RESULT of a cause is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Effect</button><button class="opt">Cause</button><button class="opt">Sequence</button><button class="opt">Theme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r4_2" data-pts="8" data-logic="The smaller facts that back up the main idea are called supporting details.">
+    <span class="pts">+8</span>
+    <p class="qtext">The smaller facts and examples that back up the main idea are called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Supporting details</button><button class="opt">Sequence</button><button class="opt">Evidence</button><button class="opt">Theme</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 9: MATCH-UP ROUND -->
+<div class="slide" data-slide="9">
+<span class="sectiontag tag-mixed">Match-Up Round</span>
+<h2>🔗 Which Word Goes With Which Idea?</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="mu1" data-pts="7" data-logic="Quotient is the word that matches with division.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with DIVISION?</p>
+    <div class="opts"><button class="opt" data-c="1">Quotient</button><button class="opt">Factor</button><button class="opt">Numerator</button><button class="opt">Decimal point</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="mu2" data-pts="7" data-logic="Equivalent is the word that matches with fractions.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with FRACTIONS?</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent</button><button class="opt">Dividend</button><button class="opt">Main idea</button><button class="opt">Motive</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="mu3" data-pts="7" data-logic="Factor is the word that matches with multiplication.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with MULTIPLICATION?</p>
+    <div class="opts"><button class="opt" data-c="1">Factor</button><button class="opt">Remainder</button><button class="opt">Tenths</button><button class="opt">Theme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="mu4" data-pts="7" data-logic="Evidence is the word that matches with a persuasive argument.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with a PERSUASIVE argument?</p>
+    <div class="opts"><button class="opt" data-c="1">Evidence</button><button class="opt">Setting</button><button class="opt">Quotient</button><button class="opt">Hundredths</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="mu5" data-pts="7" data-logic="Perspective is the word that matches with two different viewpoints of the same event.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with TWO characters seeing the same event differently?</p>
+    <div class="opts"><button class="opt" data-c="1">Perspective</button><button class="opt">Sequence</button><button class="opt">Estimate</button><button class="opt">Denominator</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="mu6" data-pts="7" data-logic="Compromise is the word that matches with finding a fair middle ground.">
+    <span class="pts">+7</span>
+    <p class="qtext">Which word matches with finding a FAIR MIDDLE GROUND?</p>
+    <div class="opts"><button class="opt" data-c="1">Compromise</button><button class="opt">Theme</button><button class="opt">Tenths</button><button class="opt">Dividend</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 10: TYPE-IT CORRAL -->
+<div class="slide" data-slide="10">
+<span class="sectiontag tag-mixed">Type-It Corral</span>
+<h2>⌨️ Type Your Answers</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ti1" data-pts="6" data-ans="8" data-logic="56÷7=8.">
+    <span class="pts">+6</span>
+    <p class="qtext">56 &divide; 7 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="ti1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti2" data-pts="6" data-ans="200" data-logic="In 5,209 the digit 2 is in the hundreds place, worth 200.">
+    <span class="pts">+6</span>
+    <p class="qtext">In 5,209, the digit 2 is worth ___?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="ti2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti3" data-pts="6" data-ans="3/4" data-logic="Same denominator, add numerators: 1+2=3. 3/4.">
+    <span class="pts">+6</span>
+    <p class="qtext">1/4 + 2/4 = ___</p>
+    <div class="fillrow"><input class="fillin" style="width:110px" placeholder="?"><button class="btn btn-pri" data-check="ti3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti4" data-pts="6" data-ans="3.65" data-logic="6.00-2.35=3.65.">
+    <span class="pts">+6</span>
+    <p class="qtext">$6.00 &minus; $2.35 = ___</p>
+    <div class="fillrow"><input class="fillin" style="width:130px" placeholder="?"><button class="btn btn-pri" data-check="ti4">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti5" data-pts="6" data-ans="theme" data-logic="The lesson a story teaches is the theme.">
+    <span class="pts">+6</span>
+    <p class="qtext">The lesson a story teaches is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:150px" placeholder="?"><button class="btn btn-pri" data-check="ti5">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti6" data-pts="6" data-ans="summarize|summarizing" data-logic="Retelling something in far fewer words is summarizing.">
+    <span class="pts">+6</span>
+    <p class="qtext">Retelling a story in far fewer words, without losing what matters, is called ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:180px" placeholder="?"><button class="btn btn-pri" data-check="ti6">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti7" data-pts="6" data-ans="sequence" data-logic="The order events happen in is the sequence.">
+    <span class="pts">+6</span>
+    <p class="qtext">The order events happen in a story is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:150px" placeholder="?"><button class="btn btn-pri" data-check="ti7">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ti8" data-pts="6" data-ans="details" data-logic="Facts that support the main idea are called supporting details.">
+    <span class="pts">+6</span>
+    <p class="qtext">Facts that support the main idea are called supporting ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:150px" placeholder="?"><button class="btn btn-pri" data-check="ti8">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: SPEED ARENA -->
+<div class="slide" data-slide="11">
+<span class="sectiontag tag-mixed">Speed Arena</span>
+<h2>⚡ Fast Bonus Round</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-bonus="1" data-ans="96" data-logic="8x12=96.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">8 &times; 12 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="sp1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Estimate has appeared in Math every single week of this unit.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which word has appeared in EVERY week of Math this unit?</p>
+    <div class="opts"><button class="opt" data-c="1">Estimate</button><button class="opt">Decimal</button><button class="opt">Hundredths</button><button class="opt">Whole</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Evidence and compromise both reappeared across multiple Reading weeks this unit.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which TWO Reading words came back more than once this unit?</p>
+    <div class="opts"><button class="opt" data-c="1">Evidence and compromise</button><button class="opt">Main idea and sequence</button><button class="opt">Summarize and details</button><button class="opt">Dialogue and motive</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 12: TRAIL WRAP-UP -->
+<div class="slide" data-slide="12">
+<span class="sectiontag tag-mixed">Trail Wrap-Up</span>
+<h2>🌇 Looking Back On the Whole Unit</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="ww1" data-pts="5" data-logic="Any of the four areas is a genuinely good answer — this is a reflection question, not a test question.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which area do you feel STRONGEST in?</p>
+    <div class="opts"><button class="opt" data-c="1">Math computation</button><button class="opt" data-c="1">Math vocabulary</button><button class="opt" data-c="1">Reading comprehension</button><button class="opt" data-c="1">Reading vocabulary</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ww2" data-pts="5" data-logic="Any of the four areas is a genuinely good answer for what to practice most.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which area do you want to PRACTICE MOST before Unit 2?</p>
+    <div class="opts"><button class="opt" data-c="1">Math computation</button><button class="opt" data-c="1">Math vocabulary</button><button class="opt" data-c="1">Reading comprehension</button><button class="opt" data-c="1">Reading vocabulary</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ww3" data-pts="5" data-logic="4 weeks of new content (Weeks 1-4) came before this Checkpoint.">
+    <span class="pts">+5</span>
+    <p class="qtext">Quick recall: how many weeks of NEW content came before this Checkpoint?</p>
+    <div class="opts"><button class="opt">2</button><button class="opt">3</button><button class="opt" data-c="1">4</button><button class="opt">5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ww4" data-pts="5" data-logic="A Checkpoint reviews skills you already learned — it doesn't introduce brand-new content.">
+    <span class="pts">+5</span>
+    <p class="qtext">Quick recall: is a Checkpoint week meant to introduce brand-new skills, or review skills you already learned?</p>
+    <div class="opts"><button class="opt">Introduce brand-new skills</button><button class="opt" data-c="1">Review skills you already learned</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 13: BOSS BATTLE -->
+<div class="slide" data-slide="13">
+<span class="sectiontag tag-mixed">Boss Battle</span>
+<h2>👑 The Whole Unit, All at Once</h2>
+<div class="box box-alert">
+  <div class="icon">👑</div>
+  <h4>12 Questions, Every Story, Every Skill</h4>
+  <p>This is the big one — questions from Mia's food truck, Zoe &amp; Milo, Marcus, and Priya &amp; Jordan, mixing Math and Reading.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1" data-pts="10" data-ans="234" data-logic="18x13: (10+8)x(10+3)=100+30+80+24=234.">
+    <span class="pts">+10</span>
+    <p class="qtext">Mia sold 18 items at $13 each at her food truck. 18 &times; 13 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2" data-pts="10" data-ans="25" data-logic="50÷2=25 each.">
+    <span class="pts">+10</span>
+    <p class="qtext">Zoe splits 50 stickers evenly between herself and Milo. How many does each get?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3" data-pts="10" data-ans="10/12" data-logic="10 out of 12 chores done = 10/12.">
+    <span class="pts">+10</span>
+    <p class="qtext">Marcus finished 10 out of 12 chores. Write that as a fraction.</p>
+    <div class="fillrow"><input class="fillin" style="width:120px" placeholder="?"><button class="btn btn-pri" data-check="b3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4" data-pts="10" data-ans="27.75" data-logic="18.50+9.25=27.75.">
+    <span class="pts">+10</span>
+    <p class="qtext">Priya and Jordan saved $18.50 one week and $9.25 the next. How much total?</p>
+    <div class="fillrow"><input class="fillin" style="width:130px" placeholder="?"><button class="btn btn-pri" data-check="b4">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5" data-pts="10" data-logic="Mia's conflict was the long, frustrated line of customers at her food truck.">
+    <span class="pts">+10</span>
+    <p class="qtext">In Mia's story, what was her CONFLICT?</p>
+    <div class="opts"><button class="opt" data-c="1">A long line of frustrated customers formed at her food truck</button><button class="opt">She lost her recipe book</button><button class="opt">Her food truck broke down</button><button class="opt">She ran out of ingredients</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b6" data-pts="10" data-logic="Reading the same event twice, once from each character's side, is the definition of perspective-taking.">
+    <span class="pts">+10</span>
+    <p class="qtext">In "Two Sides of the Story," what skill did you practice by reading the SAME event twice?</p>
+    <div class="opts"><button class="opt" data-c="1">Perspective-taking</button><button class="opt">Summarizing</button><button class="opt">Estimating</button><button class="opt">Rounding</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b7" data-pts="10" data-logic="Marcus and his dad reached a compromise — half a day Saturday instead of the whole weekend, if Marcus finished his chores that night.">
+    <span class="pts">+10</span>
+    <p class="qtext">What was the RESOLUTION of Marcus's conflict with his dad?</p>
+    <div class="opts"><button class="opt" data-c="1">A compromise — half a day Saturday if he finished his chores that night</button><button class="opt">Marcus got the full weekend back</button><button class="opt">The trip stayed fully canceled</button><button class="opt">Marcus gave up on the trip completely</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b8" data-pts="10" data-logic="The main idea of Splitting the Profits is that fair doesn't always mean an identical split.">
+    <span class="pts">+10</span>
+    <p class="qtext">What was the MAIN IDEA of "Splitting the Profits"?</p>
+    <div class="opts"><button class="opt" data-c="1">Fair doesn't always mean an identical split</button><button class="opt">Lemonade stands never make money</button><button class="opt">Friends should never work together</button><button class="opt">Priya was right and Jordan was wrong</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b9" data-pts="10" data-logic="Compare applies both to fractions/decimals in math and to weighing which character's perspective or detail matters more in reading.">
+    <span class="pts">+10</span>
+    <p class="qtext">Which word applies to BOTH comparing fraction/decimal size in math AND weighing details in reading?</p>
+    <div class="opts"><button class="opt" data-c="1">Compare</button><button class="opt">Quotient</button><button class="opt">Theme</button><button class="opt">Dividend</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b10" data-pts="10" data-logic="Motive is the vocabulary word for the reason behind a character's decision.">
+    <span class="pts">+10</span>
+    <p class="qtext">If you needed to explain WHY a character made a decision, which vocabulary word would you use?</p>
+    <div class="opts"><button class="opt" data-c="1">Motive</button><button class="opt">Dialogue</button><button class="opt">Sequence</button><button class="opt">Setting</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b11" data-pts="10" data-logic="'How many are left' signals subtraction — finding what remains.">
+    <span class="pts">+10</span>
+    <p class="qtext">Which operation is signaled by the phrase "how many are left"?</p>
+    <div class="opts"><button class="opt">Addition</button><button class="opt" data-c="1">Subtraction</button><button class="opt">Multiplication</button><button class="opt">Division</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b12" data-pts="10" data-logic="A good summary is SHORTER than the original, not longer — that's the whole point of summarizing.">
+    <span class="pts">+10</span>
+    <p class="qtext">True or False: A good summary is usually LONGER than the original story.</p>
+    <div class="opts"><button class="opt">True</button><button class="opt" data-c="1">False</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-finish>Finish Checkpoint — See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 14: RESULTS -->
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge badge-passport" id="finalBadge">🎫 Portfolio Passport Stamp Earned — Checkpoint 1 of 8</span>
+    <h1 id="finalHeadline">Unit 1 Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🗺️</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Also make sure you complete your separate Math and Reading Checkpoint Exercises on paper — those are a different assessment from this on-screen Checkpoint.</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{} };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade4-5-checkpoint1';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 400;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, timestamp:new Date().toISOString() };
+    if(PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH')===-1){
+      fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+        .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+        .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+    }
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); });
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +5 XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  const matched = accepted.indexOf(cleanVal)!==-1 || accepted.some(a=>cleanVal.indexOf(a)!==-1 && a.length>3);
+  if(matched){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +5 XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  reportProgress(displayScore());
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+</body>
+</html>
