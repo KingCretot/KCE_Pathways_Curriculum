@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 6: Stocking the Shelves (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#128722; KCE Pathways &mdash; Grade 3 &mdash; Week 6</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 6 &bull; Math</span>
+  <h1>Week 6: Stocking the Shelves</h1>
+  <h2>Intro to Multiplication &#128722;&#10006;&#65039;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome to Unit 2: The Trail Ahead! Grandpa's trading post needs to be fully stocked before opening season &mdash; and today you're learning the fastest way to count big piles of supplies: <b>multiplication</b>! Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review from Unit 1</li><li>Watch a video on multiplication strategies</li><li>Learn 5 new vocabulary words</li><li>Master equal groups, arrays, and repeated addition</li><li>Show what you know: Match-Up, Type-It, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Trail Recap: Unit 1 Review</h2>
+<p>Before we learn something new, let's make sure Unit 1's Math skills are locked in!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="500" data-logic="483&rsquo;s tens digit is 8, which is 5 or more, so it rounds up to 500.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">483 rounded to the nearest hundred is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Hundreds digits: 5 vs 4. 5 is bigger, so 512 is greater than 498.">
+    <span class="pts">+5</span>
+    <p class="qtext">Compare: 512 ___ 498</p>
+    <div class="opts">
+      <button class="opt" data-c="1">&gt;</button>
+      <button class="opt">&lt;</button>
+      <button class="opt">=</button>
+      <button class="opt">can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w3_s0" data-pts="5" data-ans="625" data-logic="Ones: 7+8=15, write5 carry1. Tens: 6+5+1=12, write2 carry1. Hundreds: 2+3+1=6. Answer: 625.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">267 + 358 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="'How many left' signals subtraction &mdash; you need to find what remains.">
+    <span class="pts">+5</span>
+    <p class="qtext">&ldquo;Grandpa had 400 jars. He sold 145. How many jars are LEFT?&rdquo; What operation do you use?</p>
+    <div class="opts">
+      <button class="opt">Addition</button>
+      <button class="opt" data-c="1">Subtraction</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Can't tell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="The 7 in 726 is in the hundreds place, so it is worth 700.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 726, what is the 7 worth?</p>
+    <div class="opts">
+      <button class="opt">7</button>
+      <button class="opt">70</button>
+      <button class="opt" data-c="1">700</button>
+      <button class="opt">7,000</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="163" data-logic="Ones: 1-8? borrow, 11-8=3. Tens: 2(after lending)-6? borrow, 12-6=6. Hundreds: 3(after lending)-2=1. Answer: 163.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">431 &minus; 268 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="How a problem gets FIXED at the end of a story is called the resolution.">
+    <span class="pts">+5</span>
+    <p class="qtext">How a story's problem gets fixed at the end is called the ___?</p>
+    <div class="opts">
+      <button class="opt">conflict</button>
+      <button class="opt">attempt</button>
+      <button class="opt" data-c="1">resolution</button>
+      <button class="opt">sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="regroup" data-logic="Trading 10 of one place value for 1 of the next is called regrouping.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Trading 10 of one place value for 1 of the next is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Compare hundreds digits: 5, 3, 6. Smallest first: 318, then 540, then 629.">
+    <span class="pts">+5</span>
+    <p class="qtext">Order these smallest first: 540, 318, 629</p>
+    <div class="opts">
+      <button class="opt">540, 318, 629</button>
+      <button class="opt" data-c="1">318, 540, 629</button>
+      <button class="opt">629, 540, 318</button>
+      <button class="opt">318, 629, 540</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="600" data-logic="276 rounds to 300, 341 rounds to 300. Estimate: 300+300=600.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estimate 276 + 341 by rounding to the nearest hundred first.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="The lesson or big idea a story teaches is called the theme.">
+    <span class="pts">+5</span>
+    <p class="qtext">The lesson or big idea a story teaches is called the ___?</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">theme</button>
+      <button class="opt">sequence</button>
+      <button class="opt">conflict</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="395" data-logic="Ones: 8+7=15, write5 carry1. Tens: 2+6+1=9. Hundreds: 1+2=3. Answer: 395.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">128 + 267 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127916; Watch &amp; Learn</h2>
+<div class="card card-sky">
+<p>Grandpa needs the trading post shelves stocked before opening day &mdash; jars in rows, crates in stacks, boxes by the dozen. Counting one-by-one would take forever! Watch this video to see the fast way: <b>multiplication</b>.</p>
+</div>
+<div class="videowrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:14px 0">
+<iframe src="https://www.youtube.com/embed/xgD7cL3LVq0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen title="Multiplication Strategies"></iframe>
+</div>
+<div class="card card-gold">
+<h3>&#128161; Key Takeaways</h3>
+<ul class="tips"><li>Multiplication is a fast way to add the SAME number over and over</li><li>An array lines items up in equal rows and columns</li><li>Equal groups means every group has the same amount inside</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Flip each card to learn this week's vocabulary!</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">multiply<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('multiply', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To combine equal groups quickly, instead of adding them one at a time.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">array<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('array', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Items arranged in equal rows and columns.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">equal groups<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('equal groups', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Groups that all have the exact same number of items inside.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">product<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('product', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The answer you get when you multiply two numbers.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">repeated addition<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('repeated addition', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Adding the same number over and over, like 4+4+4.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128220; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>This week's phonics skill is <b>compound words</b> &mdash; two small words joined to make one big word, just like the trading post is full of them!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="ss1" data-pts="5" data-bonus="1" data-ans="backpack" data-logic="back + pack = backpack. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">back + pack = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-bonus="1" data-ans="trailhead" data-logic="trail + head = trailhead. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">trail + head = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ss3" data-pts="5" data-bonus="1" data-logic="Sunshine is made of two small words joined together: sun + shine.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which word is a compound word?</p>
+    <div class="opts">
+      <button class="opt">shelf</button>
+      <button class="opt" data-c="1">sunshine</button>
+      <button class="opt">crate</button>
+      <button class="opt">jar</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss4" data-pts="5" data-bonus="1" data-ans="sunrise" data-logic="sun + rise = sunrise. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">sun + rise = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss4">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#128722; Equal Groups &amp; Repeated Addition</h2>
+<div class="card">
+<p>Theo lined up jars of honey on the trading post shelf: 4 jars in each row, and he made 3 rows. Instead of counting every jar one by one, he could add 4 three times: 4 + 4 + 4.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>When every group has the SAME number inside, I can either add the group size over and over (repeated addition), or I can multiply: the number of groups times the size of one group. 3 groups of 4 is the same as 4 + 4 + 4, which is the same as 3 &times; 4.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Groups to Multiplication</h4>3 groups of 4 jars<br>4 + 4 + 4 = 12<br>3 &times; 4 = 12</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Mia stacked crates: 2 groups of 5. That's 5 + 5 = 10, which is the same as 2 &times; 5 = 10.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t1a_s0" data-pts="5" data-ans="4 x 4" data-logic="4 groups of 4 written as repeated addition is 4+4+4+4, which is 4 &times; 4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 + 4 + 4 + 4 written as multiplication is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1a_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s0" data-pts="5" data-logic="3 groups of 5 means 5+5+5=15, which is the same as 3 &times; 5=15.">
+    <span class="pts">+5</span>
+    <p class="qtext">3 groups of 5 apples equals how many apples?</p>
+    <div class="opts">
+      <button class="opt">8</button>
+      <button class="opt" data-c="1">15</button>
+      <button class="opt">35</button>
+      <button class="opt">53</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s0" data-pts="5" data-ans="6" data-logic="2+2+2 is 3 groups of 2, which equals 6.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">2 + 2 + 2 = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t1a_s1" data-pts="5" data-ans="3 x 5" data-logic="3 groups of 5 written as repeated addition is 5+5+5, which is 3 &times; 5.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">5 + 5 + 5 written as multiplication is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1a_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s1" data-pts="5" data-logic="4 groups of 3 means 3+3+3+3=12, which is the same as 4 &times; 3=12.">
+    <span class="pts">+5</span>
+    <p class="qtext">4 groups of 3 crates equals how many crates?</p>
+    <div class="opts">
+      <button class="opt">7</button>
+      <button class="opt" data-c="1">12</button>
+      <button class="opt">34</button>
+      <button class="opt">43</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s1" data-pts="5" data-ans="12" data-logic="6+6 is 2 groups of 6, which equals 12.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">6 + 6 = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t1a_s2" data-pts="5" data-ans="5 x 3" data-logic="5 groups of 3 written as repeated addition is 3+3+3+3+3, which is 5 &times; 3.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">3 + 3 + 3 + 3 + 3 written as multiplication is:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1a_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s2" data-pts="5" data-logic="2 groups of 6 means 6+6=12, which is the same as 2 &times; 6=12.">
+    <span class="pts">+5</span>
+    <p class="qtext">2 groups of 6 boxes equals how many boxes?</p>
+    <div class="opts">
+      <button class="opt">8</button>
+      <button class="opt" data-c="1">12</button>
+      <button class="opt">26</button>
+      <button class="opt">62</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s2" data-pts="5" data-ans="14" data-logic="7+7 is 2 groups of 7, which equals 14.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">7 + 7 = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128209; Arrays: Rows &amp; Columns</h2>
+<div class="card card-sky">
+<p>Grandpa asked Mia to arrange the seed packets in a neat array on the shelf: 4 rows, with 5 packets in each row. An array is any arrangement of equal rows and columns &mdash; and it's another way to see multiplication.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>In an array, the first number is usually the number of ROWS, and the second is the number in each row (COLUMNS). 4 rows of 5 is written 4 &times; 5. I can count by 5s to check: 5, 10, 15, 20.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: A 4x5 Array</h4>&#127793;&#127793;&#127793;&#127793;&#127793;<br>&#127793;&#127793;&#127793;&#127793;&#127793;<br>&#127793;&#127793;&#127793;&#127793;&#127793;<br>&#127793;&#127793;&#127793;&#127793;&#127793;<br>4 rows &times; 5 columns = 20 total</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Theo stacked firewood in an array: 3 rows, 6 pieces each row. 3 &times; 6 = 18 pieces of firewood.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t2a_s0" data-pts="5" data-logic="3 rows of 4 items is written 3 &times; 4.">
+    <span class="pts">+5</span>
+    <p class="qtext">An array with 3 rows and 4 items in each row shows what multiplication fact?</p>
+    <div class="opts">
+      <button class="opt">3 + 4</button>
+      <button class="opt" data-c="1">3 &times; 4</button>
+      <button class="opt">4 &times; 4</button>
+      <button class="opt">7 &times; 7</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s0" data-pts="5" data-ans="12" data-logic="2 rows &times; 6 columns = 12 total items.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 2-row, 6-column array has this many items in all:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s0" data-pts="5" data-logic="In an array, the first number usually tells you the number of rows.">
+    <span class="pts">+5</span>
+    <p class="qtext">In an array, what does the FIRST number usually tell you?</p>
+    <div class="opts">
+      <button class="opt">The columns</button>
+      <button class="opt" data-c="1">The rows</button>
+      <button class="opt">The total</button>
+      <button class="opt">Nothing</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t2a_s1" data-pts="5" data-logic="5 rows of 2 items is written 5 &times; 2.">
+    <span class="pts">+5</span>
+    <p class="qtext">An array with 5 rows and 2 items in each row shows what multiplication fact?</p>
+    <div class="opts">
+      <button class="opt">5 + 2</button>
+      <button class="opt" data-c="1">5 &times; 2</button>
+      <button class="opt">2 &times; 7</button>
+      <button class="opt">5 &times; 5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s1" data-pts="5" data-ans="9" data-logic="3 rows &times; 3 columns = 9 total items.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 3-row, 3-column array has this many items in all:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s1" data-pts="5" data-logic="An array must have equal rows and columns &mdash; that is what makes it an array.">
+    <span class="pts">+5</span>
+    <p class="qtext">What makes an arrangement of items an ARRAY?</p>
+    <div class="opts">
+      <button class="opt">Random piles</button>
+      <button class="opt" data-c="1">Equal rows and columns</button>
+      <button class="opt">Just one row</button>
+      <button class="opt">A messy stack</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t2a_s2" data-pts="5" data-logic="4 rows of 3 items is written 4 &times; 3.">
+    <span class="pts">+5</span>
+    <p class="qtext">An array with 4 rows and 3 items in each row shows what multiplication fact?</p>
+    <div class="opts">
+      <button class="opt">4 + 3</button>
+      <button class="opt" data-c="1">4 &times; 3</button>
+      <button class="opt">3 &times; 7</button>
+      <button class="opt">4 &times; 4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s2" data-pts="5" data-ans="12" data-logic="6 rows &times; 2 columns = 12 total items.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 6-row, 2-column array has this many items in all:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s2" data-pts="5" data-logic="Skip-counting the rows of an array is a fast way to find the total.">
+    <span class="pts">+5</span>
+    <p class="qtext">If you skip-count the rows of an array, what are you finding?</p>
+    <div class="opts">
+      <button class="opt">The rows only</button>
+      <button class="opt" data-c="1">The total</button>
+      <button class="opt">The color</button>
+      <button class="opt">Nothing useful</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9889; Multiplication: The Fast Way to Add</h2>
+<div class="card card-grass">
+<p>By the end of the day, Theo and Mia had counted dozens of equal groups all over the trading post &mdash; jars, crates, seed packets, firewood. They realized multiplication was really just a shortcut for addition, and it worked no matter WHAT was being counted.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Any repeated addition problem can become a multiplication fact: count the number of equal groups, then count how many are in EACH group. Multiply those two numbers, and you get the same answer as adding &mdash; just much faster.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Same Answer, Two Ways</h4>6 + 6 + 6 + 6 = 24<br>4 &times; 6 = 24</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Grandpa had 5 shelves with 3 boxes on each shelf. 5 &times; 3 = 15 boxes total &mdash; much faster than adding 3+3+3+3+3!</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t3a_s0" data-pts="5" data-ans="20" data-logic="5 groups of 4 is the same as 4+4+4+4+4=20.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">5 &times; 4 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3a_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s0" data-pts="5" data-logic="3 &times; 7 means 3 groups of 7, which is 7+7+7.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which addition problem matches 3 &times; 7?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">7+7+7</button>
+      <button class="opt">3+3+3+3+3+3+3</button>
+      <button class="opt">7+7</button>
+      <button class="opt">3+7</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="16" data-logic="2 groups of 8 is the same as 8+8=16.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">2 &times; 8 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t3a_s1" data-pts="5" data-ans="20" data-logic="4 groups of 5 is the same as 5+5+5+5=20.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 &times; 5 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3a_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s1" data-pts="5" data-logic="4 &times; 2 means 4 groups of 2, which is 2+2+2+2.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which addition problem matches 4 &times; 2?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">2+2+2+2</button>
+      <button class="opt">4+4</button>
+      <button class="opt">2+4</button>
+      <button class="opt">4+4+4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="18" data-logic="3 groups of 6 is the same as 6+6+6=18.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">3 &times; 6 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t3a_s2" data-pts="5" data-ans="18" data-logic="6 groups of 3 is the same as 3+3+3+3+3+3=18.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">6 &times; 3 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3a_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s2" data-pts="5" data-logic="5 &times; 3 means 5 groups of 3, which is 3+3+3+3+3.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which addition problem matches 5 &times; 3?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">3+3+3+3+3</button>
+      <button class="opt">5+5+5</button>
+      <button class="opt">3+5</button>
+      <button class="opt">5+3</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="18" data-logic="2 groups of 9 is the same as 9+9=18.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">2 &times; 9 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#11088; Bonus Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+  <div class="qbox" data-fq="bp1" data-pts="5" data-bonus="1" data-ans="9" data-logic="3 groups of 3 is 3+3+3=9.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">3 &times; 3 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="16" data-logic="4 groups of 4 is 4+4+4+4=16.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 &times; 4 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bp3" data-pts="5" data-bonus="1" data-logic="Equal groups all have the SAME number in them &mdash; three groups of 4 jars each.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which is an example of equal groups?</p>
+    <div class="opts">
+      <button class="opt">3 apples, 5 oranges, 2 pears</button>
+      <button class="opt" data-c="1">4 jars, 4 jars, 4 jars</button>
+      <button class="opt">1 crate, 6 crates, 2 crates</button>
+      <button class="opt">a pile of mixed items</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each answer!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="15" data-logic="3 groups of 5 is 5+5+5=15.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">3 &times; 5 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="array" data-logic="Items arranged in equal rows and columns are called an array.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Items arranged in equal rows and columns are called an ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="4 x 3" data-logic="3 groups of 4 written as multiplication is 3 &times; 4 (or 4 &times; 3).">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 + 4 + 4 written as multiplication is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="24" data-logic="4 groups of 6 is 6+6+6+6=24.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 &times; 6 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="product" data-logic="The answer you get when you multiply is called the product.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The answer to a multiplication problem is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="4 x 2" data-logic="4 groups of 2 written as multiplication is 4 &times; 2.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">2 + 2 + 2 + 2 written as multiplication is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="25" data-logic="5 groups of 5 is 5+5+5+5+5=25.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">5 &times; 5 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="equal" data-logic="Groups that all have the same number inside are called equal groups.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Groups that all have the same number inside are called ___ groups</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="2 x 6" data-logic="2 groups of 6 written as multiplication is 2 &times; 6.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">6 + 6 written as multiplication is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-bonus="1" data-ans="8" data-logic="2 groups of 4 is 4+4=8.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">2 &times; 4 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="18" data-logic="3 groups of 6 is 6+6+6=18.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">3 &times; 6 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Adding the same number over and over is called repeated addition.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">What is another name for adding the same number over and over?</p>
+    <div class="opts">
+      <button class="opt">Array</button>
+      <button class="opt">Product</button>
+      <button class="opt" data-c="1">Repeated addition</button>
+      <button class="opt">Estimate</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65041; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="i stocked the trading post shelves in equal rows." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I stocked the trading post shelves in equal rows.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Great work learning multiplication! Before the Boss Battle, take a moment to think back on what you learned. Your teacher will give you a separate paper <b>Exercise</b> to complete by hand &mdash; that's where you'll really show off on paper!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pb1_s0" data-pts="5" data-logic="Multiplying is faster once you know your facts &mdash; that is the whole point of learning it!">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is easier: adding 6+6+6+6+6 one at a time, or multiplying 5 &times; 6?</p>
+    <div class="opts">
+      <button class="opt">Adding one at a time</button>
+      <button class="opt" data-c="1">Multiplying</button>
+      <button class="opt">They are the same speed</button>
+      <button class="opt">Neither works</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s0" data-pts="5" data-logic="3 rows &times; 4 columns = 12 total items.">
+    <span class="pts">+5</span>
+    <p class="qtext">Draw an array with 3 rows and 4 columns on your paper. How many total items should you draw?</p>
+    <div class="opts">
+      <button class="opt">7</button>
+      <button class="opt" data-c="1">12</button>
+      <button class="opt">34</button>
+      <button class="opt">43</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pb1_s1" data-pts="5" data-logic="Multiplication facts work the same forwards and backwards &mdash; 4&times;5 and 5&times;4 both equal 20.">
+    <span class="pts">+5</span>
+    <p class="qtext">If you know 4 &times; 5 = 20, what is 5 &times; 4?</p>
+    <div class="opts">
+      <button class="opt">9</button>
+      <button class="opt">16</button>
+      <button class="opt" data-c="1">20</button>
+      <button class="opt">24</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s1" data-pts="5" data-logic="Array means items lined up in equal rows and columns.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which word means items lined up in equal rows and columns?</p>
+    <div class="opts">
+      <button class="opt">Estimate</button>
+      <button class="opt" data-c="1">Array</button>
+      <button class="opt">Theme</button>
+      <button class="opt">Sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pb1_s2" data-pts="5" data-logic="6 rows &times; 2 = 12 jars.">
+    <span class="pts">+5</span>
+    <p class="qtext">Grandpa's shelf has 6 rows of 2 jars. How many jars in all?</p>
+    <div class="opts">
+      <button class="opt">8</button>
+      <button class="opt" data-c="1">12</button>
+      <button class="opt">62</button>
+      <button class="opt">26</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s2" data-pts="5" data-logic="3 groups of 5 is the same as adding 5 three times: 5+5+5.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the SAME as 3 groups of 5?</p>
+    <div class="opts">
+      <button class="opt">3 + 5</button>
+      <button class="opt" data-c="1">5 + 5 + 5</button>
+      <button class="opt">3 &times; 3</button>
+      <button class="opt">5 &times; 5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#128081; Boss Battle: The Great Restock</h2>
+<p>Show everything you've learned this week!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="bb1_s0" data-pts="5" data-ans="20" data-logic="4 groups of 5 is 5+5+5+5=20.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">4 &times; 5 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb2_s0" data-pts="5" data-logic="3 rows &times; 5 = 15 pieces.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo made an array of firewood: 3 rows, 5 pieces each row. How many pieces total?</p>
+    <div class="opts">
+      <button class="opt">8</button>
+      <button class="opt" data-c="1">15</button>
+      <button class="opt">35</button>
+      <button class="opt">53</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb3_s0" data-pts="5" data-ans="product" data-logic="The answer to a multiplication problem is the product.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The answer to a multiplication problem is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="bb1_s1" data-pts="5" data-ans="24" data-logic="6 groups of 4 is 4+4+4+4+4+4=24.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">6 &times; 4 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb2_s1" data-pts="5" data-logic="4 groups of 6 is 6+6+6+6=24.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mia stocked seed packets in 4 groups of 6. How many packets total?</p>
+    <div class="opts">
+      <button class="opt">10</button>
+      <button class="opt" data-c="1">24</button>
+      <button class="opt">46</button>
+      <button class="opt">64</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb3_s1" data-pts="5" data-ans="3 x 7" data-logic="3 groups of 7 written as multiplication is 3 &times; 7.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">7 + 7 + 7 written as multiplication is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="bb1_s2" data-pts="5" data-ans="30" data-logic="5 groups of 6 is 6+6+6+6+6=30.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">5 &times; 6 =</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb2_s2" data-pts="5" data-logic="An array is equal rows and columns &mdash; 4 rows of 3 jars each.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which shows an array?</p>
+    <div class="opts">
+      <button class="opt">A pile of mixed jars</button>
+      <button class="opt" data-c="1">4 rows of 3 jars each</button>
+      <button class="opt">2 jars, then 5 jars</button>
+      <button class="opt">A single jar</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb3_s2" data-pts="5" data-ans="equal" data-logic="Groups with the same amount inside are called equal groups.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Groups that all have the same amount are called ___ groups</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Trading Post Stocked!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Week 1 of 4</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-math-w6';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 115;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['3 groups of 4','3 &times; 4'],['5 + 5 + 5','3 &times; 5'],['4 &times; 2','8'],['2 rows of 6','2 &times; 6'],['6 &times; 1','6']],[['4 groups of 3','4 &times; 3'],['2 + 2 + 2 + 2','4 &times; 2'],['5 &times; 3','15'],['3 rows of 4','3 &times; 4'],['7 &times; 0','0']],[['2 groups of 5','2 &times; 5'],['3 + 3 + 3','3 &times; 3'],['4 &times; 4','16'],['5 rows of 2','5 &times; 2'],['1 &times; 9','9']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! \ud83e\udde9'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '\ud83c\udf1f Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '\ud83c\udf1f Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! &#11088;';
+  if (displayScore() >= 90) tierTitle = 'Summit Champion! &#127955;&#128081;';
+  else if (displayScore() >= 75) tierTitle = 'Checkpoint Master! &#127775;';
+  else if (displayScore() >= 50) tierTitle = 'Trail Explorer! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '\ud83c\udf89 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun \ud83d\udd04';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '\ud83d\udcaa Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again \ud83d\udd04';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 6: The Storm in the Stockroom (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#127755; KCE Pathways &mdash; Grade 3 &mdash; Week 6</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 6 &bull; Reading</span>
+  <h1>Week 6: The Storm in the Stockroom</h1>
+  <h2>Cause &amp; Effect Chains &#9928;&#128260;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Welcome to Unit 2: The Trail Ahead! A storm hit the trading post overnight, and Mia has to figure out exactly what went wrong &mdash; one step at a time. Today you're learning how one small cause can set off a whole CHAIN of effects. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review from Unit 1</li><li>Watch a video on cause and effect</li><li>Learn 5 new vocabulary words</li><li>Master cause and effect CHAINS &mdash; where one effect becomes the next cause</li><li>Show what you know: Match-Up, Type-It, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Trail Recap: Unit 1 Review</h2>
+<p>Before we learn something new, let's make sure Unit 1's Reading skills are locked in!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A problem a character faces in a story is called the conflict.">
+    <span class="pts">+5</span>
+    <p class="qtext">A problem a character faces in a story is called the ___?</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">conflict</button>
+      <button class="opt">theme</button>
+      <button class="opt">sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="theme" data-logic="The lesson or big idea a story teaches is called the theme.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The lesson or big idea a story teaches is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Theo is the main character across all of this unit's stories.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who is the main character in this unit's stories?</p>
+    <div class="opts">
+      <button class="opt">Mia</button>
+      <button class="opt" data-c="1">Theo</button>
+      <button class="opt">Dad</button>
+      <button class="opt">A stranger</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="resolution" data-logic="How a problem gets fixed at the end of a story is called the resolution.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How a problem gets FIXED at the end of a story is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="WHERE and WHEN a story takes place is called the setting.">
+    <span class="pts">+5</span>
+    <p class="qtext">WHERE and WHEN a story takes place is called the ___?</p>
+    <div class="opts">
+      <button class="opt">theme</button>
+      <button class="opt">conflict</button>
+      <button class="opt" data-c="1">setting</button>
+      <button class="opt">sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="infer" data-logic="Figuring something out from clues is called inferring.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Figuring something out from clues, without being told directly, is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Words like first, next, then, and last are transition words that show order.">
+    <span class="pts">+5</span>
+    <p class="qtext">Words like first, next, then, and last show what?</p>
+    <div class="opts">
+      <button class="opt">theme</button>
+      <button class="opt" data-c="1">order</button>
+      <button class="opt">setting</button>
+      <button class="opt">conflict</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="Mia" data-logic="Theo shared the last marshmallow with his sister Mia.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Who did Theo share the last marshmallow with?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="What actually happens in a story is called the plot.">
+    <span class="pts">+5</span>
+    <p class="qtext">What actually happens in a story, as opposed to its lesson, is called the ___?</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt">theme</button>
+      <button class="opt" data-c="1">plot</button>
+      <button class="opt">conflict</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="attempt" data-logic="A character's try at solving a problem is called the attempt.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A character's TRY at solving a problem is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="All of this unit's stories have taken place on or around the same hiking trail.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where do most of this unit's stories take place?</p>
+    <div class="opts">
+      <button class="opt">A city</button>
+      <button class="opt">A school</button>
+      <button class="opt" data-c="1">A hiking trail</button>
+      <button class="opt">The ocean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="middle" data-logic="Most of the action of a story happens in the middle.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Most of the action of a story happens in the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127916; Watch &amp; Learn</h2>
+<div class="card card-sky">
+<p>Something happened at the trading post last night &mdash; and Mia is determined to figure out exactly why. Watch this video to learn how cause and effect works.</p>
+</div>
+<div class="videowrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:14px 0">
+<iframe src="https://www.youtube.com/embed/sMTIuPvU6Lc" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen title="Cause and Effect"></iframe>
+</div>
+<div class="card card-gold">
+<h3>&#128161; Key Takeaways</h3>
+<ul class="tips"><li>A cause is WHY something happens</li><li>An effect is WHAT happens as a result</li><li>One effect can become the NEXT cause &mdash; that's a chain!</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Flip each card to learn this week's vocabulary!</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">cause<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('cause', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The reason WHY something happens.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">effect<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('effect', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">WHAT happens as a result of a cause.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">chain reaction<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('chain reaction', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A series of effects, where each one causes the next.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">consequence<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('consequence', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A result that follows an action, often used for negative ones.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">trace<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('trace', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To follow a chain of events back to where it first started.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128220; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>This week's phonics skill is <b>compound words</b> &mdash; the same skill from Math class today, so let's practice it here too!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="ss1" data-pts="5" data-bonus="1" data-ans="stockroom" data-logic="stock + room = stockroom. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">stock + room = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-bonus="1" data-ans="rainstorm" data-logic="rain + storm = rainstorm. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">rain + storm = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ss3" data-pts="5" data-bonus="1" data-logic="Doorway is made of two small words joined together: door + way.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which word is a compound word?</p>
+    <div class="opts">
+      <button class="opt">shutter</button>
+      <button class="opt" data-c="1">doorway</button>
+      <button class="opt">crack</button>
+      <button class="opt">wet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss4" data-pts="5" data-bonus="1" data-ans="overnight" data-logic="over + night = overnight. Two small words joined to make one big word.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">over + night = ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss4">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#127749; What Is Cause &amp; Effect, Really?</h2>
+<div class="card">
+<p>Mia woke up to find puddles on the stockroom floor. Something had caused it &mdash; but WHAT? She decided to investigate like a detective, working backward from the effect to find the cause.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>A cause always comes BEFORE its effect in time, even if the story doesn't tell events in that order. To find a cause, I ask &ldquo;why did this happen?&rdquo; To find an effect, I ask &ldquo;what happened because of this?&rdquo; Good readers can spot cause and effect even when the author doesn't use obvious clue words like &ldquo;because.&rdquo;</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Cause &rarr; Effect</h4>CAUSE: A storm hit overnight<br>&darr;<br>EFFECT: Puddles appeared on the floor</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>Mia noticed the stockroom smelled musty. The CAUSE was standing water from the storm; the musty smell was the EFFECT.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t1a_s0" data-pts="5" data-logic="To find a cause, you ask &ldquo;why did this happen?&rdquo;">
+    <span class="pts">+5</span>
+    <p class="qtext">Mia found puddles on the floor. What question helps her find the CAUSE?</p>
+    <div class="opts">
+      <button class="opt">What happened because of this?</button>
+      <button class="opt" data-c="1">Why did this happen?</button>
+      <button class="opt">Where is the mop?</button>
+      <button class="opt">What time is it?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s0" data-pts="5" data-logic="A cause always comes before its effect in time.">
+    <span class="pts">+5</span>
+    <p class="qtext">A cause always happens ___ its effect.</p>
+    <div class="opts">
+      <button class="opt">after</button>
+      <button class="opt">during</button>
+      <button class="opt" data-c="1">before</button>
+      <button class="opt">never near</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s0" data-pts="5" data-ans="effect" data-logic="What happens as a result of a cause is called an effect.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">WHAT happens as a result of a cause is called an ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t1a_s1" data-pts="5" data-logic="To find an effect, you ask &ldquo;what happened because of this?&rdquo;">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question helps you find an EFFECT?</p>
+    <div class="opts">
+      <button class="opt">Why did this happen?</button>
+      <button class="opt" data-c="1">What happened because of this?</button>
+      <button class="opt">Who did this?</button>
+      <button class="opt">When did this start?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s1" data-pts="5" data-logic="The rain is the cause; the wet ground is the effect.">
+    <span class="pts">+5</span>
+    <p class="qtext">If it rains and the ground gets wet, which is the cause?</p>
+    <div class="opts">
+      <button class="opt">The wet ground</button>
+      <button class="opt" data-c="1">The rain</button>
+      <button class="opt">The mud</button>
+      <button class="opt">The puddle</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s1" data-pts="5" data-ans="cause" data-logic="The reason why something happens is called the cause.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The reason WHY something happens is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t1a_s2" data-pts="5" data-logic="Good readers can spot cause and effect even without obvious clue words.">
+    <span class="pts">+5</span>
+    <p class="qtext">Can a story show cause and effect WITHOUT using the word "because"?</p>
+    <div class="opts">
+      <button class="opt">No, never</button>
+      <button class="opt" data-c="1">Yes, good readers can still spot it</button>
+      <button class="opt">Only in Math</button>
+      <button class="opt">Only if written down</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1b_s2" data-pts="5" data-logic="The musty smell is the effect of the standing water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mia's stockroom smelled musty. What is the musty smell?</p>
+    <div class="opts">
+      <button class="opt">The cause</button>
+      <button class="opt" data-c="1">The effect</button>
+      <button class="opt">Neither</button>
+      <button class="opt">A character</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1c_s2" data-pts="5" data-ans="detective" data-logic="Mia decided to investigate like a detective.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Mia investigated the puddles like a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128260; Chains: One Thing Leads to Another</h2>
+<div class="card card-sky">
+<p>Mia traced the puddles back to a loose shutter on the stockroom window. But that was just the START of a much longer chain! The loose shutter cracked in the wind, which let rain inside, which soaked the boxes, which made them collapse, which spilled the goods, which ruined them &mdash; leaving less inventory for opening day.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Just like a line of dominoes, a chain reaction happens when one effect becomes the NEXT cause, which creates a NEW effect, and so on. To trace a chain, I find the very first cause, then ask &ldquo;and then what happened?&rdquo; over and over until I reach the final effect.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: The Storm Chain</h4>Loose shutter &rarr; cracked in wind<br>&rarr; rain got inside<br>&rarr; boxes got soaked<br>&rarr; boxes collapsed<br>&rarr; goods spilled and were ruined<br>&rarr; less inventory for opening day</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>If Theo forgets to latch the gate, the goats get out, eat the garden, and there's no lettuce for dinner. Each effect becomes the next cause &mdash; just like dominoes!</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t2a_s0" data-pts="5" data-logic="In a chain reaction, one effect becomes the next cause.">
+    <span class="pts">+5</span>
+    <p class="qtext">In a chain reaction, one effect becomes the ___?</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">next cause</button>
+      <button class="opt">theme</button>
+      <button class="opt">ending</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s0" data-pts="5" data-ans="loose shutter" data-logic="The very first cause in the storm chain was the loose shutter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the very FIRST cause in the storm chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s0" data-pts="5" data-logic="&ldquo;And then what happened?&rdquo; helps you trace a chain step by step.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is a good question to ask to trace a chain?</p>
+    <div class="opts">
+      <button class="opt">What's for lunch?</button>
+      <button class="opt" data-c="1">And then what happened?</button>
+      <button class="opt">Who is the author?</button>
+      <button class="opt">Is this fiction?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t2a_s1" data-pts="5" data-logic="A chain reaction is like a line of dominoes falling one after another.">
+    <span class="pts">+5</span>
+    <p class="qtext">A chain reaction is like a line of ___?</p>
+    <div class="opts">
+      <button class="opt">books</button>
+      <button class="opt" data-c="1">dominoes</button>
+      <button class="opt">trees</button>
+      <button class="opt">clouds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s1" data-pts="5" data-ans="less inventory" data-logic="The final effect at the end of the storm chain was less inventory for opening day.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the FINAL effect at the end of the storm chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s1" data-pts="5" data-logic="After the shutter cracked, rain got inside next.">
+    <span class="pts">+5</span>
+    <p class="qtext">After the shutter cracked, what happened NEXT in the chain?</p>
+    <div class="opts">
+      <button class="opt">Boxes collapsed</button>
+      <button class="opt" data-c="1">Rain got inside</button>
+      <button class="opt">Goods were ruined</button>
+      <button class="opt">Opening day started</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t2a_s2" data-pts="5" data-logic="Right after forgetting to latch the gate, the goats get out.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the goat story, what happens right after Theo forgets to latch the gate?</p>
+    <div class="opts">
+      <button class="opt">The goats eat lettuce</button>
+      <button class="opt" data-c="1">The goats get out</button>
+      <button class="opt">There's no dinner</button>
+      <button class="opt">The garden grows</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s2" data-pts="5" data-ans="collapsed" data-logic="After boxes got soaked, they collapsed next.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">After boxes got soaked, what happened next in the chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s2" data-pts="5" data-logic="Tracing the whole chain helps you understand the full story of what happened, not just one piece.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is it useful to trace a whole chain, not just one cause and effect?</p>
+    <div class="opts">
+      <button class="opt">It isn't useful</button>
+      <button class="opt" data-c="1">It helps you understand the FULL story of what happened</button>
+      <button class="opt">It takes longer</button>
+      <button class="opt">It only works in Math</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#128260; One Event, Two Jobs</h2>
+<div class="card card-grass">
+<p>Mia made an important discovery: &ldquo;boxes got soaked&rdquo; wasn't JUST an effect of the rain getting in &mdash; it was ALSO the cause of the boxes collapsing! In a chain, most events play a DOUBLE role: they're the effect of what came before, and the cause of what comes next.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>When I'm in the middle of a chain, I ask two questions about the SAME event: &ldquo;what caused this?&rdquo; (looking backward) and &ldquo;what did this cause?&rdquo; (looking forward). Only the very FIRST event in a chain is just a cause, and only the very LAST event is just an effect &mdash; everything in between does double duty.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Double Role</h4>&larr; Rain got inside (this is the EFFECT of the crack)<br>BOXES GOT SOAKED<br>this is the CAUSE of the collapse &rarr;</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>&ldquo;Goods spilled&rdquo; is the EFFECT of the boxes collapsing, AND the CAUSE of the goods being ruined. Double role!</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="In the middle of a chain, most events are both an effect of what came before and a cause of what comes next.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the middle of a chain, most events are:</p>
+    <div class="opts">
+      <button class="opt">Only causes</button>
+      <button class="opt">Only effects</button>
+      <button class="opt" data-c="1">Both an effect AND a new cause</button>
+      <button class="opt">Neither</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s0" data-pts="5" data-logic="&ldquo;Boxes got soaked&rdquo; is the effect of rain getting inside.">
+    <span class="pts">+5</span>
+    <p class="qtext">"Boxes got soaked" is the EFFECT of what?</p>
+    <div class="opts">
+      <button class="opt">The boxes collapsing</button>
+      <button class="opt" data-c="1">Rain getting inside</button>
+      <button class="opt">Opening day</button>
+      <button class="opt">Mia investigating</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s0" data-pts="5" data-ans="collapse" data-logic="&ldquo;Boxes got soaked&rdquo; is the cause of the boxes collapsing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"Boxes got soaked" is the CAUSE of what happening next?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="Only the very first event in a chain is just a cause, with nothing before it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Only the very FIRST event in a chain is:</p>
+    <div class="opts">
+      <button class="opt">Only an effect</button>
+      <button class="opt" data-c="1">Only a cause</button>
+      <button class="opt">Both</button>
+      <button class="opt">Neither</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s1" data-pts="5" data-logic="Only the very last event in a chain is just an effect, with nothing after it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Only the very LAST event in a chain is:</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Only an effect</button>
+      <button class="opt">Only a cause</button>
+      <button class="opt">Both</button>
+      <button class="opt">Neither</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="collapse" data-logic="&ldquo;Goods spilled&rdquo; is the effect of the boxes collapsing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"Goods spilled" is the effect of what happening?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="You ask &ldquo;what caused this?&rdquo; (backward) and &ldquo;what did this cause?&rdquo; (forward).">
+    <span class="pts">+5</span>
+    <p class="qtext">What TWO questions help you find an event's double role?</p>
+    <div class="opts">
+      <button class="opt">What color is it? Who wrote it?</button>
+      <button class="opt" data-c="1">What caused this? What did this cause?</button>
+      <button class="opt">Is it fiction? Is it long?</button>
+      <button class="opt">Where? When?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s2" data-pts="5" data-logic="&ldquo;Goods were ruined&rdquo; is the cause of the final effect: less inventory for opening day.">
+    <span class="pts">+5</span>
+    <p class="qtext">"Goods were ruined" is the CAUSE of what final effect?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Less inventory for opening day</button>
+      <button class="opt">The storm</button>
+      <button class="opt">The loose shutter</button>
+      <button class="opt">Mia investigating</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="crack" data-logic="&ldquo;Rain got inside&rdquo; is the effect of the shutter cracking.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"Rain got inside" is the effect of what event?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#11088; Bonus Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+  <div class="qbox" data-q="bp1" data-pts="5" data-bonus="1" data-logic="Boarding the shutter is Theo's response (effect) to the storm damage, meant to prevent it happening again.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Theo boarded up the broken shutter. Is this a cause or an effect of the storm damage?</p>
+    <div class="opts">
+      <button class="opt">A cause of new damage</button>
+      <button class="opt" data-c="1">An effect that fixes the problem</button>
+      <button class="opt">Neither</button>
+      <button class="opt">Both a cause and effect</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="trace" data-logic="To follow a chain back to where it started is called tracing.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To follow a chain of events back to where it started is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bp3" data-pts="5" data-bonus="1" data-logic="A result that follows an action is called a consequence.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A result that follows an action is called a ___?</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">consequence</button>
+      <button class="opt">theme</button>
+      <button class="opt">sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each answer!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="cause" data-logic="The reason why something happens is called the cause.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The reason WHY something happens is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="reaction" data-logic="A series of effects where each one causes the next is called a chain reaction.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A series of effects where each one causes the next is called a chain ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="Mia" data-logic="Mia led the investigation of the storm chain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Who led the investigation of the storm chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="effect" data-logic="What happens as a result of a cause is called the effect.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">WHAT happens as a result of a cause is called the ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="Theo" data-logic="Theo boarded up the broken shutter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Who boarded up the broken shutter?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="consequence" data-logic="A result that follows an action is called a consequence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A result that follows an action is called a ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="loose shutter" data-logic="The very first cause in the storm chain was the loose shutter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the very first cause in the storm chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="less inventory" data-logic="The final effect of the storm chain was less inventory for opening day.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the final effect of the whole storm chain?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="trace" data-logic="To follow a chain back to its start is called tracing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To follow a chain back to its start is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-fq="sp1" data-pts="5" data-bonus="1" data-ans="before" data-logic="A cause always comes before its effect in time.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A cause always comes ___ its effect (before/after)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="The very first cause in a chain is simply called the starting cause.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">What is the very first cause in a chain called?</p>
+    <div class="opts">
+      <button class="opt">The final effect</button>
+      <button class="opt" data-c="1">The starting cause</button>
+      <button class="opt">A consequence</button>
+      <button class="opt">A theme</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-bonus="1" data-ans="collapsed" data-logic="Boxes got soaked, then they collapsed.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Boxes soaked, then ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65039; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="i traced the storm chain from start to finish." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I traced the storm chain from start to finish.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Great work learning cause and effect chains! Before the Boss Battle, take a moment to think back on what you learned. Your teacher will give you a separate paper <b>Exercise</b> to complete by hand &mdash; that's where you'll really show off on paper!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pb1_s0" data-pts="5" data-logic="A chain always starts with the first cause, then flows forward through effects.">
+    <span class="pts">+5</span>
+    <p class="qtext">On paper, draw an arrow chain of at least 3 steps for something that happened to you today. What comes first?</p>
+    <div class="opts">
+      <button class="opt">The last effect</button>
+      <button class="opt" data-c="1">The first cause</button>
+      <button class="opt">A theme</button>
+      <button class="opt">A setting</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s0" data-pts="5" data-logic="Skipping a step can make a chain confusing or hard to follow.">
+    <span class="pts">+5</span>
+    <p class="qtext">If you skip a step when explaining a chain, what happens?</p>
+    <div class="opts">
+      <button class="opt">Nothing, it's fine</button>
+      <button class="opt" data-c="1">The chain might not make sense</button>
+      <button class="opt">It gets more exciting</button>
+      <button class="opt">It becomes a theme</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pb1_s1" data-pts="5" data-logic="A middle event in a chain plays a double role: effect of what came before, cause of what comes next.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a "double role" event (both an effect AND a cause)?</p>
+    <div class="opts">
+      <button class="opt">The very first cause</button>
+      <button class="opt">The very last effect</button>
+      <button class="opt" data-c="1">A middle event in the chain</button>
+      <button class="opt">None of them</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s1" data-pts="5" data-logic="A chain shows how one small thing can snowball into something much bigger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why might an author use a cause-and-effect CHAIN instead of just one cause and one effect?</p>
+    <div class="opts">
+      <button class="opt">To confuse readers</button>
+      <button class="opt" data-c="1">To show how one small thing can lead to something much bigger</button>
+      <button class="opt">It's required by law</button>
+      <button class="opt">Chains are always shorter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pb1_s2" data-pts="5" data-logic="This is a reflection question &mdash; any real chain from your own life works.">
+    <span class="pts">+5</span>
+    <p class="qtext">Think of a chain reaction from YOUR OWN life. What is the first cause?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Whatever you choose &mdash; there's no single right answer</button>
+      <button class="opt">It must be about weather</button>
+      <button class="opt">It must be about school</button>
+      <button class="opt">It must involve animals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s2" data-pts="5" data-logic="Asking &ldquo;and then what happened?&rdquo; repeatedly helps you trace every step of a chain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is it helpful to ask "and then what happened?" over and over?</p>
+    <div class="opts">
+      <button class="opt">It isn't helpful</button>
+      <button class="opt" data-c="1">It helps you trace every step of a chain</button>
+      <button class="opt">It only works for math</button>
+      <button class="opt">It makes the story shorter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#128081; Boss Battle: Trace the Chain</h2>
+<p>Show everything you've learned this week!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="bb1_s0" data-pts="5" data-logic="The very first cause of the whole storm chain was the loose shutter.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was the very FIRST cause of the whole storm chain?</p>
+    <div class="opts">
+      <button class="opt">Rain got inside</button>
+      <button class="opt" data-c="1">A loose shutter</button>
+      <button class="opt">Boxes collapsed</button>
+      <button class="opt">Less inventory</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s0" data-pts="5" data-ans="soaked" data-logic="&ldquo;Boxes collapsed&rdquo; is the effect of the boxes getting soaked.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">"Boxes collapsed" is the effect of what happening?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s0" data-pts="5" data-logic="Mia led the investigation into the storm damage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who led the investigation into the storm damage?</p>
+    <div class="opts">
+      <button class="opt">Theo</button>
+      <button class="opt" data-c="1">Mia</button>
+      <button class="opt">Grandpa</button>
+      <button class="opt">A stranger</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="bb1_s1" data-pts="5" data-logic="The final effect at the end of the whole chain was less inventory for opening day.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was the FINAL effect at the end of the whole chain?</p>
+    <div class="opts">
+      <button class="opt">A loose shutter</button>
+      <button class="opt">Rain got inside</button>
+      <button class="opt" data-c="1">Less inventory for opening day</button>
+      <button class="opt">Theo boarded the shutter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s1" data-pts="5" data-ans="chain" data-logic="A chain reaction is when one effect becomes the next cause, again and again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What word means "one effect becomes the next cause, again and again"?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s1" data-pts="5" data-logic="Theo fixed the broken shutter by boarding it up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who fixed the broken shutter?</p>
+    <div class="opts">
+      <button class="opt">Mia</button>
+      <button class="opt" data-c="1">Theo</button>
+      <button class="opt">Grandpa</button>
+      <button class="opt">A neighbor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="bb1_s2" data-pts="5" data-logic="Most events in the middle of a chain are both an effect and a new cause.">
+    <span class="pts">+5</span>
+    <p class="qtext">Most events in the MIDDLE of a chain are:</p>
+    <div class="opts">
+      <button class="opt">Only causes</button>
+      <button class="opt">Only effects</button>
+      <button class="opt" data-c="1">Both an effect and a new cause</button>
+      <button class="opt">Neither</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s2" data-pts="5" data-ans="trace" data-logic="To follow a chain back to where it started is called tracing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To follow a chain back to where it started is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s2" data-pts="5" data-logic="Tracing the whole chain helped Mia understand the full story and figure out how to prevent it from happening again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does it matter that Mia traced the WHOLE chain, not just one step?</p>
+    <div class="opts">
+      <button class="opt">It doesn't matter</button>
+      <button class="opt" data-c="1">It helped her understand the full story and prevent it happening again</button>
+      <button class="opt">It made the storm worse</button>
+      <button class="opt">It was faster</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Chain Traced!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Week 1 of 4</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-reading-w6';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 115;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Cause','why something happens'],['Effect','what happens as a result'],['Chain reaction','one effect becomes the next cause'],['Consequence','a result that follows an action'],['Trace','to follow a chain back to where it started']],[['A storm cracks a shutter','cause'],['Rain gets into the stockroom','effect'],['A rock falls and starts a slide','cause'],['Boxes get soaked','effect'],['Spilled goods are ruined','effect']],[['Mia','led the investigation of the storm chain'],['Theo','boarded up the broken shutter'],['Domino idea','one small thing tips over the next'],['Loose shutter','the very first cause in the chain'],['Less inventory','the final effect at the end of the chain']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! \ud83e\udde9'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '\ud83c\udf1f Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '\ud83c\udf1f Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! &#11088;';
+  if (displayScore() >= 90) tierTitle = 'Summit Champion! &#127955;&#128081;';
+  else if (displayScore() >= 75) tierTitle = 'Checkpoint Master! &#127775;';
+  else if (displayScore() >= 50) tierTitle = 'Trail Explorer! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '\ud83c\udf89 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun \ud83d\udd04';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '\ud83d\udcaa Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again \ud83d\udd04';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
