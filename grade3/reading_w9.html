@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 9: What the Trail Taught Them (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#127755; KCE Pathways &mdash; Grade 3 &mdash; Week 9</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">&#127942; Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">&#11088; XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 9 &bull; Reading</span>
+  <h1>Week 9: What the Trail Taught Them</h1>
+  <h2>Central Message: Putting It All Together &#129513;&#128153;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p>Opening day is a success! The storm, the grumpy hiker, and Mia stepping up to the counter all happened for a reason. Today you'll learn to find a story's central message &mdash; not from just ONE scene, but by putting the WHOLE story together. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review of last week's character motivation and change</li><li>Watch a video on central message and theme</li><li>Learn 5 new vocabulary words</li><li>Master finding a central message by synthesizing the whole story</li><li>Show what you know: Match-Up, Type-It, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Last Week Recap: Motivation &amp; Change</h2>
+<p>Before we learn something new, let's make sure last week's skills are locked in!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Motivation is the reason a character wants or does something.">
+    <span class="pts">+5</span>
+    <p class="qtext">Motivation means:</p>
+    <div class="opts">
+      <button class="opt">The setting of a story</button>
+      <button class="opt" data-c="1">The reason a character wants or does something</button>
+      <button class="opt">The ending of a story</button>
+      <button class="opt">A character's point of view</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="saying the wrong thing" data-logic="Mia was afraid of saying the wrong thing to customers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Mia afraid of all week?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Theo needing help at the counter was the trigger for Mia's change.">
+    <span class="pts">+5</span>
+    <p class="qtext">What event was the trigger for Mia's change?</p>
+    <div class="opts">
+      <button class="opt">A storm hit the trading post</button>
+      <button class="opt" data-c="1">Theo needed help at the counter</button>
+      <button class="opt">Grandpa told her to change</button>
+      <button class="opt">Nothing, she changed for no reason</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="the shelf math" data-logic="Mia leaned on the shelf math she had already mastered.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What strength did Mia lean on to feel ready to help customers?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="How a character is different by the end of a story is called character change.">
+    <span class="pts">+5</span>
+    <p class="qtext">How a character is different by the end of a story is called character:</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">change</button>
+      <button class="opt">theme</button>
+      <button class="opt">sequence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="courage" data-logic="Doing something even though you feel scared is called courage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Doing something even though you feel scared is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="An earned change comes from real effort and a believable reason.">
+    <span class="pts">+5</span>
+    <p class="qtext">A character change feels earned when it comes from:</p>
+    <div class="opts">
+      <button class="opt">Luck or magic</button>
+      <button class="opt" data-c="1">Real effort and a believable reason</button>
+      <button class="opt">Nothing at all</button>
+      <button class="opt">The author just saying so</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="earning it" data-logic="To get something through real effort, not luck, is called earning it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To get something through real effort, not luck, is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="At the start of the week, Mia was nervous and stayed in the back.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was Mia like at the START of the week?</p>
+    <div class="opts">
+      <button class="opt">Confident at the counter</button>
+      <button class="opt" data-c="1">Nervous, staying in the back</button>
+      <button class="opt">Not interested in helping</button>
+      <button class="opt">Angry at Theo</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="confident" data-logic="By the end of the week, Mia stepped up to run the counter herself.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Mia like by the END of the week?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="A moment that pushes a character to change is called a trigger.">
+    <span class="pts">+5</span>
+    <p class="qtext">A moment that pushes a character to change is called a:</p>
+    <div class="opts">
+      <button class="opt">theme</button>
+      <button class="opt" data-c="1">trigger</button>
+      <button class="opt">setting</button>
+      <button class="opt">clue</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="overcome" data-logic="To work through a fear or hard problem is called overcoming it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To work through a fear or hard problem is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127916; Watch &amp; Learn</h2>
+<div class="card card-sky">
+<p>Opening day is here! Watch this video to learn how to find a story's central message by putting the WHOLE story together.</p>
+</div>
+<div class="videowrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:14px 0">
+<iframe src="https://www.youtube.com/embed/L4RRHzMzM2Y" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen title="Central Message and Theme"></iframe>
+</div>
+<div class="card card-gold">
+<h3>&#128161; Key Takeaways</h3>
+<ul class="tips"><li>A central message is the big lesson the WHOLE story teaches</li><li>You find it by synthesizing &mdash; combining &mdash; ideas from many parts of the story</li><li>A central message is often universal &mdash; it applies to more than just the story's characters</li></ul>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p>Flip each card to learn this week's vocabulary!</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">central message<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('central message', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The big lesson or idea that the WHOLE story teaches.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">theme<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('theme', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Another word for a story's central message.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">synthesize<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('synthesize', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To combine ideas from different parts of a story into one bigger idea.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">evidence<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('evidence', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Proof from the story that supports an idea.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">universal<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('universal', this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A message that applies to many people, not just the characters in one story.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#128220; Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>This week's phonics skill is <b>suffixes</b> &mdash; the same skill from Math class today, so let's practice it here too!</p>
+</div>
+<div class="practicewrap">
+  <div class="qbox" data-fq="ss1" data-pts="5" data-bonus="1" data-ans="helpful" data-logic="help + -ful = helpful, which means full of help.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">help + -ful = ___ (full of help)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss2" data-pts="5" data-bonus="1" data-ans="fearless" data-logic="fear + -less = fearless, which means without fear.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">fear + -less = ___ (without fear)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ss3" data-pts="5" data-bonus="1" data-logic="Read + -er = reader, a person who reads.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which word means &ldquo;a person who reads&rdquo;?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">reader</button>
+      <button class="opt">readful</button>
+      <button class="opt">readless</button>
+      <button class="opt">reading</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ss4" data-pts="5" data-bonus="1" data-ans="careful" data-logic="care + -ful = careful, which means full of care.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">care + -ful = ___ (full of care)</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ss4">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#129513; What Is a Central Message?</h2>
+<div class="card">
+<p>Opening day arrived, and the trading post was ready &mdash; shelves stocked, prices set, Mia at the counter beside Theo. It would be easy to say this story is just about &ldquo;a store opening.&rdquo; But the central message is something bigger than that single event.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>A central message is the big lesson the WHOLE story teaches &mdash; not just what happens in one scene, but what the story is really ABOUT underneath the events. To find it, I ask: what did the characters learn, and what might a reader learn too, even if they've never run a trading post?</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Events vs. Message</h4>EVENTS: storm, hiker, Mia at the counter, opening day<br>CENTRAL MESSAGE: something bigger those events teach TOGETHER</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>A story where a character plants a seed, waters it daily, and watches it grow isn't really &ldquo;about gardening&rdquo; &mdash; its message might be about patience.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t1a_s0" data-pts="5" data-logic="A central message is the big lesson the whole story teaches.">
+    <span class="pts">+5</span>
+    <p class="qtext">A central message is:</p>
+    <div class="opts">
+      <button class="opt">A list of everything that happened</button>
+      <button class="opt" data-c="1">The big lesson the WHOLE story teaches</button>
+      <button class="opt">Only the first event in a story</button>
+      <button class="opt">The name of the main character</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1b_s0" data-pts="5" data-ans="patience" data-logic="A story about growing a seed slowly might have a message about patience.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the seed example, what might the story's message be about?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1c_s0" data-pts="5" data-logic="A central message is the bigger idea underneath the events, not just a list of what happened.">
+    <span class="pts">+5</span>
+    <p class="qtext">Is a central message the same as just describing what happened?</p>
+    <div class="opts">
+      <button class="opt">Yes, exactly the same</button>
+      <button class="opt" data-c="1">No, it's the bigger idea underneath the events</button>
+      <button class="opt">Yes, but only for sad stories</button>
+      <button class="opt">No, it has nothing to do with events</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t1a_s1" data-pts="5" data-logic="To find a central message, ask what the characters learned and what a reader might learn too.">
+    <span class="pts">+5</span>
+    <p class="qtext">To find a central message, what should you ask?</p>
+    <div class="opts">
+      <button class="opt">What color is the cover?</button>
+      <button class="opt" data-c="1">What did the characters learn, and what might a reader learn too?</button>
+      <button class="opt">How many pages does it have?</button>
+      <button class="opt">What is the title?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1b_s1" data-pts="5" data-ans="something bigger" data-logic="The story is about something bigger than just a store opening.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Is this story really just &ldquo;about a store opening,&rdquo; or is it about something bigger?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1c_s1" data-pts="5" data-logic="Another word for central message is theme.">
+    <span class="pts">+5</span>
+    <p class="qtext">Another word for central message is:</p>
+    <div class="opts">
+      <button class="opt">setting</button>
+      <button class="opt" data-c="1">theme</button>
+      <button class="opt">sequence</button>
+      <button class="opt">plot</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t1a_s2" data-pts="5" data-logic="A central message usually applies to people beyond just the story's characters.">
+    <span class="pts">+5</span>
+    <p class="qtext">A central message usually applies to:</p>
+    <div class="opts">
+      <button class="opt">Only the exact characters in the story</button>
+      <button class="opt" data-c="1">People beyond just the story's characters too</button>
+      <button class="opt">Nobody at all</button>
+      <button class="opt">Only readers who own a trading post</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t1b_s2" data-pts="5" data-ans="events" data-logic="The storm, the hiker, and Mia stepping up are all events in the story.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What are the storm, the hiker, and Mia stepping up examples of?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t1b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t1c_s2" data-pts="5" data-logic="A message that applies to many people is called universal.">
+    <span class="pts">+5</span>
+    <p class="qtext">A message that applies to many people, not just one story, is called:</p>
+    <div class="opts">
+      <button class="opt" data-c="1">universal</button>
+      <button class="opt">specific</button>
+      <button class="opt">fictional</button>
+      <button class="opt">private</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128260; Putting the Pieces Together</h2>
+<div class="card card-sky">
+<p>No single scene tells the whole story's message by itself. The storm chain taught Theo and Mia to notice cause and effect. The grumpy hiker taught them to see more than one point of view. Mia stepping up taught everyone that change takes courage. Put TOGETHER, those pieces build one bigger idea.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Synthesizing means combining ideas from DIFFERENT parts of a story into one bigger idea &mdash; not just picking my favorite scene. I look at multiple moments, find what they have in common, and ask what larger lesson connects them all.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Many Pieces, One Message</h4>Storm chain + Grumpy hiker + Mia's courage<br>&rarr; combined, they build ONE bigger message about the trading post working because everyone paid attention and grew</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>A story where a character loses a race, practices harder, and helps a teammate later might combine into one message: effort and teamwork matter more than winning alone.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t2a_s0" data-pts="5" data-logic="To synthesize means to combine ideas from different parts of a story into one bigger idea.">
+    <span class="pts">+5</span>
+    <p class="qtext">To synthesize means to:</p>
+    <div class="opts">
+      <button class="opt">Pick only your favorite part of a story</button>
+      <button class="opt" data-c="1">Combine ideas from different parts into one bigger idea</button>
+      <button class="opt">Ignore most of the story</button>
+      <button class="opt">Retell every single event</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s0" data-pts="5" data-ans="cause and effect" data-logic="The storm chain taught them to notice cause and effect.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What did the storm chain teach Theo and Mia?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s0" data-pts="5" data-logic="A central message usually comes from combining several parts of the story, not just one scene.">
+    <span class="pts">+5</span>
+    <p class="qtext">Does a central message usually come from just ONE scene?</p>
+    <div class="opts">
+      <button class="opt">Yes, always just one scene</button>
+      <button class="opt" data-c="1">No, usually from combining several parts of the story</button>
+      <button class="opt">Yes, but only the last scene</button>
+      <button class="opt">No, central messages come from the title only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t2a_s1" data-pts="5" data-logic="The grumpy hiker scene taught them to see more than one point of view.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did the grumpy hiker scene teach Theo and Mia?</p>
+    <div class="opts">
+      <button class="opt">To avoid all hikers</button>
+      <button class="opt" data-c="1">To see more than one point of view</button>
+      <button class="opt">To close the store early</button>
+      <button class="opt">Nothing important</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s1" data-pts="5" data-ans="effort and teamwork" data-logic="Effort and teamwork combine into one message in that example.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the racing example, what two ideas combine into one message?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s1" data-pts="5" data-logic="Mia stepping up taught that change takes courage and effort.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Mia stepping up to the counter teach?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">That change takes courage and effort</button>
+      <button class="opt">That customers are always rude</button>
+      <button class="opt">That math isn't useful</button>
+      <button class="opt">Nothing at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t2a_s2" data-pts="5" data-logic="Combining those ideas together builds one bigger central message.">
+    <span class="pts">+5</span>
+    <p class="qtext">When you combine ideas from cause and effect, point of view, and character change, you build:</p>
+    <div class="opts">
+      <button class="opt">A shorter story</button>
+      <button class="opt" data-c="1">One bigger central message</button>
+      <button class="opt">A brand new plot</button>
+      <button class="opt">Nothing useful</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t2b_s2" data-pts="5" data-ans="synthesize" data-logic="Combining ideas from different parts into one bigger idea is called synthesizing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To combine ideas from different parts of a story into one bigger idea is called what?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t2b_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2c_s2" data-pts="5" data-logic="Different scenes reveal different pieces of the bigger message, so looking at multiple scenes matters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is it useful to look at MULTIPLE scenes instead of just one?</p>
+    <div class="opts">
+      <button class="opt">It isn't useful</button>
+      <button class="opt" data-c="1">Different scenes reveal different pieces of the bigger message</button>
+      <button class="opt">It makes summaries longer</button>
+      <button class="opt">It only matters for math</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#128153; One Message, Two Voices</h2>
+<div class="card card-grass">
+<p>When Grandpa asked what they'd learned, Theo and Mia didn't have one single answer &mdash; they had two halves of the SAME message. Theo said hard work and using your strengths matter. Mia said courage grows when you lean on what you're good at. Put together: everyone contributes differently, and that's what makes a team.</p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Sometimes a central message isn't explained by just ONE character &mdash; it's co-authored, built from more than one character's experience. I look at what EACH character learned, then ask how their pieces fit together into one complete idea.</p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Two Halves, One Whole</h4>Theo's half: hard work + using your strengths matters<br>+<br>Mia's half: courage grows from your own strengths<br>=<br>Everyone contributes differently, and together that makes a team</div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p>If one friend learns to listen better and another learns to speak up more, together their story's message might be: good friendships need both listening and speaking honestly.</p></div>
+<span class="yourturn-label">&#128170; YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t3a_s0" data-pts="5" data-logic="Theo's half of the message was that hard work and using your strengths matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was Theo's half of the central message?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Hard work and using your strengths matter</button>
+      <button class="opt">Nothing, he learned nothing</button>
+      <button class="opt">Customers are always right</button>
+      <button class="opt">Stores should close early</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3b_s0" data-pts="5" data-ans="courage" data-logic="Mia's half was that courage grows when you lean on your own strengths.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Mia's half of the central message?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3b_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3c_s0" data-pts="5" data-logic="A message built from more than one character's experience is called co-authored.">
+    <span class="pts">+5</span>
+    <p class="qtext">A message built from more than one character's experience is called:</p>
+    <div class="opts">
+      <button class="opt">a single message only</button>
+      <button class="opt" data-c="1">co-authored</button>
+      <button class="opt">a mistake</button>
+      <button class="opt">irrelevant</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t3a_s1" data-pts="5" data-logic="The full message is that everyone contributes differently, and that's what makes a team.">
+    <span class="pts">+5</span>
+    <p class="qtext">When Theo and Mia's two halves combine, the full message becomes:</p>
+    <div class="opts">
+      <button class="opt">Trading posts are hard to run</button>
+      <button class="opt" data-c="1">Everyone contributes differently, and that makes a team</button>
+      <button class="opt">Only Theo's ideas matter</button>
+      <button class="opt">Only Mia's ideas matter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s1" data-pts="5" data-logic="The two halves in that example are listening and speaking honestly.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the friendship example, what are the two halves of the message?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Listening and speaking honestly</button>
+      <button class="opt">Running and jumping</button>
+      <button class="opt">Reading and writing</button>
+      <button class="opt">Math and science</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s1" data-pts="5" data-ans="evidence" data-logic="Proof from the story that supports an idea is called evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Proof from the story that supports an idea is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t3a_s2" data-pts="5" data-logic="A co-authored message shows the idea is bigger than just one person's point of view.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is it powerful for a message to be co-authored by two characters?</p>
+    <div class="opts">
+      <button class="opt">It isn't powerful at all</button>
+      <button class="opt" data-c="1">It shows the message is bigger than just one person's point of view</button>
+      <button class="opt">It makes the story shorter</button>
+      <button class="opt">It only matters for sad stories</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t3b_s2" data-pts="5" data-logic="Both halves can be true and needed together &mdash; neither character has to be &ldquo;more right.&rdquo;">
+    <span class="pts">+5</span>
+    <p class="qtext">Does one character have to be &ldquo;more right&rdquo; than the other for a message to work?</p>
+    <div class="opts">
+      <button class="opt">Yes, one is always right</button>
+      <button class="opt" data-c="1">No, both halves can be true and needed together</button>
+      <button class="opt">Yes, only the oldest character</button>
+      <button class="opt">No, messages never involve more than one character</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3c_s2" data-pts="5" data-ans="universal" data-logic="A message that applies to many people is called universal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A message that applies to many people, not just one story, is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t3c_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#11088; Bonus Practice</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+  <div class="qbox" data-q="bp1" data-pts="5" data-bonus="1" data-logic="Strong central messages usually combine multiple parts of a story, not just one scene.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">If a story's message can only be found by looking at ONE scene, is it usually a strong central message?</p>
+    <div class="opts">
+      <button class="opt">Yes, always</button>
+      <button class="opt" data-c="1">Usually not &mdash; strong messages combine multiple parts of a story</button>
+      <button class="opt">Yes, but only for short stories</button>
+      <button class="opt">It doesn't matter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="message" data-logic="The big lesson a whole story teaches is called its central message.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The big lesson a WHOLE story teaches is called its central ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bp3" data-pts="5" data-bonus="1" data-logic="To combine ideas from different parts of a story is called to synthesize.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">To combine ideas from different parts of a story is called to ___?</p>
+    <div class="opts">
+      <button class="opt">summarize only</button>
+      <button class="opt" data-c="1">synthesize</button>
+      <button class="opt">skim</button>
+      <button class="opt">predict</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Fill in each answer!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="message" data-logic="The big lesson a whole story teaches is called its central message.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The big lesson a whole story teaches is called its central ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="hard work" data-logic="Theo's half was that hard work and using your strengths matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Theo's half of the central message?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="theme" data-logic="Another word for central message is theme.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Another word for central message is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="courage" data-logic="Mia's half was that courage grows when you lean on your own strengths.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Mia's half of the central message?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="synthesize" data-logic="To combine ideas from different parts of a story is to synthesize.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To combine ideas from different parts of a story is to ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="evidence" data-logic="Proof from the story that supports an idea is called evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Proof from the story that supports an idea is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="cause and effect" data-logic="The storm chain taught them to notice cause and effect.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What did the storm chain teach Theo and Mia?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="universal" data-logic="A message that applies to many people is called universal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A message that applies to many people is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="co-authored" data-logic="A message built from more than one character's experience is called co-authored.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A message built from more than one character's experience is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="A central message is usually found by combining ideas from the whole story.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A central message is usually found by:</p>
+    <div class="opts">
+      <button class="opt">Reading only the first page</button>
+      <button class="opt" data-c="1">Combining ideas from the whole story</button>
+      <button class="opt">Guessing randomly</button>
+      <button class="opt">Reading only the title</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="theme" data-logic="Another word for central message is theme.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Another word for central message is ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Mia stepping up taught that change takes courage and effort.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">What did Mia stepping up to the counter teach?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">That change takes courage and effort</button>
+      <button class="opt">That customers are always rude</button>
+      <button class="opt">That math isn't useful</button>
+      <button class="opt">Nothing at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>&#8996;&#65039; Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly &mdash; watch your capital letter and period.</p>
+<div class="qbox" data-fq="kc1" data-pts="10" data-ans="everyone contributes differently, and that makes a team." data-bonus="1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end.">
+  <span class="pts">+10 XP</span>
+  <p class="qtext">Type this sentence:</p>
+  <div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">Everyone contributes differently, and that makes a team.</div>
+  <div class="fillrow">
+    <input class="fillin" id="kc1input" inputmode="text" aria-label="typed sentence" style="width:100%">
+    <button class="btn btn-pri" data-check="kc1">Check</button>
+  </div>
+  <p class="feedback"></p>
+  <p style="font-size:.82rem;color:#64748b;margin-top:6px" id="kc1speed"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Great work with central message! Before the Boss Battle, take a moment to think back on what you learned across all of Unit 2. Your teacher will give you a separate paper <b>Exercise</b> to complete by hand &mdash; that's where you'll really show off on paper!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pb1_s0" data-pts="5" data-logic="This is a written response question &mdash; describe Theo's half as hard work and using your strengths.">
+    <span class="pts">+5</span>
+    <p class="qtext">On your paper, explain in your own words what Theo's half of the message was.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">This is a written response question</button>
+      <button class="opt">Confident and outgoing</button>
+      <button class="opt">Angry at Mia</button>
+      <button class="opt">Uninterested in the store</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s0" data-pts="5" data-logic="Combining both halves shows a fuller, more complete idea than just one alone.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does combining Theo's and Mia's halves make the message stronger than just one alone?</p>
+    <div class="opts">
+      <button class="opt">It doesn't make it stronger</button>
+      <button class="opt" data-c="1">It shows a fuller, more complete idea</button>
+      <button class="opt">It makes the story shorter</button>
+      <button class="opt">It only matters for math</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pb1_s1" data-pts="5" data-logic="This is a personal reflection question &mdash; any thoughtful answer connecting to a specific scene works.">
+    <span class="pts">+5</span>
+    <p class="qtext">Think of a scene from Unit 2 (the storm, the hiker, or Mia's courage). What smaller lesson did it teach?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">This is a personal reflection question</button>
+      <button class="opt">There is no possible answer</button>
+      <button class="opt">Only Theo can answer this</button>
+      <button class="opt">This cannot be answered</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s1" data-pts="5" data-logic="A central message is universal because it can apply to many people's lives, not just the characters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is a central message usually described as &ldquo;universal&rdquo;?</p>
+    <div class="opts">
+      <button class="opt">Because it only applies to trading posts</button>
+      <button class="opt" data-c="1">Because it can apply to many people's lives, not just the characters</button>
+      <button class="opt">Because it isn't true</button>
+      <button class="opt">Because it only applies to Grade 3 students</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pb1_s2" data-pts="5" data-logic="This is a reflection question &mdash; any honest, thoughtful answer works.">
+    <span class="pts">+5</span>
+    <p class="qtext">Looking back at all of Unit 2, which lesson felt most important to you?</p>
+    <div class="opts">
+      <button class="opt">Cause and effect</button>
+      <button class="opt">Point of view</button>
+      <button class="opt">Character motivation and change</button>
+      <button class="opt" data-c="1">Central message</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s2" data-pts="5" data-logic="This is a reflection question &mdash; any honest answer works.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from this week do you feel most confident about?</p>
+    <div class="opts">
+      <button class="opt">Finding a central message</button>
+      <button class="opt">Synthesizing multiple scenes</button>
+      <button class="opt">Understanding a co-authored message</button>
+      <button class="opt" data-c="1">All of them</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#128081; Boss Battle: Opening Day Message</h2>
+<p>Show everything you've learned this week!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="bb1_s0" data-pts="5" data-logic="A central message is the big lesson the whole story teaches.">
+    <span class="pts">+5</span>
+    <p class="qtext">A central message is:</p>
+    <div class="opts">
+      <button class="opt">A list of every event in a story</button>
+      <button class="opt" data-c="1">The big lesson the WHOLE story teaches</button>
+      <button class="opt">Only the first scene</button>
+      <button class="opt">The main character's name</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s0" data-pts="5" data-ans="hard work" data-logic="Theo's half was that hard work and using your strengths matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was Theo's half of the central message?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s0" data-pts="5" data-logic="To combine ideas from different parts of a story is called synthesizing.">
+    <span class="pts">+5</span>
+    <p class="qtext">To combine ideas from different parts of a story into one bigger idea is called:</p>
+    <div class="opts">
+      <button class="opt">skimming</button>
+      <button class="opt" data-c="1">synthesizing</button>
+      <button class="opt">predicting</button>
+      <button class="opt">summarizing only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="bb1_s1" data-pts="5" data-logic="Mia's half was that courage grows when you lean on your own strengths.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was Mia's half of the central message?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Courage grows when you lean on your own strengths</button>
+      <button class="opt">Customers are always difficult</button>
+      <button class="opt">Math isn't useful in real life</button>
+      <button class="opt">Nothing important</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s1" data-pts="5" data-ans="universal" data-logic="A message that applies to many people is called universal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A message that applies to many people is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s1" data-pts="5" data-logic="The full message is that everyone contributes differently, and that's what makes a team.">
+    <span class="pts">+5</span>
+    <p class="qtext">When Theo's and Mia's halves combine, the full message becomes:</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Everyone contributes differently, and that makes a team</button>
+      <button class="opt">Only one person's ideas matter</button>
+      <button class="opt">Stores are hard to run</button>
+      <button class="opt">Nothing, they never agreed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="bb1_s2" data-pts="5" data-logic="A strong central message usually comes from combining several parts of the story.">
+    <span class="pts">+5</span>
+    <p class="qtext">Does a strong central message usually come from just ONE scene?</p>
+    <div class="opts">
+      <button class="opt">Yes, always</button>
+      <button class="opt" data-c="1">No, usually from combining several parts of the story</button>
+      <button class="opt">Yes, but only the ending</button>
+      <button class="opt">No, it comes from the title only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="bb2_s2" data-pts="5" data-ans="evidence" data-logic="Proof from the story that supports an idea is called evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Proof from the story that supports an idea is called ___</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="bb2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="bb3_s2" data-pts="5" data-logic="A message built from more than one character's experience is called co-authored.">
+    <span class="pts">+5</span>
+    <p class="qtext">A message built from more than one character's experience is called:</p>
+    <div class="opts">
+      <button class="opt" data-c="1">co-authored</button>
+      <button class="opt">fictional</button>
+      <button class="opt">irrelevant</button>
+      <button class="opt">a plot twist</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">The Trading Post Is Open!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+      <p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Week 4 of 4</p>
+      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span></div>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score. Next stop: the Week 10 Checkpoint!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-reading-w9';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 115;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Central message','the big lesson or idea the WHOLE story teaches'],['Theme','another word for a story\u2019s central message'],['Synthesize','to combine ideas from different parts into one bigger idea'],['Evidence','proof from the story that supports an idea'],['Universal','a message that applies to many people, not just one story']],[['Theo\u2019s half of the message','hard work and using your strengths matter'],['Mia\u2019s half of the message','courage grows when you lean on what you\u2019re good at'],['Put together, their message becomes','everyone contributes differently, and that makes a team'],['A central message comes from','looking at the WHOLE story, not one scene'],['A theme is NOT the same as','the plot, which is just what happens']],[['The storm chain taught them','to notice cause and effect'],['The grumpy hiker taught them','to see more than one point of view'],['Mia stepping up taught them','that change takes courage and effort'],['24 &divide; 6','4'],['Opening day succeeding shows','all their lessons working together']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! \ud83e\udde9'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '\ud83c\udf1f Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '\ud83c\udf1f Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! &#11088;';
+  if (displayScore() >= 90) tierTitle = 'Summit Champion! &#127955;&#128081;';
+  else if (displayScore() >= 75) tierTitle = 'Checkpoint Master! &#127775;';
+  else if (displayScore() >= 50) tierTitle = 'Trail Explorer! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '\ud83c\udf89 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun \ud83d\udd04';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '\ud83d\udcaa Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again \ud83d\udd04';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
