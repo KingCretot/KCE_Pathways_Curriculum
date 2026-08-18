@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 9: Elena's Market Stand | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🥕 KCE Pathways — Grade 4-5 — Week 9</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0: INTRO -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Next Level &bull; Week 9 &bull; Math</span>
+  <h1>Elena's Market Stand</h1>
+  <h2>Multiplying Decimals 🥕</h2>
+  <div class="box box-story">
+    <div class="icon">🥕</div>
+    <h4>Meet Elena</h4>
+    <p>Elena is 11. Every Saturday she helps run her family's vegetable stand at the farmers market. Everything is priced per pound &mdash; and almost nothing weighs a whole number of pounds. Elena has to multiply decimals fast, out loud, while a customer waits.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Practice rounds give you fresh numbers every time you replay.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Learn how to multiply decimals — and where the decimal point lands</li>
+      <li>Convert between fractions and decimals (1/4 and 0.25 are the same thing!)</li>
+      <li>Price real produce by weight, the way a real vendor does</li>
+      <li>Help Elena total a customer's order and count back change</li>
+      <li>Play the Match-Up game and race the Speed Trail clock!</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Week 4 of 4</p>
+    <div class="dots" style="margin-top:6px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot on"></span></div>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 1: PENCIL BREAK PRE -->
+<div class="slide" data-slide="1">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully — no screen, just paper — then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">I finished my Warm-Up — Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 2: HOOK -->
+<div class="slide" data-slide="2">
+<h2>🥕 Why Every Vendor Uses Decimals</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: Selling by Weight</h4>
+  <p>Farmers markets, delis, and grocery stores nearly all price food by the pound. Since real produce almost never weighs exactly 1 or 2 pounds, the scale shows numbers like 2.4 or 3.75 &mdash; and the price has to be figured out on the spot.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">🥕</div>
+  <h4>Elena's Price Board</h4>
+  <p>Here's what Elena's stand charges this Saturday:</p>
+</div>
+<div class="pricelist">
+  <div class="prow"><span class="pname">Carrots</span><span class="pprice">$2.40 / lb</span></div>
+  <div class="prow"><span class="pname">Green beans</span><span class="pprice">$3.20 / lb</span></div>
+  <div class="prow"><span class="pname">Tomatoes</span><span class="pprice">$1.50 / lb</span></div>
+  <div class="prow"><span class="pname">Sweet potatoes</span><span class="pprice">$1.25 / lb</span></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 3: DECIMAL MULTIPLICATION TEACH -->
+<div class="slide" data-slide="3">
+<h2>🔢 Multiplying Decimals</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Remember Week 6?</h4>
+  <p>You already know the standard algorithm. Multiplying decimals uses the EXACT same steps &mdash; you just ignore the decimal points while you multiply, then put the decimal point back at the end.</p>
+</div>
+<div class="decwork">
+  2.4 &times; 3 = 7.2
+  <div class="steps">
+  <b>Step 1 &mdash; Ignore the decimal:</b> Multiply 24 &times; 3 = 72.<br>
+  <b>Step 2 &mdash; Count decimal places:</b> 2.4 has 1 digit after the decimal point. 3 has 0. Total = 1.<br>
+  <b>Step 3 &mdash; Put it back:</b> Move 1 place from the right in 72 &rarr; <b>7.2</b>.
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Does It Make Sense?</h4>
+  <p>Always check with estimation: 2.4 is close to 2, and 2&times;3=6. Our answer 7.2 is near 6 &mdash; that's reasonable. If you'd gotten 72 or 0.72, estimation would catch the mistake instantly.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 4: PRACTICE -->
+<div class="slide" data-slide="4">
+<h2>✍️ Your Turn: Multiplying Decimals</h2>
+<span class="setnotice" id="setNotice4" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m1_s0" data-pts="10" data-ans="4.8" data-logic="1.6x3: ignore decimals, 16x3=48. 1.6 has 1 decimal place, so move 1 place: 4.8.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">1.6 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s0" data-pts="9" data-logic="2.5x4: 25x4=100. 1 decimal place, so 10.0 = 10.">
+    <span class="pts">+9</span>
+    <p class="qtext">2.5 &times; 4 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">10</button><button class="opt">1.0</button><button class="opt">100</button><button class="opt">8.5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s0" data-pts="9" data-ans="6.3" data-logic="2.1x3: 21x3=63. 1 decimal place: 6.3.">
+    <span class="pts">+9</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">2.1 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="m1_s1" data-pts="10" data-ans="7.2" data-logic="1.8x4: 18x4=72. 1 decimal place: 7.2.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">1.8 &times; 4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s1" data-pts="9" data-logic="3.5x2: 35x2=70. 1 decimal place: 7.0 = 7.">
+    <span class="pts">+9</span>
+    <p class="qtext">3.5 &times; 2 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">7</button><button class="opt">0.7</button><button class="opt">70</button><button class="opt">6.5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s1" data-pts="9" data-ans="11.4" data-logic="3.8x3: 38x3=114. 1 decimal place: 11.4.">
+    <span class="pts">+9</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">3.8 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="m1_s2" data-pts="10" data-ans="9.6" data-logic="2.4x4: 24x4=96. 1 decimal place: 9.6.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">2.4 &times; 4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s2" data-pts="9" data-logic="1.25x4: 125x4=500. 2 decimal places: 5.00 = 5.">
+    <span class="pts">+9</span>
+    <p class="qtext">1.25 &times; 4 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">5</button><button class="opt">0.5</button><button class="opt">50</button><button class="opt">4.25</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s2" data-pts="9" data-ans="13.5" data-logic="4.5x3: 45x3=135. 1 decimal place: 13.5.">
+    <span class="pts">+9</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">4.5 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 5: VOCAB FLIP -->
+<div class="slide" data-slide="5">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">decimal</div><div class="flip-face flip-back">A number that uses a decimal point to show parts of a whole, like 2.4.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">decimal place</div><div class="flip-face flip-back">A digit's position after the decimal point — tenths, hundredths, and so on.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">tenths</div><div class="flip-face flip-back">The FIRST place after the decimal point. In 2.4, the 4 is in the tenths place.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">hundredths</div><div class="flip-face flip-back">The SECOND place after the decimal point. In 1.25, the 5 is in the hundredths place.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">equivalent</div><div class="flip-face flip-back">Naming the same amount two ways — 1/4 and 0.25 are equivalent. (A Week 8 callback!)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">estimate</div><div class="flip-face flip-back">A smart, quick guess made by rounding first — in Weeks 1, 4, 6, 7, 8, and 9!</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 6: VOCAB QUIZ -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn: Using the Words</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="8" data-logic="The first place after the decimal point is the tenths place.">
+    <span class="pts">+8</span>
+    <p class="qtext">In the number 2.4, the 4 is in which place?</p>
+    <div class="opts"><button class="opt" data-c="1">Tenths</button><button class="opt">Hundredths</button><button class="opt">Ones</button><button class="opt">Tens</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="8" data-ans="hundredths" data-logic="The second place after the decimal point is the hundredths place.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: in 1.25, the 5 is in the ___ place?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="8" data-logic="Naming the same amount two different ways means they are equivalent.">
+    <span class="pts">+8</span>
+    <p class="qtext">1/4 and 0.25 name the same amount. They are ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent</button><button class="opt">Estimates</button><button class="opt">Unequal</button><button class="opt">Remainders</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="8" data-ans="tenths" data-logic="The first place after the decimal point is the tenths place.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: the FIRST place after the decimal point is the ___ place?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="8" data-logic="A number using a decimal point to show parts of a whole is a decimal.">
+    <span class="pts">+8</span>
+    <p class="qtext">A number that uses a decimal point to show parts of a whole is called a ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Decimal</button><button class="opt">Divisor</button><button class="opt">Factor</button><button class="opt">Remainder</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="8" data-ans="estimate" data-logic="A smart, quick guess made by rounding first is an estimate.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: a smart, quick guess made by rounding first is called an ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 7: TEACH 2 - FRACTION/DECIMAL -->
+<div class="slide" data-slide="7">
+<h2>🔄 Fractions and Decimals Are the Same Thing</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Remember Week 8?</h4>
+  <p>You worked with fractions like 1/4 and 1/2. Those exact same amounts can be written as decimals &mdash; and at a market stand, the scale gives you decimals even when a customer asks for "half a pound."</p>
+</div>
+<div class="decwork">
+  1/4 = 0.25
+  <div class="steps">
+  <b>Why:</b> A fraction is really a division problem. 1/4 means 1 &divide; 4 = 0.25.<br>
+  <b>The ones worth memorizing:</b> 1/2 = 0.5 &nbsp;&bull;&nbsp; 1/4 = 0.25 &nbsp;&bull;&nbsp; 3/4 = 0.75 &nbsp;&bull;&nbsp; 1/10 = 0.1 &nbsp;&bull;&nbsp; 1/5 = 0.2
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>At the Stand</h4>
+  <p>A customer asks for "three quarters of a pound" of green beans. Elena reads that as 0.75 lb, then multiplies: 0.75 &times; $3.20. Same amount, easier math.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 8: PRACTICE 2 -->
+<div class="slide" data-slide="8">
+<h2>✍️ Your Turn: Fractions &harr; Decimals</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m4_s0" data-pts="11" data-ans="0.5|.5" data-logic="1/2 means 1 divided by 2 = 0.5.">
+    <span class="pts">+11</span>
+    <p class="qtext">Type 1/2 as a decimal:</p>
+    <div class="fillrow"><span class="eq">1/2 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m5_s0" data-pts="11" data-logic="3/4 means 3 divided by 4 = 0.75.">
+    <span class="pts">+11</span>
+    <p class="qtext">3/4 written as a decimal is ?</p>
+    <div class="opts"><button class="opt" data-c="1">0.75</button><button class="opt">0.34</button><button class="opt">0.25</button><button class="opt">3.4</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="m4_s1" data-pts="11" data-ans="0.25|.25" data-logic="1/4 means 1 divided by 4 = 0.25.">
+    <span class="pts">+11</span>
+    <p class="qtext">Type 1/4 as a decimal:</p>
+    <div class="fillrow"><span class="eq">1/4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m5_s1" data-pts="11" data-logic="1/5 means 1 divided by 5 = 0.2.">
+    <span class="pts">+11</span>
+    <p class="qtext">1/5 written as a decimal is ?</p>
+    <div class="opts"><button class="opt" data-c="1">0.2</button><button class="opt">0.15</button><button class="opt">0.5</button><button class="opt">1.5</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="m4_s2" data-pts="11" data-ans="0.75|.75" data-logic="3/4 means 3 divided by 4 = 0.75.">
+    <span class="pts">+11</span>
+    <p class="qtext">Type 3/4 as a decimal:</p>
+    <div class="fillrow"><span class="eq">3/4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m5_s2" data-pts="11" data-logic="1/10 means 1 divided by 10 = 0.1.">
+    <span class="pts">+11</span>
+    <p class="qtext">1/10 written as a decimal is ?</p>
+    <div class="opts"><button class="opt" data-c="1">0.1</button><button class="opt">0.11</button><button class="opt">1.0</button><button class="opt">0.01</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 9: REAL WORLD 1 -->
+<div class="slide" data-slide="9">
+<h2>🥕 Real World: Weighing the Carrots</h2>
+<div class="box box-story">
+  <div class="icon">⚖️</div>
+  <h4>The Situation</h4>
+  <p>A customer's carrots weigh 3 lb on the scale. Carrots are $2.40 per pound.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m6_s0" data-pts="12" data-ans="7.20|7.2" data-logic="2.40x3: 240x3=720. 2 decimal places: $7.20.">
+    <span class="pts">+12</span>
+    <p class="qtext">$2.40 &times; 3 = $___ (what the customer owes for carrots)</p>
+    <div class="fillrow"><input class="fillin" style="width:130px" placeholder="?"><button class="btn btn-pri" data-check="m6_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 10: REAL WORLD 2 -->
+<div class="slide" data-slide="10">
+<h2>🥕 Real World: "Half a Pound, Please"</h2>
+<div class="box box-story">
+  <div class="icon">🫘</div>
+  <h4>The Situation Continues</h4>
+  <p>The same customer asks for half a pound of green beans. Green beans are $3.20 per pound.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="m7_s0" data-pts="12" data-logic="Half a pound = 0.5 lb. 3.20x0.5 = 1.60. Half of $3.20 is $1.60.">
+    <span class="pts">+12</span>
+    <p class="qtext">What does half a pound of green beans cost?</p>
+    <div class="opts"><button class="opt" data-c="1">$1.60</button><button class="opt">$6.40</button><button class="opt">$0.32</button><button class="opt">$3.20</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: MATCH-UP ROUND -->
+<div class="slide" data-slide="11">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a fraction on the left, then its decimal on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 12: SPEED TRAIL -->
+<div class="slide" data-slide="12">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick decimal facts as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="0.5|.5" data-logic="1/2 = 0.5.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">1/2 as a decimal =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="4.2" data-logic="2.1x2: 21x2=42, 1 decimal place: 4.2.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">2.1 &times; 2 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="0.25|.25" data-logic="1/4 = 0.25.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">1/4 as a decimal =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 13: REFLECTION -->
+<div class="slide" data-slide="13">
+<h2>🌇 Looking Back</h2>
+<div class="box box-story">
+  <div class="icon">🥕</div>
+  <h4>The Line Keeps Moving</h4>
+  <p>Elena can total any order in her head now. Before the Boss Challenge, think back on what you practiced today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer — this is a reflection question.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Multiplying decimals</button>
+      <button class="opt" data-c="1">Placing the decimal point correctly</button>
+      <button class="opt" data-c="1">Converting fractions to decimals</button>
+      <button class="opt" data-c="1">Real-world money problems</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before the Checkpoint?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Multiplying decimals</button>
+      <button class="opt" data-c="1">Placing the decimal point correctly</button>
+      <button class="opt" data-c="1">Converting fractions to decimals</button>
+      <button class="opt" data-c="1">Real-world money problems</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 14: BOSS CHALLENGE -->
+<div class="slide" data-slide="14">
+<h2>🚨 Crisis: The Register Tape Ran Out</h2>
+<div class="box box-alert">
+  <div class="icon">⏰</div>
+  <h4>Elena Has to Do It By Hand</h4>
+  <p>A customer's full order: 3 lb of carrots at $2.40/lb, and half a pound of green beans at $3.20/lb. They hand Elena a $20 bill.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="15" data-ans="8.80|8.8" data-logic="Carrots: 2.40x3=7.20. Green beans: 3.20x0.5=1.60. Total: 7.20+1.60=$8.80.">
+    <span class="pts">+15</span>
+    <p class="qtext">What is the TOTAL for the whole order?</p>
+    <div class="fillrow"><span class="eq">$7.20 + $1.60 = $</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="15" data-logic="20.00 - 8.80 = 11.20. That's the change Elena owes the customer.">
+    <span class="pts">+15</span>
+    <p class="qtext">How much change does Elena give back from $20.00?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">$11.20</button>
+      <button class="opt">$12.20</button>
+      <button class="opt">$11.80</button>
+      <button class="opt">$8.80</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 15: PENCIL BREAK POST -->
+<div class="slide" data-slide="15">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge — See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 16: RESULTS -->
+<div class="slide" data-slide="16">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Stand Closed Out!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🥕</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Then finish your Post-Lesson Activity sheet for more points.</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Week 4 of 4 &mdash; Checkpoint is next!</p>
+      <div class="dots" style="margin-top:6px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span></div>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 17;
+const FINAL_INDEX = 16;
+const MODULE_ID = 'grade4-5-week9-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 121;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [
+  [['1/2','0.5'],['1/4','0.25'],['3/4','0.75'],['1/10','0.1'],['1/5','0.2']],
+  [['2/4','0.5'],['1/5','0.2'],['3/4','0.75'],['1/4','0.25'],['3/10','0.3']],
+  [['1/4','0.25'],['1/2','0.5'],['1/10','0.1'],['3/4','0.75'],['4/5','0.8']]
+];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  const rec=saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore()>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(!passed){
+    document.getElementById('finalMessageHeading').textContent='🌱 Practice makes progress.';
+    document.getElementById('finalMessageBody').textContent='You scored '+displayScore()+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Review the lesson and hit Play Again for a fresh set of questions whenever you\u2019re ready.';
+  }
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+</body>
+</html>
