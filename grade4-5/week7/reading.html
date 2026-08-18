@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 7: The Class Pet Vote | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillin{width:220px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.05rem;font-weight:800;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.storytext{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:20px 22px;margin:14px 0;font-size:1.02rem;line-height:1.8}
+.storytext p{margin-bottom:12px}
+.storytext .dropcap{font-family:'Bangers',cursive;font-size:2.6rem;color:var(--pumpkin);float:left;line-height:.8;margin:4px 8px 0 0}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+@media(max-width:600px){.twocol{grid-template-columns:1fr}}
+.viewcard{border-radius:16px;padding:16px 18px;font-size:.98rem;line-height:1.6}
+.viewcard.forview{background:#EFFAE6;border:3px solid var(--grass)}
+.viewcard.againstview{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.viewcard .whoname{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:6px;display:block}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:.95rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🐹 KCE Pathways — Grade 4-5 — Week 7</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0: INTRO -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Next Level &bull; Week 7 &bull; Reading</span>
+  <h1>The Class Pet Vote</h1>
+  <h2>Comparing Two Viewpoints 🐹</h2>
+  <div class="box box-story">
+    <div class="icon">🐹</div>
+    <h4>The Situation</h4>
+    <p>Mrs. Chen's class is voting on whether to get a class hamster. Two students, Malia and Theo, each wrote a short piece about it — and they see it very differently. Today you'll compare their two views side by side.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Practice rounds give you fresh questions every time you replay.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Learn 6 new vocabulary words about comparing viewpoints</li>
+      <li>Read Malia's and Theo's writing side by side</li>
+      <li>Practice finding how two viewpoints are similar AND different</li>
+      <li>Decide what evidence actually matters most</li>
+      <li>Play the Match-Up game and race the Speed Trail clock!</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Week 2 of 4</p>
+    <div class="dots" style="margin-top:6px"><span class="dot done"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 1: PENCIL BREAK PRE -->
+<div class="slide" data-slide="1">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully — no screen, just paper — then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">I finished my Warm-Up — Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 2: NONFICTION PASSAGE -->
+<div class="slide" data-slide="2">
+<h2>📰 Nonfiction: Why People See Things Differently</h2>
+<div class="nonfiction-tag">Nonfiction Passage</div>
+<div class="storytext">
+<p><span class="dropcap">T</span>wo people can look at the exact same situation and reach completely different conclusions — not because one of them is wrong, but because they're weighing different things as most important. One person might focus on excitement and learning; another might focus on responsibility and risk.</p>
+<p>Strong readers don't just pick a side. They notice WHAT each person cares about most, and why that leads them to see things differently.</p>
+</div>
+<div class="box box-vocab">
+<h4>📖 Vocabulary: <span class="vocabword">viewpoint</span></h4>
+<p>The particular way a person sees or feels about something, based on what matters most to them.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 3: VOCAB FLIP -->
+<div class="slide" data-slide="3">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">viewpoint</div><div class="flip-face flip-back">The particular way a person sees or feels about something.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">compare</div><div class="flip-face flip-back">To look at how two or more things are SIMILAR.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">contrast</div><div class="flip-face flip-back">To look at how two or more things are DIFFERENT.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">reasoning</div><div class="flip-face flip-back">The thinking or logic behind why someone believes something.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">persuasive</div><div class="flip-face flip-back">Writing meant to convince the reader to agree. (A Week 3 callback!)</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">evidence</div><div class="flip-face flip-back">Specific facts or details that support an argument. (A Week 1 callback!)</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 4: VOCAB PRACTICE -->
+<div class="slide" data-slide="4">
+<h2>✍️ Your Turn: Using the Words</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="8" data-logic="Looking at how two things are DIFFERENT is contrast.">
+    <span class="pts">+8</span>
+    <p class="qtext">Looking at how two things are DIFFERENT is called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Contrast</button><button class="opt">Compare</button><button class="opt">Reasoning</button><button class="opt">Evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="8" data-ans="compare" data-logic="Looking at how two things are SIMILAR is comparing.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: looking at how two things are SIMILAR is called ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="8" data-logic="The particular way a person sees or feels about something is their viewpoint.">
+    <span class="pts">+8</span>
+    <p class="qtext">The particular way a person sees or feels about something is called their ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Viewpoint</button><button class="opt">Evidence</button><button class="opt">Contrast</button><button class="opt">Persuasive</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="8" data-ans="reasoning" data-logic="The thinking or logic behind why someone believes something is their reasoning.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: the thinking or logic behind why someone believes something is called their ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="8" data-logic="Writing meant to convince the reader to agree is persuasive writing.">
+    <span class="pts">+8</span>
+    <p class="qtext">Writing meant to convince the reader to agree is called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Persuasive</button><button class="opt">Contrast</button><button class="opt">Viewpoint</button><button class="opt">Compare</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="8" data-ans="evidence" data-logic="Specific facts or details that support an argument are evidence.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: specific facts or details that support an argument are called ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 5: MALIA'S VIEW -->
+<div class="slide" data-slide="5">
+<h2>🐹 Malia's Case: For the Hamster</h2>
+<div class="twocol">
+  <div class="viewcard forview">
+    <span class="whoname">Malia writes:</span>
+    <p>"A class hamster would teach us real responsibility. We'd take turns feeding it, cleaning its cage, and learning about how animals live. My cousin's class had a guinea pig, and everyone learned so much about caring for something besides themselves. It made the whole class feel closer, too."</p>
+  </div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r1_s0" data-pts="9" data-logic="Malia's reasoning centers on learning responsibility and building classroom connection, not on the hamster's cuteness or fun alone.">
+    <span class="pts">+9</span>
+    <p class="qtext">What does Malia care about MOST in her argument?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Learning responsibility and bringing the class closer together</button>
+      <button class="opt">How cute hamsters are</button>
+      <button class="opt">Getting out of homework</button>
+      <button class="opt">Winning the class vote no matter what</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 6: THEO'S VIEW -->
+<div class="slide" data-slide="6">
+<h2>🐹 Theo's Case: Against the Hamster</h2>
+<div class="twocol">
+  <div class="viewcard againstview">
+    <span class="whoname">Theo writes:</span>
+    <p>"I love animals, but a classroom isn't the best place for one. Someone has to remember to feed it every single day, including weekends and school breaks. A few kids in our class are allergic to fur, too. I think we should get a class fish tank instead &mdash; it's calming, and nobody's allergic to fish."</p>
+  </div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r2_s0" data-pts="9" data-logic="Theo's reasoning centers on practical care problems (weekends, allergies) &mdash; he isn't against pets in general, just this specific plan.">
+    <span class="pts">+9</span>
+    <p class="qtext">What does Theo care about MOST in his argument?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Practical problems: daily care and allergies</button>
+      <button class="opt">He doesn't like animals at all</button>
+      <button class="opt">He wants extra homework</button>
+      <button class="opt">He agrees completely with Malia</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 7: COMPARE/CONTRAST TEACH -->
+<div class="slide" data-slide="7">
+<h2>💡 Comparing the Two Viewpoints</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Think About This</h4>
+  <p>Malia and Theo don't actually disagree about everything. Look for what's SIMILAR (compare) and what's DIFFERENT (contrast) between their two pieces.</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Picture It</h4>
+  <p><b>Similar:</b> Both care about the class and about animals being treated well. <b>Different:</b> Malia focuses on the learning benefits; Theo focuses on the practical challenges of daily care.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 8: COMPARE/CONTRAST PRACTICE -->
+<div class="slide" data-slide="8">
+<h2>✍️ Your Turn: Compare and Contrast</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r3_s0" data-pts="11" data-logic="Both students clearly care about the animal's wellbeing and about what's best for the class &mdash; that's the genuine similarity, even though they land in different places.">
+    <span class="pts">+11</span>
+    <p class="qtext">What is ONE thing Malia and Theo have in common?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They both care about the animal's wellbeing and the class</button>
+      <button class="opt">They both hate animals</button>
+      <button class="opt">They both want a hamster with no conditions</button>
+      <button class="opt">They agree on absolutely everything</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="r3_s1" data-pts="11" data-logic="The main difference is what each writer weighs as most important: learning value versus daily practical care.">
+    <span class="pts">+11</span>
+    <p class="qtext">What is the MAIN difference between Malia's and Theo's viewpoints?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Malia focuses on learning value; Theo focuses on practical care problems</button>
+      <button class="opt">Malia hates the idea; Theo loves it</button>
+      <button class="opt">They wrote about completely unrelated topics</button>
+      <button class="opt">There is no real difference</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="r3_s2" data-pts="11" data-logic="Theo's fish tank suggestion is a compromise idea that tries to address both sides &mdash; animal exposure for the class, without the daily-care and allergy problems.">
+    <span class="pts">+11</span>
+    <p class="qtext">Why does Theo suggest a fish tank instead of just saying no to any pet?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It's a compromise that avoids the daily-care and allergy problems</button>
+      <button class="opt">He actually agrees with Malia 100%</button>
+      <button class="opt">He doesn't want any classroom pet, ever, of any kind</button>
+      <button class="opt">Fish tanks are required by school rules</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 9: REAL WORLD 1 -->
+<div class="slide" data-slide="9">
+<h2>🐹 Weighing the Evidence, Part 1</h2>
+<div class="box box-real">
+  <div class="icon">⚖️</div>
+  <h4>Which Detail Matters More?</h4>
+  <p>Both writers include real details. Some details are stronger evidence than others.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r4_s0" data-pts="10" data-logic="The allergy detail is a concrete, specific fact that directly affects real students &mdash; stronger evidence than a general feeling.">
+    <span class="pts">+10</span>
+    <p class="qtext">Which is the STRONGER piece of evidence in Theo's argument?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Some students in the class are allergic to fur</button>
+      <button class="opt">Theo just doesn't feel like it</button>
+      <button class="opt">Fish are prettier than hamsters</button>
+      <button class="opt">Theo's cousin has a pet</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 10: REAL WORLD 2 -->
+<div class="slide" data-slide="10">
+<h2>🐹 Weighing the Evidence, Part 2</h2>
+<div class="box box-real">
+  <div class="icon">⚖️</div>
+  <h4>The Other Side</h4>
+  <p>Now look at Malia's strongest piece of evidence.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r5_s0" data-pts="10" data-logic="The specific example of her cousin's class and what actually happened is concrete evidence &mdash; stronger than a vague opinion.">
+    <span class="pts">+10</span>
+    <p class="qtext">Which is the STRONGER piece of evidence in Malia's argument?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Her cousin's class had a guinea pig and everyone learned from it</button>
+      <button class="opt">Hamsters are cute</button>
+      <button class="opt">Malia just wants one</button>
+      <button class="opt">Everyone always votes yes on pets</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: MATCH-UP ROUND -->
+<div class="slide" data-slide="11">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a word on the left, then its meaning on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 12: SPEED TRAIL -->
+<div class="slide" data-slide="12">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick vocabulary questions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-q="tt1" data-pts="4" data-bonus="1" data-logic="Looking at how things are DIFFERENT is contrast.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Looking at how two things are DIFFERENT is called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Contrast</button><button class="opt">Setting</button><button class="opt">Theme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt2" data-pts="4" data-bonus="1" data-logic="A person's particular way of seeing something is their viewpoint.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">A person's particular way of seeing something is their ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Viewpoint</button><button class="opt">Setting</button><button class="opt">Plot</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt3" data-pts="4" data-bonus="1" data-logic="Facts or details supporting an argument are evidence.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Facts that support an argument are called ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Evidence</button><button class="opt">Rhyme</button><button class="opt">Setting</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 13: REFLECTION -->
+<div class="slide" data-slide="13">
+<h2>🌇 Looking Back</h2>
+<div class="box box-story">
+  <div class="icon">🐹</div>
+  <h4>The Vote Is Coming</h4>
+  <p>Malia and Theo both made real points. Before the Boss Challenge, think back on what you practiced today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer — this is a reflection question.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Comparing two viewpoints</button>
+      <button class="opt" data-c="1">Finding what makes them different</button>
+      <button class="opt" data-c="1">Judging strong vs. weak evidence</button>
+      <button class="opt" data-c="1">Understanding someone else's reasoning</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before next week?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Comparing two viewpoints</button>
+      <button class="opt" data-c="1">Finding what makes them different</button>
+      <button class="opt" data-c="1">Judging strong vs. weak evidence</button>
+      <button class="opt" data-c="1">Understanding someone else's reasoning</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 14: BOSS CHALLENGE -->
+<div class="slide" data-slide="14">
+<h2>👑 Boss Challenge</h2>
+<div class="box box-alert">
+<div class="icon">👑</div>
+<h4>Show Everything You Learned</h4>
+<p>One more look at both viewpoints — this time, you connect all the pieces yourself.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="13" data-logic="The class needs to consider both the learning value AND the practical daily-care issues before deciding &mdash; that balance is the real point of comparing both sides.">
+    <span class="pts">+13</span>
+    <p class="qtext">What is the MAIN takeaway from reading both Malia's and Theo's writing together?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A good decision weighs BOTH the benefits and the practical challenges</button>
+      <button class="opt">Malia is completely right and Theo is completely wrong</button>
+      <button class="opt">Theo is completely right and Malia is completely wrong</button>
+      <button class="opt">Neither viewpoint matters at all</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="13" data-logic="Theo's allergy point is the one direct safety/health concern raised, which is why it carries real weight in a group decision.">
+    <span class="pts">+13</span>
+    <p class="qtext">Which detail would matter MOST to the whole class making this decision together?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">That some classmates are allergic to fur</button>
+      <button class="opt">That hamsters are considered cute</button>
+      <button class="opt">That Malia has a cousin</button>
+      <button class="opt">That fish tanks need water</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="11" data-ans="viewpoint|reason|compar|contrast|evidence" data-logic="This story is fundamentally about comparing two different, reasonable viewpoints and weighing their evidence.">
+    <span class="pts">+11</span>
+    <p class="qtext">Type your answer: in a few words, what is this whole lesson really about?</p>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="b3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 15: PENCIL BREAK POST -->
+<div class="slide" data-slide="15">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge — See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 16: RESULTS -->
+<div class="slide" data-slide="16">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Vote Ready!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">📖</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Then finish your Post-Lesson Activity sheet for more points.</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Week 2 of 4</p>
+      <div class="dots" style="margin-top:6px"><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 17;
+const FINAL_INDEX = 16;
+const MODULE_ID = 'grade4-5-week7-reading';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 123;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [
+  [['viewpoint','how a person sees something'],['compare','how things are similar'],['contrast','how things are different'],['reasoning','the logic behind a belief'],['evidence','facts that support an argument']],
+  [['compare','how things are similar'],['contrast','how things are different'],['persuasive','writing meant to convince'],['viewpoint','how a person sees something'],['evidence','facts that support an argument']],
+  [['reasoning','the logic behind a belief'],['evidence','facts that support an argument'],['contrast','how things are different'],['persuasive','writing meant to convince'],['compare','how things are similar']]
+];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — reread the clue and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  const matched = accepted.some(a => cleanVal.indexOf(a) !== -1 || a.indexOf(cleanVal) !== -1);
+  if(matched){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 A strong answer would include: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — reread and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  const rec=saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore()>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(!passed){
+    document.getElementById('finalMessageHeading').textContent='🌱 Practice makes progress.';
+    document.getElementById('finalMessageBody').textContent='You scored '+displayScore()+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Review the lesson and hit Play Again for fresh questions whenever you\u2019re ready.';
+  }
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+</body>
+</html>
