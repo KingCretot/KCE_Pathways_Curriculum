@@ -124,6 +124,18 @@ ul.tips li{margin:5px 0}
 .pencilbreak h2{color:var(--navy);margin-bottom:14px}
 .pencilbreak p{font-size:1.05rem;margin:10px 0}
 .pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+
+.areamodel-wrap{margin:16px 0;display:flex;flex-direction:column;max-width:420px}
+.areamodel-row{display:flex}
+.areamodel-axislabel{width:34px;flex-shrink:0}
+.areamodel-toplabel{text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);font-weight:900;padding-bottom:4px}
+.areamodel-sidelabel{width:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;color:var(--navy);font-weight:900}
+.areamodel-cell{border:3px solid #fff;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#fff;font-size:.9rem;line-height:1.3}
+.areamodel-cell b{font-family:'Fredoka One',cursive;font-size:1.1rem}
+.areamodel-cell.big{flex:10;height:100px;background:var(--navy)}
+.areamodel-cell.small{flex:3;height:100px;background:#314580}
+.areamodel-cell.small2{flex:10;height:24px;background:var(--sky);color:var(--navy)}
+.areamodel-cell.tiny{flex:3;height:24px;background:#A9DCFF;color:var(--navy)}
 </style>
 </head>
 <body>
@@ -238,7 +250,7 @@ ul.tips li{margin:5px 0}
 <div class="slide" data-slide="4">
 <h2>✍️ Your Turn: Reading the Digits</h2>
 <div class="qset" data-set="0">
-  <div class="qbox" data-fq="m1_s0" data-pts="9" data-ans="600000|600,000" data-logic="In 1,209,647 the 6 sits in the hundred-thousands place: 6 x 100,000 = 600,000.">
+  <div class="qbox" data-fq="m1_s0" data-pts="9" data-ans="600" data-logic="In 1,209,647 the 6 sits in the hundreds place: 6 x 100 = 600.">
     <span class="pts">+9</span>
     <p class="qtext">In 1,209,647, what is the VALUE of the digit 6?</p>
     <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s0">Check</button></div>
@@ -319,7 +331,24 @@ ul.tips li{margin:5px 0}
 <div class="box box-guided">
   <div class="icon">🧩</div>
   <h4>Picture It: 12 &times; 13</h4>
-  <p>(10&times;10) + (10&times;3) + (2&times;10) + (2&times;3) = 100 + 30 + 20 + 6 = <b>156</b>. Four smaller, easier multiplications instead of one hard one.</p>
+  <div class="areamodel-wrap">
+    <div class="areamodel-row">
+      <div class="areamodel-axislabel"></div>
+      <div class="areamodel-toplabel" style="flex:10">10</div>
+      <div class="areamodel-toplabel" style="flex:3">3</div>
+    </div>
+    <div class="areamodel-row">
+      <div class="areamodel-sidelabel">10</div>
+      <div class="areamodel-cell big">10 &times; 10<br><b>100</b></div>
+      <div class="areamodel-cell small">10 &times; 3<br><b>30</b></div>
+    </div>
+    <div class="areamodel-row">
+      <div class="areamodel-sidelabel">2</div>
+      <div class="areamodel-cell small2">2 &times; 10<br><b>20</b></div>
+      <div class="areamodel-cell tiny">2 &times; 3<br><b>6</b></div>
+    </div>
+  </div>
+  <p>The rectangle for 12 &times; 13 splits into four smaller rectangles by place value &mdash; one for each side-length pairing. Add up all four areas: 100 + 30 + 20 + 6 = <b>156</b>. Four smaller, easier multiplications instead of one hard one.</p>
 </div>
 <div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
