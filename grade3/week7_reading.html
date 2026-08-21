@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grade 3 — Week 7: The Grumpy Hiker (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&amp;family=Bangers&amp;family=Fredoka+One&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.qspeak-btn{position:static;display:inline-flex;vertical-align:middle;width:26px;height:26px;min-width:26px;border-radius:50%;border:2px solid var(--sky);background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;align-items:center;justify-content:center;transition:transform .15s,background .15s;margin-right:6px}.qspeak-btn:hover{background:var(--sky);transform:scale(1.08)}.qspeak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+</style>
+</head>
+<body>
+<div class="hud">
+<div class="hud-left"><div class="kc-logo kc-logo-onhud">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<span class="hud-title">🌋 KCE Pathways — Grade 3 — Week 7</span>
+</div>
+<div class="hud-right">
+<div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+<div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+<div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+</div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<span class="badge">KCE Pathways • Unit 2: The Trail Ahead • Week 7 • Reading</span>
+<h1>Week 7: The Grumpy Hiker</h1>
+<h2>Point of View: Comparing Perspectives 👀💭</h2>
+<div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>📋 Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+<div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>On opening day, a grumpy hiker walked into the trading post, looked around, and left without buying anything. Theo felt hurt — but Mia noticed something Theo missed. Today you'll learn how the SAME moment can look completely different depending on whose eyes you're seeing it through. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson — each with fresh questions!</p>
+</div>
+<div class="card card-sky">
+<h3>🏓 Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review of last week's cause and effect chains</li><li>Watch a video on point of view</li><li>Learn 5 new vocabulary words</li><li>Master comparing TWO characters' points of view on the same moment</li><li>Show what you know: Match-Up, Type-It, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+<div class="card" id="nameCaptureCard">
+<h3>👤 Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher — no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<input aria-label="student first name" class="fillin" id="studentFirstNameField" inputmode="text" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px"/>
+<input aria-label="student last name" class="fillin" id="studentLastNameField" inputmode="text" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px"/>
+</div>
+</div>
+<div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>🏁 Last Week Recap: Cause &amp; Effect Chains</h2>
+<p>Before we learn something new, let's make sure last week's skills are locked in!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="The reason why something happens is called the cause." data-pts="5" data-q="w1_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('The reason WHY something happens is called the blank?. effect. cause. theme. setting', this)" title="Hear this question read aloud" type="button">🔊</button> The reason WHY something happens is called the ___?</p>
+<div class="opts">
+<button class="opt">effect</button>
+<button class="opt" data-c="1">cause</button>
+<button class="opt">theme</button>
+<button class="opt">setting</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="effect" data-fq="w2_s0" data-logic="What happens as a result of a cause is called the effect." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('WHAT happens as a result of a cause is called the blank', this)" title="Hear this question read aloud" type="button">🔊</button> WHAT happens as a result of a cause is called the ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="In a chain reaction, one effect becomes the next cause." data-pts="5" data-q="w3_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In a chain reaction, one effect becomes the blank?. setting. next cause. theme. character', this)" title="Hear this question read aloud" type="button">🔊</button> In a chain reaction, one effect becomes the ___?</p>
+<div class="opts">
+<button class="opt">setting</button>
+<button class="opt" data-c="1">next cause</button>
+<button class="opt">theme</button>
+<button class="opt">character</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="Mia" data-fq="w4_s0" data-logic="Mia led the investigation of the storm chain last week." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who led the investigation of the storm chain last week?', this)" title="Hear this question read aloud" type="button">🔊</button> Who led the investigation of the storm chain last week?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w4_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="A cause always comes before its effect in time." data-pts="5" data-q="w1_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A cause always happens blank its effect?. after. before. during. never near', this)" title="Hear this question read aloud" type="button">🔊</button> A cause always happens ___ its effect?</p>
+<div class="opts">
+<button class="opt">after</button>
+<button class="opt" data-c="1">before</button>
+<button class="opt">during</button>
+<button class="opt">never near</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="trace" data-fq="w2_s1" data-logic="To follow a chain back to its start is called tracing." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('To follow a chain of events back to where it started is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> To follow a chain of events back to where it started is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Most events in the middle of a chain are both an effect of what came before and a cause of what comes next." data-pts="5" data-q="w3_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Most events in the middle of a chain are:. Only causes. Only effects. Both an effect and a new cause. Neither', this)" title="Hear this question read aloud" type="button">🔊</button> Most events in the middle of a chain are:</p>
+<div class="opts">
+<button class="opt">Only causes</button>
+<button class="opt">Only effects</button>
+<button class="opt" data-c="1">Both an effect and a new cause</button>
+<button class="opt">Neither</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="Theo" data-fq="w4_s1" data-logic="Theo boarded up the broken shutter last week." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who boarded up the broken shutter last week?', this)" title="Hear this question read aloud" type="button">🔊</button> Who boarded up the broken shutter last week?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w4_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="A result that follows an action is called a consequence." data-pts="5" data-q="w1_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A result that follows an action is called a blank?. sequence. consequence. theme. setting', this)" title="Hear this question read aloud" type="button">🔊</button> A result that follows an action is called a ___?</p>
+<div class="opts">
+<button class="opt">sequence</button>
+<button class="opt" data-c="1">consequence</button>
+<button class="opt">theme</button>
+<button class="opt">setting</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="loose shutter" data-fq="w2_s2" data-logic="The very first cause in the storm chain was the loose shutter." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What was the very first cause in last week’s storm chain?', this)" title="Hear this question read aloud" type="button">🔊</button> What was the very first cause in last week's storm chain?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w2_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A series of effects where each one causes the next is called a chain reaction." data-pts="5" data-q="w3_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A series of effects where each one causes the next is called a blank?. setting. chain reaction. theme. plot twist', this)" title="Hear this question read aloud" type="button">🔊</button> A series of effects where each one causes the next is called a ___?</p>
+<div class="opts">
+<button class="opt">setting</button>
+<button class="opt" data-c="1">chain reaction</button>
+<button class="opt">theme</button>
+<button class="opt">plot twist</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="less inventory" data-fq="w4_s2" data-logic="The final effect was less inventory for opening day." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What was the final effect at the end of the storm chain?', this)" title="Hear this question read aloud" type="button">🔊</button> What was the final effect at the end of the storm chain?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w4_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="0">← Back</button>
+<button class="btn btn-go" data-go="2">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🎬 Watch &amp; Learn</h2>
+<div class="card card-sky">
+<p>A grumpy hiker left the trading post without buying anything — and Theo and Mia saw it very differently. Watch this video to learn about point of view.</p>
+</div>
+<div class="videowrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:14px 0">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/fb33WQTGXPk" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" title="Point of View"></iframe>
+</div>
+<div class="card card-gold">
+<h3>💡 Key Takeaways</h3>
+<ul class="tips"><li>Point of view is the perspective a moment is seen or told from</li><li>Two people can see the exact same event very differently</li><li>Neither point of view has to be “wrong”</li></ul>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="1">← Back</button>
+<button class="btn btn-go" data-go="3">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🌟 Word Wrangler</h2>
+<p>Flip each card to learn this week's vocabulary!</p>
+<div class="flipgrid">
+<div class="flip" data-flip="">
+<div class="flip-inner">
+<div class="flip-face flip-front">point of view<button class="speak-btn" onclick="event.stopPropagation(); speakText('point of view', this)" title="Hear this word" type="button">🔊</button></div>
+<div class="flip-face flip-back">The perspective, or angle, that a moment is seen or told from.</div>
+</div>
+</div>
+<div class="flip" data-flip="">
+<div class="flip-inner">
+<div class="flip-face flip-front">perspective<button class="speak-btn" onclick="event.stopPropagation(); speakText('perspective', this)" title="Hear this word" type="button">🔊</button></div>
+<div class="flip-face flip-back">A person's own particular way of seeing or understanding something.</div>
+</div>
+</div>
+<div class="flip" data-flip="">
+<div class="flip-inner">
+<div class="flip-face flip-front">infer<button class="speak-btn" onclick="event.stopPropagation(); speakText('infer', this)" title="Hear this word" type="button">🔊</button></div>
+<div class="flip-face flip-back">To figure something out using clues, without being told directly.</div>
+</div>
+</div>
+<div class="flip" data-flip="">
+<div class="flip-inner">
+<div class="flip-face flip-front">empathy<button class="speak-btn" onclick="event.stopPropagation(); speakText('empathy', this)" title="Hear this word" type="button">🔊</button></div>
+<div class="flip-face flip-back">Understanding and caring about how someone else might feel.</div>
+</div>
+</div>
+<div class="flip" data-flip="">
+<div class="flip-inner">
+<div class="flip-face flip-front">interpret<button class="speak-btn" onclick="event.stopPropagation(); speakText('interpret', this)" title="Hear this word" type="button">🔊</button></div>
+<div class="flip-face flip-back">To explain or understand what something means to you.</div>
+</div>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="2">← Back</button>
+<button class="btn btn-go" data-go="4">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>📜 Sound &amp; Spell Bonus</h2>
+<span class="bonuspill">Bonus Practice • builds XP, not Pathway Points</span>
+<div class="card card-sky">
+<p>This week's phonics skill is <b>contractions</b> — the same skill from Math class today, so let's practice it here too!</p>
+</div>
+<div class="practicewrap">
+<div class="qbox" data-ans="I'm" data-bonus="1" data-fq="ss1" data-logic="I am = I'm. The apostrophe stands in for the missing letter." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('I am = blank', this)" title="Hear this question read aloud" type="button">🔊</button> I am = ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ss1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="they're" data-bonus="1" data-fq="ss2" data-logic="they are = they're. The apostrophe stands in for the missing letter." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('they are = blank', this)" title="Hear this question read aloud" type="button">🔊</button> they are = ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ss2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-bonus="1" data-logic="Wasn't is a contraction of “was not,” with the apostrophe standing in for missing letters." data-pts="5" data-q="ss3">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which word is a contraction?. hiker. wasn’t. trail. boots', this)" title="Hear this question read aloud" type="button">🔊</button> Which word is a contraction?</p>
+<div class="opts">
+<button class="opt">hiker</button>
+<button class="opt" data-c="1">wasn't</button>
+<button class="opt">trail</button>
+<button class="opt">boots</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="she'll" data-bonus="1" data-fq="ss4" data-logic="she will = she'll. The apostrophe stands in for the missing letters." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('she will = blank', this)" title="Hear this question read aloud" type="button">🔊</button> she will = ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ss4">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="3">← Back</button>
+<button class="btn btn-go" data-go="5">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>👀 What Is Point of View?</h2>
+<div class="card">
+<p>A hiker walked into the trading post on opening day, looked around for a minute, and left without buying anything. Theo felt hurt — he thought the hiker was just being rude. But that's only ONE point of view on what happened.</p><button class="readaloud-btn" onclick="speakText('A hiker walked into the trading post on opening day, looked around for a minute, and left without buying anything. Theo felt hurt — he thought the hiker was just being rude. But that’s only ONE point of view on what happened.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p>Point of view means the perspective a moment is seen from — almost like a camera angle. The SAME event can look completely different depending on who is watching it, and what that person notices, feels, and already knows. Neither point of view is automatically “right” or “wrong” — they're just different angles on the same truth.</p></div>
+<div class="pictureit"><h4>🧩 Picture It: Same Moment, Different Angles</h4>THE HIKER LEAVES WITHOUT BUYING<br/>Theo's angle: feels hurt, thinks it's rude<br/>Mia's angle: notices clues, thinks something else is going on</div>
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p>If a dog barks at a mail carrier, the dog might feel it's protecting its home, while the mail carrier might feel scared. Same moment, two very different points of view.</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="Point of view means the perspective a moment is seen or told from." data-pts="5" data-q="t1a_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Point of view means:. The setting of a story. The perspective a moment is seen from. The theme of a story. The ending of a story', this)" title="Hear this question read aloud" type="button">🔊</button> Point of view means:</p>
+<div class="opts">
+<button class="opt">The setting of a story</button>
+<button class="opt" data-c="1">The perspective a moment is seen from</button>
+<button class="opt">The theme of a story</button>
+<button class="opt">The ending of a story</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Yes, the same event can look very different depending on what each person notices and feels." data-pts="5" data-q="t1b_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Can the same event look different to two different people?. No, events always look the same to everyone. Yes, depending on what each person notices and feels. Only in made-up stories. Only if one person is lying', this)" title="Hear this question read aloud" type="button">🔊</button> Can the same event look different to two different people?</p>
+<div class="opts">
+<button class="opt">No, events always look the same to everyone</button>
+<button class="opt" data-c="1">Yes, depending on what each person notices and feels</button>
+<button class="opt">Only in made-up stories</button>
+<button class="opt">Only if one person is lying</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="rude" data-fq="t1c_s0" data-logic="Theo thought the hiker was just being rude." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Theo felt hurt when the hiker left. What did Theo THINK the hiker was being?', this)" title="Hear this question read aloud" type="button">🔊</button> Theo felt hurt when the hiker left. What did Theo THINK the hiker was being?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t1c_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Neither point of view is automatically wrong — they can just be different, valid angles on the same truth." data-pts="5" data-q="t1a_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Is one person’s point of view automatically ”wrong” if it’s different from someone else’s?. Yes, always. No, they can just be different angles on the same truth. Only if it’s about hikers. Only if it’s written down', this)" title="Hear this question read aloud" type="button">🔊</button> Is one person's point of view automatically "wrong" if it's different from someone else's?</p>
+<div class="opts">
+<button class="opt">Yes, always</button>
+<button class="opt" data-c="1">No, they can just be different angles on the same truth</button>
+<button class="opt">Only if it's about hikers</button>
+<button class="opt">Only if it's written down</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Point of view is almost like a camera angle — where you're looking from changes what you see." data-pts="5" data-q="t1b_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Point of view is almost like a:. Math equation. Camera angle. Grocery list. Silent letter', this)" title="Hear this question read aloud" type="button">🔊</button> Point of view is almost like a:</p>
+<div class="opts">
+<button class="opt">Math equation</button>
+<button class="opt" data-c="1">Camera angle</button>
+<button class="opt">Grocery list</button>
+<button class="opt">Silent letter</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="Theo" data-fq="t1c_s1" data-logic="Theo felt hurt and confused when the hiker left." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who felt hurt and confused when the hiker left?', this)" title="Hear this question read aloud" type="button">🔊</button> Who felt hurt and confused when the hiker left?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t1c_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="The dog might feel it's protecting its home, which is its point of view on the moment." data-pts="5" data-q="t1a_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In the dog and mail carrier example, why might the dog bark?. It hates the mail. It feels it’s protecting its home. It’s bored. It wants a treat', this)" title="Hear this question read aloud" type="button">🔊</button> In the dog and mail carrier example, why might the dog bark?</p>
+<div class="opts">
+<button class="opt">It hates the mail</button>
+<button class="opt" data-c="1">It feels it's protecting its home</button>
+<button class="opt">It's bored</button>
+<button class="opt">It wants a treat</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The mail carrier might feel scared, which is a very different point of view on the same moment." data-pts="5" data-q="t1b_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What might the mail carrier feel in that same moment?. Excited. Scared. Sleepy. Hungry', this)" title="Hear this question read aloud" type="button">🔊</button> What might the mail carrier feel in that same moment?</p>
+<div class="opts">
+<button class="opt">Excited</button>
+<button class="opt" data-c="1">Scared</button>
+<button class="opt">Sleepy</button>
+<button class="opt">Hungry</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="hiker left" data-fq="t1c_s2" data-logic="A hiker left the trading post without buying anything." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What happened that Theo and Mia saw so differently?', this)" title="Hear this question read aloud" type="button">🔊</button> What happened that Theo and Mia saw so differently?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t1c_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="4">← Back</button>
+<button class="btn btn-go" data-go="6">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🔍 Reading the Clues: Mia's Perspective</h2>
+<div class="card card-sky">
+<p>While Theo felt hurt, Mia was looking closer. She noticed the hiker's boots were caked in mud, the strap on his pack was torn, and his water bottle was completely empty. Mia inferred that the hiker wasn't being rude at all — he was exhausted.</p><button class="readaloud-btn" onclick="speakText('While Theo felt hurt, Mia was looking closer. She noticed the hiker’s boots were caked in mud, the strap on his pack was torn, and his water bottle was completely empty. Mia inferred that the hiker wasn’t being rude at all — he was exhausted.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p>To understand someone else's point of view, I look for CLUES about what they might be feeling or thinking — even if the story doesn't say it directly. Muddy boots, a torn strap, and an empty water bottle are all details that let me INFER the hiker had a rough hike, without anyone telling me so.</p></div>
+<div class="pictureit"><h4>🧩 Picture It: Clues → Inference</h4>Muddy boots + torn strap + empty bottle<br/>→ INFERENCE: the hiker is exhausted, not rude</div>
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p>If a classmate slams their locker and walks away fast, you might infer they're upset about something — even if they don't say a word.</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="Mia noticed muddy boots, a torn pack strap, and an empty water bottle." data-pts="5" data-q="t2a_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What clues did Mia notice about the hiker?. His name and age. Muddy boots, torn strap, empty water bottle. His favorite color. Nothing at all', this)" title="Hear this question read aloud" type="button">🔊</button> What clues did Mia notice about the hiker?</p>
+<div class="opts">
+<button class="opt">His name and age</button>
+<button class="opt" data-c="1">Muddy boots, torn strap, empty water bottle</button>
+<button class="opt">His favorite color</button>
+<button class="opt">Nothing at all</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="exhausted" data-fq="t2b_s0" data-logic="Mia inferred the hiker was exhausted, not rude." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What did Mia infer the hiker was, instead of rude?', this)" title="Hear this question read aloud" type="button">🔊</button> What did Mia infer the hiker was, instead of rude?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t2b_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Figuring something out from clues, without being told directly, is called inferring." data-pts="5" data-q="t2c_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('To figure something out from clues, without being told directly, is called what?. Predicting. Inferring. Summarizing. Skimming', this)" title="Hear this question read aloud" type="button">🔊</button> To figure something out from clues, without being told directly, is called what?</p>
+<div class="opts">
+<button class="opt">Predicting</button>
+<button class="opt" data-c="1">Inferring</button>
+<button class="opt">Summarizing</button>
+<button class="opt">Skimming</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Muddy boots suggest a long, hard hike, which helps explain the hiker's mood." data-pts="5" data-q="t2a_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Why were the muddy boots an important clue?. They weren’t important. They suggested a long, hard hike. They meant the hiker was clumsy. They were just decoration', this)" title="Hear this question read aloud" type="button">🔊</button> Why were the muddy boots an important clue?</p>
+<div class="opts">
+<button class="opt">They weren't important</button>
+<button class="opt" data-c="1">They suggested a long, hard hike</button>
+<button class="opt">They meant the hiker was clumsy</button>
+<button class="opt">They were just decoration</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="You might infer the classmate is upset, even without them saying a word." data-pts="5" data-q="t2b_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In the locker example, what might you infer if a classmate slams their locker?. They are happy. They might be upset about something. They are hungry. Nothing can be inferred', this)" title="Hear this question read aloud" type="button">🔊</button> In the locker example, what might you infer if a classmate slams their locker?</p>
+<div class="opts">
+<button class="opt">They are happy</button>
+<button class="opt" data-c="1">They might be upset about something</button>
+<button class="opt">They are hungry</button>
+<button class="opt">Nothing can be inferred</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="empathy" data-fq="t2c_s1" data-logic="Understanding how someone else might feel is called empathy." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Understanding how someone else might feel is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> Understanding how someone else might feel is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t2c_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="Noticing small details helps a reader understand a character's feelings without being told directly." data-pts="5" data-q="t2a_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What does noticing small details, like a torn strap, help a reader do?. Nothing useful. Understand a character’s feelings without being told. Skip the story. Guess the ending only', this)" title="Hear this question read aloud" type="button">🔊</button> What does noticing small details, like a torn strap, help a reader do?</p>
+<div class="opts">
+<button class="opt">Nothing useful</button>
+<button class="opt" data-c="1">Understand a character's feelings without being told</button>
+<button class="opt">Skip the story</button>
+<button class="opt">Guess the ending only</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Mia's conclusion was based on real clues she observed, not a random guess." data-pts="5" data-q="t2b_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Was Mia’s conclusion about the hiker based on a guess with NO evidence?. Yes, a random guess. No, it was based on real clues she observed. Yes, she just knew somehow. No, someone told her directly', this)" title="Hear this question read aloud" type="button">🔊</button> Was Mia's conclusion about the hiker based on a guess with NO evidence?</p>
+<div class="opts">
+<button class="opt">Yes, a random guess</button>
+<button class="opt" data-c="1">No, it was based on real clues she observed</button>
+<button class="opt">Yes, she just knew somehow</button>
+<button class="opt">No, someone told her directly</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="water bottle" data-fq="t2c_s2" data-logic="The hiker's empty water bottle was one of Mia's clues." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What was empty that gave Mia a clue about the hiker?', this)" title="Hear this question read aloud" type="button">🔊</button> What was empty that gave Mia a clue about the hiker?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t2c_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="5">← Back</button>
+<button class="btn btn-go" data-go="7">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>💙 Two Points of View, Both Real</h2>
+<div class="card card-grass">
+<p>When Mia explained what she'd noticed, Theo realized something important: his hurt feelings were real, AND Mia's read on the hiker was also probably true. Comparing points of view isn't about deciding who's “right” — it's about understanding the WHOLE picture.</p><button class="readaloud-btn" onclick="speakText('When Mia explained what she’d noticed, Theo realized something important: his hurt feelings were real, AND Mia’s read on the hiker was also probably true. Comparing points of view isn’t about deciding who’s “right” — it’s about understanding the WHOLE picture.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p>When two points of view seem to disagree, I don't have to pick a winner. Instead, I ask: what does EACH point of view notice that the other might be missing? Putting both perspectives together usually gives a fuller, more empathetic understanding than just one alone.</p></div>
+<div class="pictureit"><h4>🧩 Picture It: Two Views, One Fuller Picture</h4>Theo's view: hurt feelings (real)<br/>+<br/>Mia's view: hiker is exhausted (also real)<br/>=<br/>A fuller understanding of the whole moment</div>
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p>A little sister might feel proud of a tall block tower, while a parent might feel worried it will fall. Both feelings can be true at the same time.</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="You should ask what each point of view notices that the other might be missing." data-pts="5" data-q="t3a_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('When two points of view seem to disagree, what should you do?. Decide one is completely wrong. Ask what each view notices that the other misses. Ignore both of them. Only trust the adult’s view', this)" title="Hear this question read aloud" type="button">🔊</button> When two points of view seem to disagree, what should you do?</p>
+<div class="opts">
+<button class="opt">Decide one is completely wrong</button>
+<button class="opt" data-c="1">Ask what each view notices that the other misses</button>
+<button class="opt">Ignore both of them</button>
+<button class="opt">Only trust the adult's view</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Both can be true at the same time — that's the whole point of comparing perspectives." data-pts="5" data-q="t3b_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Can Theo’s hurt feelings AND Mia’s read on the hiker both be true at once?. No, only one can be true. Yes, both can be true at the same time. Only if they argue about it. Only in fiction', this)" title="Hear this question read aloud" type="button">🔊</button> Can Theo's hurt feelings AND Mia's read on the hiker both be true at once?</p>
+<div class="opts">
+<button class="opt">No, only one can be true</button>
+<button class="opt" data-c="1">Yes, both can be true at the same time</button>
+<button class="opt">Only if they argue about it</button>
+<button class="opt">Only in fiction</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="empathy" data-fq="t3c_s0" data-logic="Understanding how someone else might feel is called empathy." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Understanding how someone else might feel is called blank', this)" title="Hear this question read aloud" type="button">🔊</button> Understanding how someone else might feel is called ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t3c_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="The little sister might feel proud of her tall block tower." data-pts="5" data-q="t3a_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In the block tower example, what might the little sister feel?. Scared. Proud. Bored. Angry', this)" title="Hear this question read aloud" type="button">🔊</button> In the block tower example, what might the little sister feel?</p>
+<div class="opts">
+<button class="opt">Scared</button>
+<button class="opt" data-c="1">Proud</button>
+<button class="opt">Bored</button>
+<button class="opt">Angry</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The parent might feel worried the tower will fall, a different but equally valid feeling." data-pts="5" data-q="t3b_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What might the parent feel in that same moment?. Proud only. Worried it will fall. Nothing at all. Hungry', this)" title="Hear this question read aloud" type="button">🔊</button> What might the parent feel in that same moment?</p>
+<div class="opts">
+<button class="opt">Proud only</button>
+<button class="opt" data-c="1">Worried it will fall</button>
+<button class="opt">Nothing at all</button>
+<button class="opt">Hungry</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="fuller" data-fq="t3c_s1" data-logic="Putting two points of view together usually gives a fuller understanding." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Putting two points of view together usually gives you a blank understanding', this)" title="Hear this question read aloud" type="button">🔊</button> Putting two points of view together usually gives you a ___ understanding</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t3c_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="Theo realized his feelings were real, and Mia's read on the hiker was probably also true." data-pts="5" data-q="t3a_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What did Theo realize after Mia explained her clues?. That he was wrong to feel hurt. That his feelings were real AND Mia’s read was probably true too. That the hiker was definitely rude. That Mia was making it up', this)" title="Hear this question read aloud" type="button">🔊</button> What did Theo realize after Mia explained her clues?</p>
+<div class="opts">
+<button class="opt">That he was wrong to feel hurt</button>
+<button class="opt" data-c="1">That his feelings were real AND Mia's read was probably true too</button>
+<button class="opt">That the hiker was definitely rude</button>
+<button class="opt">That Mia was making it up</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Comparing points of view builds a fuller, more empathetic understanding of a moment." data-pts="5" data-q="t3b_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Why is comparing points of view useful, even when they seem to disagree?. It isn’t useful. It builds a fuller, more empathetic understanding. It proves someone is lying. It makes stories shorter', this)" title="Hear this question read aloud" type="button">🔊</button> Why is comparing points of view useful, even when they seem to disagree?</p>
+<div class="opts">
+<button class="opt">It isn't useful</button>
+<button class="opt" data-c="1">It builds a fuller, more empathetic understanding</button>
+<button class="opt">It proves someone is lying</button>
+<button class="opt">It makes stories shorter</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="interpret" data-fq="t3c_s2" data-logic="To explain what something means to you is called interpreting." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('To explain what something means to you is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> To explain what something means to you is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t3c_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="6">← Back</button>
+<button class="btn btn-go" data-go="8">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>⭐ Bonus Practice</h2>
+<span class="bonuspill">Bonus Practice • builds XP, not Pathway Points</span>
+<div class="practicewrap">
+<div class="qbox" data-bonus="1" data-logic="The two versions will not always match exactly, since each character may notice or feel different things." data-pts="5" data-q="bp1">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('If a story is told twice, once from each character’s point of view, will the two versions always match exactly?. Yes, always. Not always — each may notice or feel different things. Only if it’s nonfiction. Only if both characters agree first', this)" title="Hear this question read aloud" type="button">🔊</button> If a story is told twice, once from each character's point of view, will the two versions always match exactly?</p>
+<div class="opts">
+<button class="opt">Yes, always</button>
+<button class="opt" data-c="1">Not always — each may notice or feel different things</button>
+<button class="opt">Only if it's nonfiction</button>
+<button class="opt">Only if both characters agree first</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="perspective" data-bonus="1" data-fq="bp2" data-logic="A person's own particular way of seeing something is called their perspective." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('A person’s own particular way of seeing something is called their blank', this)" title="Hear this question read aloud" type="button">🔊</button> A person's own particular way of seeing something is called their ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bp2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-bonus="1" data-logic="A detail that helps you infer something is called a clue." data-pts="5" data-q="bp3">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A detail like a torn strap that helps you infer something is called a blank?. theme. clue. setting. sequence', this)" title="Hear this question read aloud" type="button">🔊</button> A detail like a torn strap that helps you infer something is called a ___?</p>
+<div class="opts">
+<button class="opt">theme</button>
+<button class="opt" data-c="1">clue</button>
+<button class="opt">setting</button>
+<button class="opt">sequence</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="7">← Back</button>
+<button class="btn btn-go" data-go="9">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav">
+<button class="btn btn-back" data-go="8">← Back</button>
+<button class="btn btn-go" data-go="10">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>⌤️ Type-It Corral</h2>
+<p>Fill in each answer!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-ans="point" data-fq="ty1_s0" data-logic="The perspective a moment is seen from is called point of view." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('The perspective a moment is seen from is called blank of view', this)" title="Hear this question read aloud" type="button">🔊</button> The perspective a moment is seen from is called ___ of view</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="Mia" data-fq="ty2_s0" data-logic="Mia inferred the hiker was exhausted, not rude." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who inferred the hiker was exhausted, not rude?', this)" title="Hear this question read aloud" type="button">🔊</button> Who inferred the hiker was exhausted, not rude?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="infer" data-fq="ty3_s0" data-logic="Figuring something out from clues is called inferring." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Figuring something out from clues is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> Figuring something out from clues is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-ans="empathy" data-fq="ty1_s1" data-logic="Understanding how someone else might feel is called empathy." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Understanding how someone else might feel is called blank', this)" title="Hear this question read aloud" type="button">🔊</button> Understanding how someone else might feel is called ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="Theo" data-fq="ty2_s1" data-logic="Theo felt hurt when the hiker left without buying anything." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who felt hurt when the hiker left without buying anything?', this)" title="Hear this question read aloud" type="button">🔊</button> Who felt hurt when the hiker left without buying anything?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="perspective" data-fq="ty3_s1" data-logic="A person's own way of seeing something is called their perspective." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('A person’s own way of seeing something is called their blank', this)" title="Hear this question read aloud" type="button">🔊</button> A person's own way of seeing something is called their ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-ans="boots" data-fq="ty1_s2" data-logic="Mia noticed the hiker's muddy boots, torn strap, or empty water bottle." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Name one clue Mia noticed about the hiker (boots, strap, or bottle).', this)" title="Hear this question read aloud" type="button">🔊</button> Name one clue Mia noticed about the hiker (boots, strap, or bottle).</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="interpret" data-fq="ty2_s2" data-logic="To explain what something means to you is called interpreting." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('To explain what something means to you is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> To explain what something means to you is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="wrong" data-fq="ty3_s2" data-logic="Neither point of view has to be wrong — they can just be different." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Neither point of view has to be blank', this)" title="Hear this question read aloud" type="button">🔊</button> Neither point of view has to be ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="9">← Back</button>
+<button class="btn btn-go" data-go="11">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>⚡ Speed Arena</h2>
+<span class="bonuspill">Bonus Round • builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP — go fast but stay correct!</p>
+<div class="practicewrap">
+<div class="qbox" data-ans="Mia" data-bonus="1" data-fq="sp1" data-logic="Mia noticed the muddy boots and torn strap." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Who noticed the muddy boots and torn strap?', this)" title="Hear this question read aloud" type="button">🔊</button> Who noticed the muddy boots and torn strap?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="sp1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-bonus="1" data-logic="Yes, two points of view about the same event can both be true at the same time." data-pts="5" data-q="sp2">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Can two points of view about the same event both be true?. No, never. Yes, at the same time. Only in fiction. Only if they match exactly', this)" title="Hear this question read aloud" type="button">🔊</button> Can two points of view about the same event both be true?</p>
+<div class="opts">
+<button class="opt">No, never</button>
+<button class="opt" data-c="1">Yes, at the same time</button>
+<button class="opt">Only in fiction</button>
+<button class="opt">Only if they match exactly</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="rude" data-bonus="1" data-fq="sp3" data-logic="Theo thought the hiker was just being rude." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What did Theo think the hiker was being?', this)" title="Hear this question read aloud" type="button">🔊</button> What did Theo think the hiker was being?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="sp3">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>⌤️ Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly — watch your capital letter and period.</p>
+<div class="qbox" data-ans="i compared two points of view on the same moment." data-bonus="1" data-fq="kc1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end." data-pts="10">
+<span class="pts">+10 XP</span>
+<p class="qtext">Type this sentence:</p>
+<div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">I compared two points of view on the same moment.</div>
+<div class="fillrow">
+<input aria-label="typed sentence" class="fillin" id="kc1input" inputmode="text" style="width:100%"/>
+<button class="btn btn-pri" data-check="kc1">Check</button>
+</div>
+<p class="feedback"></p>
+<p id="kc1speed" style="font-size:.82rem;color:#64748b;margin-top:6px"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="10">← Back</button>
+<button class="btn btn-go" data-go="12">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>✏️ Step Away From the Screen</h2>
+<div class="card card-gold">
+<p>Great work comparing points of view! Before the Boss Battle, take a moment to think back on what you learned. Your teacher will give you a separate paper <b>Exercise</b> to complete by hand — that's where you'll really show off on paper!</p>
+</div>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="This is a reflection question — any honest, real example works." data-pts="5" data-q="pb1_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Think of a moment where you and a sibling or friend saw the SAME event differently. What made your points of view different?. Whatever you honestly noticed or felt — there’s no single right answer. It must involve hiking. It must involve a store. There are no real examples', this)" title="Hear this question read aloud" type="button">🔊</button> Think of a moment where you and a sibling or friend saw the SAME event differently. What made your points of view different?</p>
+<div class="opts">
+<button class="opt" data-c="1">Whatever you honestly noticed or felt — there's no single right answer</button>
+<button class="opt">It must involve hiking</button>
+<button class="opt">It must involve a store</button>
+<button class="opt">There are no real examples</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="You might be missing details or feelings that another point of view would reveal." data-pts="5" data-q="pb2_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('If you only ever hear ONE person’s point of view on an event, what might you be missing?. Nothing, one view is always enough. Details or feelings that another point of view would reveal. The ending of the story. The setting', this)" title="Hear this question read aloud" type="button">🔊</button> If you only ever hear ONE person's point of view on an event, what might you be missing?</p>
+<div class="opts">
+<button class="opt">Nothing, one view is always enough</button>
+<button class="opt" data-c="1">Details or feelings that another point of view would reveal</button>
+<button class="opt">The ending of the story</button>
+<button class="opt">The setting</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Noticing small details helps you understand feelings a character never states directly, building empathy." data-pts="5" data-q="pb1_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Why might noticing small details (like Mia did) make you a more empathetic reader?. It doesn’t help at all. It helps you understand feelings the character never states directly. It only helps with Math. It makes stories shorter', this)" title="Hear this question read aloud" type="button">🔊</button> Why might noticing small details (like Mia did) make you a more empathetic reader?</p>
+<div class="opts">
+<button class="opt">It doesn't help at all</button>
+<button class="opt" data-c="1">It helps you understand feelings the character never states directly</button>
+<button class="opt">It only helps with Math</button>
+<button class="opt">It makes stories shorter</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="You can understand someone's point of view without necessarily agreeing with everything they did." data-pts="5" data-q="pb2_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Is it possible to disagree with someone’s ACTIONS but still understand their point of view?. No, that’s impossible. Yes, understanding a perspective doesn’t mean you have to agree with it. Only for adults. Only in fiction', this)" title="Hear this question read aloud" type="button">🔊</button> Is it possible to disagree with someone's ACTIONS but still understand their point of view?</p>
+<div class="opts">
+<button class="opt">No, that's impossible</button>
+<button class="opt" data-c="1">Yes, understanding a perspective doesn't mean you have to agree with it</button>
+<button class="opt">Only for adults</button>
+<button class="opt">Only in fiction</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="Two different, real feelings from two different people can both be true about the same moment." data-pts="5" data-q="pb1_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What are two things that can be true about the SAME moment at once?. Only one feeling can ever be true. Two different, real feelings from two different people. Nothing can be true at once. Only the narrator’s feeling matters', this)" title="Hear this question read aloud" type="button">🔊</button> What are two things that can be true about the SAME moment at once?</p>
+<div class="opts">
+<button class="opt">Only one feeling can ever be true</button>
+<button class="opt" data-c="1">Two different, real feelings from two different people</button>
+<button class="opt">Nothing can be true at once</button>
+<button class="opt">Only the narrator's feeling matters</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="This week you compared Theo's and Mia's points of view on the same moment." data-pts="5" data-q="pb2_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Whose points of view did you compare this week?. Theo and Grandpa. Theo and Mia. Mia and the hiker. Grandpa and the hiker', this)" title="Hear this question read aloud" type="button">🔊</button> Whose points of view did you compare this week?</p>
+<div class="opts">
+<button class="opt">Theo and Grandpa</button>
+<button class="opt" data-c="1">Theo and Mia</button>
+<button class="opt">Mia and the hiker</button>
+<button class="opt">Grandpa and the hiker</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="11">← Back</button>
+<button class="btn btn-go" data-go="13">Next →</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>👑 Boss Battle: Two Sides of the Story</h2>
+<p>Show everything you've learned this week!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="Theo thought the hiker was just being rude." data-pts="5" data-q="bb1_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What did Theo think when the hiker left without buying anything?. That the hiker was exhausted. That the hiker was being rude. That the hiker forgot his wallet. That the hiker would come back', this)" title="Hear this question read aloud" type="button">🔊</button> What did Theo think when the hiker left without buying anything?</p>
+<div class="opts">
+<button class="opt">That the hiker was exhausted</button>
+<button class="opt" data-c="1">That the hiker was being rude</button>
+<button class="opt">That the hiker forgot his wallet</button>
+<button class="opt">That the hiker would come back</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="exhausted" data-fq="bb2_s0" data-logic="Mia inferred the hiker was exhausted, not rude." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What did Mia infer the hiker actually was?', this)" title="Hear this question read aloud" type="button">🔊</button> What did Mia infer the hiker actually was?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The color of his shirt was not one of the clues Mia used — the boots, strap, and bottle were." data-pts="5" data-q="bb3_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which clue did NOT help Mia make her inference?. Muddy boots. A torn pack strap. An empty water bottle. The color of his shirt', this)" title="Hear this question read aloud" type="button">🔊</button> Which clue did NOT help Mia make her inference?</p>
+<div class="opts">
+<button class="opt">Muddy boots</button>
+<button class="opt">A torn pack strap</button>
+<button class="opt">An empty water bottle</button>
+<button class="opt" data-c="1">The color of his shirt</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Theo's hurt feelings were still real, even though Mia noticed more of the picture." data-pts="5" data-q="bb1_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Is Theo’s point of view ”wrong” just because Mia noticed more?. Yes, Theo was completely wrong. No, his hurt feelings were still real. Yes, feelings don’t matter. No, because Mia was lying', this)" title="Hear this question read aloud" type="button">🔊</button> Is Theo's point of view "wrong" just because Mia noticed more?</p>
+<div class="opts">
+<button class="opt">Yes, Theo was completely wrong</button>
+<button class="opt" data-c="1">No, his hurt feelings were still real</button>
+<button class="opt">Yes, feelings don't matter</button>
+<button class="opt">No, because Mia was lying</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="infer" data-fq="bb2_s1" data-logic="Figuring something out from clues is called inferring." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Figuring something out from clues, without being told, is called what?', this)" title="Hear this question read aloud" type="button">🔊</button> Figuring something out from clues, without being told, is called what?</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Comparing two points of view usually gives you a fuller, more empathetic understanding." data-pts="5" data-q="bb3_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What does comparing two points of view usually give you?. Confusion only. A fuller, more empathetic understanding. Proof someone is lying. A shorter story', this)" title="Hear this question read aloud" type="button">🔊</button> What does comparing two points of view usually give you?</p>
+<div class="opts">
+<button class="opt">Confusion only</button>
+<button class="opt" data-c="1">A fuller, more empathetic understanding</button>
+<button class="opt">Proof someone is lying</button>
+<button class="opt">A shorter story</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="Point of view is the perspective a moment is seen or told from." data-pts="5" data-q="bb1_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What is point of view?. The setting of a story. The perspective a moment is seen from. The ending of a story. A character’s name', this)" title="Hear this question read aloud" type="button">🔊</button> What is point of view?</p>
+<div class="opts">
+<button class="opt">The setting of a story</button>
+<button class="opt" data-c="1">The perspective a moment is seen from</button>
+<button class="opt">The ending of a story</button>
+<button class="opt">A character's name</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="empathy" data-fq="bb2_s2" data-logic="Understanding how someone else might feel is called empathy." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Understanding how someone else might feel is called blank', this)" title="Hear this question read aloud" type="button">🔊</button> Understanding how someone else might feel is called ___</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb2_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Yes, the exact same event can look different depending on what each person notices and feels." data-pts="5" data-q="bb3_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Can the exact same event look different depending on who is watching it?. No, events always look the same. Yes, depending on what each person notices and feels. Only in made-up stories. Only if someone lies', this)" title="Hear this question read aloud" type="button">🔊</button> Can the exact same event look different depending on who is watching it?</p>
+<div class="opts">
+<button class="opt">No, events always look the same</button>
+<button class="opt" data-c="1">Yes, depending on what each person notices and feels</button>
+<button class="opt">Only in made-up stories</button>
+<button class="opt">Only if someone lies</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="12">← Back</button>
+<button class="btn btn-go" data-finish="">See My Score 🏆</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<div class="kc-logo kc-logo-large">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<div class="center">
+<span class="badge" id="finalBadge">Lesson Complete</span>
+<h1 id="finalHeadline">Perspectives Compared!</h1>
+<h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+<div class="final-score"><span id="finalScore">0</span>/100</div>
+<div class="card card-gold" style="text-align:left">
+<h3 id="finalMessageHeading">📣 Tell your teacher or parent your score so it goes in your Portfolio Passport!</h3>
+<p id="finalMessageBody">Then finish your <b>Post-Lesson Activity</b> sheet for up to 50 more points, plus up to 25 for neat handwriting. Read a book and tell me about it for a <b>+10</b> bonus!</p>
+<p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+</div>
+<div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+<span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📜 Portfolio Passport</span>
+<p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead — Week 2 of 4</p>
+<div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span></div>
+</div>
+<p class="quote" id="priorAttemptNote" style="display:none"></p>
+<div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay="">Play Again 🔄</button>
+<a class="btn btn-go" href="#" id="continueLink" style="display:none">Continue to Next Lesson →</a>
+</div>
+<div class="card" style="margin-top:18px;text-align:left">
+<h3>✅ All Done for Today?</h3>
+<p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Go tell your teacher or parent your score, then finish your Post-Lesson Activity sheet. See you at the next lesson!</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-reading-w7';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 115;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean);
+  u.rate = 0.88; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[['Point of view','the perspective a moment is seen from'],['Perspective','a person\u2019s own way of seeing something'],['Infer','to figure something out from clues'],['Empathy','understanding how someone else might feel'],['Interpret','to explain what something means to you']],[['Theo\u2019s POV of the hiker','thinks the hiker is just rude'],['Mia\u2019s POV of the hiker','notices clues the hiker is exhausted'],['Muddy boots, torn strap','clues Mia noticed'],['The hiker leaving without buying','the same moment, two POVs'],['Neither POV is','wrong']],[['Empathy helps you','understand someone else\u2019s feelings'],['Two people can see','the same event differently'],['A clue is a','detail that helps you infer'],['Theo felt','hurt and confused'],['Mia felt','curious and observant']]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! \ud83e\udde9'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '\ud83c\udf1f Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '\ud83c\udf1f Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '\ud83c\udf89 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '\u2705 You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '\ud83d\udcda That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '\u274c Not yet \u2014 check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Trailblazer! &#11088;';
+  if (displayScore() >= 90) tierTitle = 'Summit Champion! &#127955;&#128081;';
+  else if (displayScore() >= 75) tierTitle = 'Checkpoint Master! &#127775;';
+  else if (displayScore() >= 50) tierTitle = 'Trail Explorer! &#10024;';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '\ud83c\udf89 Outstanding Work!';
+    msgHeading.innerHTML = '&#127942; You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Finish your <b>Post-Lesson Activity</b> sheet for more practice, then tell your teacher or parent so it goes in your Portfolio Passport. Read a book and tell someone about it for a <b>+10</b> bonus!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun \ud83d\udd04';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '\ud83d\udcaa Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again \ud83d\udd04';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+</body>
+</html>
