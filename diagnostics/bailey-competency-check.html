@@ -127,6 +127,14 @@ p{margin:6px 0}
 .pcard .reveal-box{background:rgba(255,255,255,.92);color:var(--ink);border-left:4px solid var(--gold);margin-top:-2px;margin-bottom:8px;font-size:.85rem}
 
 /* CERTIFICATE */
+.reportcard{background:#fff;border-radius:16px;padding:26px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.skillrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee;flex-wrap:wrap;gap:6px}
+.skillname{font-weight:800;color:var(--navy)}
+.skillscore{font-weight:800}
+.pill{padding:4px 12px;border-radius:14px;font-size:.8rem;font-weight:800}
+.pill-solid{background:#E7F1E7;color:var(--ok)}
+.pill-dev{background:#FFF3D6;color:#9A7B1F}
+.pill-support{background:#FDEDED;color:var(--bad)}
 .cert{border:6px double var(--gold);border-radius:18px;padding:40px 36px;text-align:center;background:#FFFDF6;position:relative}
 .cert::before{content:'';position:absolute;inset:10px;border:1px solid var(--gold);border-radius:12px;pointer-events:none}
 .cert-kc{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.3rem;letter-spacing:1px}
@@ -607,12 +615,29 @@ p{margin:6px 0}
     </ul>
   </div>
 </div>
-<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Get My Certificate! 🏅 &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">See My Report! 📋 &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 10: CERTIFICATE -->
-<div class="slide" data-slide="10" id="certSlide">
+<!-- SLIDE 10: REPORT -->
+<div class="slide" data-slide="10">
+<span class="sectiontag tag-mixed">Your Results</span>
+<h2>📋 Competency Check Report</h2>
+<div class="reportcard">
+  <p id="reportIntro" style="font-weight:800;color:var(--navy)"></p>
+  <div id="skillBreakdown"></div>
+  <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
+</div>
+<div class="nav" style="margin-top:20px;flex-wrap:wrap;gap:10px">
+  <button class="btn btn-back" data-go="8">&larr; Back</button>
+  <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
+  <button class="btn btn-go" data-go="11">Get My Certificate! 🏅 &rarr;</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: CERTIFICATE -->
+<div class="slide" data-slide="11" id="certSlide">
 <div class="cert">
   <div class="cert-kc">KingCretot Experience<span class="tag"><span class="tag-e">Educate</span> &middot; <span class="tag-m">Empower</span> &middot; <span class="tag-x">Excel</span></span></div>
   <h1>CERTIFICATE OF COMPLETION</h1>
@@ -627,14 +652,14 @@ p{margin:6px 0}
     <div class="sigblock"><div class="signame">September 14, 2026</div><div class="sigline"></div><small>Date</small></div>
   </div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-print" onclick="window.print()">🖨️ Print Certificate</button></div>
+<div class="nav noprint"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-print" onclick="window.print()">🖨️ Print Certificate</button></div>
 <div class="dots noprint" id="dots"></div>
 </div>
 
 </div>
 
 <script>
-const TOTAL_SLIDES = 11;
+const TOTAL_SLIDES = 12;
 let current = 0;
 const state = { answers: {} };
 function goSlide(n){
@@ -644,7 +669,8 @@ function goSlide(n){
   document.getElementById('stepBadge').textContent = 'Slide '+(n+1)+' of '+TOTAL_SLIDES;
   buildDots();
   window.scrollTo({top:0,behavior:'smooth'});
-  if (n === 10) buildCertificate();
+  if (n === 10) buildReport();
+  if (n === 11) buildCertificate();
 }
 function buildDots(){
   document.querySelectorAll('.dots').forEach(dotsEl=>{
@@ -705,6 +731,72 @@ document.addEventListener('click', function(e){
   }
 });
 buildDots();
+
+function buildReport(){
+  const groups = {
+    'Place Value': {ids: ['q1','t2']},
+    'Multiplication': {ids: ['r1','b1']},
+    'Division': {ids: ['q2','r2','t1','b2','b11']},
+    'Fractions': {ids: ['q3','r3','t3','b3']},
+    'Decimals & Money': {ids: ['q4','r4','t4','b4']},
+    'Math Vocabulary': {ids: ['v1','v2','v3','v4','m1','m2','m3']},
+    'Reading Vocabulary': {ids: ['v5','v6','m4','m5','m6','t5','t6','t7','t8','b9','b10']},
+    'Character & Conflict': {ids: ['q5','c1','b5']},
+    'Perspective-Taking': {ids: ['q6','c2','b6']},
+    'Cause & Effect': {ids: ['q7','c3']},
+    'Main Idea & Details': {ids: ['q8','c4','b8']},
+    'Compromise & Resolution': {ids: ['b7']},
+    'Summarizing': {ids: ['b12']}
+  };
+
+  let totalCorrect = 0, totalSeen = 0;
+  let html = '';
+  const weak = [];
+
+  for (const skill in groups){
+    const ids = groups[skill].ids;
+    let correct = 0, total = 0;
+    ids.forEach(id => { if (id in state.answers){ total++; if (state.answers[id]) correct++; } });
+    if (total === 0) continue;
+    totalCorrect += correct; totalSeen += total;
+    const pct = correct/total;
+    let pillClass = 'pill-solid', pillText = 'Solid';
+    if (pct < 0.5){ pillClass = 'pill-support'; pillText = 'Needs Support'; weak.push(skill); }
+    else if (pct < 0.8){ pillClass = 'pill-dev'; pillText = 'Developing'; weak.push(skill); }
+    html += '<div class="skillrow"><span class="skillname">'+skill+'</span><span><span class="skillscore">'+correct+'/'+total+'</span> <span class="pill '+pillClass+'">'+pillText+'</span></span></div>';
+  }
+
+  document.getElementById('skillBreakdown').innerHTML = html;
+  document.getElementById('reportIntro').textContent = 'Bailey Simon — ' + totalCorrect + ' of ' + totalSeen + ' correct on this Unit 1 competency check.';
+
+  let recs = 'This check covered the same ground as the real checkpoint, with all-new questions. ';
+  if (weak.length === 0){
+    recs += 'Every area checked out as Solid — a genuinely independent confirmation that Unit 1 skills are in place before moving further into Unit 2.';
+  } else {
+    recs += 'Worth a closer look: ' + weak.join(', ') + '. A couple of these categories only had one or two questions behind them, so treat those specific lines as a starting point for conversation rather than a firm verdict.';
+  }
+  document.getElementById('reportRecs').textContent = recs;
+
+  const emailBtnEl = document.getElementById('emailBtn');
+  if (emailBtnEl){
+    emailBtnEl.onclick = function(){
+      const subject = encodeURIComponent('Bailey Simon — Unit 1 Competency Check Results');
+      const body = encodeURIComponent(
+        'Bailey Simon — Unit 1 Competency Check Report\n\n' +
+        'Score: ' + totalCorrect + ' of ' + totalSeen + ' correct\n\n' +
+        'Skill breakdown:\n' +
+        Object.keys(groups).map(skill=>{
+          const ids = groups[skill].ids;
+          let c=0,t=0;
+          ids.forEach(id=>{ if(id in state.answers){t++; if(state.answers[id])c++;} });
+          return t>0 ? skill+': '+c+'/'+t : null;
+        }).filter(Boolean).join('\n') +
+        '\n\nNotes: ' + recs
+      );
+      window.location.href = 'mailto:?subject='+subject+'&body='+body;
+    };
+  }
+}
 
 function buildCertificate(){
   const ids = Object.keys(state.answers);
