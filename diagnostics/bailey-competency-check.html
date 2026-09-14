@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 4-5 Competency Check | KingCretot Experience</title>
+<style>
+:root{--navy:#0A1F3D;--gold:#C9A84C;--blue:#4FA9F2;--gold2:#E0AC3C;--red:#D14545;--cream:#FAF7EF;--ink:#1c1c1c}
+*{box-sizing:border-box}
+body{font-family:'Nunito',Georgia,sans-serif;margin:0;background:linear-gradient(135deg,#F5F0E3,#FFF8ED);color:var(--ink);min-height:100vh}
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap');
+.hud{background:var(--navy);color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hud-brand{display:flex;align-items:center;gap:10px}
+.hud-logo{background:var(--gold);color:var(--navy);font-family:'Fredoka One',cursive;font-weight:800;padding:6px 10px;border-radius:8px;font-size:1.1rem}
+.hud-title{font-weight:800;font-size:1.05rem}
+.hud-badge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:700}
+.slide{display:none;max-width:900px;margin:24px auto;padding:0 20px 60px}
+.slide.active{display:block}
+.sectiontag{display:inline-block;padding:5px 14px;border-radius:20px;font-weight:800;font-size:.8rem;margin-bottom:10px;font-family:'Fredoka One',cursive}
+.tag-math{background:var(--blue);color:#fff}
+.tag-read{background:var(--gold2);color:#fff}
+h1,h2{font-family:'Fredoka One',cursive;color:var(--navy)}
+h1{font-size:2rem}
+h2{font-size:1.6rem;margin-top:0}
+.box{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(10,31,61,.08);margin-bottom:18px}
+.box-guided{display:flex;gap:16px;align-items:flex-start}
+.box-guided .icon{font-size:2.2rem}
+.minipassage{background:#F0F6FF;border-left:5px solid var(--blue);border-radius:10px;padding:16px 20px;margin:14px 0;line-height:1.6;font-size:1.05rem}
+.qgrid{display:flex;flex-direction:column;gap:16px}
+.qcard{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 3px 10px rgba(10,31,61,.07);border:2px solid transparent}
+.qcard.answered{border-color:#ddd}
+.qtext{font-weight:800;color:var(--navy);margin-bottom:12px;font-size:1.05rem}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{background:#F7F5EE;border:2px solid #e2ddd0;border-radius:10px;padding:12px 16px;text-align:left;cursor:pointer;font-size:1rem;font-weight:700;color:var(--ink);transition:.15s}
+.opt:hover{border-color:var(--blue)}
+.qcard.answered .opt{pointer-events:none;opacity:.55}
+.qcard.answered .opt.picked{opacity:1;border-color:var(--navy);background:#EFF3FF}
+.fillrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fillin{border:2px solid #ccc;border-radius:8px;padding:10px 14px;font-size:1.1rem;font-weight:700;flex:1;min-width:120px;font-family:'Fredoka One',cursive;color:var(--navy)}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer;font-size:.95rem;font-family:'Nunito',sans-serif}
+.btn-go{background:var(--navy);color:#fff}
+.btn-back{background:#eee;color:var(--navy)}
+.qcard.answered .fillin,.qcard.answered .btn-go{pointer-events:none;opacity:.6}
+.recorded{display:none;color:#2E7D32;font-weight:800;margin-top:10px;font-size:.95rem}
+.qcard.answered .recorded{display:block}
+.nav{display:flex;justify-content:space-between;margin-top:24px}
+.dots{text-align:center;margin-top:18px;color:#999;font-size:.85rem}
+.vertmath{display:inline-block;font-family:'Fredoka One',cursive;font-size:2rem;color:var(--navy);text-align:right;margin:14px 0}
+.vertmath .vm-row{display:flex;align-items:baseline;justify-content:flex-end;gap:10px}
+.vertmath .vm-op{font-size:1.6rem;color:var(--gold2);align-self:center}
+.vertmath .vm-num{min-width:110px;text-align:right}
+.vertmath .vm-line{border-top:4px solid var(--navy);margin-top:6px;width:100%}
+.doublebox{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.doublebox{grid-template-columns:1fr}}
+.longdiv{display:inline-flex;align-items:flex-start;font-family:'Fredoka One',cursive;font-size:2rem;color:var(--navy);margin:14px 0}
+.longdiv .ld-divisor{padding-right:10px;padding-top:6px}
+.longdiv .ld-bracket{border-left:4px solid var(--navy);border-top:4px solid var(--navy);padding:6px 14px 4px;border-radius:2px 8px 0 0}
+.ordergrid{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.ordercard{background:#fff;border:2px solid #e2ddd0;border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.ordercard.picked{border-color:var(--navy);background:#EFF3FF;cursor:default}
+.ordercard.locked{pointer-events:none}
+.ordernum{background:var(--navy);color:#fff;font-family:'Fredoka One',cursive;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.reportcard{background:#fff;border-radius:16px;padding:26px;box-shadow:0 4px 16px rgba(10,31,61,.08)}
+.skillrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.skillname{font-weight:800;color:var(--navy)}
+.skillscore{font-weight:800}
+.pill{padding:4px 12px;border-radius:14px;font-size:.8rem;font-weight:800}
+.pill-solid{background:#E7F1E7;color:#2E7D32}
+.pill-dev{background:#FFF3D6;color:#9A7B1F}
+.pill-support{background:#FDEDED;color:#D14545}
+@media print{.noprint{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hud">
+<div class="hud-brand"><span class="hud-logo">KC</span><span class="hud-title">📘 Grade 4-5 Competency Check</span></div>
+<div class="hud-badge">Step <span id="stepnum">1</span> of 15</div>
+</div>
+
+<!-- SLIDE 0: INTRO -->
+<div class="slide active" data-slide="0">
+<h1>Let's See Where Things Stand</h1>
+<div class="box box-guided">
+  <div class="icon">🧭</div>
+  <div><h3 style="margin-top:0">For the instructor</h3>
+  <p>This is a fresh look, not a re-test — none of these questions repeat anything from a checkpoint. It's fully instructor-paced: read each item together, let the student work it out loud or on paper, then click their answer. No login, no timer, no score attached to anything outside this room. At the end you'll get a skill-by-skill report you can print or email.</p>
+  </div>
+</div>
+<div class="nav noprint"><span></span><button class="btn btn-go" data-go="1">Begin &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 1: MATH - MULTI-DIGIT MULTIPLICATION -->
+<div class="slide" data-slide="1">
+<span class="sectiontag tag-math">Math — Multiplication</span>
+<h2>✖️ Multi-Digit Multiplication</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="mm1" data-fill="1" data-ans="204">
+    <div class="qtext">Solve it the long way:</div>
+    <div class="vertmath">
+      <div class="vm-num">34</div>
+      <div class="vm-row"><span class="vm-op">&times;</span><div class="vm-num">6</div></div>
+      <div class="vm-line"></div>
+    </div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="mm1">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="mm2" data-fill="1" data-ans="378">
+    <div class="qtext">Solve it the long way:</div>
+    <div class="vertmath">
+      <div class="vm-num">27</div>
+      <div class="vm-row"><span class="vm-op">&times;</span><div class="vm-num">14</div></div>
+      <div class="vm-line"></div>
+    </div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="mm2">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="mm3" data-fill="1" data-ans="3404">
+    <div class="qtext">Solve it the long way (bigger numbers!):</div>
+    <div class="vertmath">
+      <div class="vm-num">148</div>
+      <div class="vm-row"><span class="vm-op">&times;</span><div class="vm-num">23</div></div>
+      <div class="vm-line"></div>
+    </div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="mm3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 2: MATH - LONG DIVISION -->
+<div class="slide" data-slide="2">
+<span class="sectiontag tag-math">Math — Division</span>
+<h2>➗ Long Division</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="ld1" data-fill="1" data-ans="28">
+    <div class="qtext">Solve it:</div>
+    <div class="longdiv"><span class="ld-divisor">3</span><span class="ld-bracket">84</span></div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld1">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="ld2" data-fill="1" data-ans="39">
+    <div class="qtext">Solve it:</div>
+    <div class="longdiv"><span class="ld-divisor">4</span><span class="ld-bracket">156</span></div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld2">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="ld3" data-fill="1" data-ans="15 r5|15r5|15 R5">
+    <div class="qtext">Solve it (this one has a remainder — write it like "9 R2"):</div>
+    <div class="longdiv"><span class="ld-divisor">6</span><span class="ld-bracket">95</span></div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 3: MATH - FRACTIONS (UNLIKE DENOMINATORS) -->
+<div class="slide" data-slide="3">
+<span class="sectiontag tag-math">Math — Fractions</span>
+<h2>🍕 Adding &amp; Subtracting Fractions</h2>
+<div class="box"><strong>Note for instructor:</strong> Accept either the simplified or unsimplified equivalent fraction — both are mathematically correct.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="fr1" data-fill="1" data-ans="1/2|3/6">
+    <div class="qtext">1/3 + 1/6 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr1">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="fr2" data-fill="1" data-ans="1/2|5/10">
+    <div class="qtext">2/5 + 1/10 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr2">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="fr3" data-fill="1" data-ans="5/8">
+    <div class="qtext">3/4 &minus; 1/8 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 4: MATH - FRACTIONS (EQUIVALENCE & COMPARING) -->
+<div class="slide" data-slide="4">
+<span class="sectiontag tag-math">Math — Fractions</span>
+<h2>⚖️ Equivalent &amp; Comparing Fractions</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="fr4" data-correct="1">
+    <div class="qtext">Which fraction is EQUIVALENT to 2/3?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">3/4</button>
+      <button class="opt" data-i="1">4/6</button>
+      <button class="opt" data-i="2">5/8</button>
+      <button class="opt" data-i="3">6/10</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="fr5" data-correct="1">
+    <div class="qtext">Which is GREATER: 3/5 or 5/8?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">3/5</button>
+      <button class="opt" data-i="1">5/8</button>
+      <button class="opt" data-i="2">They are equal</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="fr6" data-fill="1" data-ans="1/4,1/2,3/4">
+    <div class="qtext">Put these in order, smallest first: 1/2, 3/4, 1/4</div>
+    <div class="fillrow"><input class="fillin" placeholder="e.g. 1/4, 1/2, 3/4"><button class="btn btn-go" data-check="fr6">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 5: MATH - DECIMAL PLACE VALUE & COMPARING -->
+<div class="slide" data-slide="5">
+<span class="sectiontag tag-math">Math — Decimals</span>
+<h2>🔢 Decimal Place Value &amp; Comparing</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="dc1" data-correct="0">
+    <div class="qtext">In 4.56, what is the 5 worth?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">5 tenths</button>
+      <button class="opt" data-i="1">5 hundredths</button>
+      <button class="opt" data-i="2">5 ones</button>
+      <button class="opt" data-i="3">5 tens</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="dc2" data-correct="0">
+    <div class="qtext">Which symbol makes this true? 0.7 ___ 0.65</div>
+    <div class="opts">
+      <button class="opt" data-i="0">&gt;</button>
+      <button class="opt" data-i="1">&lt;</button>
+      <button class="opt" data-i="2">=</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="dc3" data-fill="1" data-ans="0.25,0.3,0.4">
+    <div class="qtext">Put these in order, smallest first: 0.4, 0.25, 0.3</div>
+    <div class="fillrow"><input class="fillin" placeholder="e.g. 0.1, 0.2, 0.3"><button class="btn btn-go" data-check="dc3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 6: MATH - DECIMAL OPERATIONS -->
+<div class="slide" data-slide="6">
+<span class="sectiontag tag-math">Math — Decimals</span>
+<h2>🧮 Decimal Operations</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="dc4" data-fill="1" data-ans="4.85">
+    <div class="qtext">Solve it the long way:</div>
+    <div class="vertmath">
+      <div class="vm-num">3.25</div>
+      <div class="vm-row"><span class="vm-op">+</span><div class="vm-num">1.60</div></div>
+      <div class="vm-line"></div>
+    </div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="dc4">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="dc5" data-fill="1" data-ans="2.65">
+    <div class="qtext">Solve it the long way:</div>
+    <div class="vertmath">
+      <div class="vm-num">5.40</div>
+      <div class="vm-row"><span class="vm-op">&minus;</span><div class="vm-num">2.75</div></div>
+      <div class="vm-line"></div>
+    </div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="dc5">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="dc6" data-fill="1" data-ans="10|10.0|10.00">
+    <div class="qtext">2.5 &times; 4 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="dc6">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 7: MATH - PLACE VALUE (LARGE NUMBERS) -->
+<div class="slide" data-slide="7">
+<span class="sectiontag tag-math">Math — Place Value</span>
+<h2>🔢 Place Value with Bigger Numbers</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="pv1" data-correct="1">
+    <div class="qtext">In 528,946, what is the digit 9 worth?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">9 thousand</button>
+      <button class="opt" data-i="1">9 hundred</button>
+      <button class="opt" data-i="2">9 ten-thousand</button>
+      <button class="opt" data-i="3">9 tens</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="pv2" data-fill="1" data-ans="40000+2000+600+8|40,000+2,000+600+8">
+    <div class="qtext">Write 42,608 in expanded form (like 30,000 + 4,000 + 500 + 2)</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-go" data-check="pv2">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="pv3" data-fill="1" data-ans="390000|390,000">
+    <div class="qtext">Round 386,540 to the nearest ten-thousand.</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-go" data-check="pv3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 8: MATH - REAL-WORLD WORD PROBLEMS -->
+<div class="slide" data-slide="8">
+<span class="sectiontag tag-math">Math — Word Problems</span>
+<h2>🧮 Real-World Problems</h2>
+<div class="qgrid">
+  <div class="qcard" data-qid="wp1" data-fill="1" data-ans="60|$60">
+    <div class="qtext">A family of 4 goes to a movie. Tickets are $12 each. They also buy 2 bags of popcorn at $6 each. How much do they spend in total?</div>
+    <div class="fillrow"><input class="fillin" placeholder="$?" style="max-width:140px"><button class="btn btn-go" data-check="wp1">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="wp2" data-fill="1" data-ans="165">
+    <div class="qtext">A car travels 55 miles per hour on the highway. How far does it travel in 3 hours?</div>
+    <div class="fillrow"><input class="fillin" placeholder="? miles" style="max-width:140px"><button class="btn btn-go" data-check="wp2">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="wp3" data-fill="1" data-ans="1 1/4|5/4|1.25">
+    <div class="qtext">Maria ran 3/4 of a mile on Monday and 1/2 of a mile on Tuesday. How many miles did she run in total?</div>
+    <div class="fillrow"><input class="fillin" placeholder="? miles" style="max-width:140px"><button class="btn btn-go" data-check="wp3">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="wp4" data-fill="1" data-ans="39">
+    <div class="qtext">A school is splitting 156 students evenly onto 4 buses. How many students go on each bus?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="wp4">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="wp5" data-fill="1" data-ans="360">
+    <div class="qtext">A bakery makes 24 cupcakes per tray. If they bake 15 trays, how many cupcakes do they make in total?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="wp5">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="wp6" data-fill="1" data-ans="8.75|$8.75">
+    <div class="qtext">Jake has $20. He buys a book for $8.75 and a pen for $2.50. How much money does he have left?</div>
+    <div class="fillrow"><input class="fillin" placeholder="$?" style="max-width:140px"><button class="btn btn-go" data-check="wp6">Check</button></div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 9: READING - CHARACTER CHANGE -->
+<div class="slide" data-slide="9">
+<span class="sectiontag tag-read">Reading — Character Change</span>
+<h2>🎭 How Characters Change</h2>
+<div class="minipassage">At the start of the school year, Marcus refused to raise his hand in class, worried he'd say the wrong answer and everyone would laugh. His teacher noticed and started calling on him gently, praising even his half-right answers. By December, Marcus was volunteering to present his science project in front of the whole class, hand shooting up before anyone else's.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="cc1" data-correct="0">
+    <div class="qtext">How does Marcus change over the course of the story?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">He goes from being afraid to speak up to being confident and eager to participate</button>
+      <button class="opt" data-i="1">He goes from being confident to being shy and quiet</button>
+      <button class="opt" data-i="2">He goes from disliking science to loving it</button>
+      <button class="opt" data-i="3">He goes from being the class clown to being serious</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+  <div class="qcard" data-qid="cc2" data-correct="2">
+    <div class="qtext">What CAUSED Marcus to change?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">He got a new best friend</button>
+      <button class="opt" data-i="1">He read a book about confidence</button>
+      <button class="opt" data-i="2">His teacher gave him gentle encouragement and praised his efforts</button>
+      <button class="opt" data-i="3">His parents rewarded him with money</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 10: READING - AUTHOR'S PURPOSE -->
+<div class="slide" data-slide="10">
+<span class="sectiontag tag-read">Reading — Author's Purpose</span>
+<h2>🎯 Why Did the Author Write This?</h2>
+<div class="minipassage">Every student should have access to a school garden. Gardens teach patience, responsibility, and where food actually comes from — lessons no worksheet can replicate. Schools with gardens report higher attendance and better test scores in science. If we want healthier, more engaged students, we need to put a garden on every campus.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="ap1" data-correct="3">
+    <div class="qtext">What is the author's PURPOSE in writing this passage?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">To entertain readers with a funny story about gardening</button>
+      <button class="opt" data-i="1">To describe what one specific school garden looks like</button>
+      <button class="opt" data-i="2">To simply inform readers about how gardens grow food</button>
+      <button class="opt" data-i="3">To persuade readers that schools should have gardens</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="minipassage" style="margin-top:20px">The old dog trotted through the fallen leaves, his tail wagging as he chased the same squirrel he chased every single day, never once catching it, never once stopping to wonder why he kept trying.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="ap2" data-correct="1">
+    <div class="qtext">What is the author's PURPOSE in writing THIS passage?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">To persuade readers to get a dog</button>
+      <button class="opt" data-i="1">To entertain readers with a small story</button>
+      <button class="opt" data-i="2">To inform readers about dog training methods</button>
+      <button class="opt" data-i="3">To explain why squirrels climb trees</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: READING - TEXT STRUCTURE -->
+<div class="slide" data-slide="11">
+<span class="sectiontag tag-read">Reading — Text Structure</span>
+<h2>🏗️ How Is This Text Organized?</h2>
+<div class="minipassage">Volcanoes and earthquakes are both caused by movement in the Earth's crust, but they behave very differently. A volcano builds up slowly, sometimes over years, as pressure and magma gather beneath the surface before finally erupting. An earthquake, on the other hand, happens suddenly — plates that have been locked together for years can slip in a matter of seconds, releasing all that stored energy at once.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="ts1" data-correct="0">
+    <div class="qtext">What text structure does the author use here?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Compare and contrast</button>
+      <button class="opt" data-i="1">Cause and effect</button>
+      <button class="opt" data-i="2">Sequence / chronological order</button>
+      <button class="opt" data-i="3">Problem and solution</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="minipassage" style="margin-top:20px">The town's only bridge had been closed for repairs for three weeks, forcing residents to drive forty minutes out of their way to reach the grocery store. Frustrated, a group of neighbors petitioned the city council, who agreed to fund a temporary pontoon bridge until repairs were finished &mdash; cutting the detour down to just five minutes.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="ts2" data-correct="3">
+    <div class="qtext">What text structure does the author use in THIS passage?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Compare and contrast</button>
+      <button class="opt" data-i="1">Cause and effect</button>
+      <button class="opt" data-i="2">Sequence / chronological order</button>
+      <button class="opt" data-i="3">Problem and solution</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 12: READING - COMPARING VIEWPOINTS -->
+<div class="slide" data-slide="12">
+<span class="sectiontag tag-read">Reading — Comparing Viewpoints</span>
+<h2>👀 Two Points of View</h2>
+<div class="minipassage"><strong>Coach's view:</strong> Coach Rivera watched practice end ten minutes early and felt a flicker of worry. The team needed every minute before Saturday's game. But she also saw tired legs and heavy eyes — pushing harder tonight wouldn't help anyone perform better on game day.</div>
+<div class="minipassage"><strong>Jayden's view:</strong> Jayden was relieved when Coach called practice early. His legs ached from yesterday's sprints, and part of him worried the team wasn't ready for Saturday. Still, he was grateful for the extra rest — maybe fresh legs would matter more than one more drill.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="cv1" data-correct="2">
+    <div class="qtext">How are the coach's and Jayden's feelings about ending practice early SIMILAR?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Both are completely confident the team will win Saturday</button>
+      <button class="opt" data-i="1">Both think practice should never have started that day</button>
+      <button class="opt" data-i="2">Both feel some worry about being ready for Saturday, but also see the value in resting</button>
+      <button class="opt" data-i="3">Both are angry that practice ended early</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="minipassage" style="margin-top:20px"><strong>Mrs. Chen's view:</strong> Mrs. Chen watched her daughter head off to her first sleepaway camp, waving until the bus disappeared around the corner. She felt a proud ache in her chest &mdash; Lily was growing up, and that was exactly what was supposed to happen, even if it didn't make the driveway feel any less empty.</div>
+<div class="minipassage"><strong>Lily's view:</strong> Lily pressed her face to the bus window, waving at her mom until she couldn't see her anymore. Her stomach flipped between excitement for a whole week of canoeing and a small, quiet nervousness about sleeping somewhere that wasn't home.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="cv2" data-correct="0">
+    <div class="qtext">How are Mrs. Chen's and Lily's feelings SIMILAR?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Both feel a mix of excitement and a little sadness or nervousness about the change</button>
+      <button class="opt" data-i="1">Both are only sad about the camp trip</button>
+      <button class="opt" data-i="2">Both are only excited, with no other feelings</button>
+      <button class="opt" data-i="3">Both wish the camp trip wasn't happening</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 13: READING - CENTRAL MESSAGE -->
+<div class="slide" data-slide="13">
+<span class="sectiontag tag-read">Reading — Central Message</span>
+<h2>💡 The Big Idea</h2>
+<div class="minipassage">Aisha spent weeks building an elaborate volcano for the science fair, certain it would win first place. When the judges announced Deshawn's simple but clearly-explained baking soda experiment as the winner instead, Aisha felt crushed &mdash; until she noticed how confidently Deshawn had answered every judge's question. She realized her volcano looked impressive, but she'd barely been able to explain how it worked.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="cm1" data-correct="3">
+    <div class="qtext">What is the CENTRAL MESSAGE of this story?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Baking soda volcanoes always win science fairs</button>
+      <button class="opt" data-i="1">Judges are often unfair in science fair competitions</button>
+      <button class="opt" data-i="2">It's better to build something simple than something elaborate</button>
+      <button class="opt" data-i="3">Understanding your work deeply matters more than how impressive it looks</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="minipassage" style="margin-top:20px">Every day after school, Marcus practiced free throws alone on the empty court, missing far more than he made. His older brother teased him, saying some things just weren't worth the effort. But Marcus kept coming back, shot after shot, week after week &mdash; until one Tuesday in March, he sank ten in a row without even noticing he'd stopped counting.</div>
+<div class="qgrid">
+  <div class="qcard" data-qid="cm2" data-correct="1">
+    <div class="qtext">What is the CENTRAL MESSAGE of THIS story?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Older siblings are always right</button>
+      <button class="opt" data-i="1">Consistent practice over time leads to real improvement</button>
+      <button class="opt" data-i="2">Basketball is more fun than other sports</button>
+      <button class="opt" data-i="3">Making ten shots in a row means you're the best player on the team</button>
+    </div>
+    <div class="recorded">Recorded ✓</div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">See the Report! 📋 &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 14: REPORT -->
+<div class="slide" data-slide="14">
+<h1>📋 Competency Check Report</h1>
+<div class="reportcard">
+  <p id="reportIntro" style="font-weight:800;color:var(--navy)"></p>
+  <div id="skillBreakdown"></div>
+  <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
+</div>
+<div class="nav noprint" style="margin-top:20px">
+  <button class="btn btn-back" onclick="window.print()">🖨️ Print Report</button>
+  <button class="btn btn-go" id="emailBtn">✉️ Email to Parent</button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const state = { studentName: 'Bailey Simon', answers: {} };
+let currentSlide = 0;
+const TOTAL_SLIDES = 15;
+
+function goTo(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.querySelector('[data-slide="'+n+'"]').classList.add('active');
+  currentSlide = n;
+  document.getElementById('stepnum').textContent = n+1;
+  window.scrollTo(0,0);
+  if (n === 14) buildReport();
+}
+
+document.addEventListener('click', function(e){
+  const nav = e.target.closest('[data-go]');
+  if (nav){ goTo(parseInt(nav.dataset.go)); return; }
+
+  const opt = e.target.closest('.opt');
+  if (opt){
+    const card = opt.closest('.qcard');
+    if (card.classList.contains('answered')) return;
+    const qid = card.dataset.qid;
+    const correct = parseInt(card.dataset.correct);
+    const picked = parseInt(opt.dataset.i);
+    opt.classList.add('picked');
+    card.classList.add('answered');
+    state.answers[qid] = (picked === correct);
+    return;
+  }
+
+  const checkBtn = e.target.closest('[data-check]');
+  if (checkBtn){
+    const qid = checkBtn.dataset.check;
+    const card = checkBtn.closest('.qcard');
+    if (card.classList.contains('answered')) return;
+    const input = card.querySelector('.fillin');
+    const given = (input.value || '').trim().toLowerCase().replace(/[\s,]+/g,'');
+    const expected = (card.dataset.ans || '').toLowerCase().replace(/\s+/g,'');
+    const acceptable = expected.split('|').map(a => a.replace(/,/g,''));
+    const isCorrect = acceptable.indexOf(given) !== -1;
+    card.classList.add('answered');
+    state.answers[qid] = isCorrect;
+    return;
+  }
+});
+
+function buildReport(){
+  const groups = {
+    'Multi-Digit Multiplication': {ids: ['mm1','mm2','mm3']},
+    'Long Division': {ids: ['ld1','ld2','ld3']},
+    'Fractions — Add & Subtract': {ids: ['fr1','fr2','fr3']},
+    'Fractions — Equivalence & Comparing': {ids: ['fr4','fr5','fr6']},
+    'Decimal Place Value & Comparing': {ids: ['dc1','dc2','dc3']},
+    'Decimal Operations': {ids: ['dc4','dc5','dc6']},
+    'Place Value — Large Numbers': {ids: ['pv1','pv2','pv3']},
+    'Real-World Word Problems': {ids: ['wp1','wp2','wp3','wp4','wp5','wp6']},
+    'Character Change': {ids: ['cc1','cc2']},
+    "Author's Purpose": {ids: ['ap1','ap2']},
+    'Text Structure': {ids: ['ts1','ts2']},
+    'Comparing Viewpoints': {ids: ['cv1','cv2']},
+    'Central Message': {ids: ['cm1','cm2']}
+  };
+
+  let totalCorrect = 0, totalSeen = 0;
+  let html = '';
+  const weak = [];
+
+  for (const skill in groups){
+    const ids = groups[skill].ids;
+    let correct = 0, total = 0;
+    ids.forEach(id => { if (id in state.answers){ total++; if (state.answers[id]) correct++; } });
+    if (total === 0) continue;
+    totalCorrect += correct; totalSeen += total;
+    const pct = correct/total;
+    let pillClass = 'pill-solid', pillText = 'Solid';
+    if (pct < 0.5){ pillClass = 'pill-support'; pillText = 'Needs Support'; weak.push(skill); }
+    else if (pct < 0.8){ pillClass = 'pill-dev'; pillText = 'Developing'; weak.push(skill); }
+    html += '<div class="skillrow"><span class="skillname">'+skill+'</span><span><span class="skillscore">'+correct+'/'+total+'</span> <span class="pill '+pillClass+'">'+pillText+'</span></span></div>';
+  }
+
+  document.getElementById('skillBreakdown').innerHTML = html;
+  document.getElementById('reportIntro').textContent = state.studentName + ' — ' + totalCorrect + ' of ' + totalSeen + ' correct across this check-in.';
+
+  let recs = 'Overall this looks like a genuinely strong handle on Unit 1–2 material. ';
+  if (weak.length === 0){
+    recs += 'Every area checked out as Solid — nothing here suggests a need to slow down or revisit earlier ground.';
+  } else {
+    recs += 'Worth a closer look before moving ahead: ' + weak.join(', ') + '.';
+  }
+  document.getElementById('reportRecs').textContent = recs;
+
+  document.getElementById('emailBtn').onclick = function(){
+    const subject = encodeURIComponent(state.studentName + ' — Competency Check Results');
+    const body = encodeURIComponent(
+      state.studentName + ' — Competency Check Report\n\n' +
+      'Score: ' + totalCorrect + ' of ' + totalSeen + ' correct\n\n' +
+      'Skill breakdown:\n' +
+      Object.keys(groups).map(skill=>{
+        const ids = groups[skill].ids;
+        let c=0,t=0;
+        ids.forEach(id=>{ if(id in state.answers){t++; if(state.answers[id])c++;} });
+        return t>0 ? skill+': '+c+'/'+t : null;
+      }).filter(Boolean).join('\n') +
+      '\n\nNotes: ' + recs
+    );
+    window.location.href = 'mailto:?subject='+subject+'&body='+body;
+  };
+}
+</script>
+</body>
+</html>
