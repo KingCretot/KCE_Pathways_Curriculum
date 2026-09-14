@@ -615,29 +615,12 @@ p{margin:6px 0}
     </ul>
   </div>
 </div>
-<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">See My Report! 📋 &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Get My Certificate! 🏅 &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 10: REPORT -->
-<div class="slide" data-slide="10">
-<span class="sectiontag tag-mixed">Your Results</span>
-<h2>📋 Competency Check Report</h2>
-<div class="reportcard">
-  <p id="reportIntro" style="font-weight:800;color:var(--navy)"></p>
-  <div id="skillBreakdown"></div>
-  <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
-</div>
-<div class="nav" style="margin-top:20px;flex-wrap:wrap;gap:10px">
-  <button class="btn btn-back" data-go="8">&larr; Back</button>
-  <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
-  <button class="btn btn-go" data-go="11">Get My Certificate! 🏅 &rarr;</button>
-</div>
-<div class="dots" id="dots"></div>
-</div>
-
-<!-- SLIDE 11: CERTIFICATE -->
-<div class="slide" data-slide="11" id="certSlide">
+<!-- SLIDE 10: CERTIFICATE -->
+<div class="slide" data-slide="10" id="certSlide">
 <div class="cert">
   <div class="cert-kc">KingCretot Experience<span class="tag"><span class="tag-e">Educate</span> &middot; <span class="tag-m">Empower</span> &middot; <span class="tag-x">Excel</span></span></div>
   <h1>CERTIFICATE OF COMPLETION</h1>
@@ -652,8 +635,24 @@ p{margin:6px 0}
     <div class="sigblock"><div class="signame">September 14, 2026</div><div class="sigline"></div><small>Date</small></div>
   </div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-print" onclick="window.print()">🖨️ Print Certificate</button></div>
+<div class="nav noprint"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-print" onclick="window.print()">🖨️ Print Certificate</button><button class="btn btn-go" data-go="11">See My Report 📋 &rarr;</button></div>
 <div class="dots noprint" id="dots"></div>
+</div>
+
+<!-- SLIDE 11: REPORT -->
+<div class="slide" data-slide="11">
+<span class="sectiontag tag-mixed">Your Results</span>
+<h2>📋 Competency Check Report</h2>
+<div class="reportcard">
+  <p id="reportIntro" style="font-weight:800;color:var(--navy)"></p>
+  <div id="skillBreakdown"></div>
+  <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
+</div>
+<div class="nav" style="margin-top:20px;flex-wrap:wrap;gap:10px">
+  <button class="btn btn-back" data-go="10">&larr; Back to Certificate</button>
+  <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
+</div>
+<div class="dots" id="dots"></div>
 </div>
 
 </div>
@@ -669,8 +668,8 @@ function goSlide(n){
   document.getElementById('stepBadge').textContent = 'Slide '+(n+1)+' of '+TOTAL_SLIDES;
   buildDots();
   window.scrollTo({top:0,behavior:'smooth'});
-  if (n === 10) buildReport();
-  if (n === 11) buildCertificate();
+  if (n === 10) buildCertificate();
+  if (n === 11) buildReport();
 }
 function buildDots(){
   document.querySelectorAll('.dots').forEach(dotsEl=>{
