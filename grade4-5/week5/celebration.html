@@ -651,6 +651,7 @@ p{margin:6px 0}
 <div class="nav" style="margin-top:20px;flex-wrap:wrap;gap:10px">
   <button class="btn btn-back" data-go="10">&larr; Back to Certificate</button>
   <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
+  <button class="btn btn-back" id="copyBtn">📋 Copy Report</button>
 </div>
 <div class="dots" id="dots"></div>
 </div>
@@ -777,24 +778,52 @@ function buildReport(){
   document.getElementById('reportRecs').textContent = recs;
 
   const emailBtnEl = document.getElementById('emailBtn');
+  const reportText = 'Bailey Simon — Unit 1 Competency Check Report\n\n' +
+    'Score: ' + totalCorrect + ' of ' + totalSeen + ' correct\n\n' +
+    'Skill breakdown:\n' +
+    Object.keys(groups).map(skill=>{
+      const ids = groups[skill].ids;
+      let c=0,t=0;
+      ids.forEach(id=>{ if(id in state.answers){t++; if(state.answers[id])c++;} });
+      return t>0 ? skill+': '+c+'/'+t : null;
+    }).filter(Boolean).join('\n') +
+    '\n\nNotes: ' + recs;
+
   if (emailBtnEl){
     emailBtnEl.onclick = function(){
       const subject = encodeURIComponent('Bailey Simon — Unit 1 Competency Check Results');
-      const body = encodeURIComponent(
-        'Bailey Simon — Unit 1 Competency Check Report\n\n' +
-        'Score: ' + totalCorrect + ' of ' + totalSeen + ' correct\n\n' +
-        'Skill breakdown:\n' +
-        Object.keys(groups).map(skill=>{
-          const ids = groups[skill].ids;
-          let c=0,t=0;
-          ids.forEach(id=>{ if(id in state.answers){t++; if(state.answers[id])c++;} });
-          return t>0 ? skill+': '+c+'/'+t : null;
-        }).filter(Boolean).join('\n') +
-        '\n\nNotes: ' + recs
-      );
+      const body = encodeURIComponent(reportText);
       window.location.href = 'mailto:?subject='+subject+'&body='+body;
     };
   }
+
+  const copyBtnEl = document.getElementById('copyBtn');
+  if (copyBtnEl){
+    copyBtnEl.onclick = function(){
+      const btn = this;
+      const doneCopy = () => {
+        const original = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = original; }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(reportText).then(doneCopy).catch(() => fallbackCopyBailey(reportText, doneCopy));
+      } else {
+        fallbackCopyBailey(reportText, doneCopy);
+      }
+    };
+  }
+}
+function fallbackCopyBailey(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); done(); } catch(e) {}
+  document.body.removeChild(ta);
 }
 
 function buildCertificate(){
