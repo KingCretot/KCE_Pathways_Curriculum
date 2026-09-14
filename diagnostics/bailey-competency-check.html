@@ -2,589 +2,560 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bailey — Unit 1 Competency Check | KingCretot Experience</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bailey — Unit 1 Competency Check | KCE Pathways</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0A1F3D;--gold:#C9A84C;--blue:#4FA9F2;--gold2:#E0AC3C;--red:#D14545;--cream:#FAF7EF;--ink:#1c1c1c}
-*{box-sizing:border-box}
-body{font-family:'Nunito',Georgia,sans-serif;margin:0;background:linear-gradient(135deg,#F5F0E3,#FFF8ED);color:var(--ink);min-height:100vh}
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap');
-.hud{background:var(--navy);color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.hud-brand{display:flex;align-items:center;gap:10px}
-.hud-logo{background:var(--gold);color:var(--navy);font-family:'Fredoka One',cursive;font-weight:800;padding:6px 10px;border-radius:8px;font-size:1.1rem}
-.hud-title{font-weight:800;font-size:1.05rem}
-.hud-badge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:700}
-.slide{display:none;max-width:900px;margin:24px auto;padding:0 20px 60px}
-.slide.active{animation:pop .35s ease}
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo.kc-logo-onhud .kc-logo-box{background:rgba(255,255,255,.12)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:#fff}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;font-weight:800;text-transform:uppercase}
+.tag-e{color:#4FA9F2}.tag-m{color:var(--gold)}.tag-x{color:var(--bad)}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.02rem}
+.hud-right{display:flex;gap:12px;align-items:center}
+.stepbadge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.85rem}
+.wrap{max-width:940px;margin:0 auto;padding:96px 18px 50px}
+.slide{background:#fff;border-radius:24px;padding:32px;box-shadow:var(--shadow);min-height:400px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
 @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
-.slide.active{display:block}
-.sectiontag{display:inline-block;padding:5px 14px;border-radius:20px;font-weight:800;font-size:.8rem;margin-bottom:10px;font-family:'Fredoka One',cursive}
-.tag-math{background:var(--blue);color:#fff}
-.tag-read{background:var(--gold2);color:#fff}
-.tag-celebrate{background:var(--gold);color:var(--navy)}
-h1,h2{font-family:'Fredoka One',cursive;color:var(--navy)}
-h1{font-size:2rem}
-h2{font-size:1.6rem;margin-top:0}
-.box{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(10,31,61,.08);margin-bottom:18px}
-.box-guided{display:flex;gap:16px;align-items:flex-start}
-.box-guided .icon{font-size:2.2rem}
-.minipassage{background:#F0F6FF;border-left:5px solid var(--blue);border-radius:10px;padding:16px 20px;margin:14px 0;line-height:1.6;font-size:1.05rem}
-.qgrid{display:flex;flex-direction:column;gap:16px}
-.qcard{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 3px 10px rgba(10,31,61,.07);border:2px solid transparent}
-.qcard.answered{border-color:#ddd}
-.qtext{font-weight:800;color:var(--navy);margin-bottom:12px;font-size:1.05rem}
-.opts{display:flex;flex-direction:column;gap:8px}
-.opt{background:#F7F5EE;border:2px solid #e2ddd0;border-radius:10px;padding:12px 16px;text-align:left;cursor:pointer;font-size:1rem;font-weight:700;color:var(--ink);transition:.15s}
-.opt:hover{border-color:var(--blue)}
-.qcard.answered .opt{pointer-events:none;opacity:.55}
-.qcard.answered .opt.picked{opacity:1;border-color:var(--navy);background:#EFF3FF}
-.fillrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.fillin{border:2px solid #ccc;border-radius:8px;padding:10px 14px;font-size:1.1rem;font-weight:700;flex:1;min-width:120px;font-family:'Fredoka One',cursive;color:var(--navy)}
-.btn{border:none;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer;font-size:.95rem;font-family:'Nunito',sans-serif}
-.btn-go{background:var(--navy);color:#fff}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.5rem;color:var(--navy);margin:6px 0 14px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--navy);margin:18px 0 8px}
+p{margin:6px 0}
+.center{text-align:center}
+.nav{display:flex;justify-content:space-between;margin-top:26px}
+.btn{font-family:'Nunito',sans-serif;font-weight:800;border:none;border-radius:14px;padding:13px 26px;font-size:1rem;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-go{background:linear-gradient(135deg,var(--navy),#25397a);color:#fff}
 .btn-back{background:#eee;color:var(--navy)}
-.qcard.answered .fillin,.qcard.answered .btn-go{pointer-events:none;opacity:.6}
-.recorded{display:none;color:#2E7D32;font-weight:800;margin-top:10px;font-size:.95rem}
-.qcard.answered .recorded{display:block}
-.nav{display:flex;justify-content:space-between;margin-top:24px}
-.dots{text-align:center;margin-top:18px;color:#999;font-size:.85rem}
-.vertmath{display:inline-block;font-family:'Fredoka One',cursive;font-size:2rem;color:var(--navy);text-align:right;margin:14px 0}
-.vertmath .vm-row{display:flex;align-items:baseline;justify-content:flex-end;gap:10px}
-.vertmath .vm-op{font-size:1.6rem;color:var(--gold2);align-self:center}
-.vertmath .vm-num{min-width:110px;text-align:right}
-.vertmath .vm-line{border-top:4px solid var(--navy);margin-top:6px;width:100%}
-.longdiv{display:inline-flex;align-items:flex-start;font-family:'Fredoka One',cursive;font-size:2rem;color:var(--navy);margin:14px 0}
-.longdiv .ld-divisor{padding-right:10px;padding-top:6px}
-.longdiv .ld-bracket{border-left:4px solid var(--navy);border-top:4px solid var(--navy);padding:6px 14px 4px;border-radius:2px 8px 0 0}
-.certbox{background:#fff;border:4px solid var(--gold);border-radius:16px;padding:30px;text-align:center;box-shadow:0 6px 24px rgba(10,31,61,.12)}
+.btn-print{background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy)}
+.sectiontag{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.tag-math{background:linear-gradient(135deg,var(--sky),#4FA9F2);color:#fff}
+.tag-reading{background:linear-gradient(135deg,var(--rose),#C43E6F);color:#fff}
+.tag-mixed{background:linear-gradient(135deg,var(--purple),#6E45AE);color:#fff}
+.badge-passport{display:inline-block;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);font-weight:900;padding:8px 18px;border-radius:20px;font-size:.9rem;margin-bottom:10px}
+.box{border-radius:16px;padding:16px 18px;margin:12px 0;display:flex;gap:14px;align-items:flex-start}
+.box .icon{font-size:1.6rem;flex-shrink:0}
+.box-story{background:#FFF4E4;border-left:5px solid var(--pumpkin)}
+.box-guided{background:#F0F6FF;border-left:5px solid var(--sky)}
+.box-real{background:#F1FBEA;border-left:5px solid var(--grass)}
+.box-vocab{background:#F8F1FF;border-left:5px solid var(--purple)}
+.box-alert{background:#FFF9E0;border-left:5px solid var(--gold)}
+
+/* JOURNEY MAP */
+.journey{position:relative;padding:20px 10px 10px;background:linear-gradient(180deg,#E0F6FF,#F1FBEA);border-radius:20px;overflow:visible}
+.journeysvg{width:100%;height:auto}
+.jmarker{position:absolute;transform:translate(-50%,-50%);text-align:center;width:110px}
+.jmarker .dot{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-family:'Fredoka One',cursive;margin:0 auto 6px;border:4px solid #fff;box-shadow:var(--shadow);font-size:1.1rem}
+.jmarker.done .dot{background:var(--ok)}
+.jmarker.here .dot{background:var(--gold);color:var(--navy);animation:pulse 1.6s infinite}
+.jmarker.next .dot{background:#ccc;color:#777}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.5)}50%{box-shadow:0 0 0 10px rgba(224,172,60,0)}}
+.jmarker .lbl{font-size:.72rem;font-weight:800;color:var(--navy);line-height:1.2}
+.flag{position:absolute;font-size:2rem;transform:translate(-50%,-135%)}
+.destflag{position:absolute;transform:translate(-50%,-50%);text-align:center;width:100px}
+.destflagicon{font-size:2.6rem;filter:drop-shadow(0 4px 6px rgba(27,44,92,.3));animation:wave 1.8s infinite}
+@keyframes wave{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.destlbl{font-family:'Bangers',cursive;font-size:1.15rem;color:var(--gold);letter-spacing:1px;text-shadow:1px 1px 0 var(--navy),-1px -1px 0 var(--navy),1px -1px 0 var(--navy),-1px 1px 0 var(--navy);line-height:1.05;margin-top:2px}
+.monthrow{position:absolute;left:3%;right:3%;bottom:8px;display:flex;justify-content:space-between;font-size:.7rem;font-weight:800;color:#8CA0C4;text-transform:uppercase;letter-spacing:.5px}
+.unitmarker{position:absolute;top:59%;transform:translate(-50%,-50%);text-align:center;width:108px}
+.unitmarker .dot{width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-family:'Fredoka One',cursive;margin:0 auto 6px;border:4px solid #fff;box-shadow:var(--shadow);font-size:1.15rem}
+.unitmarker.done .dot{background:var(--ok)}
+.unitmarker.here .dot{background:var(--gold);color:var(--navy);animation:pulse 1.6s infinite}
+.unitmarker.next .dot{background:#ccc;color:#777}
+.unitmarker .lbl{font-size:.72rem;font-weight:800;color:var(--navy);line-height:1.25}
+@media (max-width:700px){
+  .unitmarker{width:74px}
+  .unitmarker .dot{width:36px;height:36px;font-size:.95rem}
+  .unitmarker .lbl{font-size:.6rem}
+  .monthrow{font-size:.58rem}
+}
+
+/* REVIEW CARDS */
+.qgrid{display:flex;flex-direction:column;gap:14px}
+.qcard{background:#FAFBFF;border:2px solid #E4E9F5;border-radius:16px;padding:16px 18px}
+.qcard .qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.qtext{font-weight:800;color:var(--navy);font-size:1.02rem;flex:1}
+.reveal-btn{background:linear-gradient(135deg,var(--sky),#4FA9F2);color:#fff;font-weight:800;border:none;border-radius:12px;padding:9px 16px;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.reveal-btn.shown{background:#ddd;color:#777}
+.reveal-box{display:none;margin-top:12px;background:#EAF6EA;border-left:4px solid var(--ok);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.reveal-box.on{display:block;animation:pop .3s ease}
+.reveal-box .ans{font-weight:900;color:var(--ok);margin-bottom:4px}
+.stepline{display:flex;gap:8px;margin:5px 0;align-items:flex-start}
+.stepnum{background:var(--navy);color:#fff;border-radius:50%;width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900}
+
+/* WEEK 6 PREVIEW */
+.previewgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:640px){.previewgrid{grid-template-columns:1fr}}
+.pcard{border-radius:18px;padding:20px;color:#fff}
+.pcard.mathp{background:linear-gradient(150deg,var(--sky),#3D7FC9)}
+.pcard.readp{background:linear-gradient(150deg,var(--rose),#B33A63)}
+.pcard h4{font-family:'Fredoka One',cursive;font-size:1.15rem;margin-bottom:4px}
+.pcard .sub{font-size:.82rem;opacity:.9;margin-bottom:10px;font-weight:700}
+.pcard ul{margin:10px 0 0 20px}
+.pcard li{margin:5px 0;font-size:.92rem}
+.minigame{background:rgba(255,255,255,.16);border-radius:14px;padding:14px;margin:10px 0}
+.tilegrid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:10px}
+.tile{aspect-ratio:1;background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.4);border-radius:5px;cursor:pointer;transition:background .15s}
+.tile.filled{background:var(--gold);border-color:#fff}
+.minigame-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tilecount{font-size:.85rem;font-weight:800}
+.btn-mini{background:rgba(255,255,255,.9);color:var(--navy);border:none;border-radius:10px;padding:8px 14px;font-weight:800;font-size:.8rem;cursor:pointer}
+.choicegame{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.choice-btn{background:rgba(255,255,255,.9);color:var(--navy);text-align:left;border:none;border-radius:10px;padding:10px 14px;font-weight:800;font-size:.88rem;cursor:pointer;white-space:normal}
+.pcard .reveal-box{background:rgba(255,255,255,.92);color:var(--ink);border-left:4px solid var(--gold);margin-top:-2px;margin-bottom:8px;font-size:.85rem}
+
+/* CERTIFICATE */
 .cert{border:6px double var(--gold);border-radius:18px;padding:40px 36px;text-align:center;background:#FFFDF6;position:relative}
+.cert::before{content:'';position:absolute;inset:10px;border:1px solid var(--gold);border-radius:12px;pointer-events:none}
 .cert-kc{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.3rem;letter-spacing:1px}
 .cert-kc .tag{display:block;font-size:.6rem;letter-spacing:3px;font-weight:800;margin-top:2px}
-.cert-kc .tag-e{color:var(--blue)}.cert-kc .tag-x{color:var(--red)}
-.cert .certname{font-family:'Fredoka One',cursive;font-size:2.1rem;color:var(--gold);margin:14px 0;letter-spacing:1px}
-.cert .certunits{font-size:1.05rem;font-weight:800;color:var(--navy);margin:14px 0}
+.cert-kc .tag-e{color:#3D7FC9}.cert-kc .tag-x{color:var(--bad)}
+.cert h1{font-family:'Bangers',cursive;font-size:2.6rem;color:var(--navy);margin:18px 0 4px;letter-spacing:2px}
+.cert .name{font-family:'Bangers',cursive;font-size:2.1rem;color:var(--gold);margin:14px 0;letter-spacing:1px}
+.cert .units{font-size:1.05rem;font-weight:800;color:var(--navy);margin:14px 0}
 .cert .unitline{margin:6px 0}
-.cert .sign{display:flex;justify-content:space-between;margin-top:34px;padding:0 20px;flex-wrap:wrap;gap:16px}
+.cert .sign{display:flex;justify-content:space-between;margin-top:34px;padding:0 20px}
 .sigblock{text-align:center}
-.signame{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--navy);letter-spacing:.5px;margin-bottom:4px}
+.signame{font-family:'Bangers',cursive;font-size:1.3rem;color:var(--navy);letter-spacing:.5px;margin-bottom:4px}
 .sigline{border-top:2px solid var(--navy);width:200px;margin-bottom:6px}
-.reportcard{background:#fff;border-radius:16px;padding:26px;box-shadow:0 4px 16px rgba(10,31,61,.08)}
-.skillrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
-.skillname{font-weight:800;color:var(--navy)}
-.skillscore{font-weight:800}
-.pill{padding:4px 12px;border-radius:14px;font-size:.8rem;font-weight:800}
-.pill-solid{background:#E7F1E7;color:#2E7D32}
-.pill-dev{background:#FFF3D6;color:#9A7B1F}
-.pill-support{background:#FDEDED;color:#D14545}
-@media print{.noprint{display:none!important}}
+.sigblock small{font-size:.78rem;color:#666}
+@media print{
+  .hud,.nav,.noprint{display:none !important}
+  body{background:#fff !important}
+  .wrap{padding:20px}
+  .slide{display:none !important;box-shadow:none;padding:0}
+  .slide#certSlide{display:block !important}
+}
+.dots{text-align:center;margin-top:18px;display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#ddd;cursor:pointer}
+.dot.active{background:var(--navy)}
 </style>
 </head>
 <body>
 
 <div class="hud">
-<div class="hud-brand"><span class="hud-logo">KC</span><span class="hud-title">📘 Unit 1 Competency Check</span></div>
-<div class="hud-badge">Step <span id="stepnum">1</span> of 14</div>
+  <div class="hud-left">
+    <div class="kc-logo kc-logo-onhud">
+      <span class="kc-logo-box">KC</span>
+      <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline"><span class="tag-e">Educate.</span> <span class="tag-m">Empower.</span> <span class="tag-x">Excel.</span></span></span>
+    </div>
+    <span class="hud-title">🎉 Bailey — Unit 1 Celebration &amp; Review</span>
+  </div>
+  <div class="hud-right"><span class="stepbadge" id="stepBadge">Slide 1 of 13</span></div>
 </div>
 
-<!-- SLIDE 0: CELEBRATION OPENING -->
-<div class="slide active" data-slide="0">
-<span class="sectiontag tag-celebrate">Unit 1 Complete!</span>
-<div class="certbox">
-  <div style="font-size:3rem">🎉</div>
-  <h1 style="margin:6px 0">85 out of 100 — on your FIRST try!</h1>
-  <p style="font-size:1.1rem;font-weight:700;color:var(--navy)">Bailey, you finished Unit 1: First Steps. That's five whole weeks of new math and reading skills, and you crushed the checkpoint.</p>
-</div>
-<div class="box box-guided" style="margin-top:18px">
-  <div class="icon">💪</div>
-  <div><h3 style="margin-top:0">Why this matters</h3>
-  <p>You covered a lot — multiplication, division with remainders, fractions, decimals, place value, inference, point of view, persuasive evidence, main idea, and theme — and it all landed the first time through. Today isn't a re-test. Mr. Jonathan just wants to sit with you and see all of that in action, one skill at a time, no clock and no pressure.</p></div>
-</div>
-<div class="nav noprint"><span></span><button class="btn btn-go" data-go="1">Let's Go! &rarr;</button></div>
-<div class="dots" id="dots"></div>
+<div class="wrap">
+
+<!-- SLIDE 0: CELEBRATION -->
+<div class="slide on" data-slide="0">
+  <div class="center">
+    <span class="badge-passport">🎫 Portfolio Passport Stamp Earned — Checkpoint 1 of 8</span>
+    <h1>UNIT 1 COMPLETE!! 🎉</h1>
+    <h2>Rising Trailblazer! ⭐</h2>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🏆</div>
+    <div><h3 style="margin-top:0">85 out of 100 — on your FIRST try!</h3>
+    <p>Bailey, you sat down for Checkpoint 1 last week and covered <strong>everything</strong> from the first four weeks of Pathways — multiplication, division, fractions, decimals, characters, cause &amp; effect, main idea, and six brand-new vocabulary words — and you scored an <strong>85 the very first time through</strong>. That is a genuinely great score for a checkpoint that mixes this much material together.</p></div>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">💪</div>
+    <div><h3 style="margin-top:0">Why this matters</h3>
+    <p>A checkpoint isn't a new lesson — it's proof of what already lives in your brain. Everything on that checkpoint, you had already learned. Today, Mr. Jonathan is going to celebrate that with you, take one more close look together at a few of the trickier spots, and then show you exactly what's coming next in Unit 2.</p></div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">See My Journey &rarr;</button></div>
+  <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 1: MATH - PLACE VALUE -->
+<!-- SLIDE 1: THE JOURNEY -->
 <div class="slide" data-slide="1">
-<span class="sectiontag tag-math">Math — Place Value</span>
-<h2>🔢 Place Value</h2>
-<div class="qgrid">
-  <div class="qcard" data-qid="pv1" data-correct="1">
-    <div class="qtext">In 6,748, what is the digit 7 worth?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">7 ones</button>
-      <button class="opt" data-i="1">7 hundreds</button>
-      <button class="opt" data-i="2">7 tens</button>
-      <button class="opt" data-i="3">7 thousands</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
+<span class="sectiontag tag-mixed">Your Pathway</span>
+<h2>🗺️ The Journey — Where You're Headed 🚀</h2>
+<p>This is the WHOLE school year, August through May — not just what you've done so far. Look how much trail is still ahead of you.</p>
+<div class="journey" style="height:300px">
+  <svg class="journeysvg" viewBox="0 0 1000 220" style="position:absolute;top:0;left:0;width:100%;height:100%">
+    <path d="M 30 130 L 970 130" fill="none" stroke="#C9DCF0" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M 30 130 L 160 130" fill="none" stroke="var(--grass)" stroke-width="10" stroke-linecap="round"/>
+  </svg>
+  <div class="monthrow">
+    <span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span>
   </div>
-  <div class="qcard" data-qid="pv2" data-fill="1" data-ans="9412">
-    <div class="qtext">Write this number using digits: nine thousand, four hundred twelve</div>
-    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-go" data-check="pv2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="pv3" data-correct="2">
-    <div class="qtext">Which symbol makes this true? 5,204 ___ 5,240</div>
-    <div class="opts">
-      <button class="opt" data-i="0">&gt;</button>
-      <button class="opt" data-i="1">=</button>
-      <button class="opt" data-i="2">&lt;</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
+  <div class="unitmarker done" style="left:6%"><div class="dot">1</div><div class="lbl">Unit 1<br><strong>First Steps</strong><br>Weeks 1-5 &bull; DONE</div></div>
+  <div class="unitmarker here" style="left:27%"><div class="dot">✔</div><div class="lbl">Unit 2<br><strong>The Next Level</strong><br>Week 6 &bull; STARTING NOW</div></div>
+  <div class="unitmarker next" style="left:48%"><div class="dot">3</div><div class="lbl">Unit 3<br>Coming Later</div></div>
+  <div class="unitmarker next" style="left:69%"><div class="dot">4</div><div class="lbl">Unit 4<br>Coming Later</div></div>
+  <div class="unitmarker next" style="left:88%"><div class="dot">5</div><div class="lbl">Unit 5<br>Coming Later</div></div>
+  <div class="destflag" style="left:97%;top:20%">
+    <div class="destflagicon">🏁</div>
+    <div class="destlbl">5th<br>GRADE!</div>
   </div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="box box-story" style="margin-top:26px">
+  <div class="icon">🌱➡️🌟</div>
+  <div><h3 style="margin-top:0">4th Grade You → Rising 5th Grade You</h3>
+  <p>Everything you learned in Unit 1 is now yours for good — multiplying bigger numbers, dividing with remainders, working with fractions and decimals, and reading like someone who notices character, cause and effect, and the main idea. But look at that map — <strong>Week 6 is only the very start of Unit 2</strong>, and there are still three whole units between here and the end of the year. 5th grade is all the way out in May. This is a marathon, not a sprint — and you're off to a strong first stretch.</p></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Let's Take a Closer Look &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 2: MATH - MULTIPLICATION -->
+<!-- SLIDE 2: MATH + READING TRAIL REVIEW -->
 <div class="slide" data-slide="2">
-<span class="sectiontag tag-math">Math — Multiplication</span>
-<h2>✖️ Multiplication</h2>
+<span class="sectiontag tag-mixed">Closer Look 1 of 8</span>
+<h2>🔢📖 One Skill From Each Week</h2>
+<p style="margin-bottom:14px">Click "Walk it through" on each one — Mr. Jonathan will manage the pace together with you.</p>
 <div class="qgrid">
-  <div class="qcard" data-qid="mm1" data-fill="1" data-ans="564">
-    <div class="qtext">Solve it the long way:</div>
-    <div class="vertmath">
-      <div class="vm-num">47</div>
-      <div class="vm-row"><span class="vm-op">&times;</span><div class="vm-num">12</div></div>
-      <div class="vm-line"></div>
-    </div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="mm1">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="mm2" data-fill="1" data-ans="368">
-    <div class="qtext">Solve it the long way:</div>
-    <div class="vertmath">
-      <div class="vm-num">23</div>
-      <div class="vm-row"><span class="vm-op">&times;</span><div class="vm-num">16</div></div>
-      <div class="vm-line"></div>
-    </div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="mm2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 1: In 6,748, what is the digit 7 worth?</span><button class="reveal-btn" data-reveal="q1">Walk it through</button></div>
+    <div class="reveal-box" id="q1"><div class="ans">Answer: 700</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Line the number up by place value: 6 = thousands, 7 = hundreds, 4 = tens, 8 = ones.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>The 7 sits in the hundreds place.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>So the 7 is worth 7 × 100 = 700.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 2: 58 ÷ 9 = ___ (write remainders like this example: 9 R2)</span><button class="reveal-btn" data-reveal="q2">Walk it through</button></div>
+    <div class="reveal-box" id="q2"><div class="ans">Answer: 6 R4</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Ask: how many times does 9 fit into 58? Try 6: 9 × 6 = 54.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>54 is the closest we can get without going over 58.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>58 − 54 = 4 left over. So the answer is 6 R4.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 3: 2/7 + 3/7 = ___</span><button class="reveal-btn" data-reveal="q3">Walk it through</button></div>
+    <div class="reveal-box" id="q3"><div class="ans">Answer: 5/7</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Same denominator (7), so it stays 7 — we only add the top numbers.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>2 + 3 = 5.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>So 2/7 + 3/7 = 5/7.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 4: Which is GREATER, 0.8 or 0.65?</span><button class="reveal-btn" data-reveal="q4">Walk it through</button></div>
+    <div class="reveal-box" id="q4"><div class="ans">Answer: 0.8</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Give both the same number of decimal places: 0.8 becomes 0.80.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Compare 80 hundredths to 65 hundredths.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>80 &gt; 65, so 0.8 is greater than 0.65.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 1: The problem or struggle a character has to face is called the ___?</span><button class="reveal-btn" data-reveal="q5">Walk it through</button></div>
+    <div class="reveal-box" id="q5"><div class="ans">Answer: Conflict</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Every story needs something to push against — a struggle the character has to deal with.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>That struggle has a name: the conflict.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 2: The particular way ONE character experiences or feels about an event is called their ___?</span><button class="reveal-btn" data-reveal="q6">Walk it through</button></div>
+    <div class="reveal-box" id="q6"><div class="ans">Answer: Perspective</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Two people can watch the exact same thing happen.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>How each of them personally sees or feels about it is their perspective.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 3: The thing that MAKES something else happen is called the ___?</span><button class="reveal-btn" data-reveal="q7">Walk it through</button></div>
+    <div class="reveal-box" id="q7"><div class="ans">Answer: Cause</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Ask yourself "why did this happen?"</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Whatever answers "why" is the cause. (What happens because of it is the effect.)</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Week 4: The one big point that all the small details in a story support is called the ___?</span><button class="reveal-btn" data-reveal="q8">Walk it through</button></div>
+    <div class="reveal-box" id="q8"><div class="ans">Answer: Main idea</div>
+      <div class="stepline"><span class="stepnum">1</span><span>A story can have lots of details, but usually one big point they're all supporting.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>That big point is the main idea.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 3: MATH - DIVISION WITH REMAINDERS -->
+<!-- SLIDE 3: VOCABULARY -->
 <div class="slide" data-slide="3">
-<span class="sectiontag tag-math">Math — Division</span>
-<h2>➗ Division with Remainders</h2>
+<span class="sectiontag tag-mixed">Closer Look 2 of 8</span>
+<h2>🌟 This Unit's Vocabulary</h2>
 <div class="qgrid">
-  <div class="qcard" data-qid="ld1" data-fill="1" data-ans="14">
-    <div class="qtext">Solve it:</div>
-    <div class="longdiv"><span class="ld-divisor">6</span><span class="ld-bracket">84</span></div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld1">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="ld2" data-fill="1" data-ans="13">
-    <div class="qtext">Solve it:</div>
-    <div class="longdiv"><span class="ld-divisor">7</span><span class="ld-bracket">91</span></div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="ld3" data-fill="1" data-ans="6 r4|6r4|6 R4">
-    <div class="qtext">Solve it (this one has a remainder — write it like "7 R1"):</div>
-    <div class="longdiv"><span class="ld-divisor">9</span><span class="ld-bracket">58</span></div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="ld3">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">In 5 × 8 = 40, what do we call the 5 and the 8?</span><button class="reveal-btn" data-reveal="v1">Walk it through</button></div>
+    <div class="reveal-box" id="v1"><div class="ans">Answer: Factors</div><div class="stepline"><span class="stepnum">1</span><span>In 5 × 8 = 40, the 5 and the 8 are the factors — the numbers doing the multiplying.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">In 42 ÷ 6 = 7, what do we call the 7?</span><button class="reveal-btn" data-reveal="v2">Walk it through</button></div>
+    <div class="reveal-box" id="v2"><div class="ans">Answer: Quotient</div><div class="stepline"><span class="stepnum">1</span><span>In 42 ÷ 6 = 7, the 7 is the quotient — the result of the division.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">3/6 and 1/2 look different but cover the same amount. What word describes fractions like these?</span><button class="reveal-btn" data-reveal="v3">Walk it through</button></div>
+    <div class="reveal-box" id="v3"><div class="ans">Answer: Equivalent</div><div class="stepline"><span class="stepnum">1</span><span>3/6 and 1/2 look different but cover the exact same amount — that makes them equivalent.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">In 7.35, what do we call the dot between the 7 and the 35?</span><button class="reveal-btn" data-reveal="v4">Walk it through</button></div>
+    <div class="reveal-box" id="v4"><div class="ans">Answer: Decimal point</div><div class="stepline"><span class="stepnum">1</span><span>In 7.35, the dot between the 7 and the 35 is the decimal point.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Specific facts or details someone gives to support their argument are called ___?</span><button class="reveal-btn" data-reveal="v5">Walk it through</button></div>
+    <div class="reveal-box" id="v5"><div class="ans">Answer: Evidence</div><div class="stepline"><span class="stepnum">1</span><span>Evidence showed up the most this whole unit — Weeks 1, 3, and 4 all used it.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">When both sides give up a little to reach a fair agreement, that's called a ___?</span><button class="reveal-btn" data-reveal="v6">Walk it through</button></div>
+    <div class="reveal-box" id="v6"><div class="ans">Answer: Compromise</div><div class="stepline"><span class="stepnum">1</span><span>Neither side gets everything they wanted, but both sides agree to it — that's a compromise.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 4: MATH - FRACTIONS (SAME DENOMINATOR) -->
+<!-- SLIDE 4: NUMBERS & OPS + FRACTIONS & DECIMALS -->
 <div class="slide" data-slide="4">
-<span class="sectiontag tag-math">Math — Fractions</span>
-<h2>🍕 Adding &amp; Subtracting Fractions</h2>
+<span class="sectiontag tag-math">Closer Look 3 of 8</span>
+<h2>🔢 Numbers, Operations, Fractions &amp; Decimals</h2>
 <div class="qgrid">
-  <div class="qcard" data-qid="fr1" data-fill="1" data-ans="5/7">
-    <div class="qtext">2/7 + 3/7 = ___</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr1">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="fr2" data-fill="1" data-ans="4/8|1/2">
-    <div class="qtext">7/8 &minus; 3/8 = ___</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="fr3" data-fill="1" data-ans="4/5">
-    <div class="qtext">3/5 + 1/5 = ___</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="fr3">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="fr4" data-correct="0">
-    <div class="qtext">A fraction that represents the same amount as another, even though it looks different, is called an ___ fraction.</div>
-    <div class="opts">
-      <button class="opt" data-i="0">equivalent</button>
-      <button class="opt" data-i="1">improper</button>
-      <button class="opt" data-i="2">reduced</button>
-      <button class="opt" data-i="3">mixed</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">31 × 14 = ___</span><button class="reveal-btn" data-reveal="r1">Walk it through</button></div>
+    <div class="reveal-box" id="r1"><div class="ans">Answer: 434</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Break both numbers apart: 31 = 30 + 1, and 14 = 10 + 4.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Multiply every pair: 30×10=300, 30×4=120, 1×10=10, 1×4=4.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>Add them all up: 300+120+10+4 = 434.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">52 ÷ 7 = ___ (write remainders like this example: 9 R2)</span><button class="reveal-btn" data-reveal="r2">Walk it through</button></div>
+    <div class="reveal-box" id="r2"><div class="ans">Answer: 7 R3</div>
+      <div class="stepline"><span class="stepnum">1</span><span>7 × 7 = 49, which is the closest we can get to 52 without going over.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>52 − 49 = 3 left over. So it's 7 R3.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">6/9 − 2/9 = ___</span><button class="reveal-btn" data-reveal="r3">Walk it through</button></div>
+    <div class="reveal-box" id="r3"><div class="ans">Answer: 4/9</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Same denominator (9), so it stays put.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>6 − 2 = 4, so the answer is 4/9.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">$3.75 + $2.60 = ___</span><button class="reveal-btn" data-reveal="r4">Walk it through</button></div>
+    <div class="reveal-box" id="r4"><div class="ans">Answer: $6.35</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Line up the decimal points: 3.75 and 2.60.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Add cents first: 75+60=135, which is $1.35 — carry the $1.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>Add the dollars: 3 + 2 + 1(carried) = 6. Total: $6.35.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 5: MATH - DECIMALS -->
+<!-- SLIDE 5: CHARACTER/PERSPECTIVE + CAUSE-EFFECT/MAIN IDEA -->
 <div class="slide" data-slide="5">
-<span class="sectiontag tag-math">Math — Decimals</span>
-<h2>💰 Decimals &amp; Money</h2>
+<span class="sectiontag tag-reading">Closer Look 4 of 8</span>
+<h2>📖 Character, Perspective, Cause &amp; Effect</h2>
 <div class="qgrid">
-  <div class="qcard" data-qid="dc1" data-correct="0">
-    <div class="qtext">Which is GREATER: 0.8 or 0.65?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">0.8</button>
-      <button class="opt" data-i="1">0.65</button>
-      <button class="opt" data-i="2">They are equal</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="dc2" data-fill="1" data-ans="6.25|$6.25">
-    <div class="qtext">Solve it the long way:</div>
-    <div class="vertmath">
-      <div class="vm-num">$3.40</div>
-      <div class="vm-row"><span class="vm-op">+</span><div class="vm-num">$2.85</div></div>
-      <div class="vm-line"></div>
-    </div>
-    <div class="fillrow"><input class="fillin" placeholder="$?" style="max-width:140px"><button class="btn btn-go" data-check="dc2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="dc3" data-fill="1" data-ans="2.35|$2.35">
-    <div class="qtext">Solve it the long way:</div>
-    <div class="vertmath">
-      <div class="vm-num">$7.00</div>
-      <div class="vm-row"><span class="vm-op">&minus;</span><div class="vm-num">$4.65</div></div>
-      <div class="vm-line"></div>
-    </div>
-    <div class="fillrow"><input class="fillin" placeholder="$?" style="max-width:140px"><button class="btn btn-go" data-check="dc3">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">If a character's "hands were shaking," what can you INFER?</span><button class="reveal-btn" data-reveal="c1">Walk it through</button></div>
+    <div class="reveal-box" id="c1"><div class="ans">Answer: Nervous or scared</div>
+      <div class="stepline"><span class="stepnum">1</span><span>The author never says "she was nervous" directly.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>We use the physical clue (shaking hands) to figure out the feeling ourselves — that's inferring.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Two characters see the exact same event and feel ___?</span><button class="reveal-btn" data-reveal="c2">Walk it through</button></div>
+    <div class="reveal-box" id="c2"><div class="ans">Answer: Completely different things, and both can be valid</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Perspective means how a person personally experiences something.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Two people can watch the same event and walk away feeling totally different — and neither one is "wrong."</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">It rained all week, so the outdoor game got canceled. What is the EFFECT here?</span><button class="reveal-btn" data-reveal="c3">Walk it through</button></div>
+    <div class="reveal-box" id="c3"><div class="ans">Answer: The game got canceled</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Cause = why something happened (the rain).</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>Effect = what happened because of it (the canceled game).</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">The smaller facts and examples an author uses to PROVE the main idea are called ___?</span><button class="reveal-btn" data-reveal="c4">Walk it through</button></div>
+    <div class="reveal-box" id="c4"><div class="ans">Answer: Supporting details</div>
+      <div class="stepline"><span class="stepnum">1</span><span>The main idea is the big point.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>The smaller facts that prove it are the supporting details.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 6: MATH - REAL-WORLD WORD PROBLEMS -->
+<!-- SLIDE 6: MATCH-UP -->
 <div class="slide" data-slide="6">
-<span class="sectiontag tag-math">Math — Word Problems</span>
-<h2>🧮 Real-World Problems</h2>
+<span class="sectiontag tag-mixed">Closer Look 5 of 8</span>
+<h2>🔗 Match the Word to the Idea</h2>
 <div class="qgrid">
-  <div class="qcard" data-qid="wp1" data-fill="1" data-ans="336">
-    <div class="qtext">A food truck sells 28 tacos an hour. How many tacos does it sell in 12 hours?</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="wp1">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="wp2" data-fill="1" data-ans="12">
-    <div class="qtext">A babysitter splits 84 stickers evenly between 7 kids. How many stickers does each kid get?</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="wp2">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="wp3" data-fill="1" data-ans="6/8|3/4">
-    <div class="qtext">A pizza is cut into 8 equal slices. Someone eats 2/8 of it, then eats 4/8 more. What fraction of the pizza have they eaten in total?</div>
-    <div class="fillrow"><input class="fillin" placeholder="?" style="max-width:140px"><button class="btn btn-go" data-check="wp3">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="wp4" data-fill="1" data-ans="1.75|$1.75">
-    <div class="qtext">A lemonade stand sells a cup for $2.25. If someone pays with a $4.00 bill, how much change do they get back?</div>
-    <div class="fillrow"><input class="fillin" placeholder="$?" style="max-width:140px"><button class="btn btn-go" data-check="wp4">Check</button></div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "the result of dividing"?</span><button class="reveal-btn" data-reveal="m1">Walk it through</button></div>
+    <div class="reveal-box" id="m1"><div class="ans">Answer: Quotient</div><div class="stepline"><span class="stepnum">1</span><span>The quotient is specifically the result of dividing — that's the direct match.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word describes fractions that equal the same amount?</span><button class="reveal-btn" data-reveal="m2">Walk it through</button></div>
+    <div class="reveal-box" id="m2"><div class="ans">Answer: Equivalent</div><div class="stepline"><span class="stepnum">1</span><span>Equivalent describes fractions that equal the same amount — a fraction-specific word.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word names the numbers being multiplied together?</span><button class="reveal-btn" data-reveal="m3">Walk it through</button></div>
+    <div class="reveal-box" id="m3"><div class="ans">Answer: Factors</div><div class="stepline"><span class="stepnum">1</span><span>Factors are the numbers being multiplied together.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "proof that backs up an argument"?</span><button class="reveal-btn" data-reveal="m4">Walk it through</button></div>
+    <div class="reveal-box" id="m4"><div class="ans">Answer: Evidence</div><div class="stepline"><span class="stepnum">1</span><span>A persuasive argument needs proof to back it up — that proof is evidence.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word describes how ONE specific character sees an event?</span><button class="reveal-btn" data-reveal="m5">Walk it through</button></div>
+    <div class="reveal-box" id="m5"><div class="ans">Answer: Perspective</div><div class="stepline"><span class="stepnum">1</span><span>Different perspectives is exactly what makes two characters experience one moment differently.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "both sides give a little to reach an agreement"?</span><button class="reveal-btn" data-reveal="m6">Walk it through</button></div>
+    <div class="reveal-box" id="m6"><div class="ans">Answer: Compromise</div><div class="stepline"><span class="stepnum">1</span><span>Fair middle ground, both sides giving a little — that's the definition of compromise.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 7: READING - INFERENCE & CONFLICT -->
+<!-- SLIDE 7: TYPE-IT ROUND -->
 <div class="slide" data-slide="7">
-<span class="sectiontag tag-read">Reading — Inference &amp; Conflict</span>
-<h2>🎭 Reading Between the Lines</h2>
-<div class="minipassage">Jordan's stomach dropped when she saw the science fair sign-up sheet was already full. She'd stayed up three nights building her volcano model, and now there wasn't even a spot for her to present it. She stared at the list, her hands curling into fists at her sides.</div>
+<span class="sectiontag tag-mixed">Closer Look 6 of 8</span>
+<h2>⌨️ Type-It Corral</h2>
 <div class="qgrid">
-  <div class="qcard" data-qid="ic1" data-correct="1">
-    <div class="qtext">What can you INFER about how Jordan feels, based on "her hands curling into fists"?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">Excited and proud</button>
-      <button class="opt" data-i="1">Frustrated and upset</button>
-      <button class="opt" data-i="2">Calm and relieved</button>
-      <button class="opt" data-i="3">Bored and tired</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="ic2" data-correct="2">
-    <div class="qtext">What is Jordan's CONFLICT in this passage?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">She doesn't know how to build a volcano</button>
-      <button class="opt" data-i="1">She forgot about the science fair entirely</button>
-      <button class="opt" data-i="2">She prepared for the fair but there's no spot left for her</button>
-      <button class="opt" data-i="3">She doesn't want to do the science fair anymore</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">63 ÷ 9 = ___</span><button class="reveal-btn" data-reveal="t1">Walk it through</button></div>
+    <div class="reveal-box" id="t1"><div class="ans">Answer: 7</div><div class="stepline"><span class="stepnum">1</span><span>9 × 7 = 63 exactly — no remainder.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">In 8,391, the digit 3 is worth ___?</span><button class="reveal-btn" data-reveal="t2">Walk it through</button></div>
+    <div class="reveal-box" id="t2"><div class="ans">Answer: 300</div><div class="stepline"><span class="stepnum">1</span><span>The 3 sits in the hundreds place, so it's worth 3 × 100 = 300.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">2/6 + 3/6 = ___</span><button class="reveal-btn" data-reveal="t3">Walk it through</button></div>
+    <div class="reveal-box" id="t3"><div class="ans">Answer: 5/6</div><div class="stepline"><span class="stepnum">1</span><span>Same denominator (6), so add the tops: 2+3=5. 5/6.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">$8.00 − $3.45 = ___</span><button class="reveal-btn" data-reveal="t4">Walk it through</button></div>
+    <div class="reveal-box" id="t4"><div class="ans">Answer: $4.55</div><div class="stepline"><span class="stepnum">1</span><span>8.00 − 3.45: borrow across the zeros, then subtract. 8.00 − 3.45 = 4.55.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">The overall lesson a story is trying to teach is called the ___?</span><button class="reveal-btn" data-reveal="t5">Walk it through</button></div>
+    <div class="reveal-box" id="t5"><div class="ans">Answer: Theme</div><div class="stepline"><span class="stepnum">1</span><span>The theme is the big life lesson the whole story is really about.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Telling a story again in far fewer words, but keeping what matters, is called ___?</span><button class="reveal-btn" data-reveal="t6">Walk it through</button></div>
+    <div class="reveal-box" id="t6"><div class="ans">Answer: Summarizing</div><div class="stepline"><span class="stepnum">1</span><span>Keeping what matters, cutting the rest short — that's summarizing.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">The order in which events happen in a story is called the ___?</span><button class="reveal-btn" data-reveal="t7">Walk it through</button></div>
+    <div class="reveal-box" id="t7"><div class="ans">Answer: Sequence</div><div class="stepline"><span class="stepnum">1</span><span>First, next, then, finally — that order is the sequence.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Small facts that back up a bigger point are called supporting ___?</span><button class="reveal-btn" data-reveal="t8">Walk it through</button></div>
+    <div class="reveal-box" id="t8"><div class="ans">Answer: Details</div><div class="stepline"><span class="stepnum">1</span><span>Little proof-pieces backing up the big idea are the supporting details.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 8: READING - POINT OF VIEW -->
+<!-- SLIDE 8: BOSS BATTLE REVIEW -->
 <div class="slide" data-slide="8">
-<span class="sectiontag tag-read">Reading — Point of View</span>
-<h2>👀 Same Event, Two Views</h2>
-<div class="minipassage"><strong>Sam's view:</strong> Sam was thrilled when his big sister offered to teach him to ride a bike without training wheels. Every wobble felt like part of the adventure, and he couldn't stop laughing even when he tipped over into the grass.</div>
-<div class="minipassage"><strong>His sister's view:</strong> Maria held her breath the whole time, running alongside the bike with one hand hovering near the seat. Every wobble made her heart jump — what if he fell on the pavement instead of the grass?</div>
+<span class="sectiontag tag-mixed">Closer Look 7 of 8</span>
+<h2>👑 The Big One — Boss Battle Review</h2>
+<p style="margin-bottom:14px">This was the final round mixing every story and every skill together.</p>
 <div class="qgrid">
-  <div class="qcard" data-qid="pov1" data-correct="3">
-    <div class="qtext">How do Sam's and Maria's feelings about the SAME moment DIFFER?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">Sam is nervous while Maria is having fun</button>
-      <button class="opt" data-i="1">They both feel exactly the same way</button>
-      <button class="opt" data-i="2">Sam wants to stop while Maria wants to keep going</button>
-      <button class="opt" data-i="3">Sam feels excited and playful, while Maria feels worried and protective</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
+  <div class="qcard"><div class="qhead"><span class="qtext">A vendor sold 24 items at $15 each. 24 × 15 = ___</span><button class="reveal-btn" data-reveal="b1">Walk it through</button></div>
+    <div class="reveal-box" id="b1"><div class="ans">Answer: 360</div>
+      <div class="stepline"><span class="stepnum">1</span><span>Break apart: 24 = 20+4, and 15 = 10+5.</span></div>
+      <div class="stepline"><span class="stepnum">2</span><span>20×10=200, 20×5=100, 4×10=40, 4×5=20.</span></div>
+      <div class="stepline"><span class="stepnum">3</span><span>Add: 200+100+40+20 = 360.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">A coach splits 42 water bottles evenly between 6 players. How many each?</span><button class="reveal-btn" data-reveal="b2">Walk it through</button></div>
+    <div class="reveal-box" id="b2"><div class="ans">Answer: 7</div><div class="stepline"><span class="stepnum">1</span><span>42 shared evenly between 6 people: 42 ÷ 6 = 7 each.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">A student finished 7 of 10 homework problems. Write as a fraction.</span><button class="reveal-btn" data-reveal="b3">Walk it through</button></div>
+    <div class="reveal-box" id="b3"><div class="ans">Answer: 7/10</div><div class="stepline"><span class="stepnum">1</span><span>"Out of 10" total, "7" done — that's 7/10.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Someone saved $22.40 one week and $15.60 the next. Total?</span><button class="reveal-btn" data-reveal="b4">Walk it through</button></div>
+    <div class="reveal-box" id="b4"><div class="ans">Answer: $38.00</div><div class="stepline"><span class="stepnum">1</span><span>Line up the decimals and add: 22.40 + 15.60 = 38.00.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">A student loses her house key and can't get inside before her parents get home. What would we call this problem?</span><button class="reveal-btn" data-reveal="b5">Walk it through</button></div>
+    <div class="reveal-box" id="b5"><div class="ans">Answer: Her conflict</div><div class="stepline"><span class="stepnum">1</span><span>That's the problem she has to deal with — her conflict.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Reading the same event twice, once per character, practices what skill?</span><button class="reveal-btn" data-reveal="b6">Walk it through</button></div>
+    <div class="reveal-box" id="b6"><div class="ans">Answer: Perspective-taking</div><div class="stepline"><span class="stepnum">1</span><span>Seeing one moment through two different characters' eyes is perspective-taking.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Two friends argue over whose turn it is to pick the movie, then agree to alternate every week. What is this an example of?</span><button class="reveal-btn" data-reveal="b7">Walk it through</button></div>
+    <div class="reveal-box" id="b7"><div class="ans">Answer: A compromise / resolution</div><div class="stepline"><span class="stepnum">1</span><span>Both sides gave a little instead of one side losing completely.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">A story has lots of details about training, sacrifice, and teamwork, all building toward one point. What do we call that one big point?</span><button class="reveal-btn" data-reveal="b8">Walk it through</button></div>
+    <div class="reveal-box" id="b8"><div class="ans">Answer: The main idea</div><div class="stepline"><span class="stepnum">1</span><span>That's the big takeaway all the story's details were building toward.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word applies to BOTH comparing fractions/decimals AND weighing reading details?</span><button class="reveal-btn" data-reveal="b9">Walk it through</button></div>
+    <div class="reveal-box" id="b9"><div class="ans">Answer: Compare</div><div class="stepline"><span class="stepnum">1</span><span>Compare shows up in math (which decimal is bigger) and reading (which detail matters more).</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which word explains WHY a character made a decision?</span><button class="reveal-btn" data-reveal="b10">Walk it through</button></div>
+    <div class="reveal-box" id="b10"><div class="ans">Answer: Motive</div><div class="stepline"><span class="stepnum">1</span><span>The reason behind a choice is the character's motive.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">Which operation does the phrase "shared equally among" signal?</span><button class="reveal-btn" data-reveal="b11">Walk it through</button></div>
+    <div class="reveal-box" id="b11"><div class="ans">Answer: Division</div><div class="stepline"><span class="stepnum">1</span><span>"Shared equally among" is a division clue phrase.</span></div></div></div>
+  <div class="qcard"><div class="qhead"><span class="qtext">True or False: A good summary should include EVERY detail from the original story.</span><button class="reveal-btn" data-reveal="b12">Walk it through</button></div>
+    <div class="reveal-box" id="b12"><div class="ans">Answer: False</div><div class="stepline"><span class="stepnum">1</span><span>The whole point of a summary is to be SHORTER, keeping only what matters most — not every detail.</span></div></div></div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Onward to Unit 2! &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 9: READING - PERSUASIVE ARGUMENT & EVIDENCE -->
+<!-- SLIDE 9: WEEK 6 TRANSITION -->
 <div class="slide" data-slide="9">
-<span class="sectiontag tag-read">Reading — Persuasion &amp; Evidence</span>
-<h2>📣 Making a Case</h2>
-<div class="minipassage">Our school should start 30 minutes later. Studies show that students this age need more sleep to focus well, and teachers already notice more yawning and fewer raised hands during first period. A later start wouldn't just help grades — it would help everyone show up ready to learn.</div>
-<div class="qgrid">
-  <div class="qcard" data-qid="pe1" data-correct="1">
-    <div class="qtext">Which sentence from the passage is EVIDENCE, not just an opinion?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">Our school should start 30 minutes later</button>
-      <button class="opt" data-i="1">Studies show that students this age need more sleep to focus well</button>
-      <button class="opt" data-i="2">A later start would help everyone show up ready to learn</button>
-      <button class="opt" data-i="3">It would help everyone, not just grades</button>
+<span class="sectiontag tag-mixed">Closer Look 8 of 8 — What's Next</span>
+<h2>🚪 Welcome to Unit 2: The Next Level!</h2>
+<div class="box box-alert">
+  <div class="icon">🎉</div>
+  <div><h3 style="margin-top:0">You just finished Unit 1: First Steps</h3>
+  <p>Weeks 1-5 are officially done — locked in, celebrated, reviewed. Week 6 starts a brand new unit with brand new stories.</p></div>
+</div>
+<h3>Go explore what's waiting for you 👇</h3>
+<div class="previewgrid">
+  <div class="pcard mathp">
+    <h4>🎨 Malik's Mural Project</h4>
+    <div class="sub">Math — Week 6, Unit 2 Week 1 of 4</div>
+    <p>Malik's art class is painting a giant mural made of a huge grid of tiles — too big to count one by one. Try a mini version yourself:</p>
+    <div class="minigame" id="tileGame">
+      <div class="tilegrid" id="tileGrid"></div>
+      <div class="minigame-row">
+        <span class="tilecount">Tiles clicked: <strong id="tileCount">0</strong> / 24</span>
+        <button class="btn-mini" id="tileFastBtn">⚡ Show the Fast Way</button>
+      </div>
+      <div class="reveal-box" id="tileReveal">
+        <div class="ans">6 rows × 4 columns = 24 tiles — instantly!</div>
+        <div class="stepline"><span class="stepnum">1</span><span>Clicking one by one works, but it's slow for a real mural.</span></div>
+        <div class="stepline"><span class="stepnum">2</span><span>Multiplication counts a whole grid in one step: rows × columns.</span></div>
+        <div class="stepline"><span class="stepnum">3</span><span>Malik's real mural is way bigger — Week 6 shows you how to multiply numbers like that fast.</span></div>
+      </div>
     </div>
-    <div class="recorded">Recorded ✓</div>
+    <ul>
+      <li>Bring back the area model from Week 1</li>
+      <li>Learn the standard algorithm for BIGGER multiplication</li>
+      <li>Practice 2-digit × 2-digit and 3-digit × 1-digit</li>
+    </ul>
   </div>
-  <div class="qcard" data-qid="pe2" data-correct="0">
-    <div class="qtext">If two people disagree but both agree to a solution where each gives a little, that's called a ___.</div>
-    <div class="opts">
-      <button class="opt" data-i="0">compromise</button>
-      <button class="opt" data-i="1">conflict</button>
-      <button class="opt" data-i="2">summary</button>
-      <button class="opt" data-i="3">inference</button>
+  <div class="pcard readp">
+    <h4>🎻 Amara's First Solo</h4>
+    <div class="sub">Reading — Week 6, Unit 2 Week 1 of 4</div>
+    <p>Amara has played violin in a group for two years. Now her teacher wants her to play completely alone, in front of the whole school. Right before she walks out, how do you think she feels?</p>
+    <div class="choicegame">
+      <button class="choice-btn reveal-btn" data-reveal="ac1">😰 Nervous and shaky</button>
+      <button class="choice-btn reveal-btn" data-reveal="ac2">😌 Calm and ready</button>
+      <button class="choice-btn reveal-btn" data-reveal="ac3">🤔 Excited AND nervous, both at once</button>
     </div>
-    <div class="recorded">Recorded ✓</div>
+    <div class="reveal-box" id="ac1"><span>Totally fair guess! In Week 6 you'll find out exactly how Amara really feels — and watch it change by the end of the story.</span></div>
+    <div class="reveal-box" id="ac2"><span>Interesting choice! You'll get to see if that matches what really happens when you read Week 6.</span></div>
+    <div class="reveal-box" id="ac3"><span>That's exactly the kind of "two feelings at once" moment great character stories are built on. Week 6 will show you if you're right.</span></div>
+    <ul>
+      <li>Read a real passage about where confidence actually comes from</li>
+      <li>Learn 6 new vocabulary words about character change</li>
+      <li>Make a choice for Amara and see how it shapes her story</li>
+    </ul>
   </div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Get My Certificate! 🏅 &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
-<!-- SLIDE 10: READING - MAIN IDEA & RESOLUTION -->
-<div class="slide" data-slide="10">
-<span class="sectiontag tag-read">Reading — Main Idea &amp; Resolution</span>
-<h2>🧩 Putting It Together</h2>
-<div class="minipassage">The twins couldn't agree on how to split the money from their lemonade stand. Malik wanted to divide it evenly since they'd both shown up every day. Aaliyah pointed out she'd made twice as many cups because Malik kept taking breaks. After some back and forth, they agreed: Aaliyah would get a slightly bigger share, but they'd split the leftover lemonade mix equally for their next stand.</div>
-<div class="qgrid">
-  <div class="qcard" data-qid="mr1" data-correct="1">
-    <div class="qtext">What is the MAIN IDEA of this passage?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">Lemonade stands are a lot of work</button>
-      <button class="opt" data-i="1">Two siblings work out a fair way to split money they disagreed about</button>
-      <button class="opt" data-i="2">Aaliyah is a harder worker than Malik in every situation</button>
-      <button class="opt" data-i="3">Splitting money evenly is always the fairest choice</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-  <div class="qcard" data-qid="mr2" data-correct="2">
-    <div class="qtext">What was the RESOLUTION of their disagreement?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">They split the money exactly evenly</button>
-      <button class="opt" data-i="1">Malik got the bigger share</button>
-      <button class="opt" data-i="2">Aaliyah got slightly more money, and they split the leftover mix evenly</button>
-      <button class="opt" data-i="3">They decided not to sell lemonade again</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-</div>
-<div class="nav noprint"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
-<div class="dots" id="dots"></div>
-</div>
-
-<!-- SLIDE 11: READING - THEME -->
-<div class="slide" data-slide="11">
-<span class="sectiontag tag-read">Reading — Theme</span>
-<h2>💡 The Lesson of the Story</h2>
-<div class="minipassage">Devon's science project fell apart the morning of the fair — the model's wiring came loose in his backpack. Instead of panicking, he asked the judges if he could explain what SHOULD have happened and why. They were so impressed by how clearly he understood the science, wiring or not, that he still placed second.</div>
-<div class="qgrid">
-  <div class="qcard" data-qid="th1" data-correct="1">
-    <div class="qtext">What is the THEME of this story?</div>
-    <div class="opts">
-      <button class="opt" data-i="0">Science fair judges are always impressed by broken projects</button>
-      <button class="opt" data-i="1">Really understanding your work can carry you through when things go wrong</button>
-      <button class="opt" data-i="2">You should always bring backup wiring to a science fair</button>
-      <button class="opt" data-i="3">Placing second is just as good as placing first</button>
-    </div>
-    <div class="recorded">Recorded ✓</div>
-  </div>
-</div>
-<div class="nav noprint"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12" id="genReportBtn">See the Report! 📋 &rarr;</button></div>
-<div class="dots" id="dots"></div>
-</div>
-
-<!-- SLIDE 12: REPORT -->
-<div class="slide" data-slide="12">
-<h1>📋 Competency Check Report</h1>
-<div class="reportcard">
-  <p id="reportIntro" style="font-weight:800;color:var(--navy)"></p>
-  <div id="skillBreakdown"></div>
-  <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
-</div>
-<div class="nav noprint" style="margin-top:20px;flex-wrap:wrap;gap:10px">
-  <button class="btn btn-back" onclick="window.print()">🖨️ Print Report</button>
-  <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
-  <button class="btn btn-go" data-go="13">Get My Certificate! 🏅 &rarr;</button>
-</div>
-<div class="dots" id="dots"></div>
-</div>
-
-<!-- SLIDE 13: CERTIFICATE -->
-<div class="slide" data-slide="13">
+<!-- SLIDE 10: CERTIFICATE -->
+<div class="slide" data-slide="10" id="certSlide">
 <div class="cert">
-  <div class="cert-kc">KingCretot Experience<span class="tag"><span class="tag-e">Educate</span> &middot; Empower &middot; <span class="tag-x">Excel</span></span></div>
-  <h1>CERTIFICATE OF MASTERY</h1>
+  <div class="cert-kc">KingCretot Experience<span class="tag"><span class="tag-e">Educate</span> &middot; <span class="tag-m">Empower</span> &middot; <span class="tag-x">Excel</span></span></div>
+  <h1>CERTIFICATE OF COMPLETION</h1>
   <p style="font-weight:700;color:#666">KCE Pathways &middot; Grade 4-5</p>
-  <p class="certname">Bailey Simon</p>
-  <p class="certunits">has demonstrated mastery of</p>
+  <p class="name">Bailey Simon</p>
+  <p class="units">has successfully completed</p>
   <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Math</p>
   <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Reading (ELA)</p>
-  <p id="certScoreLine" style="margin-top:14px;font-style:italic;color:#666"></p>
+  <p style="margin-top:14px;font-style:italic;color:#666">Checkpoint 1 Score: 85/100 &middot; Achieved on first attempt</p>
   <div class="sign">
     <div class="sigblock"><div class="signame">Jonathan King-Cretot</div><div class="sigline"></div><small>Mr. Jonathan, Instructor</small></div>
-    <div class="sigblock" id="certDateBlock"><div class="signame" id="certDate"></div><div class="sigline"></div><small>Date</small></div>
+    <div class="sigblock"><div class="signame">September 14, 2026</div><div class="sigline"></div><small>Date</small></div>
   </div>
 </div>
-<div class="nav noprint"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" onclick="window.print()">🖨️ Print Certificate</button></div>
-<div class="dots" id="dots"></div>
+<div class="nav noprint"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-print" onclick="window.print()">🖨️ Print Certificate</button></div>
+<div class="dots noprint" id="dots"></div>
+</div>
+
 </div>
 
 <script>
-const state = { studentName: 'Bailey Simon', answers: {} };
-
-function goTo(n){
-  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
-  document.querySelector('[data-slide="'+n+'"]').classList.add('active');
-  document.getElementById('stepnum').textContent = n+1;
-  window.scrollTo(0,0);
-  if (n === 12) buildReport();
-  if (n === 13) buildCertificate();
+const TOTAL_SLIDES = 11;
+let current = 0;
+function goSlide(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('on'));
+  document.querySelector('.slide[data-slide="'+n+'"]').classList.add('on');
+  current = n;
+  document.getElementById('stepBadge').textContent = 'Slide '+(n+1)+' of '+TOTAL_SLIDES;
+  buildDots();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
+function buildDots(){
+  document.querySelectorAll('.dots').forEach(dotsEl=>{
+    dotsEl.innerHTML='';
+    for(let i=0;i<TOTAL_SLIDES;i++){
+      const d=document.createElement('span');
+      d.className='dot'+(i===current?' active':'');
+      d.onclick=()=>goSlide(i);
+      dotsEl.appendChild(d);
+    }
+  });
+}
 document.addEventListener('click', function(e){
-  const nav = e.target.closest('[data-go]');
-  if (nav){ goTo(parseInt(nav.dataset.go)); return; }
-
-  const opt = e.target.closest('.opt');
-  if (opt){
-    const card = opt.closest('.qcard');
-    if (card.classList.contains('answered')) return;
-    const qid = card.dataset.qid;
-    const correct = parseInt(card.dataset.correct);
-    const picked = parseInt(opt.dataset.i);
-    opt.classList.add('picked');
-    card.classList.add('answered');
-    state.answers[qid] = (picked === correct);
-    return;
-  }
-
-  const checkBtn = e.target.closest('[data-check]');
-  if (checkBtn){
-    const qid = checkBtn.dataset.check;
-    const card = checkBtn.closest('.qcard');
-    if (card.classList.contains('answered')) return;
-    const input = card.querySelector('.fillin');
-    const given = (input.value || '').trim().toLowerCase().replace(/[\s,]+/g,'');
-    const expected = (card.dataset.ans || '').toLowerCase().replace(/\s+/g,'');
-    const acceptable = expected.split('|').map(a => a.replace(/,/g,''));
-    const isCorrect = acceptable.indexOf(given) !== -1;
-    card.classList.add('answered');
-    state.answers[qid] = isCorrect;
-    return;
+  const goBtn = e.target.closest('[data-go]');
+  if(goBtn){ goSlide(parseInt(goBtn.dataset.go)); return; }
+  const revealBtn = e.target.closest('.reveal-btn');
+  if(revealBtn){
+    const id = revealBtn.dataset.reveal;
+    const box = document.getElementById(id);
+    box.classList.toggle('on');
+    revealBtn.classList.toggle('shown');
+    revealBtn.textContent = box.classList.contains('on') ? 'Hide it' : 'Walk it through';
   }
 });
+buildDots();
 
-function buildReport(){
-  const groups = {
-    'Place Value': {ids: ['pv1','pv2','pv3']},
-    'Multiplication': {ids: ['mm1','mm2']},
-    'Division with Remainders': {ids: ['ld1','ld2','ld3']},
-    'Fractions (same denominator)': {ids: ['fr1','fr2','fr3','fr4']},
-    'Decimals & Money': {ids: ['dc1','dc2','dc3']},
-    'Real-World Word Problems': {ids: ['wp1','wp2','wp3','wp4']},
-    'Inference & Conflict': {ids: ['ic1','ic2']},
-    'Point of View': {ids: ['pov1']},
-    'Persuasion & Evidence': {ids: ['pe1','pe2']},
-    'Main Idea & Resolution': {ids: ['mr1','mr2']},
-    'Theme': {ids: ['th1']}
-  };
-
-  let totalCorrect = 0, totalSeen = 0;
-  let html = '';
-  const weak = [];
-
-  for (const skill in groups){
-    const ids = groups[skill].ids;
-    let correct = 0, total = 0;
-    ids.forEach(id => { if (id in state.answers){ total++; if (state.answers[id]) correct++; } });
-    if (total === 0) continue;
-    totalCorrect += correct; totalSeen += total;
-    const pct = correct/total;
-    let pillClass = 'pill-solid', pillText = 'Solid';
-    if (pct < 0.5){ pillClass = 'pill-support'; pillText = 'Needs Support'; weak.push(skill); }
-    else if (pct < 0.8){ pillClass = 'pill-dev'; pillText = 'Developing'; weak.push(skill); }
-    html += '<div class="skillrow"><span class="skillname">'+skill+'</span><span><span class="skillscore">'+correct+'/'+total+'</span> <span class="pill '+pillClass+'">'+pillText+'</span></span></div>';
+// Malik's Mural mini tile-grid
+(function(){
+  const grid = document.getElementById('tileGrid');
+  if(!grid) return;
+  const countEl = document.getElementById('tileCount');
+  let filled = 0;
+  for(let i=0;i<24;i++){
+    const t = document.createElement('div');
+    t.className='tile';
+    t.addEventListener('click', function(){
+      const wasFilled = t.classList.contains('filled');
+      t.classList.toggle('filled');
+      filled += wasFilled ? -1 : 1;
+      countEl.textContent = filled;
+    });
+    grid.appendChild(t);
   }
-
-  document.getElementById('skillBreakdown').innerHTML = html;
-  document.getElementById('reportIntro').textContent = state.studentName + ' — ' + totalCorrect + ' of ' + totalSeen + ' correct across this Unit 1 check-in.';
-  state.totalCorrect = totalCorrect;
-  state.totalSeen = totalSeen;
-
-  let recs = 'This check covered the same ground as the Unit 1 checkpoint, with all-new questions. ';
-  if (weak.length === 0){
-    recs += 'Every area checked out as Solid — a genuinely independent confirmation that Unit 1 skills are in place before moving into Unit 2.';
-  } else {
-    recs += 'Worth a closer look before moving into Unit 2: ' + weak.join(', ') + '.';
-  }
-  document.getElementById('reportRecs').textContent = recs;
-
-  document.getElementById('emailBtn').onclick = function(){
-    const subject = encodeURIComponent(state.studentName + ' — Unit 1 Competency Check Results');
-    const body = encodeURIComponent(
-      state.studentName + ' — Unit 1 Competency Check Report\n\n' +
-      'Score: ' + totalCorrect + ' of ' + totalSeen + ' correct\n\n' +
-      'Skill breakdown:\n' +
-      Object.keys(groups).map(skill=>{
-        const ids = groups[skill].ids;
-        let c=0,t=0;
-        ids.forEach(id=>{ if(id in state.answers){t++; if(state.answers[id])c++;} });
-        return t>0 ? skill+': '+c+'/'+t : null;
-      }).filter(Boolean).join('\n') +
-      '\n\nNotes: ' + recs
-    );
-    window.location.href = 'mailto:?subject='+subject+'&body='+body;
-  };
-}
-
-function buildCertificate(){
-  const c = state.totalCorrect, t = state.totalSeen;
-  document.getElementById('certScoreLine').textContent = (t ? c+'/'+t+' correct' : '') + ' on this Unit 1 competency check';
-  const today = new Date();
-  document.getElementById('certDate').textContent = today.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
-}
+  document.getElementById('tileFastBtn').addEventListener('click', function(){
+    document.getElementById('tileReveal').classList.toggle('on');
+  });
+})();
 </script>
 </body>
 </html>
