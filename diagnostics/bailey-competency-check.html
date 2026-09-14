@@ -15,6 +15,8 @@ body{font-family:'Nunito',Georgia,sans-serif;margin:0;background:linear-gradient
 .hud-title{font-weight:800;font-size:1.05rem}
 .hud-badge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:700}
 .slide{display:none;max-width:900px;margin:24px auto;padding:0 20px 60px}
+.slide.active{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
 .slide.active{display:block}
 .sectiontag{display:inline-block;padding:5px 14px;border-radius:20px;font-weight:800;font-size:.8rem;margin-bottom:10px;font-family:'Fredoka One',cursive}
 .tag-math{background:var(--blue);color:#fff}
@@ -55,6 +57,17 @@ h2{font-size:1.6rem;margin-top:0}
 .longdiv .ld-divisor{padding-right:10px;padding-top:6px}
 .longdiv .ld-bracket{border-left:4px solid var(--navy);border-top:4px solid var(--navy);padding:6px 14px 4px;border-radius:2px 8px 0 0}
 .certbox{background:#fff;border:4px solid var(--gold);border-radius:16px;padding:30px;text-align:center;box-shadow:0 6px 24px rgba(10,31,61,.12)}
+.cert{border:6px double var(--gold);border-radius:18px;padding:40px 36px;text-align:center;background:#FFFDF6;position:relative}
+.cert-kc{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.3rem;letter-spacing:1px}
+.cert-kc .tag{display:block;font-size:.6rem;letter-spacing:3px;font-weight:800;margin-top:2px}
+.cert-kc .tag-e{color:var(--blue)}.cert-kc .tag-x{color:var(--red)}
+.cert .certname{font-family:'Fredoka One',cursive;font-size:2.1rem;color:var(--gold);margin:14px 0;letter-spacing:1px}
+.cert .certunits{font-size:1.05rem;font-weight:800;color:var(--navy);margin:14px 0}
+.cert .unitline{margin:6px 0}
+.cert .sign{display:flex;justify-content:space-between;margin-top:34px;padding:0 20px;flex-wrap:wrap;gap:16px}
+.sigblock{text-align:center}
+.signame{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--navy);letter-spacing:.5px;margin-bottom:4px}
+.sigline{border-top:2px solid var(--navy);width:200px;margin-bottom:6px}
 .reportcard{background:#fff;border-radius:16px;padding:26px;box-shadow:0 4px 16px rgba(10,31,61,.08)}
 .skillrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
 .skillname{font-weight:800;color:var(--navy)}
@@ -70,7 +83,7 @@ h2{font-size:1.6rem;margin-top:0}
 
 <div class="hud">
 <div class="hud-brand"><span class="hud-logo">KC</span><span class="hud-title">📘 Unit 1 Competency Check</span></div>
-<div class="hud-badge">Step <span id="stepnum">1</span> of 13</div>
+<div class="hud-badge">Step <span id="stepnum">1</span> of 14</div>
 </div>
 
 <!-- SLIDE 0: CELEBRATION OPENING -->
@@ -82,10 +95,9 @@ h2{font-size:1.6rem;margin-top:0}
   <p style="font-size:1.1rem;font-weight:700;color:var(--navy)">Bailey, you finished Unit 1: First Steps. That's five whole weeks of new math and reading skills, and you crushed the checkpoint.</p>
 </div>
 <div class="box box-guided" style="margin-top:18px">
-  <div class="icon">🧭</div>
-  <div><h3 style="margin-top:0">Now let's dig in together</h3>
-  <p>This next part is just for fun — no score, no pressure. Mr. Jonathan is going to sit with you and go through some brand-new questions, different from anything on the checkpoint, just to see how everything is really clicking. Take your time on each one.</p>
-  </div>
+  <div class="icon">💪</div>
+  <div><h3 style="margin-top:0">Why this matters</h3>
+  <p>You covered a lot — multiplication, division with remainders, fractions, decimals, place value, inference, point of view, persuasive evidence, main idea, and theme — and it all landed the first time through. Today isn't a re-test. Mr. Jonathan just wants to sit with you and see all of that in action, one skill at a time, no clock and no pressure.</p></div>
 </div>
 <div class="nav noprint"><span></span><button class="btn btn-go" data-go="1">Let's Go! &rarr;</button></div>
 <div class="dots" id="dots"></div>
@@ -431,10 +443,31 @@ h2{font-size:1.6rem;margin-top:0}
   <div id="skillBreakdown"></div>
   <p id="reportRecs" style="margin-top:18px;line-height:1.6"></p>
 </div>
-<div class="nav noprint" style="margin-top:20px">
+<div class="nav noprint" style="margin-top:20px;flex-wrap:wrap;gap:10px">
   <button class="btn btn-back" onclick="window.print()">🖨️ Print Report</button>
-  <button class="btn btn-go" id="emailBtn">✉️ Email to Parent</button>
+  <button class="btn btn-back" id="emailBtn">✉️ Email to Parent</button>
+  <button class="btn btn-go" data-go="13">Get My Certificate! 🏅 &rarr;</button>
 </div>
+<div class="dots" id="dots"></div>
+</div>
+
+<!-- SLIDE 13: CERTIFICATE -->
+<div class="slide" data-slide="13">
+<div class="cert">
+  <div class="cert-kc">KingCretot Experience<span class="tag"><span class="tag-e">Educate</span> &middot; Empower &middot; <span class="tag-x">Excel</span></span></div>
+  <h1>CERTIFICATE OF MASTERY</h1>
+  <p style="font-weight:700;color:#666">KCE Pathways &middot; Grade 4-5</p>
+  <p class="certname">Bailey Simon</p>
+  <p class="certunits">has demonstrated mastery of</p>
+  <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Math</p>
+  <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Reading (ELA)</p>
+  <p id="certScoreLine" style="margin-top:14px;font-style:italic;color:#666"></p>
+  <div class="sign">
+    <div class="sigblock"><div class="signame">Jonathan King-Cretot</div><div class="sigline"></div><small>Mr. Jonathan, Instructor</small></div>
+    <div class="sigblock" id="certDateBlock"><div class="signame" id="certDate"></div><div class="sigline"></div><small>Date</small></div>
+  </div>
+</div>
+<div class="nav noprint"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" onclick="window.print()">🖨️ Print Certificate</button></div>
 <div class="dots" id="dots"></div>
 </div>
 
@@ -447,6 +480,7 @@ function goTo(n){
   document.getElementById('stepnum').textContent = n+1;
   window.scrollTo(0,0);
   if (n === 12) buildReport();
+  if (n === 13) buildCertificate();
 }
 
 document.addEventListener('click', function(e){
@@ -516,6 +550,8 @@ function buildReport(){
 
   document.getElementById('skillBreakdown').innerHTML = html;
   document.getElementById('reportIntro').textContent = state.studentName + ' — ' + totalCorrect + ' of ' + totalSeen + ' correct across this Unit 1 check-in.';
+  state.totalCorrect = totalCorrect;
+  state.totalSeen = totalSeen;
 
   let recs = 'This check covered the same ground as the Unit 1 checkpoint, with all-new questions. ';
   if (weak.length === 0){
@@ -541,6 +577,13 @@ function buildReport(){
     );
     window.location.href = 'mailto:?subject='+subject+'&body='+body;
   };
+}
+
+function buildCertificate(){
+  const c = state.totalCorrect, t = state.totalSeen;
+  document.getElementById('certScoreLine').textContent = (t ? c+'/'+t+' correct' : '') + ' on this Unit 1 competency check';
+  const today = new Date();
+  document.getElementById('certDate').textContent = today.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
 }
 </script>
 </body>
