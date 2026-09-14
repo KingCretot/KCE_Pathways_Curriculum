@@ -88,6 +88,16 @@ p{margin:6px 0}
 .qcard .qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .qtext{font-weight:800;color:var(--navy);font-size:1.02rem;flex:1}
 .reveal-btn{background:linear-gradient(135deg,var(--sky),#4FA9F2);color:#fff;font-weight:800;border:none;border-radius:12px;padding:9px 16px;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.fillrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.fillin{border:2px solid #ccc;border-radius:8px;padding:9px 13px;font-size:1rem;font-weight:800;flex:1;min-width:110px;color:var(--navy)}
+.btn-check{background:var(--navy);color:#fff;font-weight:800;border:none;border-radius:10px;padding:9px 18px;font-size:.85rem;cursor:pointer}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.opt{background:#F7F5EE;border:2px solid #e2ddd0;border-radius:10px;padding:10px 14px;text-align:left;cursor:pointer;font-size:.95rem;font-weight:700;color:var(--ink)}
+.opt:hover{border-color:var(--sky)}
+.qcard.answered .fillin,.qcard.answered .btn-check,.qcard.answered .opt{pointer-events:none;opacity:.55}
+.qcard.answered .opt.picked{opacity:1;border-color:var(--navy);background:#EFF3FF}
+.qcard.correct{border:2px solid var(--ok)}
+.qcard.incorrect{border:2px solid var(--bad)}
 .reveal-btn.shown{background:#ddd;color:#777}
 .reveal-box{display:none;margin-top:12px;background:#EAF6EA;border-left:4px solid var(--ok);border-radius:10px;padding:12px 14px;font-size:.95rem}
 .reveal-box.on{display:block;animation:pop .3s ease}
@@ -217,39 +227,55 @@ p{margin:6px 0}
 <h2>🔢📖 One Skill From Each Week</h2>
 <p style="margin-bottom:14px">Click "Walk it through" on each one — Mr. Jonathan will manage the pace together with you.</p>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 1: In 6,748, what is the digit 7 worth?</span><button class="reveal-btn" data-reveal="q1">Walk it through</button></div>
+  <div class="qcard" data-qid="q1" data-fill="1" data-ans="700">
+    <div class="qtext">Week 1: In 6,748, what is the digit 7 worth?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q1">Check</button></div>
     <div class="reveal-box" id="q1"><div class="ans">Answer: 700</div>
       <div class="stepline"><span class="stepnum">1</span><span>Line the number up by place value: 6 = thousands, 7 = hundreds, 4 = tens, 8 = ones.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>The 7 sits in the hundreds place.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>So the 7 is worth 7 × 100 = 700.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 2: 58 ÷ 9 = ___ (write remainders like this example: 9 R2)</span><button class="reveal-btn" data-reveal="q2">Walk it through</button></div>
+  <div class="qcard" data-qid="q2" data-fill="1" data-ans="6 r4|6r4|6 R4">
+    <div class="qtext">Week 2: 58 ÷ 9 = ___ (write remainders like this example: 9 R2)</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q2">Check</button></div>
     <div class="reveal-box" id="q2"><div class="ans">Answer: 6 R4</div>
       <div class="stepline"><span class="stepnum">1</span><span>Ask: how many times does 9 fit into 58? Try 6: 9 × 6 = 54.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>54 is the closest we can get without going over 58.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>58 − 54 = 4 left over. So the answer is 6 R4.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 3: 2/7 + 3/7 = ___</span><button class="reveal-btn" data-reveal="q3">Walk it through</button></div>
+  <div class="qcard" data-qid="q3" data-fill="1" data-ans="5/7">
+    <div class="qtext">Week 3: 2/7 + 3/7 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q3">Check</button></div>
     <div class="reveal-box" id="q3"><div class="ans">Answer: 5/7</div>
       <div class="stepline"><span class="stepnum">1</span><span>Same denominator (7), so it stays 7 — we only add the top numbers.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>2 + 3 = 5.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>So 2/7 + 3/7 = 5/7.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 4: Which is GREATER, 0.8 or 0.65?</span><button class="reveal-btn" data-reveal="q4">Walk it through</button></div>
+  <div class="qcard" data-qid="q4" data-fill="1" data-ans="0.8">
+    <div class="qtext">Week 4: Which is GREATER, 0.8 or 0.65?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q4">Check</button></div>
     <div class="reveal-box" id="q4"><div class="ans">Answer: 0.8</div>
       <div class="stepline"><span class="stepnum">1</span><span>Give both the same number of decimal places: 0.8 becomes 0.80.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Compare 80 hundredths to 65 hundredths.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>80 &gt; 65, so 0.8 is greater than 0.65.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 1: The problem or struggle a character has to face is called the ___?</span><button class="reveal-btn" data-reveal="q5">Walk it through</button></div>
+  <div class="qcard" data-qid="q5" data-fill="1" data-ans="conflict">
+    <div class="qtext">Week 1: The problem or struggle a character has to face is called the ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q5">Check</button></div>
     <div class="reveal-box" id="q5"><div class="ans">Answer: Conflict</div>
       <div class="stepline"><span class="stepnum">1</span><span>Every story needs something to push against — a struggle the character has to deal with.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>That struggle has a name: the conflict.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 2: The particular way ONE character experiences or feels about an event is called their ___?</span><button class="reveal-btn" data-reveal="q6">Walk it through</button></div>
+  <div class="qcard" data-qid="q6" data-fill="1" data-ans="perspective">
+    <div class="qtext">Week 2: The particular way ONE character experiences or feels about an event is called their ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q6">Check</button></div>
     <div class="reveal-box" id="q6"><div class="ans">Answer: Perspective</div>
       <div class="stepline"><span class="stepnum">1</span><span>Two people can watch the exact same thing happen.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>How each of them personally sees or feels about it is their perspective.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 3: The thing that MAKES something else happen is called the ___?</span><button class="reveal-btn" data-reveal="q7">Walk it through</button></div>
+  <div class="qcard" data-qid="q7" data-fill="1" data-ans="cause">
+    <div class="qtext">Week 3: The thing that MAKES something else happen is called the ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q7">Check</button></div>
     <div class="reveal-box" id="q7"><div class="ans">Answer: Cause</div>
       <div class="stepline"><span class="stepnum">1</span><span>Ask yourself "why did this happen?"</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Whatever answers "why" is the cause. (What happens because of it is the effect.)</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Week 4: The one big point that all the small details in a story support is called the ___?</span><button class="reveal-btn" data-reveal="q8">Walk it through</button></div>
+  <div class="qcard" data-qid="q8" data-fill="1" data-ans="main idea|mainidea">
+    <div class="qtext">Week 4: The one big point that all the small details in a story support is called the ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="q8">Check</button></div>
     <div class="reveal-box" id="q8"><div class="ans">Answer: Main idea</div>
       <div class="stepline"><span class="stepnum">1</span><span>A story can have lots of details, but usually one big point they're all supporting.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>That big point is the main idea.</span></div></div></div>
@@ -263,17 +289,29 @@ p{margin:6px 0}
 <span class="sectiontag tag-mixed">Closer Look 2 of 8</span>
 <h2>🌟 This Unit's Vocabulary</h2>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">In 5 × 8 = 40, what do we call the 5 and the 8?</span><button class="reveal-btn" data-reveal="v1">Walk it through</button></div>
+  <div class="qcard" data-qid="v1" data-fill="1" data-ans="factors|factor">
+    <div class="qtext">In 5 × 8 = 40, what do we call the 5 and the 8?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v1">Check</button></div>
     <div class="reveal-box" id="v1"><div class="ans">Answer: Factors</div><div class="stepline"><span class="stepnum">1</span><span>In 5 × 8 = 40, the 5 and the 8 are the factors — the numbers doing the multiplying.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">In 42 ÷ 6 = 7, what do we call the 7?</span><button class="reveal-btn" data-reveal="v2">Walk it through</button></div>
+  <div class="qcard" data-qid="v2" data-fill="1" data-ans="quotient">
+    <div class="qtext">In 42 ÷ 6 = 7, what do we call the 7?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v2">Check</button></div>
     <div class="reveal-box" id="v2"><div class="ans">Answer: Quotient</div><div class="stepline"><span class="stepnum">1</span><span>In 42 ÷ 6 = 7, the 7 is the quotient — the result of the division.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">3/6 and 1/2 look different but cover the same amount. What word describes fractions like these?</span><button class="reveal-btn" data-reveal="v3">Walk it through</button></div>
+  <div class="qcard" data-qid="v3" data-fill="1" data-ans="equivalent">
+    <div class="qtext">3/6 and 1/2 look different but cover the same amount. What word describes fractions like these?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v3">Check</button></div>
     <div class="reveal-box" id="v3"><div class="ans">Answer: Equivalent</div><div class="stepline"><span class="stepnum">1</span><span>3/6 and 1/2 look different but cover the exact same amount — that makes them equivalent.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">In 7.35, what do we call the dot between the 7 and the 35?</span><button class="reveal-btn" data-reveal="v4">Walk it through</button></div>
+  <div class="qcard" data-qid="v4" data-fill="1" data-ans="decimal point|decimalpoint">
+    <div class="qtext">In 7.35, what do we call the dot between the 7 and the 35?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v4">Check</button></div>
     <div class="reveal-box" id="v4"><div class="ans">Answer: Decimal point</div><div class="stepline"><span class="stepnum">1</span><span>In 7.35, the dot between the 7 and the 35 is the decimal point.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Specific facts or details someone gives to support their argument are called ___?</span><button class="reveal-btn" data-reveal="v5">Walk it through</button></div>
+  <div class="qcard" data-qid="v5" data-fill="1" data-ans="evidence">
+    <div class="qtext">Specific facts or details someone gives to support their argument are called ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v5">Check</button></div>
     <div class="reveal-box" id="v5"><div class="ans">Answer: Evidence</div><div class="stepline"><span class="stepnum">1</span><span>Evidence showed up the most this whole unit — Weeks 1, 3, and 4 all used it.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">When both sides give up a little to reach a fair agreement, that's called a ___?</span><button class="reveal-btn" data-reveal="v6">Walk it through</button></div>
+  <div class="qcard" data-qid="v6" data-fill="1" data-ans="compromise">
+    <div class="qtext">When both sides give up a little to reach a fair agreement, that's called a ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="v6">Check</button></div>
     <div class="reveal-box" id="v6"><div class="ans">Answer: Compromise</div><div class="stepline"><span class="stepnum">1</span><span>Neither side gets everything they wanted, but both sides agree to it — that's a compromise.</span></div></div></div>
 </div>
 <div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
@@ -285,20 +323,28 @@ p{margin:6px 0}
 <span class="sectiontag tag-math">Closer Look 3 of 8</span>
 <h2>🔢 Numbers, Operations, Fractions &amp; Decimals</h2>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">31 × 14 = ___</span><button class="reveal-btn" data-reveal="r1">Walk it through</button></div>
+  <div class="qcard" data-qid="r1" data-fill="1" data-ans="434">
+    <div class="qtext">31 × 14 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="r1">Check</button></div>
     <div class="reveal-box" id="r1"><div class="ans">Answer: 434</div>
       <div class="stepline"><span class="stepnum">1</span><span>Break both numbers apart: 31 = 30 + 1, and 14 = 10 + 4.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Multiply every pair: 30×10=300, 30×4=120, 1×10=10, 1×4=4.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>Add them all up: 300+120+10+4 = 434.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">52 ÷ 7 = ___ (write remainders like this example: 9 R2)</span><button class="reveal-btn" data-reveal="r2">Walk it through</button></div>
+  <div class="qcard" data-qid="r2" data-fill="1" data-ans="7 r3|7r3|7 R3">
+    <div class="qtext">52 ÷ 7 = ___ (write remainders like this example: 9 R2)</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="r2">Check</button></div>
     <div class="reveal-box" id="r2"><div class="ans">Answer: 7 R3</div>
       <div class="stepline"><span class="stepnum">1</span><span>7 × 7 = 49, which is the closest we can get to 52 without going over.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>52 − 49 = 3 left over. So it's 7 R3.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">6/9 − 2/9 = ___</span><button class="reveal-btn" data-reveal="r3">Walk it through</button></div>
+  <div class="qcard" data-qid="r3" data-fill="1" data-ans="4/9">
+    <div class="qtext">6/9 − 2/9 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="r3">Check</button></div>
     <div class="reveal-box" id="r3"><div class="ans">Answer: 4/9</div>
       <div class="stepline"><span class="stepnum">1</span><span>Same denominator (9), so it stays put.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>6 − 2 = 4, so the answer is 4/9.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">$3.75 + $2.60 = ___</span><button class="reveal-btn" data-reveal="r4">Walk it through</button></div>
+  <div class="qcard" data-qid="r4" data-fill="1" data-ans="6.35|$6.35">
+    <div class="qtext">$3.75 + $2.60 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="r4">Check</button></div>
     <div class="reveal-box" id="r4"><div class="ans">Answer: $6.35</div>
       <div class="stepline"><span class="stepnum">1</span><span>Line up the decimal points: 3.75 and 2.60.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Add cents first: 75+60=135, which is $1.35 — carry the $1.</span></div>
@@ -313,19 +359,42 @@ p{margin:6px 0}
 <span class="sectiontag tag-reading">Closer Look 4 of 8</span>
 <h2>📖 Character, Perspective, Cause &amp; Effect</h2>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">If a character's "hands were shaking," what can you INFER?</span><button class="reveal-btn" data-reveal="c1">Walk it through</button></div>
+  <div class="qcard" data-qid="c1" data-correct="0">
+    <div class="qtext">If a character's "hands were shaking," what can you INFER?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Nervous or scared</button>
+      <button class="opt" data-i="1">Excited and happy</button>
+      <button class="opt" data-i="2">Bored and tired</button>
+      <button class="opt" data-i="3">Calm and relaxed</button>
+    </div>
     <div class="reveal-box" id="c1"><div class="ans">Answer: Nervous or scared</div>
       <div class="stepline"><span class="stepnum">1</span><span>The author never says "she was nervous" directly.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>We use the physical clue (shaking hands) to figure out the feeling ourselves — that's inferring.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Two characters see the exact same event and feel ___?</span><button class="reveal-btn" data-reveal="c2">Walk it through</button></div>
+  <div class="qcard" data-qid="c2" data-correct="0">
+    <div class="qtext">Two characters see the exact same event and feel ___?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Completely different things, and both can be valid</button>
+      <button class="opt" data-i="1">Exactly the same way every time</button>
+      <button class="opt" data-i="2">Nothing at all</button>
+      <button class="opt" data-i="3">Only what the narrator tells them to feel</button>
+    </div>
     <div class="reveal-box" id="c2"><div class="ans">Answer: Completely different things, and both can be valid</div>
       <div class="stepline"><span class="stepnum">1</span><span>Perspective means how a person personally experiences something.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Two people can watch the same event and walk away feeling totally different — and neither one is "wrong."</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">It rained all week, so the outdoor game got canceled. What is the EFFECT here?</span><button class="reveal-btn" data-reveal="c3">Walk it through</button></div>
+  <div class="qcard" data-qid="c3" data-correct="3">
+    <div class="qtext">It rained all week, so the outdoor game got canceled. What is the EFFECT here?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">It rained all week</button>
+      <button class="opt" data-i="1">The coach was upset</button>
+      <button class="opt" data-i="2">The players practiced indoors instead</button>
+      <button class="opt" data-i="3">The game got canceled</button>
+    </div>
     <div class="reveal-box" id="c3"><div class="ans">Answer: The game got canceled</div>
       <div class="stepline"><span class="stepnum">1</span><span>Cause = why something happened (the rain).</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>Effect = what happened because of it (the canceled game).</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">The smaller facts and examples an author uses to PROVE the main idea are called ___?</span><button class="reveal-btn" data-reveal="c4">Walk it through</button></div>
+  <div class="qcard" data-qid="c4" data-fill="1" data-ans="supporting details|details">
+    <div class="qtext">The smaller facts and examples an author uses to PROVE the main idea are called ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="c4">Check</button></div>
     <div class="reveal-box" id="c4"><div class="ans">Answer: Supporting details</div>
       <div class="stepline"><span class="stepnum">1</span><span>The main idea is the big point.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>The smaller facts that prove it are the supporting details.</span></div></div></div>
@@ -339,17 +408,29 @@ p{margin:6px 0}
 <span class="sectiontag tag-mixed">Closer Look 5 of 8</span>
 <h2>🔗 Match the Word to the Idea</h2>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "the result of dividing"?</span><button class="reveal-btn" data-reveal="m1">Walk it through</button></div>
+  <div class="qcard" data-qid="m1" data-fill="1" data-ans="quotient">
+    <div class="qtext">Which word means "the result of dividing"?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m1">Check</button></div>
     <div class="reveal-box" id="m1"><div class="ans">Answer: Quotient</div><div class="stepline"><span class="stepnum">1</span><span>The quotient is specifically the result of dividing — that's the direct match.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word describes fractions that equal the same amount?</span><button class="reveal-btn" data-reveal="m2">Walk it through</button></div>
+  <div class="qcard" data-qid="m2" data-fill="1" data-ans="equivalent">
+    <div class="qtext">Which word describes fractions that equal the same amount?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m2">Check</button></div>
     <div class="reveal-box" id="m2"><div class="ans">Answer: Equivalent</div><div class="stepline"><span class="stepnum">1</span><span>Equivalent describes fractions that equal the same amount — a fraction-specific word.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word names the numbers being multiplied together?</span><button class="reveal-btn" data-reveal="m3">Walk it through</button></div>
+  <div class="qcard" data-qid="m3" data-fill="1" data-ans="factors|factor">
+    <div class="qtext">Which word names the numbers being multiplied together?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m3">Check</button></div>
     <div class="reveal-box" id="m3"><div class="ans">Answer: Factors</div><div class="stepline"><span class="stepnum">1</span><span>Factors are the numbers being multiplied together.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "proof that backs up an argument"?</span><button class="reveal-btn" data-reveal="m4">Walk it through</button></div>
+  <div class="qcard" data-qid="m4" data-fill="1" data-ans="evidence">
+    <div class="qtext">Which word means "proof that backs up an argument"?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m4">Check</button></div>
     <div class="reveal-box" id="m4"><div class="ans">Answer: Evidence</div><div class="stepline"><span class="stepnum">1</span><span>A persuasive argument needs proof to back it up — that proof is evidence.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word describes how ONE specific character sees an event?</span><button class="reveal-btn" data-reveal="m5">Walk it through</button></div>
+  <div class="qcard" data-qid="m5" data-fill="1" data-ans="perspective">
+    <div class="qtext">Which word describes how ONE specific character sees an event?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m5">Check</button></div>
     <div class="reveal-box" id="m5"><div class="ans">Answer: Perspective</div><div class="stepline"><span class="stepnum">1</span><span>Different perspectives is exactly what makes two characters experience one moment differently.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word means "both sides give a little to reach an agreement"?</span><button class="reveal-btn" data-reveal="m6">Walk it through</button></div>
+  <div class="qcard" data-qid="m6" data-fill="1" data-ans="compromise">
+    <div class="qtext">Which word means "both sides give a little to reach an agreement"?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="m6">Check</button></div>
     <div class="reveal-box" id="m6"><div class="ans">Answer: Compromise</div><div class="stepline"><span class="stepnum">1</span><span>Fair middle ground, both sides giving a little — that's the definition of compromise.</span></div></div></div>
 </div>
 <div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
@@ -361,21 +442,37 @@ p{margin:6px 0}
 <span class="sectiontag tag-mixed">Closer Look 6 of 8</span>
 <h2>⌨️ Type-It Corral</h2>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">63 ÷ 9 = ___</span><button class="reveal-btn" data-reveal="t1">Walk it through</button></div>
+  <div class="qcard" data-qid="t1" data-fill="1" data-ans="7">
+    <div class="qtext">63 ÷ 9 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t1">Check</button></div>
     <div class="reveal-box" id="t1"><div class="ans">Answer: 7</div><div class="stepline"><span class="stepnum">1</span><span>9 × 7 = 63 exactly — no remainder.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">In 8,391, the digit 3 is worth ___?</span><button class="reveal-btn" data-reveal="t2">Walk it through</button></div>
+  <div class="qcard" data-qid="t2" data-fill="1" data-ans="300">
+    <div class="qtext">In 8,391, the digit 3 is worth ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t2">Check</button></div>
     <div class="reveal-box" id="t2"><div class="ans">Answer: 300</div><div class="stepline"><span class="stepnum">1</span><span>The 3 sits in the hundreds place, so it's worth 3 × 100 = 300.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">2/6 + 3/6 = ___</span><button class="reveal-btn" data-reveal="t3">Walk it through</button></div>
+  <div class="qcard" data-qid="t3" data-fill="1" data-ans="5/6">
+    <div class="qtext">2/6 + 3/6 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t3">Check</button></div>
     <div class="reveal-box" id="t3"><div class="ans">Answer: 5/6</div><div class="stepline"><span class="stepnum">1</span><span>Same denominator (6), so add the tops: 2+3=5. 5/6.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">$8.00 − $3.45 = ___</span><button class="reveal-btn" data-reveal="t4">Walk it through</button></div>
+  <div class="qcard" data-qid="t4" data-fill="1" data-ans="4.55|$4.55">
+    <div class="qtext">$8.00 − $3.45 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t4">Check</button></div>
     <div class="reveal-box" id="t4"><div class="ans">Answer: $4.55</div><div class="stepline"><span class="stepnum">1</span><span>8.00 − 3.45: borrow across the zeros, then subtract. 8.00 − 3.45 = 4.55.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">The overall lesson a story is trying to teach is called the ___?</span><button class="reveal-btn" data-reveal="t5">Walk it through</button></div>
+  <div class="qcard" data-qid="t5" data-fill="1" data-ans="theme">
+    <div class="qtext">The overall lesson a story is trying to teach is called the ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t5">Check</button></div>
     <div class="reveal-box" id="t5"><div class="ans">Answer: Theme</div><div class="stepline"><span class="stepnum">1</span><span>The theme is the big life lesson the whole story is really about.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Telling a story again in far fewer words, but keeping what matters, is called ___?</span><button class="reveal-btn" data-reveal="t6">Walk it through</button></div>
+  <div class="qcard" data-qid="t6" data-fill="1" data-ans="summarizing|summarize">
+    <div class="qtext">Telling a story again in far fewer words, but keeping what matters, is called ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t6">Check</button></div>
     <div class="reveal-box" id="t6"><div class="ans">Answer: Summarizing</div><div class="stepline"><span class="stepnum">1</span><span>Keeping what matters, cutting the rest short — that's summarizing.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">The order in which events happen in a story is called the ___?</span><button class="reveal-btn" data-reveal="t7">Walk it through</button></div>
+  <div class="qcard" data-qid="t7" data-fill="1" data-ans="sequence">
+    <div class="qtext">The order in which events happen in a story is called the ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t7">Check</button></div>
     <div class="reveal-box" id="t7"><div class="ans">Answer: Sequence</div><div class="stepline"><span class="stepnum">1</span><span>First, next, then, finally — that order is the sequence.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Small facts that back up a bigger point are called supporting ___?</span><button class="reveal-btn" data-reveal="t8">Walk it through</button></div>
+  <div class="qcard" data-qid="t8" data-fill="1" data-ans="details">
+    <div class="qtext">Small facts that back up a bigger point are called supporting ___?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="t8">Check</button></div>
     <div class="reveal-box" id="t8"><div class="ans">Answer: Details</div><div class="stepline"><span class="stepnum">1</span><span>Little proof-pieces backing up the big idea are the supporting details.</span></div></div></div>
 </div>
 <div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
@@ -388,32 +485,69 @@ p{margin:6px 0}
 <h2>👑 The Big One — Boss Battle Review</h2>
 <p style="margin-bottom:14px">This was the final round mixing every story and every skill together.</p>
 <div class="qgrid">
-  <div class="qcard"><div class="qhead"><span class="qtext">A vendor sold 24 items at $15 each. 24 × 15 = ___</span><button class="reveal-btn" data-reveal="b1">Walk it through</button></div>
+  <div class="qcard" data-qid="b1" data-fill="1" data-ans="360">
+    <div class="qtext">A vendor sold 24 items at $15 each. 24 × 15 = ___</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b1">Check</button></div>
     <div class="reveal-box" id="b1"><div class="ans">Answer: 360</div>
       <div class="stepline"><span class="stepnum">1</span><span>Break apart: 24 = 20+4, and 15 = 10+5.</span></div>
       <div class="stepline"><span class="stepnum">2</span><span>20×10=200, 20×5=100, 4×10=40, 4×5=20.</span></div>
       <div class="stepline"><span class="stepnum">3</span><span>Add: 200+100+40+20 = 360.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">A coach splits 42 water bottles evenly between 6 players. How many each?</span><button class="reveal-btn" data-reveal="b2">Walk it through</button></div>
+  <div class="qcard" data-qid="b2" data-fill="1" data-ans="7">
+    <div class="qtext">A coach splits 42 water bottles evenly between 6 players. How many each?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b2">Check</button></div>
     <div class="reveal-box" id="b2"><div class="ans">Answer: 7</div><div class="stepline"><span class="stepnum">1</span><span>42 shared evenly between 6 people: 42 ÷ 6 = 7 each.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">A student finished 7 of 10 homework problems. Write as a fraction.</span><button class="reveal-btn" data-reveal="b3">Walk it through</button></div>
+  <div class="qcard" data-qid="b3" data-fill="1" data-ans="7/10">
+    <div class="qtext">A student finished 7 of 10 homework problems. Write as a fraction.</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b3">Check</button></div>
     <div class="reveal-box" id="b3"><div class="ans">Answer: 7/10</div><div class="stepline"><span class="stepnum">1</span><span>"Out of 10" total, "7" done — that's 7/10.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Someone saved $22.40 one week and $15.60 the next. Total?</span><button class="reveal-btn" data-reveal="b4">Walk it through</button></div>
+  <div class="qcard" data-qid="b4" data-fill="1" data-ans="38|38.00|$38|$38.00">
+    <div class="qtext">Someone saved $22.40 one week and $15.60 the next. Total?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b4">Check</button></div>
     <div class="reveal-box" id="b4"><div class="ans">Answer: $38.00</div><div class="stepline"><span class="stepnum">1</span><span>Line up the decimals and add: 22.40 + 15.60 = 38.00.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">A student loses her house key and can't get inside before her parents get home. What would we call this problem?</span><button class="reveal-btn" data-reveal="b5">Walk it through</button></div>
+  <div class="qcard" data-qid="b5" data-correct="1">
+    <div class="qtext">A student loses her house key and can't get inside before her parents get home. What would we call this problem?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">Her resolution</button>
+      <button class="opt" data-i="1">Her conflict</button>
+      <button class="opt" data-i="2">Her main idea</button>
+      <button class="opt" data-i="3">Her perspective</button>
+    </div>
     <div class="reveal-box" id="b5"><div class="ans">Answer: Her conflict</div><div class="stepline"><span class="stepnum">1</span><span>That's the problem she has to deal with — her conflict.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Reading the same event twice, once per character, practices what skill?</span><button class="reveal-btn" data-reveal="b6">Walk it through</button></div>
+  <div class="qcard" data-qid="b6" data-fill="1" data-ans="perspective-taking|perspective taking">
+    <div class="qtext">Reading the same event twice, once per character, practices what skill?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b6">Check</button></div>
     <div class="reveal-box" id="b6"><div class="ans">Answer: Perspective-taking</div><div class="stepline"><span class="stepnum">1</span><span>Seeing one moment through two different characters' eyes is perspective-taking.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Two friends argue over whose turn it is to pick the movie, then agree to alternate every week. What is this an example of?</span><button class="reveal-btn" data-reveal="b7">Walk it through</button></div>
+  <div class="qcard" data-qid="b7" data-correct="2">
+    <div class="qtext">Two friends argue over whose turn it is to pick the movie, then agree to alternate every week. What is this an example of?</div>
+    <div class="opts">
+      <button class="opt" data-i="0">A conflict with no resolution</button>
+      <button class="opt" data-i="1">One friend giving up completely</button>
+      <button class="opt" data-i="2">A compromise</button>
+      <button class="opt" data-i="3">An argument that never got solved</button>
+    </div>
     <div class="reveal-box" id="b7"><div class="ans">Answer: A compromise / resolution</div><div class="stepline"><span class="stepnum">1</span><span>Both sides gave a little instead of one side losing completely.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">A story has lots of details about training, sacrifice, and teamwork, all building toward one point. What do we call that one big point?</span><button class="reveal-btn" data-reveal="b8">Walk it through</button></div>
+  <div class="qcard" data-qid="b8" data-fill="1" data-ans="main idea|mainidea">
+    <div class="qtext">A story has lots of details about training, sacrifice, and teamwork, all building toward one point. What do we call that one big point?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b8">Check</button></div>
     <div class="reveal-box" id="b8"><div class="ans">Answer: The main idea</div><div class="stepline"><span class="stepnum">1</span><span>That's the big takeaway all the story's details were building toward.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word applies to BOTH comparing fractions/decimals AND weighing reading details?</span><button class="reveal-btn" data-reveal="b9">Walk it through</button></div>
+  <div class="qcard" data-qid="b9" data-fill="1" data-ans="compare">
+    <div class="qtext">Which word applies to BOTH comparing fractions/decimals AND weighing reading details?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b9">Check</button></div>
     <div class="reveal-box" id="b9"><div class="ans">Answer: Compare</div><div class="stepline"><span class="stepnum">1</span><span>Compare shows up in math (which decimal is bigger) and reading (which detail matters more).</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which word explains WHY a character made a decision?</span><button class="reveal-btn" data-reveal="b10">Walk it through</button></div>
+  <div class="qcard" data-qid="b10" data-fill="1" data-ans="motive">
+    <div class="qtext">Which word explains WHY a character made a decision?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b10">Check</button></div>
     <div class="reveal-box" id="b10"><div class="ans">Answer: Motive</div><div class="stepline"><span class="stepnum">1</span><span>The reason behind a choice is the character's motive.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">Which operation does the phrase "shared equally among" signal?</span><button class="reveal-btn" data-reveal="b11">Walk it through</button></div>
+  <div class="qcard" data-qid="b11" data-fill="1" data-ans="division">
+    <div class="qtext">Which operation does the phrase "shared equally among" signal?</div>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn-check" data-check="b11">Check</button></div>
     <div class="reveal-box" id="b11"><div class="ans">Answer: Division</div><div class="stepline"><span class="stepnum">1</span><span>"Shared equally among" is a division clue phrase.</span></div></div></div>
-  <div class="qcard"><div class="qhead"><span class="qtext">True or False: A good summary should include EVERY detail from the original story.</span><button class="reveal-btn" data-reveal="b12">Walk it through</button></div>
+  <div class="qcard" data-qid="b12" data-correct="1">
+    <div class="qtext">True or False: A good summary should include EVERY detail from the original story.</div>
+    <div class="opts">
+      <button class="opt" data-i="0">True</button>
+      <button class="opt" data-i="1">False</button>
+    </div>
     <div class="reveal-box" id="b12"><div class="ans">Answer: False</div><div class="stepline"><span class="stepnum">1</span><span>The whole point of a summary is to be SHORTER, keeping only what matters most — not every detail.</span></div></div></div>
 </div>
 <div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Onward to Unit 2! &rarr;</button></div>
@@ -487,7 +621,7 @@ p{margin:6px 0}
   <p class="units">has successfully completed</p>
   <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Math</p>
   <p class="unitline"><strong>Unit 1: First Steps</strong> &mdash; Reading (ELA)</p>
-  <p style="margin-top:14px;font-style:italic;color:#666">Checkpoint 1 Score: 85/100 &middot; Achieved on first attempt</p>
+  <p style="margin-top:14px;font-style:italic;color:#666" id="certScoreLine">Competency Check Score: &mdash;</p>
   <div class="sign">
     <div class="sigblock"><div class="signame">Jonathan King-Cretot</div><div class="sigline"></div><small>Mr. Jonathan, Instructor</small></div>
     <div class="sigblock"><div class="signame">September 14, 2026</div><div class="sigline"></div><small>Date</small></div>
@@ -502,6 +636,7 @@ p{margin:6px 0}
 <script>
 const TOTAL_SLIDES = 11;
 let current = 0;
+const state = { answers: {} };
 function goSlide(n){
   document.querySelectorAll('.slide').forEach(s=>s.classList.remove('on'));
   document.querySelector('.slide[data-slide="'+n+'"]').classList.add('on');
@@ -509,6 +644,7 @@ function goSlide(n){
   document.getElementById('stepBadge').textContent = 'Slide '+(n+1)+' of '+TOTAL_SLIDES;
   buildDots();
   window.scrollTo({top:0,behavior:'smooth'});
+  if (n === 10) buildCertificate();
 }
 function buildDots(){
   document.querySelectorAll('.dots').forEach(dotsEl=>{
@@ -524,6 +660,7 @@ function buildDots(){
 document.addEventListener('click', function(e){
   const goBtn = e.target.closest('[data-go]');
   if(goBtn){ goSlide(parseInt(goBtn.dataset.go)); return; }
+
   const revealBtn = e.target.closest('.reveal-btn');
   if(revealBtn){
     const id = revealBtn.dataset.reveal;
@@ -531,9 +668,54 @@ document.addEventListener('click', function(e){
     box.classList.toggle('on');
     revealBtn.classList.toggle('shown');
     revealBtn.textContent = box.classList.contains('on') ? 'Hide it' : 'Walk it through';
+    return;
+  }
+
+  const opt = e.target.closest('.opt');
+  if(opt){
+    const card = opt.closest('.qcard');
+    if (card.classList.contains('answered')) return;
+    const qid = card.dataset.qid;
+    const correct = parseInt(card.dataset.correct);
+    const picked = parseInt(opt.dataset.i);
+    const isCorrect = picked === correct;
+    opt.classList.add('picked');
+    card.classList.add('answered', isCorrect ? 'correct' : 'incorrect');
+    state.answers[qid] = isCorrect;
+    const box = document.getElementById(qid);
+    if (box) box.classList.add('on');
+    return;
+  }
+
+  const checkBtn = e.target.closest('[data-check]');
+  if(checkBtn){
+    const card = checkBtn.closest('.qcard');
+    if (card.classList.contains('answered')) return;
+    const qid = checkBtn.dataset.check;
+    const input = card.querySelector('.fillin');
+    const given = (input.value || '').trim().toLowerCase().replace(/[\s,]+/g,'');
+    const expected = (card.dataset.ans || '').toLowerCase().replace(/\s+/g,'');
+    const acceptable = expected.split('|').map(a => a.replace(/,/g,''));
+    const isCorrect = acceptable.indexOf(given) !== -1;
+    card.classList.add('answered', isCorrect ? 'correct' : 'incorrect');
+    state.answers[qid] = isCorrect;
+    const box = document.getElementById(qid);
+    if (box) box.classList.add('on');
+    return;
   }
 });
 buildDots();
+
+function buildCertificate(){
+  const ids = Object.keys(state.answers);
+  const correct = ids.filter(id => state.answers[id]).length;
+  const total = ids.length;
+  const line = total > 0
+    ? correct + '/' + total + ' correct on this Unit 1 competency check &middot; ' + new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})
+    : '';
+  const scoreEl = document.getElementById('certScoreLine');
+  if (scoreEl) scoreEl.innerHTML = line;
+}
 
 // Malik's Mural mini tile-grid
 (function(){
