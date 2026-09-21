@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 6A: Coach's Equipment Count (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s;position:relative}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{position:absolute;top:16px;right:18px;font-weight:900;color:var(--gold);font-size:.85rem;background:#fff}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px;padding-right:56px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:158px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800;overflow:hidden}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.74rem;line-height:1.3;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.stdalgo{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);text-align:center;margin:14px 0}
+.stdalgo .row{border-bottom:3px solid var(--navy);padding:4px 0}
+.stdalgo .row:last-child{border-bottom:none;color:var(--pumpkin)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+/* NEW for 6A: fact family triangle + estimation dial */
+.trianglewrap{display:flex;justify-content:center;margin:16px 0}
+.triangle{position:relative;width:220px;height:190px}
+.tri-shape{position:absolute;inset:0;background:linear-gradient(135deg,#EAF6FF,#D9ECFF);clip-path:polygon(50% 4%,4% 96%,96% 96%);border:3px solid var(--sky)}
+.tri-num{position:absolute;font-family:'Fredoka One',cursive;font-weight:900;font-size:1.5rem;color:var(--navy);background:#fff;border:3px solid var(--navy);border-radius:12px;padding:8px 14px}
+.tri-top{top:2px;left:50%;transform:translateX(-50%)}
+.tri-left{bottom:8px;left:4px}
+.tri-right{bottom:8px;right:4px}
+.estimatebar{background:#fff;border:3px solid var(--pumpkin);border-radius:16px;padding:16px;margin:14px 0}
+.estimatebar .rangewrap{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:8px}
+.estimatebtn{padding:12px 18px;border-radius:12px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;cursor:pointer;font-family:inherit}
+.estimatebtn.right{background:#E5F7DC;border-color:var(--grass)}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏀 KCE Pathways — Grade 4-5 — Week 6A</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0: INTRO -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Next Level &bull; Bonus Trail Stop &bull; Math</span>
+  <h1>Coach's Equipment Count</h1>
+  <h2>Multiplication Review + Division Preview 🏀🔀</h2>
+  <div class="box box-story">
+    <div class="icon">🏀</div>
+    <h4>Meet Coach Priya</h4>
+    <p>Coach Priya runs the after-school sports program, and equipment day is chaos every single year — balls, cones, jerseys, all needing to be counted and then SORTED evenly across 8 teams. She's asked you to help, because you're great with multiplication... and today you'll learn the operation that's basically multiplication's opposite twin.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Practice rounds give you a <b>fresh set of numbers</b> every time you replay — so you can genuinely practice, not just memorize.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up your Math Toolbox — area model, regrouping, and estimation</li>
+      <li>Review the standard multiplication algorithm from last time</li>
+      <li>Meet Division — multiplication's "undo button" — with fact family triangles</li>
+      <li>Practice estimating quotients before you divide</li>
+      <li>Solve real equipment-count problems, then survive the Boss Battle!</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Bonus Stop between Week 6 &amp; Week 7</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+  <div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 1: MATH TOOLBOX RECALL -->
+<div class="slide" data-slide="1">
+<h2>🧰 Math Toolbox Recall</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Old Tools, New Job</h4>
+  <p>The area model, regrouping, basic division facts, and rounding have all been in your toolbox for a while. Today they're about to help you build a bridge from multiplication all the way to long division.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t1_s0" data-pts="6" data-ans="24" data-logic="12x2=24, or think of the area model: (10x2)+(2x2)=20+4=24.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer (area model check):</p>
+    <div class="fillrow"><span class="eq">(10&times;2) + (2&times;2) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s0" data-pts="6" data-logic="36 divided into 4 equal groups is 9 each, since 4x9=36.">
+    <span class="pts">+6</span>
+    <p class="qtext">36 &divide; 4 = ?</p>
+    <div class="opts"><button class="opt">6</button><button class="opt">8</button><button class="opt" data-c="1">9</button><button class="opt">12</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3_s0" data-pts="6" data-ans="600" data-logic="Round 312 to 300 and 289 to 300: 300+300=600.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">Estimate 312 + 289 (round to nearest hundred first) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t4_s0" data-pts="6" data-logic="8 ones plus 6 ones = 14, so you write 4 and regroup (carry) 1 to the tens.">
+    <span class="pts">+6</span>
+    <p class="qtext">Adding 28 + 16: when you add the ones (8+6=14), what do you do?</p>
+    <div class="opts"><button class="opt" data-c="1">Write 4, regroup 1 ten</button><button class="opt">Write 14</button><button class="opt">Ignore the extra 10</button><button class="opt">Start over</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t1_s1" data-pts="6" data-ans="46" data-logic="(20x2)+(3x2)=40+6=46.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer (area model check):</p>
+    <div class="fillrow"><span class="eq">(20&times;2) + (3&times;2) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s1" data-pts="6" data-logic="48 divided into 6 equal groups is 8 each, since 6x8=48.">
+    <span class="pts">+6</span>
+    <p class="qtext">48 &divide; 6 = ?</p>
+    <div class="opts"><button class="opt">6</button><button class="opt" data-c="1">8</button><button class="opt">9</button><button class="opt">12</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3_s1" data-pts="6" data-ans="700" data-logic="Round 418 to 400 and 267 to 300: 400+300=700.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">Estimate 418 + 267 (round to nearest hundred first) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t4_s1" data-pts="6" data-logic="9 ones plus 7 ones = 16, so you write 6 and regroup 1 ten.">
+    <span class="pts">+6</span>
+    <p class="qtext">Adding 39 + 17: when you add the ones (9+7=16), what do you do?</p>
+    <div class="opts"><button class="opt" data-c="1">Write 6, regroup 1 ten</button><button class="opt">Write 16</button><button class="opt">Ignore the extra 10</button><button class="opt">Start over</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t1_s2" data-pts="6" data-ans="63" data-logic="(20x3)+(1x3)=60+3=63.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer (area model check):</p>
+    <div class="fillrow"><span class="eq">(20&times;3) + (1&times;3) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s2" data-pts="6" data-logic="54 divided into 6 equal groups is 9 each, since 6x9=54.">
+    <span class="pts">+6</span>
+    <p class="qtext">54 &divide; 6 = ?</p>
+    <div class="opts"><button class="opt">6</button><button class="opt">7</button><button class="opt" data-c="1">9</button><button class="opt">12</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t3_s2" data-pts="6" data-ans="500" data-logic="Round 234 to 200 and 288 to 300: 200+300=500.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">Estimate 234 + 288 (round to nearest hundred first) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t4_s2" data-pts="6" data-logic="7 ones plus 5 ones = 12, so you write 2 and regroup 1 ten.">
+    <span class="pts">+6</span>
+    <p class="qtext">Adding 47 + 25: when you add the ones (7+5=12), what do you do?</p>
+    <div class="opts"><button class="opt" data-c="1">Write 2, regroup 1 ten</button><button class="opt">Write 12</button><button class="opt">Ignore the extra 10</button><button class="opt">Start over</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 2: VOCAB REVIEW (FLIP CARDS) -->
+<div class="slide" data-slide="2">
+<h2>🌟 Vocabulary Round-Up, Part 2</h2>
+<p style="margin-bottom:6px">Flip each card. Six are old friends — four are brand new words you'll need for Week 7!</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">standard algorithm</div><div class="flip-face flip-back">The stacked, step-by-step way of multiplying larger numbers on paper.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">partial product</div><div class="flip-face flip-back">One piece of a multiplication problem, found before adding all the pieces together.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">regroup</div><div class="flip-face flip-back">Carrying extra value into the next place value column.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">factor</div><div class="flip-face flip-back">A number being multiplied.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">estimate</div><div class="flip-face flip-back">A smart, quick guess made by rounding first.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">product</div><div class="flip-face flip-back">The answer to a multiplication problem.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">dividend 🆕</div><div class="flip-face flip-back">The total amount being split up — the number you're dividing.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">divisor 🆕</div><div class="flip-face flip-back">The number you're splitting the dividend into equal groups by.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quotient 🆕</div><div class="flip-face flip-back">The answer to a division problem.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">fact family 🆕</div><div class="flip-face flip-back">Related multiplication &amp; division facts from the same 3 numbers, like 6, 7, 42.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 3: VOCAB PRACTICE -->
+<div class="slide" data-slide="3">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice4" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="6" data-logic="The stacked, step-by-step way is the standard algorithm.">
+    <span class="pts">+6</span>
+    <p class="qtext">The stacked, step-by-step way of multiplying bigger numbers is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Standard algorithm</button><button class="opt">Fact family</button><button class="opt">Quotient</button><button class="opt">Divisor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="6" data-ans="quotient" data-logic="The answer to a division problem is the quotient.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: the answer to a division problem is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s0" data-pts="6" data-logic="The number being divided is the dividend.">
+    <span class="pts">+6</span>
+    <p class="qtext">In 42 &divide; 6 = 7, the number 42 is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Dividend</button><button class="opt">Divisor</button><button class="opt">Product</button><button class="opt">Factor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v4_s0" data-pts="6" data-ans="divisor" data-logic="The number you divide BY is the divisor.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: in 42 &divide; 6 = 7, the number 6 is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v5_s0" data-pts="6" data-logic="A group of related multiplication/division facts sharing the same 3 numbers is a fact family.">
+    <span class="pts">+6</span>
+    <p class="qtext">6 &times; 7 = 42, 7 &times; 6 = 42, 42 &divide; 6 = 7, and 42 &divide; 7 = 6 together form a ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Fact family</button><button class="opt">Partial product</button><button class="opt">Estimate</button><button class="opt">Regroup</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v6_s0" data-pts="6" data-ans="estimate" data-logic="A smart quick guess made by rounding first is an estimate.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: a smart, quick guess made by rounding first is called an ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v6_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="6" data-logic="The stacked, step-by-step way is the standard algorithm.">
+    <span class="pts">+6</span>
+    <p class="qtext">The stacked way of multiplying larger numbers on paper is the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Standard algorithm</button><button class="opt">Fact family</button><button class="opt">Quotient</button><button class="opt">Divisor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="6" data-ans="quotient" data-logic="The answer to a division problem is the quotient.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: in 56 &divide; 8 = 7, the number 7 is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s1" data-pts="6" data-logic="The number being divided is the dividend.">
+    <span class="pts">+6</span>
+    <p class="qtext">In 56 &divide; 8 = 7, the number 56 is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Dividend</button><button class="opt">Divisor</button><button class="opt">Product</button><button class="opt">Factor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v4_s1" data-pts="6" data-ans="divisor" data-logic="The number you divide BY is the divisor.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: in 56 &divide; 8 = 7, the number 8 is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v5_s1" data-pts="6" data-logic="A group of related multiplication/division facts sharing the same 3 numbers is a fact family.">
+    <span class="pts">+6</span>
+    <p class="qtext">5 &times; 8 = 40, 8 &times; 5 = 40, 40 &divide; 5 = 8, and 40 &divide; 8 = 5 together form a ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Fact family</button><button class="opt">Partial product</button><button class="opt">Estimate</button><button class="opt">Regroup</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v6_s1" data-pts="6" data-ans="regroup|regrouping" data-logic="Carrying extra value to the next place value is regrouping.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: carrying extra value into the next place value column is called ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v6_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="6" data-logic="The stacked, step-by-step way is the standard algorithm.">
+    <span class="pts">+6</span>
+    <p class="qtext">Multiplying with a written, stacked, step-by-step process is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Standard algorithm</button><button class="opt">Fact family</button><button class="opt">Quotient</button><button class="opt">Divisor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="6" data-ans="quotient" data-logic="The answer to a division problem is the quotient.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: in 63 &divide; 9 = 7, the number 7 is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s2" data-pts="6" data-logic="The number being divided is the dividend.">
+    <span class="pts">+6</span>
+    <p class="qtext">In 63 &divide; 9 = 7, the number 63 is called the ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Dividend</button><button class="opt">Divisor</button><button class="opt">Product</button><button class="opt">Factor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v4_s2" data-pts="6" data-ans="divisor" data-logic="The number you divide BY is the divisor.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: in 63 &divide; 9 = 7, the number 9 is called the ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v5_s2" data-pts="6" data-logic="A group of related multiplication/division facts sharing the same 3 numbers is a fact family.">
+    <span class="pts">+6</span>
+    <p class="qtext">4 &times; 9 = 36, 9 &times; 4 = 36, 36 &divide; 4 = 9, and 36 &divide; 9 = 4 together form a ___?</p>
+    <div class="opts"><button class="opt" data-c="1">Fact family</button><button class="opt">Partial product</button><button class="opt">Estimate</button><button class="opt">Regroup</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v6_s2" data-pts="6" data-ans="factor" data-logic="A number being multiplied is a factor.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: a number being multiplied is called a ___?</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="word"><button class="btn btn-pri" data-check="v6_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 4: SKILL PRACTICE - STANDARD ALGORITHM -->
+<div class="slide" data-slide="4">
+<h2>✍️ Skill Practice: Standard Algorithm</h2>
+<div class="stdalgo">
+  <div class="row">&nbsp;&nbsp;2&nbsp;3</div>
+  <div class="row">&times;&nbsp;1&nbsp;4</div>
+  <div class="row">&nbsp;&nbsp;9&nbsp;2</div>
+  <div class="row">2&nbsp;3&nbsp;0</div>
+  <div class="row">3&nbsp;2&nbsp;2</div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🤝</div>
+  <h4>Quick Refresher</h4>
+  <p>23 &times; 14: multiply 23 by 4 (ones) = 92, then 23 by 10 (tens) = 230. Add the partial products: 92 + 230 = 322. Same steps, every time — even with bigger numbers.</p>
+</div>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="p1_s0" data-pts="7" data-ans="238" data-logic="34x7: 4x7=28, 30x7=210, 210+28=238.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">34 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s0" data-pts="7" data-logic="26x13: (20x13)+(6x13)=260+78=338.">
+    <span class="pts">+7</span>
+    <p class="qtext">26 &times; 13 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">338</button><button class="opt">318</button><button class="opt">328</button><button class="opt">348</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p3_s0" data-pts="7" data-ans="936" data-logic="234x4: 4x4=16, 30x4=120, 200x4=800, 800+120+16=936.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">234 &times; 4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p4_s0" data-pts="7" data-ans="315" data-logic="45x7: 5x7=35, 40x7=280, 280+35=315.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">45 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p5_s0" data-pts="7" data-logic="18x16: (18x10)+(18x6)=180+108=288.">
+    <span class="pts">+7</span>
+    <p class="qtext">18 &times; 16 = ?</p>
+    <div class="opts"><button class="opt">268</button><button class="opt" data-c="1">288</button><button class="opt">298</button><button class="opt">308</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="p1_s1" data-pts="7" data-ans="252" data-logic="36x7: 6x7=42, 30x7=210, 210+42=252.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">36 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s1" data-pts="7" data-logic="32x14: (30x14)+(2x14)=420+28=448.">
+    <span class="pts">+7</span>
+    <p class="qtext">32 &times; 14 = ?</p>
+    <div class="opts"><button class="opt">418</button><button class="opt" data-c="1">448</button><button class="opt">438</button><button class="opt">458</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p3_s1" data-pts="7" data-ans="948" data-logic="316x3: 6x3=18, 10x3=30, 300x3=900, 900+30+18=948.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">316 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p4_s1" data-pts="7" data-ans="392" data-logic="56x7: 6x7=42, 50x7=350, 350+42=392.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">56 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p5_s1" data-pts="7" data-logic="24x16: (24x10)+(24x6)=240+144=384.">
+    <span class="pts">+7</span>
+    <p class="qtext">24 &times; 16 = ?</p>
+    <div class="opts"><button class="opt">364</button><button class="opt" data-c="1">384</button><button class="opt">394</button><button class="opt">404</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="p1_s2" data-pts="7" data-ans="329" data-logic="47x7: 7x7=49, 40x7=280, 280+49=329.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">47 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s2" data-pts="7" data-logic="19x15: (20x15)-(1x15)=300-15=285.">
+    <span class="pts">+7</span>
+    <p class="qtext">19 &times; 15 = ?</p>
+    <div class="opts"><button class="opt">265</button><button class="opt" data-c="1">285</button><button class="opt">295</button><button class="opt">305</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p3_s2" data-pts="7" data-ans="642" data-logic="214x3: 4x3=12, 10x3=30, 200x3=600, 600+30+12=642.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">214 &times; 3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="p4_s2" data-pts="7" data-ans="376" data-logic="47x8: 7x8=56, 40x8=320, 320+56=376.">
+    <span class="pts">+7</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow"><span class="eq">47 &times; 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="p4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p5_s2" data-pts="7" data-logic="29x16: (30x16)-(1x16)=480-16=464.">
+    <span class="pts">+7</span>
+    <p class="qtext">29 &times; 16 = ?</p>
+    <div class="opts"><button class="opt">444</button><button class="opt" data-c="1">464</button><button class="opt">474</button><button class="opt">484</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 5: DIVISION IS MULTIPLICATION'S UNDO BUTTON -->
+<div class="slide" data-slide="5">
+<h2>🔀 NEW! Division Is Multiplication's Undo Button</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>The Big Idea</h4>
+  <p>Every multiplication fact has a division fact hiding right inside it. If 6 &times; 7 = 42, then 42 &divide; 7 = 6 AND 42 &divide; 6 = 7. Three numbers, four related facts — that's a fact family, and division is really just multiplication working backward.</p>
+</div>
+<div class="trianglewrap">
+  <div class="triangle">
+    <div class="tri-shape"></div>
+    <div class="tri-num tri-top">42</div>
+    <div class="tri-num tri-left">6</div>
+    <div class="tri-num tri-right">7</div>
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Reading the Triangle</h4>
+  <p>Cover the top number: 6 &times; 7 = 42. Cover either bottom number: 42 &divide; 7 = 6, or 42 &divide; 6 = 7. Same three numbers, every time.</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🤝</div>
+  <h4>Let's Build One Together</h4>
+  <p>Start with 8 &times; 9 = 72. The fact family is 8, 9, and 72. Flip it around: 9 &times; 8 = 72. Now undo it: 72 &divide; 9 = 8, and 72 &divide; 8 = 9. Four facts, three numbers — every fact family works exactly the same way.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="f1_s0" data-pts="8" data-ans="8" data-logic="Fact family for 5,8,40: 5x8=40, so 40/5=8.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: this fact family is 5, 8, and 40. If 5 &times; 8 = 40, then 40 &divide; 5 = ___?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f2_s0" data-pts="8" data-logic="Fact family for 9,4,36: related facts are 9x4=36, 4x9=36, 36/4=9, 36/9=4. '9x9=81' does NOT belong.">
+    <span class="pts">+8</span>
+    <p class="qtext">Which fact does NOT belong to the 9, 4, 36 fact family?</p>
+    <div class="opts"><button class="opt">9 &times; 4 = 36</button><button class="opt">36 &divide; 4 = 9</button><button class="opt" data-c="1">9 &times; 9 = 81</button><button class="opt">36 &divide; 9 = 4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f3_s0" data-pts="8" data-ans="63" data-logic="9x7=63, so this fact family is 9,7,63.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: if 9 is one factor, 7 is the other, what's the missing number in this fact family?</p>
+    <div class="fillrow"><span class="eq">9 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="f1_s1" data-pts="8" data-ans="6" data-logic="Fact family for 6,7,42: 7x6=42, so 42/7=6.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: this fact family is 6, 7, and 42. If 7 &times; 6 = 42, then 42 &divide; 7 = ___?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f2_s1" data-pts="8" data-logic="Fact family for 8,3,24: '8x8=64' does NOT belong.">
+    <span class="pts">+8</span>
+    <p class="qtext">Which fact does NOT belong to the 8, 3, 24 fact family?</p>
+    <div class="opts"><button class="opt">8 &times; 3 = 24</button><button class="opt">24 &divide; 3 = 8</button><button class="opt" data-c="1">8 &times; 8 = 64</button><button class="opt">24 &divide; 8 = 3</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f3_s1" data-pts="8" data-ans="56" data-logic="8x7=56, so this fact family is 8,7,56.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: if 8 is one factor, 7 is the other, what's the missing number in this fact family?</p>
+    <div class="fillrow"><span class="eq">8 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="f1_s2" data-pts="8" data-ans="9" data-logic="Fact family for 9,5,45: 5x9=45, so 45/5=9.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: this fact family is 9, 5, and 45. If 5 &times; 9 = 45, then 45 &divide; 5 = ___?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f2_s2" data-pts="8" data-logic="Fact family for 7,6,42: '7x7=49' does NOT belong.">
+    <span class="pts">+8</span>
+    <p class="qtext">Which fact does NOT belong to the 7, 6, 42 fact family?</p>
+    <div class="opts"><button class="opt">7 &times; 6 = 42</button><button class="opt">42 &divide; 6 = 7</button><button class="opt" data-c="1">7 &times; 7 = 49</button><button class="opt">42 &divide; 7 = 6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f3_s2" data-pts="8" data-ans="72" data-logic="9x8=72, so this fact family is 9,8,72.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: if 9 is one factor, 8 is the other, what's the missing number in this fact family?</p>
+    <div class="fillrow"><span class="eq">9 &times; 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 6: QUOTIENT ESTIMATION GAME -->
+<div class="slide" data-slide="6">
+<h2>🎯 NEW! Quotient Estimation Game</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Why Estimate BEFORE You Divide?</h4>
+  <p>Long division (coming up next week!) is much easier when you already have a smart guess for the answer. Round the dividend and divisor first, then estimate — it keeps you from making a wildly wrong answer without noticing.</p>
+</div>
+<div class="estimatebar">
+  <p style="font-weight:800;color:var(--navy)">Example: 182 &divide; 6 &mdash; round 182 to 180. 180 &divide; 6 = 30. So the real answer should land close to 30. (Math often uses the symbol &asymp; to mean "is about" — you'll see it below, and now you know what it means!)</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🤝</div>
+  <h4>Let's Try Together</h4>
+  <p>216 &divide; 4 &mdash; round 216 to 220 (nearest ten). 220 &divide; 4 = 55. So 216 &divide; 4 is about 55. When you actually divide it out, the real answer (54) lands right next door to your estimate — that's how you know your estimate did its job.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="e1_s0" data-pts="8" data-logic="Round 243 to 240. 240/6=40. Closest estimate is 40.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 243 &divide; 6 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">400</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="8" data-logic="Round 358 to 360. 360/9=40. Closest estimate is 40.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 358 &divide; 9 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">140</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s0" data-pts="8" data-ans="20" data-logic="Round 161 to 160. 160/8=20.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 161 to the nearest ten, then estimate &mdash; 161 &divide; 8 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s0" data-pts="8" data-ans="30" data-logic="Round 175 to 180. 180/6=30.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 175 to the nearest ten, then estimate &mdash; 175 &divide; 6 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="e1_s1" data-pts="8" data-logic="Round 284 to 280. 280/7=40.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 284 &divide; 7 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">400</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="8" data-logic="Round 447 to 450. 450/9=50.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 447 &divide; 9 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">5</button><button class="opt">15</button><button class="opt" data-c="1">50</button><button class="opt">150</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s1" data-pts="8" data-ans="30" data-logic="Round 241 to 240. 240/8=30.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 241 to the nearest ten, then estimate &mdash; 241 &divide; 8 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s1" data-pts="8" data-ans="40" data-logic="Round 195 to 200. 200/5=40.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 195 to the nearest ten, then estimate &mdash; 195 &divide; 5 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="e1_s2" data-pts="8" data-logic="Round 178 to 180. 180/6=30.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 178 &divide; 6 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">3</button><button class="opt">13</button><button class="opt" data-c="1">30</button><button class="opt">300</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="8" data-logic="Round 323 to 320. 320/8=40.">
+    <span class="pts">+8</span>
+    <p class="qtext">Estimate: 323 &divide; 8 &mdash; which is the BEST estimate?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">140</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s2" data-pts="8" data-ans="20" data-logic="Round 122 to 120. 120/6=20.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 122 to the nearest ten, then estimate &mdash; 122 &divide; 6 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s2" data-pts="8" data-ans="30" data-logic="Round 208 to 210. 210/7=30.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: round 208 to the nearest ten, then estimate &mdash; 208 &divide; 7 is about</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 7: APPLICATION - REAL WORD PROBLEMS -->
+<div class="slide" data-slide="7">
+<h2>🏀 Real Equipment-Count Problems</h2>
+<div class="nonfiction-tag">Put It All Together</div>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Equipment Day Is Almost Here</h4>
+  <p>Coach Priya needs your help sorting gear evenly across 8 teams. Use multiplication, division, or estimation — whatever fits the problem!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="a1_s0" data-pts="10" data-ans="9" data-logic="72 balls / 8 teams = 9 balls each.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: Coach Priya has 72 basketballs to split evenly across 8 teams. How many balls per team?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s0" data-pts="10" data-logic="15 boxes x 24 cones per box = 360.">
+    <span class="pts">+10</span>
+    <p class="qtext">15 boxes of cones arrive, 24 cones in each box. How many cones total?</p>
+    <div class="opts"><button class="opt">39</button><button class="opt">260</button><button class="opt" data-c="1">360</button><button class="opt">460</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a3_s0" data-pts="10" data-ans="8" data-logic="56 cones / 7 cones per team = 8 teams.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: 56 jerseys need to be split into equal sets of 7. How many teams can be outfitted?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s0" data-pts="10" data-logic="Round 243 cones to 240, 240/8=30 -- close estimate.">
+    <span class="pts">+10</span>
+    <p class="qtext">243 cones split across 8 teams &mdash; which is the closest estimate per team?</p>
+    <div class="opts"><button class="opt">3</button><button class="opt">13</button><button class="opt" data-c="1">30</button><button class="opt">300</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="a1_s1" data-pts="10" data-ans="8" data-logic="64 balls / 8 teams = 8 balls each.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: Coach Priya has 64 basketballs to split evenly across 8 teams. How many balls per team?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s1" data-pts="10" data-logic="12 boxes x 23 cones = 276.">
+    <span class="pts">+10</span>
+    <p class="qtext">12 boxes of cones arrive, 23 cones in each box. How many cones total?</p>
+    <div class="opts"><button class="opt">35</button><button class="opt">246</button><button class="opt" data-c="1">276</button><button class="opt">346</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a3_s1" data-pts="10" data-ans="9" data-logic="63 jerseys / 7 per team = 9 teams.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: 63 jerseys need to be split into equal sets of 7. How many teams can be outfitted?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s1" data-pts="10" data-logic="Round 322 cones to 320, 320/8=40.">
+    <span class="pts">+10</span>
+    <p class="qtext">322 cones split across 8 teams &mdash; which is the closest estimate per team?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">400</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="a1_s2" data-pts="10" data-ans="7" data-logic="56 balls / 8 teams = 7 balls each.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: Coach Priya has 56 basketballs to split evenly across 8 teams. How many balls per team?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s2" data-pts="10" data-logic="18 boxes x 22 cones = 396.">
+    <span class="pts">+10</span>
+    <p class="qtext">18 boxes of cones arrive, 22 cones in each box. How many cones total?</p>
+    <div class="opts"><button class="opt">40</button><button class="opt">366</button><button class="opt" data-c="1">396</button><button class="opt">496</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a3_s2" data-pts="10" data-ans="6" data-logic="42 jerseys / 7 per team = 6 teams.">
+    <span class="pts">+10</span>
+    <p class="qtext">Type your answer: 42 jerseys need to be split into equal sets of 7. How many teams can be outfitted?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s2" data-pts="10" data-logic="Round 161 cones to 160, 160/8=20.">
+    <span class="pts">+10</span>
+    <p class="qtext">161 cones split across 8 teams &mdash; which is the closest estimate per team?</p>
+    <div class="opts"><button class="opt">2</button><button class="opt">12</button><button class="opt" data-c="1">20</button><button class="opt">200</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 8: MATCH-UP -->
+<div class="slide" data-slide="8">
+<h2>🧩 Match-Up Round</h2>
+<p style="margin-bottom:6px">Tap a fact on the left, then its matching partner on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+  <div class="mcol" id="mLeft"></div>
+  <div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 9: SPEED TRAIL -->
+<div class="slide" data-slide="9">
+<h2>🏁 Speed Trail</h2>
+<p style="margin-bottom:10px">Bonus &bull; builds XP, not Pathway Points</p>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy)">Answer 5 quick fact-family facts as fast as you can. Your time is saved right on this device — beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" type="button">Start the Trail! 🏁</button>
+  <div id="trailQset" style="display:none;text-align:left;margin-top:14px">
+    <div class="qbox" data-fq="tr1" data-pts="0" data-bonus="1" data-ans="7">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">56 &divide; 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr1">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr2" data-pts="0" data-bonus="1" data-ans="63">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">9 &times; 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr2">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr3" data-pts="0" data-bonus="1" data-ans="6">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">48 &divide; 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr3">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr4" data-pts="0" data-bonus="1" data-ans="72">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">8 &times; 9 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr4">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr5" data-pts="0" data-bonus="1" data-ans="8">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">64 &divide; 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr5">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 10: REFLECTION -->
+<div class="slide" data-slide="10">
+<h2>🌇 Looking Back</h2>
+<div class="box box-story">
+  <div class="icon">🏀</div>
+  <h4>Equipment Almost Sorted!</h4>
+  <p>Before the Boss Battle, think back on what you practiced today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r1_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Standard algorithm</button><button class="opt" data-c="1">Fact families</button><button class="opt" data-c="1">Estimating quotients</button><button class="opt" data-c="1">Real-world problems</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="5" data-logic="Any of the skills is a genuinely good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before next week's long division?</p>
+    <div class="opts"><button class="opt" data-c="1">Standard algorithm</button><button class="opt" data-c="1">Fact families</button><button class="opt" data-c="1">Estimating quotients</button><button class="opt" data-c="1">Real-world problems</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 11: BOSS BATTLE -->
+<div class="slide" data-slide="11">
+<h2>👑 Boss Battle: Equipment Day Crunch</h2>
+<div class="box box-alert">
+  <div class="icon">⏰</div>
+  <h4>Doors Open in One Hour!</h4>
+  <p>Coach Priya needs everything sorted before players arrive. Show everything you've learned!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="14" data-ans="371" data-logic="53x7: 3x7=21, 50x7=350, 350+21=371.">
+    <span class="pts">+14</span>
+    <p class="qtext">Type your answer: 53 &times; 7 =</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="14" data-logic="Fact family for 8,9,72: '8x7=56' does NOT belong.">
+    <span class="pts">+14</span>
+    <p class="qtext">Which fact does NOT belong to the 8, 9, 72 fact family?</p>
+    <div class="opts"><button class="opt">8 &times; 9 = 72</button><button class="opt">72 &divide; 8 = 9</button><button class="opt" data-c="1">8 &times; 7 = 56</button><button class="opt">72 &divide; 9 = 8</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="14" data-ans="9" data-logic="81 whistles / 9 teams = 9 each.">
+    <span class="pts">+14</span>
+    <p class="qtext">Type your answer: 81 whistles split evenly across 9 teams. How many per team?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="14" data-logic="Round 283 to 280, 280/7=40.">
+    <span class="pts">+14</span>
+    <p class="qtext">Estimate: 283 pinnies &divide; 7 teams &mdash; best estimate per team?</p>
+    <div class="opts"><button class="opt">4</button><button class="opt">14</button><button class="opt" data-c="1">40</button><button class="opt">140</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-finish>See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+
+<!-- SLIDE 12: RESULTS -->
+<div class="slide" data-slide="12">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Equipment Sorted!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🏀</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">You worked through the whole lesson — nice job today!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Bonus Stop, ready for Week 7!</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0, reflectMostConfident:null, reflectPracticeMore:null };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 13;
+const FINAL_INDEX = 12;
+const MODULE_ID = 'grade4-5-week6a-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 267;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, most_confident_skill: state.reflectMostConfident||'(not answered)', wants_more_practice_on: state.reflectPracticeMore||'(not answered)', timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+/* --- 3 rotating question sets, keyed to attempt count --- */
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+/* --- Match-Up game: fact families --- */
+const MATCH_PAIRS_SETS = [
+  [['48 ÷ 6','8'],['7 x 8','56'],['63 ÷ 9','7'],['9 x 6','54'],['72 ÷ 8','9']],
+  [['36 ÷ 4','9'],['6 x 9','54'],['45 ÷ 5','9 or 45/5'],['8 x 7','56 or 8x7'],['64 ÷ 8','8']],
+  [['42 ÷ 6','7'],['5 x 9','45'],['56 ÷ 7','8 or 56/7'],['4 x 8','32 or 4x8'],['81 ÷ 9','9']]
+];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map(p=>({t:p[0],k:p[1].split(' or ')[0]}));
+  const prods = MATCH_PAIRS.map(p=>({t:p[1].split(' or ')[0],k:p[1].split(' or ')[0]}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+/* --- Speed Trail: self-referential timed bonus --- */
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=5 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    if(qid.indexOf('r1_')===0) state.reflectMostConfident = opt.textContent;
+    if(qid.indexOf('r2_')===0) state.reflectPracticeMore = opt.textContent;
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  const rec=saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore()>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(!passed){
+    document.getElementById('finalMessageHeading').textContent='🌱 Practice makes progress.';
+    document.getElementById('finalMessageBody').textContent='You scored '+displayScore()+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Review the lesson and hit Play Again for a fresh set of questions whenever you\u2019re ready.';
+  }
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+</body>
+</html>
