@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Lesson Practice — Week 1 · ACT · KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D;--gold:#C9A84C;--cream:#FAF7EF;--red:#C9342F;--green:#2E7D55;
+  --ink:#172230;--muted:#586273;--line:#E5E0D2;--paper:#FFFFFF;--soft:#F5F2E9;
+  --display:'Fraunces',Georgia,serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--soft);color:var(--ink);font-family:var(--body);line-height:1.6}
+h1,h2,h3{font-family:var(--display);color:var(--navy);line-height:1.18;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.mast{background:var(--navy);color:#fff;padding:30px 0 26px}
+.mast .brand{font-family:var(--display);font-weight:700;font-size:21px}
+.mast .tag{font-weight:700;font-size:11px;letter-spacing:2.5px;margin-top:3px}
+.mast .e1{color:#8FB2F5}.mast .e2{color:var(--gold)}.mast .e3{color:#DB2F30}
+.mast .rule{height:3px;background:var(--gold);margin:18px 0 20px;border:0}
+.mast h1{color:#fff;font-size:32px;font-weight:600}
+.mast .sub{color:#cfd8e6;margin-top:10px;font-size:17px}
+.mast .pill{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;background:rgba(201,168,76,.18);border:1px solid var(--gold);color:#f0e4c4;padding:7px 13px;border-radius:999px}
+main{padding:30px 0 10px}
+.lede{font-size:18px;color:var(--muted);margin:0 0 22px}
+.namebar{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:22px}
+.namebar label{font-weight:600;color:var(--navy);font-size:15px;display:block;margin-bottom:7px}
+.namebar input{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 24px 20px;margin:18px 0;box-shadow:0 2px 10px rgba(10,31,61,.04)}
+.q .qno{font-family:var(--mono);font-weight:500;color:var(--gold);font-size:15px}
+.q .qtag{font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-left:8px}
+.stem{font-weight:600;font-size:19px;margin:10px 0 16px;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{position:relative;display:flex;gap:13px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;font-size:17px;transition:border-color .12s,background .12s}
+.opt:hover{border-color:#9DB6E8;background:#fbfcfe}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt .ltr{flex-shrink:0;width:30px;height:30px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:15px;color:var(--navy)}
+.opt.sel{border-color:var(--navy);background:#f3f6fb}
+.opt.sel .ltr{background:var(--navy);border-color:var(--navy);color:#fff}
+.opt.right{border-color:var(--green);background:#edf7f1}
+.opt.right .ltr{background:var(--green);border-color:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:#fcedec}
+.opt.wrong .ltr{background:var(--red);border-color:var(--red);color:#fff}
+.explain{display:none;margin-top:15px;border-top:1px dashed var(--line);padding-top:13px;font-size:16px}
+.explain.show{display:block}
+.explain .lbl{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:4px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 8px}
+.btn{font-family:var(--body);font-weight:600;font-size:16px;border-radius:11px;padding:14px 22px;cursor:pointer;border:2px solid var(--navy)}
+.btn-check{background:#fff;color:var(--navy)}
+.btn-check:hover{background:var(--soft)}
+.btn-send{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn-send:hover{background:#b9991f}
+.btn-send:disabled{opacity:.45;cursor:not-allowed}
+.scorebox{display:none;font-family:var(--mono);font-weight:600;font-size:17px;color:#fff;background:var(--navy);border-radius:11px;padding:13px 17px}
+.scorebox.show{display:inline-block}
+.scorebox b{color:var(--gold)}
+.note{background:var(--cream);border:1px solid var(--gold);border-radius:12px;padding:14px 16px;font-size:15px;margin:14px 0}
+.sent{display:none;background:#edf7f1;border:1px solid var(--green);color:#1d5638;border-radius:12px;padding:14px 16px;font-weight:600;margin-top:14px}
+details.setup{margin:22px 0;background:#0e2342;border:1px solid #1c3a64;border-radius:12px}
+details.setup>summary{cursor:pointer;color:#fff;font-weight:700;font-size:14px;padding:14px 16px;list-style:none}
+details.setup>summary::-webkit-details-marker{display:none}
+details.setup>summary::before{content:"Instructor setup  ›  ";color:var(--gold)}
+details.setup[open]>summary::before{content:"Instructor setup  ⌄  ";color:var(--gold)}
+details.setup .body{padding:0 16px 16px;color:#cdd9ea;font-size:14.5px;line-height:1.6}
+details.setup code{font-family:var(--mono);background:rgba(255,255,255,.12);padding:2px 6px;border-radius:5px;color:#fff;font-size:13px}
+.foot{background:var(--navy);color:#aeb9c9;text-align:center;padding:22px;font-size:13px;margin-top:24px}
+.foot b{color:#fff;font-family:var(--display)}
+.foot .fl{height:2px;background:var(--gold);max-width:320px;margin:0 auto 12px}
+@media (max-width:560px){.mast h1{font-size:26px}html{font-size:17px}}
+
+/* ---- ACT additions (same KCE tokens) ---- */
+.seg{scroll-margin-top:66px}
+.pmast{display:none}
+@media print{.pmast{display:flex!important;justify-content:space-between;align-items:baseline;background:var(--navy);color:#fff;padding:9px 14px;border-radius:8px;margin-bottom:12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pmast .pb{font-family:var(--display);font-weight:700;font-size:15px}.pmast .pt{font-size:9px;font-weight:700;letter-spacing:2px}
+.pmast .e1{color:#8FB2F5}.pmast .e2{color:var(--gold)}.pmast .e3{color:#DB2F30}}
+.u{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.hint{display:none;margin-top:18px;border-top:1px dashed var(--line);padding-top:16px;font-size:17px;line-height:1.6}
+.hint.show{display:block}
+.hint .lbl{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#9A7D20;font-weight:700;margin-bottom:5px}
+.explain.reveal .lbl{color:var(--red)}
+.explain p{margin:0 0 8px}.explain ol{margin:6px 0 8px;padding-left:22px}.explain ol li{margin:3px 0}
+.opt.dim{opacity:.5}
+.q:not([data-done]) details.more{display:none}
+.passage{background:var(--cream);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 18px;margin:10px 0 16px;font-size:17.5px;line-height:1.6}
+.passage .pn{font-family:var(--mono);font-size:13px;color:#9A7D20;margin-right:8px}
+.passage p{margin:0 0 10px}.passage p:last-child{margin:0}
+.passage .src{font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.seg ul.plain{margin:6px 0 0;padding-left:22px;font-size:17px}.seg ul.plain li{margin:5px 0}
+.dom .ex{margin-top:8px;font-size:15.5px;color:var(--ink)}
+.dom .ex .ok{color:var(--green);font-weight:600}.dom .ex .no{color:var(--red);text-decoration:line-through}
+.drill{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--navy);border-radius:16px;padding:20px 24px;margin:22px 0;color:#dbe4f1}
+.drill .dt{font-family:var(--mono);font-weight:500;font-size:34px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 16px;min-width:120px;text-align:center}
+.drill .dt.low{color:#DB2F30}
+.drill .dm{flex:1 1 260px;font-size:16px;line-height:1.55}
+.drill .dm b{color:#fff}
+.drill .btn{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.drill .btn:hover{background:#dcbf6c}
+table.log{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
+table.log th{background:var(--navy);color:var(--gold);text-align:left;padding:7px 8px;font-weight:600;font-size:13px}
+table.log td{border:1px solid var(--line);height:34px}
+.fc .back .fn{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+.fc .back .f{font-family:var(--mono);font-size:15px;color:#fff;margin-bottom:7px}
+.fc .back .eg{font-size:14px;color:#c9d4e6}
+.fc .front .word{font-size:22px}
+.namebar{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:20px 0}
+.namebar label{font-weight:600;color:var(--navy);font-size:15px;display:block;margin-bottom:7px}
+.namebar input{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px}
+.namebar input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0 8px}
+.btn-send{font-family:var(--body);font-weight:600;font-size:16px;border-radius:11px;padding:14px 22px;cursor:pointer;border:2px solid var(--gold);background:var(--gold);color:var(--navy)}
+.btn-send:hover:not(:disabled){background:#b9991f}
+.btn-send:disabled{opacity:.45;cursor:not-allowed}
+.scoreline{font-family:var(--mono);font-weight:600;font-size:16px;color:#fff;background:var(--navy);border-radius:11px;padding:12px 16px;display:inline-block}
+.scoreline b{color:var(--gold)}
+.sendnote{background:var(--cream);border:1px solid var(--gold);border-radius:12px;padding:12px 16px;font-size:15px;margin:12px 0}
+.sent{display:none;background:#edf7f1;border:1px solid var(--green);color:#1d5638;border-radius:12px;padding:14px 16px;font-weight:600;margin-top:12px}
+.sent.err{background:#fcedec;border-color:var(--red);color:#8a2320}
+.opt:focus-visible,.btn:focus-visible,.btn-send:focus-visible,.nav a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:680px){
+  .bar .wrap{height:auto;flex-wrap:wrap;gap:8px 12px;padding-top:8px;padding-bottom:8px}
+  .bar .nav{order:3;flex-basis:100%}
+  .bar .wrap{gap:6px 8px;padding-left:14px;padding-right:14px}
+  .clock{gap:4px}
+  .clock .t{font-size:15px;min-width:58px;padding:5px 7px}
+  .clock button{padding:6px 7px;font-size:12px}
+  .scorechip{font-size:13px;padding:6px 10px;margin-left:auto}
+  .seg{scroll-margin-top:104px}
+  .drill .dt{font-size:28px}
+}
+@media print{
+  body[class*="print-"] .mast,body[class*="print-"] .bar,body[class*="print-"] .foot{display:none!important}
+  body.print-prework main>section:not(#prework),body.print-homework main>section:not(#homework){display:none!important}
+  body.print-prework #prework,body.print-homework #homework{position:static!important}
+  .handout details.more,.handout .btn{display:none!important}
+  .handout{box-shadow:none}
+  html{font-size:13px}
+  body[class*="print-"] .seg>.eyebrow,body[class*="print-"] .seg>h2,body[class*="print-"] .seg>.lede,body[class*="print-"] .seg>.time{display:none!important}
+  body[class*="print-"] .seg{padding:0}
+  .handout{padding:6px 4px;margin:0}
+  .handout .hh{margin-bottom:10px;padding-bottom:8px}
+  .handout .hh .ht{font-size:20px}
+  .checklist li{font-size:13px;padding:4px 0 4px 28px}.checklist li::before{top:5px;width:14px;height:14px}
+  .diag .di{font-size:13px;padding:5px 0}
+  .daybox{padding:10px 14px;margin:8px 0}.daybox ol{font-size:13px}.daybox h3{font-size:16px;margin:2px 0 6px}
+  .daybox ol li{margin:3px 0}
+  .write{height:22px}
+  table.log td{height:26px}
+  .callout{font-size:13px;padding:10px 14px;margin:8px 0}
+  .daybox,.diag .di,table.log tr{break-inside:avoid}
+  body.print-errlog #errlog,body.print-errlog #errlog *{visibility:visible}
+  body.print-errlog #errlog{position:absolute;left:0;top:0;width:100%;border:0;margin:0;padding:0}
+}
+
+.explain .clue{color:var(--muted);font-style:italic}
+details.more,details.teach{margin-top:16px;border-radius:12px;overflow:hidden}
+details.more{background:var(--soft);border:1px solid var(--line)}
+details.more>summary{cursor:pointer;font-weight:600;font-size:16px;color:var(--navy);padding:13px 16px;list-style:none}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"+ ";color:var(--gold);font-weight:700}
+details.more[open]>summary::before{content:"– "}
+details.more .body{padding:2px 17px 16px;font-size:16.5px}
+.method{margin:12px 0;padding-left:14px;border-left:3px solid #9DB6E8}
+.method b{color:var(--navy)}
+.hack{background:#fff;border:1px dashed var(--gold);border-radius:11px;padding:13px 15px;margin-top:12px;font-size:16px}
+.hack .h{font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:#9A7D20;font-weight:700;display:block;margin-bottom:3px}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.q .qhead .qtag{margin-left:0}
+.opt{width:100%;text-align:left;background:#fff;font:inherit;font-size:17px;color:var(--ink)}
+.opt:disabled{cursor:default}
+.opt:hover:not(:disabled){border-color:#9DB6E8;background:#fbfcfe}
+main.wrap{padding-top:30px;padding-bottom:10px}
+
+.pmast .e3{color:#DB2F30!important}
+.nextcard{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--navy);color:#dbe4f1;border-radius:16px;padding:22px 24px;margin:22px 0}
+.nextcard .nx{flex:1 1 280px}
+.nextcard h3{color:#fff;font-family:var(--body);font-weight:700;font-size:19px;margin-bottom:4px}
+.nextcard p{margin:0;font-size:16px}
+.nextcard a.go{background:var(--gold);color:var(--navy);text-decoration:none;font-weight:700;border-radius:11px;padding:13px 20px}
+.nextcard a.go:hover{background:#dcbf6c}
+.tfmt{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.tfmt label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:10px;padding:9px 14px;font-size:15px;cursor:pointer;background:#fff}
+.namebar .tfmt input{width:auto;padding:0;margin:0;accent-color:var(--navy)}
+.namebar .tfmt label{display:flex;margin:0;font-weight:500;color:var(--ink)}
+.part{font-family:var(--display);color:var(--navy);font-size:24px;margin:34px 0 4px}
+.partsub{color:var(--muted);margin:0 0 6px;font-size:16px}
+.checklist li a{color:var(--navy);font-weight:600}
+
+/* ---- click-next stepper ---- */
+.step{display:none}.step.on{display:block;animation:stepin .18s ease-out}
+@keyframes stepin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.step.seg{border-bottom:0;padding:34px 0 24px}
+body.stepped:not(.first) .mast{display:none}
+body.stepped .foot{display:none}body.stepped.last .foot{display:block}
+body.stepped{display:flex;flex-direction:column;min-height:100vh}
+body.stepped main{flex:1 0 auto;width:100%}
+@media (min-width:900px){
+  .step.split.on{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start;width:min(1180px,calc(100vw - 52px));margin-left:50%;transform:translateX(-50%);animation:none}
+  .step.split .stephead{grid-column:1/-1}
+  .step.split .pclone{margin:0;max-height:calc(100vh - 230px);position:sticky;top:80px}
+  .step.split .q{margin:0}
+}
+.stephead{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:0 0 4px;font-size:15px;letter-spacing:.5px;text-transform:uppercase;color:#9A7D20;font-weight:700}
+.stephead .num{color:#fff;background:var(--gold);border-radius:7px;padding:3px 10px;font-weight:700}
+.step .part{margin-top:0}
+.pclone{max-height:46vh;overflow:auto}
+.dock{position:sticky;bottom:0;z-index:45;background:rgba(245,242,233,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.dock .in{margin:0 auto;padding:12px 26px;display:flex;align-items:center;gap:14px}
+.dock .pg{flex:1;min-width:0;text-align:center}
+.dock .pgt{font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock .pgs{font-size:12.5px;color:var(--muted);min-height:18px}
+.dock .track{height:5px;background:var(--line);border-radius:5px;margin-top:6px;overflow:hidden}
+.dock .track i{display:block;height:100%;width:0;background:var(--gold);border-radius:5px;transition:width .2s}
+.nbtn{font-family:var(--body);font-weight:600;font-size:16px;border-radius:11px;padding:12px 22px;cursor:pointer;border:2px solid var(--navy);flex-shrink:0}
+.nbtn.prim{background:var(--navy);color:#fff}.nbtn.prim:hover:not(:disabled){background:#16315a}
+.nbtn.ghost{background:#fff;color:var(--navy)}.nbtn.ghost:hover:not(:disabled){border-color:var(--gold)}
+.nbtn:disabled{opacity:.38;cursor:not-allowed}
+.nbtn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.nav button{white-space:nowrap;font:inherit;font-size:15px;font-weight:600;color:var(--muted);background:none;border:0;padding:9px 13px;border-radius:9px;cursor:pointer}
+.nav button:hover{background:#fff;color:var(--navy)}
+.nav button.on{background:#fff;color:var(--navy)}
+.nav button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.linkbtn{font:inherit;font-weight:700;color:var(--navy);background:none;border:0;text-decoration:underline;cursor:pointer;padding:0}
+@media (max-width:680px){.bar .wrap{flex-wrap:nowrap!important;height:54px!important;padding-top:0!important;padding-bottom:0!important}.bar .nav{order:0!important;flex-basis:auto!important}.dock .in{padding:10px 14px;gap:8px}.nbtn{padding:11px 15px;font-size:15px}.dock .pgt{font-size:13px}.step.seg{padding-top:22px}}
+@media print{.dock{display:none}}
+</style>
+</head>
+<body data-lesson="Week 1" data-form-type="post-lesson" data-require-all="true" data-name-gate="true">
+<header class="mast">
+  <div class="wrap">
+    <div class="brand">KingCretot Experience</div>
+    <div class="tag"><span class="e1">EDUCATE.</span>&nbsp;&nbsp;<span class="e2">EMPOWER.</span>&nbsp;&nbsp;<span class="e3">EXCEL.</span></div>
+    <hr class="rule">
+    <h1>Post-Lesson Practice</h1>
+    <div class="sub">Week 1 &nbsp;·&nbsp; ACT Foundations — English, Reading &amp; Math</div>
+    <span class="pill">About 25 minutes · on your own</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="seg" data-name="Start">
+  <p class="lede">Twenty-two questions on everything from Lesson 1. Pick an answer. If it’s wrong, you get a hint and one more try. Miss it twice, and the answer and its logic appear, so read them. Use <b>Next</b> to move through them one at a time; you can skip one and come back. When all 22 are done, press <b>Save &amp; email my results</b> so your instructor sees your work before the next lesson.</p>
+
+  <div class="namebar">
+    <label for="sname">Your name</label>
+    <input type="text" id="sname" placeholder="Type your name" autocomplete="name">
+  </div>
+  </section>
+
+  <section class="seg" data-name="Part 1 · English" data-inline="1"><h2 class="part">Part 1 · English</h2><p class="partsub">Joining sentences, saying it once, and two rules from next week.</p><div class="q" data-letters="ABCD" data-skill="English · Joining sentences"><div class="qhead"><span class="qtag">English · Joining sentences</span><span class="qno">Q1</span></div><div class="stem">My brother plays trumpet in the <span class="u">band, he</span> practices every night.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>NO CHANGE</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">B</span><span>band he</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>band, practicing, he</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">D</span><span>band; he</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Cover the comma. Is each side a complete sentence? If so, a comma alone can't join them.</div><div class="explain"><div class="lbl"></div><p>“My brother plays trumpet in the band” and “he practices every night” are both complete sentences. A semicolon joins them: <b>band; he</b>. The original is a comma splice, “band he” is a run-on, and the last choice jams in an extra word that breaks the sentence.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="English · Joining sentences"><div class="qhead"><span class="qtag">English · Joining sentences</span><span class="qno">Q2</span></div><div class="stem">The old bridge was closed for <span class="u">repairs, drivers</span> had to take a longer route.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>NO CHANGE</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>repairs drivers</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">H</span><span>repairs, so drivers</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>repairs, so, drivers</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>A comma can join two complete sentences only with a joining word (for, and, nor, but, or, yet, so). Where does the comma go?</div><div class="explain"><div class="lbl"></div><p>Comma plus “so” joins the two sentences, and “so” also shows cause and effect: the bridge closed, <i>so</i> drivers detoured. The comma goes before “so” and nowhere else: <b>repairs, so drivers</b>. The original is a comma splice, the second choice is a run-on, and the last choice adds an extra comma after “so.”</p></div></div>
+<div class="q" data-letters="ABCD" data-skill="English · Say it once"><div class="qhead"><span class="qtag">English · Say it once</span><span class="qno">Q3</span></div><div class="stem">For the science fair, the students <span class="u">collaborated together</span> on a group project.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>NO CHANGE</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>collaborated</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>worked collaboratively together</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>together collaborated</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>What does “collaborate” already mean?</div><div class="explain"><div class="lbl"></div><p>“Collaborate” already means “work together,” so adding “together” repeats the idea. Say it once: <b>collaborated</b>.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="English · Joining sentences"><div class="qhead"><span class="qtag">English · Joining sentences</span><span class="qno">Q4</span></div><div class="stem">After the game <span class="u">ended, the players</span> shook hands with their opponents.</div><div class="opts"><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">F</span><span>NO CHANGE</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>ended the players</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>ended; the players</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>ended. The players</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Cover the comma. Is “After the game ended” a complete sentence on its own?</div><div class="explain"><div class="lbl"></div><p>“After the game ended” can't stand alone; “after” makes it depend on the rest. When a part like that comes first, a comma follows it, so <b>NO CHANGE</b> is correct.</p><p>A semicolon or period would leave “After the game ended” as a fragment. Without a comma, the words run together and the sentence is harder to read.</p></div></div>
+<div class="q" data-letters="ABCD" data-skill="English · Joining sentences"><div class="qhead"><span class="qtag">English · Joining sentences</span><span class="qno">Q5</span></div><div class="stem">The concert sold out in an <span class="u">hour, some</span> fans had waited in line overnight.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>NO CHANGE</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>hour; some</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>hour some</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>hour, and, some</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Cover the punctuation. Is each side a complete sentence on its own?</div><div class="explain"><div class="lbl"></div><p>“The concert sold out in an hour” and “some fans had waited in line overnight” are both complete sentences. A comma alone can’t join them, so use a <b>semicolon</b>.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="English · Say it once"><div class="qhead"><span class="qtag">English · Say it once</span><span class="qno">Q6</span></div><div class="stem"><span class="u">The first-ever premiere of the film debuted</span> on Friday.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>NO CHANGE</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>The film’s first premiere debuted first</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">H</span><span>The film premiered</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>The premiere debuted for the first time</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>A premiere is already the first showing. Which choice says that only once?</div><div class="explain"><div class="lbl"></div><p>“Premiere” and “debut” both mean the first showing, and “first-ever” says it a third time. <b>“The film premiered on Friday”</b> says it once.</p></div></div>
+<div class="q" data-letters="ABCD" data-skill="English · Agreement (preview)"><div class="qhead"><span class="qtag">English · Agreement (preview)</span><span class="qno">Q7</span></div><div class="stem">Each of the players <span class="u">have</span> a new jersey.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>NO CHANGE</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>has</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>are having</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>were having</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Find the real subject. Cross out “of the players.” What’s left?</div><div class="explain"><div class="lbl"></div><p>The subject is <b>each</b>, which is singular. “Of the players” is extra information, so cross it out: “Each <b>has</b> a new jersey.”</p><p><span class="clue">The trap:</span> “players” sits right next to the verb and sounds plural. That’s next week’s rule.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="English · Its / it’s (preview)"><div class="qhead"><span class="qtag">English · Its / it’s (preview)</span><span class="qno">Q8</span></div><div class="stem">The dog wagged <span class="u">it’s</span> tail.</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>NO CHANGE</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>its’</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>it is</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">J</span><span>its</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Read “it’s” as “it is”: “The dog wagged it is tail.” Does that work?</div><div class="explain"><div class="lbl"></div><p><b>It’s</b> always means “it is” or “it has.” To show something belongs to it, use <b>its</b>, with no apostrophe. “Its’” is never correct.</p></div></div>
+</section><section class="seg" data-name="Part 2 · Reading" data-inline="1"><h2 class="part">Part 2 · Reading</h2><p class="partsub">Prove every answer from the text.</p><div class="q" data-letters="ABCD" data-skill="Reading · Tone"><div class="qhead"><span class="qtag">Reading · Tone</span><span class="qno">Q9</span></div><div class="passage"><p>Ramón planted tomatoes in April, certain he would have a harvest by June. By May the plants were tall but bare of fruit, and his neighbor, a retired farmer, suggested he stop watering so often. Ramón doubted her, but he cut back anyway. Within two weeks, small green tomatoes appeared.</p></div><div class="stem">Ramón's first reaction to his neighbor's advice is best described as:</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>grateful.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">B</span><span>angry.</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">C</span><span>skeptical.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>indifferent.</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Find the exact words that show how Ramón first felt about her suggestion.</div><div class="explain"><div class="lbl"></div><p>The passage says “Ramón doubted her.” To doubt is to be <b>skeptical</b>. Nothing shows anger. He wasn't indifferent, because he still followed the advice. He may have become grateful later, but the question asks about his <i>first</i> reaction.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="Reading · Inference"><div class="qhead"><span class="qtag">Reading · Inference</span><span class="qno">Q10</span></div><div class="passage"><p>Keisha read the email twice, set her phone face-down, and stared out the window. She had expected good news.</p></div><div class="stem">Keisha’s reaction to the email is best described as:</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>delighted.</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">G</span><span>disappointed.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>confused.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>bored.</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>She “had expected good news.” What do the phone face-down and the staring suggest she got instead?</div><div class="explain"><div class="lbl"></div><p>She expected good news, then put her phone face-down and stared away. Those details point to <b>disappointment</b>. Nothing shows she was confused, and “bored” doesn’t fit someone who read the email twice.</p></div></div>
+</section><section class="seg" data-name="Part 3 · Math" data-inline="1"><h2 class="part">Part 3 · Math</h2><p class="partsub">Backsolve, pick numbers, and do percents one step at a time.</p><div class="q" data-letters="ABCD" data-skill="Math · Percent"><div class="qhead"><span class="qtag">Math · Percent</span><span class="qno">Q11</span></div><div class="stem">A store raises the price of a $40 item by 15%. What is the new price?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>$44.00</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>$46.00</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>$55.00</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>$60.00</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Up 15% means multiply by 1.15.</div><div class="explain"><div class="lbl"></div><p>$40 × 1.15 = <b>$46.00</b>.</p><p><span class="clue">The trap:</span> $55 adds 15 <i>dollars</i> instead of 15 <i>percent</i>.</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> 10% of 40 is 4, and 5% is 2, so 15% is 6. Then 40 + 6 = 46.</div></div></details></div>
+<div class="q" data-letters="FGHJ" data-skill="Math · Backsolving"><div class="qhead"><span class="qtag">Math · Backsolving</span><span class="qno">Q12</span></div><div class="stem">If 4(x + 2) = 3x + 15, what is x?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>5</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">G</span><span>7</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>9</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>11</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Backsolve: try a choice and see if both sides come out equal. Or distribute the 4 first.</div><div class="explain"><div class="lbl"></div><p>Try 7: the left side is 4(7 + 2) = 36, and the right side is 3(7) + 15 = 36. They match. ✓</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> distribute to get 4x + 8 = 3x + 15, then subtract 3x and 8 from both sides: x = 7.</div></div></details></div>
+<div class="q" data-letters="ABCD" data-skill="Math · Pick numbers"><div class="qhead"><span class="qtag">Math · Pick numbers</span><span class="qno">Q13</span></div><div class="stem">If k is a positive even integer, which of the following must be odd?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>2k</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">B</span><span>k + 2</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">C</span><span>k + 1</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>k²</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Pick an even number, like k = 4, and work out each choice.</div><div class="explain"><div class="lbl"></div><p>With k = 4: 2(4) = 8 (even), 4 + 2 = 6 (even), 4 + 1 = <b>5 (odd)</b>, 4² = 16 (even).</p><p>The rule behind it: even + 1 is always odd.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="Math · Rates"><div class="qhead"><span class="qtag">Math · Rates</span><span class="qno">Q14</span></div><div class="stem">Maria reads 24 pages in 30 minutes. At this rate, how many pages will she read in 75 minutes?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>48</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>54</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">H</span><span>60</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>72</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Find her pages per minute first, or notice how 75 minutes compares to 30 minutes.</div><div class="explain"><div class="lbl"></div><p>24 ÷ 30 = 0.8 pages per minute, and 0.8 × 75 = <b>60</b> pages.</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> 75 minutes is 2.5 times 30 minutes, so she reads 2.5 × 24 = 60 pages.</div></div></details></div>
+<div class="q" data-letters="ABCD" data-skill="Math · Linear equations"><div class="qhead"><span class="qtag">Math · Linear equations</span><span class="qno">Q15</span></div><div class="stem">If 6x − 4 = 2x + 20, what is x?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>4</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">B</span><span>5</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">C</span><span>6</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>8</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Get the x terms on one side first: subtract 2x from both sides. Then add 4.</div><div class="explain"><div class="lbl"></div><p>Subtract 2x: 4x − 4 = 20. Add 4: 4x = 24. Divide by 4: <b>x = 6</b>.</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> backsolve with 6. Left side: 36 − 4 = 32. Right side: 12 + 20 = 32. ✓</div></div></details></div>
+<div class="q" data-letters="FGHJ" data-skill="Math · Percent"><div class="qhead"><span class="qtag">Math · Percent</span><span class="qno">Q16</span></div><div class="stem">What is 30% of 90?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>3</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">G</span><span>27</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>30</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>60</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>10% of 90 is 9. How many 10%s make 30%?</div><div class="explain"><div class="lbl"></div><p>30% is 0.30, and “of” means multiply: 0.30 × 90 = <b>27</b>.</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> 10% of 90 is 9, so 30% is 3 × 9 = 27.</div></div></details></div>
+<div class="q" data-letters="ABCD" data-skill="Math · Percent"><div class="qhead"><span class="qtag">Math · Percent</span><span class="qno">Q17</span></div><div class="stem">A $50 item is marked 20% off. Then 8% sales tax is added to the sale price. What is the total cost?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>$42.00</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>$43.20</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>$44.00</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>$46.00</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Two steps, in order. First the sale price: 50 × 0.80. Then add the tax by multiplying that by 1.08.</div><div class="explain"><div class="lbl"></div><p>Sale price: 50 × 0.80 = $40. With tax: 40 × 1.08 = <b>$43.20</b>.</p><p><span class="clue">The trap:</span> $44.00 comes from combining the percents (20% off minus 8% tax = 12% off). The tax is on the sale price, so do one step at a time.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="Math · Pick numbers"><div class="qhead"><span class="qtag">Math · Pick numbers</span><span class="qno">Q18</span></div><div class="stem">If m is an odd integer, which statement about m + 3 is true?</div><div class="opts"><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">F</span><span>It is always even.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>It is always odd.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>It is even only when m is greater than 3.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>It cannot be determined.</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Pick numbers. Try m = 1 and m = 5. What do you get?</div><div class="explain"><div class="lbl"></div><p>Odd + odd = even. Test it: 1 + 3 = 4, 5 + 3 = 8, 7 + 3 = 10. It is <b>always even</b>.</p></div><details class="more"><summary>Solve it another way</summary><div class="body"><div class="method"><b>Another way:</b> picking numbers turns a letter problem into arithmetic. Try two or three to be sure.</div></div></details></div>
+<div class="q" data-letters="ABCD" data-skill="Math · Rates"><div class="qhead"><span class="qtag">Math · Rates</span><span class="qno">Q19</span></div><div class="stem">If 9 notebooks cost $13.50, how much do 4 notebooks cost at the same price?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>$5.40</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">B</span><span>$6.00</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>$6.50</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">D</span><span>$6.75</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Find the price of one notebook first: 13.50 ÷ 9.</div><div class="explain"><div class="lbl"></div><p>One notebook: 13.50 ÷ 9 = $1.50. Four notebooks: 4 × 1.50 = <b>$6.00</b>.</p></div></div>
+</section><section class="seg" data-name="Part 4 · Scoring &amp; strategy" data-inline="1"><h2 class="part">Part 4 · Scoring &amp; strategy</h2><p class="partsub">How the composite works and how to finish a section.</p><div class="q" data-letters="FGHJ" data-skill="Scoring"><div class="qhead"><span class="qtag">Scoring</span><span class="qno">Q20</span></div><div class="stem">A student scores English 21, Math 19 and Reading 23. What is the composite?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>20</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">G</span><span>21</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">H</span><span>22</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>23</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Add the three scores, divide by 3, then round.</div><div class="explain"><div class="lbl"></div><p>21 + 19 + 23 = 63, and 63 ÷ 3 = <b>21</b>. The composite is the average of English, Math and Reading.</p></div></div>
+<div class="q" data-letters="ABCD" data-skill="Test strategy"><div class="qhead"><span class="qtag">Test strategy</span><span class="qno">Q21</span></div><div class="stem">You have 2 minutes left in English and 5 questions you haven't started. What's the best plan?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">A</span><span>Leave them blank so you don't lose points.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">B</span><span>Spend the full 2 minutes getting one question exactly right.</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">C</span><span>Use the time to recheck answers you already chose.</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">D</span><span>Answer the quickest-looking ones, then fill in a guess for every one that's left.</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>What does a wrong answer cost, and what does a blank earn?</div><div class="explain"><div class="lbl"></div><p>A wrong answer costs nothing, but a blank earns nothing. Grab the quick points first, then guess on the rest. Every guess has a 1-in-4 chance, and a blank has none.</p></div></div>
+<div class="q" data-letters="FGHJ" data-skill="Scoring"><div class="qhead"><span class="qtag">Scoring</span><span class="qno">Q22</span></div><div class="stem">A student scores English 20, Math 22 and Reading 23. What is the ACT composite?</div><div class="opts"><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">F</span><span>21</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">G</span><span>21.67</span></button><button class="opt" data-c="1" onclick="answer(this)"><span class="ltr">H</span><span>22</span></button><button class="opt" data-c="0" onclick="answer(this)"><span class="ltr">J</span><span>23</span></button></div><div class="hint"><div class="lbl">Not yet — one more try</div>Add the three scores and divide by 3. Composites are whole numbers, so round.</div><div class="explain"><div class="lbl"></div><p>20 + 22 + 23 = 65, and 65 ÷ 3 = 21.67. Round to the nearest whole number: <b>22</b>.</p><p><span class="clue">The trap:</span> 21.67 isn’t a possible composite. ACT scores are always whole numbers.</p></div></div>
+</section>
+
+  <section class="seg" data-name="Finish">
+  <h2 class="part">Before our next session</h2>
+  <ul class="checklist" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 20px">
+    <li>Take the KCE ACT Diagnostic if you haven’t yet. It’s on the program page, right before Week 1, and takes about 40 minutes.</li>
+    <li>Say the ten Formula Lab formulas from memory. Make an index card for any you miss and review them five minutes a day.</li>
+    <li>Bring one question from this week you want to go over together.</li>
+  </ul>
+
+  <div class="actions">
+    <span class="scoreline">Done <b data-s="done">0</b>/<b data-s="total">0</b> · correct <b data-s="correct">0</b> · first try <b data-s="first">0</b></span>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn-send" id="sendbtn" disabled>Save &amp; email my results to my instructor</button>
+  </div>
+  <div class="sendnote" id="sendneed"></div>
+  <div class="sent" id="sentmsg"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="fl"></div>
+  <b>KingCretot Experience</b><br>
+  kce@kingcretot.com&nbsp; ·&nbsp; 914-809-0112&nbsp; ·&nbsp; PO Box 2322, Arcadia, FL 34265
+</footer>
+<script>
+const FORM="https://formspree.io/f/xoevydrv";
+let attempted=0, correct=0, first=0;
+const Q=[...document.querySelectorAll('.q')];
+Q.forEach((q,i)=>{q.dataset.n=i+1; q._picks=[];});
+function letterOf(q,idx){return q.dataset.letters[idx];}
+function answer(btn){
+  const q=btn.closest('.q');
+  if(q.dataset.done) return;
+  const opts=[...q.querySelectorAll('.opt')];
+  const idx=opts.indexOf(btn);
+  const right=opts.findIndex(o=>o.dataset.c==="1");
+  q._picks.push(idx);
+  const ex=q.querySelector('.explain'), hint=q.querySelector('.hint'), lbl=ex.querySelector('.lbl');
+  if(idx===right){
+    btn.classList.add('right');
+    finish(q,opts,right);
+    hint.classList.remove('show');
+    lbl.textContent=(q._picks.length===1?'Why ':'Got it on try two · why ')+letterOf(q,right);
+    ex.classList.remove('reveal'); ex.classList.add('show');
+    q.dataset.status=q._picks.length===1?'right1':'right2';
+    correct++; if(q._picks.length===1) first++;
+  } else if(q._picks.length===1){
+    btn.classList.add('wrong'); btn.disabled=true;
+    hint.classList.add('show');
+    return;
+  } else {
+    btn.classList.add('wrong');
+    opts[right].classList.add('right');
+    finish(q,opts,right);
+    hint.classList.remove('show');
+    lbl.textContent='Answer: '+letterOf(q,right)+' · here\u2019s the logic';
+    ex.classList.add('show','reveal');
+    q.dataset.status='missed';
+  }
+  attempted++;
+  updateScore();
+}
+function finish(q,opts,right){
+  q.dataset.done="1";
+  opts.forEach((o,i)=>{o.disabled=true; if(i!==right && !o.classList.contains('wrong')) o.classList.add('dim');});
+}
+function updateScore(){
+  document.querySelectorAll('[data-s="score"]').forEach(e=>e.textContent=correct+'/'+attempted);
+  document.querySelectorAll('[data-s="correct"]').forEach(e=>e.textContent=correct);
+  document.querySelectorAll('[data-s="first"]').forEach(e=>e.textContent=first);
+  document.querySelectorAll('[data-s="done"]').forEach(e=>e.textContent=attempted);
+  document.querySelectorAll('[data-s="total"]').forEach(e=>e.textContent=Q.length);
+  refreshSend();
+}
+/* ---- send to instructor (Formspree) ---- */
+function fallbackPost(payload){
+  try{
+    const f=document.createElement('form'); f.method='POST'; f.action=FORM; f.target='_blank'; f.style.display='none';
+    Object.entries(payload).forEach(([k,v])=>{ const i=document.createElement(k==='summary'?'textarea':'input'); i.name=k; i.value=v; f.appendChild(i); });
+    document.body.appendChild(f); f.submit(); f.remove();
+    sent=true; sentEl.className='sent'; sentEl.textContent='Your results opened in a new tab to finish sending. If a Formspree page asks you to confirm, click it. You can close that tab after.';
+  }catch(e){ sentEl.className='sent err'; sentEl.textContent='That didn\u2019t go through. Check your internet connection and press the button again.'; }
+  refreshSend();
+}
+const nameEl=document.getElementById('sname'), sendBtn=document.getElementById('sendbtn'), sentEl=document.getElementById('sentmsg'), needEl=document.getElementById('sendneed');
+const REQUIRE_ALL=document.body.dataset.requireAll==='true';
+let sent=false;
+try{ const sv=localStorage.getItem('kce-act-student'); if(sv&&nameEl) nameEl.value=sv; }catch(e){}
+if(nameEl) nameEl.addEventListener('input',()=>{ try{localStorage.setItem('kce-act-student',nameEl.value.trim());}catch(e){} refreshSend(); });
+function refreshSend(){
+  if(!sendBtn) return;
+  const nameOk=nameEl && nameEl.value.trim().length>1;
+  const enough=REQUIRE_ALL ? attempted===Q.length : attempted>0;
+  sendBtn.disabled=sent||!nameOk||!enough;
+  if(needEl){
+    if(sent) needEl.style.display='none';
+    else { needEl.style.display='block';
+      needEl.innerHTML=!enough ? (REQUIRE_ALL ? 'Answer all <b>'+Q.length+'</b> questions first ('+attempted+' done) — then the email button turns on. <button type="button" class="linkbtn" onclick="kceFirstOpen&&kceFirstOpen()">Go to the first one you skipped</button>' : 'Answer at least one question — then the email button turns on.') : (!nameOk ? 'Type your name above — then the email button turns on.' : 'Ready to send.'); }
+  }
+}
+function line(q){
+  const L=q.dataset.letters, n='Q'+q.dataset.n+' ['+q.dataset.skill+']: ';
+  const r=[...q.querySelectorAll('.opt')].findIndex(o=>o.dataset.c==="1");
+  if(q.dataset.status==='right1') return n+'correct on 1st try';
+  if(q.dataset.status==='right2') return n+'correct on 2nd try (first picked '+L[q._picks[0]]+')';
+  if(q.dataset.status==='missed') return n+'MISSED (picked '+L[q._picks[0]]+', then '+L[q._picks[1]]+'; answer '+L[r]+')';
+  return n+'not answered';
+}
+if(sendBtn) sendBtn.addEventListener('click',()=>{
+  const name=nameEl.value.trim(), B=document.body.dataset;
+  const missed=Q.filter(q=>q.dataset.status==='missed').map(q=>'Q'+q.dataset.n);
+  const payload={program:'KCE ACT Master Class',form_type:B.formType,lesson:B.lesson,student_name:name,
+    score:correct+'/'+Q.length,first_try:first+'/'+Q.length,answered:attempted+'/'+Q.length,
+    test_format:(document.querySelector('input[name=tfmt]:checked')||{value:'not answered'}).value,needs_review:missed.length?missed.join(', '):'none',summary:Q.map(line).join('\n'),
+    _subject:'KCE ACT '+B.lesson+' '+(B.formType==='post-lesson'?'Post-Lesson Results':'Lesson Results')+' \u2014 '+name+' \u2014 '+correct+'/'+Q.length};
+  sendBtn.disabled=true; sentEl.className='sent'; sentEl.style.display='block'; sentEl.textContent='Sending\u2026';
+  fetch(FORM,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+   .then(r=>{ if(!r.ok) throw 0; sent=true; sentEl.className='sent'; sentEl.textContent='Sent! Your instructor will see your results. You can close this page.'; refreshSend(); })
+   .catch(()=>{ fallbackPost(payload); });
+});
+updateScore();
+
+(function(){
+  const main=document.querySelector('main');
+  const secs=[...main.querySelectorAll(':scope > section.seg')];
+  const steps=[], firstOf={};
+  const mk=(name)=>{const d=document.createElement('div'); d.className='step seg'; d.dataset.name=name; return d;};
+  secs.forEach(sec=>{
+    const name=sec.dataset.name||'';
+    const qs=[...sec.querySelectorAll(':scope > .q')];
+    const rest=[...sec.children].filter(c=>!c.classList.contains('q'));
+    const eb=sec.querySelector(':scope > .eyebrow');
+    const passage=sec.querySelector(':scope > .passage');
+    if(sec.id) firstOf[sec.id]=steps.length;
+    firstOf['name:'+name]=steps.length;
+    const inline=sec.dataset.inline==='1';
+    if(rest.length && !inline){ const st=mk(name); rest.forEach(c=>st.appendChild(c)); steps.push(st); }
+    qs.forEach(q=>{
+      const st=mk(name); st.dataset.q='1';
+      if(inline){ rest.forEach(c=>st.appendChild(c.cloneNode(true))); }
+      else { const h=document.createElement('div'); h.className='stephead'; h.innerHTML=eb?eb.innerHTML:name; st.appendChild(h); }
+      if(passage && !inline){ const p=passage.cloneNode(true); p.classList.add('pclone'); st.appendChild(p); st.classList.add('split'); }
+      st.appendChild(q); steps.push(st);
+    });
+    sec.remove();
+  });
+  steps.forEach(s=>main.appendChild(s));
+  document.body.classList.add('stepped');
+  const totalQ=steps.filter(s=>s.dataset.q).length;
+  const dock=document.createElement('div'); dock.className='dock';
+  const W=getComputedStyle(document.querySelector('.wrap')).maxWidth;
+  dock.innerHTML='<div class="in" style="max-width:'+W+'"><button class="nbtn ghost" id="bk">← Back</button><div class="pg"><div class="pgt" id="pgt"></div><div class="pgs" id="pgs"></div><div class="track"><i id="trk"></i></div></div><button class="nbtn prim" id="nx">Next →</button></div>';
+  document.querySelector('.foot').before(dock);
+  const bk=dock.querySelector('#bk'), nx=dock.querySelector('#nx'), pgt=dock.querySelector('#pgt'), pgs=dock.querySelector('#pgs'), trk=dock.querySelector('#trk');
+  const navLinks=[...document.querySelectorAll('.nav [data-go]')];
+  const gate=document.body.dataset.nameGate==='true', nm=document.getElementById('sname');
+  let cur=0;
+  function canNext(){
+    const s=steps[cur];
+    if(cur===steps.length-1) return [false,''];
+    if(gate && cur===0 && !(nm && nm.value.trim().length>1)) return [false,'Type your name to begin'];
+    return [true,''];
+  }
+  function refresh(){
+    const s=steps[cur]; const [ok,why]=canNext();
+    nx.disabled=!ok; nx.style.visibility=(cur===steps.length-1)?'hidden':'visible';
+    bk.disabled=cur===0;
+    let qn=0; for(let i=0;i<=cur;i++) if(steps[i].dataset.q) qn++;
+    const narrow=window.innerWidth<680;
+    pgt.textContent=s.dataset.q ? ((narrow?'':s.dataset.name+' · ')+'Question '+qn+' of '+totalQ) : s.dataset.name;
+    pgs.textContent=why || ('Screen '+(cur+1)+' of '+steps.length);
+    trk.style.width=((cur+1)/steps.length*100)+'%';
+    navLinks.forEach(a=>{ const f=firstOf[a.dataset.go]; let nxt=Infinity; navLinks.forEach(b=>{const g=firstOf[b.dataset.go]; if(g>f&&g<nxt) nxt=g;}); a.classList.toggle('on', cur>=f && cur<nxt); });
+  }
+  function show(i){
+    cur=Math.max(0,Math.min(steps.length-1,i));
+    steps.forEach((s,k)=>s.classList.toggle('on',k===cur));
+    document.body.classList.toggle('first',cur===0); document.body.classList.toggle('last',cur===steps.length-1);
+    window.scrollTo(0,0); refresh();
+    const on=navLinks.find(a=>a.classList.contains('on')); if(on) on.scrollIntoView({block:'nearest',inline:'center'});
+  }
+  bk.onclick=()=>show(cur-1); nx.onclick=()=>{ if(!nx.disabled) show(cur+1); };
+  navLinks.forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const f=firstOf[a.dataset.go]; if(f!==undefined) show(f); }));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); const f=firstOf[a.getAttribute('href').slice(1)]; if(f!==undefined) show(f);}));
+  window.kceFirstOpen=function(){ const i=steps.findIndex(s=>s.dataset.q && !s.querySelector('.q').dataset.done); if(i>=0) show(i); };
+  const _answer=window.answer; window.answer=function(b){ _answer(b); refresh(); };
+  if(nm) nm.addEventListener('input',refresh);
+  document.addEventListener('keydown',e=>{ if(e.target.matches('input,textarea')) return; if(e.key==='ArrowRight'&&!nx.disabled) show(cur+1); if(e.key==='ArrowLeft'&&cur>0) show(cur-1); });
+  window.addEventListener('resize',refresh);
+  window.kceShow=show; window.kceSteps=steps;
+  show(0);
+})();
+</script>
+</body>
+</html>
