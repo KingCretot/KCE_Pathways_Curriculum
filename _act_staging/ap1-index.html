@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A&amp;P I Exam 2 Study Guide | KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16233F; --navy-2:#223257; --gold:#C9A227; --gold-soft:#EFE1B0;
+  --cream:#FBF7EC; --paper:#FFFFFF; --ink:#1C2230; --muted:#5A6275;
+  --pen:#B3362F; --ok:#2E7550; --line:#E4DCC6;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(120px + env(safe-area-inset-top,0px))}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff;box-shadow:0 2px 0 var(--gold)}
+.bar-in{max-width:880px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.mark{width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:15px}
+.brand b{font-family:var(--serif);font-size:17px;letter-spacing:.2px}
+.brand small{display:block;font-size:11px;color:var(--gold-soft);font-weight:500}
+.stats{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600}
+.xp{display:flex;align-items:center;gap:8px}
+.xp-track{width:120px;height:9px;background:rgba(255,255,255,.18);border-radius:9px;overflow:hidden}
+.xp-fill{height:100%;width:0;background:var(--gold);transition:width .4s ease}
+.coin{display:inline-flex;align-items:center;gap:5px}
+.coin i{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F6DE84,var(--gold) 60%,#9C7B14);display:inline-block}
+.tabs{max-width:880px;margin:0 auto;padding:0 18px;display:flex;gap:4px}
+.tab{background:none;border:0;color:#C9D0E0;padding:10px 14px 12px;font-weight:600;font-size:14px;border-bottom:3px solid transparent}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold)}
+
+main{max-width:880px;margin:0 auto;padding:0 18px 80px}
+
+/* Hero */
+.hero{padding:44px 0 28px;border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 14px;color:var(--navy)}
+.hero .for{font-size:15px;color:var(--muted);margin:0 0 18px}
+.hero .for strong{color:var(--ink)}
+.hero p.lead{max-width:62ch;margin:0 0 10px}
+.redpen-demo{font-family:var(--serif);font-size:19px;margin:18px 0 0;padding:14px 18px;background:var(--paper);border-left:4px solid var(--pen);max-width:62ch}
+del{color:var(--pen);text-decoration-thickness:2px}
+ins{text-decoration:none;color:var(--ok);font-weight:700;background:linear-gradient(transparent 62%,rgba(46,117,80,.14) 62%)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{border:2px solid var(--navy);background:var(--navy);color:#fff;padding:9px 16px;border-radius:6px;font-weight:600;font-size:14px}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+
+/* Chapter nav */
+.chnav{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0}
+.chnav a{color:var(--navy);font-weight:600;font-size:13px;text-decoration:none;border:1px solid var(--line);background:var(--paper);padding:6px 12px;border-radius:20px}
+
+/* Chapters */
+.chapter{padding-top:40px}
+.chapter > h2{font-family:var(--serif);font-size:32px;color:var(--navy);margin:0 0 4px}
+.chapter > .chsub{color:var(--muted);margin:0 0 8px;font-size:15px}
+.topic{margin-top:30px}
+.topic h3{font-size:19px;font-weight:700;color:var(--navy);margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--gold);display:inline-block}
+.core{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 20px;margin:6px 0 16px}
+.core p{margin:0 0 10px;max-width:70ch}
+.core p:last-child{margin-bottom:0}
+.core .mn{font-family:var(--serif);font-style:italic;color:var(--navy)}
+table.mini{border-collapse:collapse;width:100%;font-size:14px;margin:6px 0 4px}
+.tblwrap{overflow-x:auto}
+table.mini th,table.mini td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+table.mini th{background:var(--navy);color:#fff;font-weight:600}
+
+/* Question items */
+.q{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-top:1px dashed var(--line)}
+.qn{font-family:var(--serif);font-size:24px;color:var(--gold);font-weight:700;line-height:1.2}
+.stem{margin:0 0 6px;font-weight:600}
+.opts{margin:0 0 10px;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.opts li{display:inline-block;margin:0 16px 2px 0}
+.reveal{background:transparent;border:1.5px solid var(--navy);color:var(--navy);border-radius:5px;padding:5px 12px;font-weight:600;font-size:13px}
+.reveal[aria-expanded="true"]{background:var(--navy);color:#fff}
+.ans{margin-top:12px;animation:drop .25s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.verdict{font-weight:700;margin:0 0 8px}
+.verdict .tag{display:inline-block;padding:2px 10px;border-radius:4px;color:#fff;background:var(--ok);margin-left:6px}
+.verdict .tag.f{background:var(--pen)}
+.fix{font-family:var(--serif);font-size:18px;line-height:1.5;margin:0 0 10px;padding:10px 14px;background:var(--paper);border-left:4px solid var(--pen)}
+.why{margin:0 0 10px;max-width:70ch}
+.trap{margin:0;font-size:14px;background:var(--gold-soft);padding:9px 12px;border-radius:4px;max-width:70ch}
+
+/* Flashcards */
+.fc-head{padding:40px 0 10px}
+.fc-head h2,.qz-head h2{font-family:var(--serif);font-size:34px;color:var(--navy);margin:0 0 6px}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:18px}
+.card{perspective:1000px;height:190px;border:0;background:none;padding:0;text-align:left}
+.card-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .card-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.front{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.front b{font-family:var(--serif);font-size:22px;line-height:1.2}
+.front span{font-size:12px;color:var(--gold-soft);margin-top:8px}
+.back{background:var(--paper);border:1px solid var(--line);transform:rotateY(180deg);font-size:14px;line-height:1.5;overflow:auto}
+
+/* Quiz */
+.qz-head{padding:40px 0 10px}
+.qz-box{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin-top:16px}
+.qz-prog{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.qz-bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:18px}
+.qz-bar div{height:100%;background:var(--gold);width:0;transition:width .3s}
+.qz-stem{font-size:18px;font-weight:600;margin:0 0 14px}
+.qz-opts{display:grid;gap:8px}
+.qz-opt{text-align:left;background:var(--cream);border:2px solid var(--line);border-radius:6px;padding:11px 14px;font-size:15px;color:var(--ink)}
+.qz-opt:hover:not(:disabled){border-color:var(--navy)}
+.qz-opt.right{border-color:var(--ok);background:#E7F2EB}
+.qz-opt.wrong{border-color:var(--pen);background:#F8E6E4}
+.qz-opt:disabled{cursor:default}
+.qz-fb{margin-top:14px}
+.qz-fb .fix{font-size:16px}
+.qz-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.score{font-family:var(--serif);font-size:56px;color:var(--navy);margin:0;line-height:1}
+.missed{margin:12px 0 0;padding-left:18px}
+.missed a{color:var(--navy);font-weight:600}
+
+footer{border-top:2px solid var(--gold);background:var(--navy);color:#C9D0E0;font-size:13px;text-align:center;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px))}
+footer b{color:#fff;font-family:var(--serif);font-size:16px}
+footer em{color:var(--gold-soft);font-style:normal}
+
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:30px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.25s;border:2px solid var(--gold);z-index:50}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+[hidden]{display:none!important}
+@media (max-width:560px){
+  .xp-track{width:80px}
+  .brand small{display:none}
+  .q{grid-template-columns:32px 1fr}
+  .qn{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.tools,.reveal,#view-cards,#view-quiz,footer{display:none!important}
+  .ans{display:block!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand"><div class="mark">KC</div><div><b>KingCretot Experience</b><small>Educate. Empower. Excel.</small></div></div>
+    <div class="stats">
+      <div class="xp"><span id="lvl">Lv 1</span><div class="xp-track"><div class="xp-fill" id="xpfill"></div></div><span id="xptext">0 XP</span></div>
+      <span class="coin"><i></i><span id="coins">0</span></span>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-view="guide">Study guide</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="cards">Flashcards</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="quiz">Practice test</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-guide">
+    <div class="hero">
+      <h1>Tissues, Skin &amp; Bone</h1>
+      <p class="for"><strong>BSC 1085C Anatomy &amp; Physiology I, Exam 2 (Chapters 4 to 6)</strong><br>Prepared for Adrianna Gomez</p>
+      <p class="lead">Every question from your practice exam is here, grouped by topic, with the concept behind it. True/false questions on this exam usually hinge on one swapped word. When a statement is false, you'll see exactly which word is wrong and what belongs there, the way a professor would mark it.</p>
+      <p class="redpen-demo"><del>Connective</del> <ins>Epithelial</ins> tissue covers exposed surfaces and lines internal passageways.</p>
+      <p class="lead" style="margin-top:14px">Read the concept block first, try each question, then show the answer. Finish with the flashcards and the practice test.</p>
+      <div class="tools">
+        <button class="btn" id="showAll">Show all answers</button>
+        <button class="btn ghost" onclick="window.print()">Print study guide</button>
+      </div>
+      <nav class="chnav" id="chnav"></nav>
+    </div>
+    <div id="guide"></div>
+  </section>
+
+  <section id="view-cards" hidden>
+    <div class="fc-head">
+      <h2>Flashcards</h2>
+      <p>Say the definition out loud before you tap. Tap again to flip back.</p>
+      <div class="tools"><button class="btn ghost" id="shuffleCards">Shuffle cards</button></div>
+    </div>
+    <div class="fc-grid" id="cards"></div>
+  </section>
+
+  <section id="view-quiz" hidden>
+    <div class="qz-head">
+      <h2>Practice test</h2>
+      <p>All 50 questions in a new order. Matching items are asked one at a time. Each correct answer earns 20 XP and a coin.</p>
+    </div>
+    <div class="qz-box" id="quiz"></div>
+  </section>
+</main>
+
+<footer>
+  <b>KingCretot Experience</b><br>
+  <em>Educate. Empower. Excel.</em><br>
+  www.kingcretot.com &nbsp;|&nbsp; kce@kingcretot.com
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- CONTENT ---------- */
+const TF = ["True","False"];
+
+const Q = {
+1:{t:"tf",q:"Connective tissue covers exposed surfaces and lines internal passageways.",a:1,
+fix:"<del>Connective</del> <ins>Epithelial</ins> tissue covers exposed surfaces and lines internal passageways and chambers.",
+why:"Epithelial tissue is the body's covering-and-lining tissue. It covers the outer surface (the epidermis of the skin), lines the passageways that open to the outside (digestive, respiratory, urinary, and reproductive tracts), lines closed internal chambers (body cavities, the heart, and blood vessels, where it is called endothelium), and forms glands. Connective tissue does a different job: it fills internal spaces, supports and anchors other tissues, transports materials (blood), stores energy (adipose), and defends the body. Connective tissue is never exposed to the outside environment.",
+trap:"The swap can run either way. \"Epithelial tissue fills internal spaces and provides structural support\" is also false.",
+k:"Epithelial tissue covers and lines. Connective tissue fills, supports, transports, stores, and defends."},
+
+2:{t:"tf",q:"Mucous membranes help lubricate the digestive, respiratory, reproductive, and urinary tracts in their functions, and they open to the outside.",a:0,
+why:"A mucous membrane (mucosa) lines every passageway that communicates with the exterior: the digestive, respiratory, urinary, and reproductive tracts. It is an epithelium sitting on a layer of areolar connective tissue called the lamina propria. The mucus keeps these surfaces moist, reduces friction, and traps pathogens. Compare the other three membranes: serous membranes (pleura, pericardium, peritoneum) line closed body cavities that do not open to the outside and secrete a thin watery fluid; the cutaneous membrane is the skin, the only dry membrane; synovial membranes line joint cavities.",
+trap:"If a question says serous membranes open to the exterior, it is false. Mucous = open to outside. Serous = sealed cavities.",
+k:"Mucous membranes line tracts that open to the outside; serous membranes line sealed cavities."},
+
+3:{t:"tf",q:"Endocrine glands secrete hormones that enter the bloodstream.",a:0,
+why:"Endocrine glands are ductless. They release hormones into the surrounding interstitial fluid, which carries them into the blood to reach target cells anywhere in the body (thyroid, adrenal, pituitary). Exocrine glands release their products through ducts onto an epithelial surface: sweat, saliva, mucus, milk, digestive enzymes.",
+trap:"Hormones = endocrine = no ducts = blood. Ducts = exocrine = onto a surface.",
+k:"Endocrine glands are ductless and release hormones into the blood."},
+
+4:{t:"tf",q:"Epithelium is vascular.",a:1,
+fix:"Epithelium is <del>vascular</del> <ins>avascular</ins>.",
+why:"Epithelial tissue has no blood vessels. Its cells get oxygen and nutrients by diffusion from capillaries in the connective tissue underneath, across the basement membrane. That is why the deepest epithelial cells, the ones closest to the blood supply, are the ones that divide. The other defining traits of epithelium: cellularity (cells packed tightly with almost no matrix), polarity (an apical free surface and a basal attached surface), attachment to a basement membrane, and a strong ability to regenerate.",
+trap:"The avascular tissues on this exam are epithelium and cartilage. Bone is vascular.",
+k:"Epithelium is avascular; it is fed by diffusion from the connective tissue below."},
+
+5:{t:"mc",q:"Which of these is the active form of vitamin D?",o:["calcitriol","calcium","parathyroid hormone","both a and b","all of the above"],a:0,
+why:"When UV light hits the skin, cells in the stratum basale and stratum spinosum convert a cholesterol-related molecule into cholecalciferol (vitamin D3). The liver converts it to an intermediate, and the kidneys finish the job, producing calcitriol, the active hormone. Calcitriol's main job is to make the small intestine absorb calcium and phosphate. Without enough of it, bones soften (rickets in children).",
+trap:"Calcium is the mineral vitamin D helps absorb. PTH is the hormone that signals the kidneys to make calcitriol. Neither one is vitamin D.",
+k:"Calcitriol is the active form, made in the kidneys."},
+
+6:{t:"mc",q:"Which of these provide firm attachments between neighboring cells by connecting their cytoskeletons?",o:["desmosomes","adherens","hemidesmosomes","all of the above"],a:0,
+why:"Desmosomes lock two neighboring cells together by linking their intermediate filaments (part of the cytoskeleton) through a dense protein plaque. They resist stretching and twisting, which is why they are abundant in the skin's stratum spinosum and in heart muscle. Hemidesmosomes are half of a desmosome: they anchor a cell to the basement membrane, not to a neighboring cell, so \"all of the above\" fails. Adherens (adhesion belts) wrap around the cell and tie into actin filaments, reinforcing tight junctions. Also know tight junctions (seal the space between cells so nothing leaks through) and gap junctions (channels that let ions and small molecules pass directly between cells).",
+trap:"Cell to cell = desmosome. Cell to basement membrane = hemidesmosome.",
+k:"Desmosomes connect the cytoskeletons of neighboring cells."},
+
+7:{t:"mc",q:"Basal cell carcinoma occurs in the:",o:["stratum granulosum","stratum corneum","stratum spinosum","stratum basale","all of the above"],a:3,
+why:"Basal cell carcinoma is the most common skin cancer. It begins in the stem cells of the stratum basale, usually triggered by UV exposure on sun-exposed skin, and it rarely spreads to other organs. Squamous cell carcinoma arises from keratinocytes of the stratum spinosum. Malignant melanoma arises from melanocytes; it is the most dangerous because it spreads quickly through the lymphatic system.",
+trap:"The name gives it away: basal cell carcinoma, stratum basale.",
+k:"Basal cell carcinoma starts in the stratum basale."},
+
+8:{t:"tf",q:"In holocrine secretion, a portion of the cell pinches off and releases secretions.",a:1,
+fix:"In <del>holocrine</del> <ins>apocrine</ins> secretion, a portion of the cell pinches off and releases secretions.",
+why:"There are three modes of glandular secretion. Merocrine: the product leaves by exocytosis and the cell stays intact; this is the most common (saliva, most sweat). Apocrine: the top (apical) portion of the cell, packed with product, pinches off and the cell repairs itself (the lipid portion of breast milk). Holocrine: the entire cell fills with product and bursts, dying in the process; stem cells replace it. Sebaceous (oil) glands are holocrine.",
+trap:"Holo = whole. The whole cell is lost in holocrine secretion.",
+k:"Pinching off part of the cell is apocrine; holocrine loses the whole cell."},
+
+9:{t:"tf",q:"Eccrine and apocrine sweat glands both rely on holocrine secretion.",a:1,
+fix:"Eccrine and apocrine sweat glands both rely on <del>holocrine</del> <ins>merocrine</ins> secretion.",
+why:"Eccrine (merocrine) sweat glands are found over most of the body, especially the palms, soles, and forehead. They open directly onto the skin surface and release watery sweat that cools the body. Apocrine sweat glands are found in the armpits, groin, and around the nipples. They open into hair follicles, release a thicker protein-rich secretion that skin bacteria break down into odor, and switch on at puberty. Despite the name, apocrine sweat glands actually release their product by merocrine secretion (exocytosis); the name is historical. The skin's only holocrine gland is the sebaceous gland.",
+trap:"Do not let the name \"apocrine sweat gland\" fool you into answering apocrine secretion. Both sweat glands use merocrine.",
+k:"Both sweat glands use merocrine secretion; sebaceous glands are the holocrine ones."},
+
+10:{t:"mc",q:"Which is not a sign of malignant melanoma?",o:["symmetrical","irregular border","color is uneven","large diameter bigger than 6 mm","evolving changes"],a:0,
+why:"The ABCDE rule for spotting melanoma: Asymmetry (the two halves do not match), Border irregular, Color uneven, Diameter larger than 6 mm (about the size of a pencil eraser), and Evolving (changing in size, shape, or color). A symmetrical mole is the normal, reassuring finding, so it is not a warning sign.",
+trap:"The A stands for Asymmetry. Any answer that says symmetrical is the odd one out.",
+k:"ABCDE: Asymmetry, Border, Color, Diameter over 6 mm, Evolving."},
+
+11:{t:"mc",q:"In a first-degree burn, which layers of the skin are affected?",o:["epidermis","hypodermis","dermis","both a and c","both b and c"],a:0,
+why:"First-degree (superficial) burns damage only the epidermis: redness, pain, mild swelling, like a typical sunburn. Second-degree (partial-thickness) burns destroy the epidermis and part of the dermis and produce blisters. Third-degree (full-thickness) burns destroy the epidermis and the entire dermis and may reach the hypodermis; the center can be painless because the nerve endings are destroyed, and skin grafts are often needed.",
+trap:"Burn degree tracks depth: 1st = epidermis, 2nd = into the dermis with blisters, 3rd = through the dermis.",
+k:"First-degree burns affect only the epidermis."},
+
+12:{t:"mc",q:"Which of the following serves to make melanin?",o:["adipocytes","fibroblasts","melanocytes","all of the above"],a:2,
+why:"Melanocytes sit in the stratum basale and make melanin. They package it in vesicles called melanosomes and pass it to nearby keratinocytes, where it forms a protective cap over the nucleus. Adipocytes are fat cells that store energy. Fibroblasts are connective tissue cells that make collagen and elastic fibers.",
+trap:"The name answers it: melan- (black) + -cyte (cell).",
+k:"Melanocytes make melanin."},
+
+13:{t:"mc",q:"In cartilage, the outer covering is known as the:",o:["perichondrium","periosteum"],a:0,
+why:"The perichondrium is a sheath of dense irregular connective tissue around most cartilage. Its outer fibrous layer provides support and attachment; its inner cellular layer contains chondroblasts that add new cartilage (appositional growth) and carry out repair. Blood vessels in the perichondrium supply nutrients that diffuse into the cartilage. The periosteum is the matching covering for bone. Fibrocartilage and the articular cartilage at joint surfaces lack a perichondrium.",
+trap:"Peri = around. Chondro = cartilage. Osteo = bone. Match the root to the tissue.",
+k:"Perichondrium covers cartilage; periosteum covers bone."},
+
+14:{t:"tf",q:"The periosteum that surrounds most cartilage is important for both growth and maintenance.",a:1,
+fix:"The <del>periosteum</del> <ins>perichondrium</ins> that surrounds most cartilage is important for both growth and maintenance.",
+why:"Everything in this statement is correct except the name. The covering around cartilage is the perichondrium, and it does support growth and maintenance. The periosteum surrounds bone.",
+trap:"Read the tissue named in the question first, then check whether the covering matches it.",
+k:"Cartilage is wrapped by the perichondrium, not the periosteum."},
+
+15:{t:"mc",q:"Which of the following functions by voluntary movement, produces heat, and helps with movement?",o:["cardiac muscle","skeletal muscle","smooth muscle","all of the above"],a:1,
+why:"Skeletal muscle is the only voluntary muscle type. Its fibers are long, striated, and multinucleate, attached to bones. It moves the body, maintains posture, stabilizes joints, and produces a large share of body heat (which is why you shiver when cold). Cardiac muscle is striated but involuntary, made of branched cells joined by intercalated discs, found only in the heart. Smooth muscle is nonstriated and involuntary, found in the walls of hollow organs and blood vessels.",
+trap:"The word voluntary settles it. Only skeletal muscle is under conscious control.",
+k:"Skeletal muscle is voluntary, moves the body, and generates heat."},
+
+16:{t:"tf",q:"Calcitriol is also known as the active form of vitamin D.",a:0,
+why:"Calcitriol is the active hormone form of vitamin D, produced in the kidneys. It increases calcium and phosphate absorption in the small intestine. See question 5 for the full pathway from skin to liver to kidneys.",
+k:"True. Calcitriol is active vitamin D."},
+
+17:{t:"mc",q:"The thick skin found on the palms of the hands and soles of the feet is called the…",o:["stratum spinosum","stratum basale","stratum granulosum","stratum corneum","none of the above"],a:4,
+why:"None of these layer names is the name for thick skin; it is simply called thick skin. What makes it thick: it has five epidermal layers instead of four, because it adds the stratum lucidum (a clear band of flattened dead cells) between the stratum granulosum and stratum corneum, and its stratum corneum is much thicker. Thin skin covers the rest of the body and has four layers.",
+trap:"If the real exam asks which layer is found only in thick skin and stratum lucidum is an option, that is the answer.",
+k:"Thick skin is just called thick skin; it is the only skin with a stratum lucidum."},
+
+18:{t:"tf",q:"From deep to superficial, the layers of the epidermis are stratum basale, spinosum, granulosum, and corneum.",a:0,
+why:"This is the correct order for thin skin. Stratum basale (deepest): a single row of dividing stem cells, plus melanocytes and Merkel cells, attached to the basement membrane. Stratum spinosum: several layers of keratinocytes held by desmosomes, plus immune (dendritic) cells. Stratum granulosum: cells fill with keratin, flatten, and begin to die. Stratum lucidum: thick skin only. Stratum corneum (most superficial): 15 to 30 layers of dead, flat, keratin-filled cells that are shed and replaced.",
+trap:"Watch the direction words. Superficial to deep reverses the list and starts with corneum.",
+k:"Deep to superficial: basale, spinosum, granulosum, (lucidum), corneum."},
+
+19:{t:"match",q:"Match: keratinocytes",o:["sensory receptors for touch","protects the skin from ultraviolet radiation","most common of epidermal cells"],a:2,
+why:"Keratinocytes make up roughly 90% of epidermal cells. They produce keratin, a tough fibrous protein that makes the skin durable and water resistant. They form in the stratum basale, get pushed upward, die, and become the stratum corneum.",
+k:"Keratinocytes are the most common epidermal cells."},
+
+20:{t:"match",q:"Match: melanin",o:["sensory receptors for touch","protects the skin from ultraviolet radiation","most common of epidermal cells"],a:1,
+why:"Melanin is the brown-to-black pigment made by melanocytes. Once passed to keratinocytes, it clusters over each nucleus like an umbrella, absorbing UV radiation before it can damage the cell's DNA.",
+k:"Melanin shields the skin from UV radiation."},
+
+21:{t:"match",q:"Match: Merkel cells",o:["sensory receptors for touch","protects the skin from ultraviolet radiation","most common of epidermal cells"],a:0,
+why:"Merkel (tactile) cells sit in the stratum basale, paired with sensory nerve endings. They detect light touch and texture and are especially plentiful in the fingertips.",
+k:"Merkel cells are touch receptors."},
+
+22:{t:"mc",q:"Which stratum of the epidermis is the most superficial?",o:["spinosum","granulosum","corneum","lucidum","none of the above"],a:2,
+why:"The stratum corneum is the outermost layer: many rows of dead, flattened cells packed with keratin. It resists water loss, friction, and pathogens, and it is constantly shed and replaced. The stratum lucidum lies just beneath it in thick skin only.",
+trap:"Most superficial = corneum. Deepest = basale.",
+k:"The stratum corneum is the most superficial layer."},
+
+23:{t:"tf",q:"The papillary region of the dermis contains blood vessels that nourish the epidermis and nervous tissue for various sensations.",a:0,
+why:"The dermis has two layers. The papillary layer is the thin upper layer of loose (areolar) connective tissue. Its dermal papillae push up into the epidermis (creating fingerprints) and hold capillaries, lymphatic vessels, and sensory neurons, including touch receptors. Since the epidermis has no blood supply, these capillaries feed it. The reticular layer below is dense irregular connective tissue with collagen and elastic fibers, and it holds hair follicles, glands, and larger vessels.",
+trap:"Papillary = upper, loose, feeds the epidermis. Reticular = deeper, dense, strength and stretch.",
+k:"The papillary layer's capillaries and nerves serve the epidermis."},
+
+24:{t:"mc",q:"Skin color is influenced by?",o:["melanin","carotene","vitamin D3","both a and b"],a:3,
+why:"Skin color comes from two pigments plus blood flow. Melanin (brown, yellow-brown, black) is made by melanocytes. Carotene is an orange-yellow pigment from foods like carrots that collects in the stratum corneum and fat. Blood in the dermal capillaries adds pink tones, and poorly oxygenated blood gives a bluish color. Vitamin D3 is made in the skin but does not color it. Everyone has roughly the same number of melanocytes; differences in skin tone come from how much melanin they produce.",
+k:"Melanin and carotene (plus blood flow) set skin color."},
+
+25:{t:"tf",q:"The hair papilla contains the blood vessels that nourish the hair.",a:0,
+why:"At the base of each hair follicle is the hair bulb, and pushing up into it is the hair papilla, a small peg of connective tissue with capillaries and nerves. It feeds the hair matrix, the layer of dividing epithelial cells that produces the hair. Other hair structures to know: the arrector pili muscle (contracts to make hair stand up, causing goosebumps) and the sebaceous gland that oils the hair.",
+k:"The hair papilla carries the blood supply for the growing hair."},
+
+26:{t:"tf",q:"The eponychium is the epidermal fold where nail production occurs.",a:1,
+fix:"The <del>eponychium</del> <ins>nail root</ins> is the epidermal fold where nail production occurs.",
+why:"Nail production happens at the nail root, an epidermal fold that sits under the skin at the base of the nail. The eponychium is the cuticle, the band of stratum corneum that extends from the nail root over the exposed nail. Also know: the lunula is the pale crescent near the root; the nail body is the visible nail; the hyponychium is the thickened skin under the free edge.",
+trap:"Eponychium = cuticle. Nail root = production.",
+k:"The nail root makes the nail; the eponychium is the cuticle."},
+
+27:{t:"match",q:"Match: nail root",o:["cuticle","nail production occurs","pale crescent (moon) near root"],a:1,
+why:"The nail root is the fold of epidermis beneath the skin where new nail cells are produced and pushed forward.",
+k:"Nail root = where nail production occurs."},
+28:{t:"match",q:"Match: eponychium",o:["cuticle","nail production occurs","pale crescent (moon) near root"],a:0,
+why:"The eponychium is the cuticle: stratum corneum from the nail root that overlaps the base of the exposed nail.",
+k:"Eponychium = cuticle."},
+29:{t:"match",q:"Match: lunula",o:["cuticle","nail production occurs","pale crescent (moon) near root"],a:2,
+why:"The lunula (Latin for little moon) looks pale because the thick epidermis beneath it hides the blood vessels of the nail bed.",
+k:"Lunula = pale crescent near the root."},
+
+30:{t:"match",q:"Match: Addison's disease",o:["genetic disorder; affects coloring of skin","autoimmune; melanocytes can't produce melanin","poorly oxygenated blood; bluish skin color","causes pituitary to release excess ACTH","accumulation of bile; yellowing of eyes"],a:3,
+why:"In Addison's disease the adrenal glands underproduce hormones, so the pituitary releases extra ACTH trying to stimulate them. ACTH also stimulates melanocytes, so the skin darkens to a bronze tone.",
+k:"Addison's disease: excess ACTH from the pituitary darkens the skin."},
+31:{t:"match",q:"Match: jaundice",o:["genetic disorder; affects coloring of skin","autoimmune; melanocytes can't produce melanin","poorly oxygenated blood; bluish skin color","causes pituitary to release excess ACTH","accumulation of bile; yellowing of eyes"],a:4,
+why:"Jaundice happens when bilirubin, a bile pigment, builds up in the blood, often because the liver cannot clear it. The skin and the whites of the eyes turn yellow.",
+k:"Jaundice: bile pigment buildup yellows the skin and eyes."},
+32:{t:"match",q:"Match: vitiligo",o:["genetic disorder; affects coloring of skin","autoimmune; melanocytes can't produce melanin","poorly oxygenated blood; bluish skin color","causes pituitary to release excess ACTH","accumulation of bile; yellowing of eyes"],a:1,
+why:"Vitiligo is an autoimmune condition: the immune system destroys melanocytes, leaving patches of skin with no pigment.",
+k:"Vitiligo: autoimmune loss of melanocytes causes white patches."},
+33:{t:"match",q:"Match: albinism",o:["genetic disorder; affects coloring of skin","autoimmune; melanocytes can't produce melanin","poorly oxygenated blood; bluish skin color","causes pituitary to release excess ACTH","accumulation of bile; yellowing of eyes"],a:0,
+why:"Albinism is an inherited disorder. Melanocytes are present in normal numbers but cannot make melanin because an enzyme (tyrosinase) is missing, so skin, hair, and eyes lack pigment.",
+trap:"Albinism is genetic and present from birth; vitiligo is autoimmune and appears in patches over time.",
+k:"Albinism: genetic inability to make melanin."},
+34:{t:"match",q:"Match: cyanosis",o:["genetic disorder; affects coloring of skin","autoimmune; melanocytes can't produce melanin","poorly oxygenated blood; bluish skin color","causes pituitary to release excess ACTH","accumulation of bile; yellowing of eyes"],a:2,
+why:"Cyanosis is a bluish color of the skin and lips caused by blood that is low in oxygen, seen in cold exposure, heart failure, or breathing problems.",
+k:"Cyanosis: low-oxygen blood gives a bluish color."},
+
+35:{t:"tf",q:"The endosteum lines the medullary cavity.",a:0,
+why:"The endosteum is a thin cellular layer lining the medullary (marrow) cavity and the inner spaces of spongy bone. It contains osteogenic cells, osteoblasts, and osteoclasts, so it is active in bone growth, remodeling, and repair. The periosteum covers the outer surface of bone (except at joint surfaces) and anchors tendons and ligaments.",
+trap:"Endo = inside (endosteum lines the cavity). Peri = around (periosteum covers the outside).",
+k:"Endosteum lines the medullary cavity; periosteum covers the outside."},
+
+36:{t:"tf",q:"Cartilage is vascular.",a:1,
+fix:"Cartilage is <del>vascular</del> <ins>avascular</ins>.",
+why:"Cartilage has no blood vessels. Its cells (chondrocytes) sit in small pockets called lacunae and receive nutrients by diffusion through the matrix from vessels in the perichondrium. Chondrocytes even release a chemical that blocks blood vessel growth. This is why cartilage heals slowly and poorly. Three types: hyaline (most common; ends of long bones, ribs, trachea, nose), elastic (outer ear, epiglottis), and fibrocartilage (intervertebral discs, knee menisci, pubic symphysis).",
+trap:"Cartilage and epithelium are avascular. Bone is richly vascular.",
+k:"Cartilage is avascular and heals slowly."},
+
+37:{t:"mc",q:"Which part of the bone is also known as the shaft of the bone?",o:["epiphysis","diaphysis","metaphysis","none of the above"],a:1,
+why:"A long bone has three regions. The diaphysis is the shaft: a thick wall of compact bone around the medullary cavity, which holds yellow marrow in adults. The epiphyses are the expanded ends, mostly spongy bone with red marrow, capped by articular cartilage. The metaphysis is where the shaft meets each end; in children it contains the epiphyseal (growth) plate, which becomes the epiphyseal line in adults.",
+trap:"Dia = through: the diaphysis runs through the middle. Epi = upon: the epiphyses sit at the ends.",
+k:"The diaphysis is the shaft."},
+
+38:{t:"match",q:"Match the example to the bone type: long bones",o:["humerus","spinal vertebrae","patella"],a:0,
+why:"Long bones are longer than they are wide: humerus, femur, radius, ulna, tibia, fibula, even the phalanges.",
+k:"Long bone example: humerus."},
+39:{t:"match",q:"Match the example to the bone type: sesamoid bones",o:["humerus","spinal vertebrae","patella"],a:2,
+why:"Sesamoid bones develop inside tendons. The patella (kneecap) is the classic example; it forms in the tendon of the quadriceps.",
+k:"Sesamoid bone example: patella."},
+40:{t:"match",q:"Match the example to the bone type: irregular bones",o:["humerus","spinal vertebrae","patella"],a:1,
+why:"Irregular bones have complex shapes that fit no other category: vertebrae, pelvic bones, and several skull bones. The other shape types to know are short bones (boxy; carpals and tarsals), flat bones (thin; skull roof, sternum, ribs, scapula), and sutural bones (small bones in skull sutures).",
+k:"Irregular bone example: vertebrae."},
+
+41:{t:"match",q:"Match: osteogenic cells",o:["produce new bone matrix","stem cells that divide","absorb and remove bone","maintain bone matrix"],a:1,
+why:"Osteogenic (osteoprogenitor) cells are stem cells in the periosteum and endosteum. They divide to produce new osteoblasts, which matters most during growth and fracture repair.",
+k:"Osteogenic cells are dividing stem cells."},
+42:{t:"match",q:"Match: osteocyte",o:["produce new bone matrix","stem cells that divide","absorb and remove bone","maintain bone matrix"],a:3,
+why:"Osteocytes are mature bone cells, former osteoblasts now trapped in lacunae. They maintain the surrounding matrix and communicate with each other through tiny channels called canaliculi.",
+k:"Osteocytes maintain the bone matrix."},
+43:{t:"match",q:"Match: osteoblast",o:["produce new bone matrix","stem cells that divide","absorb and remove bone","maintain bone matrix"],a:0,
+why:"Osteoblasts build bone. They secrete osteoid, the unmineralized matrix that then hardens with calcium salts (ossification). Once surrounded by matrix, an osteoblast becomes an osteocyte.",
+trap:"Blasts build. Clasts carve.",
+k:"Osteoblasts produce new bone matrix."},
+44:{t:"match",q:"Match: osteoclast",o:["produce new bone matrix","stem cells that divide","absorb and remove bone","maintain bone matrix"],a:2,
+why:"Osteoclasts are large cells with many nuclei, derived from the same line as white blood cells. They release acids and enzymes that dissolve bone (osteolysis), releasing calcium into the blood.",
+trap:"Blasts build. Clasts carve.",
+k:"Osteoclasts absorb and remove bone."},
+
+45:{t:"match",q:"Match the fracture: spiral",o:["produce new and abnormal bone arrangement","twisting stresses","break at distal radius","one side breaks and other side bends","break of distal tibia and fibula"],a:1,
+why:"Spiral fractures come from twisting forces that wind the break around the bone, common in skiing and sports injuries.",
+k:"Spiral fracture: twisting stress."},
+46:{t:"match",q:"Match the fracture: greenstick",o:["produce new and abnormal bone arrangement","twisting stresses","break at distal radius","one side breaks and other side bends","break of distal tibia and fibula"],a:3,
+why:"In a greenstick fracture one side of the bone breaks and the other only bends, like a green twig. It occurs mostly in children, whose bones are more flexible.",
+k:"Greenstick: one side breaks, the other bends."},
+47:{t:"match",q:"Match the fracture: Pott's",o:["produce new and abnormal bone arrangement","twisting stresses","break at distal radius","one side breaks and other side bends","break of distal tibia and fibula"],a:4,
+why:"A Pott's fracture is an ankle fracture involving the distal tibia and fibula.",
+trap:"Pott's = ankle (lower leg bones). Colles = wrist (radius).",
+k:"Pott's: distal tibia and fibula."},
+48:{t:"match",q:"Match the fracture: Colles",o:["produce new and abnormal bone arrangement","twisting stresses","break at distal radius","one side breaks and other side bends","break of distal tibia and fibula"],a:2,
+why:"A Colles fracture is a break of the distal radius near the wrist, typically from falling onto an outstretched hand.",
+k:"Colles: distal radius."},
+49:{t:"match",q:"Match the fracture: displaced",o:["produce new and abnormal bone arrangement","twisting stresses","break at distal radius","one side breaks and other side bends","break of distal tibia and fibula"],a:0,
+why:"In a displaced fracture the broken ends move out of alignment, producing a new, abnormal arrangement of bone. A nondisplaced fracture keeps its normal alignment. Other fracture terms worth knowing: transverse (straight across the shaft), comminuted (shattered into pieces), compression (crushed, often vertebrae), and open or compound (bone breaks through the skin) versus closed or simple.",
+k:"Displaced: the ends move into an abnormal arrangement."},
+
+50:{t:"tf",q:"If blood calcium rises, parathyroid hormone (PTH) will be stimulated, and the number and activity of osteoclasts will be inhibited, but osteoblasts will still be able to deposit bone.",a:1,
+fix:"If blood calcium rises, <del>parathyroid hormone (PTH)</del> <ins>calcitonin</ins> will be stimulated, and the number and activity of osteoclasts will be inhibited, but osteoblasts will still be able to deposit bone.",
+why:"Blood calcium is kept in a narrow range by two opposing hormones. When calcium rises, the thyroid gland's C cells release calcitonin, which inhibits osteoclasts (less bone breakdown) and increases calcium loss in the urine, while osteoblasts keep depositing calcium into bone, so blood calcium falls. When calcium drops, the parathyroid glands release PTH, which stimulates osteoclasts to release calcium from bone, tells the kidneys to keep calcium, and triggers calcitriol production so the gut absorbs more. The second half of the statement correctly describes calcitonin; only the hormone name is wrong. In fact, high calcium inhibits PTH.",
+trap:"Calcitonin tones down blood calcium. PTH pulls calcium up. Both glands sit in the neck, so the names get swapped on exams.",
+k:"Rising calcium triggers calcitonin, not PTH."}
+};
+
+const CHAPTERS = [
+{id:"ch4",title:"Chapter 4: Tissues",sub:"Epithelium, glands, membranes, cartilage, and muscle.",topics:[
+ {h:"Epithelial versus connective tissue",core:`<p>The body has four tissue types: epithelial, connective, muscle, and nervous. Epithelial tissue covers surfaces, lines passageways and chambers, and forms glands. Its cells are packed tightly with almost no matrix between them, sit on a basement membrane, have a free apical surface and an attached basal surface, and have no blood vessels.</p><p>Connective tissue is built the opposite way: scattered cells surrounded by an extracellular matrix of protein fibers and ground substance. It fills spaces, supports and connects, transports (blood), stores energy (fat), and defends. It is never exposed to the outside. Cartilage, bone, blood, and adipose tissue are all connective tissues.</p>`,qs:[1,4]},
+ {h:"Cell junctions",core:`<p>Cells in a tissue are held together by junctions. Tight junctions seal the space between cells so nothing leaks through. Gap junctions are channels that let ions and small molecules pass directly between cells. Adherens (adhesion belts) tie neighboring cells together through actin filaments. Desmosomes are the strongest spot welds, linking the intermediate filaments of neighboring cells. Hemidesmosomes anchor a cell to the basement membrane beneath it.</p>`,qs:[6]},
+ {h:"Glands and modes of secretion",core:`<p>Endocrine glands have no ducts and release hormones into the blood. Exocrine glands use ducts to release products onto a surface. Exocrine glands release their products in one of three ways, and the exam tests whether you can tell them apart.</p><div class="tblwrap"><table class="mini"><tr><th>Mode</th><th>What happens to the cell</th><th>Example</th></tr><tr><td>Merocrine</td><td>Product leaves by exocytosis; cell stays intact</td><td>Saliva, both types of sweat gland</td></tr><tr><td>Apocrine</td><td>Top portion of the cell pinches off; cell repairs</td><td>Lipid portion of breast milk</td></tr><tr><td>Holocrine</td><td>Whole cell bursts and dies; stem cells replace it</td><td>Sebaceous (oil) glands</td></tr></table></div><p class="mn">Holo means whole: the whole cell is lost.</p>`,qs:[3,8,9]},
+ {h:"Membranes",core:`<p>A membrane is epithelium resting on connective tissue. Mucous membranes line passageways that open to the outside. Serous membranes (pleura around the lungs, pericardium around the heart, peritoneum in the abdomen) line sealed cavities. The cutaneous membrane is the skin. Synovial membranes line joint cavities.</p>`,qs:[2]},
+ {h:"Cartilage",core:`<p>Cartilage is a connective tissue with a firm gel matrix. Its cells, chondrocytes, live in pockets called lacunae. It has no blood vessels, so nutrients diffuse in from the perichondrium, the connective tissue sheath around it, and it heals slowly. The three types are hyaline (the most common), elastic, and fibrocartilage.</p>`,qs:[13,14,36]},
+ {h:"Muscle tissue",core:`<div class="tblwrap"><table class="mini"><tr><th>Type</th><th>Control</th><th>Look</th><th>Location</th></tr><tr><td>Skeletal</td><td>Voluntary</td><td>Striated, many nuclei</td><td>Attached to bones</td></tr><tr><td>Cardiac</td><td>Involuntary</td><td>Striated, branched, intercalated discs</td><td>Heart only</td></tr><tr><td>Smooth</td><td>Involuntary</td><td>No striations, spindle shaped</td><td>Walls of hollow organs and vessels</td></tr></table></div>`,qs:[15]}
+]},
+{id:"ch5",title:"Chapter 5: The Integumentary System",sub:"Skin layers, skin cells, color, vitamin D, cancer and burns, hair and nails.",topics:[
+ {h:"Layers of the epidermis",core:`<p>The epidermis is stratified squamous epithelium. New cells are made at the bottom and pushed upward, filling with keratin and dying as they rise, until they flake off at the surface roughly two to four weeks later.</p><div class="tblwrap"><table class="mini"><tr><th>Layer (deep to superficial)</th><th>What to know</th></tr><tr><td>Stratum basale</td><td>Deepest; dividing stem cells, melanocytes, Merkel cells</td></tr><tr><td>Stratum spinosum</td><td>Keratinocytes linked by desmosomes; immune cells</td></tr><tr><td>Stratum granulosum</td><td>Cells make keratin, flatten, and die</td></tr><tr><td>Stratum lucidum</td><td>Clear layer; thick skin only (palms, soles)</td></tr><tr><td>Stratum corneum</td><td>Most superficial; dead keratin-filled cells that shed</td></tr></table></div><p class="mn">Before Signing, Get Legal Counsel (basale, spinosum, granulosum, lucidum, corneum).</p>`,qs:[18,22,17]},
+ {h:"Cells of the epidermis",core:`<p>Four cell types to know. Keratinocytes are the most numerous and make keratin. Melanocytes make melanin. Merkel cells detect touch. Dendritic (Langerhans) cells are immune cells in the stratum spinosum that catch pathogens.</p>`,qs:[19,20,21,12]},
+ {h:"The dermis",core:`<p>Beneath the epidermis is the dermis, made of two layers. The papillary layer is loose connective tissue with capillaries and sensory nerves that serve the epidermis. The reticular layer is dense connective tissue that gives skin strength and stretch and holds hair follicles, glands, and larger vessels. Below the dermis is the hypodermis (subcutaneous layer), mostly fat, which is not part of the skin itself.</p>`,qs:[23]},
+ {h:"Skin color and color changes",core:`<p>Skin color comes from melanin, carotene, and the blood in the dermis. Several conditions change skin color, and each has one cause to remember.</p><div class="tblwrap"><table class="mini"><tr><th>Condition</th><th>Cause</th><th>Result</th></tr><tr><td>Albinism</td><td>Genetic; melanocytes cannot make melanin</td><td>Little or no pigment</td></tr><tr><td>Vitiligo</td><td>Autoimmune destruction of melanocytes</td><td>White patches</td></tr><tr><td>Addison's disease</td><td>Adrenal failure; pituitary releases excess ACTH</td><td>Bronzed, darker skin</td></tr><tr><td>Jaundice</td><td>Bile pigment (bilirubin) builds up</td><td>Yellow skin and eyes</td></tr><tr><td>Cyanosis</td><td>Poorly oxygenated blood</td><td>Bluish skin and lips</td></tr></table></div>`,qs:[24,30,31,32,33,34]},
+ {h:"Vitamin D",core:`<p>UV light striking the skin starts the process: the skin makes vitamin D3 (cholecalciferol), the liver modifies it, and the kidneys convert it into calcitriol, the active hormone. Calcitriol makes the intestines absorb calcium and phosphate, which bones need.</p><p class="mn">Skin, then liver, then kidneys: calcitriol.</p>`,qs:[5,16]},
+ {h:"Skin cancer and burns",core:`<p>Basal cell carcinoma (stratum basale) is the most common skin cancer and rarely spreads. Squamous cell carcinoma arises in the stratum spinosum. Malignant melanoma arises from melanocytes and is the most dangerous. Screen moles with ABCDE: Asymmetry, Border, Color, Diameter over 6 mm, Evolving.</p><p>Burns are graded by depth. First degree affects the epidermis only. Second degree reaches into the dermis and blisters. Third degree destroys the full thickness of the skin.</p>`,qs:[7,10,11]},
+ {h:"Hair and nails",core:`<p>Hair grows from the hair matrix in the bulb of the follicle, fed by the blood vessels of the hair papilla. Nails grow from the nail root. The cuticle (eponychium) covers the base of the nail, and the lunula is the pale half-moon near the root.</p>`,qs:[25,26,27,28,29]}
+]},
+{id:"ch6",title:"Chapter 6: Bone and Bone Tissue",sub:"Bone structure and shape, bone cells, fractures, and calcium balance.",topics:[
+ {h:"Bone structure and shape",core:`<p>A long bone has a shaft (diaphysis), two expanded ends (epiphyses), and a transition zone (metaphysis) that holds the growth plate in children. The medullary cavity inside the shaft holds marrow and is lined by the endosteum. The periosteum covers the outside of the bone.</p><p>Bones are classified by shape: long (humerus, femur), short (carpals, tarsals), flat (skull roof, sternum, ribs), irregular (vertebrae), sesamoid (patella, which forms inside a tendon), and sutural (tiny bones in skull sutures).</p>`,qs:[35,37,38,39,40]},
+ {h:"Bone cells",core:`<div class="tblwrap"><table class="mini"><tr><th>Cell</th><th>Job</th></tr><tr><td>Osteogenic cell</td><td>Stem cell that divides to make osteoblasts</td></tr><tr><td>Osteoblast</td><td>Builds new bone matrix</td></tr><tr><td>Osteocyte</td><td>Mature cell that maintains the matrix</td></tr><tr><td>Osteoclast</td><td>Dissolves and removes bone, releasing calcium</td></tr></table></div><p class="mn">Blasts build. Cytes maintain. Clasts carve.</p>`,qs:[41,42,43,44]},
+ {h:"Fractures",core:`<p>Fractures are named by how the bone breaks or where. On this exam, pair spiral with twisting, greenstick with one side bending, Pott's with the ankle (distal tibia and fibula), Colles with the wrist (distal radius), and displaced with ends out of alignment.</p>`,qs:[45,46,47,48,49]},
+ {h:"Calcium balance",core:`<p>Bone is the body's calcium bank. Two hormones control deposits and withdrawals. When blood calcium is too high, the thyroid releases calcitonin: osteoclasts slow down, the kidneys excrete more calcium, and calcium stays in bone. When blood calcium is too low, the parathyroid glands release PTH: osteoclasts break down bone, the kidneys hold onto calcium, and calcitriol production rises so the gut absorbs more.</p><p class="mn">Calcitonin tones calcium down. PTH pulls calcium up.</p>`,qs:[50]}
+]}
+];
+
+const CARDS = [
+["Epithelial tissue","Covers exposed surfaces, lines passageways and chambers, forms glands. Avascular."],
+["Connective tissue","Fills spaces, supports, transports, stores energy, defends. Cells in a matrix of fibers and ground substance."],
+["Desmosome","Junction linking the cytoskeletons (intermediate filaments) of neighboring cells."],
+["Hemidesmosome","Anchors a cell to the basement membrane."],
+["Merocrine","Secretion by exocytosis; the cell stays intact. Both sweat glands."],
+["Apocrine","The top of the cell pinches off with the product."],
+["Holocrine","The whole cell bursts. Sebaceous glands."],
+["Mucous membrane","Lines tracts that open to the outside: digestive, respiratory, urinary, reproductive."],
+["Serous membrane","Lines sealed cavities: pleura, pericardium, peritoneum."],
+["Perichondrium","Connective tissue sheath around cartilage; supports growth and repair."],
+["Periosteum","Connective tissue covering the outside of bone."],
+["Endosteum","Cellular layer lining the medullary cavity."],
+["Stratum basale","Deepest epidermal layer; dividing stem cells, melanocytes, Merkel cells."],
+["Stratum lucidum","Clear layer found only in thick skin (palms, soles)."],
+["Stratum corneum","Most superficial layer; dead keratin-filled cells."],
+["Keratinocyte","Most common epidermal cell; makes keratin."],
+["Merkel cell","Touch receptor in the stratum basale."],
+["Papillary layer","Upper dermis; capillaries and nerves that serve the epidermis."],
+["Calcitriol","Active vitamin D, made in the kidneys; increases calcium absorption."],
+["ABCDE","Melanoma signs: Asymmetry, Border, Color, Diameter over 6 mm, Evolving."],
+["First-degree burn","Epidermis only."],
+["Eponychium","The cuticle."],
+["Nail root","Where nail production occurs."],
+["Lunula","Pale crescent near the nail root."],
+["Diaphysis","Shaft of a long bone."],
+["Epiphysis","Expanded end of a long bone."],
+["Osteoblast","Builds new bone matrix."],
+["Osteoclast","Dissolves and removes bone."],
+["Osteocyte","Mature cell that maintains bone matrix."],
+["Calcitonin","Released when blood calcium is high; lowers it."],
+["PTH","Released when blood calcium is low; raises it."],
+["Colles fracture","Distal radius (wrist)."],
+["Pott's fracture","Distal tibia and fibula (ankle)."],
+["Greenstick fracture","One side breaks, the other bends."]
+];
+
+/* ---------- STATE, SOUND, FX ---------- */
+const store = {get(k,d){try{const v=localStorage.getItem("kce-ap1-ex2-"+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem("kce-ap1-ex2-"+k,JSON.stringify(v))}catch(e){}}};
+let xp = store.get("xp",0), coins = store.get("coins",0);
+const revealed = new Set(store.get("rev",[])), flipped = new Set(store.get("flip",[]));
+const PER_LVL = 250;
+
+function renderStats(){
+  const lvl = Math.floor(xp/PER_LVL)+1;
+  document.getElementById("lvl").textContent = "Lv "+lvl;
+  document.getElementById("xptext").textContent = xp+" XP";
+  document.getElementById("xpfill").style.width = ((xp%PER_LVL)/PER_LVL*100)+"%";
+  document.getElementById("coins").textContent = coins;
+}
+function gain(n,c){
+  const before = Math.floor(xp/PER_LVL);
+  xp += n; coins += (c||0);
+  store.set("xp",xp); store.set("coins",coins); renderStats();
+  if(Math.floor(xp/PER_LVL) > before){ toast("Level up! You reached level "+(Math.floor(xp/PER_LVL)+1)); tone("level"); confetti(); }
+}
+let actx;
+function tone(kind){
+  try{
+    actx = actx || new (window.AudioContext||window.webkitAudioContext)();
+    const seq = {right:[660,880],wrong:[220,180],flip:[520],level:[523,659,784,1047],reveal:[740]}[kind]||[600];
+    seq.forEach((f,i)=>{
+      const o=actx.createOscillator(), g=actx.createGain();
+      o.type = kind==="wrong"?"sawtooth":"sine"; o.frequency.value=f;
+      const t=actx.currentTime+i*0.09;
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.12,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+0.18);
+      o.connect(g).connect(actx.destination); o.start(t); o.stop(t+0.2);
+    });
+  }catch(e){}
+}
+let toastT;
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove("show"),2200);}
+function confetti(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c=document.getElementById("confetti"),x=c.getContext("2d");
+  c.width=innerWidth;c.height=innerHeight;
+  const cols=["#C9A227","#16233F","#EFE1B0","#2E7550","#FFFFFF"];
+  const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.4,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:4+Math.random()*5,a:Math.random()*6,col:cols[Math.floor(Math.random()*cols.length)]}));
+  let f=0;(function draw(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.col;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);x.restore()});if(++f<170)requestAnimationFrame(draw);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+/* ---------- STUDY GUIDE ---------- */
+const L = "abcde";
+function answerText(n){const q=Q[n];return q.t==="tf"?TF[q.a]:L[q.a]+". "+q.o[q.a];}
+function optsHTML(q){
+  if(q.t==="tf") return `<ul class="opts"><li>a. True</li><li>b. False</li></ul>`;
+  return `<ul class="opts">${q.o.map((o,i)=>`<li>${L[i]}. ${o}</li>`).join("")}</ul>`;
+}
+function ansHTML(n){
+  const q=Q[n]; const isF = q.t==="tf" && q.a===1;
+  return `<p class="verdict">Answer:<span class="tag ${isF?"f":""}">${answerText(n)}</span></p>`+
+    (q.fix?`<p class="fix">${q.fix}</p>`:"")+
+    `<p class="why">${q.why}</p>`+
+    (q.trap?`<p class="trap"><strong>Exam trap:</strong> ${q.trap}</p>`:"");
+}
+function buildGuide(){
+  const g=document.getElementById("guide"), nav=document.getElementById("chnav");
+  CHAPTERS.forEach(ch=>{
+    nav.insertAdjacentHTML("beforeend",`<a href="#${ch.id}">${ch.title.split(":")[0]}</a>`);
+    let h=`<section class="chapter" id="${ch.id}"><h2>${ch.title}</h2><p class="chsub">${ch.sub}</p>`;
+    ch.topics.forEach(tp=>{
+      h+=`<div class="topic"><h3>${tp.h}</h3><div class="core">${tp.core}</div>`;
+      tp.qs.forEach(n=>{
+        const q=Q[n];
+        h+=`<article class="q" id="q${n}"><div class="qn">${n}</div><div><p class="stem">${q.q}</p>${optsHTML(q)}
+        <button class="reveal" aria-expanded="false" aria-controls="a${n}" data-n="${n}">Show answer</button>
+        <div class="ans" id="a${n}" hidden>${ansHTML(n)}</div></div></article>`;
+      });
+      h+=`</div>`;
+    });
+    g.insertAdjacentHTML("beforeend",h+"</section>");
+  });
+  g.addEventListener("click",e=>{
+    const b=e.target.closest(".reveal"); if(!b) return;
+    const n=b.dataset.n, box=document.getElementById("a"+n), open=b.getAttribute("aria-expanded")==="true";
+    setOpen(b,box,!open);
+    if(!open && !revealed.has(n)){revealed.add(n);store.set("rev",[...revealed]);gain(10);tone("reveal");}
+  });
+  let all=false;
+  document.getElementById("showAll").addEventListener("click",e=>{
+    all=!all; e.target.textContent=all?"Hide all answers":"Show all answers";
+    document.querySelectorAll(".reveal").forEach(b=>setOpen(b,document.getElementById("a"+b.dataset.n),all));
+  });
+}
+function setOpen(b,box,open){box.hidden=!open;b.setAttribute("aria-expanded",open);b.textContent=open?"Hide answer":"Show answer";}
+
+/* ---------- FLASHCARDS ---------- */
+function buildCards(order){
+  const el=document.getElementById("cards"); el.innerHTML="";
+  order.forEach(i=>{
+    const [t,d]=CARDS[i];
+    el.insertAdjacentHTML("beforeend",`<button class="card" data-i="${i}" aria-label="Flashcard: ${t}. Tap to flip."><div class="card-in"><div class="face front"><b>${t}</b><span>Tap to flip</span></div><div class="face back">${d}</div></div></button>`);
+  });
+}
+document.getElementById("cards").addEventListener("click",e=>{
+  const c=e.target.closest(".card"); if(!c) return;
+  c.classList.toggle("flip"); tone("flip");
+  const i=c.dataset.i; if(!flipped.has(i)){flipped.add(i);store.set("flip",[...flipped]);gain(5);}
+});
+document.getElementById("shuffleCards").addEventListener("click",()=>buildCards(shuffle(CARDS.map((_,i)=>i))));
+
+/* ---------- QUIZ ---------- */
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let qz={order:[],i:0,right:0,missed:[]};
+function startQuiz(){qz={order:shuffle(Object.keys(Q).map(Number)),i:0,right:0,missed:[]};renderQ();}
+function renderQ(){
+  const box=document.getElementById("quiz");
+  if(qz.i>=qz.order.length) return endQuiz();
+  const n=qz.order[qz.i], q=Q[n], opts=q.t==="tf"?TF:q.o, total=qz.order.length;
+  box.innerHTML=`<div class="qz-prog"><span>Question ${qz.i+1} of ${total}</span><span>${qz.right} correct</span></div>
+  <div class="qz-bar"><div style="width:${qz.i/total*100}%"></div></div>
+  <p class="qz-stem">${q.q}</p><div class="qz-opts">${opts.map((o,i)=>`<button class="qz-opt" data-i="${i}">${L[i]}. ${o}</button>`).join("")}</div>
+  <div class="qz-fb" id="fb"></div>`;
+  box.querySelectorAll(".qz-opt").forEach(b=>b.addEventListener("click",()=>pick(n,+b.dataset.i)));
+  box.querySelector(".qz-opt").focus({preventScroll:true});
+}
+function pick(n,i){
+  const q=Q[n], ok=i===q.a, btns=document.querySelectorAll(".qz-opt");
+  btns.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add("right");else if(j===i)b.classList.add("wrong");});
+  if(ok){qz.right++;gain(20,1);tone("right");} else {qz.missed.push(n);tone("wrong");}
+  const last=qz.i===qz.order.length-1;
+  document.getElementById("fb").innerHTML=`<p class="verdict">${ok?"Correct.":"Not quite."} ${q.k}</p>${q.fix?`<p class="fix">${q.fix}</p>`:""}
+  <div class="qz-actions"><button class="btn" id="next">${last?"See results":"Next question"}</button></div>`;
+  const nx=document.getElementById("next"); nx.focus(); nx.addEventListener("click",()=>{qz.i++;renderQ();});
+}
+function endQuiz(){
+  const total=qz.order.length, pct=Math.round(qz.right/total*100);
+  if(pct>=80){confetti();tone("level");gain(50,5);}
+  const msg=pct>=90?"Exam ready. Review anything you missed once more and get some sleep.":pct>=80?"Strong. Go back over the missed questions below, then take it again.":"Keep going. Reread the concept blocks for the questions below, then retake the test.";
+  document.getElementById("quiz").innerHTML=`<p class="score">${pct}%</p><p><strong>${qz.right} of ${total} correct.</strong> ${msg}</p>
+  ${qz.missed.length?`<p style="margin-bottom:0">Review these in the study guide:</p><ul class="missed">${qz.missed.sort((a,b)=>a-b).map(n=>`<li><a href="#q${n}" data-go="${n}">Question ${n}: ${Q[n].q}</a></li>`).join("")}</ul>`:""}
+  <div class="qz-actions"><button class="btn gold" id="again">Take the test again</button></div>`;
+  document.getElementById("again").addEventListener("click",startQuiz);
+  document.querySelectorAll("[data-go]").forEach(a=>a.addEventListener("click",e=>{
+    e.preventDefault(); show("guide"); const n=a.dataset.go;
+    setOpen(document.querySelector(`.reveal[data-n="${n}"]`),document.getElementById("a"+n),true);
+    document.getElementById("q"+n).scrollIntoView({behavior:"smooth"});
+  }));
+}
+
+/* ---------- TABS ---------- */
+function show(v){
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));
+  ["guide","cards","quiz"].forEach(id=>document.getElementById("view-"+id).hidden=id!==v);
+  window.scrollTo({top:0});
+}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>show(t.dataset.view)));
+
+buildGuide(); buildCards(CARDS.map((_,i)=>i)); startQuiz(); renderStats();
+</script>
+</body>
+</html>
