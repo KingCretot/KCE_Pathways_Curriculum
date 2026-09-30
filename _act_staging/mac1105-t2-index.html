@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>College Algebra Test 2 Study Guide | KingCretot Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --navy-2:#1B3358; --gold:#C9A84C; --gold-soft:#EFE3BD;
+  --blue:#0047BA; --red:#DB2F30;
+  --cream:#FBF7EC; --paper:#FFFFFF; --ink:#1C2230; --muted:#5A6275;
+  --ok:#2E7550; --line:#E4DCC6;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(120px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff;box-shadow:0 2px 0 var(--gold)}
+.bar-in{max-width:880px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.mark{width:38px;height:38px;border:3px double var(--gold);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:15px}
+.brand b{font-family:var(--serif);font-size:17px;letter-spacing:.2px;color:var(--gold)}
+.tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.4px;margin-top:1px}
+.tag .e1{color:var(--blue)} .tag .e2{color:var(--gold)} .tag .e3{color:var(--red)}
+.stats{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600}
+.xp{display:flex;align-items:center;gap:8px}
+.xp-track{width:120px;height:9px;background:rgba(255,255,255,.18);border-radius:9px;overflow:hidden}
+.xp-fill{height:100%;width:0;background:var(--gold);transition:width .4s ease}
+.coin{display:inline-flex;align-items:center;gap:5px}
+.coin i{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F2DC93,var(--gold) 60%,#8E7430);display:inline-block}
+.tabs{max-width:880px;margin:0 auto;padding:0 18px;display:flex;gap:4px}
+.tab{background:none;border:0;color:#C9D0E0;padding:10px 14px 12px;font-weight:600;font-size:14px;border-bottom:3px solid transparent}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold)}
+
+main{max-width:880px;margin:0 auto;padding:0 18px 80px}
+
+/* Deck (click-next) */
+.deck{background:var(--paper);border:1px solid var(--line);border-radius:6px;margin-top:26px;overflow:hidden}
+.deck-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 22px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.sec-pill{background:var(--navy);color:#fff;border-radius:20px;padding:3px 12px;font-size:12px}
+.deck-bar{height:5px;background:var(--line)}
+.deck-bar div{height:100%;background:var(--gold);width:0;transition:width .3s}
+.slide{padding:28px 30px 10px;min-height:380px}
+.slide h1{font-family:var(--serif);font-size:clamp(30px,5.5vw,46px);line-height:1.08;margin:0 0 12px;color:var(--navy)}
+.slide h2{font-family:var(--serif);font-size:28px;line-height:1.15;color:var(--navy);margin:0 0 12px}
+.slide p{margin:0 0 12px;max-width:66ch}
+.slide ul,.slide ol{margin:0 0 12px;padding-left:22px;max-width:64ch}
+.slide li{margin-bottom:6px}
+.for{color:var(--muted);font-size:15px}
+.for strong{color:var(--ink)}
+.rule{background:var(--cream);border-left:4px solid var(--gold);padding:12px 16px;margin:10px 0 14px;max-width:66ch}
+.rule b{color:var(--navy)}
+.m{font-weight:600;white-space:nowrap}
+.big{font-size:20px;font-weight:600;color:var(--navy);margin:8px 0 12px}
+.steps{list-style:none;padding:0;margin:8px 0 12px}
+.slide .steps{padding-left:0}
+.steps li{padding:9px 14px;border:1px solid var(--line);border-radius:4px;margin-bottom:6px;background:var(--paper)}
+.steps li.hid{display:none}
+.steps li b{color:var(--navy)}
+.trap{margin:10px 0 12px;font-size:14px;background:var(--gold-soft);padding:10px 13px;border-radius:4px;max-width:66ch}
+.trap b{color:var(--red)}
+.pw{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--navy);margin:6px 0 12px;font-size:17px}
+.pw .br{font-size:calc(var(--n) * 1.25em);line-height:1;font-weight:300;transform:scaleX(.7)}
+.pw .rows{display:grid;grid-template-columns:auto auto;column-gap:18px;row-gap:2px}
+.pw .rows span:nth-child(even){font-weight:500;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fig{text-align:center;font-size:13px;color:var(--muted);font-weight:600}
+.fig svg{width:100%;max-width:250px;height:auto;display:block;margin:0 auto 4px;background:#fff;border:1px solid var(--line)}
+table.mini{border-collapse:collapse;width:100%;font-size:14px;margin:6px 0 12px}
+.tblwrap{overflow-x:auto}
+table.mini th,table.mini td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+table.mini th{background:var(--navy);color:#fff;font-weight:600}
+.deck-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 22px 20px}
+.btn{border:2px solid var(--navy);background:var(--navy);color:#fff;padding:9px 18px;border-radius:6px;font-weight:600;font-size:14px}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn:disabled{opacity:.35;cursor:default}
+.small{font-size:13px;color:var(--muted)}
+
+/* Check-ins and quiz */
+.qz-stem{font-size:18px;font-weight:600;margin:0 0 14px}
+.qz-opts{display:grid;gap:8px;max-width:560px}
+.qz-opt{text-align:left;background:var(--cream);border:2px solid var(--line);border-radius:6px;padding:11px 14px;font-size:16px;color:var(--ink)}
+.qz-opt:hover:not(:disabled){border-color:var(--navy)}
+.qz-opt.right{border-color:var(--ok);background:#E7F2EB}
+.qz-opt.wrong{border-color:var(--red);background:#FAE5E5}
+.qz-opt:disabled{cursor:default}
+.fb{margin-top:14px;max-width:66ch}
+.verdict{font-weight:700;margin:0 0 8px}
+.verdict.ok{color:var(--ok)} .verdict.no{color:var(--red)}
+.work{background:var(--cream);border-left:4px solid var(--navy);padding:10px 14px;margin:0 0 10px}
+.work p{margin:0 0 6px}
+.qnum{font-family:var(--serif);color:var(--gold);font-size:22px;font-weight:700;margin-right:8px}
+.note{font-size:13.5px;background:#EEF3FB;border-left:4px solid var(--blue);padding:9px 12px;margin:0 0 12px;max-width:66ch}
+.selfcheck{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.selfcheck .btn:disabled{opacity:.35}.selfcheck .btn.chosen{opacity:1;background:var(--navy);color:#fff}
+.score{font-family:var(--serif);font-size:58px;color:var(--navy);margin:0;line-height:1}
+.missed{margin:12px 0 0;padding-left:18px}
+.missed button{background:none;border:0;padding:0;color:var(--navy);font-weight:600;text-decoration:underline;font-size:15px;text-align:left}
+
+/* Flashcards */
+.fc-head{padding:34px 0 6px}
+.fc-head h2{font-family:var(--serif);font-size:34px;color:var(--navy);margin:0 0 6px}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:16px}
+.card{perspective:1000px;height:200px;border:0;background:none;padding:0;text-align:left}
+.card-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .card-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.front{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.front b{font-family:var(--serif);font-size:21px;line-height:1.25}
+.front span{font-size:12px;color:var(--gold-soft);margin-top:8px}
+.back{background:var(--paper);border:1px solid var(--line);transform:rotateY(180deg);font-size:14px;line-height:1.5;overflow:auto}
+
+footer{border-top:2px solid var(--gold);background:var(--navy);color:#C9D0E0;font-size:13px;text-align:center;padding:22px 18px 16px}
+footer b{color:var(--gold);font-family:var(--serif);font-size:16px}
+footer .tag{display:inline;font-size:11.5px}
+.band{display:flex;height:5px}.band i{flex:1}.band .b1{background:var(--blue)}.band .b2{background:var(--gold)}.band .b3{background:var(--red)}
+
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:30px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.25s;border:2px solid var(--gold);z-index:50}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+[hidden]{display:none!important}
+@media (max-width:620px){
+  .xp-track{width:70px}
+  .two,.three{grid-template-columns:1fr}
+  .slide{padding:22px 18px 8px}
+  .deck-nav,.deck-top{padding-left:16px;padding-right:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand"><div class="mark">KC</div><div><b>KingCretot Experience</b><span class="tag"><span class="e1">EDUCATE</span> <span class="e2">·</span> <span class="e2">EMPOWER</span> <span class="e2">·</span> <span class="e3">EXCEL</span></span></div></div>
+    <div class="stats">
+      <div class="xp"><span id="lvl">Lv 1</span><div class="xp-track"><div class="xp-fill" id="xpfill"></div></div><span id="xptext">0 XP</span></div>
+      <span class="coin"><i></i><span id="coins">0</span></span>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-view="lesson">Lesson</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="cards">Flashcards</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="quiz">Practice test</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-lesson">
+    <div class="deck">
+      <div class="deck-top"><span class="sec-pill" id="secPill">Start</span><span id="slideCount"></span></div>
+      <div class="deck-bar"><div id="deckFill"></div></div>
+      <div class="slide" id="slide" aria-live="polite"></div>
+      <div class="deck-nav">
+        <button class="btn ghost" id="back">Back</button>
+        <button class="btn" id="next">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-cards" hidden>
+    <div class="fc-head">
+      <h2>Flashcards</h2>
+      <p>Say the answer out loud before you tap. Tap again to flip back.</p>
+      <button class="btn ghost" id="shuffleCards">Shuffle cards</button>
+    </div>
+    <div class="fc-grid" id="cards"></div>
+  </section>
+
+  <section id="view-quiz" hidden>
+    <div class="deck">
+      <div class="deck-top"><span class="sec-pill" id="qzPill">Practice test</span><span id="qzCount"></span></div>
+      <div class="deck-bar"><div id="qzFill"></div></div>
+      <div class="slide" id="qzSlide" aria-live="polite"></div>
+      <div class="deck-nav">
+        <button class="btn ghost" id="qzBack">Back</button>
+        <button class="btn" id="qzNext">Next</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>KingCretot Experience</b><br>
+  <span class="tag"><span class="e1">EDUCATE</span> <span class="e2">·</span> <span class="e2">EMPOWER</span> <span class="e2">·</span> <span class="e3">EXCEL</span></span><br>
+  PO Box 2322, Arcadia, FL 34265 &nbsp;|&nbsp; www.kingcretot.com &nbsp;|&nbsp; kce@kingcretot.com
+</footer>
+<div class="band"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- GRAPHS ---------- */
+function graph(spec){
+  const R=spec.r||10, RY=spec.ry||R, S=250, pad=8, sc=(S-2*pad)/(2*R), scy=(S-2*pad)/(2*RY);
+  const X=x=>pad+(x+R)*sc, Y=y=>pad+(RY-y)*scy;
+  let g=`<svg viewBox="0 0 ${S} ${S}" role="img" aria-label="${spec.label||'graph'}">`;
+  const gy=spec.gy||1;
+  for(let i=-R;i<=R;i++){const c=i===0?'#0A1F3D':'#ECE6D6', w=i===0?1.6:0.7;
+    g+=`<line x1="${X(i)}" y1="${pad}" x2="${X(i)}" y2="${S-pad}" stroke="${c}" stroke-width="${w}"/>`;}
+  for(let i=-RY;i<=RY;i+=gy){const c=i===0?'#0A1F3D':'#ECE6D6', w=i===0?1.6:0.7;
+    g+=`<line x1="${pad}" y1="${Y(i)}" x2="${S-pad}" y2="${Y(i)}" stroke="${c}" stroke-width="${w}"/>`;}
+  const lab=spec.lab||5, laby=spec.laby||lab;
+  for(let i=-R;i<=R;i+=lab){ if(i===0)continue;
+    g+=`<text x="${X(i)}" y="${Y(0)+13}" font-size="9" text-anchor="middle" fill="#5A6275">${i}</text>`;}
+  for(let i=-RY;i<=RY;i+=laby){ if(i===0||Math.abs(i)>=RY)continue;
+    g+=`<text x="${X(0)-4}" y="${Y(i)+3}" font-size="9" text-anchor="end" fill="#5A6275">${i}</text>`;}
+  const col=spec.color||'#0047BA';
+  (spec.curves||[]).forEach(cv=>{
+    let d='',pen=false;const N=400;
+    for(let k=0;k<=N;k++){
+      let x,y;
+      if(cv.p){const t=cv.t0+(cv.t1-cv.t0)*k/N;[x,y]=cv.p(t);}
+      else{x=cv.a+(cv.b-cv.a)*k/N;y=cv.f(x);}
+      if(!isFinite(y)||Math.abs(y)>RY+0.5||Math.abs(x)>R+0.5){pen=false;continue;}
+      d+=(pen?'L':'M')+X(x).toFixed(1)+' '+Y(y).toFixed(1)+' ';pen=true;
+    }
+    g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linecap="round"/>`;
+  });
+  (spec.dots||[]).forEach(([x,y,open])=>{
+    g+=`<circle cx="${X(x)}" cy="${Y(y)}" r="4.2" fill="${open?'#fff':col}" stroke="${col}" stroke-width="2"/>`;
+  });
+  (spec.vlines||[]).forEach(x=>{g+=`<line x1="${X(x)}" y1="${pad}" x2="${X(x)}" y2="${S-pad}" stroke="#DB2F30" stroke-width="1.8" stroke-dasharray="5 4"/>`;});
+  return g+'</svg>';
+}
+const G={
+  para:{curves:[{f:x=>x*x,a:-10,b:10}],label:'y equals x squared'},
+  sqrt:{curves:[{f:x=>Math.sqrt(x),a:0,b:10}],dots:[[0,0,0]],label:'y equals square root of x'},
+  abs:{curves:[{f:x=>Math.abs(x),a:-10,b:10}],label:'y equals absolute value of x'},
+  q9:{curves:[{f:x=>0.5*(x-2)**2+4,a:-10,b:10}],label:'upward parabola'},
+  q10:{curves:[{p:t=>[0.1*t*t*t-1.2*t+3,t],t0:-7,t1:7}],label:'sideways S-shaped curve'},
+  q12:{curves:[{p:t=>[0.35*(t-2)**2-6,t],t0:-10,t1:10}],label:'sideways parabola opening right, vertex at negative 6, 2'},
+  q13:{curves:[{f:x=>3*(x-1)**2-2,a:-10,b:10}],label:'upward parabola with vertex at 1, negative 2'},
+  q17:{r:6,lab:2,curves:[{f:x=>5,a:1,b:6},{f:x=>-3-x,a:-6,b:1}],dots:[[1,5,0],[1,-4,1]],label:'piecewise graph'},
+  q18:{curves:[{f:x=>3*x+3,a:-10,b:0},{f:x=>3*x*x-2,a:0,b:10}],dots:[[0,3,1],[0,-2,0]],label:'piecewise graph'},
+  q22:{curves:[{f:x=>(x-7)**2+1,a:-10,b:10}],dots:[[7,1,0]],label:'parabola with vertex 7, 1'},
+  q23:{curves:[{f:x=>Math.sqrt(x+3),a:-3,b:10}],dots:[[-3,0,0]],label:'square root curve starting at negative 3, 0'},
+  q24:{curves:[{f:x=>Math.abs(x)-5,a:-10,b:10}],dots:[[0,-5,0]],label:'V shape with vertex 0, negative 5'},
+  q32:{r:6,lab:2,curves:[{f:x=>x-4,a:0,b:6},{f:x=>-2,a:-6,b:0}],dots:[[0,-2,0],[0,-4,1]],label:'piecewise graph'},
+  q33:{r:5,ry:20,gy:4,lab:1,laby:8,curves:[{f:x=>2*x*x,a:-6,b:-1},{f:x=>2,a:-1,b:1},{f:x=>2*x+1,a:1,b:6}],dots:[[-1,2,0],[1,2,1],[1,3,0]],label:'three-piece graph'},
+  q34:{curves:[{f:x=>(x-7)**2-4,a:-10,b:10}],dots:[[7,-4,0]],label:'parabola with vertex 7, negative 4'},
+  q35:{curves:[{f:x=>Math.sqrt(x+7)+4,a:-7,b:10}],dots:[[-7,4,0]],label:'square root curve starting at negative 7, 4'},
+  q36:{curves:[{f:x=>Math.abs(x-7)-4,a:-10,b:10}],dots:[[7,-4,0]],label:'V shape with vertex 7, negative 4'},
+  vlt:{curves:[{p:t=>[0.35*(t-2)**2-6,t],t0:-10,t1:10}],vlines:[-2],label:'vertical line crossing a sideways parabola twice'},
+  shift:{curves:[{f:x=>x*x,a:-10,b:10}],color:'#9AA3B5',label:'shift'},
+};
+function pw(lhs,rows){return `<div class="pw" style="--n:${rows.length}"><span>${lhs} =</span><span class="br">{</span><span class="rows">${rows.map(r=>`<span>${r[0]}</span><span>${r[1]}</span>`).join("")}</span></div>`;}
+function fig(key,cap){return `<div class="fig">${graph(G[key])}${cap||''}</div>`;}
+G.shiftEx={curves:[{f:x=>(x-4)**2+2,a:-10,b:10}],dots:[[4,2,0]],label:'parabola shifted right 4 and up 2'};
+G.reflEx={curves:[{f:x=>-((x+6)**2),a:-10,b:10}],dots:[[-6,0,0]],label:'parabola shifted left 6 and flipped'};
+
+/* ---------- LESSON ---------- */
+const SLIDES=[
+{s:"Start",h:`<h1>College Algebra Test 2</h1>
+<p class="for"><strong>MAC 1105 College Algebra, sections 1.8, 2.3, 2.6 and 2.7</strong><br>Prepared for Adrianna Gomez</p>
+<p>This lesson walks you through every idea on your Test 2 review, in the order your textbook teaches them. Each concept comes with a worked example you open one step at a time, then a quick check so you know it landed.</p>
+<div class="rule"><b>Your plan:</b> work through the lesson, flip the flashcards, then take the practice test. The practice test is your review sheet, all 42 problems, numbered the same way so you can check your paper work against it.</div>
+<p class="small">Press Next to move on. You can always skip a question and come back.</p>`},
+{s:"Start",h:`<h2>What's on Test 2</h2>
+<div class="tblwrap"><table class="mini">
+<tr><th>Section</th><th>Topic</th><th>Review problems</th></tr>
+<tr><td>1.8</td><td>Absolute value equations and inequalities</td><td>1–7, 37–39</td></tr>
+<tr><td>2.3</td><td>Functions: tests, domain and range, evaluating, f(x) notation</td><td>8–15, 26–29</td></tr>
+<tr><td>2.6</td><td>Piecewise functions: evaluating and graphing</td><td>16–18, 30–33</td></tr>
+<tr><td>2.7</td><td>Transformations of graphs, even and odd functions</td><td>19–25, 34–36, 40–42</td></tr>
+</table></div>
+<p>Problems 1–25 earn the extra credit on your sheet. Problems 26–42 are optional practice, and they're worth doing: they're the same skills with new numbers.</p>`},
+
+{s:"1.8 Absolute value",h:`<h2>What absolute value means</h2>
+<p><span class="m">|x|</span> is the <b>distance</b> from x to 0 on the number line. Distance is never negative.</p>
+<div class="big">|5| = 5 &nbsp;&nbsp; |−5| = 5 &nbsp;&nbsp; |0| = 0</div>
+<p>So when you see <span class="m">|x| = 3</span>, you're really asking: which numbers are 3 steps from zero? There are two: 3 and −3. That's why absolute value equations usually have <b>two</b> answers.</p>
+<div class="rule"><b>The core rule.</b> If <span class="m">|A| = k</span> and k is positive, then <span class="m">A = k</span> or <span class="m">A = −k</span>.</div>
+<div class="trap"><b>First, isolate.</b> Get the absolute value alone on one side before you split it. In <span class="m">|x − 4| + 8 = 13</span>, subtract 8 first.</div>`},
+{s:"1.8 Absolute value",h:`<h2>Worked example: <span class="m">|2x + 2| = 1</span></h2>
+<ol class="steps" data-steps>
+<li><b>Is it isolated?</b> Yes, the absolute value is alone on the left.</li>
+<li><b>Split into two equations:</b> <span class="m">2x + 2 = 1</span> &nbsp;or&nbsp; <span class="m">2x + 2 = −1</span></li>
+<li><b>Solve the first:</b> 2x = −1, so x = −1/2</li>
+<li><b>Solve the second:</b> 2x = −3, so x = −3/2</li>
+<li><b>Answer:</b> <span class="m">{ −1/2, −3/2 }</span>. Check one: |2(−1/2) + 2| = |1| = 1 ✓</li>
+</ol>
+<button class="btn gold" data-reveal>Show next step</button>`},
+{s:"1.8 Absolute value",h:`<h2>Special cases you'll see</h2>
+<div class="tblwrap"><table class="mini">
+<tr><th>Equation</th><th>What happens</th><th>Answer</th></tr>
+<tr><td><span class="m">|A| = 5</span></td><td>Two possibilities</td><td>A = 5 or A = −5</td></tr>
+<tr><td><span class="m">|A| = 0</span></td><td>Only zero is 0 steps from zero</td><td>A = 0 (one answer)</td></tr>
+<tr><td><span class="m">|A| = −2</span></td><td>A distance can't be negative</td><td>∅ (no solution)</td></tr>
+<tr><td><span class="m">|A| = |B|</span></td><td>Same distance from zero</td><td>A = B or A = −B</td></tr>
+</table></div>
+<p><b>Two absolute values:</b> for <span class="m">|3x + 6| = |4x + 9|</span>, the insides are either equal or opposite.</p>
+<ol class="steps" data-steps>
+<li><b>Equal:</b> 3x + 6 = 4x + 9 → −x = 3 → x = −3</li>
+<li><b>Opposite:</b> 3x + 6 = −(4x + 9) = −4x − 9 → 7x = −15 → x = −15/7</li>
+<li><b>Answer:</b> <span class="m">{ −3, −15/7 }</span></li>
+</ol>
+<button class="btn gold" data-reveal>Show next step</button>
+<div class="trap"><b>Watch the parentheses.</b> The negative goes on the <i>whole</i> right side: −(4x + 9), not −4x + 9.</div>`},
+{s:"1.8 Absolute value",h:`<h2>Absolute value inequalities</h2>
+<p>Now the question is "which numbers are <b>less than</b> or <b>more than</b> a certain distance from zero?"</p>
+<div class="two">
+<div class="rule"><b>Less than: stay inside.</b><br><span class="m">|A| &lt; k</span> means <span class="m">−k &lt; A &lt; k</span><br>One interval, in between.<br><i>Think: "less thAND."</i></div>
+<div class="rule"><b>Greater than: go outside.</b><br><span class="m">|A| &gt; k</span> means <span class="m">A &lt; −k</span> or <span class="m">A &gt; k</span><br>Two pieces, joined with ∪.<br><i>Think: "greatOR."</i></div>
+</div>
+<p><b>Example:</b> <span class="m">|x + 2| &lt; 3</span> → −3 &lt; x + 2 &lt; 3 → subtract 2 from all three parts → −5 &lt; x &lt; 1 → <span class="m">(−5, 1)</span></p>
+<p><b>Interval notation:</b> parentheses ( ) for &lt; and &gt;, brackets [ ] for ≤ and ≥, and always a parenthesis next to ∞.</p>`},
+{s:"1.8 Absolute value",h:`<h2>Worked example: <span class="m">|−9 − 8x| &gt; 4</span></h2>
+<ol class="steps" data-steps>
+<li><b>Tidy the inside (optional).</b> |−9 − 8x| = |8x + 9|, because flipping every sign inside doesn't change the distance.</li>
+<li><b>Greater than means two pieces:</b> 8x + 9 &gt; 4 &nbsp;or&nbsp; 8x + 9 &lt; −4</li>
+<li><b>First piece:</b> 8x &gt; −5 → x &gt; −5/8</li>
+<li><b>Second piece:</b> 8x &lt; −13 → x &lt; −13/8</li>
+<li><b>Answer:</b> <span class="m">(−∞, −13/8) ∪ (−5/8, ∞)</span>. Write the leftmost piece first.</li>
+</ol>
+<button class="btn gold" data-reveal>Show next step</button>
+<div class="trap"><b>Dividing by a negative flips the sign.</b> If you kept −8x instead, you'd divide by −8, so &gt; becomes &lt;. Rewriting as |8x + 9| avoids that trap.</div>`},
+{s:"1.8 Absolute value",h:`<h2>The trick questions</h2>
+<p>When the right side is <b>negative</b>, stop and think before solving anything.</p>
+<div class="tblwrap"><table class="mini">
+<tr><th>Inequality</th><th>Reasoning</th><th>Answer</th></tr>
+<tr><td><span class="m">|9x + 5| &gt; −2</span></td><td>A distance is always ≥ 0, which is always bigger than −2</td><td><span class="m">(−∞, ∞)</span></td></tr>
+<tr><td><span class="m">|8x − 9| ≤ −8</span></td><td>A distance can never be negative</td><td>∅</td></tr>
+</table></div>
+<p>Your review has two of these, problems 6 and 7. They're free points once you spot them.</p>`},
+{s:"1.8 Absolute value",q:{q:"Solve |x − 3| < 2.",o:["(1, 5)","(−∞, 1) ∪ (5, ∞)","(−5, −1)","[1, 5]"],a:0,w:"Less than means stay inside: −2 < x − 3 < 2. Add 3 to all three parts: 1 < x < 5, which is (1, 5). Parentheses, because the sign is < and not ≤."}},
+
+{s:"2.3 Functions",h:`<h2>What makes a relation a function</h2>
+<p>A <b>relation</b> is any set of ordered pairs (x, y). It's a <b>function</b> when every x has exactly <b>one</b> y.</p>
+<div class="rule"><b>From a list of points:</b> look for a repeated x with different y's. In <span class="m">{(−4, 1), (−3, −6), (3, −5), (3, 6)}</span>, the x-value 3 goes to both −5 and 6, so it is <b>not</b> a function.</div>
+<div class="two">
+<div><div class="rule"><b>From a graph: the vertical line test.</b> If any vertical line hits the graph more than once, it's not a function.</div>
+<p>Upward parabolas pass. Sideways curves fail.</p></div>
+${fig('vlt','The dashed line hits the curve twice: not a function')}
+</div>`},
+{s:"2.3 Functions",h:`<h2>Domain and range</h2>
+<p><b>Domain</b> = all the x-values used. <b>Range</b> = all the y-values used.</p>
+<p><b>From points</b> <span class="m">{(1, 8), (−1, −9), (−6, −5), (4, −9)}</span>: list each x once and each y once, smallest to largest.<br>Domain {−6, −1, 1, 4} &nbsp; Range {−9, −5, 8}. The −9 appears twice but you list it once.</p>
+<div class="two">
+<div><p><b>From a graph:</b> squash the graph onto the x-axis to read the domain, then onto the y-axis for the range.</p>
+<p>This parabola goes forever left and right, so the domain is <span class="m">(−∞, ∞)</span>. Its lowest point is y = −2 and it rises forever, so the range is <span class="m">[−2, ∞)</span>.</p>
+<p class="small">Use a bracket when the endpoint is actually on the graph.</p></div>
+${fig('q13','Domain (−∞, ∞), range [−2, ∞)')}
+</div>`},
+{s:"2.3 Functions",h:`<h2>Evaluating and function notation</h2>
+<p><b>f(4)</b> means "replace every x with 4." Use parentheses every time.</p>
+<p>For <span class="m">f(x) = x² − 3x − 6</span>: &nbsp; f(4) = (4)² − 3(4) − 6 = 16 − 12 − 6 = <b>−2</b></p>
+<p><b>f(−x)</b> means replace x with (−x): for <span class="m">f(x) = −2x² − 5x + 2</span>,<br>f(−x) = −2(−x)² − 5(−x) + 2 = <b>−2x² + 5x + 2</b>. The squared term keeps its sign; the x-term flips.</p>
+<div class="rule"><b>Rewriting with f(x):</b> solve for y, then swap y for f(x).<br>x − 2y = 16 → −2y = −x + 16 → y = (1/2)x − 8 → <span class="m">f(x) = (1/2)x − 8</span></div>
+<div class="trap"><b>Squaring negatives:</b> (−2)² = 4, but −2² = −4. Parentheses keep the sign inside.</div>`},
+{s:"2.3 Functions",q:{q:"If f(x) = 5x² + 5x + 3, what is f(−2)?",o:["13","33","7","−7"],a:0,w:"f(−2) = 5(−2)² + 5(−2) + 3 = 5(4) − 10 + 3 = 20 − 10 + 3 = 13. The most common slip is 5(−2) = +10, which gives 33."}},
+
+{s:"2.6 Piecewise",h:`<h2>Piecewise functions: evaluating</h2>
+<p>A piecewise function uses different rules for different x-values. Your only job is to pick the right rule.</p>
+${pw("f(x)",[["4x","if x ≤ −1"],["x − 9","if x &gt; −1"]])}
+<ol class="steps" data-steps>
+<li><b>Find f(−1).</b> Which condition does −1 satisfy? −1 ≤ −1 is true, so use the first rule.</li>
+<li><b>Plug in:</b> 4(−1) = <b>−4</b></li>
+<li><b>Ignore the other rule</b> completely. Only one piece ever applies to a given x.</li>
+</ol>
+<button class="btn gold" data-reveal>Show next step</button>
+<div class="trap"><b>Read every condition.</b> In problem 31, f(8) doesn't fit "x &lt; 1" but does fit "8 ≤ x ≤ 13," so the answer is 8(8) = 64.</div>`},
+{s:"2.6 Piecewise",h:`<h2>Piecewise functions: graphing</h2>
+<div class="two">
+<div>${pw("f(x)",[["5","if x ≥ 1"],["−3 − x","if x &lt; 1"]])}
+<ol>
+<li>Graph each rule only on its own interval.</li>
+<li>At the break point x = 1, work out both y-values: the first rule gives 5, the second gives −3 − 1 = −4.</li>
+<li><b>Closed dot</b> ● where the sign includes the point (≤ or ≥). <b>Open dot</b> ○ where it doesn't (&lt; or &gt;).</li>
+</ol>
+<p>So (1, 5) is closed and (1, −4) is open.</p></div>
+${fig('q17','Problem 17')}
+</div>
+<div class="trap"><b>Check your dots.</b> A vertical line at the break point should hit exactly one closed dot, or the graph isn't a function.</div>`},
+{s:"2.6 Piecewise",q:{q:"What is f(5)?",pw:[["2x + 6","if x ≤ 0"],["4 − 4x","if 0 &lt; x &lt; 4"],["x","if x ≥ 4"]],o:["5","−16","16","−14"],a:0,w:"5 fits only the last condition, x ≥ 4, so f(5) = 5. −16 comes from using the middle rule and 16 from the first."}},
+
+{s:"2.7 Transformations",h:`<h2>Your three parent graphs</h2>
+<p>Every graphing question on this test is one of these three, moved around.</p>
+<div class="three">${fig('para','y = x²')}${fig('sqrt','y = √x')}${fig('abs','y = |x|')}</div>
+<p>Know each one's key point: the <b>vertex</b> (0, 0) of the parabola and the V, and the <b>starting point</b> (0, 0) of the square root.</p>`},
+{s:"2.7 Transformations",h:`<h2>Shifts and reflections</h2>
+<div class="rule"><b>y = f(x − h) + k</b> moves the key point from (0, 0) to <b>(h, k)</b>.</div>
+<div class="tblwrap"><table class="mini">
+<tr><th>You see</th><th>It moves</th><th>Memory hook</th></tr>
+<tr><td>(x − 4)²</td><td>Right 4</td><td>Inside the function, the sign lies: minus goes right</td></tr>
+<tr><td>(x + 6)²</td><td>Left 6</td><td>Plus goes left</td></tr>
+<tr><td>x² + 7</td><td>Up 7</td><td>Outside, the sign tells the truth</td></tr>
+<tr><td>x² − 4</td><td>Down 4</td><td></td></tr>
+<tr><td>−x²</td><td>Reflects across the x-axis</td><td>A minus in front flips it upside down</td></tr>
+</table></div>
+<div class="two">${fig('shiftEx','y = (x − 4)² + 2: right 4, up 2')}${fig('reflEx','y = −(x + 6)²: left 6, flipped')}</div>`},
+{s:"2.7 Transformations",h:`<h2>Graphing a transformed function</h2>
+<p><b>y = √(x + 3)</b></p>
+<ol class="steps" data-steps>
+<li><b>Parent:</b> √x starts at (0, 0) and curves up and to the right.</li>
+<li><b>Inside is +3:</b> shift left 3. The start moves to (−3, 0).</li>
+<li><b>Plot two easy points:</b> x = −2 gives √1 = 1, so (−2, 1). x = 1 gives √4 = 2, so (1, 2).</li>
+<li><b>Draw</b> from the closed starting dot through those points.</li>
+</ol>
+<button class="btn gold" data-reveal>Show next step</button>
+<div data-after hidden>${fig('q23','Problem 23: y = √(x + 3)')}</div>`},
+{s:"2.7 Transformations",q:{q:"How does f(x) = (x − 6)² + 7 relate to y = x²?",o:["Right 6 and up 7","Left 6 and up 7","Right 6 and down 7","Right 7 and up 6"],a:0,w:"Inside, x − 6 moves the graph right 6 (the sign inside is opposite). Outside, + 7 moves it up 7. The new vertex is (6, 7)."}},
+{s:"2.7 Even and odd",h:`<h2>Even, odd, or neither</h2>
+<p>Find f(−x) and compare it to f(x).</p>
+<div class="tblwrap"><table class="mini">
+<tr><th>If f(−x) equals…</th><th>The function is</th><th>Its graph</th></tr>
+<tr><td>f(x), exactly the same</td><td><b>Even</b></td><td>Mirror image across the y-axis</td></tr>
+<tr><td>−f(x), every sign flipped</td><td><b>Odd</b></td><td>Symmetric through the origin</td></tr>
+<tr><td>Anything else</td><td><b>Neither</b></td><td></td></tr>
+</table></div>
+<div class="rule"><b>Polynomial shortcut.</b> Look at the exponents. A constant counts as x⁰, which is even.<br>All even powers → <b>even</b>: x⁴ − 2x² − 3<br>All odd powers, no constant → <b>odd</b>: −3x⁵ − 8x³<br>A mix → <b>neither</b>: −5x³ + 8x² − 5</div>`},
+{s:"2.7 Even and odd",q:{q:"Is f(x) = −3x³ + 6x² + 2 even, odd, or neither?",o:["Even","Odd","Neither"],a:2,w:"The exponents are 3 (odd), 2 (even), and the constant (even). It's a mix, so neither. Check: f(−x) = 3x³ + 6x² + 2, which is neither f(x) nor −f(x)."}},
+
+{s:"Exam strategy",h:`<h2>Test-day checklist</h2>
+<ul>
+<li><b>Absolute value:</b> isolate first. Negative on the right? Stop: it's ∅ or all real numbers.</li>
+<li><b>Inequalities:</b> less than = one interval in between. Greater than = two pieces with ∪. Flip the sign when you divide by a negative.</li>
+<li><b>Functions:</b> repeated x with different y = not a function. Vertical line test on graphs.</li>
+<li><b>Domain and range:</b> brackets when the endpoint is on the graph, parentheses at ∞.</li>
+<li><b>Evaluating:</b> parentheses around every substituted number, especially negatives.</li>
+<li><b>Piecewise:</b> pick the rule by its condition. Open vs. closed dots at every break.</li>
+<li><b>Transformations:</b> inside moves left/right (opposite sign), outside moves up/down, a minus in front flips.</li>
+<li><b>Even/odd:</b> check the exponents; constants count as even.</li>
+</ul>
+<div class="note"><b>A note on your review sheet:</b> problem 37 is misprinted. It shows |−8x| &gt; 4, but the answer key matches <b>|9 − 8x| &gt; 4</b>. The practice test uses the corrected version.</div>`},
+{s:"Finish",h:`<h1>You're ready to practice</h1>
+<p>You've covered every idea on Test 2. Now prove it to yourself.</p>
+<ol><li>Flip through the <b>Flashcards</b> until you can say every answer without looking.</li>
+<li>Take the <b>Practice test</b>. It's your review sheet, all 42 problems in order, with the full solution after each one.</li>
+<li>Rework anything you miss on paper, then take the test again.</li></ol>`}
+];
+
+let si=0;
+function renderSlide(){
+  const sl=SLIDES[si], box=document.getElementById("slide");
+  document.getElementById("secPill").textContent=sl.s;
+  document.getElementById("slideCount").textContent=`${si+1} of ${SLIDES.length}`;
+  document.getElementById("deckFill").style.width=((si+1)/SLIDES.length*100)+"%";
+  document.getElementById("back").disabled=si===0;
+  document.getElementById("next").textContent=si===SLIDES.length-1?"Practice test":"Next";
+  if(sl.q){box.innerHTML=mcHTML(sl.q,"Quick check");wireMC(box,sl.q,false);}
+  else box.innerHTML=sl.h;
+  box.querySelectorAll("[data-steps]").forEach(ol=>{
+    const items=[...ol.children]; items.forEach((li,i)=>{if(i>0)li.classList.add("hid")});
+    const btn=ol.parentElement.querySelector("[data-reveal]");
+    if(btn) btn.addEventListener("click",()=>{const h=ol.querySelector(".hid");if(h){h.classList.remove("hid");tone("reveal");}
+      if(!ol.querySelector(".hid")){btn.textContent="All steps shown";btn.disabled=true;box.querySelectorAll("[data-after]").forEach(d=>d.hidden=false);}});
+  });
+  const gq=document.getElementById("goQuiz"); if(gq) gq.addEventListener("click",()=>show("quiz"));
+  window.scrollTo({top:0});
+}
+document.getElementById("back").addEventListener("click",()=>{if(si>0){si--;renderSlide();}});
+document.getElementById("next").addEventListener("click",()=>{if(si<SLIDES.length-1){si++;renderSlide();}else show("quiz");});
+
+/* ---------- SHARED MC ---------- */
+function mcHTML(q,label){
+  return `${label?`<p class="small" style="margin-bottom:6px"><b>${label}</b></p>`:""}<p class="qz-stem">${q.q}</p>${q.pw?pw("f(x)",q.pw):""}
+  ${q.g?`<div style="max-width:260px;margin:0 0 14px">${fig(q.g)}</div>`:""}
+  <div class="qz-opts">${q.o.map((o,i)=>`<button class="qz-opt" data-i="${i}">${o}</button>`).join("")}</div><div class="fb"></div>`;
+}
+function wireMC(box,q,scored,onDone,noXP){
+  box.querySelectorAll(".qz-opt").forEach(b=>b.addEventListener("click",()=>{
+    const i=+b.dataset.i, ok=i===q.a;
+    box.querySelectorAll(".qz-opt").forEach((x,j)=>{x.disabled=true;if(j===q.a)x.classList.add("right");else if(j===i)x.classList.add("wrong");});
+    if(ok){if(!noXP)gain(scored?20:10,1);tone("right");}else tone("wrong");
+    box.querySelector(".fb").innerHTML=`<p class="verdict ${ok?"ok":"no"}">${ok?"Correct.":"Not quite."}</p><div class="work"><p>${q.w}</p></div>`;
+    if(onDone) onDone(ok);
+  }));
+}
+
+/* ---------- PRACTICE TEST (review sheet, 1–42) ---------- */
+const P=[
+{n:1,sec:"1.8",q:"Solve: |2x + 2| = 1",o:["{−1/2, −3/2}","{1/2, 3/2}","{−1/2}","∅"],a:0,w:"2x + 2 = 1 gives x = −1/2. 2x + 2 = −1 gives x = −3/2."},
+{n:2,sec:"1.8",q:"Solve: |3x + 6| = |4x + 9|",o:["{−3, −15/7}","{3, 15/7}","{−3}","{−3, −3/7}"],a:0,w:"Equal insides: 3x + 6 = 4x + 9, so x = −3. Opposite insides: 3x + 6 = −4x − 9, so 7x = −15 and x = −15/7."},
+{n:3,sec:"1.8",q:"Solve: |x − 4| + 8 = 13",o:["{9, −1}","{17, −9}","{9}","{−9, 1}"],a:0,w:"Isolate first: |x − 4| = 5. Then x − 4 = 5 gives 9, and x − 4 = −5 gives −1. {17, −9} is what you get if you forget to subtract the 8."},
+{n:4,sec:"1.8",q:"Solve and write in interval notation: |−9 − 8x| > 4",o:["(−∞, −13/8) ∪ (−5/8, ∞)","(−13/8, −5/8)","(−∞, 5/8) ∪ (13/8, ∞)","(−∞, −5/8) ∪ (13/8, ∞)"],a:0,w:"|−9 − 8x| = |8x + 9|. Greater than means two pieces: 8x + 9 > 4 gives x > −5/8, and 8x + 9 < −4 gives x < −13/8."},
+{n:5,sec:"1.8",q:"Solve and write in interval notation: |x + 2| < 3",o:["(−5, 1)","(−∞, −5) ∪ (1, ∞)","(−1, 5)","[−5, 1]"],a:0,w:"−3 < x + 2 < 3. Subtract 2 from all three parts: −5 < x < 1."},
+{n:6,sec:"1.8",q:"Solve and write in interval notation: |9x + 5| > −2",o:["(−∞, ∞)","∅","(−7/9, −1/3)","(−∞, −7/9) ∪ (−1/3, ∞)"],a:0,w:"An absolute value is never negative, so it is always greater than −2. Every real number works."},
+{n:7,sec:"1.8",q:"Solve and write in interval notation: |8x − 9| ≤ −8",o:["∅","(−∞, ∞)","[1/8, 17/8]","{1/8}"],a:0,w:"An absolute value can never be less than or equal to a negative number. No solution."},
+{n:8,sec:"2.3",q:"Does this relation define a function? {(−4, 1), (−3, −6), (3, −5), (3, 6)}",o:["Not a function","Function"],a:0,w:"The x-value 3 is paired with two different y-values (−5 and 6)."},
+{n:9,sec:"2.3",g:"q9",q:"Does this graph define a function?",o:["Function","Not a function"],a:0,w:"Any vertical line hits this upward parabola only once, so it passes the vertical line test."},
+{n:10,sec:"2.3",g:"q10",q:"Does this graph define a function?",o:["Not a function","Function"],a:0,w:"The curve bends back on itself. A vertical line near x = 3 crosses it more than once, so it fails the vertical line test."},
+{n:11,sec:"2.3",q:"Give the domain and range: {(1, 8), (−1, −9), (−6, −5), (4, −9)}",o:["Domain {−6, −1, 1, 4}; Range {−9, −5, 8}","Domain {−9, −5, 8}; Range {−6, −1, 1, 4}","Domain {−6, −1, 1, 4}; Range {−9, 8}","Domain {1, 4}; Range {−9, −5, 8}"],a:0,w:"Domain = the x-values. Range = the y-values, each listed once (−9 appears twice but is listed once)."},
+{n:12,sec:"2.3",g:"q12",q:"Give the domain and range of this relation.",o:["Domain [−6, ∞); Range (−∞, ∞)","Domain (−∞, ∞); Range [−6, ∞)","Domain [−6, ∞); Range [2, ∞)","Domain (−6, ∞); Range (−∞, ∞)"],a:0,w:"The leftmost point is at x = −6 and the curve extends forever to the right, so the domain is [−6, ∞). It extends forever up and down, so the range is all real numbers."},
+{n:13,sec:"2.3",g:"q13",q:"Give the domain and range of this relation.",o:["Domain (−∞, ∞); Range [−2, ∞)","Domain [−2, ∞); Range (−∞, ∞)","Domain (−∞, ∞); Range (−∞, ∞)","Domain [1, ∞); Range [−2, ∞)"],a:0,w:"The parabola spreads forever left and right, so the domain is all reals. Its lowest point is y = −2, so the range is [−2, ∞)."},
+{n:14,sec:"2.3",q:"Find f(4) when f(x) = x² − 3x − 6",o:["−2","22","−10","10"],a:0,w:"(4)² − 3(4) − 6 = 16 − 12 − 6 = −2."},
+{n:15,sec:"2.3",q:"Rewrite using function notation: x − 2y = 16",o:["f(x) = (1/2)x − 8","f(x) = −(1/2)x + 8","f(x) = x − 16","f(x) = 2x − 16"],a:0,w:"−2y = −x + 16. Divide by −2: y = (1/2)x − 8."},
+{n:16,sec:"2.6",q:"Find f(−1).",pw:[["4x","if x ≤ −1"],["x − 9","if x &gt; −1"]],o:["−4","−10","4","−8"],a:0,w:"−1 ≤ −1 is true, so use 4x: 4(−1) = −4."},
+{n:17,sec:"2.6",graph:"q17",q:"Graph the piecewise function.",pw:[["5","if x ≥ 1"],["−3 − x","if x &lt; 1"]],w:"Horizontal line y = 5 starting with a closed dot at (1, 5) and going right. The line y = −3 − x (slope −1) coming from the left and ending with an open dot at (1, −4)."},
+{n:18,sec:"2.6",graph:"q18",q:"Graph the piecewise function.",pw:[["3x + 3","if x &lt; 0"],["3x² − 2","if x ≥ 0"]],w:"For x < 0, the line y = 3x + 3 ending in an open dot at (0, 3). For x ≥ 0, half of a narrow parabola starting at a closed dot at (0, −2) and rising to the right."},
+{n:19,sec:"2.7",q:"How does f(x) = −(x + 6)² relate to y = x²?",o:["Left 6 and reflected across the x-axis","Right 6 and reflected across the x-axis","Left 6 and reflected across the y-axis","Left 6 and down 6"],a:0,w:"+6 inside moves it left 6. The minus in front flips it across the x-axis, so it opens down."},
+{n:20,sec:"2.7",q:"How does f(x) = (x − 4)² relate to y = x²?",o:["Right 4","Left 4","Up 4","Down 4"],a:0,w:"−4 inside the parentheses moves the graph right 4."},
+{n:21,sec:"2.7",q:"How does f(x) = (x − 6)² + 7 relate to y = x²?",o:["Right 6 and up 7","Left 6 and up 7","Right 6 and down 7","Right 7 and up 6"],a:0,w:"Inside: right 6. Outside: up 7. Vertex at (6, 7)."},
+{n:22,sec:"2.7",graph:"q22",q:"Graph: y = (x − 7)² + 1",w:"Parabola opening up with its vertex at (7, 1). Plot (6, 2) and (8, 2), then (5, 5) and (9, 5)."},
+{n:23,sec:"2.7",graph:"q23",q:"Graph: y = √(x + 3)",w:"Square root curve starting at a closed dot at (−3, 0), passing through (−2, 1) and (1, 2)."},
+{n:24,sec:"2.7",graph:"q24",q:"Graph: f(x) = |x| − 5",w:"V shape with its vertex at (0, −5), crossing the x-axis at (−5, 0) and (5, 0)."},
+{n:25,sec:"2.7",q:"Is f(x) = −5x³ + 8x² − 5 even, odd, or neither?",o:["Neither","Even","Odd"],a:0,w:"Odd power (3) mixed with even powers (2 and the constant): neither."},
+{n:26,sec:"2.3",q:"Find f(−2) when f(x) = 5x² + 5x + 3",o:["13","33","7","−7"],a:0,w:"5(4) + 5(−2) + 3 = 20 − 10 + 3 = 13."},
+{n:27,sec:"2.3",q:"Find f(−x) when f(x) = −2x² − 5x + 2",o:["−2x² + 5x + 2","2x² + 5x + 2","−2x² − 5x + 2","2x² − 5x − 2"],a:0,w:"−2(−x)² − 5(−x) + 2 = −2x² + 5x + 2. The squared term keeps its sign; the x-term flips."},
+{n:28,sec:"2.3",q:"Rewrite using function notation: x + 2y = 9",o:["f(x) = −(1/2)x + 9/2","f(x) = (1/2)x + 9/2","f(x) = −x + 9","f(x) = −(1/2)x − 9/2"],a:0,w:"2y = −x + 9, so y = −(1/2)x + 9/2."},
+{n:29,sec:"2.3",q:"Rewrite using function notation: 3x + 2y = 8",o:["f(x) = −(3/2)x + 4","f(x) = (3/2)x + 4","f(x) = −3x + 8","f(x) = −(2/3)x + 8/3"],a:0,w:"2y = −3x + 8, so y = −(3/2)x + 4."},
+{n:30,sec:"2.6",q:"Find f(5).",pw:[["2x + 6","if x ≤ 0"],["4 − 4x","if 0 &lt; x &lt; 4"],["x","if x ≥ 4"]],o:["5","−16","16","−14"],a:0,w:"5 ≥ 4, so use f(x) = x: f(5) = 5."},
+{n:31,sec:"2.6",q:"Find f(8).",pw:[["8x + 1","if x &lt; 1"],["8x","if 8 ≤ x ≤ 13"],["8 − 3x","if x &gt; 13"]],o:["64","65","−16","8"],a:0,w:"8 fits 8 ≤ x ≤ 13, so f(8) = 8(8) = 64."},
+{n:32,sec:"2.6",graph:"q32",q:"Graph the piecewise function.",pw:[["x − 4","if x &gt; 0"],["−2","if x ≤ 0"]],w:"Horizontal line y = −2 coming from the left and ending in a closed dot at (0, −2). For x > 0, the line y = x − 4 starting with an open dot at (0, −4) and rising with slope 1."},
+{n:33,sec:"2.6",graph:"q33",q:"Graph the piecewise function.",pw:[["2x²","if x ≤ −1"],["2","if −1 &lt; x &lt; 1"],["2x + 1","if x ≥ 1"]],w:"Left: half-parabola 2x² ending in a closed dot at (−1, 2). Middle: flat segment y = 2 with an open dot at (1, 2). Right: line 2x + 1 starting with a closed dot at (1, 3)."},
+{n:34,sec:"2.7",graph:"q34",q:"Graph: y = (x − 7)² − 4",w:"Parabola opening up with its vertex at (7, −4), crossing the x-axis at x = 5 and x = 9."},
+{n:35,sec:"2.7",graph:"q35",q:"Graph: y = √(x + 7) + 4",w:"Square root curve starting at a closed dot at (−7, 4), passing through (−6, 5) and (−3, 6)."},
+{n:36,sec:"2.7",graph:"q36",q:"Graph: y = |x − 7| − 4",w:"V shape with its vertex at (7, −4), crossing the x-axis at x = 3 and x = 11."},
+{n:37,sec:"1.8",note:"Your review sheet prints this as |−8x| > 4, which is a misprint. The answer key matches |9 − 8x| > 4, so that's the version here.",q:"Solve and write in interval notation: |9 − 8x| > 4",o:["(−∞, 5/8) ∪ (13/8, ∞)","(5/8, 13/8)","(−∞, −13/8) ∪ (−5/8, ∞)","(−∞, −1/2) ∪ (1/2, ∞)"],a:0,w:"9 − 8x > 4 gives −8x > −5, and dividing by −8 flips the sign: x < 5/8. 9 − 8x < −4 gives −8x < −13, so x > 13/8."},
+{n:38,sec:"1.8",q:"Solve and write in interval notation: |4x − 1| − 6 < 1",o:["(−3/2, 2)","(−∞, −3/2) ∪ (2, ∞)","(−5/4, 7/4)","[−3/2, 2]"],a:0,w:"Isolate: |4x − 1| < 7. Then −7 < 4x − 1 < 7, so −6 < 4x < 8 and −3/2 < x < 2."},
+{n:39,sec:"1.8",q:"Solve: |4x − 3| = |x + 9|",o:["{4, −6/5}","{4}","{4, 6/5}","{−4, 6/5}"],a:0,w:"Equal: 4x − 3 = x + 9 gives x = 4. Opposite: 4x − 3 = −x − 9 gives 5x = −6, so x = −6/5."},
+{n:40,sec:"2.7",q:"Is f(x) = x⁴ − 2x² − 3 even, odd, or neither?",o:["Even","Odd","Neither"],a:0,w:"Every power is even (4, 2, and the constant), so f(−x) = f(x)."},
+{n:41,sec:"2.7",q:"Is f(x) = −3x⁵ − 8x³ even, odd, or neither?",o:["Odd","Even","Neither"],a:0,w:"Every power is odd and there's no constant, so f(−x) = −f(x)."},
+{n:42,sec:"2.7",q:"Is f(x) = −3x³ + 6x² + 2 even, odd, or neither?",o:["Neither","Even","Odd"],a:0,w:"A mix of odd (3) and even (2, constant) powers: neither."}
+];
+/* shuffle options per load but keep the correct answer tracked */
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const FIXED=[["Function","Not a function"],["Even","Odd","Neither"]];
+P.forEach(p=>{ if(p.o){ const right=p.o[p.a]; const fx=FIXED.find(f=>f.length===p.o.length&&f.every(x=>p.o.includes(x))); const ord=fx?fx.slice():shuffle(p.o); p.o=ord; p.a=ord.indexOf(right);} });
+
+let qi=0, res={}, earned=new Set(), fromResults=false;
+function renderQ(){
+  const box=document.getElementById("qzSlide");
+  document.getElementById("qzBack").disabled=qi===0;
+  if(qi>=P.length) return endQuiz();
+  const p=P[qi];
+  document.getElementById("qzPill").textContent="Section "+p.sec;
+  document.getElementById("qzCount").textContent=`Problem ${p.n} of 42`;
+  document.getElementById("qzFill").style.width=(qi/P.length*100)+"%";
+  document.getElementById("qzNext").textContent=fromResults?"Back to results":(qi===P.length-1?"See results":"Next");
+  const head=`<p class="small" style="margin-bottom:4px"><span class="qnum">${p.n}</span>${p.n<=25?"Extra credit":"Optional practice"}</p>${p.note?`<div class="note">${p.note}</div>`:""}`;
+  if(p.graph){
+    box.innerHTML=head+`<p class="qz-stem">${p.q}</p>${p.pw?pw("f(x)",p.pw):""}<p>Sketch it on paper first. Then show the graph and compare.</p>
+    <button class="btn gold" id="showG">Show the graph</button><div class="fb" id="gfb"></div>`;
+    document.getElementById("showG").addEventListener("click",e=>{
+      e.target.hidden=true; tone("reveal");
+      document.getElementById("gfb").innerHTML=`<div style="max-width:280px;margin:6px 0 10px">${fig(p.graph)}</div><div class="work"><p>${p.w}</p></div>
+      <p style="margin:0"><b>How did your sketch compare?</b></p><div class="selfcheck"><button class="btn" data-sc="1">Mine matched</button><button class="btn ghost" data-sc="0">Mine was off</button></div>`;
+      document.querySelectorAll("[data-sc]").forEach(b=>b.addEventListener("click",()=>{
+        const ok=b.dataset.sc==="1"; res[p.n]=ok; if(ok&&!earned.has(p.n)){earned.add(p.n);gain(20,1);tone("right");}
+        document.querySelectorAll("[data-sc]").forEach(x=>x.disabled=true); b.classList.add("chosen");
+      }));
+    });
+  } else {
+    box.innerHTML=head+mcHTML(p,"");
+    wireMC(box,p,true,ok=>{ res[p.n]=ok; if(ok) earned.add(p.n); },earned.has(p.n));
+  }
+  window.scrollTo({top:0});
+}
+function endQuiz(){
+  const box=document.getElementById("qzSlide");
+  document.getElementById("qzPill").textContent="Results";
+  document.getElementById("qzCount").textContent="";
+  document.getElementById("qzFill").style.width="100%";
+  document.getElementById("qzNext").textContent="Start over";
+  const done=Object.keys(res).length, right=Object.values(res).filter(Boolean).length;
+  const ec=P.filter(p=>p.n<=25).filter(p=>res[p.n]).length;
+  const pct=done?Math.round(right/done*100):0;
+  const missed=P.filter(p=>res[p.n]===false), skipped=P.filter(p=>!(p.n in res));
+  if(done&&pct>=80){confetti();tone("level");gain(50,5);}
+  const msg=!done?"You skipped every problem. Go back and try them.":pct>=90?"Test ready. Rework anything you missed once more on paper.":pct>=75?"Strong. Rework the problems below on paper, then take it again.":"Keep going. Revisit the lesson screens for the problems below, then retake the test.";
+  const list=(arr)=>`<ul class="missed">${arr.map(p=>`<li><button data-go="${P.indexOf(p)}">Problem ${p.n}: ${p.q}</button></li>`).join("")}</ul>`;
+  box.innerHTML=`<p class="score">${pct}%</p><p><strong>${right} of ${done} answered correctly.</strong> Extra credit problems 1–25: ${ec} of 25 correct. ${msg}</p>
+  ${missed.length?`<p style="margin-bottom:0"><b>Rework these:</b></p>${list(missed)}`:""}
+  ${skipped.length?`<p style="margin:14px 0 0"><b>Skipped:</b></p>${list(skipped)}`:""}`;
+  box.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{qi=+b.dataset.go;fromResults=true;renderQ();}));
+}
+document.getElementById("qzBack").addEventListener("click",()=>{fromResults=false;if(qi>0){qi=Math.min(qi,P.length)-1;renderQ();}});
+document.getElementById("qzNext").addEventListener("click",()=>{
+  if(fromResults){fromResults=false;qi=P.length;renderQ();return;}
+  if(qi>=P.length){qi=0;res={};renderQ();} else {qi++;renderQ();} });
+
+/* ---------- FLASHCARDS ---------- */
+const CARDS=[
+["|A| = k, k > 0","A = k or A = −k. Isolate the absolute value first."],
+["|A| = |B|","A = B or A = −B. Put parentheses around the whole negated side."],
+["|A| < k","−k < A < k. One interval, in between. \"Less thAND.\""],
+["|A| > k","A < −k or A > k. Two pieces joined with ∪. \"GreatOR.\""],
+["|A| > negative number","All real numbers, (−∞, ∞). A distance is always bigger than a negative."],
+["|A| ≤ negative number","No solution, ∅. A distance can never be negative."],
+["Dividing an inequality by a negative","Flip the inequality sign."],
+["Function","Every x has exactly one y. No repeated x with different y's."],
+["Vertical line test","If any vertical line hits the graph more than once, it is not a function."],
+["Domain / Range","Domain = all x-values. Range = all y-values. Brackets if the endpoint is included."],
+["f(−x)","Replace every x with (−x). Even powers keep their sign; odd powers flip."],
+["Rewrite in f(x) notation","Solve the equation for y, then replace y with f(x)."],
+["Evaluating a piecewise function","Find which condition the x satisfies and use only that rule."],
+["Open vs. closed dot","Closed ● for ≤ or ≥ (point included). Open ○ for < or > (not included)."],
+["y = f(x − h) + k","Key point moves from (0, 0) to (h, k). Inside: opposite sign. Outside: same sign."],
+["y = −f(x)","Reflection across the x-axis. The graph flips upside down."],
+["Even function","f(−x) = f(x). Symmetric about the y-axis. All even powers."],
+["Odd function","f(−x) = −f(x). Symmetric about the origin. All odd powers, no constant."],
+["Starting point of y = √(x − h) + k","(h, k). The curve goes up and to the right from there."],
+["Vertex of y = |x − h| + k","(h, k). A V shape opening up."]
+];
+function buildCards(order){
+  const g=document.getElementById("cards");
+  g.innerHTML=order.map(i=>`<button class="card" aria-label="Flashcard: ${CARDS[i][0]}"><div class="card-in"><div class="face front"><b>${CARDS[i][0]}</b><span>Tap to flip</span></div><div class="face back">${CARDS[i][1]}</div></div></button>`).join("");
+  g.querySelectorAll(".card").forEach(c=>c.addEventListener("click",()=>{const f=c.classList.toggle("flip");if(f){tone("flip");if(!c.dataset.seen){c.dataset.seen=1;gain(5,0);}}}));
+}
+document.getElementById("shuffleCards").addEventListener("click",()=>buildCards(shuffle(CARDS.map((_,i)=>i))));
+
+/* ---------- XP, SOUND, CONFETTI ---------- */
+const store={get(k,d){try{const v=localStorage.getItem("kce-mac1105-t2-"+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem("kce-mac1105-t2-"+k,JSON.stringify(v))}catch(e){}}};
+const PER_LVL=250; let xp=store.get("xp",0), coins=store.get("coins",0);
+function renderStats(){
+  document.getElementById("lvl").textContent="Lv "+(Math.floor(xp/PER_LVL)+1);
+  document.getElementById("xptext").textContent=xp+" XP";
+  document.getElementById("xpfill").style.width=((xp%PER_LVL)/PER_LVL*100)+"%";
+  document.getElementById("coins").textContent=coins;
+}
+function gain(n,c){
+  const before=Math.floor(xp/PER_LVL); xp+=n; coins+=(c||0);
+  store.set("xp",xp); store.set("coins",coins); renderStats();
+  if(Math.floor(xp/PER_LVL)>before){toast("Level up! You reached level "+(Math.floor(xp/PER_LVL)+1));tone("level");confetti();}
+}
+let actx;
+function tone(kind){
+  try{
+    actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const seq={right:[660,880],wrong:[220,180],flip:[520],level:[523,659,784,1047],reveal:[740]}[kind]||[600];
+    seq.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain();o.type=kind==="wrong"?"sawtooth":"sine";o.frequency.value=f;
+      const t=actx.currentTime+i*0.09;g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.12,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+0.18);
+      o.connect(g).connect(actx.destination);o.start(t);o.stop(t+0.2);});
+  }catch(e){}
+}
+let toastT;
+function toast(m){const el=document.getElementById("toast");el.textContent=m;el.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove("show"),2200);}
+function confetti(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c=document.getElementById("confetti"),x=c.getContext("2d"); c.width=innerWidth;c.height=innerHeight;
+  const cols=["#C9A84C","#0A1F3D","#0047BA","#DB2F30","#FFFFFF"];
+  const Pc=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.4,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:4+Math.random()*5,a:Math.random()*6,col:cols[Math.floor(Math.random()*cols.length)]}));
+  let f=0;(function draw(){x.clearRect(0,0,c.width,c.height);Pc.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.col;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);x.restore()});if(++f<170)requestAnimationFrame(draw);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+/* ---------- TABS ---------- */
+function show(v){
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));
+  ["lesson","cards","quiz"].forEach(id=>document.getElementById("view-"+id).hidden=id!==v);
+  window.scrollTo({top:0});
+}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>show(t.dataset.view)));
+
+renderSlide(); buildCards(CARDS.map((_,i)=>i)); renderQ(); renderStats();
+</script>
+</body>
+</html>
