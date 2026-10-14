@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grade 3 — Week 11: From the Grove to Your Glass (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&amp;family=Bangers&amp;family=Fredoka+One&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.qspeak-btn{position:static;display:inline-flex;vertical-align:middle;width:26px;height:26px;min-width:26px;border-radius:50%;border:2px solid var(--sky);background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;align-items:center;justify-content:center;transition:transform .15s,background .15s;margin-right:6px}.qspeak-btn:hover{background:var(--sky);transform:scale(1.08)}.qspeak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#C9A84C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#0A1F3D}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #C9A84C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+
+.tricolor{position:fixed;left:0;right:0;height:4px;z-index:101;background:linear-gradient(90deg,#0047BA 0 33.33%,#C9A84C 33.33% 66.66%,#DB2F30 66.66% 100%)}
+.flip-back .speak-btn{background:var(--navy);color:#fff}
+.flip-back{padding:10px 36px 10px 10px}
+.booklet{background:#FFFDF6;border:3px solid #FFE0A0;border-radius:18px;padding:16px;margin:12px 0}
+.booklet-cover{display:flex;align-items:center;gap:12px;background:var(--navy);color:#fff;border-radius:12px;padding:12px 16px;margin-bottom:12px;border-bottom:4px solid var(--gold)}
+.booklet-icon{font-size:2rem}
+.booklet-kicker{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:900}
+.booklet-title{font-family:'Fredoka One',cursive;font-size:1.35rem}
+.bpara{position:relative;padding:10px 10px 10px 44px;border-bottom:2px dashed #FFE9C7}
+.bpara:last-child{border-bottom:none}
+.bpara p{margin-bottom:6px}
+.pnum{position:absolute;left:6px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+details.lookback{margin:10px 0;background:#F8FAFF;border:2px solid #D9E0EC;border-radius:14px;padding:8px 12px}
+details.lookback summary{cursor:pointer;font-weight:900;color:var(--navy)}
+.stepdiagram{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;margin:12px 0}
+.step{width:120px;text-align:center;background:#fff;border:3px solid #E2E8F0;border-radius:16px;padding:6px}
+.steplabel{font-family:'Fredoka One',cursive;color:var(--navy);font-size:.98rem;margin-top:4px}
+.stepdesc{font-size:.8rem;font-weight:700;color:#4a5666}
+.steparrow{display:flex;align-items:center}
+.mitable{max-width:560px;margin:10px auto}
+.mitable svg{width:100%;height:auto;display:block}
+.fixsrc{background:#FFF6E1;border:2px dashed var(--gold);border-radius:12px;padding:10px 14px;font-weight:800;font-size:1.12rem;color:var(--navy);margin:6px 0 4px}
+.fixin{width:100% !important;text-align:left !important;font-size:1.08rem !important}
+.fixbox .fillrow{flex-wrap:nowrap}
+@media(max-width:560px){.fixbox .fillrow{flex-wrap:wrap}}
+.scene{border-radius:16px;display:block;margin:8px 0}
+.congrats{background:linear-gradient(135deg,#FFF6E1,#EFFAE6);border:3px solid var(--gold);border-radius:18px;padding:16px;margin:12px 0;font-weight:800;color:var(--navy);font-size:1.1rem;display:none}
+.thinkbox p,.guidedbox p{margin:0}
+</style>
+</head>
+<body>
+<div class="hud">
+<div class="hud-left"><div class="kc-logo kc-logo-onhud">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<span class="hud-title">🍊 KCE Pathways — Grade 3 — Week 11</span>
+</div>
+<div class="hud-right">
+<div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+<div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+<div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+</div>
+</div>
+<div class="tricolor" id="tricolor" style="top:0"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<span class="badge">KCE Pathways • Unit 3: Market Days • Week 11 • Reading</span>
+<h1>Week 11: From the Grove to Your Glass</h1>
+<h2>Main Idea &amp; Key Details 🍊📖</h2>
+<span class="setnotice" id="setNotice" style="display:none"></span>
+<div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>📋 Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+<div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Welcome to Unit 3: Market Days! It is harvest week at cousin Rosa's orange grove near Arcadia, Florida, and Theo and Mia are reading their very first <b>nonfiction</b> booklet. Today you'll learn to find the <b>main idea</b> and the <b>key details</b> that hold it up. Worth <b>100 Pathway Points</b>, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!</p>
+</div>
+<div class="card card-sky">
+<h3>🏓 Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review of Unit 2: cause and effect, point of view, motivation, and central message</li><li>Pencil Break: do the Pre part of your paper sheet</li><li>Learn 6 new vocabulary words and see the oranges' big trip</li><li>Read the booklet <i>From the Grove to Your Glass</i></li><li>Master topic vs. main idea, key details, and the main idea of a whole text</li><li>Show what you know: Match-Up, Fix the Sentence, Type-It, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+<div class="card" id="nameCaptureCard">
+<h3>👤 Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to KingCretot Experience, so no one has to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<input aria-label="student first name" class="fillin" id="studentFirstNameField" inputmode="text" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px"/>
+<input aria-label="student last name" class="fillin" id="studentLastNameField" inputmode="text" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px"/>
+</div>
+</div>
+<div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>🏁 Warm-Up: Unit 2 Review</h2>
+<p>Before we start something new, let's make sure your Unit 2 reading skills are locked in! Each one is worth 3 points.</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="A cause is WHY something happens. The effect is WHAT happens because of it." data-pts="3" data-q="w1_s0">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In a story, a cause is: Choices: Why something happens. The name of the main character. The last page of the book. A word that rhymes.', this)" title="Hear this read aloud" type="button">🔊</button> In a story, a cause is:</p>
+<div class="opts">
+<button class="opt" data-c="1">Why something happens</button>
+<button class="opt">The name of the main character</button>
+<button class="opt">The last page of the book</button>
+<button class="opt">A word that rhymes</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="view" data-fq="w2_s0" data-logic="Theo only saw one point of view. Mia noticed clues that showed another point of view." data-pts="3">
+<span class="pts">+3</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Theo thought the hiker was rude, but that was only one point of blank.', this)" title="Hear this read aloud" type="button">🔊</button> Theo thought the hiker was rude, but that was only one point of ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Mia&#x27;s motivation was fear: she was afraid of saying the wrong thing to a customer." data-pts="3" data-q="w3_s0">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Why did Mia stay in the back of the trading post all week? Choices: She was afraid of saying the wrong thing to customers. She did not like Theo. The counter was broken. Grandpa told her to hide.', this)" title="Hear this read aloud" type="button">🔊</button> Why did Mia stay in the back of the trading post all week?</p>
+<div class="opts">
+<button class="opt" data-c="1">She was afraid of saying the wrong thing to customers</button>
+<button class="opt">She did not like Theo</button>
+<button class="opt">The counter was broken</button>
+<button class="opt">Grandpa told her to hide</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A central message is a big lesson. The other choices are events that happened in the story." data-pts="3" data-q="w4_s0">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which one is a central message, not just an event? Choices: Everyone contributes differently, and that makes a team. A storm hit the trading post. A hiker left without buying anything. Mia stood at the counter.', this)" title="Hear this read aloud" type="button">🔊</button> Which one is a central message, not just an event?</p>
+<div class="opts">
+<button class="opt" data-c="1">Everyone contributes differently, and that makes a team</button>
+<button class="opt">A storm hit the trading post</button>
+<button class="opt">A hiker left without buying anything</button>
+<button class="opt">Mia stood at the counter</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="The effect is what happened because of the cause. The boxes collapsed BECAUSE rain soaked them." data-pts="3" data-q="w1_s1">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Rain soaked the boxes, so the boxes collapsed. What is the effect? Choices: The boxes collapsed. Rain soaked the boxes. The shutter was loose. Mia found puddles.', this)" title="Hear this read aloud" type="button">🔊</button> Rain soaked the boxes, so the boxes collapsed. What is the effect?</p>
+<div class="opts">
+<button class="opt" data-c="1">The boxes collapsed</button>
+<button class="opt">Rain soaked the boxes</button>
+<button class="opt">The shutter was loose</button>
+<button class="opt">Mia found puddles</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="motivation" data-fq="w2_s1" data-logic="Motivation is the reason a character wants or does something." data-pts="3">
+<span class="pts">+3</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('The reason a character wants or does something is called blank.', this)" title="Hear this read aloud" type="button">🔊</button> The reason a character wants or does something is called ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Mia used clues to infer that the hiker was exhausted, not rude." data-pts="3" data-q="w3_s1">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Mia saw the hiker\'s muddy boots and empty water bottle. What did she figure out? Choices: The hiker was tired, not rude. The hiker was a thief. The hiker owned the store. The hiker wanted a job.', this)" title="Hear this read aloud" type="button">🔊</button> Mia saw the hiker&#x27;s muddy boots and empty water bottle. What did she figure out?</p>
+<div class="opts">
+<button class="opt" data-c="1">The hiker was tired, not rude</button>
+<button class="opt">The hiker was a thief</button>
+<button class="opt">The hiker owned the store</button>
+<button class="opt">The hiker wanted a job</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="theme" data-fq="w4_s1" data-logic="Theme is another word for central message." data-pts="3">
+<span class="pts">+3</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Another word for a story\'s central message is blank.', this)" title="Hear this read aloud" type="button">🔊</button> Another word for a story&#x27;s central message is ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w4_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="In a chain, most events play a double role. They are the effect of what came before and the cause of what comes next." data-pts="3" data-q="w1_s2">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In a cause and effect chain, one event can be: Choices: Both an effect and a cause. Only the first event. Never connected to other events. The title of the story.', this)" title="Hear this read aloud" type="button">🔊</button> In a cause and effect chain, one event can be:</p>
+<div class="opts">
+<button class="opt" data-c="1">Both an effect and a cause</button>
+<button class="opt">Only the first event</button>
+<button class="opt">Never connected to other events</button>
+<button class="opt">The title of the story</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Comparing points of view is not about who is right. It helps you understand the whole picture." data-pts="3" data-q="w2_s2">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Theo felt hurt. Mia thought the hiker was tired. Comparing their points of view helps you: Choices: Understand the whole picture. Decide who is mean. Skip the ending. Find the setting.', this)" title="Hear this read aloud" type="button">🔊</button> Theo felt hurt. Mia thought the hiker was tired. Comparing their points of view helps you:</p>
+<div class="opts">
+<button class="opt" data-c="1">Understand the whole picture</button>
+<button class="opt">Decide who is mean</button>
+<button class="opt">Skip the ending</button>
+<button class="opt">Find the setting</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="courage" data-fq="w3_s2" data-logic="Mia showed courage when she stepped up to the counter even though she was nervous." data-pts="3">
+<span class="pts">+3</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Doing something even though you feel scared is called blank.', this)" title="Hear this read aloud" type="button">🔊</button> Doing something even though you feel scared is called ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="w3_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A central message comes from combining ideas from the WHOLE story." data-pts="3" data-q="w4_s2">
+<span class="pts">+3</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Where do you find a story\'s central message? Choices: By putting the whole story together. Only in the first sentence. Only in the pictures. In the page numbers.', this)" title="Hear this read aloud" type="button">🔊</button> Where do you find a story&#x27;s central message?</p>
+<div class="opts">
+<button class="opt" data-c="1">By putting the whole story together</button>
+<button class="opt">Only in the first sentence</button>
+<button class="opt">Only in the pictures</button>
+<button class="opt">In the page numbers</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="0">← Back</button>
+<button class="btn btn-go" data-go="2">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>✏️ Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Time for a Pencil Break! Step away from the screen and grab your paper sheet. Do the Pre part now. It is a warm-up to get your brain ready for today&#x27;s new skill. When you are done, come back and press Next.</p><button class="readaloud-btn" onclick="speakText('Time for a Pencil Break! Step away from the screen and grab your paper sheet. Do the Pre part now. It is a warm-up to get your brain ready for today\'s new skill. When you are done, come back and press Next.', this)" type="button">🔊 Listen to this part read aloud</button>
+<ul class="tips"><li>Read each question carefully.</li><li>It is okay if some answers feel new. That is what today's lesson is for!</li><li>Use your neatest handwriting.</li></ul>
+</div>
+<div class="center" style="font-size:4rem">📝🍊</div>
+<div class="nav">
+<button class="btn btn-back" data-go="1">← Back</button>
+<button class="btn btn-go" data-go="3">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🌟 Word Wrangler</h2>
+<p>Flip each card to learn this week's vocabulary! Tap 🔊 to hear the word, then flip and tap 🔊 to hear what it means.</p>
+<div class="flipgrid">
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">nonfiction<button class="speak-btn" onclick="event.stopPropagation(); speakText('nonfiction', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">Writing that gives true facts and information.<button class="speak-btn" onclick="event.stopPropagation(); speakText('Writing that gives true facts and information.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">topic<button class="speak-btn" onclick="event.stopPropagation(); speakText('topic', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">What a text is about, in one or two words.<button class="speak-btn" onclick="event.stopPropagation(); speakText('What a text is about, in one or two words.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">main idea<button class="speak-btn" onclick="event.stopPropagation(); speakText('main idea', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">The most important point the author makes about the topic.<button class="speak-btn" onclick="event.stopPropagation(); speakText('The most important point the author makes about the topic.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">key detail<button class="speak-btn" onclick="event.stopPropagation(); speakText('key detail', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">A fact that tells more about the main idea and supports it.<button class="speak-btn" onclick="event.stopPropagation(); speakText('A fact that tells more about the main idea and supports it.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">support<button class="speak-btn" onclick="event.stopPropagation(); speakText('support', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">To hold up or help prove an idea.<button class="speak-btn" onclick="event.stopPropagation(); speakText('To hold up or help prove an idea.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+<div class="flip" data-flip=""><div class="flip-inner"><div class="flip-face flip-front">grove<button class="speak-btn" onclick="event.stopPropagation(); speakText('grove', this)" title="Hear this word" type="button">🔊</button></div><div class="flip-face flip-back">A farm or field full of fruit trees, like orange trees.<button class="speak-btn" onclick="event.stopPropagation(); speakText('A farm or field full of fruit trees, like orange trees.', this)" title="Hear the meaning" type="button">🔊</button></div></div></div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="2">← Back</button>
+<button class="btn btn-go" data-go="4">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🖼️ Picture It: The Oranges' Big Trip</h2>
+<div class="card card-sky">
+<p>Nonfiction gives true facts. Many nonfiction texts are built around one big idea. Today&#x27;s booklet explains the five stops oranges make on their trip: the grove, picking, the packing house, the juice plant, and the store.</p><button class="readaloud-btn" onclick="speakText('Nonfiction gives true facts. Many nonfiction texts are built around one big idea. Today\'s booklet explains the five stops oranges make on their trip: the grove, picking, the packing house, the juice plant, and the store.', this)" type="button">🔊 Listen to this part read aloud</button>
+</div>
+<div class="stepdiagram" role="img" aria-label="Five steps: grove, picking, packing house, juice plant, store">
+<div class="step"><div class="stepart"><svg viewBox="0 0 120 100" width="100%" role="img" aria-hidden="true"><rect x="0" y="0" width="120" height="100" rx="14" fill="#EFFAE6"/><rect x="0" y="78" width="120" height="22" fill="#86D464"/><rect x="26" y="52" width="8" height="30" fill="#8B5A2B"/><circle cx="30" cy="42" r="22" fill="#3D8A30"/><circle cx="22" cy="38" r="5" fill="#F28C28"/><circle cx="36" cy="48" r="5" fill="#F28C28"/><circle cx="34" cy="32" r="4" fill="#F28C28"/><rect x="80" y="52" width="8" height="30" fill="#8B5A2B"/><circle cx="84" cy="42" r="22" fill="#3D8A30"/><circle cx="76" cy="44" r="5" fill="#F28C28"/><circle cx="92" cy="36" r="5" fill="#F28C28"/><circle cx="86" cy="52" r="4" fill="#F28C28"/><circle cx="104" cy="16" r="9" fill="#C9A84C"/></svg></div><div class="steplabel">1. Grove</div><div class="stepdesc">Trees grow and ripen</div></div>
+<div class="steparrow" aria-hidden="true"><svg viewBox="0 0 30 30" width="26" height="26"><path d="M4 15 H22 M15 7 L23 15 L15 23" stroke="#C9A84C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="step"><div class="stepart"><svg viewBox="0 0 120 100" width="100%" role="img" aria-hidden="true"><rect x="0" y="0" width="120" height="100" rx="14" fill="#FFF6E1"/><rect x="0" y="80" width="120" height="20" fill="#86D464"/><circle cx="78" cy="34" r="26" fill="#3D8A30"/><circle cx="70" cy="28" r="5" fill="#F28C28"/><circle cx="88" cy="40" r="5" fill="#F28C28"/><line x1="30" y1="86" x2="52" y2="20" stroke="#8B5A2B" stroke-width="4"/><line x1="46" y1="86" x2="66" y2="24" stroke="#8B5A2B" stroke-width="4"/><line x1="35" y1="70" x2="50" y2="72" stroke="#8B5A2B" stroke-width="3"/><line x1="40" y1="54" x2="55" y2="56" stroke="#8B5A2B" stroke-width="3"/><line x1="45" y1="38" x2="60" y2="40" stroke="#8B5A2B" stroke-width="3"/><circle cx="54" cy="30" r="7" fill="#0A1F3D"/><rect x="48" y="37" width="12" height="18" rx="4" fill="#0047BA"/><ellipse cx="62" cy="52" rx="8" ry="10" fill="#C9A84C"/></svg></div><div class="steplabel">2. Picking</div><div class="stepdesc">Picked by hand</div></div>
+<div class="steparrow" aria-hidden="true"><svg viewBox="0 0 30 30" width="26" height="26"><path d="M4 15 H22 M15 7 L23 15 L15 23" stroke="#C9A84C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="step"><div class="stepart"><svg viewBox="0 0 120 100" width="100%" role="img" aria-hidden="true"><rect x="0" y="0" width="120" height="100" rx="14" fill="#EAF6FF"/><polygon points="14,40 60,14 106,40" fill="#DB2F30"/><rect x="18" y="40" width="84" height="48" fill="#ffffff" stroke="#0A1F3D" stroke-width="3"/><rect x="50" y="60" width="20" height="28" fill="#0A1F3D"/><circle cx="32" cy="58" r="5" fill="#7CC6FF"/><circle cx="40" cy="52" r="3.5" fill="#7CC6FF"/><circle cx="88" cy="58" r="5" fill="#F28C28"/><circle cx="80" cy="64" r="5" fill="#F28C28"/></svg></div><div class="steplabel">3. Packing house</div><div class="stepdesc">Washed and sorted</div></div>
+<div class="steparrow" aria-hidden="true"><svg viewBox="0 0 30 30" width="26" height="26"><path d="M4 15 H22 M15 7 L23 15 L15 23" stroke="#C9A84C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="step"><div class="stepart"><svg viewBox="0 0 120 100" width="100%" role="img" aria-hidden="true"><rect x="0" y="0" width="120" height="100" rx="14" fill="#F3EEFF"/><rect x="14" y="44" width="92" height="44" fill="#0A1F3D"/><rect x="74" y="18" width="14" height="30" fill="#0A1F3D"/><polygon points="14,44 36,30 36,44" fill="#0A1F3D"/><polygon points="36,44 58,30 58,44" fill="#0A1F3D"/><path d="M60 52 C52 64 52 74 60 78 C68 74 68 64 60 52 Z" fill="#F28C28"/><rect x="24" y="58" width="12" height="10" fill="#C9A84C"/><rect x="84" y="58" width="12" height="10" fill="#C9A84C"/></svg></div><div class="steplabel">4. Juice plant</div><div class="stepdesc">Squeezed into juice</div></div>
+<div class="steparrow" aria-hidden="true"><svg viewBox="0 0 30 30" width="26" height="26"><path d="M4 15 H22 M15 7 L23 15 L15 23" stroke="#C9A84C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="step"><div class="stepart"><svg viewBox="0 0 120 100" width="100%" role="img" aria-hidden="true"><rect x="0" y="0" width="120" height="100" rx="14" fill="#FFEFE8"/><rect x="16" y="34" width="88" height="54" fill="#ffffff" stroke="#0A1F3D" stroke-width="3"/><path d="M14 34 L24 20 L96 20 L106 34 Z" fill="#0047BA"/><rect x="30" y="20" width="14" height="14" fill="#ffffff"/><rect x="58" y="20" width="14" height="14" fill="#DB2F30"/><rect x="28" y="50" width="20" height="30" fill="#F28C28" stroke="#0A1F3D" stroke-width="2"/><polygon points="28,50 38,42 48,50" fill="#F2C465" stroke="#0A1F3D" stroke-width="2"/><rect x="64" y="52" width="30" height="36" fill="#0A1F3D"/></svg></div><div class="steplabel">5. Store</div><div class="stepdesc">Your family buys it</div></div>
+</div>
+<div class="card card-gold">
+<h3>🪑 The Main Idea Table</h3>
+<p>Think of a main idea like the top of a table. Key details are the legs. The legs hold the tabletop up. If a detail does not hold up the main idea, it is not a key detail, even if it is interesting.</p><button class="readaloud-btn" onclick="speakText('Think of a main idea like the top of a table. Key details are the legs. The legs hold the tabletop up. If a detail does not hold up the main idea, it is not a key detail, even if it is interesting.', this)" type="button">🔊 Listen to this part read aloud</button>
+</div>
+<div class="mitable" data-top="Oranges go through many steps to become juice." data-legs="Workers pick them by hand.|They are washed and sorted.|Machines squeeze out the juice."></div>
+<p class="center" style="font-weight:800;color:var(--navy)">Three strong legs hold up the big idea. You'll use this table all lesson long!</p>
+<div class="nav">
+<button class="btn btn-back" data-go="3">← Back</button>
+<button class="btn btn-go" data-go="5">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>📖 Read: From the Grove to Your Glass</h2>
+<svg class="scene" viewBox="0 0 600 150" width="100%" role="img" aria-label="Theo and Mia reading a booklet at Rosa's orange grove"><rect width="600" height="150" fill="#EAF6FF"/><circle cx="540" cy="34" r="20" fill="#C9A84C"/><rect y="110" width="600" height="40" fill="#86D464"/><rect x="36" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="40" cy="68" r="26" fill="#3D8A30"/><circle cx="31" cy="62" r="5" fill="#F28C28"/><circle cx="50" cy="74" r="5" fill="#F28C28"/><circle cx="46" cy="58" r="4" fill="#F28C28"/><rect x="106" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="110" cy="68" r="26" fill="#3D8A30"/><circle cx="101" cy="62" r="5" fill="#F28C28"/><circle cx="120" cy="74" r="5" fill="#F28C28"/><circle cx="116" cy="58" r="4" fill="#F28C28"/><rect x="176" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="180" cy="68" r="26" fill="#3D8A30"/><circle cx="171" cy="62" r="5" fill="#F28C28"/><circle cx="190" cy="74" r="5" fill="#F28C28"/><circle cx="186" cy="58" r="4" fill="#F28C28"/><rect x="416" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="420" cy="68" r="26" fill="#3D8A30"/><circle cx="411" cy="62" r="5" fill="#F28C28"/><circle cx="430" cy="74" r="5" fill="#F28C28"/><circle cx="426" cy="58" r="4" fill="#F28C28"/><rect x="486" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="490" cy="68" r="26" fill="#3D8A30"/><circle cx="481" cy="62" r="5" fill="#F28C28"/><circle cx="500" cy="74" r="5" fill="#F28C28"/><circle cx="496" cy="58" r="4" fill="#F28C28"/><rect x="556" y="78" width="8" height="36" fill="#8B5A2B"/><circle cx="560" cy="68" r="26" fill="#3D8A30"/><circle cx="551" cy="62" r="5" fill="#F28C28"/><circle cx="570" cy="74" r="5" fill="#F28C28"/><circle cx="566" cy="58" r="4" fill="#F28C28"/><rect x="240" y="96" width="120" height="16" rx="4" fill="#8B5A2B"/><circle cx="268" cy="62" r="13" fill="#7A4B2A"/><rect x="256" y="75" width="24" height="26" rx="8" fill="#0047BA"/><circle cx="332" cy="62" r="13" fill="#3B2416"/><path d="M319 60 Q332 40 345 60" fill="#3B2416"/><rect x="320" y="75" width="24" height="26" rx="8" fill="#DB2F30"/><rect x="282" y="78" width="36" height="24" rx="3" fill="#ffffff" stroke="#0A1F3D" stroke-width="2"/><line x1="300" y1="78" x2="300" y2="102" stroke="#0A1F3D" stroke-width="2"/><circle cx="291" cy="88" r="4" fill="#F28C28"/></svg>
+<div class="card card-grass">
+<p>It is harvest week at cousin Rosa&#x27;s orange grove near Arcadia, Florida. Grandpa drove Theo and Mia down to help. On the porch, Rosa handed them a little booklet called From the Grove to Your Glass. This booklet is nonfiction. That means it gives true facts and information instead of telling a made-up story. Let&#x27;s read it with Theo and Mia!</p><button class="readaloud-btn" onclick="speakText('It is harvest week at cousin Rosa\'s orange grove near Arcadia, Florida. Grandpa drove Theo and Mia down to help. On the porch, Rosa handed them a little booklet called From the Grove to Your Glass. This booklet is nonfiction. That means it gives true facts and information instead of telling a made-up story. Let\'s read it with Theo and Mia!', this)" type="button">🔊 Listen to this part read aloud</button>
+</div>
+<p style="font-weight:800">Read each paragraph, or tap 🔊 to hear it. Notice the numbers. We'll use them to talk about each paragraph.</p>
+<div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="4">← Back</button>
+<button class="btn btn-go" data-go="6">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🎯 Topic vs. Main Idea</h2>
+<div class="card ">
+<p>The topic is what a text is about, in one or two words. The main idea is the most important point the author makes about that topic. A topic is a word or two. A main idea is a whole sentence.</p><button class="readaloud-btn" onclick="speakText('The topic is what a text is about, in one or two words. The main idea is the most important point the author makes about that topic. A topic is a word or two. A main idea is a whole sentence.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('When I read the booklet, I ask two questions. First: what is this mostly about? Oranges. That is the topic. Second: what is the author telling me about oranges? Oranges go through many steps to get from the grove to my glass. That is the main idea.', this)" title="Hear this read aloud" type="button">🔊</button> When I read the booklet, I ask two questions. First: what is this mostly about? Oranges. That is the topic. Second: what is the author telling me about oranges? Oranges go through many steps to get from the grove to my glass. That is the main idea.</p></div>
+<div class="pictureit"><h4>🧩 Picture It: Topic vs. Main Idea</h4>TOPIC (one or two words): oranges<br/>MAIN IDEA (a whole sentence): Oranges go through many steps to get from the grove to your glass.</div>
+
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('Topic: bees. Main idea: Bees are busy helpers in an orange grove. See how the main idea tells something important about the topic?', this)" title="Hear this read aloud" type="button">🔊</button> Topic: bees. Main idea: Bees are busy helpers in an orange grove. See how the main idea tells something important about the topic?</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<details class="lookback"><summary>📖 Look back at the booklet</summary><div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div></details>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="The topic is what the text is about in one or two words: oranges. The long sentence is the main idea, not the topic." data-pts="4" data-q="t1a_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What is the TOPIC of the booklet?, Remember: a topic is one or two words., Choices: Oranges. Oranges go through many steps to become juice. Bees buzz from flower to flower. Grandpa drove them to Arcadia.', this)" title="Hear this read aloud" type="button">🔊</button> What is the TOPIC of the booklet? (Remember: a topic is one or two words.)</p>
+<div class="opts">
+<button class="opt" data-c="1">Oranges</button>
+<button class="opt">Oranges go through many steps to become juice.</button>
+<button class="opt">Bees buzz from flower to flower.</button>
+<button class="opt">Grandpa drove them to Arcadia.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The main idea is the most important point the whole booklet makes. The other choices are small details." data-pts="4" data-q="t1b_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which sentence is the MAIN IDEA of the whole booklet? Choices: Oranges go through many steps to get from the grove to your glass. Bees buzz from flower to flower. Workers climb tall ladders. Juice is kept cold.', this)" title="Hear this read aloud" type="button">🔊</button> Which sentence is the MAIN IDEA of the whole booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">Oranges go through many steps to get from the grove to your glass.</button>
+<button class="opt">Bees buzz from flower to flower.</button>
+<button class="opt">Workers climb tall ladders.</button>
+<button class="opt">Juice is kept cold.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="&quot;Oranges&quot; is only the topic. Mia gave a whole sentence that tells the most important point about oranges, so hers is the main idea." data-pts="4" data-q="t1c_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which explanation is correct? Theo says the main idea is oranges. Mia says the main idea is Oranges go through many steps to get from the grove to your glass. Choices: Mia is right, because a main idea is a whole sentence that tells the most important point about the topic. Theo is right, because a main idea is always one word. Theo is right, because oranges are in every paragraph. Neither is right, because nonfiction has no main idea.', this)" title="Hear this read aloud" type="button">🔊</button> Which explanation is correct? Theo says the main idea is &quot;oranges.&quot; Mia says the main idea is &quot;Oranges go through many steps to get from the grove to your glass.&quot;</p>
+<div class="opts">
+<button class="opt" data-c="1">Mia is right, because a main idea is a whole sentence that tells the most important point about the topic</button>
+<button class="opt">Theo is right, because a main idea is always one word</button>
+<button class="opt">Theo is right, because oranges are in every paragraph</button>
+<button class="opt">Neither is right, because nonfiction has no main idea</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-ans="idea" data-fq="t1a_s1" data-logic="The main idea is the most important point the author makes about the topic." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('The most important point an author makes about a topic is called the main blank.', this)" title="Hear this read aloud" type="button">🔊</button> The most important point an author makes about a topic is called the main ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t1a_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A main idea is a whole sentence that says something important about the topic. The other choices are just words." data-pts="4" data-q="t1b_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('The topic is orange trees. Which sentence is a MAIN IDEA about this topic? Choices: Orange trees need warm weather, sunshine, and water to grow. Orange trees. Trees and sun. Green.', this)" title="Hear this read aloud" type="button">🔊</button> The topic is orange trees. Which sentence is a MAIN IDEA about this topic?</p>
+<div class="opts">
+<button class="opt" data-c="1">Orange trees need warm weather, sunshine, and water to grow.</button>
+<button class="opt">Orange trees</button>
+<button class="opt">Trees and sun</button>
+<button class="opt">Green</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Paragraph 3 is mostly about oranges being picked by hand. Ladders are one small detail in that paragraph." data-pts="4" data-q="t1c_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! Mia wrote that the main idea of paragraph 3 is ladders. What went wrong? Choices: Ladders is just one small detail, not the most important point of the paragraph. Paragraph 3 never talks about ladders. A main idea must be a question. Nothing went wrong.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! Mia wrote that the main idea of paragraph 3 is &quot;ladders.&quot; What went wrong?</p>
+<div class="opts">
+<button class="opt" data-c="1">Ladders is just one small detail, not the most important point of the paragraph</button>
+<button class="opt">Paragraph 3 never talks about ladders</button>
+<button class="opt">A main idea must be a question</button>
+<button class="opt">Nothing went wrong</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="A topic names what a text is about in one or two words." data-pts="4" data-q="t1a_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A topic is usually: Choices: One or two words that name what a text is about. A long list of every fact. The last word of the text. A question the reader asks.', this)" title="Hear this read aloud" type="button">🔊</button> A topic is usually:</p>
+<div class="opts">
+<button class="opt" data-c="1">One or two words that name what a text is about</button>
+<button class="opt">A long list of every fact</button>
+<button class="opt">The last word of the text</button>
+<button class="opt">A question the reader asks</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="topic" data-fq="t1b_s2" data-logic="The topic is what a text is mostly about, in one or two words." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What a text is mostly about, in one or two words, is called the blank.', this)" title="Hear this read aloud" type="button">🔊</button> What a text is mostly about, in one or two words, is called the ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t1b_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Orange blossoms is just two words that name a topic. The other choices are whole sentences that tell an important point." data-pts="4" data-q="t1c_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which one is a TOPIC, not a main idea? Choices: Orange blossoms. Orange blossoms turn into tiny green oranges. Machines squeeze the oranges to get the juice out. Many Florida oranges are picked by hand.', this)" title="Hear this read aloud" type="button">🔊</button> Which one is a TOPIC, not a main idea?</p>
+<div class="opts">
+<button class="opt" data-c="1">Orange blossoms</button>
+<button class="opt">Orange blossoms turn into tiny green oranges.</button>
+<button class="opt">Machines squeeze the oranges to get the juice out.</button>
+<button class="opt">Many Florida oranges are picked by hand.</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="5">← Back</button>
+<button class="btn btn-go" data-go="7">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🪑 Key Details Hold It Up</h2>
+<div class="card card-sky">
+<p>Key details are facts that tell more about the main idea and help prove it is true. They answer questions like who, what, where, when, why, and how. Some details are interesting but do not support the main idea. Those details are not key details.</p><button class="readaloud-btn" onclick="speakText('Key details are facts that tell more about the main idea and help prove it is true. They answer questions like who, what, where, when, why, and how. Some details are interesting but do not support the main idea. Those details are not key details.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('Paragraph 2 says the orange blossom is the state flower of Florida. That is a cool fact! But does it tell me how oranges grow? No. So it is not a key detail for that paragraph.', this)" title="Hear this read aloud" type="button">🔊</button> Paragraph 2 says the orange blossom is the state flower of Florida. That is a cool fact! But does it tell me how oranges grow? No. So it is not a key detail for that paragraph.</p></div>
+<div class="mitable" data-top="At harvest time, oranges are picked by hand." data-legs="Workers climb tall ladders.|They fill bags on their shoulders.|They empty the bags into bins."></div>
+
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('Main idea of paragraph 3: At harvest time, oranges are picked by hand. Key details: workers climb ladders, they fill shoulder bags, and they empty the bags into bins. All three legs hold up the top!', this)" title="Hear this read aloud" type="button">🔊</button> Main idea of paragraph 3: At harvest time, oranges are picked by hand. Key details: workers climb ladders, they fill shoulder bags, and they empty the bags into bins. All three legs hold up the top!</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<details class="lookback"><summary>📖 Look back at the booklet</summary><div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div></details>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="Climbing ladders to reach the fruit tells HOW oranges are picked by hand, so it holds up the main idea of paragraph 3." data-pts="4" data-q="t2a_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('The tabletop says: At harvest time, oranges are picked by hand. Which detail is a leg that holds it up? Choices: Workers climb tall ladders to reach the fruit. The juice is heated to kill germs. The orange blossom is the state flower of Florida. Trucks take the juice to stores.', this)" title="Hear this read aloud" type="button">🔊</button> The tabletop says: At harvest time, oranges are picked by hand. Which detail is a leg that holds it up?</p>
+<div class="mitable" data-top="At harvest time, oranges are picked by hand." data-legs="?|They fill bags that hang from their shoulders.|They empty the bags into bins."></div>
+<div class="opts">
+<button class="opt" data-c="1">Workers climb tall ladders to reach the fruit.</button>
+<button class="opt">The juice is heated to kill germs.</button>
+<button class="opt">The orange blossom is the state flower of Florida.</button>
+<button class="opt">Trucks take the juice to stores.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The state flower fact is interesting, but it does not tell how oranges grow. The other three details do." data-pts="4" data-q="t2b_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Paragraph 2 is mostly about how oranges grow on trees and ripen slowly. Which detail does NOT support that main idea? Choices: The orange blossom is the state flower of Florida. Orange trees need warm weather, sunshine, and water. A blossom can turn into a tiny green orange. The oranges grow and ripen for many months.', this)" title="Hear this read aloud" type="button">🔊</button> Paragraph 2 is mostly about how oranges grow on trees and ripen slowly. Which detail does NOT support that main idea?</p>
+<div class="opts">
+<button class="opt" data-c="1">The orange blossom is the state flower of Florida.</button>
+<button class="opt">Orange trees need warm weather, sunshine, and water.</button>
+<button class="opt">A blossom can turn into a tiny green orange.</button>
+<button class="opt">The oranges grow and ripen for many months.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Bees buzzing belongs in paragraph 2, about the grove. It does not tell about washing or sorting oranges." data-pts="4" data-q="t2c_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! Look at this table. The tabletop says: At the packing house, oranges are washed and sorted. Which leg does NOT belong? Choices: Bees buzz from flower to flower. Oranges are washed with water and soft brushes. Bruised oranges are taken out.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! Look at this table. The tabletop says: At the packing house, oranges are washed and sorted. Which leg does NOT belong?</p>
+<div class="mitable" data-top="At the packing house, oranges are washed and sorted." data-legs="Oranges are washed with water and soft brushes.|Bruised oranges are taken out.|Bees buzz from flower to flower."></div>
+<div class="opts">
+<button class="opt" data-c="1">Bees buzz from flower to flower.</button>
+<button class="opt">Oranges are washed with water and soft brushes.</button>
+<button class="opt">Bruised oranges are taken out.</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Key details tell more about the main idea and prove it is true, like legs holding up a table." data-pts="4" data-q="t2a_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Key details are: Choices: Facts that tell more about the main idea and support it. Any fun fact, even if it is off topic. The title and the page numbers. Words that rhyme.', this)" title="Hear this read aloud" type="button">🔊</button> Key details are:</p>
+<div class="opts">
+<button class="opt" data-c="1">Facts that tell more about the main idea and support it</button>
+<button class="opt">Any fun fact, even if it is off topic</button>
+<button class="opt">The title and the page numbers</button>
+<button class="opt">Words that rhyme</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Heating the juice happens at the juice plant, so it supports the main idea of paragraph 5. The others belong to the grove." data-pts="4" data-q="t2b_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('The tabletop says: At the juice plant, oranges become juice for stores. Which detail is a key detail for it? Choices: The juice is heated for a short time to keep it safe. Workers climb tall ladders. Bees visit the white blossoms. Orange trees are planted in long rows.', this)" title="Hear this read aloud" type="button">🔊</button> The tabletop says: At the juice plant, oranges become juice for stores. Which detail is a key detail for it?</p>
+<div class="mitable" data-top="At the juice plant, oranges become juice for stores." data-legs="Machines squeeze the oranges.|?|Trucks take the juice to stores."></div>
+<div class="opts">
+<button class="opt" data-c="1">The juice is heated for a short time to keep it safe.</button>
+<button class="opt">Workers climb tall ladders.</button>
+<button class="opt">Bees visit the white blossoms.</button>
+<button class="opt">Orange trees are planted in long rows.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Being in the paragraph is not enough. A key detail must hold up the main idea, and the state flower fact does not tell how oranges grow." data-pts="4" data-q="t2c_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which explanation is correct? Theo says the state flower fact is a key detail for paragraph 2 because it is in that paragraph. Mia says it is interesting, but it does not tell how oranges grow, so it is not a key detail. Choices: Mia is right, because a key detail must support the main idea. Theo is right, because every sentence in a paragraph is a key detail. Theo is right, because fun facts are always key details. Neither is right, because paragraph 2 has no details.', this)" title="Hear this read aloud" type="button">🔊</button> Which explanation is correct? Theo says the state flower fact is a key detail for paragraph 2 because it is in that paragraph. Mia says it is interesting, but it does not tell how oranges grow, so it is not a key detail.</p>
+<div class="opts">
+<button class="opt" data-c="1">Mia is right, because a key detail must support the main idea</button>
+<button class="opt">Theo is right, because every sentence in a paragraph is a key detail</button>
+<button class="opt">Theo is right, because fun facts are always key details</button>
+<button class="opt">Neither is right, because paragraph 2 has no details</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-ans="details|detail" data-fq="t2a_s2" data-logic="Key details are the legs that hold up the main idea." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('A table needs legs to stand up. A main idea needs key blank to hold it up.', this)" title="Hear this read aloud" type="button">🔊</button> A table needs legs to stand up. A main idea needs key ___ to hold it up.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="t2a_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Emptying the picking bags into bins is part of picking oranges by hand, so it fits paragraph 3." data-pts="4" data-q="t2b_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('One leg of this table is missing. The tabletop says: At harvest time, oranges are picked by hand. Which detail fits the empty leg? Choices: They empty the bags into large bins. Machines squeeze out the juice. Juice is poured into cartons. The trees need warm weather.', this)" title="Hear this read aloud" type="button">🔊</button> One leg of this table is missing. The tabletop says: At harvest time, oranges are picked by hand. Which detail fits the empty leg?</p>
+<div class="mitable" data-top="At harvest time, oranges are picked by hand." data-legs="Workers climb tall ladders.|They fill bags on their shoulders.|?"></div>
+<div class="opts">
+<button class="opt" data-c="1">They empty the bags into large bins.</button>
+<button class="opt">Machines squeeze out the juice.</button>
+<button class="opt">Juice is poured into cartons.</button>
+<button class="opt">The trees need warm weather.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Squeezing oranges happens at the juice plant in paragraph 5. It does not tell how oranges grow on trees." data-pts="4" data-q="t2c_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! For the tabletop Oranges grow on trees and ripen slowly, Theo chose the leg Machines squeeze the oranges. What went wrong? Choices: That detail is about the juice plant, not about how oranges grow. That detail is not in the booklet at all. A table should not have any legs. Nothing went wrong.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! For the tabletop &quot;Oranges grow on trees and ripen slowly,&quot; Theo chose the leg &quot;Machines squeeze the oranges.&quot; What went wrong?</p>
+<div class="opts">
+<button class="opt" data-c="1">That detail is about the juice plant, not about how oranges grow</button>
+<button class="opt">That detail is not in the booklet at all</button>
+<button class="opt">A table should not have any legs</button>
+<button class="opt">Nothing went wrong</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="6">← Back</button>
+<button class="btn btn-go" data-go="8">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🔎 The Big Idea of the Whole Booklet</h2>
+<div class="card card-grass">
+<p>To find the main idea of a whole passage, first find the main idea of each paragraph. Then ask what they all have in common. The title and the first and last sentences give big clues, because authors often state the main idea there.</p><button class="readaloud-btn" onclick="speakText('To find the main idea of a whole passage, first find the main idea of each paragraph. Then ask what they all have in common. The title and the first and last sentences give big clues, because authors often state the main idea there.', this)" type="button">🔊 Listen to this part read aloud</button>
+<div class="thinkbox"><h4>👁 Watch Me Think</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('The title is From the Grove to Your Glass. The first paragraph says the oranges take a long trip. The last sentence says to remember the long trip from the grove to your glass. All three clues point to the same big idea!', this)" title="Hear this read aloud" type="button">🔊</button> The title is From the Grove to Your Glass. The first paragraph says the oranges take a long trip. The last sentence says to remember the long trip from the grove to your glass. All three clues point to the same big idea!</p></div>
+<div class="pictureit"><h4>🧩 Picture It: Paragraphs Add Up</h4>Paragraph 2: grow → Paragraph 3: pick → Paragraph 4: wash and sort → Paragraph 5: squeeze and sell<br/>= Oranges go through many steps to get from the grove to your glass.</div>
+
+<div class="guidedbox"><h4>🤝 Let's Try Together</h4><p><button class="speak-btn qspeak-btn" onclick="speakText('If every paragraph in a booklet tells about a different job on a farm, the main idea of the whole booklet might be: A farm needs many kinds of work.', this)" title="Hear this read aloud" type="button">🔊</button> If every paragraph in a booklet tells about a different job on a farm, the main idea of the whole booklet might be: A farm needs many kinds of work.</p></div>
+<span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<details class="lookback"><summary>📖 Look back at the booklet</summary><div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div></details>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="Authors often state the main idea in the title, at the beginning, and again at the end." data-pts="4" data-q="t3a_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Where are the best places to look for clues about the main idea of a whole booklet? Choices: The title and the first and last sentences. Only the page numbers. The longest word. Only the middle of paragraph 3.', this)" title="Hear this read aloud" type="button">🔊</button> Where are the best places to look for clues about the main idea of a whole booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">The title and the first and last sentences</button>
+<button class="opt">Only the page numbers</button>
+<button class="opt">The longest word</button>
+<button class="opt">Only the middle of paragraph 3</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Both the title and the last sentence talk about the trip from the grove to your glass. That is the main idea of the whole booklet." data-pts="4" data-q="t3b_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Two steps! Step 1: read the title, From the Grove to Your Glass. Step 2: read the last sentence, remember the long trip it took from the grove to your glass. What main idea do they share? Choices: Oranges take a long trip from the grove to your glass. Bees like orange blossoms. Ladders are tall. Juice should be kept cold.', this)" title="Hear this read aloud" type="button">🔊</button> Two steps! Step 1: read the title, From the Grove to Your Glass. Step 2: read the last sentence, remember the long trip it took from the grove to your glass. What main idea do they share?</p>
+<div class="opts">
+<button class="opt" data-c="1">Oranges take a long trip from the grove to your glass.</button>
+<button class="opt">Bees like orange blossoms.</button>
+<button class="opt">Ladders are tall.</button>
+<button class="opt">Juice should be kept cold.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Each paragraph tells one step, and together the steps hold up the main idea of the whole booklet." data-pts="4" data-q="t3c_s0">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Paragraphs 2 to 5 each tell one stop on the trip: grow, pick, wash and sort, squeeze and sell. Put together, what do they support? Choices: The main idea of the whole booklet. A brand new topic about bees. A story about a dragon. Nothing, they do not connect.', this)" title="Hear this read aloud" type="button">🔊</button> Paragraphs 2 to 5 each tell one stop on the trip: grow, pick, wash and sort, squeeze and sell. Put together, what do they support?</p>
+<div class="opts">
+<button class="opt" data-c="1">The main idea of the whole booklet</button>
+<button class="opt">A brand new topic about bees</button>
+<button class="opt">A story about a dragon</button>
+<button class="opt">Nothing, they do not connect</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="The title names the start (the grove) and the end (your glass) of the oranges&#x27; trip." data-pts="4" data-q="t3a_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('The title From the Grove to Your Glass gives a clue that the booklet is about: Choices: The trip oranges take to become juice. How to wash dishes. How glass is made. A trip to the beach.', this)" title="Hear this read aloud" type="button">🔊</button> The title From the Grove to Your Glass gives a clue that the booklet is about:</p>
+<div class="opts">
+<button class="opt" data-c="1">The trip oranges take to become juice</button>
+<button class="opt">How to wash dishes</button>
+<button class="opt">How glass is made</button>
+<button class="opt">A trip to the beach</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Picking by hand is only the main idea of paragraph 3. Mia&#x27;s idea covers all the paragraphs, so it is the main idea of the whole booklet." data-pts="4" data-q="t3b_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which explanation is correct? Theo says the main idea of the whole booklet is Workers pick oranges by hand because that is his favorite part. Mia says it is Oranges go through many steps to become juice because every paragraph tells one of those steps. Choices: Mia is right, because her main idea covers every paragraph. Theo is right, because your favorite part is always the main idea. Theo is right, because picking is in paragraph 3. Neither is right.', this)" title="Hear this read aloud" type="button">🔊</button> Which explanation is correct? Theo says the main idea of the whole booklet is &quot;Workers pick oranges by hand&quot; because that is his favorite part. Mia says it is &quot;Oranges go through many steps to become juice&quot; because every paragraph tells one of those steps.</p>
+<div class="opts">
+<button class="opt" data-c="1">Mia is right, because her main idea covers every paragraph</button>
+<button class="opt">Theo is right, because your favorite part is always the main idea</button>
+<button class="opt">Theo is right, because picking is in paragraph 3</button>
+<button class="opt">Neither is right</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Authors often put the main idea in the first sentence of a paragraph, and sometimes in the last sentence." data-pts="4" data-q="t3c_s1">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('In the booklet, the main idea of a paragraph is often found in its: Choices: First sentence or last sentence. Longest word. Page number. Middle letter.', this)" title="Hear this read aloud" type="button">🔊</button> In the booklet, the main idea of a paragraph is often found in its:</p>
+<div class="opts">
+<button class="opt" data-c="1">First sentence or last sentence</button>
+<button class="opt">Longest word</button>
+<button class="opt">Page number</button>
+<button class="opt">Middle letter</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="The main idea of the whole text is what all the paragraph main ideas have in common." data-pts="4" data-q="t3a_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Two steps! First you find the main idea of each paragraph. What do you do next to find the main idea of the whole booklet? Choices: Look for what all the paragraph main ideas have in common. Pick the shortest paragraph. Choose your favorite fact. Count the sentences.', this)" title="Hear this read aloud" type="button">🔊</button> Two steps! First you find the main idea of each paragraph. What do you do next to find the main idea of the whole booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">Look for what all the paragraph main ideas have in common</button>
+<button class="opt">Pick the shortest paragraph</button>
+<button class="opt">Choose your favorite fact</button>
+<button class="opt">Count the sentences</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A good title fits the main idea of the whole booklet. The other titles fit only one small detail." data-pts="4" data-q="t3b_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which would be the BEST new title for the booklet? Choices: How Oranges Become Juice. Bees in Spring. Tall Ladders. Cold Cartons.', this)" title="Hear this read aloud" type="button">🔊</button> Which would be the BEST new title for the booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">How Oranges Become Juice</button>
+<button class="opt">Bees in Spring</button>
+<button class="opt">Tall Ladders</button>
+<button class="opt">Cold Cartons</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="The last sentence reminds readers of the long trip from the grove to your glass. It repeats the main idea." data-pts="4" data-q="t3c_s2">
+<span class="pts">+4</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! Mia said, The last sentence of the booklet is about something new, so it cannot help me find the main idea. What is wrong? Choices: The last sentence repeats the main idea, so it is a helpful clue. The booklet has no last sentence. Last sentences are always questions. Nothing is wrong.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! Mia said, &quot;The last sentence of the booklet is about something new, so it cannot help me find the main idea.&quot; What is wrong?</p>
+<div class="opts">
+<button class="opt" data-c="1">The last sentence repeats the main idea, so it is a helpful clue</button>
+<button class="opt">The booklet has no last sentence</button>
+<button class="opt">Last sentences are always questions</button>
+<button class="opt">Nothing is wrong</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="7">← Back</button>
+<button class="btn btn-go" data-go="9">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>⭐ Word Work Bonus: Compound Words</h2>
+<span class="bonuspill">Bonus Practice • builds XP, not Pathway Points</span>
+<div class="card card-sky"><p>A compound word is made of two smaller words put together, like <b>sun</b> + <b>shine</b> = <b>sunshine</b>. You can find one in paragraph 2 of the booklet!</p></div>
+<div class="practicewrap">
+<div class="qbox" data-bonus="1" data-logic="sun + shine = sunshine, a compound word." data-pts="5" data-q="bp1">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which word is made from the two smaller words sun and shine? Choices: sunshine. sunny. shining. sunset.', this)" title="Hear this read aloud" type="button">🔊</button> Which word is made from the two smaller words sun and shine?</p>
+<div class="opts">
+<button class="opt" data-c="1">sunshine</button>
+<button class="opt">sunny</button>
+<button class="opt">shining</button>
+<button class="opt">sunset</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="grapefruit" data-bonus="1" data-fq="bp2" data-logic="grape + fruit = grapefruit." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('grape plus fruit makes the compound word blank.', this)" title="Hear this read aloud" type="button">🔊</button> grape plus fruit makes the compound word ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bp2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-bonus="1" data-logic="Sunshine is made of two words: sun and shine." data-pts="5" data-q="bp3">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which word from the booklet is a compound word? Choices: sunshine. orange. juice. ladder.', this)" title="Hear this read aloud" type="button">🔊</button> Which word from the booklet is a compound word?</p>
+<div class="opts">
+<button class="opt" data-c="1">sunshine</button>
+<button class="opt">orange</button>
+<button class="opt">juice</button>
+<button class="opt">ladder</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="8">← Back</button>
+<button class="btn btn-go" data-go="10">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>🧩 Match-Up Round</h2>
+<p><button class="speak-btn qspeak-btn" onclick="speakText('Tap an item on the left, then its match on the right. First try matches earn 2 points each.', this)" title="Hear this read aloud" type="button">🔊</button> Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav">
+<button class="btn btn-back" data-go="9">← Back</button>
+<button class="btn btn-go" data-go="11">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>🛠️ Fix the Sentence</h2>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" onclick="speakText('Each sentence below has a mistake. Type the whole sentence the right way. Watch for capital letters, end marks, and commas in a list.', this)" title="Hear this read aloud" type="button">🔊</button> Each sentence below has a mistake. Type the whole sentence the right way. Watch for capital letters, end marks, and commas in a list. Every sentence comes from the booklet or from harvest week at Rosa's grove. Each one is worth 5 points.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox fixbox" data-fixans="Florida has many orange groves." data-fx="fx1_s0" data-logic="Every sentence starts with a capital letter. Florida is also the name of a state, so it always gets a capital F." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. It needs a capital letter at the start. florida has many orange groves.', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. It needs a capital letter at the start.</p>
+<div class="fixsrc">✏️ florida has many orange groves.</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx1_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox fixbox" data-fixans="Workers pick oranges by hand." data-fx="fx2_s0" data-logic="A telling sentence ends with a period." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. This telling sentence needs an end mark. Workers pick oranges by hand', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. This telling sentence needs an end mark.</p>
+<div class="fixsrc">✏️ Workers pick oranges by hand</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox fixbox" data-fixans="Rosa grows oranges, grapefruit, and tangerines.|Rosa grows oranges, grapefruit and tangerines." data-fx="fx1_s1" data-logic="Use commas to separate three or more things in a list: oranges, grapefruit, and tangerines." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. Add commas to separate the things in the list. Rosa grows oranges grapefruit and tangerines.', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. Add commas to separate the things in the list.</p>
+<div class="fixsrc">✏️ Rosa grows oranges grapefruit and tangerines.</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx1_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox fixbox" data-fixans="Did you see the packing house?" data-fx="fx2_s1" data-logic="Every sentence starts with a capital letter, so did becomes Did." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. It needs a capital letter at the start. did you see the packing house?', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. It needs a capital letter at the start.</p>
+<div class="fixsrc">✏️ did you see the packing house?</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox fixbox" data-fixans="Mia read the booklet with Theo." data-fx="fx1_s2" data-logic="Every sentence starts with a capital letter. Mia is a name, so it always gets a capital M." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. It needs a capital letter at the start. mia read the booklet with Theo.', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. It needs a capital letter at the start.</p>
+<div class="fixsrc">✏️ mia read the booklet with Theo.</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx1_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox fixbox" data-fixans="How are oranges picked?" data-fx="fx2_s2" data-logic="An asking sentence ends with a question mark." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Fix the sentence. This asking sentence needs an end mark. How are oranges picked', this)" title="Hear this read aloud" type="button">🔊</button> Fix the sentence. This asking sentence needs an end mark.</p>
+<div class="fixsrc">✏️ How are oranges picked</div>
+<div class="fillrow">
+<input aria-label="corrected sentence" class="fillin fixin" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Type it correctly"/>
+<button class="btn btn-pri" data-fixcheck="fx2_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="10">← Back</button>
+<button class="btn btn-go" data-go="12">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>⌨️ Type-It Corral</h2>
+<p>Fill in each answer! Each one is worth 4 points.</p>
+<details class="lookback"><summary>📖 Look back at the booklet</summary><div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div></details>
+<div class="qset" data-set="0">
+<div class="qbox" data-ans="topic" data-fq="ty1_s0" data-logic="The topic is what a text is about in one or two words." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('What a text is about, in one or two words, is the blank.', this)" title="Hear this read aloud" type="button">🔊</button> What a text is about, in one or two words, is the ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="details|detail" data-fq="ty2_s0" data-logic="Key details hold up the main idea like table legs." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Facts that hold up the main idea are called key blank.', this)" title="Hear this read aloud" type="button">🔊</button> Facts that hold up the main idea are called key ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="hand" data-fq="ty3_s0" data-logic="Paragraph 3: At harvest time, many Florida oranges are picked by hand." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Paragraph 3 says many Florida oranges are picked by blank.', this)" title="Hear this read aloud" type="button">🔊</button> Paragraph 3 says many Florida oranges are picked by ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-ans="idea" data-fq="ty1_s1" data-logic="The main idea is the most important point about the topic." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('The most important point about a topic is the main blank.', this)" title="Hear this read aloud" type="button">🔊</button> The most important point about a topic is the main ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="squeeze" data-fq="ty2_s1" data-logic="Paragraph 5: machines squeeze the oranges to get the juice out." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('At the juice plant, machines blank the oranges to get the juice out.', this)" title="Hear this read aloud" type="button">🔊</button> At the juice plant, machines ___ the oranges to get the juice out.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="nonfiction|non-fiction" data-fq="ty3_s1" data-logic="Nonfiction gives true facts and information." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Writing that gives true facts and information is called blank.', this)" title="Hear this read aloud" type="button">🔊</button> Writing that gives true facts and information is called ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-ans="blossoms|blossom" data-fq="ty1_s2" data-logic="Paragraph 2: the flowers are called orange blossoms." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('In spring, orange trees are covered with small white flowers called orange blank.', this)" title="Hear this read aloud" type="button">🔊</button> In spring, orange trees are covered with small white flowers called orange ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty1_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="pasteurizing|pasteurization" data-fq="ty2_s2" data-logic="Paragraph 5: this step is called pasteurizing." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Heating juice for a short time to kill germs is called blank.', this)" title="Hear this read aloud" type="button">🔊</button> Heating juice for a short time to kill germs is called ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty2_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="out" data-fq="ty3_s2" data-logic="Paragraph 4: oranges that are bruised or damaged are taken out." data-pts="4">
+<span class="pts">+4</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('At the packing house, oranges that are bruised or damaged are taken blank.', this)" title="Hear this read aloud" type="button">🔊</button> At the packing house, oranges that are bruised or damaged are taken ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="ty3_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="11">← Back</button>
+<button class="btn btn-go" data-go="13">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>⚡ Speed Arena</h2>
+<span class="bonuspill">Bonus Round • builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP. Go fast but stay correct!</p>
+<div class="practicewrap">
+<div class="qbox" data-bonus="1" data-logic="The main idea is the most important point about the topic." data-pts="5" data-q="sp1">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('A main idea is: Choices: The most important point about the topic. One small fun fact. The page number. The author\'s name.', this)" title="Hear this read aloud" type="button">🔊</button> A main idea is:</p>
+<div class="opts">
+<button class="opt" data-c="1">The most important point about the topic</button>
+<button class="opt">One small fun fact</button>
+<button class="opt">The page number</button>
+<button class="opt">The author&#x27;s name</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="details|detail" data-bonus="1" data-fq="sp2" data-logic="Key details support the main idea." data-pts="5">
+<span class="pts">+5 XP</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Facts that support the main idea are called key blank.', this)" title="Hear this read aloud" type="button">🔊</button> Facts that support the main idea are called key ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="sp2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-bonus="1" data-logic="Taking out bruised oranges is part of sorting." data-pts="5" data-q="sp3">
+<span class="pts">+5 XP</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which is a key detail for: Oranges are washed and sorted? Choices: Bruised oranges are taken out. Bees buzz in spring. Trucks go to stores. Trees grow in rows.', this)" title="Hear this read aloud" type="button">🔊</button> Which is a key detail for: Oranges are washed and sorted?</p>
+<div class="opts">
+<button class="opt" data-c="1">Bruised oranges are taken out.</button>
+<button class="opt">Bees buzz in spring.</button>
+<button class="opt">Trucks go to stores.</button>
+<button class="opt">Trees grow in rows.</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="card card-sky" style="margin-top:18px">
+<h3>⌨️ Keyboard Corral</h3>
+<p style="margin-bottom:10px">Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter and period.</p>
+<div class="qbox" data-ans="Oranges go from the grove to your glass." data-bonus="1" data-fq="kc1" data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end." data-pts="10">
+<span class="pts">+10 XP</span>
+<p class="qtext">Type this sentence:</p>
+<div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">Oranges go from the grove to your glass.</div>
+<div class="fillrow">
+<input aria-label="typed sentence" class="fillin" id="kc1input" inputmode="text" style="width:100%"/>
+<button class="btn btn-pri" data-check="kc1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="12">← Back</button>
+<button class="btn btn-go" data-go="14">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Harvest Week Challenge</h2>
+<p>Show everything you've learned this week! Each one is worth 5 points.</p>
+<details class="lookback"><summary>📖 Look back at the booklet</summary><div class="booklet">
+<div class="booklet-cover"><span class="booklet-icon">🍊</span><div><div class="booklet-kicker">Nonfiction booklet</div><div class="booklet-title">From the Grove to Your Glass</div></div></div>
+<div class="bpara"><span class="pnum">1</span><p>Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.</p><button class="readaloud-btn" onclick="speakText('Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.', this)" type="button">🔊 Paragraph 1</button></div>
+<div class="bpara"><span class="pnum">2</span><p>Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.</p><button class="readaloud-btn" onclick="speakText('Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.', this)" type="button">🔊 Paragraph 2</button></div>
+<div class="bpara"><span class="pnum">3</span><p>At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.</p><button class="readaloud-btn" onclick="speakText('At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.', this)" type="button">🔊 Paragraph 3</button></div>
+<div class="bpara"><span class="pnum">4</span><p>At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.</p><button class="readaloud-btn" onclick="speakText('At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.', this)" type="button">🔊 Paragraph 4</button></div>
+<div class="bpara"><span class="pnum">5</span><p>At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.</p><button class="readaloud-btn" onclick="speakText('At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.', this)" type="button">🔊 Paragraph 5</button></div>
+</div></details>
+<div class="qset" data-set="0">
+<div class="qbox" data-logic="This idea covers every paragraph, and the title and last sentence point to it." data-pts="5" data-q="bb1_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('What is the main idea of the whole booklet? Choices: Oranges go through many steps to get from the grove to your glass. Bees buzz from flower to flower. Ladders help workers reach fruit. Juice comes in cartons.', this)" title="Hear this read aloud" type="button">🔊</button> What is the main idea of the whole booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">Oranges go through many steps to get from the grove to your glass.</button>
+<button class="opt">Bees buzz from flower to flower.</button>
+<button class="opt">Ladders help workers reach fruit.</button>
+<button class="opt">Juice comes in cartons.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Paragraph 4 is about washing and sorting at the packing house, and taking out bruised oranges is part of sorting." data-pts="5" data-q="bb2_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Two steps! Choose the pair that correctly matches paragraph 4\'s main idea with one of its key details. Choices: Main idea: Oranges are washed and sorted. Key detail: Bruised oranges are taken out. Main idea: Oranges are washed and sorted. Key detail: Bees visit the blossoms. Main idea: Bees visit the blossoms. Key detail: Oranges are washed. Main idea: Juice is kept cold. Key detail: Workers climb ladders.', this)" title="Hear this read aloud" type="button">🔊</button> Two steps! Choose the pair that correctly matches paragraph 4&#x27;s main idea with one of its key details.</p>
+<div class="opts">
+<button class="opt" data-c="1">Main idea: Oranges are washed and sorted. Key detail: Bruised oranges are taken out.</button>
+<button class="opt">Main idea: Oranges are washed and sorted. Key detail: Bees visit the blossoms.</button>
+<button class="opt">Main idea: Bees visit the blossoms. Key detail: Oranges are washed.</button>
+<button class="opt">Main idea: Juice is kept cold. Key detail: Workers climb ladders.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Keeping juice cold happens after the juice plant. It does not tell about picking oranges by hand." data-pts="5" data-q="bb3_s0">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! The tabletop says: At harvest time, oranges are picked by hand. Which leg should be replaced? Choices: Juice is kept cold. Workers climb tall ladders. They fill bags on their shoulders.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! The tabletop says: At harvest time, oranges are picked by hand. Which leg should be replaced?</p>
+<div class="mitable" data-top="At harvest time, oranges are picked by hand." data-legs="Workers climb tall ladders.|They fill bags on their shoulders.|Juice is kept cold."></div>
+<div class="opts">
+<button class="opt" data-c="1">Juice is kept cold.</button>
+<button class="opt">Workers climb tall ladders.</button>
+<button class="opt">They fill bags on their shoulders.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="sentence" data-fq="bb4_s0" data-logic="Authors often state the main idea in the title and the first and last sentences." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('For main idea clues, look at the title, the first sentence, and the last blank.', this)" title="Hear this read aloud" type="button">🔊</button> For main idea clues, look at the title, the first sentence, and the last ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb4_s0">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-logic="Paragraph 5 is mostly about what happens at the juice plant. The other choices are small details or not in the text." data-pts="5" data-q="bb1_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which sentence is the main idea of paragraph 5? Choices: At the juice plant, oranges are squeezed into juice that goes to stores. The juice is kept cold. Families buy juice. Machines are loud.', this)" title="Hear this read aloud" type="button">🔊</button> Which sentence is the main idea of paragraph 5?</p>
+<div class="opts">
+<button class="opt" data-c="1">At the juice plant, oranges are squeezed into juice that goes to stores.</button>
+<button class="opt">The juice is kept cold.</button>
+<button class="opt">Families buy juice.</button>
+<button class="opt">Machines are loud.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Paragraph 3 is about picking oranges by hand, and filling shoulder bags is part of picking." data-pts="5" data-q="bb2_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Two steps! Choose the pair that correctly matches paragraph 3\'s main idea with one of its key details. Choices: Main idea: Oranges are picked by hand. Key detail: Workers fill bags that hang from their shoulders. Main idea: Oranges are picked by hand. Key detail: The juice is pasteurized. Main idea: Juice is pasteurized. Key detail: Workers climb ladders. Main idea: Trees need sunshine. Key detail: Trucks go to stores.', this)" title="Hear this read aloud" type="button">🔊</button> Two steps! Choose the pair that correctly matches paragraph 3&#x27;s main idea with one of its key details.</p>
+<div class="opts">
+<button class="opt" data-c="1">Main idea: Oranges are picked by hand. Key detail: Workers fill bags that hang from their shoulders.</button>
+<button class="opt">Main idea: Oranges are picked by hand. Key detail: The juice is pasteurized.</button>
+<button class="opt">Main idea: Juice is pasteurized. Key detail: Workers climb ladders.</button>
+<button class="opt">Main idea: Trees need sunshine. Key detail: Trucks go to stores.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="A topic is one or two words, like oranges. A whole sentence that tells the most important point is the main idea." data-pts="5" data-q="bb3_s1">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which explanation is correct? Theo says the topic of the booklet is Florida oranges travel through many steps. Mia says that is the main idea, and the topic is just oranges. Choices: Mia is right, because a topic is one or two words and a main idea is a whole sentence. Theo is right, because a topic is always a long sentence. Theo is right, because Florida is in the booklet. Neither is right.', this)" title="Hear this read aloud" type="button">🔊</button> Which explanation is correct? Theo says the topic of the booklet is &quot;Florida oranges travel through many steps.&quot; Mia says that is the main idea, and the topic is just &quot;oranges.&quot;</p>
+<div class="opts">
+<button class="opt" data-c="1">Mia is right, because a topic is one or two words and a main idea is a whole sentence</button>
+<button class="opt">Theo is right, because a topic is always a long sentence</button>
+<button class="opt">Theo is right, because Florida is in the booklet</button>
+<button class="opt">Neither is right</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="sorted" data-fq="bb4_s1" data-logic="Paragraph 4: workers and machines sort the oranges, and bruised ones are taken out." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Paragraph 4 says bruised oranges are taken out when the oranges are blank.', this)" title="Hear this read aloud" type="button">🔊</button> Paragraph 4 says bruised oranges are taken out when the oranges are ___.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb4_s1">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-logic="This title fits every paragraph. The others fit only one small detail." data-pts="5" data-q="bb1_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Which title best fits the main idea of the booklet? Choices: How Oranges Become Juice. Bees in Spring. Tall Ladders. Florida Flowers.', this)" title="Hear this read aloud" type="button">🔊</button> Which title best fits the main idea of the booklet?</p>
+<div class="opts">
+<button class="opt" data-c="1">How Oranges Become Juice</button>
+<button class="opt">Bees in Spring</button>
+<button class="opt">Tall Ladders</button>
+<button class="opt">Florida Flowers</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Paragraph 2 is about how oranges grow, and what the trees need to grow supports that." data-pts="5" data-q="bb2_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Two steps! Choose the pair that correctly matches paragraph 2\'s main idea with one of its key details. Choices: Main idea: Oranges grow on trees and ripen slowly. Key detail: Trees need warm weather, sunshine, and water. Main idea: Oranges grow on trees and ripen slowly. Key detail: Machines squeeze the juice. Main idea: Machines squeeze the juice. Key detail: Bees visit blossoms. Main idea: Workers pick oranges. Key detail: The juice is cold.', this)" title="Hear this read aloud" type="button">🔊</button> Two steps! Choose the pair that correctly matches paragraph 2&#x27;s main idea with one of its key details.</p>
+<div class="opts">
+<button class="opt" data-c="1">Main idea: Oranges grow on trees and ripen slowly. Key detail: Trees need warm weather, sunshine, and water.</button>
+<button class="opt">Main idea: Oranges grow on trees and ripen slowly. Key detail: Machines squeeze the juice.</button>
+<button class="opt">Main idea: Machines squeeze the juice. Key detail: Bees visit blossoms.</button>
+<button class="opt">Main idea: Workers pick oranges. Key detail: The juice is cold.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-logic="Climbing ladders happens in the grove at picking time, not at the juice plant." data-pts="5" data-q="bb3_s2">
+<span class="pts">+5</span>
+<p class="qtext"><button class="speak-btn qspeak-btn" onclick="speakText('Find the mistake! The tabletop says: At the juice plant, oranges become juice for stores. Which leg should be replaced? Choices: Workers climb tall ladders. Machines squeeze the oranges. The juice is heated to keep it safe.', this)" title="Hear this read aloud" type="button">🔊</button> Find the mistake! The tabletop says: At the juice plant, oranges become juice for stores. Which leg should be replaced?</p>
+<div class="mitable" data-top="At the juice plant, oranges become juice for stores." data-legs="Machines squeeze the oranges.|The juice is heated to keep it safe.|Workers climb tall ladders."></div>
+<div class="opts">
+<button class="opt" data-c="1">Workers climb tall ladders.</button>
+<button class="opt">Machines squeeze the oranges.</button>
+<button class="opt">The juice is heated to keep it safe.</button>
+</div>
+<p class="feedback"></p>
+</div>
+<div class="qbox" data-ans="water" data-fq="bb4_s2" data-logic="Paragraph 2: orange trees need warm weather, lots of sunshine, and water to grow." data-pts="5">
+<span class="pts">+5</span>
+<p class="qtext">Type your answer:</p>
+<div class="fillrow">
+<span class="eq"><button class="speak-btn qspeak-btn" onclick="speakText('Orange trees need warm weather, sunshine, and blank to grow.', this)" title="Hear this read aloud" type="button">🔊</button> Orange trees need warm weather, sunshine, and ___ to grow.</span>
+<input aria-label="answer" class="fillin" inputmode="text"/>
+<button class="btn btn-pri" data-check="bb4_s2">Check</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+<div class="nav">
+<button class="btn btn-back" data-go="13">← Back</button>
+<button class="btn btn-go" data-go="15">Next →</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>✏️ Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Amazing work! Before you see your score, take one more Pencil Break. Do the Post part of your paper sheet. You will write the topic, the main idea, and key details from the booklet, and fix a sentence. When you finish, press See My Score.</p><button class="readaloud-btn" onclick="speakText('Amazing work! Before you see your score, take one more Pencil Break. Do the Post part of your paper sheet. You will write the topic, the main idea, and key details from the booklet, and fix a sentence. When you finish, press See My Score.', this)" type="button">🔊 Listen to this part read aloud</button>
+<ul class="tips"><li>Look back at the booklet if you need to.</li><li>Draw the main idea table if it helps you!</li><li>Use your neatest handwriting.</li></ul>
+</div>
+<div class="center" style="font-size:4rem">✍️🍊</div>
+<div class="nav">
+<button class="btn btn-back" data-go="14">← Back</button>
+<button class="btn btn-go" data-finish="">See My Score 🏆</button>
+</div>
+<div class="dots js-dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<div class="kc-logo kc-logo-large">
+<span class="kc-logo-box">KC</span>
+<span class="kc-logo-text">
+<span class="kc-logo-name">KingCretot</span>
+<span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+</span>
+</div>
+<div class="center">
+<span class="badge" id="finalBadge">Lesson Complete</span>
+<h1 id="finalHeadline">Harvest Week Complete!</h1>
+<h2 id="finalTitle">Rising Picker! ⭐</h2>
+<div class="final-score"><span id="finalScore">0</span>/100</div>
+<div class="congrats" id="congratsBox"></div>
+<div class="card card-gold" style="text-align:left">
+<h3 id="finalMessageHeading">📣 Tell your parent or teacher your score so it goes in your Portfolio Passport!</h3>
+<p id="finalMessageBody"></p>
+<p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+</div>
+<div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+<span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📜 Portfolio Passport</span>
+<p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 3: Market Days — Week 1 of 4</p>
+<div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+</div>
+<p class="quote" id="priorAttemptNote" style="display:none"></p>
+<div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay="">Play Again 🔄</button>
+<a class="btn btn-go" href="#" id="continueLink" style="display:none">Continue to Next Lesson →</a>
+</div>
+<div class="card" style="margin-top:18px;text-align:left">
+<h3>✅ All Done for Today?</h3>
+<p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Next week, Theo and Mia visit a city bakery in Chicago and learn how text features help readers find information fast!</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 17;
+const FINAL_INDEX = 16;
+const MODULE_ID = 'grade3-reading-w11';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS_EACH = 2;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting to KingCretot Experience via Formspree. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    let name = 'Unnamed Student';
+    try{ name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student'; }catch(e){}
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '✅ Sent to KingCretot Experience automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '⚠️ Could not send automatically — tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    try{
+      if (full) localStorage.setItem('kcePathwaysStudentName', full);
+      if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+      if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+    }catch(e){}
+  };
+  try{
+    if (firstField){ firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || ''; }
+    if (lastField){ lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || ''; }
+  }catch(e){}
+  if (firstField) firstField.addEventListener('blur', saveFullName);
+  if (lastField) lastField.addEventListener('blur', saveFullName);
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(count){ const n = count || 34; const colors = ['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464','#F28C28']; for(let i=0;i<n;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded ElevenLabs voice (Emma); browser voice only as a backup */
+var KCE_CLIPS = {"The most important point the author makes about the topic.": "../audio/emma/c79472f5fa.mp3", "Which explanation is correct? Theo says the state flower fact is a key detail for paragraph 2 because it is in that paragraph. Mia says it is interesting, but it does not tell how oranges grow, so it is not a key detail. Choices: Mia is right, because a key detail must support the main idea. Theo is right, because every sentence in a paragraph is a key detail. Theo is right, because fun facts are always key details. Neither is right, because paragraph 2 has no details.": "../audio/emma/68d073fca1.mp3", "Rain soaked the boxes, so the boxes collapsed. What is the effect? Choices: The boxes collapsed. Rain soaked the boxes. The shutter was loose. Mia found puddles.": "../audio/emma/0e72d1d46f.mp3", "What a text is about, in one or two words, is the blank.": "../audio/emma/8a43eafb81.mp3", "Fix the sentence. It needs a capital letter at the start. florida has many orange groves.": "../audio/emma/762279a280.mp3", "In the booklet, the main idea of a paragraph is often found in its: Choices: First sentence or last sentence. Longest word. Page number. Middle letter.": "../audio/emma/0502f17b44.mp3", "Paragraph 4 says bruised oranges are taken out when the oranges are blank.": "../audio/emma/11dd7976e3.mp3", "Key details are facts that tell more about the main idea and help prove it is true. They answer questions like who, what, where, when, why, and how. Some details are interesting but do not support the main idea. Those details are not key details.": "../audio/emma/bd9997ce2f.mp3", "Doing something even though you feel scared is called blank.": "../audio/emma/e8b9c86818.mp3", "Find the mistake! Mia wrote that the main idea of paragraph 3 is ladders. What went wrong? Choices: Ladders is just one small detail, not the most important point of the paragraph. Paragraph 3 never talks about ladders. A main idea must be a question. Nothing went wrong.": "../audio/emma/f1da966e69.mp3", "Which sentence is the MAIN IDEA of the whole booklet? Choices: Oranges go through many steps to get from the grove to your glass. Bees buzz from flower to flower. Workers climb tall ladders. Juice is kept cold.": "../audio/emma/1051f338e3.mp3", "Fix the sentence. It needs a capital letter at the start. mia read the booklet with Theo.": "../audio/emma/84f2045386.mp3", "Paragraph 3 says many Florida oranges are picked by blank.": "../audio/emma/6142b68261.mp3", "Two steps! Choose the pair that correctly matches paragraph 4's main idea with one of its key details. Choices: Main idea: Oranges are washed and sorted. Key detail: Bruised oranges are taken out. Main idea: Oranges are washed and sorted. Key detail: Bees visit the blossoms. Main idea: Bees visit the blossoms. Key detail: Oranges are washed. Main idea: Juice is kept cold. Key detail: Workers climb ladders.": "../audio/emma/f9b34d85f4.mp3", "The reason a character wants or does something is called blank.": "../audio/emma/724b325a27.mp3", "Which explanation is correct? Theo says the main idea is oranges. Mia says the main idea is Oranges go through many steps to get from the grove to your glass. Choices: Mia is right, because a main idea is a whole sentence that tells the most important point about the topic. Theo is right, because a main idea is always one word. Theo is right, because oranges are in every paragraph. Neither is right, because nonfiction has no main idea.": "../audio/emma/a8c740ae2a.mp3", "Two steps! Step 1: read the title, From the Grove to Your Glass. Step 2: read the last sentence, remember the long trip it took from the grove to your glass. What main idea do they share? Choices: Oranges take a long trip from the grove to your glass. Bees like orange blossoms. Ladders are tall. Juice should be kept cold.": "../audio/emma/43a0932abd.mp3", "Amazing work! Before you see your score, take one more Pencil Break. Do the Post part of your paper sheet. You will write the topic, the main idea, and key details from the booklet, and fix a sentence. When you finish, press See My Score.": "../audio/emma/327135cc50.mp3", "Theo thought the hiker was rude, but that was only one point of blank.": "../audio/emma/ff5a29656a.mp3", "Theo felt hurt. Mia thought the hiker was tired. Comparing their points of view helps you: Choices: Understand the whole picture. Decide who is mean. Skip the ending. Find the setting.": "../audio/emma/0827549a27.mp3", "What a text is mostly about, in one or two words, is called the blank.": "../audio/emma/eda784880d.mp3", "Which would be the BEST new title for the booklet? Choices: How Oranges Become Juice. Bees in Spring. Tall Ladders. Cold Cartons.": "../audio/emma/162fef6478.mp3", "At the juice plant, machines squeeze the oranges to get the juice out. The juice is heated for a short time to kill germs and keep it safe. This step is called pasteurizing. Then the juice is poured into cartons or bottles and kept cold. Finally, trucks take the juice to stores, where your family can buy it. So the next time you pour a glass of orange juice, remember the long trip it took from the grove to your glass.": "../audio/emma/799ffaa717.mp3", "Which one is a central message, not just an event? Choices: Everyone contributes differently, and that makes a team. A storm hit the trading post. A hiker left without buying anything. Mia stood at the counter.": "../audio/emma/9dd152fcc7.mp3", "topic": "../audio/emma/9d9b68ac2b.mp3", "Fix the sentence. It needs a capital letter at the start. did you see the packing house?": "../audio/emma/c47fbd3e98.mp3", "Each sentence below has a mistake. Type the whole sentence the right way. Watch for capital letters, end marks, and commas in a list.": "../audio/emma/e9e91f8ae9.mp3", "It is harvest week at cousin Rosa's orange grove near Arcadia, Florida. Grandpa drove Theo and Mia down to help. On the porch, Rosa handed them a little booklet called From the Grove to Your Glass. This booklet is nonfiction. That means it gives true facts and information instead of telling a made-up story. Let's read it with Theo and Mia!": "../audio/emma/e287f99897.mp3", "Facts that support the main idea are called key blank.": "../audio/emma/ef21d56f72.mp3", "For main idea clues, look at the title, the first sentence, and the last blank.": "../audio/emma/ae04571527.mp3", "The tabletop says: At harvest time, oranges are picked by hand. Which detail is a leg that holds it up? Choices: Workers climb tall ladders to reach the fruit. The juice is heated to kill germs. The orange blossom is the state flower of Florida. Trucks take the juice to stores.": "../audio/emma/e58307386a.mp3", "The most important point an author makes about a topic is called the main blank.": "../audio/emma/6acd8d50e1.mp3", "In a cause and effect chain, one event can be: Choices: Both an effect and a cause. Only the first event. Never connected to other events. The title of the story.": "../audio/emma/97329c1dc2.mp3", "A fact that tells more about the main idea and supports it.": "../audio/emma/2c591df73c.mp3", "The topic is orange trees. Which sentence is a MAIN IDEA about this topic? Choices: Orange trees need warm weather, sunshine, and water to grow. Orange trees. Trees and sun. Green.": "../audio/emma/ac00876f78.mp3", "Which sentence is the main idea of paragraph 5? Choices: At the juice plant, oranges are squeezed into juice that goes to stores. The juice is kept cold. Families buy juice. Machines are loud.": "../audio/emma/e365c30817.mp3", "Find the mistake! The tabletop says: At the juice plant, oranges become juice for stores. Which leg should be replaced? Choices: Workers climb tall ladders. Machines squeeze the oranges. The juice is heated to keep it safe.": "../audio/emma/518740e24c.mp3", "Orange trees need warm weather, sunshine, and blank to grow.": "../audio/emma/bf6e4b728d.mp3", "At the packing house, the oranges are washed and sorted. Trucks bring them there from the grove. First, the oranges are washed with water and soft brushes to clean off dirt. Then workers and machines sort them, and oranges that are bruised or damaged are taken out. The best-looking oranges are packed into boxes to sell as fresh fruit. Oranges for juice are sent on to the juice plant.": "../audio/emma/273b96993c.mp3", "If every paragraph in a booklet tells about a different job on a farm, the main idea of the whole booklet might be: A farm needs many kinds of work.": "../audio/emma/e65b61e3ae.mp3", "support": "../audio/emma/434990c8a2.mp3", "The title is From the Grove to Your Glass. The first paragraph says the oranges take a long trip. The last sentence says to remember the long trip from the grove to your glass. All three clues point to the same big idea!": "../audio/emma/6d1b32e154.mp3", "A table needs legs to stand up. A main idea needs key blank to hold it up.": "../audio/emma/a311cf15a2.mp3", "Find the mistake! Mia said, The last sentence of the booklet is about something new, so it cannot help me find the main idea. What is wrong? Choices: The last sentence repeats the main idea, so it is a helpful clue. The booklet has no last sentence. Last sentences are always questions. Nothing is wrong.": "../audio/emma/8b4b4ea688.mp3", "Oranges grow on trees that are planted in long rows. A farm full of orange trees is called a grove. Orange trees need warm weather, lots of sunshine, and water to grow. In spring, the trees are covered with small white flowers called orange blossoms, and bees buzz from flower to flower. A blossom can turn into a tiny green orange, which grows and ripens for many months. Fun fact: the orange blossom is the state flower of Florida.": "../audio/emma/25e25e3f67.mp3", "One leg of this table is missing. The tabletop says: At harvest time, oranges are picked by hand. Which detail fits the empty leg? Choices: They empty the bags into large bins. Machines squeeze out the juice. Juice is poured into cartons. The trees need warm weather.": "../audio/emma/3ca5d11218.mp3", "At the juice plant, machines blank the oranges to get the juice out.": "../audio/emma/48e75d958a.mp3", "Two steps! Choose the pair that correctly matches paragraph 3's main idea with one of its key details. Choices: Main idea: Oranges are picked by hand. Key detail: Workers fill bags that hang from their shoulders. Main idea: Oranges are picked by hand. Key detail: The juice is pasteurized. Main idea: Juice is pasteurized. Key detail: Workers climb ladders. Main idea: Trees need sunshine. Key detail: Trucks go to stores.": "../audio/emma/1007c6acb8.mp3", "In spring, orange trees are covered with small white flowers called orange blank.": "../audio/emma/880ba521f6.mp3", "Where are the best places to look for clues about the main idea of a whole booklet? Choices: The title and the first and last sentences. Only the page numbers. The longest word. Only the middle of paragraph 3.": "../audio/emma/6889436589.mp3", "The most important point about a topic is the main blank.": "../audio/emma/39b0720f42.mp3", "In a story, a cause is: Choices: Why something happens. The name of the main character. The last page of the book. A word that rhymes.": "../audio/emma/d85a321ad5.mp3", "Find the mistake! Look at this table. The tabletop says: At the packing house, oranges are washed and sorted. Which leg does NOT belong? Choices: Bees buzz from flower to flower. Oranges are washed with water and soft brushes. Bruised oranges are taken out.": "../audio/emma/89aa5e5691.mp3", "Which word is made from the two smaller words sun and shine? Choices: sunshine. sunny. shining. sunset.": "../audio/emma/6cb5f58667.mp3", "Tap an item on the left, then its match on the right. First try matches earn 2 points each.": "../audio/emma/d61618b724.mp3", "Paragraph 2 is mostly about how oranges grow on trees and ripen slowly. Which detail does NOT support that main idea? Choices: The orange blossom is the state flower of Florida. Orange trees need warm weather, sunshine, and water. A blossom can turn into a tiny green orange. The oranges grow and ripen for many months.": "../audio/emma/999f8422d0.mp3", "Which explanation is correct? Theo says the main idea of the whole booklet is Workers pick oranges by hand because that is his favorite part. Mia says it is Oranges go through many steps to become juice because every paragraph tells one of those steps. Choices: Mia is right, because her main idea covers every paragraph. Theo is right, because your favorite part is always the main idea. Theo is right, because picking is in paragraph 3. Neither is right.": "../audio/emma/55fb6125e7.mp3", "Heating juice for a short time to kill germs is called blank.": "../audio/emma/ae4a3b8dc0.mp3", "What a text is about, in one or two words.": "../audio/emma/5d7765ee2e.mp3", "main idea": "../audio/emma/8717cff3a9.mp3", "Topic: bees. Main idea: Bees are busy helpers in an orange grove. See how the main idea tells something important about the topic?": "../audio/emma/f3863640e3.mp3", "Fix the sentence. Add commas to separate the things in the list. Rosa grows oranges grapefruit and tangerines.": "../audio/emma/7c53c64bb4.mp3", "Have you ever wondered how orange juice gets to your table? Florida grows a lot of oranges, and most of them are made into juice. Before the juice reaches your glass, the oranges take a long trip. They go through many steps, from the grove to the store.": "../audio/emma/7ba960b239.mp3", "Time for a Pencil Break! Step away from the screen and grab your paper sheet. Do the Pre part now. It is a warm-up to get your brain ready for today's new skill. When you are done, come back and press Next.": "../audio/emma/1f68f2ab31.mp3", "Where do you find a story's central message? Choices: By putting the whole story together. Only in the first sentence. Only in the pictures. In the page numbers.": "../audio/emma/ce33bedb39.mp3", "key detail": "../audio/emma/64c6977e57.mp3", "Mia saw the hiker's muddy boots and empty water bottle. What did she figure out? Choices: The hiker was tired, not rude. The hiker was a thief. The hiker owned the store. The hiker wanted a job.": "../audio/emma/ceef31109d.mp3", "Think of a main idea like the top of a table. Key details are the legs. The legs hold the tabletop up. If a detail does not hold up the main idea, it is not a key detail, even if it is interesting.": "../audio/emma/e1486227dd.mp3", "A topic is usually: Choices: One or two words that name what a text is about. A long list of every fact. The last word of the text. A question the reader asks.": "../audio/emma/ce3994dad2.mp3", "Writing that gives true facts and information is called blank.": "../audio/emma/64882d82fb.mp3", "Which word from the booklet is a compound word? Choices: sunshine. orange. juice. ladder.": "../audio/emma/7a04347101.mp3", "Which explanation is correct? Theo says the topic of the booklet is Florida oranges travel through many steps. Mia says that is the main idea, and the topic is just oranges. Choices: Mia is right, because a topic is one or two words and a main idea is a whole sentence. Theo is right, because a topic is always a long sentence. Theo is right, because Florida is in the booklet. Neither is right.": "../audio/emma/eaa439e666.mp3", "Fix the sentence. This telling sentence needs an end mark. Workers pick oranges by hand": "../audio/emma/48ad4ef003.mp3", "Nonfiction gives true facts. Many nonfiction texts are built around one big idea. Today's booklet explains the five stops oranges make on their trip: the grove, picking, the packing house, the juice plant, and the store.": "../audio/emma/73cc19cb1c.mp3", "When I read the booklet, I ask two questions. First: what is this mostly about? Oranges. That is the topic. Second: what is the author telling me about oranges? Oranges go through many steps to get from the grove to my glass. That is the main idea.": "../audio/emma/28ceaa581e.mp3", "Two steps! First you find the main idea of each paragraph. What do you do next to find the main idea of the whole booklet? Choices: Look for what all the paragraph main ideas have in common. Pick the shortest paragraph. Choose your favorite fact. Count the sentences.": "../audio/emma/85b4f55095.mp3", "nonfiction": "../audio/emma/f4ffbd5084.mp3", "Paragraph 2 says the orange blossom is the state flower of Florida. That is a cool fact! But does it tell me how oranges grow? No. So it is not a key detail for that paragraph.": "../audio/emma/c822b7c39e.mp3", "Two steps! Choose the pair that correctly matches paragraph 2's main idea with one of its key details. Choices: Main idea: Oranges grow on trees and ripen slowly. Key detail: Trees need warm weather, sunshine, and water. Main idea: Oranges grow on trees and ripen slowly. Key detail: Machines squeeze the juice. Main idea: Machines squeeze the juice. Key detail: Bees visit blossoms. Main idea: Workers pick oranges. Key detail: The juice is cold.": "../audio/emma/d01b696f62.mp3", "Fix the sentence. This asking sentence needs an end mark. How are oranges picked": "../audio/emma/028d4be10b.mp3", "Key details are: Choices: Facts that tell more about the main idea and support it. Any fun fact, even if it is off topic. The title and the page numbers. Words that rhyme.": "../audio/emma/0159da3e90.mp3", "Find the mistake! The tabletop says: At harvest time, oranges are picked by hand. Which leg should be replaced? Choices: Juice is kept cold. Workers climb tall ladders. They fill bags on their shoulders.": "../audio/emma/aeaa658e6c.mp3", "What is the main idea of the whole booklet? Choices: Oranges go through many steps to get from the grove to your glass. Bees buzz from flower to flower. Ladders help workers reach fruit. Juice comes in cartons.": "../audio/emma/556adc4819.mp3", "The topic is what a text is about, in one or two words. The main idea is the most important point the author makes about that topic. A topic is a word or two. A main idea is a whole sentence.": "../audio/emma/00dfba0009.mp3", "To find the main idea of a whole passage, first find the main idea of each paragraph. Then ask what they all have in common. The title and the first and last sentences give big clues, because authors often state the main idea there.": "../audio/emma/c4807db921.mp3", "Why did Mia stay in the back of the trading post all week? Choices: She was afraid of saying the wrong thing to customers. She did not like Theo. The counter was broken. Grandpa told her to hide.": "../audio/emma/0199ac6daa.mp3", "The tabletop says: At the juice plant, oranges become juice for stores. Which detail is a key detail for it? Choices: The juice is heated for a short time to keep it safe. Workers climb tall ladders. Bees visit the white blossoms. Orange trees are planted in long rows.": "../audio/emma/66ea2e7c01.mp3", "What is the TOPIC of the booklet?, Remember: a topic is one or two words., Choices: Oranges. Oranges go through many steps to become juice. Bees buzz from flower to flower. Grandpa drove them to Arcadia.": "../audio/emma/6ad2305acc.mp3", "At the packing house, oranges that are bruised or damaged are taken blank.": "../audio/emma/ac35e9895e.mp3", "grove": "../audio/emma/0d559e519d.mp3", "Which is a key detail for: Oranges are washed and sorted? Choices: Bruised oranges are taken out. Bees buzz in spring. Trucks go to stores. Trees grow in rows.": "../audio/emma/7f7be6b177.mp3", "At harvest time, many Florida oranges are picked by hand. Workers climb tall ladders to reach the fruit. They fill big bags that hang from their shoulders. Then they empty the bags into large bins, and trucks carry the bins away from the grove.": "../audio/emma/230241062e.mp3", "A main idea is: Choices: The most important point about the topic. One small fun fact. The page number. The author's name.": "../audio/emma/186d5f2ea5.mp3", "The title From the Grove to Your Glass gives a clue that the booklet is about: Choices: The trip oranges take to become juice. How to wash dishes. How glass is made. A trip to the beach.": "../audio/emma/ceee377734.mp3", "Paragraphs 2 to 5 each tell one stop on the trip: grow, pick, wash and sort, squeeze and sell. Put together, what do they support? Choices: The main idea of the whole booklet. A brand new topic about bees. A story about a dragon. Nothing, they do not connect.": "../audio/emma/ab5cb9aaf5.mp3", "Facts that hold up the main idea are called key blank.": "../audio/emma/221e457dad.mp3", "Writing that gives true facts and information.": "../audio/emma/97f0e098b7.mp3", "Which title best fits the main idea of the booklet? Choices: How Oranges Become Juice. Bees in Spring. Tall Ladders. Florida Flowers.": "../audio/emma/dc89b16acc.mp3", "Which one is a TOPIC, not a main idea? Choices: Orange blossoms. Orange blossoms turn into tiny green oranges. Machines squeeze the oranges to get the juice out. Many Florida oranges are picked by hand.": "../audio/emma/7292029984.mp3", "grape plus fruit makes the compound word blank.": "../audio/emma/42d41a0e0e.mp3", "To hold up or help prove an idea.": "../audio/emma/a4cd8c5e17.mp3", "Find the mistake! For the tabletop Oranges grow on trees and ripen slowly, Theo chose the leg Machines squeeze the oranges. What went wrong? Choices: That detail is about the juice plant, not about how oranges grow. That detail is not in the booklet at all. A table should not have any legs. Nothing went wrong.": "../audio/emma/b733635604.mp3", "A farm or field full of fruit trees, like orange trees.": "../audio/emma/880680d923.mp3", "Main idea of paragraph 3: At harvest time, oranges are picked by hand. Key details: workers climb ladders, they fill shoulder bags, and they empty the bags into bins. All three legs hold up the top!": "../audio/emma/696de9686b.mp3", "Another word for a story's central message is blank.": "../audio/emma/ccd9d1c30a.mp3"};
+var _kceAud = null;
+function _kceBackup(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.classList.remove('speaking'); return; }
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean); u.rate = 0.88; u.lang = 'en-US';
+  u.onend = u.onerror = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  window.speechSynthesis.speak(u);
+}
+function speakText(text, btn){
+  if (_kceAud) { try { _kceAud.pause(); } catch(e){} _kceAud = null; }
+  if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch(e){} }
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  if (btn) btn.classList.add('speaking');
+  const f = KCE_CLIPS[text];
+  if (!f) { _kceBackup(text, btn); return; }
+  const a = new Audio(f); _kceAud = a; let done = false;
+  const end = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  a.onended = end;
+  a.onerror = ()=>{ if (!done) { done = true; _kceBackup(text, btn); } };
+  const p = a.play(); if (p && p.catch) p.catch(()=>{ if (!done) { done = true; _kceBackup(text, btn); } });
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ document.querySelectorAll('.js-dots').forEach(d=>{ d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }); }
+
+/* Main idea table graphic: tabletop = main idea, legs = key details ("?" = empty leg). */
+function svgWrap(text, maxChars){ const words = String(text).split(/\s+/); const lines = []; let line = ''; words.forEach(w=>{ if ((line + ' ' + w).trim().length > maxChars && line){ lines.push(line); line = w; } else { line = (line + ' ' + w).trim(); } }); if (line) lines.push(line); return lines; }
+function escXml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function renderTables(){
+  const narrow = window.innerWidth < 560;
+  const W = narrow ? 360 : 600, legW = narrow ? 108 : 150, gap = narrow ? 8 : 35;
+  const topFont = narrow ? 19 : 22, legFont = narrow ? 15 : 17, topWrap = narrow ? 28 : 44, legWrap = narrow ? 11 : 14;
+  const topLH = topFont + 4, legLH = legFont + 5;
+  const xs = [0,1,2].map(i => (W - (3*legW + 2*gap))/2 + i*(legW + gap));
+  document.querySelectorAll('.mitable').forEach(el=>{
+    const top = el.dataset.top || ''; const legs = (el.dataset.legs || '').split('|');
+    const topLines = svgWrap(top, topWrap);
+    const legLineSets = legs.map(l=>svgWrap(l, legWrap));
+    const maxLegLines = Math.max(3, ...legLineSets.map(s=>s.length));
+    const topH = 30 + topLines.length * topLH; const legTop = topH + 24; const legH = 30 + maxLegLines * legLH;
+    const H = legTop + legH + 18;
+    let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Main idea table. Tabletop: ' + escXml(top) + '. Legs: ' + escXml(legs.join('; ').replace(/\?/g,'missing')) + '">';
+    s += '<rect x="6" y="10" width="' + (W-12) + '" height="' + topH + '" rx="14" fill="#C9A84C" stroke="#0A1F3D" stroke-width="4"/>';
+    s += '<text x="' + (W/2) + '" y="32" text-anchor="middle" font-family="Nunito, sans-serif" font-size="13" font-weight="900" fill="#0A1F3D" letter-spacing="2">MAIN IDEA</text>';
+    topLines.forEach((ln,i)=>{ s += '<text x="' + (W/2) + '" y="' + (10 + 46 + i*topLH) + '" text-anchor="middle" font-family="Nunito, sans-serif" font-size="' + topFont + '" font-weight="900" fill="#0A1F3D">' + escXml(ln) + '</text>'; });
+    s += '<rect x="' + (xs[0]-6) + '" y="' + (10 + topH) + '" width="' + (3*legW + 2*gap + 12) + '" height="14" fill="#8A6F2A"/>';
+    legs.forEach((l,i)=>{
+      const x = xs[i] !== undefined ? xs[i] : xs[0]; const cx = x + legW/2; const missing = l.trim() === '?';
+      if (missing){
+        s += '<rect x="' + x + '" y="' + legTop + '" width="' + legW + '" height="' + legH + '" rx="12" fill="#ffffff" stroke="#0A1F3D" stroke-width="3" stroke-dasharray="10 7"/>';
+        s += '<text x="' + cx + '" y="' + (legTop + legH/2 + 18) + '" text-anchor="middle" font-family="Fredoka One, cursive" font-size="54" fill="#0A1F3D">?</text>';
+      } else {
+        s += '<rect x="' + x + '" y="' + legTop + '" width="' + legW + '" height="' + legH + '" rx="12" fill="#0A1F3D"/>';
+        s += '<text x="' + cx + '" y="' + (legTop + 20) + '" text-anchor="middle" font-family="Nunito, sans-serif" font-size="' + (narrow ? 10 : 12) + '" font-weight="900" fill="#C9A84C" letter-spacing="1.2">KEY DETAIL</text>';
+        legLineSets[i].forEach((ln,j)=>{ s += '<text x="' + cx + '" y="' + (legTop + 44 + j*legLH) + '" text-anchor="middle" font-family="Nunito, sans-serif" font-size="' + legFont + '" font-weight="800" fill="#ffffff">' + escXml(ln) + '</text>'; });
+      }
+    });
+    s += '<rect x="0" y="' + (H-10) + '" width="' + W + '" height="6" rx="3" fill="#D9E0EC"/></svg>';
+    el.innerHTML = s;
+  });
+}
+let _tblNarrow = window.innerWidth < 560;
+window.addEventListener('resize', ()=>{ const n = window.innerWidth < 560; if (n !== _tblNarrow){ _tblNarrow = n; renderTables(); } });
+
+const MATCH_PAIRS_SETS = [[["Topic", "what a text is about, in one or two words"], ["Main idea", "the most important point about the topic"], ["Key detail", "a fact that supports the main idea"], ["Title", "the name of a text, which gives a clue to the main idea"], ["Nonfiction", "writing that gives true facts and information"]], [["Paragraph 1", "Oranges take many steps to become juice."], ["Paragraph 2", "Oranges grow on trees and ripen slowly."], ["Paragraph 3", "Ripe oranges are picked by hand."], ["Paragraph 4", "Oranges are washed and sorted."], ["Paragraph 5", "Oranges are squeezed into juice for stores."]], [["Workers climb tall ladders.", "Picking"], ["Bruised oranges are taken out.", "Packing house"], ["Juice is heated to keep it safe.", "Juice plant"], ["Bees visit the white blossoms.", "Growing in the grove"], ["Families buy cartons of juice.", "Store"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'inline-block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) — here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+/* Self-check: Pathway Points available in the active set must total exactly 100. */
+function pointsInSet(idx){
+  let total = MATCH_PAIRS_SETS[idx].length * MATCH_POINTS_EACH;
+  document.querySelectorAll('.qbox[data-pts]').forEach(b=>{
+    if (b.dataset.bonus === '1') return;
+    const qs = b.closest('.qset');
+    if (qs && +qs.dataset.set !== idx) return;
+    total += +b.dataset.pts;
+  });
+  return total;
+}
+function verifyPoints(){ const totals = [0,1,2].map(pointsInSet); if (totals.some(t=>t !== MAX_RAW_SCORE)){ console.warn('Pathway Points per set should be ' + MAX_RAW_SCORE + ':', totals); } return totals; }
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.textContent = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.textContent = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(MATCH_POINTS_EACH); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const fx = e.target.closest('[data-fixcheck]'); if (fx){ checkFix(fx.dataset.fixcheck); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+document.addEventListener('keydown', e=>{
+  if (e.key !== 'Enter') return;
+  const inp = e.target.closest && e.target.closest('.fillin'); if (!inp) return;
+  const box = inp.closest('.qbox'); if (!box) return;
+  const btn = box.querySelector('[data-fixcheck],[data-check]'); if (btn){ e.preventDefault(); btn.click(); }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim().replace(/\s+/g,' ');
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
+  if (accepted.indexOf(val.toLowerCase()) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +' + (box.dataset.pts || 5) + ' XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+/* Fix the Sentence: exact match after normalizing curly/straight quotes and extra spaces. */
+function normSentence(s){ return String(s).replace(/[‘’‚′]/g, "'").replace(/[“”„″]/g, '"').replace(/\s+/g, ' ').trim(); }
+function checkFix(fid){
+  const key = 'fix-' + fid;
+  const box = document.querySelector('[data-fx="' + fid + '"]'); if (!box || state.answered[key]) return;
+  const inp = box.querySelector('.fixin'); const fb = box.querySelector('.feedback');
+  const pts = +box.dataset.pts || 5;
+  const val = normSentence(inp.value);
+  if (val === '') { fb.textContent = 'Type the whole sentence first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted[key]; state.attempted[key] = true;
+  const accepted = String(box.dataset.fixans).split('|').map(normSentence);
+  if (accepted.indexOf(val) !== -1){
+    state.answered[key] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (firstTry){ addScore(pts); fb.textContent = '🎉 Perfect sentence on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You fixed it! No Pathway Points this time, but great editing!'; }
+    fb.className = 'feedback show ok'; addXP(10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key] = (state.wrongCount[key] || 0) + 1;
+    inp.classList.add('bad');
+    if (state.wrongCount[key] >= MAX_ATTEMPTS){
+      state.answered[key] = true; inp.disabled = true; box.classList.add('locked');
+      const corrected = String(box.dataset.fixans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[key] + '. The corrected sentence is: <b>' + corrected.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</b>' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      fb.textContent = '❌ Not yet — check capital letters, commas, and the end mark, then try again. (' + (MAX_ATTEMPTS - state.wrongCount[key]) + ' try left)';
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const score = displayScore();
+  document.getElementById('finalScore').textContent = score;
+  const rec = saveModuleResult(score);
+  reportProgress(score, rec);
+  const passed = score >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Picker! ⭐';
+  if (score >= 90) tierTitle = 'Grove Champion! 🍊👑';
+  else if (score >= 75) tierTitle = 'Packing House Pro! 🌟';
+  else if (score >= 50) tierTitle = 'Grove Explorer! ✨';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const congrats = document.getElementById('congratsBox');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🍊 Main Idea Master!';
+    congrats.style.display = 'block';
+    congrats.innerHTML = '🎉 Main idea master! You found the big idea of the citrus booklet and the key details that hold it up, just like the legs of a table! You told the topic from the main idea, spotted the details that did not belong, and fixed sentences from harvest week at Rosa’s grove.';
+    msgHeading.innerHTML = '🏆 You’ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Your results go to KingCretot Experience. Finish the <b>Post</b> part of your paper sheet if you haven’t yet, then tell your parent or teacher so it goes in your Portfolio Passport!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson →';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+    playFanfare(); confetti(140); setTimeout(()=>confetti(120), 500); setTimeout(()=>confetti(120), 1200); setTimeout(()=>confetti(100), 2000);
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    congrats.style.display = 'none';
+    msgHeading.innerHTML = '&#127793; Every orange takes time to ripen, and so do new skills!';
+    msgBody.innerHTML = 'You scored ' + score + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100, and you are on your way! Look back at the booklet and the main idea table, then press Try Again whenever you are ready. Next time you will get a <b>fresh set of questions</b>, so every try is a new chance to shine.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+    playFanfare(); setTimeout(()=>confetti(), 250);
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); renderTables(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); verifyPoints(); });
+</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

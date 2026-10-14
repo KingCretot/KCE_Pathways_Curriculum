@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 11: The Dairy Farm Schedule (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🐄 KCE Pathways — Grade 4-5 — Week 11</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 11 &bull; Math</span>
+  <h1>The Dairy Farm Schedule</h1>
+  <h2>Factors, Multiples &amp; Prime Numbers 🐄</h2>
+  <div class="box box-story">
+    <div class="icon">🐄</div>
+    <h4>Meet Nadia</h4>
+    <p>Nadia is 11 and lives on her family&rsquo;s dairy farm in Wisconsin. This week she is in charge of the farm schedule: arranging calf pens, stacking hay, planning when the feed truck and the vet will come, and packing orders of cheese curds and milk. Every one of those jobs is a factors-and-multiples problem.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with the Unit 2 skills you already own</li>
+      <li>Find factors and factor pairs using arrays</li>
+      <li>Sort numbers into prime and composite, with divisibility rules for 2, 3, 5, 9, and 10</li>
+      <li>Use multiples and the least common multiple to plan Nadia&rsquo;s calendar</li>
+      <li>Use the greatest common factor to pack identical crates</li>
+      <li>Spot mistakes, pick the right explanation, and fix math sentences</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 1 of 4</p>
+    <div class="dots" style="margin-top:6px"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up: Unit 2 Review</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>You Already Know This</h4>
+  <p>Before we start Unit 3, show what you remember from Unit 2: the standard algorithm, long division with 2-digit divisors, fractions with unlike denominators, and decimals. You will use all of these on the farm today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_s0" data-pts="3" data-ans="884" data-logic="34 x 6 = 204 and 34 x 20 = 680. Add the partial products: 204 + 680 = 884.">
+    <span class="pts">+3</span>
+    <p class="qtext">Standard algorithm (Week 6): type the product.</p>
+    <div class="fillrow"><span class="eq">34 &times; 26 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="3" data-logic="24 goes into 67 two times (48), leaving 19. Bring down the 2 to make 192. 24 x 8 = 192. So the quotient is 28.">
+    <span class="pts">+3</span>
+    <p class="qtext">Long division (Week 7): 672 &divide; 24 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">28</button><button class="opt">27</button><button class="opt">29</button><button class="opt">32</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s0" data-pts="3" data-logic="Use the common denominator 6: 1/2 = 3/6 and 1/3 = 2/6. Then 3/6 + 2/6 = 5/6.">
+    <span class="pts">+3</span>
+    <p class="qtext">Unlike denominators (Week 8): 1/2 + 1/3 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">5/6</button><button class="opt">2/5</button><button class="opt">2/6</button><button class="opt">1/6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s0" data-pts="3" data-ans="2.4" data-logic="4 x 6 = 24. 0.4 has 1 decimal place, so the answer is 2.4.">
+    <span class="pts">+3</span>
+    <p class="qtext">Decimals (Week 9): type the product.</p>
+    <div class="fillrow"><span class="eq">0.4 &times; 6 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r1_s1" data-pts="3" data-ans="1075" data-logic="43 x 5 = 215 and 43 x 20 = 860. Add the partial products: 215 + 860 = 1,075.">
+    <span class="pts">+3</span>
+    <p class="qtext">Standard algorithm (Week 6): type the product.</p>
+    <div class="fillrow"><span class="eq">43 &times; 25 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="3" data-logic="32 goes into 86 two times (64), leaving 22. Bring down the 4 to make 224. 32 x 7 = 224. So the quotient is 27.">
+    <span class="pts">+3</span>
+    <p class="qtext">Long division (Week 7): 864 &divide; 32 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">27</button><button class="opt">28</button><button class="opt">26</button><button class="opt">37</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s1" data-pts="3" data-logic="Use the common denominator 12: 1/4 = 3/12 and 2/3 = 8/12. Then 3/12 + 8/12 = 11/12.">
+    <span class="pts">+3</span>
+    <p class="qtext">Unlike denominators (Week 8): 1/4 + 2/3 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">11/12</button><button class="opt">3/7</button><button class="opt">3/12</button><button class="opt">8/12</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s1" data-pts="3" data-ans="0.75|.75" data-logic="3/4 means 3 divided by 4, which is 0.75.">
+    <span class="pts">+3</span>
+    <p class="qtext">Fractions to decimals (Week 9): type 3/4 as a decimal.</p>
+    <div class="fillrow"><span class="eq">3/4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r1_s2" data-pts="3" data-ans="1924" data-logic="52 x 7 = 364 and 52 x 30 = 1,560. Add the partial products: 364 + 1,560 = 1,924.">
+    <span class="pts">+3</span>
+    <p class="qtext">Standard algorithm (Week 6): type the product.</p>
+    <div class="fillrow"><span class="eq">52 &times; 37 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="3" data-logic="21 goes into 73 three times (63), leaving 10. Bring down the 5 to make 105. 21 x 5 = 105. So the quotient is 35.">
+    <span class="pts">+3</span>
+    <p class="qtext">Long division (Week 7): 735 &divide; 21 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">35</button><button class="opt">34</button><button class="opt">36</button><button class="opt">25</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s2" data-pts="3" data-logic="Use the common denominator 6: 2/3 = 4/6 and 1/2 = 3/6. Then 4/6 - 3/6 = 1/6.">
+    <span class="pts">+3</span>
+    <p class="qtext">Unlike denominators (Week 8): 2/3 &minus; 1/2 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">1/6</button><button class="opt">1/3</button><button class="opt">1/5</button><button class="opt">3/6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s2" data-pts="3" data-ans="6|6.0" data-logic="15 x 4 = 60. 1.5 has 1 decimal place, so 6.0, which is 6.">
+    <span class="pts">+3</span>
+    <p class="qtext">Decimals (Week 9): type the product.</p>
+    <div class="fillrow"><span class="eq">1.5 &times; 4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<h2>🐄 Why a Dairy Farm Runs on a Schedule</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<svg viewBox="0 0 520 170" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A red barn, a silo, and cows in a green field">
+<rect x="0" y="0" width="520" height="170" rx="16" fill="#E0F6FF"/>
+<rect x="0" y="118" width="520" height="52" fill="#86D464"/>
+<circle cx="460" cy="36" r="20" fill="#C9A84C"/>
+<rect x="60" y="64" width="110" height="74" fill="#DB2F30"/><polygon points="52,66 115,24 178,66" fill="#0A1F3D"/>
+<rect x="98" y="94" width="34" height="44" fill="#fff"/><line x1="98" y1="94" x2="132" y2="138" stroke="#DB2F30" stroke-width="3"/><line x1="132" y1="94" x2="98" y2="138" stroke="#DB2F30" stroke-width="3"/>
+<rect x="184" y="44" width="34" height="94" rx="4" fill="#0047BA"/><path d="M184 46 a17 17 0 0 1 34 0z" fill="#C9A84C"/>
+<g transform="translate(270,98)"><ellipse cx="30" cy="20" rx="30" ry="16" fill="#fff" stroke="#0A1F3D" stroke-width="2"/><circle cx="18" cy="16" r="6" fill="#0A1F3D"/><circle cx="40" cy="24" r="5" fill="#0A1F3D"/><ellipse cx="64" cy="12" rx="11" ry="9" fill="#fff" stroke="#0A1F3D" stroke-width="2"/><rect x="8" y="32" width="5" height="12" fill="#0A1F3D"/><rect x="44" y="32" width="5" height="12" fill="#0A1F3D"/></g>
+<g transform="translate(380,104) scale(.8)"><ellipse cx="30" cy="20" rx="30" ry="16" fill="#fff" stroke="#0A1F3D" stroke-width="2"/><circle cx="22" cy="18" r="7" fill="#0A1F3D"/><ellipse cx="64" cy="12" rx="11" ry="9" fill="#fff" stroke="#0A1F3D" stroke-width="2"/><rect x="8" y="32" width="5" height="12" fill="#0A1F3D"/><rect x="44" y="32" width="5" height="12" fill="#0A1F3D"/></g>
+</svg>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: Life on a Dairy Farm</h4>
+  <p>Wisconsin is known as &ldquo;America&rsquo;s Dairyland,&rdquo; and its license plates say so. On a dairy farm, cows are milked at least twice every day, so the work never stops. Calves are raised in pens, hay is stored in stacks of bales, and deliveries and vet visits all have to be planned ahead.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Nadia&rsquo;s To-Do List</h4>
+  <ul class="tips">
+    <li>Arrange <b>36 calves</b> into equal rows of pens</li>
+    <li>Split <b>48 hay bales</b> into equal stacks</li>
+    <li>Find the day the <b>feed truck (every 4 days)</b> and the <b>vet (every 6 days)</b> both show up</li>
+    <li>Pack <b>24 bags of cheese curds</b> and <b>36 milk bottles</b> into identical crates</li>
+    <li>Check which <b>cow ID numbers</b> are prime</li>
+  </ul>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🖼️ Picture It: Factor Pairs of 36</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Factors Are the Numbers You Multiply</h4>
+  <p>Nadia needs to put 36 calves into <b>equal rows</b> of pens. Every way she can do it is a multiplication fact that equals 36. The two numbers in each fact are a <b>factor pair</b>.</p>
+</div>
+<div class="arrays"><div class="arr"><div class="arrlbl">2 rows of 18</div><svg viewBox="0 0 264 40" width="264" height="40" role="img" aria-label="2 rows of 18"><rect x="1" y="1" width="262" height="38" rx="8" fill="#FFF8E8" stroke="#C9A84C" stroke-width="2"/><circle cx="13" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="139" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="153" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="167" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="181" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="195" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="209" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="223" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="237" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="251" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="139" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="153" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="167" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="181" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="195" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="209" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="223" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="237" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="251" cy="27" r="5.04" fill="#0A1F3D"/></svg></div><div class="arr"><div class="arrlbl">3 rows of 12</div><svg viewBox="0 0 180 54" width="180" height="54" role="img" aria-label="3 rows of 12"><rect x="1" y="1" width="178" height="52" rx="8" fill="#FFF8E8" stroke="#C9A84C" stroke-width="2"/><circle cx="13" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="139" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="153" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="167" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="139" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="153" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="167" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="139" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="153" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="167" cy="41" r="5.04" fill="#0A1F3D"/></svg></div><div class="arr"><div class="arrlbl">4 rows of 9</div><svg viewBox="0 0 138 68" width="138" height="68" role="img" aria-label="4 rows of 9"><rect x="1" y="1" width="136" height="66" rx="8" fill="#FFF8E8" stroke="#C9A84C" stroke-width="2"/><circle cx="13" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="97" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="111" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="125" cy="55" r="5.04" fill="#0A1F3D"/></svg></div><div class="arr"><div class="arrlbl">6 rows of 6</div><svg viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="6 rows of 6"><rect x="1" y="1" width="94" height="94" rx="8" fill="#FFF8E8" stroke="#C9A84C" stroke-width="2"/><circle cx="13" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="13" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="27" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="41" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="55" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="69" r="5.04" fill="#0A1F3D"/><circle cx="13" cy="83" r="5.04" fill="#0A1F3D"/><circle cx="27" cy="83" r="5.04" fill="#0A1F3D"/><circle cx="41" cy="83" r="5.04" fill="#0A1F3D"/><circle cx="55" cy="83" r="5.04" fill="#0A1F3D"/><circle cx="69" cy="83" r="5.04" fill="#0A1F3D"/><circle cx="83" cy="83" r="5.04" fill="#0A1F3D"/></svg></div></div>
+<div class="decwork">
+  Factor pairs of 36: <span style="white-space:nowrap">1 &times; 36</span> &nbsp; <span style="white-space:nowrap">2 &times; 18</span> &nbsp; <span style="white-space:nowrap">3 &times; 12</span> &nbsp; <span style="white-space:nowrap">4 &times; 9</span> &nbsp; <span style="white-space:nowrap">6 &times; 6</span>
+  <div class="steps">
+  <b>Step 1 &mdash; Start at 1:</b> 1 &times; 36. Every number has 1 and itself as factors.<br>
+  <b>Step 2 &mdash; Test 2, 3, 4, 5, 6&hellip;</b> If 36 divides evenly, write the pair. (5 does not work: 36 &divide; 5 has a remainder.)<br>
+  <b>Step 3 &mdash; Stop when the pairs meet:</b> at 6 &times; 6 the numbers start repeating, so you have them all.<br>
+  <b>All the factors of 36:</b> 1, 2, 3, 4, 6, 9, 12, 18, 36 &mdash; that&rsquo;s nine factors.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>✍️ Your Turn: Factors and Factor Pairs</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="f1_s0" data-pts="4" data-logic="5 x 7 = 35, not 36. The others all multiply to 36.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which of these is NOT a factor pair of 36?</p>
+    <div class="opts"><button class="opt" data-c="1">5 &times; 7</button><button class="opt">4 &times; 9</button><button class="opt">6 &times; 6</button><button class="opt">3 &times; 12</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f2_s0" data-pts="4" data-ans="8" data-logic="Factor pairs of 24: 1 x 24, 2 x 12, 3 x 8, 4 x 6. That gives 8 factors: 1, 2, 3, 4, 6, 8, 12, 24.">
+    <span class="pts">+4</span>
+    <p class="qtext">How many factors does 24 have? Type the number.</p>
+    <div class="fillrow"><span class="eq">Number of factors of 24:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f3_s0" data-pts="4" data-logic="Factor pairs of 18: 1 x 18, 2 x 9, 3 x 6. So the factors are 1, 2, 3, 6, 9, 18. 4 is not a factor because 18 divided by 4 has a remainder.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which list shows ALL the factors of 18?</p>
+    <div class="opts"><button class="opt" data-c="1">1, 2, 3, 6, 9, 18</button><button class="opt">1, 2, 3, 9, 18</button><button class="opt">2, 3, 6, 9</button><button class="opt">1, 2, 3, 4, 6, 9, 18</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="f1_s1" data-pts="4" data-logic="7 x 7 = 49, not 48. The others all multiply to 48.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which of these is NOT a factor pair of 48?</p>
+    <div class="opts"><button class="opt" data-c="1">7 &times; 7</button><button class="opt">6 &times; 8</button><button class="opt">4 &times; 12</button><button class="opt">3 &times; 16</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f2_s1" data-pts="4" data-ans="6" data-logic="Factor pairs of 20: 1 x 20, 2 x 10, 4 x 5. That gives 6 factors: 1, 2, 4, 5, 10, 20.">
+    <span class="pts">+4</span>
+    <p class="qtext">How many factors does 20 have? Type the number.</p>
+    <div class="fillrow"><span class="eq">Number of factors of 20:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f3_s1" data-pts="4" data-logic="Factor pairs of 28: 1 x 28, 2 x 14, 4 x 7. So the factors are 1, 2, 4, 7, 14, 28. 3 is not a factor because 28 divided by 3 has a remainder.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which list shows ALL the factors of 28?</p>
+    <div class="opts"><button class="opt" data-c="1">1, 2, 4, 7, 14, 28</button><button class="opt">1, 2, 4, 7, 28</button><button class="opt">2, 4, 7, 14</button><button class="opt">1, 2, 3, 4, 7, 14, 28</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="f1_s2" data-pts="4" data-logic="6 x 7 = 42, not 40. The others all multiply to 40.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which of these is NOT a factor pair of 40?</p>
+    <div class="opts"><button class="opt" data-c="1">6 &times; 7</button><button class="opt">5 &times; 8</button><button class="opt">4 &times; 10</button><button class="opt">2 &times; 20</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="f2_s2" data-pts="4" data-ans="8" data-logic="Factor pairs of 30: 1 x 30, 2 x 15, 3 x 10, 5 x 6. That gives 8 factors: 1, 2, 3, 5, 6, 10, 15, 30.">
+    <span class="pts">+4</span>
+    <p class="qtext">How many factors does 30 have? Type the number.</p>
+    <div class="fillrow"><span class="eq">Number of factors of 30:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="f2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="f3_s2" data-pts="4" data-logic="Factor pairs of 32: 1 x 32, 2 x 16, 4 x 8. So the factors are 1, 2, 4, 8, 16, 32. 6 is not a factor because 32 divided by 6 has a remainder.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which list shows ALL the factors of 32?</p>
+    <div class="opts"><button class="opt" data-c="1">1, 2, 4, 8, 16, 32</button><button class="opt">1, 2, 4, 16, 32</button><button class="opt">2, 4, 8, 16</button><button class="opt">1, 2, 4, 6, 8, 16, 32</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>🔢 Prime, Composite, and Divisibility Rules</h2>
+<div class="box box-story">
+  <div class="icon">🏷️</div>
+  <h4>Nadia&rsquo;s Cow ID Tags</h4>
+  <p>Every cow on the farm wears an ear tag with an ID number. Nadia notices that some tag numbers, like 2, 3, 5, 7, 11, and 13, can only be made one way: 1 times the number. Those are <b>prime</b> numbers.</p>
+</div>
+<div class="pricelist">
+  <div class="prow"><span class="pname">Prime number</span><span class="pprice">exactly 2 factors: 1 and itself (7, 13, 29)</span></div>
+  <div class="prow"><span class="pname">Composite number</span><span class="pprice">more than 2 factors (12, 36, 51)</span></div>
+  <div class="prow"><span class="pname">The number 1</span><span class="pprice">only 1 factor &mdash; neither prime nor composite</span></div>
+  <div class="prow"><span class="pname">The number 2</span><span class="pprice">the only even prime</span></div>
+</div>
+<h3>Divisibility Rules: Shortcuts for Finding Factors</h3>
+<div class="pricelist">
+  <div class="prow"><span class="pname">Divisible by 2</span><span class="pprice">ends in 0, 2, 4, 6, or 8</span></div>
+  <div class="prow"><span class="pname">Divisible by 3</span><span class="pprice">digits add to a multiple of 3</span></div>
+  <div class="prow"><span class="pname">Divisible by 5</span><span class="pprice">ends in 0 or 5</span></div>
+  <div class="prow"><span class="pname">Divisible by 9</span><span class="pprice">digits add to a multiple of 9</span></div>
+  <div class="prow"><span class="pname">Divisible by 10</span><span class="pprice">ends in 0</span></div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Watch Out!</h4>
+  <p>Is cow #51 prime? It is odd and does not end in 5, so it <i>looks</i> prime. But 5 + 1 = 6, and 6 is divisible by 3, so 51 is divisible by 3: 51 = 3 &times; 17. That makes 51 <b>composite</b>. Always test before you decide!</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>✍️ Your Turn: Prime or Composite?</h2>
+<span class="setnotice" id="setNotice7" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p1_s0" data-pts="4" data-logic="29 has only two factors, 1 and 29. 27 = 3 x 9, 21 = 3 x 7, and 33 = 3 x 11, so those are composite.">
+    <span class="pts">+4</span>
+    <p class="qtext">Nadia is checking cow ID tags. Which cow&rsquo;s ID number is prime?</p>
+    <div class="opts"><button class="opt" data-c="1">29</button><button class="opt">27</button><button class="opt">21</button><button class="opt">33</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s0" data-pts="4" data-logic="Add the digits: 4 + 7 + 1 = 12, and 12 is divisible by 3, so 471 is too. The other digit sums are 13, 11, and 14, which are not divisible by 3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Use the divisibility rule for 3. Which number is divisible by 3?</p>
+    <div class="opts"><button class="opt" data-c="1">471</button><button class="opt">472</button><button class="opt">470</button><button class="opt">473</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3_s0" data-pts="4" data-logic="The digits of 51 add to 6, so 51 is divisible by 3: 51 = 3 x 17. Its factors are 1, 3, 17, 51, which is more than two, so 51 is composite. (Odd numbers like 7 and 13 CAN be prime.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake: a classmate says 51 is prime. Why is that wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">51 = 3 &times; 17, so it has more than two factors</button><button class="opt">51 is odd, and odd numbers are never prime</button><button class="opt">51 ends in 1, so it is divisible by 10</button><button class="opt">Prime numbers have to be less than 50</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p1_s1" data-pts="4" data-logic="39 = 3 x 13, so it has more than two factors. 31, 37, and 41 each have only two factors, so they are prime.">
+    <span class="pts">+4</span>
+    <p class="qtext">Nadia is checking cow ID tags. Which cow&rsquo;s ID number is composite?</p>
+    <div class="opts"><button class="opt" data-c="1">39</button><button class="opt">31</button><button class="opt">37</button><button class="opt">41</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s1" data-pts="4" data-logic="Add the digits: 7 + 3 + 8 = 18, and 18 is divisible by 9, so 738 is too. The other digit sums are 17, 19, and 19.">
+    <span class="pts">+4</span>
+    <p class="qtext">Use the divisibility rule for 9. Which number is divisible by 9?</p>
+    <div class="opts"><button class="opt" data-c="1">738</button><button class="opt">737</button><button class="opt">739</button><button class="opt">748</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3_s1" data-pts="4" data-logic="A prime number has exactly two different factors: 1 and itself. The number 1 has only ONE factor (1), so it is neither prime nor composite.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake: Ben says 1 is a prime number. Why is Ben wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">A prime has exactly two factors, but 1 has only one factor</button><button class="opt">1 is composite because it is a factor of every number</button><button class="opt">1 is even, so it cannot be prime</button><button class="opt">Ben is not wrong. 1 is prime.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p1_s2" data-pts="4" data-logic="47 has only two factors, 1 and 47. 49 = 7 x 7, 45 = 5 x 9, and 51 = 3 x 17, so those are composite.">
+    <span class="pts">+4</span>
+    <p class="qtext">Nadia is checking cow ID tags. Which cow&rsquo;s ID number is prime?</p>
+    <div class="opts"><button class="opt" data-c="1">47</button><button class="opt">49</button><button class="opt">45</button><button class="opt">51</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2_s2" data-pts="4" data-logic="A number divisible by 10 ends in 0. 340 ends in 0, so it is divisible by 2, 5, and 10. 345 is not even, and 342 and 354 do not end in 0 or 5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which number is divisible by 2, by 5, AND by 10?</p>
+    <div class="opts"><button class="opt" data-c="1">340</button><button class="opt">345</button><button class="opt">342</button><button class="opt">354</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3_s2" data-pts="4" data-logic="2 has exactly two factors, 1 and 2, so it is prime. It is the only even prime number. Every other even number has 2 as an extra factor.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake: Maya says 2 cannot be prime because it is even. Why is Maya wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">The only factors of 2 are 1 and 2, so 2 is prime</button><button class="opt">2 is composite because 2 = 1 &times; 2</button><button class="opt">Even numbers are always prime</button><button class="opt">2 is neither prime nor composite, like 1</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">factor</div><div class="flip-face flip-back">A number you multiply to get a product. 4 and 9 are factors of 36.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">factor pair</div><div class="flip-face flip-back">Two factors that multiply to a number, like 4 &times; 9 = 36.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">multiple</div><div class="flip-face flip-back">The product of a number and a counting number. 4, 8, 12, 16 are multiples of 4.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">prime number</div><div class="flip-face flip-back">A whole number with exactly two factors: 1 and itself. Example: 13.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">composite number</div><div class="flip-face flip-back">A whole number with more than two factors. Example: 12.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">divisible</div><div class="flip-face flip-back">Divides evenly with no remainder. 36 is divisible by 4.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">greatest common factor (GCF)</div><div class="flip-face flip-back">The biggest factor two numbers share. The GCF of 24 and 36 is 12.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">least common multiple (LCM)</div><div class="flip-face flip-back">The smallest multiple two numbers share. The LCM of 4 and 6 is 12.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice9" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="3" data-logic="Exactly two factors (1 and itself) is the definition of a prime number.">
+    <span class="pts">+3</span>
+    <p class="qtext">A whole number with exactly two factors, 1 and itself, is called a ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Prime number</button><button class="opt">Composite number</button><button class="opt">Multiple</button><button class="opt">Factor pair</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="3" data-ans="factors|factor" data-logic="Numbers you multiply to get a product are factors. In 4 x 9 = 36, 4 and 9 are factors of 36.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: numbers you multiply together to get a product are called ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="3" data-logic="More than two factors means the number is composite.">
+    <span class="pts">+3</span>
+    <p class="qtext">A whole number greater than 1 with MORE than two factors is called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Composite</button><button class="opt">Prime</button><button class="opt">Divisible</button><button class="opt">A multiple</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="3" data-ans="multiples|multiple" data-logic="You get 12, 24, and 36 by multiplying 12 by 1, 2, and 3, so they are multiples of 12.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: 12, 24, and 36 are all ___ of 12.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="3" data-logic="The least common multiple is the smallest number both numbers divide into evenly.">
+    <span class="pts">+3</span>
+    <p class="qtext">The smallest number that is a multiple of two numbers is their ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Least common multiple (LCM)</button><button class="opt">Greatest common factor (GCF)</button><button class="opt">Factor pair</button><button class="opt">Prime number</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="3" data-ans="divisible" data-logic="When a number divides evenly with no remainder, the first number is divisible by the second.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: 36 &divide; 4 has no remainder, so 36 is ___ by 4.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>📅 Multiples, LCM, and GCF</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Multiples: Skip-Counting</h4>
+  <p>The feed truck comes every 4 days: Day 4, 8, 12, 16, 20, 24&hellip; Those are <b>multiples of 4</b>. The vet comes every 6 days: Day 6, 12, 18, 24&hellip; Those are <b>multiples of 6</b>.</p>
+</div>
+<div class="callegend"><span class="cal-t">🚚 feed truck</span><span class="cal-v">🩺 vet</span><span class="cal-both">both!</span></div>
+<div class="calgrid"><div class="cal "><b>1</b><span></span></div><div class="cal "><b>2</b><span></span></div><div class="cal "><b>3</b><span></span></div><div class="cal cal-t"><b>4</b><span>🚚</span></div><div class="cal "><b>5</b><span></span></div><div class="cal cal-v"><b>6</b><span>🩺</span></div><div class="cal "><b>7</b><span></span></div><div class="cal cal-t"><b>8</b><span>🚚</span></div><div class="cal "><b>9</b><span></span></div><div class="cal "><b>10</b><span></span></div><div class="cal "><b>11</b><span></span></div><div class="cal cal-both"><b>12</b><span>🚚🩺</span></div><div class="cal "><b>13</b><span></span></div><div class="cal "><b>14</b><span></span></div><div class="cal "><b>15</b><span></span></div><div class="cal cal-t"><b>16</b><span>🚚</span></div><div class="cal "><b>17</b><span></span></div><div class="cal cal-v"><b>18</b><span>🩺</span></div><div class="cal "><b>19</b><span></span></div><div class="cal cal-t"><b>20</b><span>🚚</span></div><div class="cal "><b>21</b><span></span></div><div class="cal "><b>22</b><span></span></div><div class="cal "><b>23</b><span></span></div><div class="cal cal-both"><b>24</b><span>🚚🩺</span></div></div>
+<div class="decwork">
+  LCM of 4 and 6 = 12
+  <div class="steps">
+  <b>Common multiples</b> are days on both lists: 12, 24, 36&hellip;<br>
+  <b>The least common multiple (LCM)</b> is the smallest one: <b>12</b>. So the truck and the vet first come on the same day on Day 12, then every 12 days after that.
+  </div>
+</div>
+<div class="decwork">
+  GCF of 24 and 36 = 12
+  <div class="steps">
+  <b>Packing crates:</b> Nadia has 24 curd bags and 36 milk bottles. The number of identical crates has to divide BOTH numbers, so it must be a <b>common factor</b>.<br>
+  Factors of 24: 1, 2, 3, 4, 6, 8, <b>12</b>, 24 &nbsp;&bull;&nbsp; Factors of 36: 1, 2, 3, 4, 6, 9, <b>12</b>, 18, 36<br>
+  <b>The greatest common factor (GCF)</b> is 12, so she can fill 12 crates, each with 2 curd bags and 3 bottles.
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Which One Do I Need?</h4>
+  <p><b>&ldquo;When will they happen together?&rdquo;</b> &rarr; multiples &rarr; LCM. &nbsp; <b>&ldquo;Split into equal groups with nothing left over?&rdquo;</b> &rarr; factors &rarr; GCF.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>✍️ Your Turn: LCM and GCF</h2>
+<span class="setnotice" id="setNotice11" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m1_s0" data-pts="4" data-ans="12" data-logic="Multiples of 4: 4, 8, 12... Multiples of 6: 6, 12... The first one they share is 12.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the least common multiple (LCM) of 4 and 6.</p>
+    <div class="fillrow"><span class="eq">LCM of 4 and 6 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s0" data-pts="4" data-ans="12" data-logic="Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The greatest one they share is 12.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the greatest common factor (GCF) of 24 and 36.</p>
+    <div class="fillrow"><span class="eq">GCF of 24 and 36 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s0" data-pts="4" data-logic="15 = 3 x 5, so it is a multiple of both. 10 and 20 are multiples of 5 but not 3, and 8 is a multiple of neither.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which number is a common multiple of 3 and 5?</p>
+    <div class="opts"><button class="opt" data-c="1">15</button><button class="opt">8</button><button class="opt">10</button><button class="opt">20</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="m1_s1" data-pts="4" data-ans="24" data-logic="Multiples of 6: 6, 12, 18, 24... Multiples of 8: 8, 16, 24... The first one they share is 24.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the least common multiple (LCM) of 6 and 8.</p>
+    <div class="fillrow"><span class="eq">LCM of 6 and 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s1" data-pts="4" data-ans="6" data-logic="Factors of 18: 1, 2, 3, 6, 9, 18. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. The greatest one they share is 6.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the greatest common factor (GCF) of 18 and 24.</p>
+    <div class="fillrow"><span class="eq">GCF of 18 and 24 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s1" data-pts="4" data-logic="16 divided by 4 is 4 and 20 divided by 4 is 5, so 4 divides both. 8 does not divide 20, and 5 and 10 do not divide 16.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which number is a common factor of 16 and 20?</p>
+    <div class="opts"><button class="opt" data-c="1">4</button><button class="opt">8</button><button class="opt">5</button><button class="opt">10</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="m1_s2" data-pts="4" data-ans="30" data-logic="Multiples of 5: 5, 10, 15, 20, 25, 30... Multiples of 6: 6, 12, 18, 24, 30... The first one they share is 30.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the least common multiple (LCM) of 5 and 6.</p>
+    <div class="fillrow"><span class="eq">LCM of 5 and 6 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s2" data-pts="4" data-ans="10" data-logic="Factors of 20: 1, 2, 4, 5, 10, 20. Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30. The greatest one they share is 10.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type the greatest common factor (GCF) of 20 and 30.</p>
+    <div class="fillrow"><span class="eq">GCF of 20 and 30 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s2" data-pts="4" data-logic="20 = 4 x 5 and 20 = 10 x 2, so it is a multiple of both. 30 is not a multiple of 4, 24 is not a multiple of 10, and 14 is neither.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which number is a common multiple of 4 and 10?</p>
+    <div class="opts"><button class="opt" data-c="1">20</button><button class="opt">14</button><button class="opt">30</button><button class="opt">24</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>🐄 Real World: Stacks and Pens</h2>
+<span class="setnotice" id="setNotice12" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🌾</div>
+  <h4>The Situation</h4>
+  <p>Nadia has 48 hay bales to split into equal stacks. Each stack must have more than 6 bales but fewer than 12 bales.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🌾</div>
+  <h4>The Situation</h4>
+  <p>Nadia is arranging 36 calves into equal rows of pens. She wants more than 3 rows but fewer than 6 rows.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🌾</div>
+  <h4>The Situation</h4>
+  <p>Nadia has 72 hay bales to split into equal stacks. Each stack must have more than 15 bales but fewer than 20 bales.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="6" data-logic="Factors of 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. The only one between 6 and 12 is 8, so each stack has 8 bales. 48 divided by 8 = 6 stacks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find the stack size that works, then type how many stacks Nadia makes.</p>
+    <div class="fillrow"><span class="eq">Number of stacks:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="9" data-logic="Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The only number of rows between 3 and 6 is 4 (5 is not a factor of 36). 36 divided by 4 = 9 calves in each row.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find the number of rows that works, then type how many calves are in each row.</p>
+    <div class="fillrow"><span class="eq">Calves in each row:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="4" data-logic="Factors of 72: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72. The only one between 15 and 20 is 18, so each stack has 18 bales. 72 divided by 18 = 4 stacks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find the stack size that works, then type how many stacks Nadia makes.</p>
+    <div class="fillrow"><span class="eq">Number of stacks:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>🧀 Real World: Packing the Crates</h2>
+<span class="setnotice" id="setNotice13" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>Nadia packs 24 bags of cheese curds and 36 milk bottles into identical crates. Every crate must hold the same number of curd bags and the same number of bottles, with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>Nadia packs 18 bags of cheese curds and 30 milk bottles into identical crates. Every crate must hold the same number of curd bags and the same number of bottles, with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>Nadia packs 32 bags of cheese curds and 40 milk bottles into identical crates. Every crate must hold the same number of curd bags and the same number of bottles, with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="The number of crates must divide both 24 and 36 evenly, so it is a common factor. The greatest common factor of 24 and 36 is 12, so she can fill 12 crates.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the GREATEST number of crates Nadia can fill?</p>
+    <div class="opts"><button class="opt" data-c="1">12</button><button class="opt">6</button><button class="opt">4</button><button class="opt">72</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="The number of crates must divide both 18 and 30 evenly. The greatest common factor of 18 and 30 is 6, so she can fill 6 crates.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the GREATEST number of crates Nadia can fill?</p>
+    <div class="opts"><button class="opt" data-c="1">6</button><button class="opt">3</button><button class="opt">2</button><button class="opt">90</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="The number of crates must divide both 32 and 40 evenly. The greatest common factor of 32 and 40 is 8, so she can fill 8 crates.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the GREATEST number of crates Nadia can fill?</p>
+    <div class="opts"><button class="opt" data-c="1">8</button><button class="opt">4</button><button class="opt">2</button><button class="opt">160</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🕵️ Think It Through: Explain and Find the Mistake</h2>
+<span class="setnotice" id="setNotice14" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">💭</div>
+  <h4>Be the Checker</h4>
+  <p>Getting an answer is only half the job. Can you tell WHY an answer is right, and spot exactly where someone else went wrong?</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="x1_s0" data-pts="5" data-logic="Truck days: 4, 8, 12... Vet days: 6, 12... The first shared day is 12, the LCM. Day 24 is also a shared day, but it is not the NEXT one.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? The feed truck comes every 4 days and the vet comes every 6 days. Both came today. When will they next come on the same day?</p>
+    <div class="opts"><button class="opt" data-c="1">Day 12, because 12 is the least common multiple of 4 and 6</button><button class="opt">Day 24, because 4 &times; 6 = 24</button><button class="opt">Day 10, because 4 + 6 = 10</button><button class="opt">Day 2, because 2 is the greatest common factor of 4 and 6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="5" data-logic="Check the factor pairs: 1 x 36, 2 x 18, 3 x 12, 4 x 9, 6 x 6. Ravi forgot 9, the partner of 4. (8 is not a factor: 36 divided by 8 has a remainder.)">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Ravi listed the factors of 36 as 1, 2, 3, 4, 6, 12, 18, 36. What did he do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">He left out 9, because 4 &times; 9 = 36</button><button class="opt">He should not list 1</button><button class="opt">He should not list 36</button><button class="opt">He left out 8, because 8 is a factor of 36</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="x1_s1" data-pts="5" data-logic="The rule for 9: add the digits. 1 + 1 + 7 = 9, which is divisible by 9, so 117 is too (117 = 9 x 13). Being odd or the last digit does not decide it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Is 117 divisible by 9?</p>
+    <div class="opts"><button class="opt" data-c="1">Yes, because its digits add to 9, and 9 is divisible by 9</button><button class="opt">No, because 117 is odd</button><button class="opt">No, because 117 does not end in 9</button><button class="opt">Yes, because 117 ends in 7</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="5" data-logic="Common factors of 12 and 18: 1, 2, 3, 6. Lena found a common factor, but not the GREATEST one. The GCF is 6.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Lena says the GCF of 12 and 18 is 3. What did she do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">3 is a common factor, but 6 is a greater one, so the GCF is 6</button><button class="opt">The GCF should be 36, because 36 is a multiple of both</button><button class="opt">The GCF should be 1, because 1 divides everything</button><button class="opt">She is right. The GCF is 3.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="x1_s2" data-pts="5" data-logic="The digits of 57 add to 12, so 3 is a factor: 57 = 3 x 19. A number with factors besides 1 and itself is composite.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why is 57 composite?</p>
+    <div class="opts"><button class="opt" data-c="1">57 = 3 &times; 19, so it has factors other than 1 and 57</button><button class="opt">57 is odd</button><button class="opt">57 ends in 7</button><button class="opt">57 is greater than 50</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="5" data-logic="Multiples of 6: 6, 12, 18... Multiples of 9: 9, 18... The first one they share is 18. Multiplying the two numbers gives a common multiple, but not always the least one.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Omar says the LCM of 6 and 9 is 54 because 6 &times; 9 = 54. What did he do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">54 is a common multiple, but 18 is smaller, so the LCM is 18</button><button class="opt">The LCM should be 3, the greatest common factor</button><button class="opt">The LCM should be 15, because 6 + 9 = 15</button><button class="opt">He is right. The LCM is 54.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>✏️ Fix the Sentence</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Math Writers Use Correct Writing, Too</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Edit the sentence in the box so it is exactly right, then press Check. Watch for quotation marks, its vs. it&rsquo;s, commas in a series, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s1_s0" data-pts="2" data-ans="Nadia said, &quot;36 has nine factors.&quot;" data-logic="Capitalize the name Nadia, put quotation marks around her exact words, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">nadia said, 36 has nine factors</p>
+    <div class="fillrow"><input class="fillin fixin" value="nadia said, 36 has nine factors" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s0" data-pts="2" data-ans="The number 7 is prime because its only factors are 1 and 7." data-logic="Its (no apostrophe) shows ownership: the factors belong to 7. It&#x27;s always means it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The number 7 is prime because it&#x27;s only factors are 1 and 7.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The number 7 is prime because it&#x27;s only factors are 1 and 7." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s0" data-pts="2" data-ans="The factors of 10 are 1, 2, 5, and 10.||The factors of 10 are 1, 2, 5 and 10." data-logic="Use commas to separate the items in a series: 1, 2, 5, and 10.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The factors of 10 are 1 2 5 and 10.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The factors of 10 are 1 2 5 and 10." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s0" data-pts="2" data-ans="Nadia and her dad count the factors of 48." data-logic="Capitalize the first word and the name Nadia. Two people (Nadia and her dad) need the verb count, not counts. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">nadia and her dad counts the factors of 48</p>
+    <div class="fillrow"><input class="fillin fixin" value="nadia and her dad counts the factors of 48" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s1_s1" data-pts="2" data-ans="Dad asked, &quot;Is 51 a prime number?&quot;" data-logic="Capitalize the first word, put quotation marks around the exact words, capitalize the first word of the quote, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">dad asked, is 51 a prime number</p>
+    <div class="fillrow"><input class="fillin fixin" value="dad asked, is 51 a prime number" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s1" data-pts="2" data-ans="It&#x27;s easy to see that 48 is even because it ends in 8." data-logic="It&#x27;s means it is: it is easy to see. Use the apostrophe.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Its easy to see that 48 is even because it ends in 8.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Its easy to see that 48 is even because it ends in 8." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s1" data-pts="2" data-ans="The first three multiples of 6 are 6, 12, and 18.||The first three multiples of 6 are 6, 12 and 18." data-logic="Use commas to separate the items in a series: 6, 12, and 18.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The first three multiples of 6 are 6 12 and 18.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The first three multiples of 6 are 6 12 and 18." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s1" data-pts="2" data-ans="Every even number greater than 2 is composite." data-logic="Capitalize the first word. The subject is every even number (singular), so use is, not are. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">every even number greater than 2 are composite</p>
+    <div class="fillrow"><input class="fillin fixin" value="every even number greater than 2 are composite" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s1_s2" data-pts="2" data-ans="Nadia said, &quot;The number 1 is neither prime nor composite.&quot;" data-logic="Capitalize Nadia, put quotation marks around her exact words, capitalize the first word of the quote, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">nadia said, the number 1 is neither prime nor composite</p>
+    <div class="fillrow"><input class="fillin fixin" value="nadia said, the number 1 is neither prime nor composite" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s2" data-pts="2" data-ans="A number is divisible by 5 when its last digit is 0 or 5." data-logic="Its (no apostrophe) shows ownership: the last digit belongs to the number. It&#x27;s means it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">A number is divisible by 5 when it&#x27;s last digit is 0 or 5.</p>
+    <div class="fillrow"><input class="fillin fixin" value="A number is divisible by 5 when it&#x27;s last digit is 0 or 5." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s2" data-pts="2" data-ans="The common factors of 24 and 36 are 1, 2, 3, 4, 6, and 12.||The common factors of 24 and 36 are 1, 2, 3, 4, 6 and 12." data-logic="Use commas to separate the items in a series: 1, 2, 3, 4, 6, and 12.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The common factors of 24 and 36 are 1 2 3 4 6 and 12.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The common factors of 24 and 36 are 1 2 3 4 6 and 12." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s2" data-pts="2" data-ans="The feed truck and the vet both come on day 12." data-logic="Capitalize the first word. Two subjects (the feed truck and the vet) need the verb come, not comes. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the feed truck and the vet both comes on day 12</p>
+    <div class="fillrow"><input class="fillin fixin" value="the feed truck and the vet both comes on day 12" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a clue on the left, then its answer on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick facts as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="3" data-logic="Factors of 6: 1, 2, 3, 6. Factors of 9: 1, 3, 9. The greatest shared factor is 3.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">GCF of 6 and 9 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="10" data-logic="Multiples of 2: 2, 4, 6, 8, 10. Multiples of 5: 5, 10. The first shared one is 10.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">LCM of 2 and 5 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="35" data-logic="28 + 7 = 35.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Next multiple of 7 after 28 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-go="18">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+<h2>🌇 Looking Back</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🐄</div>
+  <h4>The Week Is Almost Planned</h4>
+  <p>Nadia&rsquo;s calendar is nearly full. Before the Boss Battle, think about what you practiced today.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Finding factors and factor pairs</button><button class="opt" data-c="1">Prime and composite numbers</button><button class="opt" data-c="1">Divisibility rules</button><button class="opt" data-c="1">LCM and GCF word problems</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which skill do you want to practice MORE?</p>
+    <div class="opts"><button class="opt" data-c="1">Finding factors and factor pairs</button><button class="opt" data-c="1">Prime and composite numbers</button><button class="opt" data-c="1">Divisibility rules</button><button class="opt" data-c="1">LCM and GCF word problems</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="17">&larr; Back</button><button class="btn btn-go" data-go="19">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 19 -->
+<div class="slide" data-slide="19">
+<h2>🚨 Boss Battle: The Big Delivery Day</h2>
+<span class="setnotice" id="setNotice19" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">⏰</div>
+  <h4>Nadia Has to Plan It All</h4>
+  <p>The feed truck comes every 4 days and the vet comes every 6 days. Both came on Day 0. At the same time, an order is due: 24 bags of cheese curds and 36 milk bottles, packed into the greatest number of identical crates with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">⏰</div>
+  <h4>Nadia Has to Plan It All</h4>
+  <p>This month the feed truck comes every 3 days and the vet comes every 8 days. Both came on Day 0. An order is due: 18 bags of cheese curds and 30 milk bottles, packed into the greatest number of identical crates with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">⏰</div>
+  <h4>Nadia Has to Plan It All</h4>
+  <p>This month the feed truck comes every 6 days and the vet comes every 10 days. Both came on Day 0. An order is due: 32 bags of cheese curds and 40 milk bottles, packed into the greatest number of identical crates with nothing left over.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="4" data-ans="3" data-logic="The LCM of 4 and 6 is 12, so they meet every 12 days: Day 12, Day 24, and Day 36. That is 3 days.">
+    <span class="pts">+4</span>
+    <p class="qtext">From Day 1 through Day 36, on how many days do the truck AND the vet both come?</p>
+    <div class="fillrow"><span class="eq">Number of shared days:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="4" data-logic="Step 1: the greatest number of crates is the GCF of 24 and 36, which is 12. Step 2: 36 bottles divided by 12 crates = 3 bottles per crate. (2 is the number of curd bags per crate.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how many milk bottles go in EACH crate?</p>
+    <div class="opts"><button class="opt" data-c="1">3</button><button class="opt">2</button><button class="opt">12</button><button class="opt">6</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="4" data-ans="2" data-logic="The LCM of 3 and 8 is 24, so they meet every 24 days: Day 24 and Day 48. Day 72 is past Day 50. That is 2 days.">
+    <span class="pts">+4</span>
+    <p class="qtext">From Day 1 through Day 50, on how many days do the truck AND the vet both come?</p>
+    <div class="fillrow"><span class="eq">Number of shared days:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="4" data-logic="Step 1: the greatest number of crates is the GCF of 18 and 30, which is 6. Step 2: 18 bags divided by 6 crates = 3 bags per crate. (5 is the number of bottles per crate.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how many curd bags go in EACH crate?</p>
+    <div class="opts"><button class="opt" data-c="1">3</button><button class="opt">5</button><button class="opt">6</button><button class="opt">2</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="4" data-ans="60" data-logic="The LCM of 6 and 10 is 30, so they meet every 30 days: first on Day 30, then on Day 60.">
+    <span class="pts">+4</span>
+    <p class="qtext">After Day 0, on what day do the truck and the vet come together for the SECOND time?</p>
+    <div class="fillrow"><span class="eq">Day</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="4" data-logic="Step 1: the greatest number of crates is the GCF of 32 and 40, which is 8. Step 2: 40 bottles divided by 8 crates = 5 bottles per crate. (4 is the number of curd bags per crate.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how many milk bottles go in EACH crate?</p>
+    <div class="opts"><button class="opt" data-c="1">5</button><button class="opt">4</button><button class="opt">8</button><button class="opt">10</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="18">&larr; Back</button><button class="btn btn-go" data-go="20">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 20 -->
+<div class="slide" data-slide="20">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="19">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 21 -->
+<div class="slide" data-slide="21">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Farm Week Scheduled!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🐄</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Then finish your Post-Lesson Challenge sheet.</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 1 of 4 complete</p>
+      <div class="dots" style="margin-top:6px"><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 22;
+const FINAL_INDEX = 21;
+const MODULE_ID = 'grade4-5-week11-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["Factors of 9", "1, 3, 9"], ["GCF of 8 and 12", "4"], ["LCM of 4 and 6", "12"], ["Smallest prime number", "2"], ["Next prime after 23", "29"]], [["Factors of 15", "1, 3, 5, 15"], ["GCF of 18 and 24", "6"], ["LCM of 3 and 5", "15"], ["Neither prime nor composite", "1"], ["A factor pair of 21 (not 1 × 21)", "3 × 7"]], [["Factors of 16", "1, 2, 4, 8, 16"], ["GCF of 20 and 30", "10"], ["LCM of 6 and 8", "24"], ["The only even prime", "2"], ["Divisible by 9", "81"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='Farm Planner Extraordinaire!';
+    document.getElementById('finalMessageHeading').textContent='🎉 You got Nadia’s whole week on schedule!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. You used factors, multiples and primes to plan Nadia’s farm: you found the factor pairs that put 36 calves into equal rows, used divisibility rules to spot which cow ID numbers are prime, found the least common multiple to see when the feed truck and the vet come on the same day, and used the greatest common factor to pack cheese curds and milk into identical crates with nothing left over. Your results go to KingCretot Experience. Tell your parent or teacher, then finish your Post-Lesson Challenge sheet!';
+    playFanfare(); confetti(160); setTimeout(()=>confetti(140),500); setTimeout(()=>confetti(140),1100); setTimeout(()=>confetti(120),1800);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work on the Farm!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Every try makes you stronger with factors, multiples, and prime numbers. Look back at the teaching slides, then hit Play Again: you will get a fresh set of questions next time, and Nadia’s farm will be waiting for you. Your results go to KingCretot Experience.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script src="../../gate.js"></script>
+</body>
+</html>
