@@ -797,6 +797,34 @@ ul.tips li{margin:5px 0}
     <p class="feedback"></p>
   </div>
 </div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="r1_s1" data-pts="5" data-logic="Any of the skills is a genuinely good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Equal groups</button><button class="opt" data-c="1">Arrays</button><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Word problems</button><button class="opt" data-c="1">Multiplication facts</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="5" data-logic="Any of the skills is a genuinely good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before next week?</p>
+    <div class="opts"><button class="opt" data-c="1">Equal groups</button><button class="opt" data-c="1">Arrays</button><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Word problems</button><button class="opt" data-c="1">Multiplication facts</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="r1_s2" data-pts="5" data-logic="Any of the skills is a genuinely good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Equal groups</button><button class="opt" data-c="1">Arrays</button><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Word problems</button><button class="opt" data-c="1">Multiplication facts</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="5" data-logic="Any of the skills is a genuinely good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before next week?</p>
+    <div class="opts"><button class="opt" data-c="1">Equal groups</button><button class="opt" data-c="1">Arrays</button><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Word problems</button><button class="opt" data-c="1">Multiplication facts</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
 <div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
 </div>
@@ -1009,14 +1037,14 @@ function buildMatch(){
   const prods = MATCH_PAIRS.map(p=>({t:p[1].split(' or ')[0],k:p[1].split(' or ')[0]}));
   const order = shuffle([0,1,2,3,4]);
   shuffle(facts);
-  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  facts.forEach((f,fi)=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.mi=fi; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
   order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
 }
 function handleMatch(el){
   if(el.classList.contains('done')) return;
   if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
   if(!mSel) return;
-  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const key='match-'+mSel.dataset.mk+'-'+mSel.dataset.mi; /* per-fact key: two facts can share a product (e.g. 3x6, 6x3) */ const firstTry=!state.attempted[key]; state.attempted[key]=true;
   if(el.dataset.mk===mSel.dataset.mk){
     el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
     state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
