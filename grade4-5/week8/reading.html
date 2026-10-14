@@ -708,7 +708,8 @@ function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.
 function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
 
 function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
-function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; }
+function applyQuestionSet(idx){ __kceApplyQS(idx); document.querySelectorAll('.slide').forEach(function(s){ var qs=Array.prototype.filter.call(s.querySelectorAll('.qset'),function(e){return e.id!=='trailQset';}); if(qs.length && qs.every(function(e){return e.style.display==='none';})){ qs.forEach(function(e){ if(+e.dataset.set===0) e.style.display=''; }); } }); }
+function __kceApplyQS(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; }
 const CURRENT_SET = getAttemptSetIndex();
 
 const MATCH_PAIRS_SETS = [

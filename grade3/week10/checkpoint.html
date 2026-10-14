@@ -1564,7 +1564,8 @@ const MATCH_PAIRS_SETS = [[['Multiply','a fast way to add the same number over a
 let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
 let mSel = null;
 function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
-function applyQuestionSet(idx){
+function applyQuestionSet(idx){ __kceApplyQS(idx); document.querySelectorAll('.slide').forEach(function(s){ var qs=Array.prototype.filter.call(s.querySelectorAll('.qset'),function(e){return e.id!=='trailQset';}); if(qs.length && qs.every(function(e){return e.style.display==='none';})){ qs.forEach(function(e){ if(+e.dataset.set===0) e.style.display=''; }); } }); }
+function __kceApplyQS(idx){
   document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
   MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
   if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
