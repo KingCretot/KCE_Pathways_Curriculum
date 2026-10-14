@@ -1,0 +1,68 @@
+/* KCE Pathways mastery lock: each subject is its own track. A lesson opens once the lesson(s) it depends on are mastered (85+). */
+(function(){
+var CFG = {"mastery": 85, "hubs": ["grade3/index.html", "grade4-5/index.html"], "list": [{"f": "grade3/week1/math.html", "id": "grade3-math-w1", "req": [], "label": "Grade 3 Week 1 Math", "h": "grade3/index.html"}, {"f": "grade3/week1/reading.html", "id": "grade3-reading-w1", "req": [], "label": "Grade 3 Week 1 Reading", "h": "grade3/index.html"}, {"f": "grade3/week2/math.html", "id": "grade3-math-w2", "req": ["grade3-math-w1"], "label": "Grade 3 Week 2 Math", "h": "grade3/index.html"}, {"f": "grade3/week2/reading.html", "id": "grade3-reading-w2", "req": ["grade3-reading-w1"], "label": "Grade 3 Week 2 Reading", "h": "grade3/index.html"}, {"f": "grade3/week3/math.html", "id": "grade3-math-w3", "req": ["grade3-math-w2"], "label": "Grade 3 Week 3 Math", "h": "grade3/index.html"}, {"f": "grade3/week3/reading.html", "id": "grade3-reading-w3", "req": ["grade3-reading-w2"], "label": "Grade 3 Week 3 Reading", "h": "grade3/index.html"}, {"f": "grade3/week4/math.html", "id": "grade3-math-w4", "req": ["grade3-math-w3"], "label": "Grade 3 Week 4 Math", "h": "grade3/index.html"}, {"f": "grade3/week4/reading.html", "id": "grade3-reading-w4", "req": ["grade3-reading-w3"], "label": "Grade 3 Week 4 Reading", "h": "grade3/index.html"}, {"f": "grade3/week6/math.html", "id": "grade3-math-w6", "req": ["grade3-checkpoint1"], "label": "Grade 3 Week 6 Math", "h": "grade3/index.html"}, {"f": "grade3/week6/reading.html", "id": "grade3-reading-w6", "req": ["grade3-checkpoint1"], "label": "Grade 3 Week 6 Reading", "h": "grade3/index.html"}, {"f": "grade3/week7/math.html", "id": "grade3-math-w7", "req": ["grade3-math-w6"], "label": "Grade 3 Week 7 Math", "h": "grade3/index.html"}, {"f": "grade3/week7/reading.html", "id": "grade3-reading-w7", "req": ["grade3-reading-w6"], "label": "Grade 3 Week 7 Reading", "h": "grade3/index.html"}, {"f": "grade3/week8/math.html", "id": "grade3-math-w8", "req": ["grade3-math-w7"], "label": "Grade 3 Week 8 Math", "h": "grade3/index.html"}, {"f": "grade3/week8/reading.html", "id": "grade3-reading-w8", "req": ["grade3-reading-w7"], "label": "Grade 3 Week 8 Reading", "h": "grade3/index.html"}, {"f": "grade3/week9/math.html", "id": "grade3-math-w9", "req": ["grade3-math-w8"], "label": "Grade 3 Week 9 Math", "h": "grade3/index.html"}, {"f": "grade3/week9/reading.html", "id": "grade3-reading-w9", "req": ["grade3-reading-w8"], "label": "Grade 3 Week 9 Reading", "h": "grade3/index.html"}, {"f": "grade3/week1/science.html", "id": "grade3-science-w1", "req": [], "label": "Grade 3 Week 1 Science", "h": "grade3/index.html"}, {"f": "grade3/week2/science.html", "id": "grade3-science-w2", "req": ["grade3-science-w1"], "label": "Grade 3 Week 2 Science", "h": "grade3/index.html"}, {"f": "grade3/week1/socialstudies.html", "id": "grade3-socialstudies-w1", "req": [], "label": "Grade 3 Week 1 Social Studies", "h": "grade3/index.html"}, {"f": "grade3/week2/socialstudies.html", "id": "grade3-socialstudies-w2", "req": ["grade3-socialstudies-w1"], "label": "Grade 3 Week 2 Social Studies", "h": "grade3/index.html"}, {"f": "grade3/week5/checkpoint.html", "id": "grade3-checkpoint1", "req": ["grade3-math-w4", "grade3-reading-w4"], "label": "Grade 3 Checkpoint 1 (Week 5)", "h": "grade3/index.html"}, {"f": "grade3/week6a/math.html", "id": "grade3-week6a-math", "req": ["grade3-math-w6"], "label": "Grade 3 Week 6A Bonus Math", "h": "grade3/index.html"}, {"f": "grade3/week10/checkpoint.html", "id": "grade3-checkpoint2", "req": ["grade3-math-w9", "grade3-reading-w9"], "label": "Grade 3 Checkpoint 2 (Week 10)", "h": "grade3/index.html"}, {"f": "grade4-5/week1/math.html", "id": "grade4-5-week1-math", "req": [], "label": "Grades 4–5 Week 1 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week1/reading.html", "id": "grade4-5-week1-reading", "req": [], "label": "Grades 4–5 Week 1 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week2/math.html", "id": "grade4-5-week2-math", "req": ["grade4-5-week1-math"], "label": "Grades 4–5 Week 2 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week2/reading.html", "id": "grade4-5-week2-reading", "req": ["grade4-5-week1-reading"], "label": "Grades 4–5 Week 2 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week3/math.html", "id": "grade4-5-week3-math", "req": ["grade4-5-week2-math"], "label": "Grades 4–5 Week 3 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week3/reading.html", "id": "grade4-5-week3-reading", "req": ["grade4-5-week2-reading"], "label": "Grades 4–5 Week 3 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week4/math.html", "id": "grade4-5-week4-math", "req": ["grade4-5-week3-math"], "label": "Grades 4–5 Week 4 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week4/reading.html", "id": "grade4-5-week4-reading", "req": ["grade4-5-week3-reading"], "label": "Grades 4–5 Week 4 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week6/math.html", "id": "grade4-5-week6-math", "req": ["grade4-5-checkpoint1"], "label": "Grades 4–5 Week 6 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week6/reading.html", "id": "grade4-5-week6-reading", "req": ["grade4-5-checkpoint1"], "label": "Grades 4–5 Week 6 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week7/math.html", "id": "grade4-5-week7-math", "req": ["grade4-5-week6-math"], "label": "Grades 4–5 Week 7 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week7/reading.html", "id": "grade4-5-week7-reading", "req": ["grade4-5-week6-reading"], "label": "Grades 4–5 Week 7 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week8/math.html", "id": "grade4-5-week8-math", "req": ["grade4-5-week7-math"], "label": "Grades 4–5 Week 8 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week8/reading.html", "id": "grade4-5-week8-reading", "req": ["grade4-5-week7-reading"], "label": "Grades 4–5 Week 8 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week9/math.html", "id": "grade4-5-week9-math", "req": ["grade4-5-week8-math"], "label": "Grades 4–5 Week 9 Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week9/reading.html", "id": "grade4-5-week9-reading", "req": ["grade4-5-week8-reading"], "label": "Grades 4–5 Week 9 Reading", "h": "grade4-5/index.html"}, {"f": "grade4-5/week5/checkpoint.html", "id": "grade4-5-checkpoint1", "req": ["grade4-5-week4-math", "grade4-5-week4-reading"], "label": "Grades 4–5 Checkpoint 1 (Week 5)", "h": "grade4-5/index.html"}, {"f": "grade4-5/week6a/math.html", "id": "grade4-5-week6a-math", "req": ["grade4-5-week6-math"], "label": "Grades 4–5 Week 6A Bonus Math", "h": "grade4-5/index.html"}, {"f": "grade4-5/week10/checkpoint.html", "id": "grade4-5-week10-checkpoint", "req": ["grade4-5-week9-math", "grade4-5-week9-reading"], "label": "Grades 4–5 Unit 2 Checkpoint (Week 10)", "h": "grade4-5/index.html"}]};
+var TKEY='kce_teacher_mode_v2', OKEY='kce_gate_unlocked_v2', PIN='9110';
+var ROOT=(function(){var s=document.currentScript&&document.currentScript.src||'';return s.slice(0,s.lastIndexOf('/')+1);})();
+function rd(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{}}catch(e){return {}}}
+function passed(id){var p=rd('kce_pathways_progress')[id];return !!(p&&p.passed);}
+function teacher(){try{return localStorage.getItem(TKEY)==='1'}catch(e){return false}}
+function unlockedByPin(id){return !!rd(OKEY)[id];}
+function byFile(f){for(var i=0;i<CFG.list.length;i++){if(CFG.list[i].f===f)return CFG.list[i];}return null;}
+function byId(id){for(var i=0;i<CFG.list.length;i++){if(CFG.list[i].id===id)return CFG.list[i];}return null;}
+function missing(e){var out=[];for(var i=0;i<e.req.length;i++){if(!passed(e.req[i])){var x=byId(e.req[i]);out.push(x?x.label:e.req[i]);}}return out;}
+function isOpen(e){return !e.req.length||passed(e.id)||teacher()||unlockedByPin(e.id)||!missing(e).length;}
+function names(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+function rel(url){var u=url.split('#')[0].split('?')[0];if(u.indexOf(ROOT)!==0)return null;var r;try{r=decodeURIComponent(u.slice(ROOT.length));}catch(e){r=u.slice(ROOT.length);}if(/\/$/.test(r))r+='index.html';return r;}
+function css(){if(document.getElementById('kcegate-css'))return;var s=document.createElement('style');s.id='kcegate-css';s.textContent=
+'.kg-ov{position:fixed;inset:0;z-index:2147483000;background:rgba(10,31,61,.96);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Inter,system-ui,sans-serif}'+
+'.kg-box{background:#fff;border-radius:18px;max-width:470px;width:100%;padding:30px 26px;text-align:center;border-top:6px solid #C9A84C;box-shadow:0 20px 60px rgba(0,0,0,.35)}'+
+'.kg-box h2{font-family:Fraunces,Georgia,serif;color:#0A1F3D;margin:8px 0 10px;font-size:26px}.kg-box p{color:#4a5666;font-size:16px;line-height:1.5;margin:0 0 18px}'+
+'.kg-lock{font-size:46px}.kg-btn{display:block;width:100%;text-decoration:none;font-weight:700;font-size:16px;padding:13px;border-radius:12px;background:#0A1F3D;color:#fff;border:none;cursor:pointer;margin-bottom:10px;box-sizing:border-box}'+
+'.kg-t{margin-top:14px;font-size:13px;color:#7d8794}.kg-t input{width:110px;padding:8px;border:2px solid #E7E0CF;border-radius:8px;font-size:15px;text-align:center}.kg-t button{padding:8px 12px;border-radius:8px;border:none;background:#C9A84C;color:#0A1F3D;font-weight:700;cursor:pointer;margin-left:6px}'+
+'.card.kg-locked{opacity:.62}.card.kg-locked:hover{transform:none;box-shadow:none}'+
+'.kg-lockbtn{display:inline-block;background:#eceae4!important;color:#6b7684!important;cursor:not-allowed;white-space:normal!important;text-align:center}'+
+'.kg-pass{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#e6f4ea;color:#1e7a3c;margin:0 0 8px}'+
+'.kg-bar{max-width:1080px;margin:18px auto 0;padding:12px 24px;font-size:13px;color:#7d8794}.kg-bar button{background:none;border:none;color:#0047BA;text-decoration:underline;cursor:pointer;font:inherit;padding:0}';
+document.head.appendChild(s);}
+function lessonGuard(){
+  var e=byFile(rel(location.href)); if(!e||isOpen(e)) return;
+  css();
+  var miss=missing(e), first=byId(e.req.filter(function(q){return !passed(q);})[0]);
+  var ov=document.createElement('div');ov.className='kg-ov';ov.innerHTML=
+   '<div class="kg-box"><div class="kg-lock">🔒</div><h2>Not unlocked yet</h2>'+
+   '<p>Master <b>'+names(miss)+'</b> first (score '+CFG.mastery+' or higher). Then this lesson opens.</p>'+
+   (first?'<a class="kg-btn" href="'+ROOT+encodeURI(first.f)+'">Go to '+first.label+'</a>':'')+
+   '<a class="kg-btn" style="background:#C9A84C;color:#0A1F3D" href="'+ROOT+e.h+'">Back to the course page</a>'+
+   '<div class="kg-t">Teacher code: <input type="password" inputmode="numeric" id="kgpin"><button id="kgok">Unlock</button><div id="kgmsg"></div></div></div>';
+  document.body.appendChild(ov);document.documentElement.style.overflow='hidden';
+  document.getElementById('kgok').onclick=function(){
+    if(document.getElementById('kgpin').value===PIN){var m=rd(OKEY);m[e.id]=true;try{localStorage.setItem(OKEY,JSON.stringify(m))}catch(x){}
+      ov.remove();document.documentElement.style.overflow='';}
+    else{document.getElementById('kgmsg').textContent='That code is not right.';}
+  };
+}
+function hub(){
+  css();
+  var as=document.querySelectorAll('a.btn');
+  for(var i=0;i<as.length;i++){
+    var a=as[i],e=byFile(rel(a.href));if(!e)continue;
+    var card=a.closest('.card');
+    if(passed(e.id)&&card&&!card.querySelector('.kg-pass')){var t=document.createElement('div');t.innerHTML='<span class="kg-pass">✓ Mastered</span>';a.parentNode.insertBefore(t,a);}
+    if(!isOpen(e)){
+      var sp=document.createElement('span');sp.className=a.className+' kg-lockbtn';
+      sp.textContent='🔒 Master '+names(missing(e))+' first';a.parentNode.replaceChild(sp,a);
+      if(card&&card.querySelectorAll('a.btn').length===0)card.classList.add('kg-locked');}
+  }
+  var bar=document.createElement('div');bar.className='kg-bar';
+  bar.innerHTML=teacher()?'<b>Teacher mode is on</b> for this device: every lesson is open. <button id="kgtm">Turn teacher mode off</button>'
+    :'Math and Reading each unlock in order. Master a lesson ('+CFG.mastery+'+) to open the next one in that subject. Each Checkpoint opens once the Math and Reading before it are mastered. Week 6A is a bonus and never blocks anything. <button id="kgtm">Teacher: open all lessons on this device</button>';
+  var main=document.querySelector('main');(main&&main.parentNode||document.body).insertBefore(bar,main?main.nextSibling:null);
+  document.getElementById('kgtm').onclick=function(){
+    if(teacher()){try{localStorage.removeItem(TKEY)}catch(x){}location.reload();return;}
+    var p=prompt('Teacher code');if(p===PIN){try{localStorage.setItem(TKEY,'1')}catch(x){}location.reload();}else if(p!==null)alert('That code is not right.');
+  };
+}
+window.KCEGate={isOpen:isOpen,passed:passed};
+function run(){ var r=rel(location.href)||''; if(CFG.hubs.indexOf(r)>-1) hub(); else lessonGuard(); }
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
