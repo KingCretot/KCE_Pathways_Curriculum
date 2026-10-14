@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 14: Cargo Day at PortMiami (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+.ctable{border-collapse:collapse;margin:10px auto;min-width:220px;font-weight:800;text-align:center;background:#FFFDF7}
+.ctable th{background:var(--navy);color:#fff;padding:6px 18px;font-family:'Fredoka One',cursive;font-weight:400}
+.ctable td{border:2px solid #F0E6C8;padding:5px 18px;color:var(--navy)}
+.qtext .ctable{margin:10px 0 0}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🚢 KCE Pathways — Grade 4-5 — Week 14</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 14 &bull; Math</span>
+  <h1>Cargo Day at PortMiami</h1>
+  <h2>Measurement Conversions &amp; Multi-Step Problems 🚢</h2>
+  <div class="box box-story">
+    <div class="icon">🚢</div>
+    <h4>Meet Andre</h4>
+    <p>Andre is 10 and lives in Little Haiti, a Miami neighborhood. Today he is spending the day at PortMiami with his Aunt Guerline, who operates one of the giant cranes that lift containers off cargo ships. He will also help Mr. Alvarez, who checks the refrigerated fruit containers, and Ms. Raman, who plans how much cargo each ship carries. Every job on the dock uses measurement: feet and inches, pounds and tons, gallons and quarts, meters and kilograms, and hours and minutes.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with last week&rsquo;s skill: multiplying fractions</li>
+      <li>Convert inches, feet, and yards using conversion tables</li>
+      <li>Convert ounces, pounds, and tons, and cups, pints, quarts, and gallons</li>
+      <li>Convert metric units: centimeters, meters, kilometers, grams, kilograms, milliliters, and liters</li>
+      <li>Work with hours and minutes, and regroup mixed units like feet and inches</li>
+      <li>Solve multi-step cargo problems, spot mistakes, and fix math sentences</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 14</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up: Multiplying Fractions Review</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>You Already Know This</h4>
+  <p>Last week you multiplied fractions. Show what you remember: a whole number times a fraction, a fraction times a fraction, and how to tell whether a product makes sense. The last question finds a fraction of a measurement, which is exactly the kind of thinking you will use on the dock today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_s0" data-pts="2" data-ans="6|18/3|6/1" data-logic="9 × 2/3 = 18/3, and 18 ÷ 3 = 6.">
+    <span class="pts">+2</span>
+    <p class="qtext">A whole number &times; a fraction (Week 13): type the product.</p>
+    <div class="fillrow"><span class="eq">9 &times; 2/3 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="2" data-logic="Multiply the numerators (2 × 4 = 8) and multiply the denominators (3 × 5 = 15). The product is 8/15.">
+    <span class="pts">+2</span>
+    <p class="qtext">A fraction &times; a fraction (Week 13): 2/3 &times; 4/5 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">8/15</button><button class="opt">6/8</button><button class="opt">8/5</button><button class="opt">6/15</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s0" data-pts="2" data-logic="10 × 3/4 = 30/4 = 7 1/2, which is less than 10. That makes sense: 3/4 is less than 1 whole, so the product is less than 10. 1 1/4 and 1 1/2 are more than 1 whole, so those products are greater than 10, and 10 × 1 = 10.">
+    <span class="pts">+2</span>
+    <p class="qtext">Does it make sense? (Week 13): which product is LESS than 10?</p>
+    <div class="opts"><button class="opt" data-c="1">10 &times; 3/4</button><button class="opt">10 &times; 1&nbsp;1/4</button><button class="opt">10 &times; 1</button><button class="opt">10 &times; 1&nbsp;1/2</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s0" data-pts="2" data-ans="6|6 feet|6 foot|6 ft" data-logic="3/4 of 8 means 3/4 × 8 = 24/4 = 6 feet.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fraction of a measurement: a mooring rope is 8 feet long. Andre coils 3/4 of it. How many feet does he coil?</p>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r1_s1" data-pts="2" data-ans="6|30/5|6/1" data-logic="10 × 3/5 = 30/5, and 30 ÷ 5 = 6.">
+    <span class="pts">+2</span>
+    <p class="qtext">A whole number &times; a fraction (Week 13): type the product.</p>
+    <div class="fillrow"><span class="eq">10 &times; 3/5 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="2" data-logic="Multiply the numerators (3 × 2 = 6) and the denominators (4 × 5 = 20) to get 6/20. Simplify by dividing both by 2: 3/10.">
+    <span class="pts">+2</span>
+    <p class="qtext">A fraction &times; a fraction (Week 13): 3/4 &times; 2/5 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">3/10</button><button class="opt">5/9</button><button class="opt">5/20</button><button class="opt">6/9</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s1" data-pts="2" data-logic="12 × 1 1/3 = 12 × 4/3 = 48/3 = 16, which is greater than 12. That makes sense: 1 1/3 is more than 1 whole. 2/3, 1/2, and 5/6 are less than 1, so their products are less than 12.">
+    <span class="pts">+2</span>
+    <p class="qtext">Does it make sense? (Week 13): which product is GREATER than 12?</p>
+    <div class="opts"><button class="opt" data-c="1">12 &times; 1&nbsp;1/3</button><button class="opt">12 &times; 2/3</button><button class="opt">12 &times; 1/2</button><button class="opt">12 &times; 5/6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s1" data-pts="2" data-ans="8|8 yards|8 yard|8 yd" data-logic="2/5 of 20 means 2/5 × 20 = 40/5 = 8 yards.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fraction of a measurement: a dock line is 20 yards long. 2/5 of it is wet. How many yards are wet?</p>
+    <div class="fillrow"><span class="eq">Yards:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r1_s2" data-pts="2" data-ans="10|60/6|10/1" data-logic="12 × 5/6 = 60/6, and 60 ÷ 6 = 10.">
+    <span class="pts">+2</span>
+    <p class="qtext">A whole number &times; a fraction (Week 13): type the product.</p>
+    <div class="fillrow"><span class="eq">12 &times; 5/6 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="2" data-logic="Multiply the numerators (5 × 3 = 15) and the denominators (6 × 4 = 24) to get 15/24. Simplify by dividing both by 3: 5/8.">
+    <span class="pts">+2</span>
+    <p class="qtext">A fraction &times; a fraction (Week 13): 5/6 &times; 3/4 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">5/8</button><button class="opt">8/10</button><button class="opt">15/10</button><button class="opt">8/24</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s2" data-pts="2" data-logic="16 × 7/8 = 112/8 = 14, which is less than 16. That makes sense: 7/8 is less than 1 whole, so the product is less than 16.">
+    <span class="pts">+2</span>
+    <p class="qtext">Does it make sense? (Week 13): which statement about 16 &times; 7/8 is true?</p>
+    <div class="opts"><button class="opt" data-c="1">It is less than 16</button><button class="opt">It is greater than 16</button><button class="opt">It is equal to 16</button><button class="opt">It is equal to 7/128</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s2" data-pts="2" data-ans="9|9 feet|9 foot|9 ft" data-logic="3/4 of 12 means 3/4 × 12 = 36/4 = 9 feet.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fraction of a measurement: a cargo strap is 12 feet long. Andre uses 3/4 of it. How many feet does he use?</p>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<h2>🚢 Why a Port Runs on Measurement</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<svg viewBox="0 0 520 190" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A container ship at the dock beside a tall crane, with the Miami skyline behind">
+<rect x="0" y="0" width="520" height="190" rx="16" fill="#E0F6FF"/>
+<circle cx="470" cy="34" r="18" fill="#C9A84C"/>
+<g fill="#C7D7EE"><rect x="300" y="52" width="16" height="70"/><rect x="320" y="38" width="14" height="84"/><rect x="338" y="60" width="18" height="62"/><rect x="360" y="46" width="12" height="76"/><rect x="376" y="66" width="20" height="56"/></g>
+<rect x="0" y="134" width="520" height="56" fill="#7CC6FF"/>
+<path d="M0 150 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/>
+<polygon points="40,116 330,116 314,146 58,146" fill="#0A1F3D"/>
+<rect x="290" y="88" width="34" height="28" fill="#fff" stroke="#0A1F3D" stroke-width="2"/><rect x="296" y="94" width="8" height="6" fill="#7CC6FF"/><rect x="310" y="94" width="8" height="6" fill="#7CC6FF"/>
+<rect x="70" y="98" width="32" height="16" rx="2" fill="#0047BA" stroke="#fff" stroke-width="1"/><rect x="104" y="98" width="32" height="16" rx="2" fill="#DB2F30" stroke="#fff" stroke-width="1"/><rect x="138" y="98" width="32" height="16" rx="2" fill="#C9A84C" stroke="#fff" stroke-width="1"/><rect x="172" y="98" width="32" height="16" rx="2" fill="#0A1F3D" stroke="#fff" stroke-width="1"/><rect x="206" y="98" width="32" height="16" rx="2" fill="#86D464" stroke="#fff" stroke-width="1"/><rect x="240" y="98" width="32" height="16" rx="2" fill="#0047BA" stroke="#fff" stroke-width="1"/><rect x="70" y="80" width="32" height="16" rx="2" fill="#DB2F30" stroke="#fff" stroke-width="1"/><rect x="104" y="80" width="32" height="16" rx="2" fill="#C9A84C" stroke="#fff" stroke-width="1"/><rect x="138" y="80" width="32" height="16" rx="2" fill="#0A1F3D" stroke="#fff" stroke-width="1"/><rect x="172" y="80" width="32" height="16" rx="2" fill="#86D464" stroke="#fff" stroke-width="1"/><rect x="206" y="80" width="32" height="16" rx="2" fill="#0047BA" stroke="#fff" stroke-width="1"/><rect x="240" y="80" width="32" height="16" rx="2" fill="#DB2F30" stroke="#fff" stroke-width="1"/><rect x="70" y="62" width="32" height="16" rx="2" fill="#C9A84C" stroke="#fff" stroke-width="1"/><rect x="104" y="62" width="32" height="16" rx="2" fill="#0A1F3D" stroke="#fff" stroke-width="1"/><rect x="138" y="62" width="32" height="16" rx="2" fill="#86D464" stroke="#fff" stroke-width="1"/><rect x="172" y="62" width="32" height="16" rx="2" fill="#0047BA" stroke="#fff" stroke-width="1"/><rect x="206" y="62" width="32" height="16" rx="2" fill="#DB2F30" stroke="#fff" stroke-width="1"/><rect x="240" y="62" width="32" height="16" rx="2" fill="#C9A84C" stroke="#fff" stroke-width="1"/>
+<rect x="390" y="116" width="130" height="18" fill="#9AA5B1"/>
+<g stroke="#DB2F30" stroke-width="6" stroke-linecap="round"><line x1="420" y1="116" x2="420" y2="30"/><line x1="480" y1="116" x2="480" y2="30"/></g>
+<line x1="250" y1="30" x2="505" y2="30" stroke="#DB2F30" stroke-width="8" stroke-linecap="round"/>
+<line x1="256" y1="32" x2="256" y2="40" stroke="#0A1F3D" stroke-width="2"/>
+<rect x="240" y="40" width="32" height="16" rx="2" fill="#C9A84C" stroke="#fff" stroke-width="1"/>
+</svg>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: PortMiami</h4>
+  <p>PortMiami sits on Dodge Island in Biscayne Bay, right next to downtown Miami. It is famous as the &ldquo;Cruise Capital of the World,&rdquo; and it is also a busy cargo port. Container ships bring in fruit, vegetables, clothing, furniture, and machines, and carry goods out to Latin America, the Caribbean, and beyond. Tall gantry cranes lift steel containers on and off the ships. Most containers are 20 feet or 40 feet long and 8 feet wide. Refrigerated containers plug into electricity to keep bananas, pineapples, and avocados cool on the trip.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Andre&rsquo;s Day on the Dock</h4>
+  <ul class="tips">
+    <li>Measure ropes, crates, and containers in <b>inches, feet, and yards</b></li>
+    <li>Weigh fruit boxes and containers in <b>ounces, pounds, and tons</b></li>
+    <li>Fill the crew&rsquo;s water coolers in <b>cups, pints, quarts, and gallons</b></li>
+    <li>Read cargo labels in <b>meters, kilograms, and liters</b></li>
+    <li>Plan Aunt Guerline&rsquo;s crane shift in <b>hours and minutes</b></li>
+  </ul>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🖼️ Picture It: Inches, Feet, and Yards</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Same Length, Different Units</h4>
+  <p>A yardstick is 1 yard long. It is also 3 feet long, and 36 inches long. The length does not change; only the unit does. When you <b>convert</b>, you are renaming the same amount with a different unit.</p>
+</div>
+<svg viewBox="0 0 510 180" width="100%" style="max-width:510px;display:block;margin:10px auto" role="img" aria-label="A yardstick: 1 yard equals 3 feet equals 36 inches">
+<rect x="0" y="0" width="510" height="180" rx="14" fill="#FFF8E8"/>
+<rect x="30" y="18" width="450" height="34" rx="6" fill="#0A1F3D"/><text x="255" y="41" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#fff">1 yard</text>
+<line x1="30" y1="92" x2="30" y2="70" stroke="#0A1F3D" stroke-width="2"/><line x1="42.5" y1="92" x2="42.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="55" y1="92" x2="55" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="67.5" y1="92" x2="67.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="80" y1="92" x2="80" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="92.5" y1="92" x2="92.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="105" y1="92" x2="105" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="117.5" y1="92" x2="117.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="130" y1="92" x2="130" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="142.5" y1="92" x2="142.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="155" y1="92" x2="155" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="167.5" y1="92" x2="167.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="180" y1="92" x2="180" y2="70" stroke="#0A1F3D" stroke-width="2"/><line x1="192.5" y1="92" x2="192.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="205" y1="92" x2="205" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="217.5" y1="92" x2="217.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="230" y1="92" x2="230" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="242.5" y1="92" x2="242.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="255" y1="92" x2="255" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="267.5" y1="92" x2="267.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="280" y1="92" x2="280" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="292.5" y1="92" x2="292.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="305" y1="92" x2="305" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="317.5" y1="92" x2="317.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="92" x2="330" y2="70" stroke="#0A1F3D" stroke-width="2"/><line x1="342.5" y1="92" x2="342.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="355" y1="92" x2="355" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="367.5" y1="92" x2="367.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="380" y1="92" x2="380" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="392.5" y1="92" x2="392.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="405" y1="92" x2="405" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="417.5" y1="92" x2="417.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="430" y1="92" x2="430" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="442.5" y1="92" x2="442.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="455" y1="92" x2="455" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="467.5" y1="92" x2="467.5" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="480" y1="92" x2="480" y2="70" stroke="#0A1F3D" stroke-width="2"/><rect x="30" y="96" width="150" height="34" fill="#0047BA" stroke="#fff" stroke-width="2"/><text x="105" y="119" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#fff">1 foot</text><rect x="180" y="96" width="150" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="255" y="119" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#fff">1 foot</text><rect x="330" y="96" width="150" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="405" y="119" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#fff">1 foot</text>
+<text x="255" y="160" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="18" fill="#0A1F3D">36 inches (each tick mark is 1 inch)</text>
+</svg>
+<div class="pricelist">
+  <div class="prow"><span class="pname">1 foot (ft)</span><span class="pprice">= 12 inches (in)</span></div>
+  <div class="prow"><span class="pname">1 yard (yd)</span><span class="pprice">= 3 feet = 36 inches</span></div>
+</div>
+<div class="decwork">
+  Big unit &rarr; small unit: multiply &nbsp;&bull;&nbsp; Small unit &rarr; big unit: divide
+  <div class="steps">
+  <b>Example 1 &mdash; Big to small:</b> A 20-foot container is how many inches long? Each foot is 12 inches, so you get MORE of the smaller unit: 20 &times; 12 = <b>240 inches</b>.<br>
+  <b>Example 2 &mdash; Small to big:</b> A crane cable is 15 feet long. How many yards? Every 3 feet make 1 yard, so you get FEWER of the bigger unit: 15 &divide; 3 = <b>5 yards</b>.<br>
+  <b>Check your answer:</b> converting to a smaller unit should give a bigger number, and converting to a bigger unit should give a smaller number.
+  </div>
+</div>
+<h3>Using a Conversion Table</h3>
+<p>A conversion table shows the pattern. Each row adds 12 more inches, so the rule is &ldquo;feet &times; 12 = inches.&rdquo;</p>
+<table class="ctable"><tr><th>Feet</th><th>Inches</th></tr><tr><td>1</td><td>12</td></tr><tr><td>2</td><td>24</td></tr><tr><td>3</td><td>36</td></tr><tr><td>4</td><td>48</td></tr></table>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>✍️ Your Turn: Inches, Feet, and Yards</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="l1_s0" data-pts="4" data-ans="96|96 inches|96 inch|96 in" data-logic="1 foot = 12 inches. Feet are bigger than inches, so multiply: 8 × 12 = 96 inches.">
+    <span class="pts">+4</span>
+    <p class="qtext">A 40-foot shipping container is 8 feet wide. How many inches wide is it?</p>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s0" data-pts="4" data-logic="3 feet = 1 yard. Feet are smaller than yards, so divide: 18 ÷ 3 = 6 yards. (54 is what you get if you multiply by mistake.)">
+    <span class="pts">+4</span>
+    <p class="qtext">A dock line is 18 feet long. How many yards long is it?</p>
+    <div class="opts"><button class="opt" data-c="1">6 yards</button><button class="opt">54 yards</button><button class="opt">15 yards</button><button class="opt">216 yards</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="l3_s0" data-pts="4" data-ans="84|84 inches|84 inch|84 in" data-logic="Each foot adds 12 inches, so multiply by 12: 7 × 12 = 84 inches.">
+    <span class="pts">+4</span>
+    <div class="qtext">Use the conversion table. How many inches are in 7 feet?<table class="ctable"><tr><th>Feet</th><th>Inches</th></tr><tr><td>1</td><td>12</td></tr><tr><td>2</td><td>24</td></tr><tr><td>5</td><td>60</td></tr><tr><td>7</td><td>?</td></tr></table></div>
+    <div class="fillrow"><span class="eq">Inches in 7 feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="l1_s1" data-pts="4" data-ans="72|72 inches|72 inch|72 in" data-logic="1 foot = 12 inches. Feet are bigger than inches, so multiply: 6 × 12 = 72 inches.">
+    <span class="pts">+4</span>
+    <p class="qtext">A stack of crates on the dock is 6 feet tall. How many inches tall is it?</p>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s1" data-pts="4" data-logic="3 feet = 1 yard. Feet are smaller than yards, so divide: 27 ÷ 3 = 9 yards. (81 is what you get if you multiply by mistake.)">
+    <span class="pts">+4</span>
+    <p class="qtext">The walkway from the dock to the ship is 27 feet long. How many yards long is it?</p>
+    <div class="opts"><button class="opt" data-c="1">9 yards</button><button class="opt">81 yards</button><button class="opt">24 yards</button><button class="opt">324 yards</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="l3_s1" data-pts="4" data-ans="108|108 inches|108 inch|108 in" data-logic="Each foot adds 12 inches, so multiply by 12: 9 × 12 = 108 inches.">
+    <span class="pts">+4</span>
+    <div class="qtext">Use the conversion table. How many inches are in 9 feet?<table class="ctable"><tr><th>Feet</th><th>Inches</th></tr><tr><td>1</td><td>12</td></tr><tr><td>3</td><td>36</td></tr><tr><td>4</td><td>48</td></tr><tr><td>9</td><td>?</td></tr></table></div>
+    <div class="fillrow"><span class="eq">Inches in 9 feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="l1_s2" data-pts="4" data-ans="60|60 inches|60 inch|60 in" data-logic="1 foot = 12 inches. Feet are bigger than inches, so multiply: 5 × 12 = 60 inches.">
+    <span class="pts">+4</span>
+    <p class="qtext">A pallet of pineapples is 5 feet tall. How many inches tall is it?</p>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s2" data-pts="4" data-logic="3 feet = 1 yard. Feet are smaller than yards, so divide: 24 ÷ 3 = 8 yards. (72 is what you get if you multiply by mistake.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Aunt Guerline lowers the crane hook 24 feet. How many yards is that?</p>
+    <div class="opts"><button class="opt" data-c="1">8 yards</button><button class="opt">72 yards</button><button class="opt">21 yards</button><button class="opt">288 yards</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="l3_s2" data-pts="4" data-ans="30|30 feet|30 foot|30 ft" data-logic="Each yard adds 3 feet, so multiply by 3: 10 × 3 = 30 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Use the conversion table. How many feet are in 10 yards?<table class="ctable"><tr><th>Yards</th><th>Feet</th></tr><tr><td>1</td><td>3</td></tr><tr><td>2</td><td>6</td></tr><tr><td>6</td><td>18</td></tr><tr><td>10</td><td>?</td></tr></table></div>
+    <div class="fillrow"><span class="eq">Feet in 10 yards:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>⚖️ Weight and Capacity</h2>
+<div class="box box-story">
+  <div class="icon">🍌</div>
+  <h4>Mr. Alvarez&rsquo;s Fruit Containers</h4>
+  <p>Mr. Alvarez checks refrigerated containers full of fruit. Fruit boxes are weighed in <b>pounds</b>, small items in <b>ounces</b>, and whole containers in <b>tons</b>. He also fills water coolers for the crew, and liquids are measured by <b>capacity</b> in cups, pints, quarts, and gallons.</p>
+</div>
+<h3>Weight</h3>
+<div class="pricelist">
+  <div class="prow"><span class="pname">1 pound (lb)</span><span class="pprice">= 16 ounces (oz)</span></div>
+  <div class="prow"><span class="pname">1 ton (T)</span><span class="pprice">= 2,000 pounds</span></div>
+</div>
+<div class="decwork">
+  5 lb = 80 oz &nbsp;&bull;&nbsp; 3 T = 6,000 lb
+  <div class="steps">
+  <b>Big to small:</b> A bag of potatoes in the ship&rsquo;s kitchen weighs 5 pounds. 5 &times; 16 = <b>80 ounces</b>. A small truck weighs 3 tons: 3 &times; 2,000 = <b>6,000 pounds</b>.<br>
+  <b>Small to big:</b> A package of bolts weighs 64 ounces. Every 16 ounces make 1 pound: 64 &divide; 16 = <b>4 pounds</b>.
+  </div>
+</div>
+<h3>Capacity</h3>
+<svg viewBox="0 0 508 180" width="100%" style="max-width:508px;display:block;margin:10px auto" role="img" aria-label="1 gallon equals 4 quarts equals 8 pints equals 16 cups"><rect x="0" y="0" width="508" height="180" rx="14" fill="#FFF8E8"/><rect x="30" y="14" width="448" height="34" fill="#0A1F3D" stroke="#fff" stroke-width="2"/><text x="254" y="36" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#fff">1 gallon</text><rect x="30" y="54" width="112" height="34" fill="#0047BA" stroke="#fff" stroke-width="2"/><text x="86" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#fff">quart</text><rect x="142" y="54" width="112" height="34" fill="#0047BA" stroke="#fff" stroke-width="2"/><text x="198" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#fff">quart</text><rect x="254" y="54" width="112" height="34" fill="#0047BA" stroke="#fff" stroke-width="2"/><text x="310" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#fff">quart</text><rect x="366" y="54" width="112" height="34" fill="#0047BA" stroke="#fff" stroke-width="2"/><text x="422" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#fff">quart</text><rect x="30" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="58" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="86" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="114" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="142" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="170" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="198" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="226" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="254" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="282" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="310" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="338" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="366" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="394" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="422" y="94" width="56" height="34" fill="#C9A84C" stroke="#fff" stroke-width="2"/><text x="450" y="116" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="17" fill="#0A1F3D">pint</text><rect x="30" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="44" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="58" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="72" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="86" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="100" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="114" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="128" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="142" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="156" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="170" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="184" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="198" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="212" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="226" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="240" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="254" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="268" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="282" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="296" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="310" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="324" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="338" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="352" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="366" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="380" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="394" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="408" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="422" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="436" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text><rect x="450" y="134" width="28" height="34" fill="#DB2F30" stroke="#fff" stroke-width="2"/><text x="464" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">c</text></svg>
+<div class="pricelist">
+  <div class="prow"><span class="pname">1 pint (pt)</span><span class="pprice">= 2 cups (c)</span></div>
+  <div class="prow"><span class="pname">1 quart (qt)</span><span class="pprice">= 2 pints</span></div>
+  <div class="prow"><span class="pname">1 gallon (gal)</span><span class="pprice">= 4 quarts = 8 pints = 16 cups</span></div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Step by Step</h4>
+  <p>How many cups are in 2 gallons? Go one step at a time: 2 gallons = 2 &times; 4 = 8 quarts. 8 quarts = 8 &times; 2 = 16 pints. 16 pints = 16 &times; 2 = <b>32 cups</b>. (Or use the shortcut: 2 &times; 16 = 32 cups.)</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>✍️ Your Turn: Weight and Capacity</h2>
+<span class="setnotice" id="setNotice7" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="k1_s0" data-pts="4" data-ans="640|640 ounces|640 ounce|640 oz" data-logic="1 pound = 16 ounces. Pounds are bigger than ounces, so multiply: 40 × 16 = 640 ounces.">
+    <span class="pts">+4</span>
+    <p class="qtext">A box of bananas weighs 40 pounds. How many ounces does it weigh?</p>
+    <div class="fillrow"><span class="eq">Ounces:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s0" data-pts="4" data-logic="1 ton = 2,000 pounds. Tons are bigger than pounds, so multiply: 4 × 2,000 = 8,000 pounds.">
+    <span class="pts">+4</span>
+    <p class="qtext">An empty container on the port scale weighs 4 tons. How many pounds is that?</p>
+    <div class="opts"><button class="opt" data-c="1">8,000 pounds</button><button class="opt">400 pounds</button><button class="opt">6,000 pounds</button><button class="opt">2,004 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="k3_s0" data-pts="4" data-ans="6|6 gallons|6 gallon|6 gal" data-logic="4 quarts = 1 gallon. Quarts are smaller than gallons, so divide: 24 ÷ 4 = 6 gallons.">
+    <span class="pts">+4</span>
+    <p class="qtext">The dock crew drinks 24 quarts of water in one day. How many gallons is that?</p>
+    <div class="fillrow"><span class="eq">Gallons:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="k1_s1" data-pts="4" data-ans="320|320 ounces|320 ounce|320 oz" data-logic="1 pound = 16 ounces. Pounds are bigger than ounces, so multiply: 20 × 16 = 320 ounces.">
+    <span class="pts">+4</span>
+    <p class="qtext">A box of pineapples weighs 20 pounds. How many ounces does it weigh?</p>
+    <div class="fillrow"><span class="eq">Ounces:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s1" data-pts="4" data-logic="1 ton = 2,000 pounds. Tons are bigger than pounds, so multiply: 6 × 2,000 = 12,000 pounds.">
+    <span class="pts">+4</span>
+    <p class="qtext">A loaded 20-foot container of shoes weighs 6 tons. How many pounds is that?</p>
+    <div class="opts"><button class="opt" data-c="1">12,000 pounds</button><button class="opt">600 pounds</button><button class="opt">8,000 pounds</button><button class="opt">2,006 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="k3_s1" data-pts="4" data-ans="8|8 quarts|8 quart|8 qt" data-logic="2 pints = 1 quart. Pints are smaller than quarts, so divide: 16 ÷ 2 = 8 quarts.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Alvarez pours 16 pints of juice for the crew&rsquo;s lunch. How many quarts is that?</p>
+    <div class="fillrow"><span class="eq">Quarts:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="k1_s2" data-pts="4" data-ans="400|400 ounces|400 ounce|400 oz" data-logic="1 pound = 16 ounces. Pounds are bigger than ounces, so multiply: 25 × 16 = 400 ounces.">
+    <span class="pts">+4</span>
+    <p class="qtext">A box of avocados weighs 25 pounds. How many ounces does it weigh?</p>
+    <div class="fillrow"><span class="eq">Ounces:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s2" data-pts="4" data-logic="1 ton = 2,000 pounds. Tons are bigger than pounds, so multiply: 5 × 2,000 = 10,000 pounds.">
+    <span class="pts">+4</span>
+    <p class="qtext">A forklift on the dock weighs 5 tons. How many pounds is that?</p>
+    <div class="opts"><button class="opt" data-c="1">10,000 pounds</button><button class="opt">500 pounds</button><button class="opt">7,000 pounds</button><button class="opt">2,005 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="k3_s2" data-pts="4" data-ans="10|10 pints|10 pint|10 pt" data-logic="2 cups = 1 pint. Cups are smaller than pints, so divide: 20 ÷ 2 = 10 pints.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Alvarez pours 20 cups of water into a cooler. How many pints is that?</p>
+    <div class="fillrow"><span class="eq">Pints:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>🌍 Metric Units: The Powers of 10</h2>
+<div class="box box-story">
+  <div class="icon">🏷️</div>
+  <h4>Ms. Raman&rsquo;s Cargo Labels</h4>
+  <p>Ships come to Miami from all over the world, and most countries use the <b>metric system</b>. Ms. Raman reads cargo labels in meters, kilograms, and liters. The good news: metric units always change by 10, 100, or 1,000, so converting is quick.</p>
+</div>
+<div class="pricelist">
+  <div class="prow"><span class="pname">1 meter (m)</span><span class="pprice">= 100 centimeters (cm)</span></div>
+  <div class="prow"><span class="pname">1 kilometer (km)</span><span class="pprice">= 1,000 meters</span></div>
+  <div class="prow"><span class="pname">1 kilogram (kg)</span><span class="pprice">= 1,000 grams (g)</span></div>
+  <div class="prow"><span class="pname">1 liter (L)</span><span class="pprice">= 1,000 milliliters (mL)</span></div>
+</div>
+<div class="box box-think">
+  <div class="icon">💡</div>
+  <h4>The Prefix Is a Clue</h4>
+  <p><b>Kilo-</b> means 1,000: a kilometer is 1,000 meters and a kilogram is 1,000 grams. <b>Centi-</b> means one hundredth: it takes 100 centimeters to make a meter. <b>Milli-</b> means one thousandth: it takes 1,000 milliliters to make a liter.</p>
+</div>
+<div class="decwork">
+  3 m = 300 cm &nbsp;&bull;&nbsp; 5 km = 5,000 m
+  <div class="steps">
+  <b>Big to small:</b> A ship&rsquo;s gangway is 3 meters wide: 3 &times; 100 = <b>300 centimeters</b>. The ship sails 5 kilometers up the channel: 5 &times; 1,000 = <b>5,000 meters</b>.<br>
+  <b>More examples:</b> 2 kilograms = 2 &times; 1,000 = <b>2,000 grams</b>. 2 liters = 2 &times; 1,000 = <b>2,000 milliliters</b>.<br>
+  <b>Small to big:</b> A box of tools has a mass of 6,000 grams: 6,000 &divide; 1,000 = <b>6 kilograms</b>.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>✍️ Your Turn: Metric Conversions</h2>
+<span class="setnotice" id="setNotice9" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e1_s0" data-pts="4" data-ans="400|400 centimeters|400 centimeter|400 cm" data-logic="1 meter = 100 centimeters. Meters are bigger, so multiply: 4 × 100 = 400 centimeters.">
+    <span class="pts">+4</span>
+    <p class="qtext">A rubber bumper on the side of the dock is 4 meters long. How many centimeters long is it?</p>
+    <div class="fillrow"><span class="eq">Centimeters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="4" data-logic="1 liter = 1,000 milliliters. Liters are bigger, so multiply: 3 × 1,000 = 3,000 milliliters.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Alvarez fills a 3-liter water jug before his shift. How many milliliters does it hold?</p>
+    <div class="opts"><button class="opt" data-c="1">3,000 milliliters</button><button class="opt">300 milliliters</button><button class="opt">30 milliliters</button><button class="opt">30,000 milliliters</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s0" data-pts="4" data-ans="5|5 kilograms|5 kilogram|5 kg" data-logic="1,000 grams = 1 kilogram. Grams are smaller, so divide: 5,000 ÷ 1,000 = 5 kilograms.">
+    <span class="pts">+4</span>
+    <p class="qtext">A bag of rice in the ship&rsquo;s kitchen has a mass of 5,000 grams. What is its mass in kilograms?</p>
+    <div class="fillrow"><span class="eq">Kilograms:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e1_s1" data-pts="4" data-ans="6,000|6,000 meters|6,000 meter|6,000 m" data-logic="1 kilometer = 1,000 meters. Kilometers are bigger, so multiply: 6 × 1,000 = 6,000 meters.">
+    <span class="pts">+4</span>
+    <p class="qtext">A tugboat guides a ship the last 6 kilometers to the dock. How many meters is that?</p>
+    <div class="fillrow"><span class="eq">Meters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="4" data-logic="1 kilogram = 1,000 grams. Kilograms are bigger, so multiply: 7 × 1,000 = 7,000 grams.">
+    <span class="pts">+4</span>
+    <p class="qtext">A crate of mangoes has a mass of 7 kilograms. What is its mass in grams?</p>
+    <div class="opts"><button class="opt" data-c="1">7,000 grams</button><button class="opt">700 grams</button><button class="opt">70 grams</button><button class="opt">70,000 grams</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s1" data-pts="4" data-ans="4|4 liters|4 liter|4 L" data-logic="1,000 milliliters = 1 liter. Milliliters are smaller, so divide: 4,000 ÷ 1,000 = 4 liters.">
+    <span class="pts">+4</span>
+    <p class="qtext">Ms. Raman&rsquo;s water jug holds 4,000 milliliters. How many liters is that?</p>
+    <div class="fillrow"><span class="eq">Liters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e1_s2" data-pts="4" data-ans="900|900 centimeters|900 centimeter|900 cm" data-logic="1 meter = 100 centimeters. Meters are bigger, so multiply: 9 × 100 = 900 centimeters.">
+    <span class="pts">+4</span>
+    <p class="qtext">The shade cover over the crew&rsquo;s break area is 9 meters long. How many centimeters long is it?</p>
+    <div class="fillrow"><span class="eq">Centimeters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="4" data-logic="1 liter = 1,000 milliliters. Liters are bigger, so multiply: 5 × 1,000 = 5,000 milliliters.">
+    <span class="pts">+4</span>
+    <p class="qtext">The soup pot in the ship&rsquo;s kitchen holds 5 liters. How many milliliters does it hold?</p>
+    <div class="opts"><button class="opt" data-c="1">5,000 milliliters</button><button class="opt">500 milliliters</button><button class="opt">50 milliliters</button><button class="opt">50,000 milliliters</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e3_s2" data-pts="4" data-ans="8|8 kilograms|8 kilogram|8 kg" data-logic="1,000 grams = 1 kilogram. Grams are smaller, so divide: 8,000 ÷ 1,000 = 8 kilograms.">
+    <span class="pts">+4</span>
+    <p class="qtext">A box of limes has a mass of 8,000 grams. What is its mass in kilograms?</p>
+    <div class="fillrow"><span class="eq">Kilograms:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">convert</div><div class="flip-face flip-back">To change a measurement to a different unit without changing the amount. 1 yard = 3 feet.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">conversion table</div><div class="flip-face flip-back">A table that shows matching amounts in two units, like feet and inches.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">customary units</div><div class="flip-face flip-back">Units used most in the U.S.: inches, feet, yards, ounces, pounds, tons, cups, pints, quarts, gallons.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">metric system</div><div class="flip-face flip-back">Units based on powers of 10: centimeters, meters, kilometers, grams, kilograms, milliliters, liters.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">weight</div><div class="flip-face flip-back">How heavy something is. Measured in ounces, pounds, and tons.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">mass</div><div class="flip-face flip-back">The amount of matter in an object. Measured in grams and kilograms.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">capacity</div><div class="flip-face flip-back">How much a container can hold. Measured in cups, quarts, gallons, milliliters, or liters.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">elapsed time</div><div class="flip-face flip-back">The time that passes from start to finish. 6:40 to 9:15 is 2 hours 35 minutes.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice11" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="3" data-logic="Capacity is how much a container can hold. Cups, pints, quarts, gallons, milliliters, and liters are units of capacity.">
+    <span class="pts">+3</span>
+    <p class="qtext">The amount a container can hold, measured in cups, quarts, gallons, or liters, is called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Capacity</button><button class="opt">Mass</button><button class="opt">Length</button><button class="opt">Elapsed time</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="3" data-ans="conversion|unit conversion|conversions" data-logic="Changing 3 feet into 36 inches is a conversion. The amount stays the same; only the unit changes.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: changing a measurement from one unit to another, like feet to inches, is called a ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="3" data-logic="Mass is the amount of matter in an object. Grams and kilograms are metric units of mass.">
+    <span class="pts">+3</span>
+    <p class="qtext">The amount of matter in an object, measured in grams and kilograms, is called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Mass</button><button class="opt">Capacity</button><button class="opt">Length</button><button class="opt">Elapsed time</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="3" data-ans="metric|metric system" data-logic="Meters, kilograms, and liters belong to the metric system, which is based on powers of 10.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: meters, kilograms, and liters are all units in the ___ system.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="3" data-logic="Elapsed time is how much time passes from start to finish, like from 6:40 a.m. to 9:15 a.m.">
+    <span class="pts">+3</span>
+    <p class="qtext">The amount of time that passes from the start of an event to the end is called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Elapsed time</button><button class="opt">Capacity</button><button class="opt">Mass</button><button class="opt">A conversion</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="3" data-ans="customary|U.S. customary|US customary|United States customary" data-logic="Inches, feet, yards, ounces, pounds, tons, cups, pints, quarts, and gallons are customary units.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: feet, pounds, and gallons are ___ units, the system used most in the United States.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>⏰ Time, Mixed Units, and Multi-Step Problems</h2>
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Aunt Guerline&rsquo;s Crane Shift</h4>
+  <p>A dockworker&rsquo;s shift is planned in hours and minutes. Time converts just like other units: <b>1 hour = 60 minutes</b> and <b>1 minute = 60 seconds</b>. Be careful: an hour has 60 minutes, not 100!</p>
+</div>
+<div class="decwork">
+  3 hours 20 minutes = 200 minutes
+  <div class="steps">
+  <b>Hours to minutes:</b> 3 hours = 3 &times; 60 = 180 minutes. Add the extra 20 minutes: 180 + 20 = <b>200 minutes</b>.<br>
+  <b>Minutes to hours and minutes:</b> 135 minutes = 120 minutes + 15 minutes = <b>2 hours 15 minutes</b>, because 120 minutes is 2 hours.
+  </div>
+</div>
+<h3>Elapsed Time: Count Up on a Number Line</h3>
+<p>Aunt Guerline starts at 6:40 a.m. and takes her first break at 9:15 a.m. How long did she work? Jump to the next full hour, then by hours, then the extra minutes.</p>
+<svg viewBox="0 0 520 150" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="Number line from 6:40 to 9:15: 20 minutes, then 2 hours, then 15 minutes"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFF8E8"/><line x1="20" y1="100" x2="500" y2="100" stroke="#0A1F3D" stroke-width="3"/><line x1="60" y1="90" x2="60" y2="110" stroke="#0A1F3D" stroke-width="3"/><text x="60" y="132" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">6:40</text><line x1="170" y1="90" x2="170" y2="110" stroke="#0A1F3D" stroke-width="3"/><text x="170" y="132" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">7:00</text><line x1="370" y1="90" x2="370" y2="110" stroke="#0A1F3D" stroke-width="3"/><text x="370" y="132" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">9:00</text><line x1="460" y1="90" x2="460" y2="110" stroke="#0A1F3D" stroke-width="3"/><text x="460" y="132" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">9:15</text><path d="M60 96 Q115 48 170 96" fill="none" stroke="#0047BA" stroke-width="3"/><text x="115" y="60" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">20 min</text><path d="M170 96 Q270 22.4 370 96" fill="none" stroke="#C9A84C" stroke-width="3"/><text x="270" y="40" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">2 hours</text><path d="M370 96 Q415 48 460 96" fill="none" stroke="#DB2F30" stroke-width="3"/><text x="415" y="60" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">15 min</text></svg>
+<p style="font-weight:800;color:var(--navy)">20 minutes + 2 hours + 15 minutes = 2 hours 35 minutes.</p>
+<div class="decwork">
+  4 ft 7 in + 2 ft 8 in = 7 ft 3 in
+  <div class="steps">
+  <b>Step 1 &mdash; Add like units:</b> 4 ft + 2 ft = 6 ft, and 7 in + 8 in = 15 in. That gives 6 ft 15 in.<br>
+  <b>Step 2 &mdash; Regroup:</b> 15 inches is more than a foot. 15 in = 1 ft 3 in, so 6 ft 15 in = <b>7 ft 3 in</b>.
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Multi-Step Plan</h4>
+  <p><b>1.</b> Read the whole problem and find the unit the answer needs. <b>2.</b> Convert so every amount uses the same unit. <b>3.</b> Do the operations one step at a time. <b>4.</b> Convert back if the question asks for a different unit, and check that your answer makes sense.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>✍️ Your Turn: Time and Mixed Units</h2>
+<span class="setnotice" id="setNotice13" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t1_s0" data-pts="3" data-ans="145|145 minutes|145 minute|145 min" data-logic="1 hour = 60 minutes, so 2 hours = 2 × 60 = 120 minutes. Then add the extra 25: 120 + 25 = 145 minutes.">
+    <span class="pts">+3</span>
+    <p class="qtext">How many minutes are in 2 hours 25 minutes?</p>
+    <div class="fillrow"><span class="eq">Minutes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s0" data-pts="3" data-logic="Add feet and inches: 8 ft 15 in. 15 inches is more than a foot, so regroup 12 inches as 1 foot: 8 ft 15 in = 9 ft 3 in.">
+    <span class="pts">+3</span>
+    <p class="qtext">Andre joins two ropes. One is 5 ft 9 in long and the other is 3 ft 6 in long. How long are they together?</p>
+    <div class="opts"><button class="opt" data-c="1">9 ft 3 in</button><button class="opt">8 ft 3 in</button><button class="opt">9 ft 5 in</button><button class="opt">10 ft 3 in</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t1_s1" data-pts="3" data-ans="190|190 minutes|190 minute|190 min" data-logic="1 hour = 60 minutes, so 3 hours = 3 × 60 = 180 minutes. Then add the extra 10: 180 + 10 = 190 minutes.">
+    <span class="pts">+3</span>
+    <p class="qtext">How many minutes are in 3 hours 10 minutes?</p>
+    <div class="fillrow"><span class="eq">Minutes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s1" data-pts="3" data-logic="Count up: 6:50 to 7:00 is 10 minutes, 7:00 to 9:00 is 2 hours, and 9:00 to 9:20 is 20 minutes. 2 hours + 10 minutes + 20 minutes = 2 hours 30 minutes.">
+    <span class="pts">+3</span>
+    <p class="qtext">A crane works from 6:50 a.m. to 9:20 a.m. How much time is that?</p>
+    <div class="opts"><button class="opt" data-c="1">2 hours 30 minutes</button><button class="opt">3 hours 30 minutes</button><button class="opt">2 hours 10 minutes</button><button class="opt">3 hours 10 minutes</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t1_s2" data-pts="3" data-ans="110|110 minutes|110 minute|110 min" data-logic="1 hour = 60 minutes. Add the extra 50: 60 + 50 = 110 minutes.">
+    <span class="pts">+3</span>
+    <p class="qtext">How many minutes are in 1 hour 50 minutes?</p>
+    <div class="fillrow"><span class="eq">Minutes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s2" data-pts="3" data-logic="Add feet and inches: 7 ft 15 in. 15 inches is more than a foot, so regroup 12 inches as 1 foot: 7 ft 15 in = 8 ft 3 in.">
+    <span class="pts">+3</span>
+    <p class="qtext">Andre joins two ropes. One is 4 ft 11 in long and the other is 3 ft 4 in long. How long are they together?</p>
+    <div class="opts"><button class="opt" data-c="1">8 ft 3 in</button><button class="opt">7 ft 3 in</button><button class="opt">8 ft 5 in</button><button class="opt">9 ft 3 in</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🏗️ Real World: The Dockworker&rsquo;s Clock</h2>
+<span class="setnotice" id="setNotice14" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">⏱️</div>
+  <h4>The Situation</h4>
+  <p>Aunt Guerline starts her crane shift at 6:00 a.m. She works 4 hours, takes a 30-minute lunch break, and then works 3 hours 45 minutes more.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">⏱️</div>
+  <h4>The Situation</h4>
+  <p>Mr. Alvarez checks the temperature inside each refrigerated container. Each check takes 6 minutes, and he has 25 containers to check.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">⏱️</div>
+  <h4>The Situation</h4>
+  <p>Aunt Guerline&rsquo;s crane moves one container every 2 minutes. Her crew works a 3-hour stretch without stopping.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="4" data-ans="495|495 minutes|495 minute|495 min" data-logic="4 hours = 240 minutes and 3 hours 45 minutes = 180 + 45 = 225 minutes. Add the lunch break: 240 + 30 + 225 = 495 minutes.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: change each part to minutes, then add. How many minutes long is her whole shift, including lunch?</p>
+    <div class="fillrow"><span class="eq">Minutes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="4" data-logic="25 × 6 = 150 minutes. 150 minutes = 120 minutes + 30 minutes = 2 hours 30 minutes. (1 hour 50 minutes is a common mistake: there are 60 minutes in an hour, not 100.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how long will all 25 checks take, in hours and minutes?</p>
+    <div class="opts"><button class="opt" data-c="1">2 hours 30 minutes</button><button class="opt">1 hour 50 minutes</button><button class="opt">2 hours 50 minutes</button><button class="opt">150 hours</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="4" data-ans="90|90 containers|90 container" data-logic="3 hours = 3 × 60 = 180 minutes. One container every 2 minutes means 180 ÷ 2 = 90 containers.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: change the hours to minutes, then find how many containers the crane moves.</p>
+    <div class="fillrow"><span class="eq">Containers:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>🍍 Real World: Weighing the Fruit</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>A refrigerated container holds 20 pallets of bananas. Each pallet has 48 boxes, and each box weighs 40 pounds.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>A refrigerated container holds 20 pallets of avocados. Each pallet has 60 boxes, and each box weighs 25 pounds.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">📦</div>
+  <h4>The Situation</h4>
+  <p>A truck leaves the port with 2 tons of limes. The limes are packed in boxes that weigh 40 pounds each.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w2_s0" data-pts="4" data-logic="Boxes: 20 × 48 = 960. Pounds: 960 × 40 = 38,400 pounds. Tons: 38,400 ÷ 2,000 = 19 with 400 left over, so 19 tons 400 pounds.">
+    <span class="pts">+4</span>
+    <p class="qtext">Three steps: how much do all the bananas weigh, in tons and pounds?</p>
+    <div class="opts"><button class="opt" data-c="1">19 tons 400 pounds</button><button class="opt">38 tons 400 pounds</button><button class="opt">19 tons 200 pounds</button><button class="opt">384 tons</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w2_s1" data-pts="4" data-logic="Boxes: 20 × 60 = 1,200. Pounds: 1,200 × 25 = 30,000 pounds. Tons: 30,000 ÷ 2,000 = 15 tons.">
+    <span class="pts">+4</span>
+    <p class="qtext">Three steps: how many tons do all the avocados weigh?</p>
+    <div class="opts"><button class="opt" data-c="1">15 tons</button><button class="opt">30 tons</button><button class="opt">12 tons</button><button class="opt">150 tons</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w2_s2" data-pts="4" data-ans="100|100 boxes|100 box" data-logic="2 tons = 2 × 2,000 = 4,000 pounds. Each box is 40 pounds: 4,000 ÷ 40 = 100 boxes.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: change tons to pounds, then find how many boxes of limes are on the truck.</p>
+    <div class="fillrow"><span class="eq">Boxes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>🕵️ Think It Through: Explain and Find the Mistake</h2>
+<span class="setnotice" id="setNotice16" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">💭</div>
+  <h4>Be the Checker</h4>
+  <p>Getting an answer is only half the job. Can you tell WHY an answer is right, and spot exactly where someone else went wrong?</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="x1_s0" data-pts="5" data-logic="1 yard = 3 feet, so 2 yards = 6 feet. Each foot is 12 inches: 6 × 12 = 72 inches. (You can also do 2 × 36 = 72.) 36 inches is only 1 yard.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? How many inches are in 2 yards?</p>
+    <div class="opts"><button class="opt" data-c="1">72 inches, because 2 yards = 6 feet and 6 &times; 12 = 72</button><button class="opt">24 inches, because 2 &times; 12 = 24</button><button class="opt">6 inches, because 2 &times; 3 = 6</button><button class="opt">36 inches, because 1 yard = 36 inches</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="5" data-logic="1 kilogram = 1,000 grams, not 100. Kilograms are bigger, so multiply by 1,000: 5 × 1,000 = 5,000 grams.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Jamal says 5 kilograms = 500 grams. What did he do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">He used 100 instead of 1,000. 1 kilogram = 1,000 grams, so 5 kilograms = 5,000 grams</button><button class="opt">He should divide, because grams are smaller, so 5 kilograms = 5/1,000 gram</button><button class="opt">He should add, so 5 kilograms = 1,005 grams</button><button class="opt">He is right. 5 kilograms = 500 grams</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="x1_s1" data-pts="5" data-logic="Change to the same unit first: 4 feet = 4 × 12 = 48 inches. 50 inches is greater than 48 inches, so 50 inches is longer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Which is longer, 4 feet or 50 inches?</p>
+    <div class="opts"><button class="opt" data-c="1">50 inches, because 4 feet = 48 inches and 50 is greater than 48</button><button class="opt">4 feet, because feet are bigger units than inches</button><button class="opt">4 feet, because 4 &times; 12 = 60 inches</button><button class="opt">They are equal, because 4 &times; 12 = 50</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="5" data-logic="Going from a small unit (ounces) to a big unit (pounds) means you will have FEWER units, so divide: 48 ÷ 16 = 3 pounds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Luc&iacute;a says 48 ounces = 768 pounds, because 48 &times; 16 = 768. What did she do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">Ounces are smaller than pounds, so she should divide: 48 &divide; 16 = 3 pounds</button><button class="opt">She should use 12 ounces in a pound, so 48 ounces = 4 pounds</button><button class="opt">She should divide by 2,000, because 1 ton = 2,000 pounds</button><button class="opt">She is right. 48 ounces = 768 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="x1_s2" data-pts="5" data-logic="Count up: 7:15 to 8:15 is 1 hour, and 8:15 to 9:00 is 45 minutes, so the elapsed time is 1 hour 45 minutes. Subtracting 715 from 900 does not work because an hour has 60 minutes, not 100.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A crane works from 7:15 a.m. to 9:00 a.m. How long is that?</p>
+    <div class="opts"><button class="opt" data-c="1">1 hour 45 minutes, because 7:15 to 8:15 is 1 hour and 8:15 to 9:00 is 45 minutes</button><button class="opt">2 hours 15 minutes, because 9 &minus; 7 = 2, plus 15 minutes</button><button class="opt">1 hour 85 minutes, because 900 &minus; 715 = 185</button><button class="opt">2 hours 45 minutes, because 7:15 to 9:00 is 2 hours and 45 more minutes</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="5" data-logic="1 foot = 12 inches, so 14 inches = 1 foot 2 inches. 3 ft 14 in = 4 ft 2 in.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Mei says 2 ft 9 in + 1 ft 5 in = 3 ft 14 in, and that is her final answer. What should she fix?</p>
+    <div class="opts"><button class="opt" data-c="1">14 inches is more than a foot. Regroup 12 inches as 1 foot to get 4 ft 2 in</button><button class="opt">Nothing. 3 ft 14 in is fully regrouped</button><button class="opt">Regroup 10 inches as 1 foot to get 4 ft 4 in</button><button class="opt">She should subtract instead to get 1 ft 4 in</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<h2>✏️ Fix the Sentence</h2>
+<span class="setnotice" id="setNotice17" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Math Writers Use Correct Writing, Too</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake. Edit the sentence in the box, then press Check. Watch for quotation marks, its vs. it&rsquo;s, commas in a series, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s1_s0" data-pts="2" data-ans="Andre asked, &quot;How many inches are in a yard?&quot;" data-logic="Capitalize the first word and the name Andre, put quotation marks around his exact words, capitalize the first word of the quote, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">andre asked, how many inches are in a yard</p>
+    <div class="fillrow"><input class="fillin fixin" value="andre asked, how many inches are in a yard" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s0" data-pts="2" data-ans="The crane lifted its last container at noon." data-logic="Its (no apostrophe) shows ownership: the last container belongs to the crane. It&#x27;s always means it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The crane lifted it&#x27;s last container at noon.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The crane lifted it&#x27;s last container at noon." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s0" data-pts="2" data-ans="The ship carried bananas, pineapples, and mangoes.||The ship carried bananas, pineapples and mangoes." data-logic="Use commas to separate the items in a series: bananas, pineapples, and mangoes.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The ship carried bananas pineapples and mangoes.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The ship carried bananas pineapples and mangoes." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s0" data-pts="2" data-ans="The containers on the dock weigh 8,000 pounds each.||The containers on the dock weighed 8,000 pounds each." data-logic="Capitalize the first word. The subject is containers (plural), so use weigh, not weighs. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the containers on the dock weighs 8,000 pounds each</p>
+    <div class="fillrow"><input class="fillin fixin" value="the containers on the dock weighs 8,000 pounds each" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s1_s1" data-pts="2" data-ans="Aunt Guerline said, &quot;Every crane gets a safety check.&quot;" data-logic="Capitalize Aunt Guerline (a title used with a name), put quotation marks around her exact words, capitalize the first word of the quote, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">aunt guerline said, every crane gets a safety check</p>
+    <div class="fillrow"><input class="fillin fixin" value="aunt guerline said, every crane gets a safety check" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s1" data-pts="2" data-ans="It&#x27;s about 60 minutes until the ship docks." data-logic="It&#x27;s means it is: it is about 60 minutes. Use the apostrophe.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Its about 60 minutes until the ship docks.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Its about 60 minutes until the ship docks." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s1" data-pts="2" data-ans="A gallon is equal to 4 quarts, 8 pints, or 16 cups.||A gallon is equal to 4 quarts, 8 pints or 16 cups." data-logic="Use commas to separate the items in a series: 4 quarts, 8 pints, or 16 cups.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">A gallon is equal to 4 quarts 8 pints or 16 cups.</p>
+    <div class="fillrow"><input class="fillin fixin" value="A gallon is equal to 4 quarts 8 pints or 16 cups." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s1" data-pts="2" data-ans="Mr. Alvarez checks the refrigerated containers every hour.||Mr. Alvarez checked the refrigerated containers every hour." data-logic="Capitalize the first word and the name Mr. Alvarez. One person (Mr. Alvarez) needs the verb checks, not check. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">mr. alvarez check the refrigerated containers every hour</p>
+    <div class="fillrow"><input class="fillin fixin" value="mr. alvarez check the refrigerated containers every hour" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s1_s2" data-pts="2" data-ans="Andre said, &quot;A kilometer is 1,000 meters.&quot;" data-logic="Capitalize Andre, put quotation marks around his exact words, capitalize the first word of the quote, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">andre said, a kilometer is 1,000 meters</p>
+    <div class="fillrow"><input class="fillin fixin" value="andre said, a kilometer is 1,000 meters" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s2" data-pts="2" data-ans="Each container has its own number." data-logic="Its (no apostrophe) shows ownership: the number belongs to the container. It&#x27;s means it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Each container has it&#x27;s own number.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Each container has it&#x27;s own number." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s2" data-pts="2" data-ans="The truck drivers came from Miami, Doral, and Hialeah.||The truck drivers came from Miami, Doral and Hialeah." data-logic="Use commas to separate the items in a series: Miami, Doral, and Hialeah.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The truck drivers came from Miami Doral and Hialeah.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The truck drivers came from Miami Doral and Hialeah." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s2" data-pts="2" data-ans="The dockworkers were ready at 6:00 in the morning.||The dockworker was ready at 6:00 in the morning." data-logic="Capitalize the first word. The subject is dockworkers (plural), so use were, not was. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the dockworkers was ready at 6:00 in the morning</p>
+    <div class="fillrow"><input class="fillin fixin" value="the dockworkers was ready at 6:00 in the morning" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-go="18">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a measurement on the left, then the equal measurement on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="17">&larr; Back</button><button class="btn btn-go" data-go="19">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 19 -->
+<div class="slide" data-slide="19">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick conversions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="60|60 inches|60 inch|60 in" data-logic="5 × 12 = 60 inches.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Inches in 5 feet =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="12|12 quarts|12 quart|12 qt" data-logic="3 × 4 = 12 quarts.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Quarts in 3 gallons =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="4,000|4,000 grams|4,000 gram|4,000 g" data-logic="4 × 1,000 = 4,000 grams.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Grams in 4 kilograms =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="18">&larr; Back</button><button class="btn btn-go" data-go="20">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 20 -->
+<div class="slide" data-slide="20">
+<h2>🌇 Looking Back</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🚢</div>
+  <h4>The Ships Are Almost Unloaded</h4>
+  <p>The sun is high over Biscayne Bay, and Andre has measured almost everything on the dock. Before the Boss Battle, think about what you practiced today.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Inches, feet, and yards</button><button class="opt" data-c="1">Weight and capacity (ounces, pounds, tons, cups, quarts, gallons)</button><button class="opt" data-c="1">Metric units (meters, grams, liters)</button><button class="opt" data-c="1">Time and multi-step problems</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which skill do you want to practice MORE?</p>
+    <div class="opts"><button class="opt" data-c="1">Inches, feet, and yards</button><button class="opt" data-c="1">Weight and capacity (ounces, pounds, tons, cups, quarts, gallons)</button><button class="opt" data-c="1">Metric units (meters, grams, liters)</button><button class="opt" data-c="1">Time and multi-step problems</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="19">&larr; Back</button><button class="btn btn-go" data-go="21">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 21 -->
+<div class="slide" data-slide="21">
+<h2>🚨 Boss Battle: The Big Unloading</h2>
+<span class="setnotice" id="setNotice21" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Andre and Aunt Guerline Have to Plan It All</h4>
+  <p>The cargo ship <i>Caribe Star</i> is tied up at the dock. Starting at 8:00 a.m., Aunt Guerline&rsquo;s crane must unload 75 containers without stopping, and each lift takes 2 minutes. Inside one refrigerated container, a pallet of pineapples has a mass of 600 kilograms.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Andre and Aunt Guerline Have to Plan It All</h4>
+  <p>The cargo ship <i>Bay Runner</i> docks at 6:45 a.m. Starting at 7:00 a.m., Aunt Guerline&rsquo;s crane unloads 50 containers without stopping, and each lift takes 3 minutes. Mr. Alvarez fills 3 water coolers for the crew, and each cooler holds 4 gallons.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Andre and Aunt Guerline Have to Plan It All</h4>
+  <p>The cargo ship <i>Coral Wind</i> docks at 9:00 a.m. Starting at 9:15 a.m., Aunt Guerline&rsquo;s crane unloads 40 containers without stopping, and each lift takes 4 minutes. Andre has a 5-yard rope to cut into pieces for tying down tarps.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="4" data-logic="75 × 2 = 150 minutes. 150 minutes = 2 hours 30 minutes. 8:00 a.m. + 2 hours 30 minutes = 10:30 a.m. (9:50 comes from thinking 150 minutes is 1 hour 50 minutes.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: at what time does the crane finish unloading?</p>
+    <div class="opts"><button class="opt" data-c="1">10:30 a.m.</button><button class="opt">9:50 a.m.</button><button class="opt">10:00 a.m.</button><button class="opt">11:30 a.m.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s0" data-pts="4" data-ans="50|50 boxes|50 box" data-logic="12,000 grams = 12,000 ÷ 1,000 = 12 kilograms per box. Then 600 ÷ 12 = 50 boxes.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: each box of pineapples has a mass of 12,000 grams. How many boxes are on the 600-kilogram pallet?</p>
+    <div class="fillrow"><span class="eq">Boxes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="4" data-logic="50 × 3 = 150 minutes. 150 minutes = 2 hours 30 minutes. 7:00 a.m. + 2 hours 30 minutes = 9:30 a.m. (8:50 comes from thinking 150 minutes is 1 hour 50 minutes.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: at what time does the crane finish unloading?</p>
+    <div class="opts"><button class="opt" data-c="1">9:30 a.m.</button><button class="opt">8:50 a.m.</button><button class="opt">9:50 a.m.</button><button class="opt">10:30 a.m.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s1" data-pts="4" data-ans="48|48 quarts|48 quart|48 qt" data-logic="3 coolers × 4 gallons = 12 gallons. 1 gallon = 4 quarts, so 12 × 4 = 48 quarts.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how many quarts of water are in all 3 coolers?</p>
+    <div class="fillrow"><span class="eq">Quarts:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="4" data-logic="40 × 4 = 160 minutes. 160 minutes = 2 hours 40 minutes. 9:15 a.m. + 2 hours 40 minutes = 11:55 a.m. (11:15 comes from thinking 160 minutes is 1 hour 60 minutes, which is really only 2 hours.)">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: at what time does the crane finish unloading?</p>
+    <div class="opts"><button class="opt" data-c="1">11:55 a.m.</button><button class="opt">10:55 a.m.</button><button class="opt">11:15 a.m.</button><button class="opt">12:15 p.m.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s2" data-pts="4" data-ans="10|10 pieces|10 piece" data-logic="5 yards = 5 × 36 = 180 inches. Then 180 ÷ 18 = 10 pieces.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: Andre cuts the 5-yard rope into pieces that are each 18 inches long. How many pieces does he get?</p>
+    <div class="fillrow"><span class="eq">Pieces:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="20">&larr; Back</button><button class="btn btn-go" data-go="22">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 22 -->
+<div class="slide" data-slide="22">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="21">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 23 -->
+<div class="slide" data-slide="23">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Cargo Day Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🚢</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Great job finishing your Post-Lesson Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 14 complete</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 24;
+const FINAL_INDEX = 23;
+const MODULE_ID = 'grade4-5-week14-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["1 yard", "3 feet"], ["1 foot", "12 inches"], ["1 pound", "16 ounces"], ["1 gallon", "4 quarts"], ["1 kilometer", "1,000 meters"]], [["1 ton", "2,000 pounds"], ["1 quart", "2 pints"], ["1 meter", "100 centimeters"], ["1 liter", "1,000 milliliters"], ["1 hour", "60 minutes"]], [["2 yards", "6 feet"], ["3 feet", "36 inches"], ["2 pounds", "32 ounces"], ["4 gallons", "16 quarts"], ["3 kilograms", "3,000 grams"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return s;}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const cleanVal = norm(val); // keeps inner spaces, so "1 8/3" can never collapse into "18/3"
+  const accepted = String(box.dataset.ans).split('|').map(norm);
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='PortMiami Measurement Master!';
+    document.getElementById('finalMessageHeading').textContent='🎉 You helped unload the whole ship at PortMiami!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. You converted measurements like a real dock crew: you changed feet to inches and yards to measure Andre’s ropes and containers, turned pounds into ounces and tons to weigh Mr. Alvarez’s fruit shipments, filled the crew’s coolers in gallons, quarts, pints, and cups, read Ms. Raman’s metric cargo labels in meters, kilograms, and liters, and used hours and minutes to plan Aunt Guerline’s crane shift. Your results go to KingCretot Experience. Tell your parent or teacher, and make sure you finish your Post-Lesson Challenge sheet!';
+    playFanfare(); confetti(160); setTimeout(()=>confetti(140),500); setTimeout(()=>confetti(140),1100); setTimeout(()=>confetti(120),1800);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work on the Dock!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Every try makes you stronger with measurement conversions. Remember: big unit to small unit, multiply; small unit to big unit, divide. Look back at the teaching slides, then hit Play Again: you will get a fresh set of questions next time, and Andre and Aunt Guerline will be waiting at PortMiami. Your results go to KingCretot Experience. Don’t forget to finish your Post-Lesson Challenge sheet.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

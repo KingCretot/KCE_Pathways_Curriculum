@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 15: Checkpoint 3 — Building Things Review | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+.opts-wide{grid-template-columns:1fr}
+.weektag{display:inline-block;background:var(--navy);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:999px;margin-bottom:8px}
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.skillcard{background:#F8FAFF;border:3px solid #D9E0EC;border-radius:14px;padding:14px}
+.skillcard .wk{font-family:'Fredoka One',cursive;color:var(--pumpkin);font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+.skillcard .sk{font-weight:800;color:var(--navy);margin-top:4px;display:block}
+.storytext{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0;font-size:1.04rem;line-height:1.75}
+.storytext p{margin-bottom:10px}
+.storytext p:last-child{margin-bottom:0}
+.storytext .srcline{font-weight:900;color:var(--pumpkin);font-size:.9rem}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:.78rem;font-weight:900;margin-right:8px;vertical-align:2px}
+.poem{background:#FFFDF6;border:3px solid #EADFC0;border-radius:18px;padding:16px 22px;margin:12px 0}
+.poemtitle{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.2rem;margin:0 0 10px}
+.poem .stanza{font-size:1.08rem;line-height:1.75;margin:0 0 14px;color:#1d2a40}
+.poem .stanza:last-child{margin-bottom:0}
+.remind{background:#FFF6E1;border:2px solid var(--gold);border-radius:12px;padding:10px 14px;font-weight:700;color:#5A4300;margin:6px 0 12px;line-height:1.55}
+.scorebreak{background:#F8FAFF;border:3px solid #D9E0EC;border-radius:16px;padding:14px 16px;margin:14px 0;text-align:left}
+.scorebreak .brow{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed #D9E0EC;font-weight:800}
+.scorebreak .brow:last-child{border-bottom:none}
+.scorebreak .bname{color:var(--navy)}
+.scorebreak .bval{font-family:'Fredoka One',cursive;color:var(--pumpkin);white-space:nowrap}
+.notebook{width:100%;min-height:170px;padding:12px 14px;border:3px solid #D9E0EC;border-radius:14px;font-family:inherit;font-size:1rem;line-height:1.6;color:var(--ink);background:#FFFDF7;resize:vertical}
+.notebook:focus{outline:none;border-color:var(--gold)}
+.wnlist{list-style:none;margin:10px 0 0;padding:0}
+.wnlist li{font-weight:800;margin:5px 0;padding:6px 12px;border-radius:10px;background:#F8FAFF;border:2px solid #E2E8F0}
+.wnlist li.ok{background:#E5F7DC;border-color:var(--grass);color:#1E5A16}
+.wnlist li.todo{background:#FFF0EA;border-color:var(--pumpkin);color:#8A3A10}
+.wnlist li.self{background:#FFF6E1;border-color:var(--gold);color:#6B4A00}
+.wnnote{font-size:.9rem;font-weight:700;color:#4a5666;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏗️ KCE Pathways — Grade 4-5 — Week 15</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 15 &bull; Checkpoint</span>
+  <h1>Checkpoint 3</h1>
+  <h2>Building Things Review: Weeks 11&ndash;14 🏗️</h2>
+  <div class="box box-story">
+    <div class="icon">🏗️</div>
+    <h4>Look How Much You Built</h4>
+    <p>A dairy farm in Wisconsin. An apartment building rising in Houston. A village above the clouds in the Andes of Peru. A busy cargo port in Miami. For four weeks you built new skills in all of these places. This Checkpoint brings your math and reading together in one place, so you can see exactly how strong your foundation is.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How This Checkpoint Works</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Every section has a week tag, so if you miss a question you will know exactly which week to review. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>What&rsquo;s Being Checked</h4>
+    <div class="skillgrid">
+      <div class="skillcard"><span class="wk">Week 11</span><span class="sk">Factors, multiples, and prime and composite numbers &bull; Punctuating dialogue</span></div>
+      <div class="skillcard"><span class="wk">Week 12</span><span class="sk">Equivalent fractions, simplifying, mixed numbers &bull; Paragraphs and transitions</span></div>
+      <div class="skillcard"><span class="wk">Week 13</span><span class="sk">Multiplying fractions &bull; Figurative language and poetry</span></div>
+      <div class="skillcard"><span class="wk">Week 14</span><span class="sk">Measurement conversions &bull; Quoting vs. paraphrasing</span></div>
+    </div>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 15 Checkpoint</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Start the Checkpoint &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before the Checkpoint begins, grab your <b>Checkpoint 3 Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<span class="weektag">Week 11 &bull; Math</span>
+<h2>🐄 Factors, Multiples, and Prime &amp; Composite Numbers</h2>
+<span class="setnotice" id="setNotice2" style="display:none"></span>
+<p class="remind">💡 A <b>factor</b> divides a number evenly. A <b>prime</b> number has exactly two factors; a <b>composite</b> number has more. Use the <b>LCM</b> for &ldquo;when will they happen together?&rdquo; and the <b>GCF</b> for &ldquo;the greatest number of equal groups.&rdquo;</p>
+<div class="qset" data-set="0">
+  <div class="box box-story">
+  <div class="icon">🐄</div>
+  <h4>Nadia&rsquo;s Dairy Farm, Revisited</h4>
+  <p>Nadia is back on her family&rsquo;s dairy farm in Wisconsin, planning the barn for a new group of calves and the farm&rsquo;s delivery schedule.</p>
+</div>
+  <div class="qbox" data-q="a1_s0" data-pts="3" data-wk="w11" data-logic="A number of rows works only if it is a factor of 42. 42 = 6 × 7 = 3 × 14, so 6, 7, and 3 all work. 8 is not a factor of 42 (8 × 5 = 40 and 8 × 6 = 48), so 8 rows will not work.">
+    <span class="pts">+3</span>
+    <p class="qtext">Nadia has 42 calves to put into equal rows of pens. Which number of rows will NOT work?</p>
+    <div class="opts"><button class="opt" data-c="1">8 rows</button><button class="opt">6 rows</button><button class="opt">7 rows</button><button class="opt">3 rows</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a2_s0" data-pts="2" data-wk="w11" data-ans="18|18 days|18 day" data-logic="Find the least common multiple. Multiples of 6: 6, 12, 18... Multiples of 9: 9, 18... The first one they share is 18, so in 18 days.">
+    <span class="pts">+2</span>
+    <p class="qtext">The milk tanker comes every 6 days and the hoof trimmer comes every 9 days. Both came today. In how many days will they both come on the same day again?</p>
+    <div class="fillrow"><span class="eq">Days:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a3_s0" data-pts="2" data-wk="w11" data-logic="43 has exactly two factors, 1 and 43. The others are composite: 39 = 3 × 13, 57 = 3 × 19, and 49 = 7 × 7.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which cow&rsquo;s ear tag number is PRIME?</p>
+    <div class="opts"><button class="opt" data-c="1">43</button><button class="opt">39</button><button class="opt">57</button><button class="opt">49</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🐄</div>
+  <h4>Nadia&rsquo;s Dairy Farm, Revisited</h4>
+  <p>Nadia is back on her family&rsquo;s dairy farm in Wisconsin, stacking hay for winter and packing an order for the farm stand.</p>
+</div>
+  <div class="qbox" data-q="a1_s1" data-pts="3" data-wk="w11" data-logic="A stack size works only if it is a factor of 54. 54 = 6 × 9 = 3 × 18, so 6, 9, and 3 all work. 54 ÷ 8 has a remainder (8 × 6 = 48 and 8 × 7 = 56), so 8 will not work.">
+    <span class="pts">+3</span>
+    <p class="qtext">Nadia has 54 hay bales to split into equal stacks. Which stack size will NOT work?</p>
+    <div class="opts"><button class="opt" data-c="1">8 bales</button><button class="opt">6 bales</button><button class="opt">9 bales</button><button class="opt">3 bales</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a2_s1" data-pts="2" data-wk="w11" data-ans="14|14 boxes|14 box" data-logic="The number of boxes must divide both 28 and 42, so find the greatest common factor. Factors of 28: 1, 2, 4, 7, 14, 28. Factors of 42: 1, 2, 3, 6, 7, 14, 21, 42. The GCF is 14.">
+    <span class="pts">+2</span>
+    <p class="qtext">Nadia packs 28 bags of cheese curds and 42 bottles of milk into identical boxes, with nothing left over. What is the GREATEST number of boxes she can fill?</p>
+    <div class="fillrow"><span class="eq">Boxes:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a3_s1" data-pts="2" data-wk="w11" data-logic="51 = 3 × 17 (its digits add to 6, so it is divisible by 3). 53, 59, and 61 each have only two factors, so they are prime.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which cow&rsquo;s ear tag number is COMPOSITE?</p>
+    <div class="opts"><button class="opt" data-c="1">51</button><button class="opt">53</button><button class="opt">59</button><button class="opt">61</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🐄</div>
+  <h4>Nadia&rsquo;s Dairy Farm, Revisited</h4>
+  <p>Nadia is back on her family&rsquo;s dairy farm in Wisconsin, setting up calf pens and planning truck visits.</p>
+</div>
+  <div class="qbox" data-q="a1_s2" data-pts="3" data-wk="w11" data-logic="A number of rows works only if it is a factor of 60. 60 = 5 × 12 = 6 × 10, so 5, 6, and 12 all work. 60 ÷ 8 has a remainder (8 × 7 = 56 and 8 × 8 = 64), so 8 rows will not work.">
+    <span class="pts">+3</span>
+    <p class="qtext">Nadia has 60 calves to put into equal rows of pens. Which number of rows will NOT work?</p>
+    <div class="opts"><button class="opt" data-c="1">8 rows</button><button class="opt">5 rows</button><button class="opt">6 rows</button><button class="opt">12 rows</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="a2_s2" data-pts="2" data-wk="w11" data-ans="20|20 days|20 day" data-logic="Find the least common multiple. Multiples of 4: 4, 8, 12, 16, 20... Multiples of 10: 10, 20... The first one they share is 20, so in 20 days.">
+    <span class="pts">+2</span>
+    <p class="qtext">The milk tanker comes every 4 days and the feed truck comes every 10 days. Both came today. In how many days will they both come on the same day again?</p>
+    <div class="fillrow"><span class="eq">Days:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="a2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a3_s2" data-pts="2" data-wk="w11" data-logic="67 has exactly two factors, 1 and 67. The others are composite: 63 = 7 × 9, 69 = 3 × 23, and 65 = 5 × 13.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which cow&rsquo;s ear tag number is PRIME?</p>
+    <div class="opts"><button class="opt" data-c="1">67</button><button class="opt">63</button><button class="opt">69</button><button class="opt">65</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<span class="weektag">Week 11 &bull; Reading</span>
+<h2>💬 Punctuating Dialogue</h2>
+<span class="setnotice" id="setNotice3" style="display:none"></span>
+<p class="remind">💡 Quotation marks go around the exact spoken words. Commas and end marks stay <b>inside</b> the closing quotation mark, and a new speaker means a new paragraph.</p>
+<div class="qset" data-set="0">
+  <div class="storytext"><p><span class="pnum">1</span>&ldquo;The milk truck comes at seven,&rdquo; Dad said. &ldquo;We need to finish milking by then.&rdquo;</p><p><span class="pnum">2</span>Nadia hurried down the row of black-and-white Holsteins. &ldquo;I&rsquo;ll start on this side,&rdquo; she called.</p><p><span class="pnum">3</span>&ldquo;Thanks, kiddo,&rdquo; Dad answered. &ldquo;You&rsquo;re faster than I am.&rdquo;</p></div>
+  <div class="qbox" data-q="b1_s0" data-pts="3" data-wk="w11" data-logic="Quotation marks go around only the spoken words. When a dialogue tag follows, the spoken sentence ends with a comma (not a period) inside the closing quotation mark.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence punctuates the dialogue correctly?</p>
+    <div class="opts"><button class="opt" data-c="1">&ldquo;We need more straw,&rdquo; Nadia said.</button><button class="opt">&ldquo;We need more straw&rdquo; Nadia said.</button><button class="opt">&ldquo;We need more straw.&rdquo; Nadia said.</button><button class="opt">We need more straw, &ldquo;Nadia said.&rdquo;</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="2" data-wk="w11" data-logic="In a story, each time the speaker changes, the writer starts a new paragraph. Dad spoke in paragraph 1, so when Nadia speaks, a new paragraph begins.">
+    <span class="pts">+2</span>
+    <p class="qtext">Why does the writer start a new paragraph when Nadia speaks in paragraph 2?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">A new speaker is talking</button><button class="opt">Nadia is asking a question</button><button class="opt">Nadia walks into a new room</button><button class="opt">Every paragraph must have exactly one sentence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="2" data-wk="w11" data-logic="The dialogue tag tells who is speaking. “Dad said” is outside the quotation marks and tells us Dad is talking. The other choices are the spoken words.">
+    <span class="pts">+2</span>
+    <p class="qtext">In paragraph 1, which words are the dialogue tag?</p>
+    <div class="opts"><button class="opt" data-c="1">Dad said</button><button class="opt">The milk truck comes at seven</button><button class="opt">We need to finish milking</button><button class="opt">by then</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="storytext"><p><span class="pnum">1</span>&ldquo;Did you fill the water trough?&rdquo; Grandpa asked.</p><p><span class="pnum">2</span>&ldquo;Yes, and I fed the calves too,&rdquo; Nadia replied.</p><p><span class="pnum">3</span>Grandpa smiled. &ldquo;Then you have earned a mug of hot cocoa.&rdquo;</p></div>
+  <div class="qbox" data-q="b1_s1" data-pts="3" data-wk="w11" data-logic="Put a comma after the tag, capitalize the first word of the spoken sentence, and keep the question mark inside the closing quotation mark because the question is part of what Grandpa said.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence punctuates the dialogue correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Grandpa asked, &ldquo;Where is the bucket?&rdquo;</button><button class="opt">Grandpa asked, &ldquo;where is the bucket?&rdquo;</button><button class="opt">Grandpa asked &ldquo;Where is the bucket?&rdquo;</button><button class="opt">Grandpa asked, &ldquo;Where is the bucket&rdquo;?</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="2" data-wk="w11" data-logic="Grandpa’s spoken words are a question, so the question mark belongs to his words and stays inside the quotation marks.">
+    <span class="pts">+2</span>
+    <p class="qtext">In paragraph 1, why is the question mark inside the closing quotation mark?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The question is part of what Grandpa said</button><button class="opt">Question marks always go at the end of a paragraph</button><button class="opt">The narrator is asking the reader a question</button><button class="opt">The dialogue tag is a question</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="2" data-wk="w11" data-logic="The tag is “Nadia replied.” The verb replied tells that Nadia was answering Grandpa. “Fed” and “Yes” are part of her spoken words, and “fill” is from Grandpa’s question.">
+    <span class="pts">+2</span>
+    <p class="qtext">In paragraph 2, which word is the tag verb?</p>
+    <div class="opts"><button class="opt" data-c="1">replied</button><button class="opt">fed</button><button class="opt">fill</button><button class="opt">Yes</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="storytext"><p><span class="pnum">1</span>Nadia peeked into the calf pen. &ldquo;She&rsquo;s standing up!&rdquo; she whispered.</p><p><span class="pnum">2</span>&ldquo;That&rsquo;s a good sign,&rdquo; Mom said softly. &ldquo;Let&rsquo;s give her some space.&rdquo;</p><p><span class="pnum">3</span>&ldquo;Can I name her Maple?&rdquo; Nadia asked.</p></div>
+  <div class="qbox" data-q="b1_s2" data-pts="3" data-wk="w11" data-logic="This is ONE spoken sentence split by the tag. Put commas around the tag, use quotation marks around both parts, and do NOT capitalize “before,” because it continues the same sentence.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence punctuates the dialogue correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;Let&rsquo;s go inside,&rdquo; Mom said, &ldquo;before the snow gets deeper.&rdquo;</button><button class="opt">&ldquo;Let&rsquo;s go inside,&rdquo; Mom said, &ldquo;Before the snow gets deeper.&rdquo;</button><button class="opt">&ldquo;Let&rsquo;s go inside,&rdquo; Mom said. &ldquo;before the snow gets deeper.&rdquo;</button><button class="opt">&ldquo;Let&rsquo;s go inside, Mom said, before the snow gets deeper.&rdquo;</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="2" data-wk="w11" data-logic="A new paragraph begins whenever a different character speaks. Mom spoke in paragraph 2, and Nadia speaks in paragraph 3.">
+    <span class="pts">+2</span>
+    <p class="qtext">Why does paragraph 3 begin on a new line?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The speaker changes from Mom to Nadia</button><button class="opt">Mom is still talking</button><button class="opt">The weather changes</button><button class="opt">Every question starts a new paragraph</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="2" data-wk="w11" data-logic="Whispered means speaking very quietly. It is a strong tag verb that shows how Nadia said her words.">
+    <span class="pts">+2</span>
+    <p class="qtext">In paragraph 1, what does the tag verb whispered tell the reader?</p>
+    <div class="opts"><button class="opt" data-c="1">Nadia speaks very quietly</button><button class="opt">Nadia shouts across the barn</button><button class="opt">Mom is the one speaking</button><button class="opt">Nadia is asking a question</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<span class="weektag">Week 12 &bull; Math</span>
+<h2>🏢 Equivalent Fractions, Simplifying &amp; Mixed Numbers</h2>
+<span class="setnotice" id="setNotice4" style="display:none"></span>
+<p class="remind">💡 Multiply or divide the numerator and denominator by the <b>same</b> number to make an equivalent fraction. Divide by the GCF to simplify in one step.</p>
+<div class="qset" data-set="0">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Amara&rsquo;s Apartment Build, Revisited</h4>
+  <p>Amara is back at the six-story apartment building in Houston, Texas, helping her aunt, Ms. Okafor, the project engineer, check floor plans and supply orders.</p>
+</div>
+  <div class="qbox" data-fq="c1_s0" data-pts="3" data-wk="w12" data-ans="3/4" data-logic="The GCF of 18 and 24 is 6. Divide both by 6: 18 ÷ 6 = 3 and 24 ÷ 6 = 4, so 18/24 = 3/4.">
+    <span class="pts">+3</span>
+    <p class="qtext">The floor plan shows that 18/24 of the lobby floor is tiled. Type 18/24 in simplest form.</p>
+    <div class="fillrow"><span class="eq">18/24 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="c1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s0" data-pts="2" data-wk="w12" data-logic="Multiply the numerator and denominator by the same number: 2 × 5 = 10 and 3 × 5 = 15, so 2/3 = 10/15. The others do not name the same amount.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which fraction is equivalent to 2/3?</p>
+    <div class="opts"><button class="opt" data-c="1">10/15</button><button class="opt">4/9</button><button class="opt">6/8</button><button class="opt">3/4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c3_s0" data-pts="2" data-wk="w12" data-logic="Divide 19 by 4: 4 × 4 = 16 with 3 left over. That is 4 wholes and 3/4 more, so 19/4 = 4 3/4.">
+    <span class="pts">+2</span>
+    <p class="qtext">A pipe is 19/4 feet long. Which mixed number is that?</p>
+    <div class="opts"><button class="opt" data-c="1">4&nbsp;3/4 feet</button><button class="opt">4&nbsp;1/4 feet</button><button class="opt">5&nbsp;3/4 feet</button><button class="opt">19&nbsp;1/4 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Amara&rsquo;s Apartment Build, Revisited</h4>
+  <p>Amara is back at the six-story apartment building in Houston, Texas, helping her aunt, Ms. Okafor, the project engineer, check floor plans and supply orders.</p>
+</div>
+  <div class="qbox" data-fq="c1_s1" data-pts="3" data-wk="w12" data-ans="2/3" data-logic="The GCF of 20 and 30 is 10. Divide both by 10: 20 ÷ 10 = 2 and 30 ÷ 10 = 3, so 20/30 = 2/3.">
+    <span class="pts">+3</span>
+    <p class="qtext">Amara finds that 20/30 of the windows are installed. Type 20/30 in simplest form.</p>
+    <div class="fillrow"><span class="eq">20/30 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="c1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s1" data-pts="2" data-wk="w12" data-logic="Multiply the numerator and denominator by 4: 3 × 4 = 12 and 5 × 4 = 20, so 3/5 = 12/20. (6/15 simplifies to 2/5, not 3/5.)">
+    <span class="pts">+2</span>
+    <p class="qtext">Which fraction is equivalent to 3/5?</p>
+    <div class="opts"><button class="opt" data-c="1">12/20</button><button class="opt">6/15</button><button class="opt">5/3</button><button class="opt">3/10</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c3_s1" data-pts="2" data-wk="w12" data-logic="Multiply the whole number by the denominator, then add the numerator: 3 × 5 = 15 and 15 + 2 = 17. Keep the denominator: 17/5.">
+    <span class="pts">+2</span>
+    <p class="qtext">A steel bar is 3&nbsp;2/5 feet long. Which improper fraction is equal to 3&nbsp;2/5?</p>
+    <div class="opts"><button class="opt" data-c="1">17/5</button><button class="opt">32/5</button><button class="opt">11/5</button><button class="opt">6/5</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Amara&rsquo;s Apartment Build, Revisited</h4>
+  <p>Amara is back at the six-story apartment building in Houston, Texas, helping her aunt, Ms. Okafor, the project engineer, check floor plans and supply orders.</p>
+</div>
+  <div class="qbox" data-fq="c1_s2" data-pts="3" data-wk="w12" data-ans="2/5" data-logic="The GCF of 16 and 40 is 8. Divide both by 8: 16 ÷ 8 = 2 and 40 ÷ 8 = 5, so 16/40 = 2/5.">
+    <span class="pts">+3</span>
+    <p class="qtext">The schedule shows that 16/40 of the painting is done. Type 16/40 in simplest form.</p>
+    <div class="fillrow"><span class="eq">16/40 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="c1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s2" data-pts="2" data-wk="w12" data-logic="Multiply the numerator and denominator by 5: 3 × 5 = 15 and 4 × 5 = 20, so 3/4 = 15/20. (6/12 simplifies to 1/2.)">
+    <span class="pts">+2</span>
+    <p class="qtext">The hallway plan shows that 3/4 of the carpet is laid. Which fraction names the same amount as 3/4?</p>
+    <div class="opts"><button class="opt" data-c="1">15/20</button><button class="opt">9/16</button><button class="opt">6/12</button><button class="opt">4/3</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c3_s2" data-pts="2" data-wk="w12" data-logic="Divide 29 by 6: 6 × 4 = 24 with 5 left over. That is 4 wholes and 5/6 more, so 29/6 = 4 5/6.">
+    <span class="pts">+2</span>
+    <p class="qtext">A board is 29/6 feet long. Which mixed number is that?</p>
+    <div class="opts"><button class="opt" data-c="1">4&nbsp;5/6 feet</button><button class="opt">4&nbsp;1/6 feet</button><button class="opt">5&nbsp;5/6 feet</button><button class="opt">6&nbsp;4/5 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<span class="weektag">Week 12 &bull; Reading</span>
+<h2>🧱 Informative Paragraphs &amp; Transitions</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<p class="remind">💡 A strong paragraph has a <b>topic sentence</b>, <b>supporting details</b> that stay on the main idea, <b>transitions</b>, and a <b>concluding sentence</b>.</p>
+<div class="qset" data-set="0">
+  <div class="storytext"><p class="srcline">Read the paragraph.</p><p>(1) Houston builders have to plan for heavy rain. (2) First, they shape the ground so water flows away from the building. (3) Next, they add drains that carry rainwater into large underground pipes. (4) My cousin likes to swim at the community pool. (5) As a result, the new apartments stay dry even during a big storm.</p></div>
+  <div class="qbox" data-q="d1_s0" data-pts="3" data-wk="w12" data-logic="The paragraph is about how builders plan for heavy rain. Sentence 4, about a cousin swimming, does not support that main idea.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence does NOT belong because it is off-topic?</p>
+    <div class="opts"><button class="opt" data-c="1">Sentence 4</button><button class="opt">Sentence 2</button><button class="opt">Sentence 3</button><button class="opt">Sentence 5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s0" data-pts="2" data-wk="w12" data-logic="Sentence 1 tells the main idea, planning for heavy rain. The other sentences give details, an off-topic idea, or the result.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which sentence is the topic sentence?</p>
+    <div class="opts"><button class="opt" data-c="1">Sentence 1</button><button class="opt">Sentence 2</button><button class="opt">Sentence 4</button><button class="opt">Sentence 5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d3_s0" data-pts="2" data-wk="w12" data-logic="“As a result” shows cause and effect: because the builders shaped the ground and added drains, the apartments stay dry.">
+    <span class="pts">+2</span>
+    <p class="qtext">What does the transition &ldquo;As a result&rdquo; in sentence 5 show?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">An effect of the steps that came before it</button><button class="opt">An example of the main idea</button><button class="opt">A contrast with the sentence before it</button><button class="opt">The first step in a process</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="storytext"><p class="srcline">Read the paragraph.</p><p>(1) The windows on the new Houston apartment building are made to stand up to hurricanes. (2) The glass has a tough plastic layer inside it. (3) ______ the window frames are bolted tightly into the concrete walls. (4) Because of this, strong winds cannot easily push the windows in.</p></div>
+  <div class="qbox" data-q="d1_s1" data-pts="3" data-wk="w12" data-logic="Sentence 3 adds a second way the windows are made strong, so “Also” fits. “However” would show a contrast, “In conclusion” would end the paragraph, and “Instead” would replace an idea.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which transition best fills the blank in sentence 3?</p>
+    <div class="opts"><button class="opt" data-c="1">Also,</button><button class="opt">However,</button><button class="opt">In conclusion,</button><button class="opt">Instead,</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s1" data-pts="2" data-wk="w12" data-logic="Sentence 1, the topic sentence, says the windows are made to stand up to hurricanes. Every other sentence explains how.">
+    <span class="pts">+2</span>
+    <p class="qtext">What is the main idea of the paragraph?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The windows are built to stand up to hurricanes</button><button class="opt">Houston has many tall buildings</button><button class="opt">Glass is made of sand</button><button class="opt">Concrete walls are gray</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d3_s1" data-pts="2" data-wk="w12" data-logic="A concluding sentence wraps up the main idea in a new way. The other choices go off-topic, repeat a detail, or start a new idea.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which sentence would make the best concluding sentence?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">With tough glass and strong frames, these windows help keep families safe in a storm.</button><button class="opt">Houston has many tall buildings.</button><button class="opt">The glass has a tough plastic layer inside it.</button><button class="opt">However, some people like big windows.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="storytext"><p class="srcline">Read the paragraph.</p><p>(1) A building crew in Houston works as a team. (2) For example, the crane operator lifts steel beams to the top floors. (3) Meanwhile, electricians run wires through the walls below. (4) Houston is the fourth-largest city in the United States. (5) Finally, the site manager checks that every job is done safely.</p></div>
+  <div class="qbox" data-q="d1_s2" data-pts="3" data-wk="w12" data-logic="The paragraph is about how the crew works as a team. Sentence 4 is a true fact about Houston, but it does not support the main idea, so it does not belong.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence does NOT belong because it is off-topic?</p>
+    <div class="opts"><button class="opt" data-c="1">Sentence 4</button><button class="opt">Sentence 2</button><button class="opt">Sentence 3</button><button class="opt">Sentence 5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s2" data-pts="2" data-wk="w12" data-logic="“For example” signals that the writer is about to give an example that supports the main idea, teamwork.">
+    <span class="pts">+2</span>
+    <p class="qtext">What does the transition &ldquo;For example&rdquo; in sentence 2 tell the reader?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">An example of the main idea is coming</button><button class="opt">The paragraph is ending</button><button class="opt">The next idea is the opposite of the last one</button><button class="opt">Something happened because of the last sentence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d3_s2" data-pts="2" data-wk="w12" data-logic="“Finally” signals the last item: the site manager checks every job. “For example” introduces an example, “Meanwhile” means at the same time, and “safely” is not a transition.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which word or phrase from the paragraph signals the LAST job in the list?</p>
+    <div class="opts"><button class="opt" data-c="1">Finally</button><button class="opt">For example</button><button class="opt">Meanwhile</button><button class="opt">safely</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<span class="weektag">Week 13 &bull; Math</span>
+<h2>🦙 Multiplying Fractions</h2>
+<span class="setnotice" id="setNotice6" style="display:none"></span>
+<p class="remind">💡 Fraction &times; whole number: multiply the numerator by the whole number. Fraction &times; fraction: multiply the numerators, multiply the denominators, then simplify.</p>
+<div class="qset" data-set="0">
+  <div class="box box-story">
+  <div class="icon">🏔️</div>
+  <h4>Killa&rsquo;s Village, Revisited</h4>
+  <p>Killa is back in her Quechua village high in the Andes mountains of Peru, helping her family cook, weave, and plant on the terraces.</p>
+</div>
+  <div class="qbox" data-fq="e1_s0" data-pts="3" data-wk="w13" data-ans="6|6 cups|6 cup|24/4|6/1" data-logic="8 × 3/4 = 24/4, and 24 ÷ 4 = 6 cups.">
+    <span class="pts">+3</span>
+    <p class="qtext">Killa makes 8 pots of soup. Each pot needs 3/4 cup of quinoa. How many cups of quinoa does she need?</p>
+    <div class="fillrow"><span class="eq">8 &times; 3/4 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="2" data-wk="w13" data-logic="Multiply the numerators (2 × 3 = 6) and the denominators (3 × 5 = 15) to get 6/15. Simplify by dividing both by 3: 2/5.">
+    <span class="pts">+2</span>
+    <p class="qtext">2/3 &times; 3/5 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">2/5</button><button class="opt">5/8</button><button class="opt">5/15</button><button class="opt">6/8</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s0" data-pts="2" data-wk="w13" data-logic="Area = length × width = 3/4 × 1/2. Multiply the numerators (3 × 1 = 3) and the denominators (4 × 2 = 8): 3/8 square meter.">
+    <span class="pts">+2</span>
+    <p class="qtext">Grandmother Rosa weaves a cloth that is 3/4 meter long and 1/2 meter wide. What is its area?</p>
+    <div class="opts"><button class="opt" data-c="1">3/8 square meter</button><button class="opt">4/6 square meter</button><button class="opt">3/6 square meter</button><button class="opt">1/4 square meter</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏔️</div>
+  <h4>Killa&rsquo;s Village, Revisited</h4>
+  <p>Killa is back in her Quechua village high in the Andes mountains of Peru, helping her family cook, weave, and plant on the terraces.</p>
+</div>
+  <div class="qbox" data-fq="e1_s1" data-pts="3" data-wk="w13" data-ans="4|4 kilograms|4 kilogram|4 kg|20/5|4/1" data-logic="10 × 2/5 = 20/5, and 20 ÷ 5 = 4 kilograms.">
+    <span class="pts">+3</span>
+    <p class="qtext">Killa spins 10 balls of yarn. Each ball uses 2/5 kilogram of alpaca wool. How many kilograms of wool does she use?</p>
+    <div class="fillrow"><span class="eq">10 &times; 2/5 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="2" data-wk="w13" data-logic="Multiply the numerators (3 × 2 = 6) and the denominators (4 × 3 = 12) to get 6/12. Simplify by dividing both by 6: 1/2.">
+    <span class="pts">+2</span>
+    <p class="qtext">3/4 &times; 2/3 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">1/2</button><button class="opt">5/7</button><button class="opt">5/12</button><button class="opt">6/7</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s1" data-pts="2" data-wk="w13" data-logic="Multiplying by a fraction greater than 1 makes the product bigger than 8. 5/4 is greater than 1, so 5/4 × 8 = 10. The other fractions are less than 1, so their products are less than 8.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which product is GREATER than 8?</p>
+    <div class="opts"><button class="opt" data-c="1">5/4 &times; 8</button><button class="opt">3/4 &times; 8</button><button class="opt">1/2 &times; 8</button><button class="opt">7/8 &times; 8</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏔️</div>
+  <h4>Killa&rsquo;s Village, Revisited</h4>
+  <p>Killa is back in her Quechua village high in the Andes mountains of Peru, helping her family cook, weave, and plant on the terraces.</p>
+</div>
+  <div class="qbox" data-fq="e1_s2" data-pts="3" data-wk="w13" data-ans="6|6 rows|6 row|18/3|6/1" data-logic="2/3 of 9 means 2/3 × 9 = 18/3, and 18 ÷ 3 = 6 rows.">
+    <span class="pts">+3</span>
+    <p class="qtext">There are 9 rows of potatoes on a terrace. Killa waters 2/3 of the rows. How many rows does she water?</p>
+    <div class="fillrow"><span class="eq">2/3 &times; 9 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="2" data-wk="w13" data-logic="Multiply the numerators (4 × 5 = 20) and the denominators (5 × 8 = 40) to get 20/40. Simplify by dividing both by 20: 1/2.">
+    <span class="pts">+2</span>
+    <p class="qtext">4/5 &times; 5/8 = ?</p>
+    <div class="opts"><button class="opt" data-c="1">1/2</button><button class="opt">9/13</button><button class="opt">9/40</button><button class="opt">20/13</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s2" data-pts="2" data-wk="w13" data-logic="Find 2/3 of 1/4: 2/3 × 1/4 = 2/12, which simplifies to 1/6 of the whole field.">
+    <span class="pts">+2</span>
+    <p class="qtext">Killa plants potatoes on 1/4 of a field. She plants yellow potatoes on 2/3 of that part. What fraction of the WHOLE field has yellow potatoes?</p>
+    <div class="opts"><button class="opt" data-c="1">1/6</button><button class="opt">1/4</button><button class="opt">2/3</button><button class="opt">3/7</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<span class="weektag">Week 13 &bull; Reading</span>
+<h2>🌄 Figurative Language &amp; Poetry</h2>
+<span class="setnotice" id="setNotice7" style="display:none"></span>
+<p class="remind">💡 <b>Simile</b>: like or as. <b>Metaphor</b>: one thing IS another. <b>Personification</b>: human actions for a thing. <b>Hyperbole</b>: a huge exaggeration. A <b>stanza</b> is a group of lines.</p>
+<div class="qset" data-set="0">
+  <div class="poem"><p class="poemtitle">Alpaca Morning</p><p class="stanza">The sun climbs over the mountain wall,<br>a golden coin above us all.<br>The alpacas wake and stretch and yawn,<br>their wool as soft as clouds at dawn.</p><p class="stanza">The wind runs laughing down the slope<br>and tugs at Killa&rsquo;s braided rope.<br>She&rsquo;d climb a thousand hills today<br>to lead her herd along the way.</p></div>
+  <div class="qbox" data-q="g1_s0" data-pts="3" data-wk="w13" data-logic="A simile compares two different things using like or as. “As soft as clouds” compares the wool to clouds using as. The others are a metaphor, personification, and hyperbole.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which line from the poem uses a SIMILE?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">their wool as soft as clouds at dawn</button><button class="opt">a golden coin above us all</button><button class="opt">The wind runs laughing down the slope</button><button class="opt">She&rsquo;d climb a thousand hills today</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g2_s0" data-pts="2" data-wk="w13" data-logic="This is hyperbole, a huge exaggeration. Killa will not really climb 1,000 hills; the line shows how much she cares about leading her herd.">
+    <span class="pts">+2</span>
+    <p class="qtext">What does &ldquo;She&rsquo;d climb a thousand hills today&rdquo; really mean?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Killa is willing to work very hard for her herd</button><button class="opt">Killa will climb exactly 1,000 hills</button><button class="opt">Killa is tired of hills</button><button class="opt">The hills are made of gold coins</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g3_s0" data-pts="2" data-wk="w13" data-logic="A stanza is a group of lines in a poem. This poem has two groups of four lines, so it has 2 stanzas (and 8 lines).">
+    <span class="pts">+2</span>
+    <p class="qtext">How many stanzas does the poem have?</p>
+    <div class="opts"><button class="opt" data-c="1">2</button><button class="opt">4</button><button class="opt">8</button><button class="opt">1</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="poem"><p class="poemtitle">Market Morning in Pisac</p><p class="stanza">The plaza is a rainbow quilt,<br>with stalls of cloth and wood, well built.<br>Potatoes purple, gold, and red<br>are piled up high on every spread.</p><p class="stanza">The church bell sings its morning song<br>to call the shoppers all along.<br>Then Killa calls out, sweet and clear,<br>&ldquo;Fresh corn and quinoa, sold right here!&rdquo;</p></div>
+  <div class="qbox" data-q="g1_s1" data-pts="3" data-wk="w13" data-logic="The line says the plaza IS a rainbow quilt, without using like or as. That makes it a metaphor. It helps us picture all the colors of the market.">
+    <span class="pts">+3</span>
+    <p class="qtext">&ldquo;The plaza is a rainbow quilt&rdquo; is an example of which kind of figurative language?</p>
+    <div class="opts"><button class="opt" data-c="1">Metaphor</button><button class="opt">Simile</button><button class="opt">Hyperbole</button><button class="opt">Personification</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g2_s1" data-pts="2" data-wk="w13" data-logic="Personification gives human actions to an object. A bell cannot really sing, so “The church bell sings” is personification.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which line uses PERSONIFICATION?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The church bell sings its morning song</button><button class="opt">Potatoes purple, gold, and red</button><button class="opt">with stalls of cloth and wood, well built</button><button class="opt">&ldquo;Fresh corn and quinoa, sold right here!&rdquo;</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g3_s1" data-pts="2" data-wk="w13" data-logic="Rhyming words end with the same sound. Red and spread both end with the “-ed” sound, and they end lines 3 and 4 of stanza 1.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which pair of words RHYMES in the poem?</p>
+    <div class="opts"><button class="opt" data-c="1">red and spread</button><button class="opt">plaza and quilt</button><button class="opt">song and bell</button><button class="opt">clear and corn</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="poem"><p class="poemtitle">Night in the Village</p><p class="stanza">Snow sits upon the mountain<br>like a woolly hat of white.<br>The river hums a lullaby<br>to the valley every night.</p><p class="stanza">The stars are scattered sugar<br>on a blanket, black and deep,<br>while Killa and her family<br>lie down, at last, to sleep.</p></div>
+  <div class="qbox" data-q="g1_s2" data-pts="3" data-wk="w13" data-logic="A metaphor says one thing IS another without like or as: the stars ARE scattered sugar. “Like a woolly hat” is a simile, “The river hums” is personification, and the last line is literal.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which line from the poem uses a METAPHOR?</p>
+    <div class="opts"><button class="opt" data-c="1">The stars are scattered sugar</button><button class="opt">like a woolly hat of white</button><button class="opt">The river hums a lullaby</button><button class="opt">lie down, at last, to sleep</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g2_s2" data-pts="2" data-wk="w13" data-logic="A lullaby is a soft song for falling asleep. Saying the river hums a lullaby helps us hear its quiet, gentle sound at night.">
+    <span class="pts">+2</span>
+    <p class="qtext">What does &ldquo;The river hums a lullaby&rdquo; help the reader imagine?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The river makes a soft, gentle sound</button><button class="opt">The river is singing real words</button><button class="opt">The river is loud and dangerous</button><button class="opt">The river is frozen solid</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="g3_s2" data-pts="2" data-wk="w13" data-logic="White and night both end with the “-ight” sound. They end lines 2 and 4 of the first stanza.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which word rhymes with &ldquo;white&rdquo; in stanza 1?</p>
+    <div class="opts"><button class="opt" data-c="1">night</button><button class="opt">mountain</button><button class="opt">lullaby</button><button class="opt">valley</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<span class="weektag">Week 14 &bull; Math</span>
+<h2>🚢 Measurement Conversions</h2>
+<span class="setnotice" id="setNotice8" style="display:none"></span>
+<p class="remind">💡 Big unit &rarr; small unit: multiply. Small unit &rarr; big unit: divide. 1 ft = 12 in &bull; 1 yd = 3 ft &bull; 1 lb = 16 oz &bull; 1 T = 2,000 lb &bull; 1 gal = 4 qt &bull; 1 km = 1,000 m &bull; 1 hour = 60 minutes.</p>
+<div class="qset" data-set="0">
+  <div class="box box-story">
+  <div class="icon">🚢</div>
+  <h4>Andre at PortMiami, Revisited</h4>
+  <p>Andre is back at PortMiami with his Aunt Guerline, who runs a giant crane, and Mr. Alvarez, who checks the refrigerated fruit containers.</p>
+</div>
+  <div class="qbox" data-fq="h1_s0" data-pts="3" data-wk="w14" data-ans="132|132 inches|132 inch|132 in" data-logic="1 foot = 12 inches. Feet are bigger than inches, so multiply: 11 × 12 = 132 inches.">
+    <span class="pts">+3</span>
+    <p class="qtext">The walkway from the dock to a ship is 11 feet long. How many inches long is it?</p>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="h1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h2_s0" data-pts="2" data-wk="w14" data-logic="1 pound = 16 ounces. Pounds are bigger, so multiply: 7 × 16 = 112 ounces. (84 comes from using 12 instead of 16.)">
+    <span class="pts">+2</span>
+    <p class="qtext">A box of mangoes weighs 7 pounds. How many ounces is that?</p>
+    <div class="opts"><button class="opt" data-c="1">112 ounces</button><button class="opt">70 ounces</button><button class="opt">84 ounces</button><button class="opt">23 ounces</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h3_s0" data-pts="2" data-wk="w14" data-logic="1 gallon = 4 quarts. Gallons are bigger, so multiply: 5 × 4 = 20 quarts.">
+    <span class="pts">+2</span>
+    <p class="qtext">Mr. Alvarez fills a cooler with 5 gallons of water. How many quarts is that?</p>
+    <div class="opts"><button class="opt" data-c="1">20 quarts</button><button class="opt">10 quarts</button><button class="opt">40 quarts</button><button class="opt">9 quarts</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🚢</div>
+  <h4>Andre at PortMiami, Revisited</h4>
+  <p>Andre is back at PortMiami with his Aunt Guerline, who runs a giant crane, and Mr. Alvarez, who checks the refrigerated fruit containers.</p>
+</div>
+  <div class="qbox" data-fq="h1_s1" data-pts="3" data-wk="w14" data-ans="21|21 feet|21 foot|21 ft" data-logic="1 yard = 3 feet. Yards are bigger than feet, so multiply: 7 × 3 = 21 feet.">
+    <span class="pts">+3</span>
+    <p class="qtext">A mooring rope is 7 yards long. How many feet long is it?</p>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="h1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h2_s1" data-pts="2" data-wk="w14" data-logic="1 ton = 2,000 pounds. Tons are bigger, so multiply: 9 × 2,000 = 18,000 pounds.">
+    <span class="pts">+2</span>
+    <p class="qtext">A loaded container weighs 9 tons. How many pounds is that?</p>
+    <div class="opts"><button class="opt" data-c="1">18,000 pounds</button><button class="opt">900 pounds</button><button class="opt">9,000 pounds</button><button class="opt">2,009 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h3_s1" data-pts="2" data-wk="w14" data-logic="1 kilometer = 1,000 meters. Kilometers are bigger, so multiply: 8 × 1,000 = 8,000 meters.">
+    <span class="pts">+2</span>
+    <p class="qtext">A tugboat guides a ship 8 kilometers up the channel. How many meters is that?</p>
+    <div class="opts"><button class="opt" data-c="1">8,000 meters</button><button class="opt">800 meters</button><button class="opt">80 meters</button><button class="opt">80,000 meters</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🚢</div>
+  <h4>Andre at PortMiami, Revisited</h4>
+  <p>Andre is back at PortMiami with his Aunt Guerline, who runs a giant crane, and Mr. Alvarez, who checks the refrigerated fruit containers.</p>
+</div>
+  <div class="qbox" data-fq="h1_s2" data-pts="3" data-wk="w14" data-ans="10|10 feet|10 foot|10 ft" data-logic="12 inches = 1 foot. Inches are smaller than feet, so divide: 120 ÷ 12 = 10 feet.">
+    <span class="pts">+3</span>
+    <p class="qtext">A stack of pallets is 120 inches tall. How many feet tall is it?</p>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="h1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h2_s2" data-pts="2" data-wk="w14" data-logic="16 ounces = 1 pound. Ounces are smaller, so divide: 96 ÷ 16 = 6 pounds. (1,536 comes from multiplying by mistake.)">
+    <span class="pts">+2</span>
+    <p class="qtext">Mr. Alvarez has 96 ounces of trail mix for the crew. How many pounds is that?</p>
+    <div class="opts"><button class="opt" data-c="1">6 pounds</button><button class="opt">1,536 pounds</button><button class="opt">8 pounds</button><button class="opt">12 pounds</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="h3_s2" data-pts="2" data-wk="w14" data-logic="1 hour = 60 minutes, so 2 hours = 120 minutes. Add the extra 40: 120 + 40 = 160 minutes.">
+    <span class="pts">+2</span>
+    <p class="qtext">Aunt Guerline&rsquo;s crane works for 2 hours 40 minutes. How many minutes is that?</p>
+    <div class="opts"><button class="opt" data-c="1">160 minutes</button><button class="opt">240 minutes</button><button class="opt">140 minutes</button><button class="opt">100 minutes</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<span class="weektag">Week 14 &bull; Reading</span>
+<h2>🔎 Quoting vs. Paraphrasing</h2>
+<span class="setnotice" id="setNotice9" style="display:none"></span>
+<p class="remind">💡 A <b>quote</b> copies exact words inside quotation marks. A <b>paraphrase</b> uses your own words. Both name the source. Copied words with no quotation marks are <b>plagiarism</b>.</p>
+<div class="qset" data-set="0">
+  <div class="storytext"><p class="srcline">From &ldquo;The Busy Bay,&rdquo; a magazine article by Lena Torres</p><p>Every morning, giant cranes lift steel containers off the ships as if they were toy blocks. The crane operators sit in small cabs high above the dock.</p></div>
+  <div class="qbox" data-q="j1_s0" data-pts="3" data-wk="w14" data-logic="Kiara kept the author’s idea but used her own words and sentence pattern, and she named the source. That is an honest paraphrase, so it needs no quotation marks.">
+    <span class="pts">+3</span>
+    <p class="qtext">Kiara writes: <i>Lena Torres explains that each morning, tall cranes unload heavy containers almost like a child stacking blocks.</i> Is this a quote or a paraphrase?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">A paraphrase, because it keeps the idea in new words and names the source</button><button class="opt">A quote, because it names the author</button><button class="opt">Plagiarism, because it has no quotation marks</button><button class="opt">A quote, because it is about cranes</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j2_s0" data-pts="2" data-wk="w14" data-logic="Put a comma after the tag, capitalize the first word of the quoted sentence, and keep the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which quote is punctuated correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Lena Torres writes, &ldquo;The crane operators sit in small cabs high above the dock.&rdquo;</button><button class="opt">Lena Torres writes &ldquo;The crane operators sit in small cabs high above the dock.&rdquo;</button><button class="opt">Lena Torres writes, &ldquo;The crane operators sit in small cabs high above the dock&rdquo;.</button><button class="opt">Lena Torres writes, &ldquo;the crane operators sit in small cabs high above the dock.&rdquo;</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j3_s0" data-pts="2" data-wk="w14" data-logic="The sentence “Every morning, giant cranes lift steel containers off the ships.” copies the author’s exact words with no quotation marks and no source, so it pretends the words are the writer’s own. The other sentences quote or paraphrase AND name Lena Torres.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which sentence is PLAGIARISM?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Every morning, giant cranes lift steel containers off the ships.</button><button class="opt">Lena Torres writes, &ldquo;The crane operators sit in small cabs high above the dock.&rdquo;</button><button class="opt">Lena Torres explains that crane operators work in tiny rooms far above the ground.</button><button class="opt">According to Lena Torres, the cranes unload containers every morning.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="storytext"><p class="srcline">From &ldquo;PortMiami Facts,&rdquo; a fact sheet by the Bayfront Learning Center</p><p>PortMiami sits on Dodge Island in Biscayne Bay. Cruise ships and cargo ships both dock there.</p></div>
+  <div class="qbox" data-q="j1_s1" data-pts="3" data-wk="w14" data-logic="Mateo copied the exact words and put them inside quotation marks with the source named. That is a quote.">
+    <span class="pts">+3</span>
+    <p class="qtext">Mateo writes: <i>According to the Bayfront Learning Center, &ldquo;Cruise ships and cargo ships both dock there.&rdquo;</i> Is this a quote or a paraphrase?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">A quote, because it copies the exact words inside quotation marks</button><button class="opt">A paraphrase, because it names the source</button><button class="opt">Plagiarism, because it uses the word ships</button><button class="opt">A paraphrase, because it is only one sentence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j2_s1" data-pts="2" data-wk="w14" data-logic="A strong paraphrase keeps the meaning, uses new words and sentence order, and names the source. Names like Dodge Island and Biscayne Bay can stay. Copying “PortMiami sits on Dodge Island in Biscayne Bay.” with no credit is plagiarism, and the sentences about the middle of the ocean and ships being fun change the meaning.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which is the BEST paraphrase of &ldquo;PortMiami sits on Dodge Island in Biscayne Bay&rdquo;?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The Bayfront Learning Center explains that the port is on an island in Biscayne Bay called Dodge Island.</button><button class="opt">PortMiami sits on Dodge Island in Biscayne Bay.</button><button class="opt">The Bayfront Learning Center says the port is in the middle of the ocean.</button><button class="opt">The fact sheet says ships are fun to watch.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j3_s1" data-pts="2" data-wk="w14" data-logic="A simple citation gives the title plus the author or organization: “PortMiami Facts” by the Bayfront Learning Center.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which is a correct citation for this source?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;PortMiami Facts&rdquo; by the Bayfront Learning Center</button><button class="opt">Dodge Island</button><button class="opt">A fact sheet I found</button><button class="opt">Cruise ships and cargo ships both dock there.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="storytext"><p class="srcline">From &ldquo;Night Shift at the Port,&rdquo; a magazine article by Daniel Reyes</p><p>The port never really sleeps. Trucks roll in and out long after the sun goes down.</p></div>
+  <div class="qbox" data-q="j1_s2" data-pts="3" data-wk="w14" data-logic="When an author’s exact words are special, quote them: put the exact words inside quotation marks and name the source. Changing words inside quotation marks is not honest, and leaving out the author is plagiarism.">
+    <span class="pts">+3</span>
+    <p class="qtext">Kiara loves the words &ldquo;never really sleeps&rdquo; and wants to use them in her report. What should she do?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Quote them inside quotation marks and name Daniel Reyes</button><button class="opt">Copy them into her report without quotation marks</button><button class="opt">Paraphrase them and leave out the author&rsquo;s name</button><button class="opt">Change the words but still put them in quotation marks</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j2_s2" data-pts="2" data-wk="w14" data-logic="When the tag comes after the quote, end the quoted sentence with a comma INSIDE the closing quotation mark, then write the tag.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which quote is punctuated correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;The port never really sleeps,&rdquo; writes Daniel Reyes.</button><button class="opt">&ldquo;The port never really sleeps&rdquo;, writes Daniel Reyes.</button><button class="opt">&ldquo;The port never really sleeps.&rdquo; writes Daniel Reyes.</button><button class="opt">The port never really sleeps, writes Daniel Reyes.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="j3_s2" data-pts="2" data-wk="w14" data-logic="The sentence about trucks coming and going late at night keeps the meaning in new words and names the author. “Trucks roll in and out long after the sun goes down.” is copied with no credit, the sentence with quotation marks is a quote, and saying the port closes at sunset changes the meaning.">
+    <span class="pts">+2</span>
+    <p class="qtext">Which sentence is an honest PARAPHRASE?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Daniel Reyes explains that trucks keep coming and going at the port even late at night.</button><button class="opt">Trucks roll in and out long after the sun goes down.</button><button class="opt">Daniel Reyes writes, &ldquo;The port never really sleeps.&rdquo;</button><button class="opt">Daniel Reyes says the port closes at sunset.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<span class="weektag">Weeks 11&ndash;14 &bull; Mixed</span>
+<h2>🔀 Putting Skills Together</h2>
+<span class="setnotice" id="setNotice10" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">🧠</div>
+  <h4>Two Skills at Once</h4>
+  <p>These questions need more than one week&rsquo;s skill. Solve the two-step problem, choose the explanation that is really correct, and be the checker who finds the mistake.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="x1_s0" data-pts="3" data-wk="mix" data-ans="9|9 tiles|9 tile" data-logic="Step 1: 3/4 × 36 = 108/4 = 27 tiles are used. Step 2: 36 − 27 = 9 tiles are left. (Or: 1/4 are left, and 1/4 × 36 = 9.)">
+    <span class="pts">+3</span>
+    <p class="qtext">Two steps: Amara&rsquo;s crew has 36 floor tiles. They lay 3/4 of the tiles in the lobby. How many tiles are LEFT?</p>
+    <div class="fillrow"><span class="eq">Tiles left:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="x1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="3" data-wk="mix" data-logic="9 = 3 × 3 and 12 = 3 × 4, so they share the factor 3. Divide both by 3: 9/12 = 3/4. (9 is not divisible by 2.)">
+    <span class="pts">+3</span>
+    <p class="qtext">Which explanation is correct? Is 9/12 in simplest form?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">No. 9 and 12 share the factor 3, so 9/12 = 3/4</button><button class="opt">Yes, because 9 is an odd number</button><button class="opt">No. 12 is even, so divide both numbers by 2</button><button class="opt">Yes, because 9 and 12 have no common factor except 1</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x3_s0" data-pts="3" data-wk="mix" data-logic="A whole number times a fraction multiplies the numerator: 2 × 6 = 12, so 12/3 = 4. Multiplying the denominator makes the answer smaller, but 2/3 of 6 should be 4.">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: Nadia says 2/3 &times; 6 = 2/18. What did she do wrong?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">She multiplied the denominator by 6. Multiply the numerator: 2/3 &times; 6 = 12/3 = 4</button><button class="opt">She should have added: 2/3 + 6 = 8/9</button><button class="opt">Nothing. 2/3 &times; 6 = 2/18</button><button class="opt">She should divide: 2/3 &times; 6 = 1/9</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x4_s0" data-pts="3" data-wk="mix" data-logic="A simile uses like or as. “The moon IS a silver plate” compares without like or as, so it is a metaphor.">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: a student labels this line from a poem as a simile: &ldquo;The moon is a silver plate.&rdquo; What is wrong?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It compares without like or as, so it is a metaphor</button><button class="opt">It is a simile, because it talks about the moon</button><button class="opt">It is hyperbole, because plates are small</button><button class="opt">It is personification, because the moon is silver</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="x1_s1" data-pts="3" data-wk="mix" data-ans="5|5 feet|5 foot|5 ft" data-logic="Step 1: 5 yards = 5 × 3 = 15 feet. Step 2: 1/3 × 15 = 15/3 = 5 feet.">
+    <span class="pts">+3</span>
+    <p class="qtext">Two steps: a crane cable is 5 yards long. Andre cuts off 1/3 of it. How many FEET does he cut off?</p>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="x1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="3" data-wk="mix" data-logic="Checking 2, 3, and 5 is not enough. 91 = 7 × 13, so its factors are 1, 7, 13, and 91. More than two factors means 91 is composite. (Numbers like 11, 31, and 41 end in 1 and ARE prime.)">
+    <span class="pts">+3</span>
+    <p class="qtext">Which explanation is correct? Is 91 a prime number?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">No. 91 = 7 &times; 13, so it has more than two factors</button><button class="opt">Yes, because 91 is odd</button><button class="opt">Yes, because 91 is not divisible by 2, 3, or 5</button><button class="opt">No, because every number that ends in 1 is composite</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x3_s1" data-pts="3" data-wk="mix" data-logic="Each whole is 5/5, so 2 wholes = 10/5. Add the 3/5: 10/5 + 3/5 = 13/5.">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: Leo says 2&nbsp;3/5 = 6/5, because 2 &times; 3 = 6. What should he do instead?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Multiply the whole number by the denominator and add the numerator: 2 &times; 5 + 3 = 13, so 13/5</button><button class="opt">Add all the numbers: 2 + 3 + 5 = 10, so 10/5</button><button class="opt">Nothing. 2&nbsp;3/5 = 6/5</button><button class="opt">Multiply all the numbers: 2 &times; 3 &times; 5 = 30, so 30/5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x4_s1" data-pts="3" data-wk="mix" data-logic="Copied words always go inside quotation marks, even when you name the source. Without the marks, the reader thinks the words are Kiara’s own.">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: Kiara copied a sentence from an article into her report. She named the author but did NOT use quotation marks. Is that okay?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">No. Copied words need quotation marks even when the source is named</button><button class="opt">Yes. Naming the author is all that matters</button><button class="opt">Yes, as long as the sentence is short</button><button class="opt">No. She should leave out the author&rsquo;s name</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="x1_s2" data-pts="3" data-wk="mix" data-ans="750|750 grams|750 gram|750 g" data-logic="Step 1: 3 kilograms = 3 × 1,000 = 3,000 grams. Step 2: 1/4 × 3,000 = 3,000 ÷ 4 = 750 grams.">
+    <span class="pts">+3</span>
+    <p class="qtext">Two steps: Killa has 3 kilograms of quinoa. She cooks 1/4 of it for a family meal. How many GRAMS does she cook?</p>
+    <div class="fillrow"><span class="eq">Grams:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="x1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="3" data-wk="mix" data-logic="Multiples of 6: 6, 12, 18, 24... Multiples of 8: 8, 16, 24... The smallest shared multiple is 24. 48 is a common multiple, but not the least one, and 2 is the greatest common factor.">
+    <span class="pts">+3</span>
+    <p class="qtext">Which explanation is correct? What is the least common multiple (LCM) of 6 and 8?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">24, because it is the smallest number that is a multiple of both 6 and 8</button><button class="opt">48, because 6 &times; 8 = 48</button><button class="opt">2, because 2 divides both 6 and 8</button><button class="opt">14, because 6 + 8 = 14</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x3_s2" data-pts="3" data-wk="mix" data-logic="Equivalent fractions come from multiplying or dividing the top and bottom by the same number. Simplify both: 4/6 = 2/3 and 6/8 = 3/4. They are not the same amount.">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: Mei says 4/6 is equivalent to 6/8, because she added 2 to the top and the bottom. What is wrong?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Adding does not make equivalent fractions. 4/6 = 2/3 and 6/8 = 3/4, which are not equal</button><button class="opt">Nothing. Adding 2 to the top and bottom always works</button><button class="opt">She should have added 3 instead of 2</button><button class="opt">She should subtract 2 from the top and bottom</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x4_s2" data-pts="3" data-wk="mix" data-logic="“However” signals a contrast. Both sentences tell good things alpacas give, so the writer should use an adding transition such as “Also.”">
+    <span class="pts">+3</span>
+    <p class="qtext">Find the mistake: &ldquo;Alpacas give soft wool for weaving. However, their manure helps the crops grow.&rdquo; Why is &ldquo;However&rdquo; the wrong transition?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The second sentence adds another benefit, so it should use Also, not a contrast word</button><button class="opt">However always has to start a paragraph</button><button class="opt">The second sentence is the topic sentence</button><button class="opt">However shows time order, like first and next</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<span class="weektag">Weeks 11&ndash;14 &bull; Writing</span>
+<h2>✏️ Fix the Sentence</h2>
+<span class="setnotice" id="setNotice11" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Edit Like a Writer</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Edit the sentence in the box so it is exactly right, then press Check. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake. Watch for quotation marks in dialogue and quotes, capital letters for names and places, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s1_s0" data-pts="2" data-wk="write" data-ans="Nadia said, &quot;The cows are ready for milking.&quot;" data-logic="Capitalize Nadia, the name that starts the sentence. Put quotation marks around her exact words, capitalize the first word of what she said, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">nadia said, the cows are ready for milking</p>
+    <div class="fillrow"><input class="fillin fixin" value="nadia said, the cows are ready for milking" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s0" data-pts="2" data-wk="write" data-ans="Lena Torres writes, &quot;The cranes work late into the night.&quot;" data-logic="A quote copies an author’s exact words, so put quotation marks around them. Capitalize the first word of the quoted sentence, and keep the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Lena Torres writes, the cranes work late into the night.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Lena Torres writes, the cranes work late into the night." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s0" data-pts="2" data-wk="write" data-ans="Last summer Amara visited her aunt in Houston.||Last summer, Amara visited her aunt in Houston." data-logic="Capitalize the first word of a sentence and every proper noun: the name Amara and the city Houston.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">last summer amara visited her aunt in houston.</p>
+    <div class="fillrow"><input class="fillin fixin" value="last summer amara visited her aunt in houston." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s0" data-pts="2" data-wk="write" data-ans="The alpacas in Killa&#x27;s village eat grass on the hillside." data-logic="The subject is alpacas (plural), so the verb is eat, not eats. The words “in Killa’s village” come between the subject and verb, but they do not change the subject.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The alpacas in Killa&#x27;s village eats grass on the hillside.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The alpacas in Killa&#x27;s village eats grass on the hillside." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s1_s1" data-pts="2" data-wk="write" data-ans="&quot;Where is the hay?&quot; asked Grandpa." data-logic="Put quotation marks around Grandpa’s exact words and capitalize Where. His words are a question, so the question mark goes inside the closing quotation mark. End the whole sentence with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">where is the hay asked Grandpa</p>
+    <div class="fillrow"><input class="fillin fixin" value="where is the hay asked Grandpa" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s1" data-pts="2" data-wk="write" data-ans="Daniel Reyes writes, &quot;The port never really sleeps.&quot;" data-logic="Capitalize the first word of the quoted sentence, and move the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Daniel Reyes writes, &quot;the port never really sleeps&quot;.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Daniel Reyes writes, &quot;the port never really sleeps&quot;." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s1" data-pts="2" data-wk="write" data-ans="On Sunday Killa sold potatoes at the market in Pisac, Peru.||On Sunday, Killa sold potatoes at the market in Pisac, Peru." data-logic="Capitalize the first word and every proper noun: the day Sunday, the name Killa, the town Pisac, and the country Peru.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">on sunday killa sold potatoes at the market in pisac, peru.</p>
+    <div class="fillrow"><input class="fillin fixin" value="on sunday killa sold potatoes at the market in pisac, peru." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s1" data-pts="2" data-wk="write" data-ans="Each of the cranes has its own operator." data-logic="The subject is Each, which means each ONE, so it is singular and needs has, not have. (Its, with no apostrophe, correctly shows the operator belongs to the crane.)">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Each of the cranes have its own operator.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Each of the cranes have its own operator." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s1_s2" data-pts="2" data-wk="write" data-ans="&quot;Let&#x27;s check the calves,&quot; Mom said, &quot;before it gets dark.&quot;" data-logic="This is one spoken sentence split by the tag. Put quotation marks around both parts of Mom’s words. The comma after calves goes inside the closing quotation mark, and before stays lowercase because it continues the same sentence.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Let&#x27;s check the calves, Mom said, before it gets dark.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Let&#x27;s check the calves, Mom said, before it gets dark." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s2" data-pts="2" data-wk="write" data-ans="Lena Torres writes, &quot;The crane operators sit in small cabs high above the dock.&quot;" data-logic="Put quotation marks around the author’s exact words, and keep the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Lena Torres writes, The crane operators sit in small cabs high above the dock.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Lena Torres writes, The crane operators sit in small cabs high above the dock." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s3_s2" data-pts="2" data-wk="write" data-ans="The ship sailed from Miami to the Bahamas on Friday." data-logic="Capitalize the first word and the proper nouns Miami, Bahamas, and Friday. The word the before Bahamas stays lowercase in the middle of a sentence.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the ship sailed from miami to the bahamas on friday.</p>
+    <div class="fillrow"><input class="fillin fixin" value="the ship sailed from miami to the bahamas on friday." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s2" data-pts="2" data-wk="write" data-ans="Amara and her aunt were at the building site by seven." data-logic="Amara and her aunt are two people, a plural subject, so use were, not was.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Amara and her aunt was at the building site by seven.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Amara and her aunt was at the building site by seven." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<span class="weektag">Weeks 11&ndash;14 &bull; Writing</span>
+<h2>📓 Writer&rsquo;s Notebook: Build It Your Way</h2>
+<span class="setnotice" id="setNotice12" style="display:none"></span>
+<div class="box box-story">
+  <div class="icon">✍️</div>
+  <h4>Your Turn to Write</h4>
+  <p>Write <b>3 to 5 sentences</b> about one place from Unit 3: the dairy farm in Wisconsin, the apartment building in Houston, the village in the Andes, or PortMiami.</p>
+  <ul class="tips">
+    <li>Start with a <b>topic sentence</b> that tells your main idea.</li>
+    <li>Use at least one <b>transition</b> (first, next, also, however, for example, as a result, finally).</li>
+    <li>Include one line of <b>dialogue</b> with quotation marks, like a character from that place talking.</li>
+    <li>Include one <b>simile or metaphor</b>.</li>
+  </ul>
+</div>
+<textarea class="notebook" id="wnText" placeholder="Start with your topic sentence here..." spellcheck="true"></textarea>
+<div class="nav" style="margin-top:10px"><span></span><button class="btn btn-pri" id="wnCheck">Check My Writing</button></div>
+<ul class="wnlist" id="wnList"></ul>
+<p class="wnnote">Writer&rsquo;s Notebook is practice. It builds XP, not Pathway Points. Reread your sentences out loud and check every quotation mark.</p>
+<h3>Now Think Like a Writer</h3>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="k1_s0" data-pts="4" data-wk="write" data-logic="“As warm as a blanket” is a simile because it uses as, and the comma sits inside the closing quotation mark before the tag. Without the comma the dialogue is punctuated wrong, “The barn is warm” has no comparison, and “The barn is a warm blanket” is a metaphor.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which sentence correctly punctuates dialogue AND uses a simile?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;The barn is as warm as a blanket,&rdquo; Nadia said.</button><button class="opt">&ldquo;The barn is as warm as a blanket&rdquo; Nadia said.</button><button class="opt">&ldquo;The barn is warm,&rdquo; Nadia said.</button><button class="opt">&ldquo;The barn is a warm blanket,&rdquo; Nadia said.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="k1_s1" data-pts="4" data-wk="write" data-logic="“The crane IS a giant” is a metaphor (no like or as), and the dialogue has a comma inside the quotation mark and a capital A for the name Andre. “Like a giant” makes a simile, not a metaphor; the other wrong sentences are missing the comma or have a lowercase name.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which sentence correctly punctuates dialogue AND uses a metaphor?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;The crane is a giant in the sky,&rdquo; Andre said.</button><button class="opt">&ldquo;The crane is like a giant in the sky,&rdquo; Andre said.</button><button class="opt">&ldquo;The crane is a giant in the sky&rdquo; Andre said.</button><button class="opt">&ldquo;The crane is a giant in the sky,&rdquo; andre said.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="k1_s2" data-pts="4" data-wk="write" data-logic="“Finally” is a transition, and “like steps of gold” is a simile. Without “Finally” there is no transition, “green and wet” has no comparison, and “the terraces are steps of gold” is a metaphor instead of a simile.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which sentence uses a transition AND a simile?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Finally, the terraces glowed like steps of gold in the evening sun.</button><button class="opt">The terraces glowed like steps of gold in the evening sun.</button><button class="opt">Finally, the terraces were green and wet.</button><button class="opt">Finally, the terraces are steps of gold.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<span class="weektag">Weeks 11&ndash;14 &bull; Vocabulary</span>
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a Unit 3 word on the left, then its meaning on the right. First-try matches earn <b>2 points each, 10 points in all</b>.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🌇 Looking Back on Unit 3</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Four Weeks, Eight Skills</h4>
+  <p>Nadia&rsquo;s farm schedule and her snowy night in the barn. Amara&rsquo;s apartment build and the article about how it rises. Killa&rsquo;s market day and the poems from the clouds. Andre&rsquo;s cargo day and Kiara and Mateo&rsquo;s research report. You worked through all of it.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which MATH skill from Unit 3 do you feel strongest in?</p>
+    <div class="opts"><button class="opt" data-c="1">Factors and primes (Week 11)</button><button class="opt" data-c="1">Equivalent fractions (Week 12)</button><button class="opt" data-c="1">Multiplying fractions (Week 13)</button><button class="opt" data-c="1">Measurement (Week 14)</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which READING and WRITING skill from Unit 3 do you feel strongest in?</p>
+    <div class="opts"><button class="opt" data-c="1">Punctuating dialogue (Week 11)</button><button class="opt" data-c="1">Paragraphs and transitions (Week 12)</button><button class="opt" data-c="1">Figurative language (Week 13)</button><button class="opt" data-c="1">Quoting and paraphrasing (Week 14)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>👑 Unit 3 Boss Challenge</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="box box-alert">
+  <div class="icon">👑</div>
+  <h4>The Last Two Questions</h4>
+  <p>One math, one reading and writing. Each one needs more than one step. Take your time.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>A refrigerated truck from Nadia&rsquo;s family farm in Wisconsin delivers 24 boxes of cheese curds to a ship at PortMiami. Each box weighs 15 pounds. Back home, Nadia is writing about the day the truck left the farm.</p>
+</div>
+  <div class="qbox" data-fq="z1_s0" data-pts="5" data-wk="mix" data-ans="240|240 pounds|240 pound|240 lb|240 lbs" data-logic="Step 1: 2/3 × 24 = 48/3 = 16 boxes are loaded. Step 2: 16 × 15 = 240 pounds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: Aunt Guerline&rsquo;s crew has loaded 2/3 of the boxes onto the ship. How many POUNDS of cheese curds have they loaded?</p>
+    <div class="fillrow"><span class="eq">Pounds:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="z1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="z2_s0" data-pts="5" data-wk="mix" data-logic="Quotation marks go around only Nadia’s words, a comma goes inside the closing quotation mark, and Nadia is capitalized. The simile “as shiny as a new spoon” stays. The other choices miss the comma, drop the simile, or put the marks around the tag.">
+    <span class="pts">+5</span>
+    <p class="qtext">Nadia&rsquo;s draft says: <i>the cheese truck is as shiny as a new spoon nadia told her dad.</i> Which revision fixes the dialogue AND keeps the simile?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">&ldquo;The cheese truck is as shiny as a new spoon,&rdquo; Nadia told her dad.</button><button class="opt">&ldquo;The cheese truck is as shiny as a new spoon&rdquo; Nadia told her dad.</button><button class="opt">&ldquo;The cheese truck is shiny,&rdquo; Nadia told her dad.</button><button class="opt">The cheese truck is as shiny as a new spoon, &ldquo;Nadia told her dad.&rdquo;</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>Ms. Okafor orders 18 steel beams for the top floor of the Houston apartment building. Each beam is 12 feet long. Amara is also writing a paragraph for the building&rsquo;s newsletter.</p>
+</div>
+  <div class="qbox" data-fq="z1_s1" data-pts="5" data-wk="mix" data-ans="60|60 yards|60 yard|60 yd|60 yds" data-logic="Step 1: 5/6 × 18 = 90/6 = 15 beams. Step 2: 15 × 12 = 180 feet. Step 3: 180 ÷ 3 = 60 yards.">
+    <span class="pts">+5</span>
+    <p class="qtext">Three steps: 5/6 of the beams are delivered on Monday. How many YARDS of beams are delivered on Monday?</p>
+    <div class="fillrow"><span class="eq">Yards:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="z1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="z2_s1" data-pts="5" data-wk="mix" data-logic="The paragraph tells steps in order: first, then the next step, then finally. Sentence 3 is the step after the foundation, so “Next” fits. There is no contrast or example, and sentence 3 is not the end.">
+    <span class="pts">+5</span>
+    <p class="qtext">Amara&rsquo;s paragraph: <i>(1) An apartment building goes up in stages. (2) First, the crew pours the foundation. (3) ______ they build the frame, one floor at a time. (4) Finally, families move in.</i> Which transition best fills the blank, and why?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Next, because sentence 3 tells the following step in time order</button><button class="opt">However, because sentence 3 shows a contrast</button><button class="opt">For example, because sentence 3 gives an example of a foundation</button><button class="opt">In conclusion, because sentence 3 ends the paragraph</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>Killa&rsquo;s family harvests 40 kilograms of potatoes from their terraces in the Andes. Meanwhile, at PortMiami, Mateo is finishing his research report about the port.</p>
+</div>
+  <div class="qbox" data-fq="z1_s2" data-pts="5" data-wk="mix" data-ans="15,000|15000|15,000 grams|15000 grams|15,000 gram|15,000 g" data-logic="Step 1: 3/8 × 40 = 120/8 = 15 kilograms. Step 2: 15 × 1,000 = 15,000 grams.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: the family sells 3/8 of the potatoes at the Sunday market. How many GRAMS of potatoes do they sell?</p>
+    <div class="fillrow"><span class="eq">Grams:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="z1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="z2_s2" data-pts="5" data-wk="mix" data-logic="The words are special (a simile!), so quote them exactly, inside quotation marks, and name the author. Copying the sentence with no quotation marks and no author is plagiarism, the “dinosaurs” version changes the words inside the quotation marks, and the version with the tag but no quotation marks is missing the marks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mateo found this sentence in an article by Lena Torres: <i>At sunrise, the cranes stand like giraffes against the pink sky.</i> Which sentence uses it correctly and honestly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Lena Torres writes, &ldquo;At sunrise, the cranes stand like giraffes against the pink sky.&rdquo;</button><button class="opt">At sunrise, the cranes stand like giraffes against the pink sky.</button><button class="opt">Lena Torres writes, &ldquo;At sunrise, the cranes look like dinosaurs.&rdquo;</button><button class="opt">Lena Torres writes, At sunrise, the cranes stand like giraffes against the pink sky.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Final Pencil Break!</h2>
+  <p>Before you see your Checkpoint score, put the screen down and grab your <b>Checkpoint 3 Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish Unit 3.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Checkpoint 3 Complete</span>
+    <h1 id="finalHeadline">Unit 3 Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="scorebreak" id="scoreBreak">
+      <div class="brow"><span class="bname">Week 11 &mdash; Factors &amp; Primes, Dialogue</span><span class="bval" id="bk-w11">&mdash;</span></div>
+      <div class="brow"><span class="bname">Week 12 &mdash; Fractions, Paragraphs</span><span class="bval" id="bk-w12">&mdash;</span></div>
+      <div class="brow"><span class="bname">Week 13 &mdash; Multiplying Fractions, Poetry</span><span class="bval" id="bk-w13">&mdash;</span></div>
+      <div class="brow"><span class="bname">Week 14 &mdash; Measurement, Quoting &amp; Paraphrasing</span><span class="bval" id="bk-w14">&mdash;</span></div>
+      <div class="brow"><span class="bname">Putting Skills Together &amp; Boss</span><span class="bval" id="bk-mix">&mdash;</span></div>
+      <div class="brow"><span class="bname">Fix the Sentence &amp; Writing</span><span class="bval" id="bk-write">&mdash;</span></div>
+      <div class="brow"><span class="bname">Match-Up Vocabulary</span><span class="bval" id="bk-match">&mdash;</span></div>
+    </div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🏗️</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your Checkpoint score!</h4>
+      <p id="finalMessageBody">Great job finishing your Checkpoint 3 Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 15 complete 🏗️</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Try the Checkpoint Again 🔄</button></div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 18;
+const FINAL_INDEX = 17;
+const MODULE_ID = 'grade4-5-week15-checkpoint';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["prime number", "exactly two factors: 1 and itself"], ["equivalent fractions", "fractions that name the same amount"], ["dialogue tag", "words that tell who is speaking"], ["simile", "a comparison using like or as"], ["paraphrase", "an author’s idea in your own words"]], [["composite number", "a number with more than two factors"], ["mixed number", "a whole number and a fraction together"], ["topic sentence", "tells the main idea of a paragraph"], ["metaphor", "says one thing IS another"], ["plagiarism", "using words or ideas without credit"]], [["least common multiple", "the smallest multiple two numbers share"], ["simplest form", "top and bottom share no factor but 1"], ["transition", "a word like first or however that links ideas"], ["personification", "giving human actions to a thing"], ["citation", "names a source’s title and author or organization"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return s;}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const cleanVal = norm(val);
+  const accepted = String(box.dataset.ans).split('|').map(norm);
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function boxEarned(b){ let k; if(b.dataset.q) k=b.dataset.q; else if(b.dataset.fq) k='fill-'+b.dataset.fq; else if(b.dataset.sq) k='fix-'+b.dataset.sq; else return 0; return (state.answered[k] && !state.wrongCount[k]) ? (+b.dataset.pts||0) : 0; }
+function fillBreakdown(){
+  const got={}, poss={}; let boxTotal=0;
+  document.querySelectorAll('.qset[data-set="'+CURRENT_SET+'"] .qbox[data-wk]').forEach(b=>{ const w=b.dataset.wk, e=boxEarned(b); got[w]=(got[w]||0)+e; poss[w]=(poss[w]||0)+(+b.dataset.pts||0); boxTotal+=e; });
+  got.match=Math.max(0, Math.min(MATCH_POINTS, state.score-boxTotal)); poss.match=MATCH_POINTS;
+  Object.keys(poss).forEach(w=>{ const el=document.getElementById('bk-'+w); if(el) el.textContent=got[w]+' / '+poss[w]; });
+}
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  fillBreakdown();
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=85) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=75) tierTitle='Almost There! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Unit 3 Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='Unit 3: Building Things Complete!';
+    document.getElementById('finalMessageHeading').textContent='🎉 You built it! Unit 3 is complete!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100 on Checkpoint 3. Over four weeks you built a strong foundation, one skill at a time: factors, multiples, and prime numbers on Nadia’s dairy farm in Wisconsin; equivalent fractions, simplest form, and mixed numbers on Amara’s apartment build in Houston; multiplying fractions in Killa’s village in the Andes of Peru; and measurement conversions with Andre at PortMiami. You also punctuated dialogue, built paragraphs with transitions, explained similes, metaphors, and personification in poems, and quoted and paraphrased sources honestly. Next week, Unit 4 begins with new places to explore and new skills to build. Your results go to KingCretot Experience. Tell your parent or teacher, and make sure your Checkpoint 3 Challenge sheet is finished!';
+    playFanfare(); confetti(180); setTimeout(()=>confetti(160),500); setTimeout(()=>confetti(160),1100); setTimeout(()=>confetti(140),1800); setTimeout(()=>confetti(120),2500);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work on Checkpoint 3!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Look at the score breakdown above to see which week to review, then look back at that week’s lesson. When you are ready, hit Try the Checkpoint Again: you will get a fresh set of questions next time. Your results go to KingCretot Experience. Don’t forget to finish your Checkpoint 3 Challenge sheet.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+
+// Writer's Notebook: unscored practice. Builds XP only, never Pathway Points.
+const WN_TRANSITIONS=['first','second','next','then','however','for example','for instance','as a result','finally','also','in addition','after that','because of this','last','lastly','in conclusion','meanwhile','another','later'];
+let wnRewarded=false;
+function wnSentences(t){ return (t.match(/[^.!?]+[.!?]+/g)||[]).map(x=>x.replace(/^[\s"“”]+/,'').trim()).filter(x=>x.split(/\s+/).filter(Boolean).length>=3); }
+function checkNotebook(){
+  const ta=document.getElementById('wnText'), list=document.getElementById('wnList'); if(!ta||!list) return;
+  const t=ta.value.trim(); list.innerHTML='';
+  const add=(cls,txt)=>{ const li=document.createElement('li'); li.className=cls; li.textContent=txt; list.appendChild(li); };
+  if(!t){ add('todo','✏️ Type your sentences first!'); return; }
+  const n=wnSentences(t).length; const low=t.toLowerCase();
+  const found=WN_TRANSITIONS.filter(w=>new RegExp('(^|[^a-z])'+w+'([^a-z]|$)').test(low));
+  const q=(t.match(/["“”]/g)||[]).length;
+  const okLen=n>=3&&n<=5, okTr=found.length>=1, okQ=q>=2&&q%2===0, okCap=/^[A-Z"“]/.test(t)&&/[.!?]["”]?$/.test(t);
+  const hasLike=/(^|[^a-z])(like|as)([^a-z]|$)/.test(low);
+  add(okLen?'ok':'todo', okLen?('✅ '+n+' sentences (goal: 3 to 5)'):('🔧 '+n+' complete sentence'+(n===1?'':'s')+' so far (goal: 3 to 5)'));
+  add(okTr?'ok':'todo', okTr?('✅ Transition: '+found.join(', ')):'🔧 Add a transition word, like first, next, also, however, or finally');
+  add(okQ?'ok':'todo', okQ?'✅ Dialogue has opening and closing quotation marks':'🔧 Add one line of dialogue with an opening AND a closing quotation mark');
+  add(okCap?'ok':'todo', okCap?'✅ Starts with a capital letter and ends with an end mark':'🔧 Start with a capital letter and end with a period, question mark, or exclamation point');
+  add('self', hasLike?'🔍 Self-check: you used like or as. Is it a simile that compares two different things?':'🔍 Self-check: Did you include a metaphor (one thing IS another)? If not, add a simile with like or as.');
+  add('self','🔍 Self-check: Is the comma or end mark of your dialogue INSIDE the closing quotation mark?');
+  add('self','🔍 Self-check: Does your FIRST sentence tell the main idea?');
+  if(okLen&&okTr&&okQ&&okCap&&!wnRewarded){ wnRewarded=true; addXP(15); addCoins(3); playRight(); confetti(); levelup('Notebook writing built! ✍️ +15 XP'); }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const b=document.getElementById('wnCheck'); if(b) b.addEventListener('click', checkNotebook); });
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

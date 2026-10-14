@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 12: Building Up Houston (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#06142A);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#E9D18F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#E2C778);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #06142A}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillin{width:220px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.05rem;font-weight:800;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.storytext{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:20px 22px;margin:14px 0;font-size:1.02rem;line-height:1.8}
+.storytext p{margin-bottom:12px}
+.storytext .dropcap{font-family:'Bangers',cursive;font-size:2.6rem;color:var(--pumpkin);float:left;line-height:.8;margin:4px 8px 0 0}
+.sourcecard{border-radius:16px;padding:18px 20px;margin:14px 0;font-size:1rem;line-height:1.75}
+.sourcecard.srcA{background:#EAF6FF;border:3px solid var(--sky)}
+.sourcecard.srcB{background:#EFFAE6;border:3px solid var(--grass)}
+.sourcecard .srclabel{display:block;font-family:'Fredoka One',cursive;color:var(--navy);font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.sourcecard .srchead{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.15rem;margin-bottom:8px;display:block}
+.structuretable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem}
+.structuretable th{background:var(--navy);color:#fff;padding:10px;text-align:left;font-family:'Fredoka One',cursive;font-size:.9rem}
+.structuretable td{border:2px solid #E2E8F0;padding:10px;font-weight:700}
+.structuretable tr:nth-child(even) td{background:#F8FAFF}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:.95rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.hud::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:4px;background:linear-gradient(90deg,var(--blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--red) 66.66% 100%)}
+.opts-wide{grid-template-columns:1fr}
+.storytext .pnum{display:inline-block;min-width:22px;height:22px;line-height:22px;margin-right:8px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:900;text-align:center;vertical-align:2px}
+.brokensent{font-family:'Courier New',monospace;font-weight:700;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:12px;padding:10px 14px;margin:0 0 6px;font-size:1.05rem;word-break:break-word}
+.fillin.fillwide{width:100%;flex:1;min-width:0;font-size:1rem}
+.fillrow:has(.fillwide){flex-wrap:nowrap}
+@media(max-width:560px){.fillrow:has(.fillwide){flex-wrap:wrap}}
+.corrected{display:inline-block;margin-top:6px;font-family:'Courier New',monospace;background:#E5F7DC;color:#1E5A16;border-radius:8px;padding:6px 10px}
+.ruletable td:last-child{font-family:'Courier New',monospace;font-weight:700}
+.ruletable .q{color:var(--red)} .ruletable .c{color:var(--blue)} .ruletable .k{background:#FFF1C9;border-radius:4px;padding:0 2px}
+.picture svg{width:100%;height:auto;display:block}
+.picture{background:#F7FAFF;border:3px solid #DCE6F5;border-radius:18px;padding:12px;margin:14px 0}
+.scene svg{width:100%;height:auto;display:block;border-radius:16px}
+.scene{margin:8px 0 4px}
+.tricolor-line{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--red) 66.66% 100%);margin:6px 0 12px}
+.notebook{width:100%;min-height:170px;padding:12px 14px;border:3px solid #D9E0EC;border-radius:14px;font-family:inherit;font-size:1rem;line-height:1.6;color:var(--ink);background:#FFFDF7;resize:vertical}
+.notebook:focus{outline:none;border-color:var(--gold)}
+.wnlist{list-style:none;margin:10px 0 0;padding:0}
+.wnlist li{font-weight:800;margin:5px 0;padding:6px 12px;border-radius:10px;background:#F8FAFF;border:2px solid #E2E8F0}
+.wnlist li.ok{background:#E5F7DC;border-color:var(--grass);color:#1E5A16}
+.wnlist li.todo{background:#FFF0EA;border-color:var(--pumpkin);color:#8A3A10}
+.wnlist li.self{background:#FFF6E1;border-color:var(--gold);color:#6B4A00}
+.wnnote{font-size:.9rem;font-weight:700;color:#4a5666;margin-top:8px}
+.structuretable td{hyphens:auto;-webkit-hyphens:auto}
+@media(max-width:560px){.structuretable{font-size:.85rem}.structuretable th,.structuretable td{padding:7px}}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏗️ KCE Pathways — Grade 4-5 — Week 12</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 12 &bull; Reading</span>
+  <h1>Building Up Houston</h1>
+  <h2>Informative Writing: Paragraphs &amp; Transitions 🏗️</h2>
+  <div class="tricolor-line"></div>
+  <div class="box box-story">
+    <div class="icon">🏗️</div>
+    <h4>Your Assignment</h4>
+    <p>Cranes are swinging over Houston, Texas, where a new apartment building is rising out of the clay. Today you'll read an informative article about how that building goes up, from the deep foundation to the hurricane-ready windows to the crew who builds it. Your job: learn how writers build strong paragraphs, one floor at a time, then build your own.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we show the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with last week's skill: punctuating dialogue</li>
+      <li>Learn the parts of a strong paragraph: topic sentence, supporting details, and concluding sentence</li>
+      <li>Connect ideas with transition words like first, next, however, for example, as a result, and finally</li>
+      <li>Read the article, sort sentences into the right paragraph, and catch the off-topic sentence</li>
+      <li>Fix sentences, write your own paragraph, play the Match-Up game, race the Speed Trail, and beat the Boss Challenge!</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 12</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up: Week 11 Review</h2>
+<div class="box box-think">
+  <div class="icon">🧠</div>
+  <h4>Remember Last Week?</h4>
+  <p>Last week you punctuated <b>dialogue</b> on a snowy Wisconsin dairy farm: quotation marks around exact words, commas and end marks INSIDE the closing quotation mark, a capital letter to start each quote, and a new paragraph for each new speaker. Warm up those editing eyes. You'll need them again today!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="rv1_s0" data-pts="4" data-logic="When the tag comes after the quote, the spoken words end with a comma INSIDE the closing quotation mark, and only Marisol’s exact words go inside the quotation marks.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which sentence is punctuated CORRECTLY?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“The crane is ready,” Marisol said.</button><button class="opt">“The crane is ready.” Marisol said.</button><button class="opt">“The crane is ready”, Marisol said.</button><button class="opt">The crane is ready, “Marisol said.”</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s0" data-pts="4" data-logic="Every time a new character speaks, the writer starts a new paragraph (Week 11).">
+    <span class="pts">+4</span>
+    <p class="qtext">In a story, Marisol finishes talking, and then Andre answers her. What should the writer do when Andre starts speaking?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Start a new paragraph</button><button class="opt">Keep Andre’s words in the same paragraph</button><button class="opt">Leave out the quotation marks</button><button class="opt">Write Andre’s words in all capital letters</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="rv1_s1" data-pts="4" data-logic="The first word inside the quotation marks always gets a capital letter: Andre asked, “Where does the steel go?”">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake! Andre asked, “where does the steel go?” What is wrong?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The first word of the quote, “where,” should be capitalized.</button><button class="opt">The comma after “asked” should be removed.</button><button class="opt">The question mark should go outside the quotation mark.</button><button class="opt">“Andre” should not be capitalized.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s1" data-pts="4" data-logic="A question mark or exclamation point replaces the comma. You never use both, and the end mark stays inside the quotation marks (Week 11).">
+    <span class="pts">+4</span>
+    <p class="qtext">Look at this line: “Is the concrete dry?” Andre asked. Which explanation for why there is NO comma after “dry” is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The question mark takes the place of the comma, and it stays inside the closing quotation mark.</button><button class="opt">Commas are never used in dialogue.</button><button class="opt">The question mark should go outside the quotation marks.</button><button class="opt">The writer forgot the comma. It should be “Is the concrete dry?,” Andre asked.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="rv1_s2" data-pts="4" data-logic="Tag first: put a comma after the tag, capitalize the first word of the quote, and keep the period inside the closing quotation mark.">
+    <span class="pts">+4</span>
+    <p class="qtext">The dialogue tag comes FIRST in these sentences. Which one is punctuated CORRECTLY?</p>
+    <div class="opts"><button class="opt" data-c="1">Andre said, “The crane is tall.”</button><button class="opt">Andre said “The crane is tall.”</button><button class="opt">Andre said, “the crane is tall.”</button><button class="opt">Andre said, “The crane is tall”.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s2" data-pts="4" data-logic="When the tag comes after the quote, it continues the same sentence, so a pronoun like “she” stays lowercase: “We start at sunrise,” she said.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake! “We start at sunrise,” She said. What is wrong?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“She” should be lowercase, because the tag finishes the same sentence.</button><button class="opt">The comma should be a period.</button><button class="opt">The comma should go outside the quotation mark.</button><button class="opt">“We” should be lowercase.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully (no screen, just paper), then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<h2>🖼️ Picture It: Build a Paragraph Like a Building</h2>
+<div class="storytext">
+<p><span class="dropcap">I</span>nformative writing teaches the reader facts about a real topic. Each paragraph is built around ONE main idea, just like each floor of a building rests on the one below it. Look at how the parts stack up.</p>
+</div>
+<div class="picture"><svg viewBox="50 0 420 430" role="img" aria-label="A paragraph drawn as a building: the topic sentence on top, three supporting detail floors joined by transition words, and the concluding sentence at the base">
+<rect x="0" y="0" width="520" height="430" fill="#F7FAFF"/>
+<rect x="246" y="4" width="8" height="22" fill="#0A1F3D"/><path d="M254 6 h26 l-6 6 l6 6 h-26z" fill="#DB2F30"/>
+<rect x="70" y="26" width="380" height="74" rx="10" fill="#C9A84C" stroke="#0A1F3D" stroke-width="3"/>
+<text x="260" y="58" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="22" fill="#0A1F3D">TOPIC SENTENCE</text>
+<text x="260" y="84" text-anchor="middle" font-family="Nunito,sans-serif" font-size="17" font-weight="800" fill="#0A1F3D">tells the main idea</text>
+<g font-family="Nunito,sans-serif" font-weight="800">
+<rect x="90" y="108" width="340" height="62" fill="#0047BA" stroke="#0A1F3D" stroke-width="3"/>
+<text x="290" y="134" text-anchor="middle" font-size="18" fill="#fff">SUPPORTING DETAIL</text><text x="290" y="158" text-anchor="middle" font-size="16" fill="#DCE6F5">hard hats</text>
+<rect x="90" y="178" width="340" height="62" fill="#0047BA" stroke="#0A1F3D" stroke-width="3"/>
+<text x="290" y="204" text-anchor="middle" font-size="18" fill="#fff">SUPPORTING DETAIL</text><text x="290" y="228" text-anchor="middle" font-size="16" fill="#DCE6F5">steel-toe boots</text>
+<rect x="90" y="248" width="340" height="62" fill="#0047BA" stroke="#0A1F3D" stroke-width="3"/>
+<text x="290" y="274" text-anchor="middle" font-size="18" fill="#fff">SUPPORTING DETAIL</text><text x="290" y="298" text-anchor="middle" font-size="16" fill="#DCE6F5">bright vests</text>
+<rect x="100" y="122" width="86" height="34" rx="17" fill="#FFF1C9" stroke="#C9A84C" stroke-width="3"/><text x="143" y="145" text-anchor="middle" font-size="16" fill="#0A1F3D">First,</text>
+<rect x="100" y="192" width="86" height="34" rx="17" fill="#FFF1C9" stroke="#C9A84C" stroke-width="3"/><text x="143" y="215" text-anchor="middle" font-size="16" fill="#0A1F3D">Next,</text>
+<rect x="100" y="262" width="86" height="34" rx="17" fill="#FFF1C9" stroke="#C9A84C" stroke-width="3"/><text x="143" y="285" text-anchor="middle" font-size="16" fill="#0A1F3D">also</text>
+</g>
+<rect x="60" y="318" width="400" height="74" rx="6" fill="#0A1F3D" stroke="#C9A84C" stroke-width="3"/>
+<text x="260" y="350" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="22" fill="#C9A84C">CONCLUDING SENTENCE</text>
+<text x="260" y="376" text-anchor="middle" font-family="Nunito,sans-serif" font-size="17" font-weight="800" fill="#fff">wraps up the paragraph</text>
+<rect x="20" y="392" width="480" height="14" fill="#B5835A"/>
+<text x="260" y="424" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="800" fill="#0047BA">gold tags = transition words that connect the floors</text>
+</svg></div>
+<div class="box box-guided">
+  <div class="icon">📄</div>
+  <h4>A Model Paragraph</h4>
+  <p><span style="background:#FFF1C9;border-radius:4px;padding:0 3px"><b>Every worker on a building site wears safety gear.</b></span> <span style="color:#0047BA;font-weight:800">First,</span> each person puts on a hard hat to protect against falling objects. <span style="color:#0047BA;font-weight:800">Next,</span> workers lace up boots with steel toes. They <span style="color:#0047BA;font-weight:800">also</span> wear bright vests so the crane operator can see them. <span style="background:#E3E8F2;border-radius:4px;padding:0 3px"><b>Safety gear helps every member of the crew go home safe at the end of the day.</b></span></p>
+</div>
+<table class="structuretable">
+<tr><th>Part</th><th>Its job</th></tr>
+<tr><td>Topic sentence</td><td>States the main idea. It usually comes first.</td></tr>
+<tr><td>Supporting details</td><td>Facts, examples, and explanations that back up the main idea.</td></tr>
+<tr><td>Transition words</td><td>Connect one idea to the next so the reader can follow along.</td></tr>
+<tr><td>Concluding sentence</td><td>Wraps up the paragraph by restating the main idea in a new way.</td></tr>
+</table>
+<div class="box box-alert">
+  <div class="icon">⚠️</div>
+  <h4>Stay on One Idea</h4>
+  <p>Every sentence in a paragraph must support the topic sentence. If the safety-gear paragraph said, <i>&ldquo;My cousin loves pizza,&rdquo;</i> that sentence would be <b>off-topic</b>. It wanders away from the main idea, so a good writer takes it out.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🔗 Transition Words: Hallways Between Ideas</h2>
+<p>Transitions are like the hallways and stairs in a building. They lead the reader from one idea to the next. Each transition has a JOB, so pick the one that matches what you mean.</p>
+<table class="structuretable">
+<tr><th>Job</th><th>Transitions</th><th>Example</th></tr>
+<tr><td>Show order or steps</td><td>first, next, then, finally</td><td>First, the surveyor marks the corners. Next, the digging begins.</td></tr>
+<tr><td>Give an example</td><td>for example</td><td>Houston has many tall buildings. For example, some downtown towers are more than 70 stories tall.</td></tr>
+<tr><td>Show a contrast (a difference)</td><td>however</td><td>Wood is light and easy to cut. However, it can burn.</td></tr>
+<tr><td>Show an effect (what happened because of something)</td><td>as a result</td><td>The rain lasted all week. As a result, the crew could not pour concrete.</td></tr>
+<tr><td>Add another detail</td><td>also</td><td>Electricians run wires. They also install lights.</td></tr>
+</table>
+<div class="box box-think">
+  <div class="icon">✏️</div>
+  <h4>Comma Rule</h4>
+  <p>When a transition like <b>First</b>, <b>However</b>, <b>For example</b>, <b>As a result</b>, or <b>Finally</b> starts a sentence, put a <b>comma</b> right after it: <i>Finally, the inspector signs the papers.</i></p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Worked Example: Pick the Transition</h4>
+  <p><i>The crane broke down on Monday. ___, the steel delivery had to wait until Tuesday.</i></p>
+  <p style="margin-top:8px">Ask: how are these two ideas connected? The delivery waited <b>because</b> the crane broke. That is a cause and its effect, so the best transition is <b>As a result</b>. &ldquo;However&rdquo; would signal a difference, and &ldquo;For example&rdquo; would need an example of the first idea, so neither fits.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">informative writing</div><div class="flip-face flip-back">Writing that teaches the reader facts about a real topic.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">topic sentence</div><div class="flip-face flip-back">The sentence that tells the main idea of a paragraph. It usually comes first.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">supporting detail</div><div class="flip-face flip-back">A fact, example, or explanation that backs up the main idea.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">transition</div><div class="flip-face flip-back">A word or phrase, like first or however, that connects one idea to the next.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">concluding sentence</div><div class="flip-face flip-back">The last sentence of a paragraph. It wraps up the main idea.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">off-topic</div><div class="flip-face flip-back">A sentence that wanders away from the main idea and does not belong.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn: Using the Words</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="5" data-logic="The topic sentence states the main idea, and it usually comes first in the paragraph.">
+    <span class="pts">+5</span>
+    <p class="qtext">The sentence that tells the main idea of a paragraph is the ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Topic sentence</button><button class="opt">Concluding sentence</button><button class="opt">Supporting detail</button><button class="opt">Dialogue tag</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="5" data-ans="transition|transitions|transitional" data-logic="Words that connect one idea to the next are transition words.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: words like <i>first</i>, <i>next</i> and <i>however</i> that connect one idea to the next are called ___ words.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="5" data-logic="Supporting details are the facts, examples, and explanations that prove or explain the main idea.">
+    <span class="pts">+5</span>
+    <p class="qtext">Facts, examples, and explanations that back up the main idea are called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Supporting details</button><button class="opt">Topic sentences</button><button class="opt">Transitions</button><button class="opt">Off-topic sentences</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="5" data-ans="concluding|conclusion|closing|ending|final" data-logic="The sentence that wraps up a paragraph is the concluding sentence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: the last sentence of a paragraph, the one that wraps up the main idea, is called the ___ sentence.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="5" data-logic="Informative writing teaches facts about a real topic. Narrative writing tells a story, and persuasive writing tries to convince the reader.">
+    <span class="pts">+5</span>
+    <p class="qtext">Writing that teaches the reader facts about a real topic is called ___ writing.</p>
+    <div class="opts"><button class="opt" data-c="1">Informative</button><button class="opt">Narrative</button><button class="opt">Persuasive</button><button class="opt">Poetry</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="5" data-ans="off-topic|off topic|offtopic|unrelated|irrelevant" data-logic="A sentence that does not support the main idea is off-topic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: a sentence that wanders away from the main idea of a paragraph is called an ___ sentence.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>🏗️ How an Apartment Building Goes Up in Houston, Part 1</h2>
+<span class="nonfiction-tag">Informative Article</span>
+<div class="scene"><svg viewBox="0 0 640 300" role="img" aria-label="A cutaway view of an apartment building under construction in Houston, with a crane above and concrete piers reaching down through the clay soil to firmer ground">
+<rect width="640" height="170" fill="#BFE3FF"/>
+<circle cx="580" cy="42" r="24" fill="#FFD966"/>
+<g fill="#9DB4CF"><rect x="20" y="88" width="34" height="82"/><rect x="58" y="60" width="26" height="110"/><rect x="88" y="100" width="40" height="70"/><rect x="520" y="78" width="30" height="92"/><rect x="556" y="104" width="44" height="66"/><rect x="604" y="92" width="26" height="78"/></g>
+<rect x="230" y="40" width="10" height="130" fill="#E0A100"/><rect x="150" y="34" width="250" height="10" fill="#E0A100"/><rect x="226" y="18" width="18" height="18" fill="#0A1F3D"/>
+<line x1="372" y1="44" x2="372" y2="78" stroke="#0A1F3D" stroke-width="2"/><rect x="352" y="78" width="40" height="8" fill="#555"/>
+<text x="410" y="40" font-family="Nunito,sans-serif" font-size="16" font-weight="900" fill="#0A1F3D">crane</text>
+<g stroke="#7A8594" stroke-width="5" fill="none"><rect x="260" y="70" width="200" height="100"/><line x1="260" y1="103" x2="460" y2="103"/><line x1="260" y1="136" x2="460" y2="136"/><line x1="326" y1="70" x2="326" y2="170"/><line x1="393" y1="70" x2="393" y2="170"/></g>
+<g fill="#7CC6FF" opacity=".55"><rect x="266" y="140" width="54" height="26"/><rect x="332" y="140" width="55" height="26"/><rect x="399" y="140" width="55" height="26"/><rect x="266" y="107" width="54" height="25"/><rect x="332" y="107" width="55" height="25"/></g>
+<rect x="0" y="170" width="640" height="70" fill="#B5835A"/>
+<g fill="#9C6B44"><ellipse cx="60" cy="200" rx="18" ry="5"/><ellipse cx="160" cy="222" rx="14" ry="4"/><ellipse cx="520" cy="196" rx="16" ry="5"/><ellipse cx="600" cy="226" rx="12" ry="4"/></g>
+<rect x="0" y="240" width="640" height="60" fill="#8A7660"/>
+<g fill="#C9CED8" stroke="#0A1F3D" stroke-width="2"><rect x="270" y="170" width="16" height="100"/><rect x="352" y="170" width="16" height="100"/><rect x="434" y="170" width="16" height="100"/></g>
+<text x="24" y="212" font-family="Nunito,sans-serif" font-size="17" font-weight="900" fill="#fff">clay soil</text>
+<text x="24" y="276" font-family="Nunito,sans-serif" font-size="17" font-weight="900" fill="#fff">firmer ground</text>
+<text x="470" y="222" font-family="Nunito,sans-serif" font-size="17" font-weight="900" fill="#0A1F3D">piers</text>
+<line x1="466" y1="216" x2="452" y2="216" stroke="#0A1F3D" stroke-width="2"/>
+</svg></div>
+<div class="storytext">
+<p><span class="pnum">1</span>Across Houston, Texas, tall cranes swing above neighborhoods where new apartment buildings are rising. Houston is one of the largest cities in the United States, and thousands of new people move there every year. All of those people need homes. Building an apartment building takes careful planning, strong materials, and many skilled workers. In Houston, it also means dealing with tricky soil and powerful storms.</p>
+<p><span class="pnum">2</span>First, the crew must build a strong foundation, and in Houston that is a special challenge. Much of the ground under the city is clay soil. When it rains, the clay soaks up water and swells. When the weather is dry, the clay shrinks and cracks. This movement can push and pull on a building. For example, a foundation that rests only on the top layer of clay could crack as the ground rises and sinks. To solve this problem, workers drill deep holes and fill them with steel bars and concrete to make strong columns called piers. The piers reach down past the top layer of clay to firmer ground. As a result, the building rests on solid support that the shifting clay cannot easily move.</p>
+<p><span class="pnum">3</span>Next, the crew builds the frame, which is the skeleton of the building. The frame is made of steel and concrete. Ironworkers tie steel bars called rebar into grids, and then concrete is poured around the steel. Concrete is very strong when it is squeezed, but it can crack when it is stretched or bent. However, steel is strong when it is stretched. Together, the two materials make a frame that is much stronger than either one alone. Houston summers are very hot, so crews often pour concrete early in the morning, before the hottest part of the day.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p1_s0" data-pts="6" data-logic="Paragraph 2 says the clay “soaks up water and swells” when it rains and “shrinks and cracks” when it is dry, and that “this movement can push and pull on a building.”">
+    <span class="pts">+6</span>
+    <p class="qtext">According to paragraph 2, why is clay soil a problem for buildings?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It swells when it is wet and shrinks when it is dry, so it can push and pull on a building</button><button class="opt">It is too hard for workers to dig through</button><button class="opt">It is full of large rocks</button><button class="opt">It washes away completely every time it rains</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p1_s1" data-pts="6" data-logic="The first sentence names the main idea of the whole paragraph: building the frame. Every other sentence gives a detail about the frame.">
+    <span class="pts">+6</span>
+    <p class="qtext">Which sentence is the TOPIC SENTENCE of paragraph 3?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“Next, the crew builds the frame, which is the skeleton of the building.”</button><button class="opt">“Ironworkers tie steel bars called rebar into grids, and then concrete is poured around the steel.”</button><button class="opt">“However, steel is strong when it is stretched.”</button><button class="opt">“Houston summers are very hot, so crews often pour concrete early in the morning, before the hottest part of the day.”</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p1_s2" data-pts="6" data-logic="Paragraph 3 explains that concrete “can crack when it is stretched or bent,” but steel “is strong when it is stretched,” so “together, the two materials make a frame that is much stronger than either one alone.”">
+    <span class="pts">+6</span>
+    <p class="qtext">According to paragraph 3, why do builders use steel AND concrete together?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Concrete is strong when squeezed and steel is strong when stretched, so together they make a stronger frame</button><button class="opt">Steel keeps the concrete cool in the summer</button><button class="opt">Concrete dries faster when steel is inside it</button><button class="opt">Steel is easier to find than concrete in Houston</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>🏗️ How an Apartment Building Goes Up in Houston, Part 2</h2>
+<span class="nonfiction-tag">Informative Article</span>
+<div class="storytext">
+<p><span class="pnum">4</span>Houston sits near the Gulf of Mexico, so the building must also be ready for hurricanes. Hurricanes bring powerful winds and heavy rain. Engineers design the frame and roof to hold tight against strong winds, and builders install thick windows made to resist flying objects. Flooding is another danger. After Hurricane Harvey flooded large parts of Houston in 2017, the city passed stricter rules for building in areas that flood. As a result, many new buildings in those areas must have their lowest floor built higher off the ground, so floodwater is less likely to get inside.</p>
+<p><span class="pnum">5</span>Finally, none of this work could happen without a skilled crew. Surveyors measure the land and mark exactly where the building will stand. A crane operator lifts heavy loads of steel high into the air. Electricians run wires through the walls, and plumbers connect pipes for kitchens and bathrooms. City inspectors visit at each stage to check that the work is safe. Each worker has a different job, but they all work together as one team.</p>
+<p><span class="pnum">6</span>Building an apartment building in Houston is a big job with many steps. From the deep piers that hold steady in the clay, to the strong steel-and-concrete frame, to the storm-ready windows and raised floors, every part is planned with care. The next time you see a crane over a city, you will know how much teamwork goes into each new home.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p2_s0" data-pts="6" data-logic="The topic sentence says the building “must also be ready for hurricanes,” and every detail is about wind or flooding. The choice about Hurricane Harvey in 2017 is only one detail.">
+    <span class="pts">+6</span>
+    <p class="qtext">What is the MAIN IDEA of paragraph 4?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The building must be ready for hurricanes, including strong winds and flooding</button><button class="opt">Hurricane Harvey happened in 2017</button><button class="opt">Windows are made of glass</button><button class="opt">Electricians run wires through the walls</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p2_s1" data-pts="6" data-logic="Paragraph 4 says the city “passed stricter rules for building in areas that flood,” and “as a result,” many new buildings there must have “their lowest floor built higher off the ground.”">
+    <span class="pts">+6</span>
+    <p class="qtext">According to paragraph 4, what happened after Hurricane Harvey flooded Houston in 2017?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The city passed stricter rules, so many new buildings in flood areas must have their lowest floor built higher</button><button class="opt">The city stopped building apartments</button><button class="opt">Every building in Houston had to get new windows</button><button class="opt">Builders stopped using concrete</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p2_s2" data-pts="6" data-logic="Paragraph 6 looks back at the piers, the frame, and the storm-ready windows and floors, then leaves the reader with a final thought about the teamwork behind each new home.">
+    <span class="pts">+6</span>
+    <p class="qtext">How does paragraph 6 work as the CONCLUSION of the article?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It sums up the main parts of the build and ends with a final thought for the reader</button><button class="opt">It adds a brand-new topic about bridges</button><button class="opt">It explains the first step of building the foundation</button><button class="opt">It tells a story about one worker’s day</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>🧱 Paragraph Builder</h2>
+<p>Good writers keep each paragraph on ONE idea. Here is a map of the article's middle paragraphs. Use it to sort new sentences into the right place.</p>
+<table class="structuretable">
+<tr><th>Paragraph</th><th>Topic sentence starts&hellip;</th><th>Main idea</th></tr>
+<tr><td>2</td><td>&ldquo;First, the crew must build a strong foundation&hellip;&rdquo;</td><td>the foundation and the clay soil</td></tr>
+<tr><td>3</td><td>&ldquo;Next, the crew builds the frame&hellip;&rdquo;</td><td>the steel-and-concrete frame</td></tr>
+<tr><td>4</td><td>&ldquo;Houston sits near the Gulf of Mexico&hellip;&rdquo;</td><td>getting ready for hurricanes and floods</td></tr>
+<tr><td>5</td><td>&ldquo;Finally, none of this work could happen&hellip;&rdquo;</td><td>the crew</td></tr>
+</table>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pb1_s0" data-pts="5" data-logic="This sentence describes a job one of the workers does, so it belongs with the other crew jobs in paragraph 5.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sort it! Which paragraph of the article does this NEW sentence belong in? <i>“Plumbers test every pipe for leaks before the walls are closed up.”</i></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Paragraph 5: the crew</button><button class="opt">Paragraph 2: the foundation and the clay soil</button><button class="opt">Paragraph 3: the steel-and-concrete frame</button><button class="opt">Paragraph 4: getting ready for hurricanes and floods</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s0" data-pts="5" data-logic="The topic sentence is about planning for heavy rain. Sentences 2 and 3 support it, but the space center has nothing to do with rain, so sentence 4 is off-topic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Spot the off-topic sentence! Which sentence does NOT belong in this paragraph? <br><span style="font-weight:700">(1) Houston builders must plan for heavy rain. (2) Drains around the building carry water away quickly. (3) Some roofs slope so that rain runs off. (4) Houston is home to a famous space center.</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Sentence 4: “Houston is home to a famous space center.”</button><button class="opt">Sentence 1: “Houston builders must plan for heavy rain.”</button><button class="opt">Sentence 2: “Drains around the building carry water away quickly.”</button><button class="opt">Sentence 3: “Some roofs slope so that rain runs off.”</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pb1_s1" data-pts="5" data-logic="This sentence is about making the building strong enough for storms, so it belongs in paragraph 4 with the storm-ready windows.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sort it! Which paragraph of the article does this NEW sentence belong in? <i>“Some windows are tested by hitting them with flying boards to prove they can survive a storm.”</i></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Paragraph 4: getting ready for hurricanes and floods</button><button class="opt">Paragraph 2: the foundation and the clay soil</button><button class="opt">Paragraph 3: the steel-and-concrete frame</button><button class="opt">Paragraph 5: the crew</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s1" data-pts="5" data-logic="The topic sentence is about clay soil changing with the weather. A baseball team has nothing to do with clay soil, so sentence 3 is off-topic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Spot the off-topic sentence! Which sentence does NOT belong in this paragraph? <br><span style="font-weight:700">(1) Clay soil changes with the weather. (2) After a rainy week, it swells. (3) The Houston Astros play baseball downtown. (4) During a dry summer, it shrinks and cracks.</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Sentence 3: “The Houston Astros play baseball downtown.”</button><button class="opt">Sentence 1: “Clay soil changes with the weather.”</button><button class="opt">Sentence 2: “After a rainy week, it swells.”</button><button class="opt">Sentence 4: “During a dry summer, it shrinks and cracks.”</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pb1_s2" data-pts="5" data-logic="This sentence is about the piers and the clay soil, so it belongs in paragraph 2, which explains the foundation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sort it! Which paragraph of the article does this NEW sentence belong in? <i>“The deeper the piers go, the less the swelling clay can push them around.”</i></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Paragraph 2: the foundation and the clay soil</button><button class="opt">Paragraph 3: the steel-and-concrete frame</button><button class="opt">Paragraph 4: getting ready for hurricanes and floods</button><button class="opt">Paragraph 5: the crew</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pb2_s2" data-pts="5" data-logic="The topic sentence is about the workers who share the job. Hurricane season is not about workers, so sentence 3 is off-topic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Spot the off-topic sentence! Which sentence does NOT belong in this paragraph? <br><span style="font-weight:700">(1) Many workers share the job of building. (2) Electricians run the wires. (3) Hurricane season begins in June. (4) Plumbers connect the pipes.</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Sentence 3: “Hurricane season begins in June.”</button><button class="opt">Sentence 1: “Many workers share the job of building.”</button><button class="opt">Sentence 2: “Electricians run the wires.”</button><button class="opt">Sentence 4: “Plumbers connect the pipes.”</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>🔍 Transition Detective</h2>
+<p>Pick the transition that does the right JOB, and choose the explanation that is really correct. Read every choice carefully, because the wrong ones are sneaky!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="td1_s0" data-pts="6" data-logic="A calm morning and a stormy afternoon are opposites, so the writer needs a contrast transition: However.">
+    <span class="pts">+6</span>
+    <p class="qtext">Choose the best transition: <i>The morning was cool and calm. ___, the afternoon brought a thunderstorm, and the crew had to stop work.</i></p>
+    <div class="opts"><button class="opt" data-c="1">However</button><button class="opt">For example</button><button class="opt">First</button><button class="opt">As a result</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="td2_s0" data-pts="6" data-logic="“As a result” signals cause and effect. The piers (the cause) reach firmer ground, so the building has solid support (the effect).">
+    <span class="pts">+6</span>
+    <p class="qtext">In paragraph 2, the writer starts the last sentence with “As a result.” Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It shows an effect: the building has solid support because of the deep piers described just before it.</button><button class="opt">It introduces an example of clay soil.</button><button class="opt">It shows a contrast with the sentence before it.</button><button class="opt">It tells the reader that this is the first step of the build.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="td1_s1" data-pts="6" data-logic="Builders put in drains BECAUSE of the heavy rain. That is cause and effect, so “As a result” fits.">
+    <span class="pts">+6</span>
+    <p class="qtext">Choose the best transition: <i>Houston gets heavy rainstorms. ___, builders put in drains that carry rainwater away quickly.</i></p>
+    <div class="opts"><button class="opt" data-c="1">As a result</button><button class="opt">However</button><button class="opt">For example</button><button class="opt">First</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="td2_s1" data-pts="6" data-logic="“For example” must be followed by an example of the idea before it. When the crew went home tells nothing about steel’s strength.">
+    <span class="pts">+6</span>
+    <p class="qtext">Find the mistake! Sam wrote: <i>“Steel is strong when it is stretched. For example, the crew went home at five o’clock.”</i> Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The second sentence is not an example of steel’s strength, so “For example” does not fit, and the sentence is off-topic.</button><button class="opt">“For example” must always start a new paragraph.</button><button class="opt">The writer should use “For example” in every sentence.</button><button class="opt">Nothing is wrong. Any transition can join any two sentences.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="td1_s2" data-pts="6" data-logic="Crane operators are one example of the “many different workers,” so “For example” fits.">
+    <span class="pts">+6</span>
+    <p class="qtext">Choose the best transition: <i>Many different workers help build an apartment building. ___, crane operators lift steel high into the air.</i></p>
+    <div class="opts"><button class="opt" data-c="1">For example</button><button class="opt">However</button><button class="opt">As a result</button><button class="opt">Finally</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="td2_s2" data-pts="6" data-logic="A tall crane does not cause the crew to eat lunch, so “As a result” makes no sense there. The other pairs show a real effect, a real contrast, and a real next step.">
+    <span class="pts">+6</span>
+    <p class="qtext">Find the mistake! Which pair of sentences uses a transition INCORRECTLY?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The crane is very tall. As a result, the crew ate lunch.</button><button class="opt">The ground was dry for weeks. As a result, the clay shrank.</button><button class="opt">Clay swells when it is wet. However, it shrinks when it is dry.</button><button class="opt">Workers drilled the holes. Next, they filled them with concrete.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>🛠️ Fix the Sentence</h2>
+<div class="box box-guided">
+  <div class="icon">✏️</div>
+  <h4>Be the Editor</h4>
+  <p>Retype each sentence with the mistakes fixed. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake. Straight or curly apostrophes both work.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="fs1_s0" data-pts="4" data-exact="1" data-ans="First, the crew drills deep holes for the piers." data-logic="When a transition like “First” starts a sentence, put a comma right after it.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: add the comma after the transition word.</p>
+    <p class="brokensent">First the crew drills deep holes for the piers.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s0" data-pts="4" data-exact="1" data-ans="The crew in Houston worked all through July." data-logic="Capitalize the first word of a sentence, the name of a city (Houston), and the name of a month (July).">
+    <span class="pts">+4</span>
+    <p class="qtext">Capitalization: fix the three capital-letter mistakes.</p>
+    <p class="brokensent">the crew in houston worked all through july.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s0" data-pts="4" data-exact="1" data-ans="The workers pour the concrete at sunrise." data-logic="“Workers” is plural, so it needs the plural verb “pour,” not “pours.”">
+    <span class="pts">+4</span>
+    <p class="qtext">Grammar: fix the verb so it agrees with the subject.</p>
+    <p class="brokensent">The workers pours the concrete at sunrise.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s0" data-pts="4" data-exact="1" data-ans="Why does clay soil swell when it rains?" data-logic="This sentence asks a question, so it ends with a question mark.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: fix the end mark.</p>
+    <p class="brokensent">Why does clay soil swell when it rains.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="fs1_s1" data-pts="4" data-exact="1" data-ans="However, the storm passed quickly." data-logic="When “However” starts a sentence, put a comma right after it.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: add the comma after the transition word.</p>
+    <p class="brokensent">However the storm passed quickly.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s1" data-pts="4" data-exact="1" data-ans="Hurricane Harvey flooded Houston in 2017." data-logic="Capitalize the first word of the sentence, the name of a storm (Hurricane Harvey), and the name of a city (Houston).">
+    <span class="pts">+4</span>
+    <p class="qtext">Capitalization: fix the three capital-letter mistakes.</p>
+    <p class="brokensent">hurricane harvey flooded houston in 2017.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s1" data-pts="4" data-exact="1" data-ans="The ironworkers tied their steel bars into grids." data-logic="“Their” shows that something belongs to someone. The steel bars belong to the ironworkers, so use “their.”">
+    <span class="pts">+4</span>
+    <p class="qtext">Grammar: fix the there / their / they’re mistake.</p>
+    <p class="brokensent">The ironworkers tied there steel bars into grids.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s1" data-pts="4" data-exact="1" data-ans="The crane&#x27;s arm swung over the street." data-logic="To show that something belongs to one owner, add an apostrophe and s: the crane’s arm.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: add an apostrophe to show that the arm belongs to one crane.</p>
+    <p class="brokensent">The cranes arm swung over the street.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="fs1_s2" data-pts="4" data-exact="1" data-ans="As a result, the building stayed dry." data-logic="When “As a result” starts a sentence, put a comma right after it.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: add the comma after the transition.</p>
+    <p class="brokensent">As a result the building stayed dry.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s2" data-pts="4" data-exact="1" data-ans="The city of Houston is near the Gulf of Mexico." data-logic="Capitalize the first word of the sentence, the city name (Houston), and both important words in the name of a body of water (Gulf, Mexico).">
+    <span class="pts">+4</span>
+    <p class="qtext">Capitalization: fix the four capital-letter mistakes.</p>
+    <p class="brokensent">the city of houston is near the gulf of mexico.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s2" data-pts="4" data-exact="1" data-ans="Each worker wears a hard hat." data-logic="“Each worker” means one worker, so it needs the singular verb “wears.”">
+    <span class="pts">+4</span>
+    <p class="qtext">Grammar: fix the verb so it agrees with the subject.</p>
+    <p class="brokensent">Each worker wear a hard hat.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s2" data-pts="4" data-exact="1" data-ans="The building isn&#x27;t finished yet." data-logic="“Isn’t” is a contraction of “is not.” The apostrophe takes the place of the missing letter o.">
+    <span class="pts">+4</span>
+    <p class="qtext">Punctuation: add the missing apostrophe in the contraction.</p>
+    <p class="brokensent">The building isnt finished yet.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>📓 Writer's Notebook: Build Your Own Paragraph</h2>
+<div class="box box-story">
+  <div class="icon">✍️</div>
+  <h4>Your Turn to Write</h4>
+  <p>Write an informative paragraph of <b>4 to 6 sentences</b> about one building or structure in your own community, like a barn, a bridge, a library, a school, or a store. Or write about one job on the Houston crew.</p>
+  <ul class="tips">
+    <li>Start with a <b>topic sentence</b> that tells the main idea.</li>
+    <li>Add at least <b>two supporting details</b> that stay on that one idea.</li>
+    <li>Use at least <b>two transition words</b> (first, next, however, for example, as a result, finally, also).</li>
+    <li>End with a <b>concluding sentence</b> that wraps it up.</li>
+  </ul>
+</div>
+<textarea class="notebook" id="wnText" placeholder="Start with your topic sentence here..." spellcheck="true"></textarea>
+<div class="nav" style="margin-top:10px"><span></span><button class="btn btn-pri" id="wnCheck">Check My Paragraph</button></div>
+<ul class="wnlist" id="wnList"></ul>
+<p class="wnnote">Writer's Notebook is practice. It builds XP, not Pathway Points. Reread your paragraph and make sure every sentence stays on your main idea.</p>
+<h3>Now Think Like a Writer</h3>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="wf_s0" data-pts="6" data-logic="A concluding sentence wraps up the main idea (the crane operator’s important job) in a new way. The other choices add an off-topic detail, repeat a detail, or jump to a new topic.">
+    <span class="pts">+6</span>
+    <p class="qtext">Read this paragraph. Which sentence is the best CONCLUDING sentence? <br><span style="font-weight:700">A crane operator has one of the most important jobs on a building site. First, the operator climbs a ladder to a small cab high above the ground. Next, a signal person on the ground uses hand signals and a radio to guide each lift. For example, the operator might lift a bundle of steel bars to the fifth floor. ___</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">With skill and teamwork, the crane operator helps the whole building rise.</button><button class="opt">Some cranes are painted yellow.</button><button class="opt">First, the operator climbs a ladder to the cab.</button><button class="opt">However, plumbers connect the pipes.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="wf_s1" data-pts="6" data-logic="Every detail is about finishing the inside of the building, so the topic sentence must state that main idea.">
+    <span class="pts">+6</span>
+    <p class="qtext">Read this paragraph. Which sentence is the best TOPIC sentence? <br><span style="font-weight:700">___ First, workers paint the walls and put in kitchen cabinets. Next, electricians install lights and outlets. Finally, a city inspector checks everything before families move in.</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Before families can move in, the inside of the building must be finished.</button><button class="opt">Houston is a big city.</button><button class="opt">Concrete is strong when it is squeezed.</button><button class="opt">Finally, families move in.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="wf_s2" data-pts="6" data-logic="The concluding sentence should wrap up the main idea (working safely in the summer heat). The other choices go off-topic, repeat a detail word for word, or use the wrong transition.">
+    <span class="pts">+6</span>
+    <p class="qtext">Read this paragraph. Which sentence is the best CONCLUDING sentence? <br><span style="font-weight:700">Houston summers are hard on building crews. Temperatures often climb above 90 degrees. As a result, many crews start work at sunrise. Workers also take water breaks in the shade. ___</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Planning around the heat keeps workers safe while the building rises.</button><button class="opt">Houston has many parks.</button><button class="opt">Temperatures often climb above 90 degrees.</button><button class="opt">However, it is hot.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a word on the left, then its meaning on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick paragraph questions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-q="tt1" data-pts="4" data-bonus="1" data-logic="However signals a difference between two ideas.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which transition shows a CONTRAST?</p>
+    <div class="opts"><button class="opt" data-c="1">However</button><button class="opt">First</button><button class="opt">For example</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt2" data-pts="4" data-bonus="1" data-logic="The topic sentence usually comes first, so the reader knows the main idea right away.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Where does the topic sentence usually go?</p>
+    <div class="opts"><button class="opt" data-c="1">At the beginning of the paragraph</button><button class="opt">In the middle</button><button class="opt">At the very end</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt3" data-pts="4" data-bonus="1" data-logic="Finally tells the reader this is the last step.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which transition signals the LAST step?</p>
+    <div class="opts"><button class="opt" data-c="1">Finally</button><button class="opt">First</button><button class="opt">Next</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>👑 Boss Challenge</h2>
+<div class="box box-alert">
+<div class="icon">👑</div>
+<h4>Think Like an Editor</h4>
+<p>These take two steps: first find the main idea, then check every sentence, transition, and capital letter against it.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="8" data-logic="Every sentence should support the topic sentence about planning for hurricanes. Lunchtime has nothing to do with hurricanes, so sentence 4 must go, and a real hurricane detail makes the paragraph stronger.">
+    <span class="pts">+8</span>
+    <p class="qtext">Two-step: read the paragraph, find the off-topic sentence, then choose the best fix. <br><span style="font-weight:700">(1) Houston builders must plan for hurricanes. (2) First, engineers design roofs that hold tight in strong winds. (3) Next, builders install thick windows that resist flying objects. (4) For example, the crane operator eats lunch at noon. (5) As a result, the building can stand up to a storm.</span></p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Sentence 4 is off-topic. Replace it with a hurricane detail, such as “Builders also raise the lowest floor to keep floodwater out.”</button><button class="opt">Sentence 1 is off-topic. Move it to the end of the paragraph.</button><button class="opt">Sentence 5 is off-topic. Change “As a result” to “However.”</button><button class="opt">Sentence 2 is off-topic. Change “First” to “Finally.”</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="8" data-logic="The correct paragraph has the topic sentence first, details joined by order transitions (First, Next), and a concluding sentence last. The others put the conclusion first, use “However” where there is no contrast, or include an off-topic sentence about a dog.">
+    <span class="pts">+8</span>
+    <p class="qtext">Two-step: check the ORDER and the TRANSITIONS. Which paragraph is organized CORRECTLY?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Cranes help build tall buildings. First, a crane lifts steel to the top floors. Next, it lowers heavy tools to the workers. Without cranes, tall buildings would take much longer to build.</button><button class="opt">Without cranes, tall buildings would take much longer to build. First, a crane lifts steel to the top floors. Next, it lowers heavy tools to the workers. Cranes help build tall buildings.</button><button class="opt">Cranes help build tall buildings. However, a crane lifts steel to the top floors. However, it lowers heavy tools to the workers. Without cranes, tall buildings would take much longer to build.</button><button class="opt">Cranes help build tall buildings. First, a crane lifts steel to the top floors. My dog loves the park. Without cranes, tall buildings would take much longer to build.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="8" data-logic="B states the main idea, so it is the topic sentence. Then the transitions show the order: First (D), Next (C), Finally (A).">
+    <span class="pts">+8</span>
+    <p class="qtext">Two-step: find the topic sentence, then use the transitions to put the sentences in order. <br><span style="font-weight:700">A. Finally, workers pour concrete to fill each hole. &nbsp;B. Building a foundation in clay soil takes several steps. &nbsp;C. Next, they lower a cage of steel bars into each hole. &nbsp;D. First, workers drill deep holes.</span></p>
+    <div class="opts"><button class="opt" data-c="1">B, D, C, A</button><button class="opt">D, C, A, B</button><button class="opt">A, C, D, B</button><button class="opt">B, A, C, D</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="8" data-logic="“However” is for ideas that are different or opposite. Plumbers connecting pipes simply adds another job to the list, so an adding transition such as “Also” fits.">
+    <span class="pts">+8</span>
+    <p class="qtext">Mia wrote: <i>“The crew has many different jobs. Electricians run the wires. However, plumbers connect the pipes.”</i> Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“However” signals a contrast, but plumbers connecting pipes is just another job, not an opposite idea. A word like “Also” fits better.</button><button class="opt">“However” is correct because electricians and plumbers are different people.</button><button class="opt">The paragraph needs “As a result” because electricians cause the plumbing.</button><button class="opt">Transition words should never be used in informative writing.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="8" data-logic="B states the main idea, so it comes first. First (C) and Next (D) give the steps in order, and “As a result” (A) tells the effect of those steps, so it comes last.">
+    <span class="pts">+8</span>
+    <p class="qtext">Two-step: find the topic sentence, then use the transitions to put the sentences in order. <br><span style="font-weight:700">A. As a result, the building stays dry during big storms. &nbsp;B. Houston builders work hard to keep floodwater out. &nbsp;C. First, they raise the lowest floor higher off the ground. &nbsp;D. Next, they add drains that carry rainwater away.</span></p>
+    <div class="opts"><button class="opt" data-c="1">B, C, D, A</button><button class="opt">C, D, A, B</button><button class="opt">A, B, C, D</button><button class="opt">B, D, C, A</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="8" data-logic="Correct: First, the crew pours concrete. Next, it hardens. Each sentence starts with a capital letter, and an opening transition like “First” is followed by a comma.">
+    <span class="pts">+8</span>
+    <p class="qtext">Two-step: Jordan wrote <b>first the crew pours concrete. next, it hardens.</b> Which list names ALL of the mistakes?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Capitalize First, add a comma after First, and capitalize Next</button><button class="opt">Capitalize First only</button><button class="opt">Add a comma after First and remove the comma after next</button><button class="opt">Capitalize crew and concrete</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Finished!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🏗️</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Make sure your Post-Lesson Challenge sheet is finished too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 12 complete &mdash; Week 13 is next!</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 18;
+const FINAL_INDEX = 17;
+const MODULE_ID = 'grade4-5-week12-reading';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS = 10;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    let name='Unnamed Student'; try{ name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student'; }catch(e){}
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically. Tell your parent or teacher your score.';});
+  }catch(e){}
+}
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) lsSet('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())lsSet('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())lsSet('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = lsGet('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = lsGet('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+  document.querySelectorAll('.qbox[data-fq] .fillin').forEach(inp=>inp.addEventListener('keydown', e=>{ if(e.key==='Enter'){ const b=inp.parentNode.querySelector('[data-check]'); if(b) b.click(); } }));
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(n){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464','#7CC6FF']; const count=n||28; for(let i=0;i<count;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); if(!b.animate){ setTimeout(()=>b.remove(),2000); continue; } const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function bigConfetti(){ for(let w=0;w<6;w++) setTimeout(()=>confetti(90), w*450); }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); if(!s) return; const d=s.querySelector('.nav + .dots'); if(!d) return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; }
+const CURRENT_SET = getAttemptSetIndex();
+// Self-check: every question set must total exactly 100 Pathway Points.
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]:not(#trailQset) .qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); return t; }
+const MATCH_PAIRS_SETS = [[["topic sentence", "tells the main idea"], ["supporting detail", "a fact or example that backs up the main idea"], ["transition", "connects one idea to the next"], ["concluding sentence", "wraps up the paragraph"], ["informative writing", "teaches facts about a real topic"]], [["however", "shows a contrast"], ["for example", "introduces an example"], ["as a result", "shows an effect"], ["first", "shows the first step"], ["finally", "shows the last step"]], [["off-topic sentence", "does not fit the main idea"], ["paragraph", "a group of sentences about one idea"], ["pier", "a deep column that holds up a building"], ["rebar", "steel bars inside concrete"], ["next", "shows the step that comes after"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  shuffle(facts); shuffle(prods);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  prods.forEach(p=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=lsGet(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=lsGet(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ lsSet(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above. <br><b>Why:</b> <span class="why"></span> No points this time, but you’ve got this next time!';
+      fb.querySelector('.why').textContent=box.dataset.logic||'';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet. Reread carefully and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+// Exact-match checking for Fix the Sentence and Punctuate the Conversation:
+// curly quotes become straight quotes, extra spaces are removed, and everything else must match exactly.
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′`´]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const exact=box.dataset.exact==='1';
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  let matched;
+  if(exact){ matched = String(box.dataset.ans).split('||').some(a=>normSentence(val)===normSentence(a)); }
+  else { const cleanVal=val.toLowerCase().replace(/\.$/,''); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z]|$)').test(cleanVal)); }
+  if(matched){
+    state.answered['fill-'+fid]=true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split(exact?'||':'|')[0];
+      fb.innerHTML=(exact?'📚 Here is the corrected sentence:':'📚 The answer is:')+'<br><span class="corrected"></span><br><b>Why:</b> <span class="why"></span> No points this time, but you’ve got this next time!';
+      fb.querySelector('.corrected').textContent=correctAnswer;
+      fb.querySelector('.why').textContent=box.dataset.logic||'';
+      fb.className='feedback show bad';
+    } else {
+      fb.textContent = exact ? '❌ Not yet. Check every comma, apostrophe, capital letter, end mark, and verb, then try again.' : '❌ Not yet. Reread and try again.';
+      fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Lesson Mastered';
+    document.getElementById('finalHeadline').textContent='Paragraph Builder!';
+    document.getElementById('finalMessageHeading').textContent='🎉 Master paragraph builder! Your paragraphs now stand on a strong foundation, just like the new apartment building rising over Houston!';
+    document.getElementById('finalMessageBody').textContent='Amazing work! You scored '+sc+'/100. Today you mastered informative paragraphs: a topic sentence that states the main idea, supporting details that stay on that one idea, transition words like first, next, however, for example, as a result, and finally that connect each idea to the next, and a concluding sentence that wraps it all up. You sorted sentences into the right paragraph and caught off-topic sentences the way a Houston city inspector catches a problem before it gets built in. Your results go to KingCretot Experience. Tell your parent or teacher your score, and remember to finish your Post-Lesson Challenge sheet.';
+    playFanfare(); bigConfetti();
+  } else {
+    document.getElementById('finalBadge').textContent='Lesson Complete';
+    document.getElementById('finalHeadline').textContent='Keep Going!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You’re getting closer, and every try makes you stronger.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Strong paragraphs take practice, even for real writers! Look back at the paragraph tower (topic sentence first, details joined by transition words, and a concluding sentence last) and the transition chart, then hit Play Again. You’ll get a fresh set of questions next try. Your results go to KingCretot Experience. Remember to finish your Post-Lesson Challenge sheet too.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+
+// Writer's Notebook: unscored practice paragraph. Builds XP only, never Pathway Points.
+const WN_TRANSITIONS=['first','second','third','next','then','however','for example','for instance','as a result','finally','also','in addition','after that','because of this','last','lastly','in conclusion','to begin','meanwhile','another'];
+let wnRewarded=false;
+function wnSentences(t){ t=t.replace(/\b(Mrs|Mr|Ms|Dr)\./g,'$1'); return (t.match(/[^.!?]+[.!?]+/g)||[]).map(x=>x.trim()).filter(x=>x.split(/\s+/).filter(Boolean).length>=3); }
+function checkNotebook(){
+  const ta=document.getElementById('wnText'), list=document.getElementById('wnList'); if(!ta||!list) return;
+  const t=ta.value.trim(); list.innerHTML='';
+  const add=(cls,txt)=>{ const li=document.createElement('li'); li.className=cls; li.textContent=txt; list.appendChild(li); };
+  if(!t){ add('todo','✏️ Type your paragraph first!'); return; }
+  const n=wnSentences(t).length; const low=t.toLowerCase();
+  const found=WN_TRANSITIONS.filter(w=>new RegExp('(^|[^a-z])'+w+'([^a-z]|$)').test(low));
+  const okLen=n>=4&&n<=6, okTr=found.length>=2, okCap=/^[A-Z"“]/.test(t)&&/[.!?]["”]?$/.test(t);
+  add(okLen?'ok':'todo', okLen?('✅ '+n+' sentences (goal: 4 to 6)'):('🔧 '+n+' complete sentence'+(n===1?'':'s')+' so far (goal: 4 to 6)'));
+  add(okTr?'ok':'todo', okTr?('✅ Transition words: '+found.join(', ')):('🔧 Transition words found: '+(found.length?found.join(', '):'none yet')+' (goal: at least 2)'));
+  add(okCap?'ok':'todo', okCap?'✅ Starts with a capital letter and ends with an end mark':'🔧 Start with a capital letter and end with a period, question mark, or exclamation point');
+  add('self','🔍 Self-check: Does your FIRST sentence tell the main idea?');
+  add('self','🔍 Self-check: Does every sentence stay on that ONE idea?');
+  add('self','🔍 Self-check: Does your LAST sentence wrap it up?');
+  if(okLen&&okTr&&okCap&&!wnRewarded){ wnRewarded=true; addXP(15); addCoins(3); playRight(); confetti(); levelup('Notebook paragraph built! ✍️ +15 XP'); }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const b=document.getElementById('wnCheck'); if(b) b.addEventListener('click', checkNotebook); });
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

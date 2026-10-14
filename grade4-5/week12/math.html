@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 12: The Houston Apartment Build (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+.decwork .steps i{font-style:italic}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏗️ KCE Pathways — Grade 4-5 — Week 12</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 12 &bull; Math</span>
+  <h1>The Houston Apartment Build</h1>
+  <h2>Equivalent Fractions, Simplifying &amp; Mixed Numbers 🏗️</h2>
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Meet Amara</h4>
+  <p>Amara is 11 and is homeschooled in Houston, Texas. Her aunt, Ms. Grace Okafor, is the project engineer for a new six-story apartment building, and this week Amara is helping the crew from the site office. Tile layouts, floor plans, pipe lengths, and rebar bundles: every job on her list is a fraction problem.</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🏆</div>
+  <h4>How Pathway Points Work</h4>
+  <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+</div>
+<div class="box box-real">
+  <div class="icon">🗺️</div>
+  <h4>Today's Quest</h4>
+  <ul class="tips">
+      <li>Warm up with last week&rsquo;s factors, multiples, and GCF</li>
+      <li>Use tile models to see why fractions like 1/2 and 4/8 are equal</li>
+      <li>Find equivalent fractions by multiplying or dividing by n/n</li>
+      <li>Use the greatest common factor to write fractions in simplest form</li>
+      <li>Change pipe and rebar lengths between mixed numbers and improper fractions</li>
+      <li>Spot mistakes, pick the right explanation, and fix math sentences</li>
+    </ul>
+</div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 12</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up: Week 11 Review</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>You Already Know This</h4>
+  <p>Last week on the dairy farm you found factors, multiples, prime numbers, the GCF, and the LCM. Today the GCF becomes a power tool: it is the fastest way to simplify a fraction. Show what you remember.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_s0" data-pts="3" data-ans="6" data-logic="Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. The greatest factor they share is 6. Today you will use a GCF like this to simplify 12/18.">
+    <span class="pts">+3</span>
+    <p class="qtext">GCF (Week 11): type the greatest common factor of 12 and 18.</p>
+    <div class="fillrow"><span class="eq">GCF of 12 and 18 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="3" data-logic="23 has only two factors, 1 and 23. 21 = 3 × 7, 25 = 5 × 5, and 27 = 3 × 9, so those are composite.">
+    <span class="pts">+3</span>
+    <p class="qtext">Prime and composite (Week 11): which number is prime?</p>
+    <div class="opts"><button class="opt" data-c="1">23</button><button class="opt">21</button><button class="opt">25</button><button class="opt">27</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s0" data-pts="3" data-logic="Multiples of 4: 4, 8, 12. Multiples of 6: 6, 12. The first one they share is 12. (24 is a common multiple, but not the least one. 2 is the GCF.)">
+    <span class="pts">+3</span>
+    <p class="qtext">LCM (Week 11): what is the least common multiple of 4 and 6?</p>
+    <div class="opts"><button class="opt" data-c="1">12</button><button class="opt">24</button><button class="opt">2</button><button class="opt">10</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s0" data-pts="3" data-ans="7" data-logic="8 × 7 = 56, so 7 and 8 are a factor pair of 56.">
+    <span class="pts">+3</span>
+    <p class="qtext">Factor pairs (Week 11): type the missing factor.</p>
+    <div class="fillrow"><span class="eq">8 &times; ? = 56</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r1_s1" data-pts="3" data-ans="8" data-logic="Factors of 16: 1, 2, 4, 8, 16. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. The greatest factor they share is 8. Today you will use a GCF like this to simplify 16/24.">
+    <span class="pts">+3</span>
+    <p class="qtext">GCF (Week 11): type the greatest common factor of 16 and 24.</p>
+    <div class="fillrow"><span class="eq">GCF of 16 and 24 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="3" data-logic="33 = 3 × 11, so it has more than two factors. 31, 37, and 29 each have only two factors, so they are prime.">
+    <span class="pts">+3</span>
+    <p class="qtext">Prime and composite (Week 11): which number is composite?</p>
+    <div class="opts"><button class="opt" data-c="1">33</button><button class="opt">31</button><button class="opt">37</button><button class="opt">29</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s1" data-pts="3" data-logic="Multiples of 3: 3, 6, 9, 12. Multiples of 4: 4, 8, 12. The first one they share is 12. (24 is a common multiple, but not the least one. 6 is not a multiple of 4.)">
+    <span class="pts">+3</span>
+    <p class="qtext">LCM (Week 11): what is the least common multiple of 3 and 4?</p>
+    <div class="opts"><button class="opt" data-c="1">12</button><button class="opt">7</button><button class="opt">24</button><button class="opt">6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s1" data-pts="3" data-ans="6" data-logic="9 × 6 = 54, so 6 and 9 are a factor pair of 54.">
+    <span class="pts">+3</span>
+    <p class="qtext">Factor pairs (Week 11): type the missing factor.</p>
+    <div class="fillrow"><span class="eq">9 &times; ? = 54</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r1_s2" data-pts="3" data-ans="10" data-logic="Factors of 20: 1, 2, 4, 5, 10, 20. Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30. The greatest factor they share is 10. Today you will use a GCF like this to simplify 20/30.">
+    <span class="pts">+3</span>
+    <p class="qtext">GCF (Week 11): type the greatest common factor of 20 and 30.</p>
+    <div class="fillrow"><span class="eq">GCF of 20 and 30 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="3" data-logic="41 has only two factors, 1 and 41. 39 = 3 × 13, 49 = 7 × 7, and 51 = 3 × 17, so those are composite.">
+    <span class="pts">+3</span>
+    <p class="qtext">Prime and composite (Week 11): which number is prime?</p>
+    <div class="opts"><button class="opt" data-c="1">41</button><button class="opt">39</button><button class="opt">49</button><button class="opt">51</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r3_s2" data-pts="3" data-logic="Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The first one they share is 24. (48 is a common multiple, but not the least one. 2 is the GCF.)">
+    <span class="pts">+3</span>
+    <p class="qtext">LCM (Week 11): what is the least common multiple of 6 and 8?</p>
+    <div class="opts"><button class="opt" data-c="1">24</button><button class="opt">48</button><button class="opt">14</button><button class="opt">2</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s2" data-pts="3" data-ans="9" data-logic="7 × 9 = 63, so 7 and 9 are a factor pair of 63.">
+    <span class="pts">+3</span>
+    <p class="qtext">Factor pairs (Week 11): type the missing factor.</p>
+    <div class="fillrow"><span class="eq">7 &times; ? = 63</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<h2>🏗️ Building an Apartment in the Bayou City</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<svg viewBox="0 0 520 190" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="An apartment building under construction with a tower crane"><rect x="0" y="0" width="520" height="190" rx="16" fill="#E0F6FF"/><circle cx="36" cy="32" r="18" fill="#C9A84C"/><rect x="0" y="160" width="520" height="30" fill="#B9A58A"/><rect x="150" y="136" width="220" height="20" fill="#F2E8D5" stroke="#0A1F3D" stroke-width="1.5"/><rect x="162" y="141" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="196" y="141" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="298" y="141" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="332" y="141" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="150" y="116" width="220" height="20" fill="#F2E8D5" stroke="#0A1F3D" stroke-width="1.5"/><rect x="162" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="196" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="230" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="264" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="298" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="332" y="121" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="150" y="96" width="220" height="20" fill="#F2E8D5" stroke="#0A1F3D" stroke-width="1.5"/><rect x="162" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="196" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="230" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="264" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="298" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="332" y="101" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="150" y="76" width="220" height="20" fill="#F2E8D5" stroke="#0A1F3D" stroke-width="1.5"/><rect x="162" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="196" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="230" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="264" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="298" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="332" y="81" width="18" height="11" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="1"/><rect x="150" y="72" width="220" height="4" fill="#9AA5B1"/><rect x="150" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="186" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="222" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="258" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="294" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="330" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="366" y="56" width="4" height="20" fill="#9AA5B1"/><rect x="150" y="52" width="220" height="4" fill="#9AA5B1"/><rect x="150" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="186" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="222" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="258" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="294" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="330" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="366" y="36" width="4" height="20" fill="#9AA5B1"/><rect x="150" y="16" width="220" height="4" fill="#9AA5B1"/><rect x="248" y="136" width="24" height="24" fill="#0047BA"/><rect x="408" y="20" width="10" height="140" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="300" y="14" width="190" height="8" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="470" y="22" width="16" height="14" fill="#0A1F3D"/><line x1="320" y1="22" x2="320" y2="70" stroke="#0A1F3D" stroke-width="2"/><rect x="306" y="70" width="28" height="8" fill="#DB2F30"/><rect x="112" y="96" width="7" height="64" fill="#8A5A00"/><path d="M115 98 q-28 -10 -40 6 M115 98 q28 -12 40 4 M115 98 q-12 -24 -30 -24 M115 98 q14 -24 32 -22" stroke="#3D8A30" stroke-width="6" fill="none" stroke-linecap="round"/><rect x="14" y="140" width="56" height="18" rx="3" fill="#DB2F30"/><rect x="70" y="146" width="20" height="12" rx="2" fill="#0A1F3D"/><circle cx="28" cy="160" r="6" fill="#0A1F3D"/><circle cx="78" cy="160" r="6" fill="#0A1F3D"/></svg>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: Building in Houston</h4>
+  <p>Houston is the largest city in Texas and the fourth-largest city in the United States. It is nicknamed the &ldquo;Bayou City&rdquo; because slow-moving waterways called bayous wind through it. Summers are long and hot, so construction crews often start very early in the morning. Steel bars called <b>rebar</b> go inside concrete to make it stronger, and every pipe and tile has to be measured carefully, often in parts of a foot.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">👷🏾‍♀️</div>
+  <h4>Meet the Crew</h4>
+  <ul class="tips">
+    <li><b>Ms. Grace Okafor</b>, project engineer and Amara&rsquo;s aunt, checks that every part of the building fits the plans</li>
+    <li><b>Ms. Priya Patel</b>, the architect, draws the floor plans on a grid</li>
+    <li><b>Diego Ramírez</b>, the tile setter, designs the floor tile patterns</li>
+    <li><b>Mr. Thanh Nguyen</b>, the plumber, cuts and joins the pipes</li>
+    <li><b>Darnell Brooks</b> leads the rebar crew and cuts the steel bars</li>
+  </ul>
+</div>
+<div class="box box-alert">
+  <div class="icon">📋</div>
+  <h4>Amara&rsquo;s Job This Week</h4>
+  <p>Show that different tile patterns cover the same amount of floor, write the floor plan fractions in simplest form, and change pipe and rebar lengths between mixed numbers and improper fractions.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🖼️ Picture It: Same Floor, Different Tiles</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Equivalent Fractions Name the Same Amount</h4>
+  <p>Diego is tiling three hallways that are exactly the same size. Hallway A uses 2 big tiles, Hallway B uses 4 medium tiles, and Hallway C uses 8 small tiles. In every hallway, the blue tiles reach the same dashed line.</p>
+</div>
+<svg viewBox="0 0 520 176" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="Three hallway floors of the same size: 1 of 2 tiles blue, 2 of 4 tiles blue, and 4 of 8 tiles blue"><text x="8" y="28" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">Hallway A</text><text x="8" y="48" font-family="Nunito,sans-serif" font-weight="900" font-size="21" fill="#0047BA">1/2 blue</text><rect x="140.0" y="12" width="185.0" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="325.0" y="12" width="185.0" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><text x="8" y="84" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">Hallway B</text><text x="8" y="104" font-family="Nunito,sans-serif" font-weight="900" font-size="21" fill="#0047BA">2/4 blue</text><rect x="140.0" y="68" width="92.5" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="232.5" y="68" width="92.5" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="325.0" y="68" width="92.5" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="417.5" y="68" width="92.5" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><text x="8" y="140" font-family="Nunito,sans-serif" font-weight="800" font-size="19" fill="#0A1F3D">Hallway C</text><text x="8" y="160" font-family="Nunito,sans-serif" font-weight="900" font-size="21" fill="#0047BA">4/8 blue</text><rect x="140.0" y="124" width="46.2" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="186.2" y="124" width="46.2" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="232.5" y="124" width="46.2" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="278.8" y="124" width="46.2" height="40" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="325.0" y="124" width="46.2" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="371.2" y="124" width="46.2" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="417.5" y="124" width="46.2" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="463.8" y="124" width="46.2" height="40" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><line x1="325" y1="4" x2="325" y2="172" stroke="#C9A84C" stroke-width="3" stroke-dasharray="6 5"/></svg>
+<div class="decwork">
+  1/2 = 2/4 = 4/8
+  <div class="steps">
+  <b>Same amount of blue:</b> each hallway is half blue, so 1/2, 2/4, and 4/8 are <b>equivalent fractions</b>.<br>
+  <b>Smaller tiles, more of them:</b> from Hallway A to Hallway B, each tile is cut in 2. There are 2 times as many tiles in all (2 &rarr; 4) <i>and</i> 2 times as many blue tiles (1 &rarr; 2).<br>
+  <b>The pattern:</b> the numerator and the denominator change by the <b>same</b> factor. That is the secret to every equivalent fraction.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>✖️ Multiply or Divide by n/n</h2>
+<div class="box box-think">
+  <div class="icon">💡</div>
+  <h4>Why It Works</h4>
+  <p>Any number (except 0) over itself equals 1: 2/2 = 1, 3/3 = 1, 4/4 = 1. Multiplying or dividing by 1 never changes a number&rsquo;s value. So when you multiply or divide the numerator and denominator by the <b>same</b> number, you get an equivalent fraction.</p>
+</div>
+<div class="decwork">
+  2/7 &times; 4/4 = 8/28
+  <div class="steps">
+  <b>Problem:</b> Write 2/7 using 28ths.<br>
+  <b>Step 1 &mdash; Compare the denominators:</b> 7 &times; 4 = 28, so the number to use is 4.<br>
+  <b>Step 2 &mdash; Multiply by 4/4:</b> 2 &times; 4 = 8 and 7 &times; 4 = 28.<br>
+  <b>Answer:</b> 2/7 = 8/28.
+  </div>
+</div>
+<div class="decwork">
+  14/16 &divide; 2/2 = 7/8
+  <div class="steps">
+  <b>Problem:</b> Diego&rsquo;s tile chart shows 14/16 of a floor finished. Write it using eighths.<br>
+  <b>Step 1 &mdash; Compare the denominators:</b> 16 &divide; 2 = 8, so the number to use is 2.<br>
+  <b>Step 2 &mdash; Divide by 2/2:</b> 14 &divide; 2 = 7 and 16 &divide; 2 = 8.<br>
+  <b>Answer:</b> 14/16 = 7/8.
+  </div>
+</div>
+<div class="box box-alert">
+  <div class="icon">⚠️</div>
+  <h4>Watch Out: Never Add!</h4>
+  <p>Adding the same number to the top and bottom does <b>not</b> make an equivalent fraction. Add 1 to the top and bottom of 1/2 and you get 2/3, but 2/3 is more than 1/2. Always multiply or divide by the same number.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn: Equivalent Fractions</h2>
+<span class="setnotice" id="setNotice6" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e1_s0" data-pts="4" data-ans="8|8/12" data-logic="3 × 4 = 12, so multiply by 4/4. The numerator becomes 2 × 4 = 8. So 2/3 = 8/12.">
+    <span class="pts">+4</span>
+    <p class="qtext">Multiply the numerator and denominator by the same number. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">2/3 = ?/12</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="4" data-logic="Multiply by 3/3: 3 × 3 = 9 and 4 × 3 = 12, so 3/4 = 9/12. 6/12 is only 1/2, and 3/8 is smaller than 3/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is equivalent to 3/4?</p>
+    <div class="opts"><button class="opt" data-c="1">9/12</button><button class="opt">6/12</button><button class="opt">3/8</button><button class="opt">4/5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s0" data-pts="4" data-logic="Divide by 5/5: 10 ÷ 5 = 2 and 15 ÷ 5 = 3, so 10/15 = 2/3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Divide the numerator and denominator by the same number. Which fraction equals 10/15?</p>
+    <div class="opts"><button class="opt" data-c="1">2/3</button><button class="opt">5/10</button><button class="opt">1/5</button><button class="opt">3/5</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e1_s1" data-pts="4" data-ans="12|12/20" data-logic="5 × 4 = 20, so multiply by 4/4. The numerator becomes 3 × 4 = 12. So 3/5 = 12/20.">
+    <span class="pts">+4</span>
+    <p class="qtext">Multiply the numerator and denominator by the same number. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">3/5 = ?/20</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="4" data-logic="Multiply by 3/3: 2 × 3 = 6 and 5 × 3 = 15, so 2/5 = 6/15. In 4/15 and 2/10, the numerator and denominator were not multiplied by the same number.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is equivalent to 2/5?</p>
+    <div class="opts"><button class="opt" data-c="1">6/15</button><button class="opt">4/15</button><button class="opt">2/10</button><button class="opt">5/2</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s1" data-pts="4" data-logic="Divide by 4/4: 12 ÷ 4 = 3 and 16 ÷ 4 = 4, so 12/16 = 3/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Divide the numerator and denominator by the same number. Which fraction equals 12/16?</p>
+    <div class="opts"><button class="opt" data-c="1">3/4</button><button class="opt">2/3</button><button class="opt">1/4</button><button class="opt">4/3</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e1_s2" data-pts="4" data-ans="15|15/18" data-logic="6 × 3 = 18, so multiply by 3/3. The numerator becomes 5 × 3 = 15. So 5/6 = 15/18.">
+    <span class="pts">+4</span>
+    <p class="qtext">Multiply the numerator and denominator by the same number. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">5/6 = ?/18</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="4" data-logic="Multiply by 2/2: 4 × 2 = 8 and 7 × 2 = 14, so 4/7 = 8/14. In 8/7 and 4/14, only one part was doubled.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is equivalent to 4/7?</p>
+    <div class="opts"><button class="opt" data-c="1">8/14</button><button class="opt">8/7</button><button class="opt">4/14</button><button class="opt">7/4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e3_s2" data-pts="4" data-logic="Divide by 7/7: 14 ÷ 7 = 2 and 21 ÷ 7 = 3, so 14/21 = 2/3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Divide the numerator and denominator by the same number. Which fraction equals 14/21?</p>
+    <div class="opts"><button class="opt" data-c="1">2/3</button><button class="opt">1/3</button><button class="opt">1/2</button><button class="opt">3/2</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>📐 Simplest Form with the GCF</h2>
+<div class="box box-story">
+  <div class="icon">📐</div>
+  <h4>Ms. Patel&rsquo;s Floor Plan</h4>
+  <p>Ms. Patel draws one floor of the building on a grid of 36 squares. The 24 gold squares are apartments, and the gray squares are hallways and stairs. So 24/36 of the floor is apartments. Can we write that fraction with smaller numbers?</p>
+</div>
+<svg viewBox="0 0 184 184" width="184" height="184" style="max-width:100%;height:auto;display:block;margin:10px auto" role="img" aria-label="A floor plan grid of 36 squares in 6 rows. The top 4 rows, 24 squares, are apartments."><rect x="2" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="2" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="32" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="62" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="92" width="30" height="30" fill="#C9A84C" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="122" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="32" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="62" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="92" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="122" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="152" y="152" width="30" height="30" fill="#E2E8F0" stroke="#0A1F3D" stroke-width="1.5"/><rect x="2" y="2" width="180" height="180" fill="none" stroke="#0A1F3D" stroke-width="3"/></svg>
+<div class="decwork">
+  24/36 = 2/3
+  <div class="steps">
+  <b>The slow way &mdash; small steps:</b> divide by 2/2 to get 12/18, by 2/2 again to get 6/9, then by 3/3 to get 2/3. It works, but it takes three steps.<br>
+  <b>The fast way &mdash; use the GCF:</b><br>
+  Factors of 24: 1, 2, 3, 4, 6, 8, <b>12</b>, 24 &nbsp;&bull;&nbsp; Factors of 36: 1, 2, 3, 4, 6, 9, <b>12</b>, 18, 36<br>
+  The greatest common factor is 12. Divide by 12/12: 24 &divide; 12 = 2 and 36 &divide; 12 = 3. Done in one step!<br>
+  <b>Check:</b> the only common factor of 2 and 3 is 1, so 2/3 is in simplest form. Look at the grid: 4 of the 6 rows are gold, and 4/6 = 2/3.
+  </div>
+</div>
+<div class="box box-guided">
+  <div class="icon">🧩</div>
+  <h4>Simplest Form Means&hellip;</h4>
+  <p>A fraction is in <b>simplest form</b> when the numerator and denominator have no common factor except 1. Dividing by the GCF gets you there in one step.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>✍️ Your Turn: Simplify It</h2>
+<span class="setnotice" id="setNotice8" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="s1_s0" data-pts="4" data-ans="3/4" data-logic="The GCF of 15 and 20 is 5. 15 ÷ 5 = 3 and 20 ÷ 5 = 4, so 15/20 = 3/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Simplify using the GCF. Type the fraction in simplest form.</p>
+    <div class="fillrow"><span class="eq">15/20 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s2_s0" data-pts="4" data-logic="Factors of 16: 1, 2, 4, 8, 16. Factors of 40: 1, 2, 4, 5, 8, 10, 20, 40. The GCF is 8, so 16/40 ÷ 8/8 = 2/5 in one step. Dividing by 4 or 2 works, but takes more steps.">
+    <span class="pts">+4</span>
+    <p class="qtext">Ms. Patel wants to simplify 16/40 in ONE step. What number should she divide the numerator and denominator by?</p>
+    <div class="opts"><button class="opt" data-c="1">8</button><button class="opt">4</button><button class="opt">2</button><button class="opt">16</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s3_s0" data-pts="4" data-logic="5 and 8 have no common factor except 1, so 5/8 is in simplest form. 6/9 = 2/3, 4/10 = 2/5, and 8/12 = 2/3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is already in simplest form?</p>
+    <div class="opts"><button class="opt" data-c="1">5/8</button><button class="opt">6/9</button><button class="opt">4/10</button><button class="opt">8/12</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="s1_s1" data-pts="4" data-ans="3/5" data-logic="The GCF of 18 and 30 is 6. 18 ÷ 6 = 3 and 30 ÷ 6 = 5, so 18/30 = 3/5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Simplify using the GCF. Type the fraction in simplest form.</p>
+    <div class="fillrow"><span class="eq">18/30 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s2_s1" data-pts="4" data-logic="Factors of 27: 1, 3, 9, 27. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The GCF is 9, so 27/36 ÷ 9/9 = 3/4 in one step. 6 and 4 are not factors of 27.">
+    <span class="pts">+4</span>
+    <p class="qtext">Ms. Patel wants to simplify 27/36 in ONE step. What number should she divide the numerator and denominator by?</p>
+    <div class="opts"><button class="opt" data-c="1">9</button><button class="opt">3</button><button class="opt">6</button><button class="opt">4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s3_s1" data-pts="4" data-logic="9 and 15 share the factor 3: 9/15 = 3/5. In 7/9, 5/12, and 8/11, the only common factor is 1.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is NOT in simplest form?</p>
+    <div class="opts"><button class="opt" data-c="1">9/15</button><button class="opt">7/9</button><button class="opt">5/12</button><button class="opt">8/11</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="s1_s2" data-pts="4" data-ans="5/7" data-logic="The GCF of 20 and 28 is 4. 20 ÷ 4 = 5 and 28 ÷ 4 = 7, so 20/28 = 5/7.">
+    <span class="pts">+4</span>
+    <p class="qtext">Simplify using the GCF. Type the fraction in simplest form.</p>
+    <div class="fillrow"><span class="eq">20/28 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s2_s2" data-pts="4" data-logic="Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30. Factors of 45: 1, 3, 5, 9, 15, 45. The GCF is 15, so 30/45 ÷ 15/15 = 2/3 in one step. 9 is not a factor of 30.">
+    <span class="pts">+4</span>
+    <p class="qtext">Ms. Patel wants to simplify 30/45 in ONE step. What number should she divide the numerator and denominator by?</p>
+    <div class="opts"><button class="opt" data-c="1">15</button><button class="opt">5</button><button class="opt">3</button><button class="opt">9</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="s3_s2" data-pts="4" data-logic="7 and 10 have no common factor except 1, so 7/10 is in simplest form. 6/14 = 3/7, 9/12 = 3/4, and 12/20 = 3/5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which fraction is already in simplest form?</p>
+    <div class="opts"><button class="opt" data-c="1">7/10</button><button class="opt">6/14</button><button class="opt">9/12</button><button class="opt">12/20</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today&rsquo;s words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">fraction</div><div class="flip-face flip-back">A number that names part of a whole or part of a group, like 3/4.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">numerator</div><div class="flip-face flip-back">The top number. It tells how many equal parts you have.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">denominator</div><div class="flip-face flip-back">The bottom number. It tells how many equal parts make one whole.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">equivalent fractions</div><div class="flip-face flip-back">Fractions that name the same amount, like 1/2 and 4/8.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">simplest form</div><div class="flip-face flip-back">A fraction whose numerator and denominator have no common factor except 1.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">greatest common factor (GCF)</div><div class="flip-face flip-back">The biggest factor two numbers share. Divide by it to simplify in one step.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">improper fraction</div><div class="flip-face flip-back">A fraction with a numerator greater than or equal to its denominator, like 11/4.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">mixed number</div><div class="flip-face flip-back">A whole number and a fraction together, like 2&nbsp;3/4.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice10" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="3" data-logic="Fractions that name the same amount are equivalent fractions.">
+    <span class="pts">+3</span>
+    <p class="qtext">Fractions that name the same amount, like 1/2 and 2/4, are called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent fractions</button><button class="opt">Improper fractions</button><button class="opt">Mixed numbers</button><button class="opt">Unit fractions</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="3" data-ans="denominator|denominators" data-logic="The denominator is the bottom number. In 3/4, the denominator 4 means the whole is cut into 4 equal parts.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: the bottom number of a fraction, which tells how many equal parts make one whole, is the ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="3" data-logic="A fraction whose numerator is greater than or equal to its denominator is an improper fraction. 7/4 is more than one whole.">
+    <span class="pts">+3</span>
+    <p class="qtext">What do we call a fraction like 7/4, whose numerator is greater than its denominator?</p>
+    <div class="opts"><button class="opt" data-c="1">Improper fraction</button><button class="opt">Mixed number</button><button class="opt">Simplest form</button><button class="opt">Unit fraction</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="3" data-ans="numerator|numerators" data-logic="The numerator is the top number. In 3/4, the numerator 3 means you have 3 of the 4 equal parts.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: the top number of a fraction, which tells how many parts you have, is the ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="3" data-logic="When the only common factor left is 1, you cannot divide any further, so the fraction is in simplest form.">
+    <span class="pts">+3</span>
+    <p class="qtext">A fraction is in simplest form when the greatest common factor of its numerator and denominator is ___.</p>
+    <div class="opts"><button class="opt" data-c="1">1</button><button class="opt">0</button><button class="opt">2</button><button class="opt">The denominator</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="3" data-ans="number|numbers|mixed number|mixed numbers" data-logic="A whole number written with a fraction, like 1 1/2, is a mixed number.">
+    <span class="pts">+3</span>
+    <p class="qtext">Type your answer: a whole number and a fraction together, like 1&nbsp;1/2, is called a mixed ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>🔧 Mixed Numbers and Improper Fractions</h2>
+<div class="box box-story">
+  <div class="icon">🔧</div>
+  <h4>Mr. Nguyen&rsquo;s Pipe</h4>
+  <p>Mr. Nguyen measures a pipe in fourths of a foot. It is 11 fourths long: 11/4 feet. That is an <b>improper fraction</b> because the numerator is bigger than the denominator. On the number line you can see it is also <b>2 whole feet and 3/4 of a foot</b>.</p>
+</div>
+<svg viewBox="0 0 520 130" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A number line from 0 to 3 feet marked in fourths. A pipe reaches 11/4 feet, which is 2 and 3/4 feet."><rect x="30" y="22" width="418" height="16" rx="6" fill="#9AA5B1" stroke="#0A1F3D" stroke-width="1.5"/><line x1="30" y1="70" x2="486" y2="70" stroke="#0A1F3D" stroke-width="3"/><line x1="30" y1="60" x2="30" y2="80" stroke="#0A1F3D" stroke-width="3"/><text x="30" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="20" fill="#0A1F3D">0</text><line x1="68" y1="64" x2="68" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="106" y1="64" x2="106" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="144" y1="64" x2="144" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="182" y1="60" x2="182" y2="80" stroke="#0A1F3D" stroke-width="3"/><text x="182" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="20" fill="#0A1F3D">1</text><line x1="220" y1="64" x2="220" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="258" y1="64" x2="258" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="296" y1="64" x2="296" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="334" y1="60" x2="334" y2="80" stroke="#0A1F3D" stroke-width="3"/><text x="334" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="20" fill="#0A1F3D">2</text><line x1="372" y1="64" x2="372" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="410" y1="64" x2="410" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="448" y1="64" x2="448" y2="76" stroke="#0A1F3D" stroke-width="2"/><line x1="486" y1="60" x2="486" y2="80" stroke="#0A1F3D" stroke-width="3"/><text x="486" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="20" fill="#0A1F3D">3</text><line x1="448" y1="40" x2="448" y2="70" stroke="#DB2F30" stroke-width="2" stroke-dasharray="4 3"/><circle cx="448" cy="70" r="7" fill="#DB2F30"/><text x="408" y="122" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="19" fill="#DB2F30">11/4 = 2 3/4 feet</text><text x="30" y="16" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#0A1F3D">pipe</text></svg>
+<div class="decwork">
+  Improper &rarr; Mixed: 11/4 = 2&nbsp;3/4
+  <div class="steps">
+  <b>Divide the numerator by the denominator:</b> 11 &divide; 4 = 2 R3.<br>
+  <b>The quotient is the whole number:</b> 2 whole feet.<br>
+  <b>The remainder is the new numerator:</b> 3 fourths are left over, so 11/4 = 2&nbsp;3/4.
+  </div>
+</div>
+<div class="decwork">
+  Mixed &rarr; Improper: 2&nbsp;4/5 = 14/5
+  <div class="steps">
+  <b>Problem:</b> Darnell needs a bar that is 2&nbsp;4/5 feet long. How many fifths is that?<br>
+  <b>Step 1 &mdash; Change the wholes to fifths:</b> 1 whole = 5 fifths, so 2 wholes = 2 &times; 5 = 10 fifths.<br>
+  <b>Step 2 &mdash; Add the extra fifths:</b> 10 + 4 = 14.<br>
+  <b>Answer:</b> 2&nbsp;4/5 = 14/5. The denominator stays the same.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>✍️ Your Turn: Mixed Numbers</h2>
+<span class="setnotice" id="setNotice12" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="m1_s0" data-pts="4" data-logic="13 ÷ 4 = 3 R1. That is 3 wholes with 1 fourth left over, so 13/4 = 3 1/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which mixed number equals 13/4?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;1/4</button><button class="opt">4&nbsp;1/3</button><button class="opt">1&nbsp;3/4</button><button class="opt">3&nbsp;3/4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s0" data-pts="4" data-ans="8|8/3" data-logic="2 wholes = 2 × 3 = 6 thirds. Add the 2 thirds: 6 + 2 = 8. So 2 2/3 = 8/3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Change the mixed number to an improper fraction. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">2&nbsp;2/3 = ?/3</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s0" data-pts="4" data-logic="7 ÷ 2 = 3 R1. That is 3 whole feet and 1 half foot, so 7/2 feet = 3 1/2 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Nguyen cuts a pipe that is 7/2 feet long. Which mixed number is the same length?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;1/2 feet</button><button class="opt">2&nbsp;1/2 feet</button><button class="opt">3&nbsp;1/7 feet</button><button class="opt">7&nbsp;1/2 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="m1_s1" data-pts="4" data-logic="17 ÷ 5 = 3 R2. That is 3 wholes with 2 fifths left over, so 17/5 = 3 2/5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which mixed number equals 17/5?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;2/5</button><button class="opt">2&nbsp;3/5</button><button class="opt">5&nbsp;2/3</button><button class="opt">3&nbsp;3/5</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s1" data-pts="4" data-ans="13|13/4" data-logic="3 wholes = 3 × 4 = 12 fourths. Add the 1 fourth: 12 + 1 = 13. So 3 1/4 = 13/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Change the mixed number to an improper fraction. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">3&nbsp;1/4 = ?/4</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s1" data-pts="4" data-logic="11 ÷ 3 = 3 R2. That is 3 whole feet and 2 thirds of a foot, so 11/3 feet = 3 2/3 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Nguyen cuts a pipe that is 11/3 feet long. Which mixed number is the same length?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;2/3 feet</button><button class="opt">2&nbsp;2/3 feet</button><button class="opt">3&nbsp;1/3 feet</button><button class="opt">11&nbsp;1/3 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="m1_s2" data-pts="4" data-logic="19 ÷ 6 = 3 R1. That is 3 wholes with 1 sixth left over, so 19/6 = 3 1/6.">
+    <span class="pts">+4</span>
+    <p class="qtext">Which mixed number equals 19/6?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;1/6</button><button class="opt">6&nbsp;1/3</button><button class="opt">2&nbsp;1/6</button><button class="opt">3&nbsp;5/6</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s2" data-pts="4" data-ans="23|23/5" data-logic="4 wholes = 4 × 5 = 20 fifths. Add the 3 fifths: 20 + 3 = 23. So 4 3/5 = 23/5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Change the mixed number to an improper fraction. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">4&nbsp;3/5 = ?/5</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s2" data-pts="4" data-logic="15 ÷ 4 = 3 R3. That is 3 whole feet and 3 fourths of a foot, so 15/4 feet = 3 3/4 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Mr. Nguyen cuts a pipe that is 15/4 feet long. Which mixed number is the same length?</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;3/4 feet</button><button class="opt">3&nbsp;1/4 feet</button><button class="opt">4&nbsp;1/4 feet</button><button class="opt">15&nbsp;3/4 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>🟦 Real World: The Lobby Tiles</h2>
+<span class="setnotice" id="setNotice13" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🟦</div>
+  <h4>The Situation</h4>
+  <p>Diego Ramírez, the tile setter, is covering a lobby floor with 24 square tiles. 18 of the tiles are blue, and the rest are white.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🟦</div>
+  <h4>The Situation</h4>
+  <p>Diego Ramírez, the tile setter, is covering a laundry room floor with 40 square tiles. 15 of the tiles are gray, and the rest are white.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🟦</div>
+  <h4>The Situation</h4>
+  <p>Diego Ramírez, the tile setter, is covering a hallway floor with 32 square tiles. 20 of the tiles are blue, and the rest are white.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="1/4" data-logic="Step 1: 24 − 18 = 6 white tiles, so 6/24 of the floor is white. Step 2: the GCF of 6 and 24 is 6. 6 ÷ 6 = 1 and 24 ÷ 6 = 4, so the answer is 1/4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find how many tiles are white, then type the fraction of the floor that is white, in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction that is white =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="5/8" data-logic="Step 1: 40 − 15 = 25 white tiles, so 25/40 of the floor is white. Step 2: the GCF of 25 and 40 is 5. 25 ÷ 5 = 5 and 40 ÷ 5 = 8, so the answer is 5/8.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find how many tiles are white, then type the fraction of the floor that is white, in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction that is white =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="3/8" data-logic="Step 1: 32 − 20 = 12 white tiles, so 12/32 of the floor is white. Step 2: the GCF of 12 and 32 is 4. 12 ÷ 4 = 3 and 32 ÷ 4 = 8, so the answer is 3/8.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: find how many tiles are white, then type the fraction of the floor that is white, in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction that is white =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🔩 Real World: Pipes and Rebar</h2>
+<span class="setnotice" id="setNotice14" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🔩</div>
+  <h4>The Situation</h4>
+  <p>Mr. Thanh Nguyen, the plumber, lines up 14 short pieces of pipe end to end. Each piece is 1/3 foot long.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🔩</div>
+  <h4>The Situation</h4>
+  <p>Darnell Brooks leads the rebar crew. The building plan says one steel bar must be 3&nbsp;3/8 feet long, and the crew's cutting chart lists every length in eighths of a foot.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🔩</div>
+  <h4>The Situation</h4>
+  <p>Mr. Thanh Nguyen, the plumber, lines up 17 short pieces of pipe end to end. Each piece is 1/4 foot long.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Step 1: 14 pieces of 1/3 foot make 14/3 feet. Step 2: 14 ÷ 3 = 4 R2, so 14/3 = 4 2/3 feet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: write the total length as an improper fraction, then change it to a mixed number. How long is the line of pipe?</p>
+    <div class="opts"><button class="opt" data-c="1">4&nbsp;2/3 feet</button><button class="opt">4&nbsp;1/3 feet</button><button class="opt">3&nbsp;2/3 feet</button><button class="opt">14&nbsp;1/3 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="27|27/8|27/8 feet|27/8 ft" data-logic="Step 1: 3 whole feet = 3 × 8 = 24 eighths. Step 2: 24 + 3 = 27, so 3 3/8 feet = 27/8 feet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: count the eighths in the whole feet, then add the extra eighths. Type the missing numerator.</p>
+    <div class="fillrow"><span class="eq">3&nbsp;3/8 feet = ?/8 feet</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Step 1: 17 pieces of 1/4 foot make 17/4 feet. Step 2: 17 ÷ 4 = 4 R1, so 17/4 = 4 1/4 feet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps: write the total length as an improper fraction, then change it to a mixed number. How long is the line of pipe?</p>
+    <div class="opts"><button class="opt" data-c="1">4&nbsp;1/4 feet</button><button class="opt">3&nbsp;1/4 feet</button><button class="opt">4&nbsp;3/4 feet</button><button class="opt">17&nbsp;1/4 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>🕵️ Think It Through: Explain and Find the Mistake</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">💭</div>
+  <h4>Be the Checker</h4>
+  <p>Getting an answer is only half the job. Can you tell WHY an answer is right, and spot exactly where someone else went wrong?</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="x1_s0" data-pts="5" data-logic="Multiplying the numerator and denominator by the same number is the same as multiplying by 1 (3/3 = 1), so the value stays the same. Adding numbers does not keep fractions equal.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why is 3/5 equal to 9/15?</p>
+    <div class="opts"><button class="opt" data-c="1">3/5 × 3/3 = 9/15, and 3/3 equals 1, so the amount does not change.</button><button class="opt">3 + 6 = 9 and 5 + 10 = 15, so the fractions match.</button><button class="opt">9/15 has bigger numbers, so it is the same as any smaller fraction.</button><button class="opt">15 − 9 = 6, and 6 is a multiple of 3.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="5" data-logic="6/9 is equal to 12/18, but 6 and 9 still have a common factor of 3, so it is not in simplest form. The GCF of 12 and 18 is 6: 12 ÷ 6 = 2 and 18 ÷ 6 = 3, so 12/18 = 2/3.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Kiara simplified 12/18 and got 6/9. She says 6/9 is in simplest form. What did she do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">6 and 9 still share the factor 3. Dividing the numerator and denominator of 12/18 by the GCF, 6, gives 2/3.</button><button class="opt">She should have multiplied 12/18 by 2/2 instead of dividing.</button><button class="opt">6/9 is not equal to 12/18.</button><button class="opt">She is right. 6/9 is in simplest form.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="x1_s1" data-pts="5" data-logic="Four fourths make 1 whole. 17 fourths make 4 groups of 4 fourths (4 wholes) with 1 fourth left over, so 17/4 = 4 1/4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why does 17/4 equal 4&nbsp;1/4?</p>
+    <div class="opts"><button class="opt" data-c="1">17 ÷ 4 = 4 R1, which makes 4 wholes with 1 fourth left over.</button><button class="opt">17 − 4 = 13, and 13 is close to 4&nbsp;1/4.</button><button class="opt">The 1 and the 7 in 17 move to the whole number and the fraction.</button><button class="opt">Every fraction with a denominator of 4 equals 4&nbsp;1/4.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="5" data-logic="2 wholes = 2 × 5 = 10 fifths. Add the 3 fifths: 10 + 3 = 13. So 2 3/5 = 13/5. Tomás multiplied the whole number by the numerator instead of the denominator.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Tomás changed 2&nbsp;3/5 to an improper fraction and got 6/5. What did he do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">He multiplied 2 × 3. He should multiply 2 × 5 and add 3 to get 13/5.</button><button class="opt">He should add 2 + 3 + 5 to get 10/5.</button><button class="opt">The denominator should change to 10.</button><button class="opt">He is right. 2&nbsp;3/5 = 6/5.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="x1_s2" data-pts="5" data-logic="A fraction is in simplest form only when the GCF of the numerator and denominator is 1. The GCF of 15 and 25 is 5, so 15/25 = 3/5.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why is 15/25 NOT in simplest form?</p>
+    <div class="opts"><button class="opt" data-c="1">15 and 25 have a common factor of 5, so 15/25 simplifies to 3/5.</button><button class="opt">The denominator is greater than the numerator.</button><button class="opt">15 and 25 are both odd numbers.</button><button class="opt">25 is a composite number.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="5" data-logic="3/4 = 9/12 and 5/6 = 10/12, so they are not equal. To make an equivalent fraction, multiply or divide the numerator and denominator by the same number.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Lin says 3/4 = 5/6 because she added 2 to the numerator and 2 to the denominator. What did she do wrong?</p>
+    <div class="opts"><button class="opt" data-c="1">Adding the same number changes the amount. She must multiply or divide both by the same number.</button><button class="opt">She should have added 3 to both numbers instead.</button><button class="opt">She should have subtracted 2 from both numbers instead.</button><button class="opt">She is right. 3/4 = 5/6.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>✏️ Fix the Sentence</h2>
+<span class="setnotice" id="setNotice16" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Math Writers Use Correct Writing, Too</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake. Edit the sentence in the box, then press Check. Watch for quotation marks, its vs. it&rsquo;s, commas in a series, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="f1_s0" data-pts="2" data-ans="Amara asked, &quot;Is 6/8 the same as 3/4?&quot;" data-logic="Capitalize the name Amara and the first word of the quote, put quotation marks around her exact words, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">amara asked, is 6/8 the same as 3/4</p>
+    <div class="fillrow"><input class="fillin fixin" value="amara asked, is 6/8 the same as 3/4" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f2_s0" data-pts="2" data-ans="The fraction 9/12 is not in simplest form because its numerator and denominator share the factor 3." data-logic="Its (no apostrophe) shows ownership: the numerator and denominator belong to the fraction. It&#x27;s is short for it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The fraction 9/12 is not in simplest form because it&#x27;s numerator and denominator share the factor 3.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The fraction 9/12 is not in simplest form because it&#x27;s numerator and denominator share the factor 3." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f3_s0" data-pts="2" data-ans="Diego needs blue tiles, white tiles, and gray tiles for the lobby.||Diego needs blue tiles, white tiles and gray tiles for the lobby." data-logic="Use commas to separate the items in a series: blue tiles, white tiles, and gray tiles.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Diego needs blue tiles white tiles and gray tiles for the lobby.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Diego needs blue tiles white tiles and gray tiles for the lobby." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f4_s0" data-pts="2" data-ans="The plumbers measure each pipe in feet.||The plumber measures each pipe in feet." data-logic="Capitalize the first word. The subject plumbers is plural, so use measure, not measures. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the plumbers measures each pipe in feet</p>
+    <div class="fillrow"><input class="fillin fixin" value="the plumbers measures each pipe in feet" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="f1_s1" data-pts="2" data-ans="Ms. Okafor said, &quot;The floor plan is ready.&quot;" data-logic="Capitalize Ms. Okafor and the first word of the quote, put quotation marks around her exact words, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">ms. okafor said, the floor plan is ready</p>
+    <div class="fillrow"><input class="fillin fixin" value="ms. okafor said, the floor plan is ready" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f2_s1" data-pts="2" data-ans="It&#x27;s important to divide by the GCF.||It is important to divide by the GCF." data-logic="It&#x27;s means it is: it is important. Use the apostrophe.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Its important to divide by the GCF.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Its important to divide by the GCF." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f3_s1" data-pts="2" data-ans="The fractions 2/4, 3/6, and 4/8 are all equal to 1/2.||The fractions 2/4, 3/6 and 4/8 are all equal to 1/2." data-logic="Use commas to separate the items in a series: 2/4, 3/6, and 4/8.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The fractions 2/4 3/6 and 4/8 are all equal to 1/2.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The fractions 2/4 3/6 and 4/8 are all equal to 1/2." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f4_s1" data-pts="2" data-ans="Each of the tiles is one foot wide." data-logic="Capitalize the first word. The subject is each (one tile at a time), so use is, not are. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">each of the tiles are one foot wide</p>
+    <div class="fillrow"><input class="fillin fixin" value="each of the tiles are one foot wide" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="f1_s2" data-pts="2" data-ans="Darnell asked, &quot;How many bundles of rebar came today?&quot;" data-logic="Capitalize Darnell and the first word of the quote, put quotation marks around his exact words, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">darnell asked, how many bundles of rebar came today</p>
+    <div class="fillrow"><input class="fillin fixin" value="darnell asked, how many bundles of rebar came today" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f2_s2" data-pts="2" data-ans="A mixed number shows its whole number first, then a fraction." data-logic="Its (no apostrophe) shows ownership: the whole number belongs to the mixed number. It&#x27;s means it is.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">A mixed number shows it&#x27;s whole number first, then a fraction.</p>
+    <div class="fillrow"><input class="fillin fixin" value="A mixed number shows it&#x27;s whole number first, then a fraction." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f3_s2" data-pts="2" data-ans="Houston has hot summers, heavy rain, and busy highways.||Houston has hot summers, heavy rain and busy highways." data-logic="Use commas to separate the items in a series: hot summers, heavy rain, and busy highways.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Houston has hot summers heavy rain and busy highways.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Houston has hot summers heavy rain and busy highways." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="f4_s2" data-pts="2" data-ans="The crew and the engineer check the plans every morning." data-logic="Capitalize the first word. Two subjects (the crew and the engineer) need the verb check, not checks. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the crew and the engineer checks the plans every morning</p>
+    <div class="fillrow"><input class="fillin fixin" value="the crew and the engineer checks the plans every morning" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="f4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a clue on the left, then its answer on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-go="18">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick facts as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="5|5/10" data-logic="2 × 5 = 10, so multiply by 5/5: 1 × 5 = 5.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">1/2 = ?/10</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="2/3" data-logic="The GCF of 6 and 9 is 3: 6 ÷ 3 = 2 and 9 ÷ 3 = 3.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">6/9 in simplest form =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="3" data-logic="12 ÷ 4 = 3 with no remainder, so 12/4 is exactly 3 wholes.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">12/4 = (whole number)</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="17">&larr; Back</button><button class="btn btn-go" data-go="19">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 19 -->
+<div class="slide" data-slide="19">
+<h2>🌇 Looking Back</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Building Is Almost Ready</h4>
+  <p>The tiles are down and the pipes are in. Before the Boss Battle, think about what you practiced today.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="4" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent fractions</button><button class="opt" data-c="1">Simplifying with the GCF</button><button class="opt" data-c="1">Mixed numbers and improper fractions</button><button class="opt" data-c="1">Fraction word problems</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="4" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which skill do you want to practice MORE?</p>
+    <div class="opts"><button class="opt" data-c="1">Equivalent fractions</button><button class="opt" data-c="1">Simplifying with the GCF</button><button class="opt" data-c="1">Mixed numbers and improper fractions</button><button class="opt" data-c="1">Fraction word problems</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="18">&larr; Back</button><button class="btn btn-go" data-go="20">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 20 -->
+<div class="slide" data-slide="20">
+<h2>🚨 Boss Battle: Inspection Day</h2>
+<span class="setnotice" id="setNotice20" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Ms. Okafor Needs a Report</h4>
+  <p>Inspection day! The building has 48 apartments, and 36 of them have their floors tiled. Down on the ground floor, Mr. Nguyen lines up 10 short pieces of pipe end to end. Each piece is 1/4 foot long.</p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Ms. Okafor Needs a Report</h4>
+  <p>Inspection day! The building has 60 apartments, and 36 of them have been painted. Down on the ground floor, Mr. Nguyen lines up 14 short pieces of pipe end to end. Each piece is 1/4 foot long.</p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Ms. Okafor Needs a Report</h4>
+  <p>Inspection day! The building has 72 apartments, and 48 of them have their windows in. Down on the ground floor, Mr. Nguyen lines up 18 short pieces of pipe end to end. Each piece is 1/4 foot long.</p>
+</div>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="4" data-ans="1/4" data-logic="Step 1: 48 − 36 = 12 apartments are not tiled, so 12/48. Step 2: the GCF of 12 and 48 is 12. 12 ÷ 12 = 1 and 48 ÷ 12 = 4, so the answer is 1/4.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: what fraction of the apartments are NOT tiled yet? Type it in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction not tiled =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="4" data-logic="Step 1: 10 pieces of 1/4 foot make 10/4 feet. 10 ÷ 4 = 2 R2, so 2 2/4 feet. Step 2: simplify the fraction part: 2/4 = 1/2, so the answer is 2 1/2 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how long is the line of pipe? Write it as a mixed number in simplest form.</p>
+    <div class="opts"><button class="opt" data-c="1">2&nbsp;1/2 feet</button><button class="opt">2&nbsp;1/4 feet</button><button class="opt">10&nbsp;1/4 feet</button><button class="opt">1&nbsp;1/2 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="4" data-ans="2/5" data-logic="Step 1: 60 − 36 = 24 apartments are not painted, so 24/60. Step 2: the GCF of 24 and 60 is 12. 24 ÷ 12 = 2 and 60 ÷ 12 = 5, so the answer is 2/5.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: what fraction of the apartments are NOT painted yet? Type it in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction not painted =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="4" data-logic="Step 1: 14 pieces of 1/4 foot make 14/4 feet. 14 ÷ 4 = 3 R2, so 3 2/4 feet. Step 2: simplify the fraction part: 2/4 = 1/2, so the answer is 3 1/2 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how long is the line of pipe? Write it as a mixed number in simplest form.</p>
+    <div class="opts"><button class="opt" data-c="1">3&nbsp;1/2 feet</button><button class="opt">3&nbsp;1/4 feet</button><button class="opt">14&nbsp;1/4 feet</button><button class="opt">4&nbsp;1/2 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="4" data-ans="1/3" data-logic="Step 1: 72 − 48 = 24 apartments do not have windows, so 24/72. Step 2: the GCF of 24 and 72 is 24. 24 ÷ 24 = 1 and 72 ÷ 24 = 3, so the answer is 1/3.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: what fraction of the apartments do NOT have windows yet? Type it in simplest form.</p>
+    <div class="fillrow"><span class="eq">Fraction without windows =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="4" data-logic="Step 1: 18 pieces of 1/4 foot make 18/4 feet. 18 ÷ 4 = 4 R2, so 4 2/4 feet. Step 2: simplify the fraction part: 2/4 = 1/2, so the answer is 4 1/2 feet.">
+    <span class="pts">+4</span>
+    <p class="qtext">Two steps: how long is the line of pipe? Write it as a mixed number in simplest form.</p>
+    <div class="opts"><button class="opt" data-c="1">4&nbsp;1/2 feet</button><button class="opt">4&nbsp;1/4 feet</button><button class="opt">18&nbsp;1/4 feet</button><button class="opt">2&nbsp;1/4 feet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="19">&larr; Back</button><button class="btn btn-go" data-go="21">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 21 -->
+<div class="slide" data-slide="21">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="20">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 22 -->
+<div class="slide" data-slide="22">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Fractions Built!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🏗️</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Great job finishing your Post-Lesson Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 12 complete</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 23;
+const FINAL_INDEX = 22;
+const MODULE_ID = 'grade4-5-week12-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["2/3 = ?/9", "6"], ["12/16 in simplest form", "3/4"], ["9/4 as a mixed number", "2 1/4"], ["1 2/3 as an improper fraction", "5/3"], ["GCF of 10 and 15", "5"]], [["3/4 = ?/16", "12"], ["10/25 in simplest form", "2/5"], ["7/2 as a mixed number", "3 1/2"], ["2 1/4 as an improper fraction", "9/4"], ["GCF of 14 and 21", "7"]], [["4/5 = ?/20", "16"], ["6/27 in simplest form", "2/9"], ["11/3 as a mixed number", "3 2/3"], ["3 1/2 as an improper fraction", "7/2"], ["GCF of 18 and 27", "9"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return s;}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const cleanVal = norm(val); // keeps inner spaces so a mixed number never collapses into an improper fraction
+  const accepted = String(box.dataset.ans).split('|').map(norm);
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='Fraction Builder Extraordinaire!';
+    document.getElementById('finalMessageHeading').textContent='🎉 You helped get the whole building ready for inspection!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. You helped Amara get the apartment building ready for inspection: you used Diego’s tile models to show that fractions like 1/2 and 4/8 are equivalent, multiplied and divided by n/n to find equivalent fractions, used the greatest common factor to write Ms. Patel’s floor plan fractions in simplest form, and changed Mr. Nguyen’s pipe lengths and Darnell’s rebar between mixed numbers and improper fractions. Your results go to KingCretot Experience. Tell your parent or teacher, then finish your Post-Lesson Challenge sheet!';
+    playFanfare(); confetti(160); setTimeout(()=>confetti(140),500); setTimeout(()=>confetti(140),1100); setTimeout(()=>confetti(120),1800);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work on the Building Site!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Every try makes you stronger with equivalent fractions, simplest form, and mixed numbers. Look back at the teaching slides, then hit Play Again: you will get a fresh set of questions next time, and the Houston crew will be waiting for you. Make sure your Post-Lesson Challenge sheet is finished, too. Your results go to KingCretot Experience.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 13: Poems from the Clouds (Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#06142A);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#E9D18F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#E2C778);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #06142A}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillin{width:220px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.05rem;font-weight:800;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.storytext{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:20px 22px;margin:14px 0;font-size:1.02rem;line-height:1.8}
+.storytext p{margin-bottom:12px}
+.storytext .dropcap{font-family:'Bangers',cursive;font-size:2.6rem;color:var(--pumpkin);float:left;line-height:.8;margin:4px 8px 0 0}
+.sourcecard{border-radius:16px;padding:18px 20px;margin:14px 0;font-size:1rem;line-height:1.75}
+.sourcecard.srcA{background:#EAF6FF;border:3px solid var(--sky)}
+.sourcecard.srcB{background:#EFFAE6;border:3px solid var(--grass)}
+.sourcecard .srclabel{display:block;font-family:'Fredoka One',cursive;color:var(--navy);font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.sourcecard .srchead{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.15rem;margin-bottom:8px;display:block}
+.structuretable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem}
+.structuretable th{background:var(--navy);color:#fff;padding:10px;text-align:left;font-family:'Fredoka One',cursive;font-size:.9rem}
+.structuretable td{border:2px solid #E2E8F0;padding:10px;font-weight:700}
+.structuretable tr:nth-child(even) td{background:#F8FAFF}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:.95rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.hud::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:4px;background:linear-gradient(90deg,var(--blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--red) 66.66% 100%)}
+.opts-wide{grid-template-columns:1fr}
+.storytext .pnum{display:inline-block;min-width:22px;height:22px;line-height:22px;margin-right:8px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:900;text-align:center;vertical-align:2px}
+.brokensent{font-family:'Courier New',monospace;font-weight:700;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:12px;padding:10px 14px;margin:0 0 6px;font-size:1.05rem;word-break:break-word}
+.fillin.fillwide{width:100%;flex:1;min-width:0;font-size:1rem}
+.fillrow:has(.fillwide){flex-wrap:nowrap}
+@media(max-width:560px){.fillrow:has(.fillwide){flex-wrap:wrap}}
+.corrected{display:inline-block;margin-top:6px;font-family:'Courier New',monospace;background:#E5F7DC;color:#1E5A16;border-radius:8px;padding:6px 10px}
+.ruletable td:last-child{font-family:'Courier New',monospace;font-weight:700}
+.ruletable .q{color:var(--red)} .ruletable .c{color:var(--blue)} .ruletable .k{background:#FFF1C9;border-radius:4px;padding:0 2px}
+.picture svg{width:100%;height:auto;display:block}
+.picture{background:#F7FAFF;border:3px solid #DCE6F5;border-radius:18px;padding:12px;margin:14px 0}
+.scene svg{width:100%;height:auto;display:block;border-radius:16px}
+.scene{margin:8px 0 4px}
+.tricolor-line{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--red) 66.66% 100%);margin:6px 0 12px}
+
+.poem{background:#FFFDF6;border:3px solid #EADFC0;border-radius:18px;padding:16px 22px;margin:12px 0}
+.poemtitle{font-family:'Fredoka One',Nunito,sans-serif;color:var(--navy);font-size:1.25rem;margin:0 0 10px}
+.poem .stanza{font-size:1.1rem;line-height:1.75;margin:0 0 16px;color:#1d2a40}
+.poem .stanza:last-child{margin-bottom:0}
+.notebook{width:100%;min-height:130px;box-sizing:border-box;padding:12px 14px;border:3px solid #D9E0EC;border-radius:12px;font-family:inherit;font-size:1.02rem;line-height:1.6;resize:vertical;background:#fff}
+.notebook:focus{outline:none;border-color:var(--blue)}
+.checklist{list-style:none;padding:0;margin:10px 0 0}
+.checklist li{margin:6px 0}
+.checklist label{display:flex;gap:10px;align-items:flex-start;font-weight:700;cursor:pointer}
+.checklist input{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--blue)}
+.devtable td:nth-child(3){font-style:italic}
+@media(max-width:600px){.devtable,.devtable tbody,.devtable tr,.devtable td{display:block;width:auto}.devtable tr:first-child{display:none}.devtable tr{border-bottom:3px solid #DCE6F5;padding:6px 0}.devtable td{border:none;padding:4px 10px}.devtable td::before{content:attr(data-l)': ';font-weight:900;font-style:normal;color:var(--blue)}.devtable td:first-child::before{content:''}.devtable td:first-child{font-size:1.1rem}}
+.qtext i{color:#1d2a40}
+.picture .svg-narrow{display:none}
+@media(max-width:560px){.fillrow .fillin.fillwide{flex:1 1 100%;width:100%}}
+@media(max-width:600px){.picture .svg-wide{display:none}.picture .svg-narrow{display:block}}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏔️ KCE Pathways — Grade 4-5 — Week 13</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 13 &bull; Reading</span>
+  <h1>Poems from the Clouds</h1>
+  <h2>Figurative Language and Poetry 🏔️</h2>
+  <div class="tricolor-line"></div>
+  <div class="box box-story">
+    <div class="icon">🦙</div>
+    <h4>Your Assignment</h4>
+    <p>High in the Andes Mountains of Peru, a village wakes up above the clouds. Fog drifts across terraced fields, alpacas graze on the slopes, a grandmother weaves at her loom, and on Sunday the plaza fills for market day. Today you'll read three poems about this village, learn how poets build pictures with words, and then write some poetry of your own.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we show the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with last week's informative writing skills</li>
+      <li>Learn five kinds of figurative language: simile, metaphor, personification, hyperbole, and imagery</li>
+      <li>Learn the parts of a poem: line, stanza, rhyme, rhythm, and free verse</li>
+      <li>Read three poems about a mountain village and explain what the figures of speech really mean</li>
+      <li>Write your own simile and stanza, fix sentences, and beat the Boss Challenge!</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 13</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up: Week 12 Review</h2>
+<div class="box box-think">
+  <div class="icon">🧠</div>
+  <h4>Remember Last Week?</h4>
+  <p>In Week 12 you built strong informative paragraphs: a <b>topic sentence</b> that states the main idea, <b>supporting details</b> that all fit that idea, and <b>transitions</b> like <i>first</i>, <i>next</i>, <i>for example</i>, and <i>however</i> that connect the sentences. Informative writing says things exactly. Today you'll meet a kind of writing that plays with words to paint pictures: poetry.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="rv1_s0" data-pts="3" data-logic="A topic sentence tells the main idea of the whole paragraph. The other choices are small details, not the big idea (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">Which sentence would make the best TOPIC SENTENCE for a paragraph about how workers build an apartment building?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Building an apartment building takes several careful steps.</button><button class="opt">The workers wear orange vests.</button><button class="opt">One crane is painted yellow.</button><button class="opt">The building will have a blue front door.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s0" data-pts="3" data-logic="The paragraph tells steps in order: First, Next, Finally. “Next” is a time-order transition (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">First, workers pour the foundation. ___, they build the frame. Finally, they add the roof. Which transition fits the blank?</p>
+    <div class="opts"><button class="opt" data-c="1">Next</button><button class="opt">For example</button><button class="opt">However</button><button class="opt">As a result</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="rv1_s1" data-pts="3" data-logic="Every detail should support the topic sentence. A cousin’s favorite color has nothing to do with planning for rain (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">The topic sentence is “Builders in Houston must plan for heavy rain.” Which sentence does NOT belong in this paragraph?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">My cousin’s favorite color is blue.</button><button class="opt">They add drains to carry water away.</button><button class="opt">Some buildings sit on raised foundations.</button><button class="opt">Roofs are sloped so rain runs off.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s1" data-pts="3" data-logic="The two sentences show a difference, so you need a contrast transition like “However” (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">The old building had only two floors. ___, the new apartment tower will have twelve. Which transition fits the blank?</p>
+    <div class="opts"><button class="opt" data-c="1">However</button><button class="opt">For example</button><button class="opt">First</button><button class="opt">Next</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="rv1_s2" data-pts="3" data-logic="Start with the topic sentence (B), then the first step, which begins with “First” (C), and then the next step, which begins with “Then” (A) (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">Put these sentences in the best order for a paragraph. (A) Then electricians add the wires. (B) Building an apartment happens in stages. (C) First, a crew builds the frame.</p>
+    <div class="opts"><button class="opt" data-c="1">B, C, A</button><button class="opt">A, B, C</button><button class="opt">C, A, B</button><button class="opt">A, C, B</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rv2_s2" data-pts="3" data-logic="The second sentence gives an example of a strong material, so “For example” is the right transition (Week 12).">
+    <span class="pts">+3</span>
+    <p class="qtext">Builders use strong materials. ___, steel beams hold up each floor. Which transition fits the blank?</p>
+    <div class="opts"><button class="opt" data-c="1">For example</button><button class="opt">As a result</button><button class="opt">Finally</button><button class="opt">However</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully (no screen, just paper), then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<h2>🖼️ Picture It: Figurative Language</h2>
+<div class="storytext">
+<p><span class="dropcap">L</span>iteral words mean exactly what they say. <b>Figurative language</b> uses words in a creative way to paint a picture or make a point. When a poet writes, &ldquo;The river is a silver ribbon,&rdquo; nobody tied a ribbon in the valley. The poet means the river is long, thin, and shiny. To understand a figure of speech, ask: <b>What is really being described, and what does the comparison tell me about it?</b></p>
+</div>
+<div class="picture"><svg class="svg-wide" viewBox="0 0 640 240" role="img" aria-label="Two panels. What the words say: a giant silver ribbon with a bow lying in a valley. What the words mean: a long, thin, shiny river winding through the valley."><g transform="translate(12,22)"><text x="148" y="0" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="17" fill="#DB2F30">What the words SAY (literal)</text><rect x="0" y="12" width="296" height="170" rx="14" fill="#E8F0FB"/><path d="M0 116 L68 46 L128 96 L198 36 L296 106 V182 H0 Z" fill="#6FA34B"/><path d="M18 172 C78 136 108 176 158 146 S248 126 288 136" fill="none" stroke="#B8C2D1" stroke-width="16" stroke-linecap="round"/><path d="M18 172 C78 136 108 176 158 146 S248 126 288 136" fill="none" stroke="#E9EEF5" stroke-width="6" stroke-linecap="round"/><text x="136" y="160" font-family="Nunito,sans-serif" font-size="34">🎀</text><text x="148" y="206" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#0A1F3D">A real ribbon in the valley? Silly!</text></g><g transform="translate(332,22)"><text x="148" y="0" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="17" fill="#0047BA">What the words MEAN (figurative)</text><rect x="0" y="12" width="296" height="170" rx="14" fill="#E8F0FB"/><path d="M0 116 L68 46 L128 96 L198 36 L296 106 V182 H0 Z" fill="#6FA34B"/><path d="M18 176 C78 146 108 172 158 152 S248 134 288 142" fill="none" stroke="#3E8EDE" stroke-width="10" stroke-linecap="round"/><path d="M38 166 l10 -3 M118 162 l12 -4 M208 144 l10 -2" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="148" y="206" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#0A1F3D">A long, thin, shiny river. That's it!</text></g></svg><svg class="svg-narrow" viewBox="0 0 316 470" role="img" aria-label="Two panels. What the words say: a giant silver ribbon with a bow lying in a valley. What the words mean: a long, thin, shiny river winding through the valley."><g transform="translate(10,22)"><text x="148" y="0" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="17" fill="#DB2F30">What the words SAY (literal)</text><rect x="0" y="12" width="296" height="170" rx="14" fill="#E8F0FB"/><path d="M0 116 L68 46 L128 96 L198 36 L296 106 V182 H0 Z" fill="#6FA34B"/><path d="M18 172 C78 136 108 176 158 146 S248 126 288 136" fill="none" stroke="#B8C2D1" stroke-width="16" stroke-linecap="round"/><path d="M18 172 C78 136 108 176 158 146 S248 126 288 136" fill="none" stroke="#E9EEF5" stroke-width="6" stroke-linecap="round"/><text x="136" y="160" font-family="Nunito,sans-serif" font-size="34">🎀</text><text x="148" y="206" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#0A1F3D">A real ribbon in the valley? Silly!</text></g><g transform="translate(10,262)"><text x="148" y="0" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="17" fill="#0047BA">What the words MEAN (figurative)</text><rect x="0" y="12" width="296" height="170" rx="14" fill="#E8F0FB"/><path d="M0 116 L68 46 L128 96 L198 36 L296 106 V182 H0 Z" fill="#6FA34B"/><path d="M18 176 C78 146 108 172 158 152 S248 134 288 142" fill="none" stroke="#3E8EDE" stroke-width="10" stroke-linecap="round"/><path d="M38 166 l10 -3 M118 162 l12 -4 M208 144 l10 -2" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="148" y="206" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#0A1F3D">A long, thin, shiny river. That's it!</text></g></svg></div>
+<table class="structuretable devtable">
+<tr><th>Device</th><th>How to spot it</th><th>Example</th><th>What it really means</th></tr>
+<tr><td data-l="Device"><b>Simile</b></td><td data-l="How to spot it">Compares two different things using <b>like</b> or <b>as</b>.</td><td data-l="Example">The terraces rise like giant green stairs.</td><td data-l="What it really means">The fields are stacked in steps up the mountain.</td></tr>
+<tr><td data-l="Device"><b>Metaphor</b></td><td data-l="How to spot it">Says one thing <b>is</b> another, with no like or as.</td><td data-l="Example">The river is a silver ribbon.</td><td data-l="What it really means">The river is long, thin, and shiny.</td></tr>
+<tr><td data-l="Device"><b>Personification</b></td><td data-l="How to spot it">Gives a non-human thing <b>human actions or feelings</b>.</td><td data-l="Example">The wind grabbed Killa&rsquo;s wool hat and ran off with it.</td><td data-l="What it really means">The wind blew her hat away.</td></tr>
+<tr><td data-l="Device"><b>Hyperbole</b></td><td data-l="How to spot it">A <b>huge exaggeration</b> that is not meant literally.</td><td data-l="Example">This hill is a million miles high!</td><td data-l="What it really means">The hill is very tall and tiring to climb.</td></tr>
+<tr><td data-l="Device"><b>Imagery</b></td><td data-l="How to spot it"><b>Sensory details</b> that help you see, hear, smell, taste, or feel.</td><td data-l="Example">Warm, salty potato soup steamed in the clay bowl.</td><td data-l="What it really means">You can almost smell, taste, and feel the hot soup.</td></tr>
+</table>
+<div class="box box-alert">
+  <div class="icon">⚠️</div>
+  <h4>Simile or Metaphor? Check the Signal Word</h4>
+  <p>Both similes and metaphors compare two things. If you see <b>like</b> or <b>as</b> making the comparison, it's a simile. If the writer says one thing simply <b>is</b> (or <b>was</b>) the other, it's a metaphor.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🖼️ Picture It: The Parts of a Poem</h2>
+<div class="storytext">
+<p><span class="dropcap">P</span>oems are built differently from stories. Instead of sentences in paragraphs, a poem is made of <b>lines</b> grouped into <b>stanzas</b>. Many poems use <b>rhyme</b> and a steady <b>rhythm</b>, but some don't. Study this stanza about llamas carrying loads down a mountain trail.</p>
+</div>
+<div class="picture"><svg class="svg-wide" viewBox="0 0 640 292" role="img" aria-label="A four-line stanza about llamas. Each line is numbered, the rhyming end words are colored, the rhyme scheme letters A B A B are shown on the right, a bracket marks the stanza, and dots mark the beats in line 1."><text x="14" y="84" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">line 1</text><text x="96" y="84" font-family="'Courier New',Courier,monospace" font-size="18" font-weight="700" fill="#0A1F3D" xml:space="preserve">The llamas climb the rocky <tspan fill="#0047BA" font-weight="900">trail</tspan>,</text><circle cx="566" cy="79" r="14" fill="#0047BA"/><text x="566" y="84" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">A</text><text x="14" y="128" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">line 2</text><text x="96" y="128" font-family="'Courier New',Courier,monospace" font-size="18" font-weight="700" fill="#0A1F3D" xml:space="preserve">with bundles on their <tspan fill="#DB2F30" font-weight="900">backs</tspan>.</text><circle cx="566" cy="123" r="14" fill="#DB2F30"/><text x="566" y="128" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">B</text><text x="14" y="172" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">line 3</text><text x="96" y="172" font-family="'Courier New',Courier,monospace" font-size="18" font-weight="700" fill="#0A1F3D" xml:space="preserve">They never stop, they never <tspan fill="#0047BA" font-weight="900">fail</tspan>,</text><circle cx="566" cy="167" r="14" fill="#0047BA"/><text x="566" y="172" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">A</text><text x="14" y="216" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">line 4</text><text x="96" y="216" font-family="'Courier New',Courier,monospace" font-size="18" font-weight="700" fill="#0A1F3D" xml:space="preserve">and never leave the <tspan fill="#DB2F30" font-weight="900">tracks</tspan>.</text><circle cx="566" cy="211" r="14" fill="#DB2F30"/><text x="566" y="216" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">B</text><circle cx="155.4" cy="64" r="4.5" fill="#C9A84C"/><circle cx="241.8" cy="64" r="4.5" fill="#C9A84C"/><circle cx="339.0" cy="64" r="4.5" fill="#C9A84C"/><circle cx="414.6" cy="64" r="4.5" fill="#C9A84C"/><text x="96" y="52" font-family="Nunito,sans-serif" font-size="12.5" font-weight="800" fill="#9A7A1E">● = a beat (rhythm: 4 beats)</text><text x="566" y="52" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#6B7A90">rhyme</text><path d="M88 66 h-7 v158 h7" fill="none" stroke="#C9A84C" stroke-width="3"/><text x="96" y="254" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#0A1F3D"><tspan fill="#9A7A1E">gold bracket = one STANZA (4 lines)</tspan></text><text x="96" y="278" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#0A1F3D">rhyme scheme: <tspan fill="#0047BA">trail / fail = A</tspan>, <tspan fill="#DB2F30">backs / tracks = B</tspan>, so the pattern is ABAB</text></svg><svg class="svg-narrow" viewBox="0 0 380 272" role="img" aria-label="A four-line stanza about llamas. Each line is numbered, the rhyming end words are colored, the rhyme scheme letters A B A B are shown on the right, a bracket marks the stanza, and dots mark the beats in line 1."><text x="4" y="70" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">1</text><text x="36" y="70" font-family="'Courier New',Courier,monospace" font-size="15" font-weight="700" fill="#0A1F3D" xml:space="preserve">The llamas climb the rocky <tspan fill="#0047BA" font-weight="900">trail</tspan>,</text><circle cx="358" cy="65" r="14" fill="#0047BA"/><text x="358" y="70" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">A</text><text x="4" y="106" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">2</text><text x="36" y="106" font-family="'Courier New',Courier,monospace" font-size="15" font-weight="700" fill="#0A1F3D" xml:space="preserve">with bundles on their <tspan fill="#DB2F30" font-weight="900">backs</tspan>.</text><circle cx="358" cy="101" r="14" fill="#DB2F30"/><text x="358" y="106" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">B</text><text x="4" y="142" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">3</text><text x="36" y="142" font-family="'Courier New',Courier,monospace" font-size="15" font-weight="700" fill="#0A1F3D" xml:space="preserve">They never stop, they never <tspan fill="#0047BA" font-weight="900">fail</tspan>,</text><circle cx="358" cy="137" r="14" fill="#0047BA"/><text x="358" y="142" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">A</text><text x="4" y="178" font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#6B7A90">4</text><text x="36" y="178" font-family="'Courier New',Courier,monospace" font-size="15" font-weight="700" fill="#0A1F3D" xml:space="preserve">and never leave the <tspan fill="#DB2F30" font-weight="900">tracks</tspan>.</text><circle cx="358" cy="173" r="14" fill="#DB2F30"/><text x="358" y="178" text-anchor="middle" font-family="'Fredoka One',Nunito,sans-serif" font-size="15" fill="#fff">B</text><circle cx="85.5" cy="53" r="4.5" fill="#C9A84C"/><circle cx="157.5" cy="53" r="4.5" fill="#C9A84C"/><circle cx="238.5" cy="53" r="4.5" fill="#C9A84C"/><circle cx="301.5" cy="53" r="4.5" fill="#C9A84C"/><text x="36" y="41" font-family="Nunito,sans-serif" font-size="12.5" font-weight="800" fill="#9A7A1E">● = a beat (rhythm: 4 beats)</text><text x="358" y="41" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#6B7A90">rhyme</text><path d="M28 55 h-7 v131 h7" fill="none" stroke="#C9A84C" stroke-width="3"/><text x="22" y="214" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#0A1F3D"><tspan fill="#9A7A1E">gold bracket = one STANZA (4 lines)</tspan></text><text x="22" y="236" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#0A1F3D">rhyme scheme: <tspan fill="#0047BA">trail / fail = A</tspan>, <tspan fill="#DB2F30">backs / tracks = B</tspan></text><text x="22" y="258" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#0A1F3D">so the pattern is ABAB</text></svg></div>
+<table class="structuretable">
+<tr><th>Word</th><th>What it means</th></tr>
+<tr><td><b>Line</b></td><td>One row of words in a poem. A line can stop before the sentence ends.</td></tr>
+<tr><td><b>Stanza</b></td><td>A group of lines, like a paragraph in a story. A blank space separates stanzas.</td></tr>
+<tr><td><b>Rhyme</b></td><td>Words that end with the same sound, like <i>trail</i> and <i>fail</i>.</td></tr>
+<tr><td><b>Rhyme scheme</b></td><td>The pattern of rhymes at the ends of lines, shown with letters. Give the first ending sound the letter A. A new sound gets B, then C. A line that rhymes with an earlier line gets that line's letter. So ABAB means lines 1 and 3 rhyme and lines 2 and 4 rhyme; ABCB means only lines 2 and 4 rhyme; AABB means each two lines in a row rhyme.</td></tr>
+<tr><td><b>Rhythm</b></td><td>The beat you hear when you read a poem aloud. Clap it: the LLA-mas CLIMB the ROCK-y TRAIL has 4 beats.</td></tr>
+<tr><td><b>Free verse</b></td><td>A poem with no set rhyme pattern. It still uses lines, stanzas, and strong images.</td></tr>
+</table>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today's words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">simile</div><div class="flip-face flip-back">A comparison of two different things using like or as.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">metaphor</div><div class="flip-face flip-back">A comparison that says one thing IS another, without like or as.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">personification</div><div class="flip-face flip-back">Giving human actions or feelings to an animal, object, or idea.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">hyperbole</div><div class="flip-face flip-back">A huge exaggeration that is not meant to be taken literally.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">imagery</div><div class="flip-face flip-back">Sensory details: words that help you see, hear, smell, taste, or feel.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">stanza</div><div class="flip-face flip-back">A group of lines in a poem, like a paragraph in a story.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rhyme</div><div class="flip-face flip-back">Words that end with the same sound, like hill and still.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rhythm</div><div class="flip-face flip-back">The beat you hear when you read a poem aloud.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn: Using the Words</h2>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="4" data-logic="A simile compares two different things using like or as.">
+    <span class="pts">+4</span>
+    <p class="qtext">A comparison of two different things using the word like or as is called a ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Simile</button><button class="opt">Metaphor</button><button class="opt">Hyperbole</button><button class="opt">Stanza</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="4" data-ans="stanza|stanzas" data-logic="A group of lines in a poem is a stanza. A blank space usually separates one stanza from the next.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type your answer: a group of lines in a poem, like a paragraph in a story, is called a ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="4" data-logic="When an animal, object, or idea does something only a person could do, that is personification.">
+    <span class="pts">+4</span>
+    <p class="qtext">Giving human actions or feelings to something that is not human is called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Personification</button><button class="opt">Simile</button><button class="opt">Rhyme</button><button class="opt">Rhythm</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="4" data-ans="hyperbole|hyperboles" data-logic="A huge exaggeration, like “I’ve told you a million times,” is hyperbole.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type your answer: a huge exaggeration that is not meant to be taken literally is called ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="4" data-logic="Imagery is made of sensory details: words that appeal to the five senses.">
+    <span class="pts">+4</span>
+    <p class="qtext">Words and details that help you see, hear, smell, taste, or feel something are called ___.</p>
+    <div class="opts"><button class="opt" data-c="1">Imagery</button><button class="opt">Rhythm</button><button class="opt">Rhyme scheme</button><button class="opt">Stanza</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="4" data-ans="metaphor|metaphors" data-logic="A metaphor says one thing is another, like “The river is a silver ribbon.”">
+    <span class="pts">+4</span>
+    <p class="qtext">Type your answer: a comparison that says one thing IS another thing, without using like or as, is called a ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>🌫️ Poem 1: Morning Fog</h2>
+<div class="scene"><svg viewBox="0 0 640 210" role="img" aria-label="Snowy Andes peaks above green terraced fields, with morning fog drifting across and the sun rising">
+  <rect width="640" height="210" fill="#DCEBFA"/>
+  <circle cx="520" cy="70" r="30" fill="#F2C94C"/>
+  <path d="M0 150 L110 40 L190 120 L290 25 L400 130 L470 80 L640 150 Z" fill="#5B6B85"/>
+  <path d="M110 40 L135 65 L120 62 L105 72 L90 60 Z M290 25 L320 55 L300 50 L285 62 L268 48 Z M470 80 L490 98 L476 96 L462 104 L452 96 Z" fill="#fff"/>
+  <path d="M0 210 V150 Q160 120 330 150 T640 140 V210 Z" fill="#6FA34B"/>
+  <g fill="none" stroke="#4E7F31" stroke-width="5" stroke-linecap="round">
+    <path d="M40 200 Q170 180 300 196"/><path d="M60 186 Q170 166 290 182"/><path d="M80 172 Q175 154 280 168"/><path d="M100 160 Q180 144 270 156"/>
+    <path d="M360 200 Q480 182 610 194"/><path d="M380 186 Q480 168 600 180"/><path d="M400 172 Q485 156 590 166"/>
+  </g>
+  <g transform="translate(300,150)"><rect x="0" y="12" width="44" height="28" fill="#C68B59"/><path d="M-6 14 L22 -4 L50 14 Z" fill="#B5442E"/><rect x="17" y="24" width="10" height="16" fill="#6B3E1F"/></g>
+  <g fill="#fff" opacity=".78"><ellipse cx="120" cy="150" rx="120" ry="16"/><ellipse cx="300" cy="132" rx="110" ry="13"/><ellipse cx="520" cy="158" rx="130" ry="15"/><ellipse cx="420" cy="118" rx="80" ry="10"/></g>
+</svg></div>
+<div class="box box-real">
+  <div class="icon">🏞️</div>
+  <h4>About the Village</h4>
+  <p>Long ago, the Inca and earlier Andean peoples carved <b>terraces</b> into the steep mountainsides: flat fields stacked like steps, held up by stone walls. Many families in villages near Cusco, Peru, still farm terraces today, growing potatoes, corn, and quinoa. On cool mornings, fog often fills the valleys below.</p>
+</div>
+<div class="poem"><h3 class="poemtitle">Morning Fog</h3>
+<p class="stanza">The fog creeps up the valley<br>like an alpaca, slow and sweet.<br>It tucks the terraced fields in white,<br>a blanket soft and neat.</p>
+<p class="stanza">The sun climbs up the mountain<br>and stretches out its arms.<br>The fog lets go of every field<br>and drifts off past the farms.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p1a_s0" data-pts="5" data-logic="The poet compares the fog to an alpaca using the word “like,” so it is a simile. The fog moves slowly and gently, the way an alpaca walks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read these lines: “The fog creeps up the valley / like an alpaca, slow and sweet.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Simile</button><button class="opt">Hyperbole</button><button class="opt">Rhyme scheme</button><button class="opt">Metaphor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p1b_s0" data-pts="5" data-logic="“Sweet” and “neat” end with the same sound (-eet), so they rhyme.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair of words RHYMES in the first stanza of “Morning Fog”?</p>
+    <div class="opts"><button class="opt" data-c="1">sweet and neat</button><button class="opt">valley and white</button><button class="opt">fog and alpaca</button><button class="opt">fields and slow</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p1a_s1" data-pts="5" data-logic="The sun cannot really stretch out arms. Giving it a human action is personification.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read these lines: “The sun climbs up the mountain / and stretches out its arms.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Personification</button><button class="opt">Simile</button><button class="opt">Hyperbole</button><button class="opt">Rhyme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p1b_s1" data-pts="5" data-logic="A metaphor is not literal. The fog is not cloth, but it covers the fields smoothly and completely, just like a blanket.">
+    <span class="pts">+5</span>
+    <p class="qtext">The poet calls the fog “a blanket soft and neat.” What does this metaphor really mean?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The fog covers the fields completely and gently, the way a blanket covers a bed</button><button class="opt">Someone spread real blankets over the fields</button><button class="opt">The fog is made of wool</button><button class="opt">The fields are cold and need to sleep</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p1a_s2" data-pts="5" data-logic="There are two groups of lines separated by a space. Each group (stanza) has 4 lines.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many stanzas does “Morning Fog” have, and how many lines are in each stanza?</p>
+    <div class="opts"><button class="opt" data-c="1">2 stanzas, with 4 lines in each</button><button class="opt">1 stanza with 8 lines</button><button class="opt">4 stanzas, with 2 lines in each</button><button class="opt">2 stanzas, with 8 lines in each</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p1b_s2" data-pts="5" data-logic="In stanza 1, “sweet” and “neat” (lines 2 and 4) rhyme. In stanza 2, “arms” and “farms” (lines 2 and 4) rhyme. The pattern is ABCB.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which lines rhyme in each stanza of “Morning Fog”?</p>
+    <div class="opts"><button class="opt" data-c="1">The 2nd and 4th lines</button><button class="opt">The 1st and 2nd lines</button><button class="opt">The 1st and 3rd lines</button><button class="opt">None of the lines rhyme</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>🧶 Poem 2: Grandma&rsquo;s Loom</h2>
+<div class="scene"><svg viewBox="0 0 640 210" role="img" aria-label="A colorful handwoven cloth on a backstrap loom tied to a wooden post, with balls of red, gold and blue yarn">
+  <rect width="640" height="210" fill="#F6EEDC"/>
+  <rect x="34" y="20" width="20" height="180" rx="4" fill="#8A5A33"/>
+  <path d="M54 60 L120 56 M54 150 L120 154" stroke="#6B3E1F" stroke-width="4"/>
+  <rect x="116" y="44" width="10" height="122" rx="4" fill="#6B3E1F"/>
+  <rect x="470" y="44" width="10" height="122" rx="4" fill="#6B3E1F"/>
+  <path d="M480 60 Q560 40 600 105 Q560 170 480 150" fill="none" stroke="#6B3E1F" stroke-width="7"/>
+  <rect x="126" y="50" width="344" height="110" fill="#DB2F30"/>
+  <rect x="126" y="66" width="344" height="12" fill="#C9A84C"/>
+  <rect x="126" y="132" width="344" height="12" fill="#C9A84C"/>
+  <g fill="#0047BA"><path d="M140 105 L159 86 L178 105 L159 124 Z"/><path d="M192 105 L211 86 L230 105 L211 124 Z"/><path d="M244 105 L263 86 L282 105 L263 124 Z"/><path d="M296 105 L315 86 L334 105 L315 124 Z"/><path d="M348 105 L367 86 L386 105 L367 124 Z"/><path d="M400 105 L419 86 L438 105 L419 124 Z"/></g>
+  <g fill="#fff"><circle cx="159" cy="105" r="5"/><circle cx="211" cy="105" r="5"/><circle cx="263" cy="105" r="5"/><circle cx="315" cy="105" r="5"/><circle cx="367" cy="105" r="5"/><circle cx="419" cy="105" r="5"/></g>
+  <rect x="126" y="50" width="344" height="6" fill="#0A1F3D"/><rect x="126" y="154" width="344" height="6" fill="#0A1F3D"/>
+  <circle cx="200" cy="188" r="16" fill="#DB2F30"/><circle cx="240" cy="190" r="14" fill="#C9A84C"/><circle cx="276" cy="188" r="15" fill="#0047BA"/><circle cx="312" cy="191" r="12" fill="#2E7D32"/>
+  <path d="M188 180 q12 8 24 0 M229 183 q11 7 22 0 M264 181 q12 7 24 0" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+</svg></div>
+<div class="box box-real">
+  <div class="icon">🧵</div>
+  <h4>About the Weaving</h4>
+  <p>Many Andean weavers use a <b>backstrap loom</b>. One end is tied to a post or tree, and the other end is fastened to a strap around the weaver's back, so she leans back to keep the threads tight. The yarn is often spun from alpaca or sheep wool and colored with natural dyes. A deep red can come from <b>cochineal</b>, tiny insects that live on cactus plants.</p>
+</div>
+<div class="poem"><h3 class="poemtitle">Grandma’s Loom</h3>
+<p class="stanza">Grandma ties her loom up to a post<br>and sits where sunlight warms her most.<br>The wooden sticks go tap, tap, tap.<br>A rainbow grows across her lap.</p>
+<p class="stanza">Her yarn is a river, red and gold,<br>that flows into blankets for the cold.<br>Her fingers fly as quick as birds<br>and weave our stories without words.</p>
+<p class="stanza">She’s woven enough to blanket every peak,<br>and still she weaves on, week by week.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p2a_s0" data-pts="5" data-logic="The line says the yarn IS a river, with no like or as. That makes it a metaphor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read this line: “Her yarn is a river, red and gold.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Metaphor</button><button class="opt">Simile</button><button class="opt">Hyperbole</button><button class="opt">Rhyme scheme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2b_s0" data-pts="5" data-logic="Post and most, tap and lap, gold and cold, birds and words, peak and week: each pair of lines in a row rhymes. The pattern is AABB.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which describes the rhyme pattern of “Grandma’s Loom”?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Every two lines in a row rhyme with each other</button><button class="opt">Only the 1st and 3rd lines of each stanza rhyme</button><button class="opt">Only the 2nd and 4th lines of each stanza rhyme</button><button class="opt">None of the lines rhyme</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p2a_s1" data-pts="5" data-logic="No one could weave enough cloth to cover every mountain. This huge exaggeration is hyperbole. It shows that Grandma has woven a LOT.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read this line: “She’s woven enough to blanket every peak.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Hyperbole</button><button class="opt">Simile</button><button class="opt">Personification</button><button class="opt">Rhyme scheme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2b_s1" data-pts="5" data-logic="“Tap, tap, tap” is a sound detail. The other lines describe how things look or feel, or exaggerate. Only this one lets you hear a sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which line from “Grandma’s Loom” helps you HEAR what is happening?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The wooden sticks go tap, tap, tap.</button><button class="opt">Her yarn is a river, red and gold,</button><button class="opt">and sits where sunlight warms her most.</button><button class="opt">She’s woven enough to blanket every peak,</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p2a_s2" data-pts="5" data-logic="This simile compares Grandma’s fingers to quick birds. It means she weaves fast and with skill, not that her fingers can really fly.">
+    <span class="pts">+5</span>
+    <p class="qtext">What does “Her fingers fly as quick as birds” really mean?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Grandma moves her fingers very fast and skillfully</button><button class="opt">Grandma’s fingers have wings</button><button class="opt">Birds help Grandma weave</button><button class="opt">Grandma weaves very slowly</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p2b_s2" data-pts="5" data-logic="There are three groups of lines. The first two have 4 lines each, and the last stanza has just 2 lines.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many stanzas are in “Grandma’s Loom,” and how many lines are in the LAST stanza?</p>
+    <div class="opts"><button class="opt" data-c="1">3 stanzas; the last one has 2 lines</button><button class="opt">3 stanzas; the last one has 4 lines</button><button class="opt">2 stanzas; the last one has 4 lines</button><button class="opt">10 stanzas; each one has 1 line</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>🛒 Poem 3: Market Day</h2>
+<div class="scene"><svg viewBox="0 0 640 210" role="img" aria-label="A Sunday market in a mountain plaza with blue tarps, sacks of colorful potatoes, and a white alpaca">
+  <rect width="640" height="210" fill="#DCEBFA"/>
+  <path d="M0 110 L120 40 L230 100 L360 30 L470 95 L560 55 L640 100 V130 H0 Z" fill="#7C8BA3"/>
+  <path d="M360 30 L388 52 L370 50 L356 60 L338 46 Z M120 40 L142 56 L126 55 L112 62 Z" fill="#fff"/>
+  <rect x="0" y="125" width="640" height="85" fill="#D8C3A0"/>
+  <path d="M120 70 L280 70 L300 100 L100 100 Z" fill="#0047BA"/><rect x="108" y="100" width="6" height="60" fill="#5A3A22"/><rect x="286" y="100" width="6" height="60" fill="#5A3A22"/>
+  <path d="M310 74 L460 74 L478 102 L292 102 Z" fill="#2F6FD6"/><rect x="300" y="102" width="6" height="58" fill="#5A3A22"/><rect x="464" y="102" width="6" height="58" fill="#5A3A22"/>
+  <path d="M136 142 Q140 116 160 118 L300 118 Q318 120 314 146 L310 168 L140 168 Z" fill="#C9A84C"/>
+  <path d="M140 150 H312 M142 158 H310" stroke="#DB2F30" stroke-width="3"/>
+  <ellipse cx="150" cy="132" rx="11" ry="8" fill="#7B4FA0"/><ellipse cx="172" cy="138" rx="11" ry="8" fill="#E8C547"/><ellipse cx="194" cy="132" rx="11" ry="8" fill="#C0392B"/><ellipse cx="216" cy="138" rx="11" ry="8" fill="#E3C9A0"/><circle cx="213" cy="136" r="2" fill="#7A3B1F"/><circle cx="220" cy="140" r="1.6" fill="#7A3B1F"/><ellipse cx="238" cy="132" rx="11" ry="8" fill="#7B4FA0"/><ellipse cx="260" cy="138" rx="11" ry="8" fill="#E8C547"/><ellipse cx="282" cy="132" rx="11" ry="8" fill="#C0392B"/><ellipse cx="304" cy="138" rx="11" ry="8" fill="#E3C9A0"/><circle cx="301" cy="136" r="2" fill="#7A3B1F"/><circle cx="308" cy="140" r="1.6" fill="#7A3B1F"/>
+  <path d="M318 146 Q320 120 340 120 L450 120 Q468 122 464 148 L460 168 L322 168 Z" fill="#DB2F30"/>
+  <path d="M322 152 H462 M324 160 H460" stroke="#C9A84C" stroke-width="3"/>
+  <ellipse cx="330" cy="134" rx="11" ry="8" fill="#E8C547"/><ellipse cx="352" cy="140" rx="11" ry="8" fill="#7B4FA0"/><ellipse cx="374" cy="134" rx="11" ry="8" fill="#E3C9A0"/><circle cx="371" cy="132" r="2" fill="#7A3B1F"/><circle cx="378" cy="136" r="1.6" fill="#7A3B1F"/><ellipse cx="396" cy="140" rx="11" ry="8" fill="#C0392B"/><ellipse cx="418" cy="134" rx="11" ry="8" fill="#E8C547"/><ellipse cx="440" cy="140" rx="11" ry="8" fill="#7B4FA0"/>
+  <g transform="translate(520,96)">
+    <ellipse cx="40" cy="62" rx="40" ry="24" fill="#fff" stroke="#0A1F3D" stroke-width="3"/>
+    <rect x="62" y="6" width="18" height="56" rx="9" fill="#fff" stroke="#0A1F3D" stroke-width="3"/>
+    <ellipse cx="78" cy="8" rx="16" ry="12" fill="#fff" stroke="#0A1F3D" stroke-width="3"/>
+    <path d="M70 0 L66 -14 L74 -4 M84 -2 L88 -14 L90 0" fill="#fff" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="84" cy="6" r="2.6" fill="#0A1F3D"/><path d="M90 13 q3 2 0 4" stroke="#0A1F3D" stroke-width="2" fill="none"/>
+    <path d="M14 82 v24 M30 84 v22 M52 84 v22 M66 80 v26" stroke="#0A1F3D" stroke-width="5" stroke-linecap="round"/>
+    <path d="M62 30 h18" stroke="#DB2F30" stroke-width="5"/>
+  </g>
+</svg></div>
+<div class="box box-real">
+  <div class="icon">🥔</div>
+  <h4>About the Market</h4>
+  <p>Many Andean towns hold a weekly market in the main plaza. Families bring potatoes (the Andes are home to thousands of kinds!), corn, cheese, and woven cloth to sell or trade. In the mountains of Peru, many people speak <b>Quechua</b>, a language spoken in the Andes for centuries, as well as Spanish. Alpacas really do hum, a soft sound they make to each other.</p>
+</div>
+<div class="poem"><h3 class="poemtitle">Market Day</h3>
+<p class="stanza">On Sunday the plaza wakes up early,<br>yawning under bright blue tarps.<br>Potatoes tumble out of woven sacks:<br>purple, yellow, red, and speckled,<br>more colors than the sky has stars.</p>
+<p class="stanza">I smell steaming corn and fresh cheese.<br>I hear Quechua and Spanish<br>stirred together like soup.<br>An alpaca hums beside its owner,<br>its wool as soft as a cloud,<br>and I bury my fingers in its warm coat.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="p3a_s0" data-pts="5" data-logic="A plaza cannot really wake up or yawn. Giving it human actions is personification. It shows the market slowly coming to life.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read these lines: “On Sunday the plaza wakes up early, / yawning under bright blue tarps.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Personification</button><button class="opt">Simile</button><button class="opt">Hyperbole</button><button class="opt">Rhyme</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3b_s0" data-pts="5" data-logic="Steaming corn and fresh cheese are smell details. The other lines appeal to hearing, sight, and touch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which line from “Market Day” appeals to the sense of SMELL?</p>
+    <div class="opts"><button class="opt" data-c="1">I smell steaming corn and fresh cheese.</button><button class="opt">I hear Quechua and Spanish</button><button class="opt">purple, yellow, red, and speckled,</button><button class="opt">its wool as soft as a cloud,</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="p3a_s1" data-pts="5" data-logic="The potatoes do not really have more colors than there are stars. This exaggeration is hyperbole. It shows there are MANY colors.">
+    <span class="pts">+5</span>
+    <p class="qtext">Read this line about the potatoes: “more colors than the sky has stars.” Which device does the poet use?</p>
+    <div class="opts"><button class="opt" data-c="1">Hyperbole</button><button class="opt">Simile</button><button class="opt">Personification</button><button class="opt">Metaphor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3b_s1" data-pts="5" data-logic="“Market Day” has two stanzas and lots of sensory details, but its line endings do not rhyme. A poem without a set rhyme pattern is free verse.">
+    <span class="pts">+5</span>
+    <p class="qtext">How is “Market Day” different from “Morning Fog”?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“Market Day” does not rhyme; it is free verse</button><button class="opt">“Market Day” has no stanzas</button><button class="opt">“Market Day” has no sensory details</button><button class="opt">“Market Day” rhymes in every line</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="p3a_s2" data-pts="5" data-logic="This simile compares the mix of languages to soup ingredients stirred together. You hear both languages at the same time.">
+    <span class="pts">+5</span>
+    <p class="qtext">The poet writes, “I hear Quechua and Spanish / stirred together like soup.” What does this really mean?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">People at the market are speaking both languages, all mixed together</button><button class="opt">People are cooking soup at the market</button><button class="opt">Someone spilled soup on a sign</button><button class="opt">Nobody is talking at the market</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="p3b_s2" data-pts="5" data-logic="“As soft as a cloud” compares the wool to a cloud using “as.” The other lines use personification, hyperbole, and a smell detail.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which line from “Market Day” uses a SIMILE?</p>
+    <div class="opts"><button class="opt" data-c="1">its wool as soft as a cloud,</button><button class="opt">yawning under bright blue tarps.</button><button class="opt">more colors than the sky has stars.</button><button class="opt">I smell steaming corn and fresh cheese.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>💡 What Does It Really Mean?</h2>
+<div class="box box-think">
+  <div class="icon">🔎</div>
+  <h4>Three Steps to Explain a Figure of Speech</h4>
+  <p><b>1. Name it.</b> Is it a simile, metaphor, personification, or hyperbole?<br><b>2. Find the two things.</b> What is being described, and what is it compared to or given?<br><b>3. Say it plainly.</b> What does the comparison tell you? Example: &ldquo;The terraces rise like giant green stairs&rdquo; is a simile. The terraces are compared to stairs. Plainly: the fields are stacked in flat steps up the mountain.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="m1_s0" data-pts="4" data-logic="This is hyperbole. She is exaggerating to show that her backpack feels very heavy.">
+    <span class="pts">+4</span>
+    <p class="qtext">After the long walk to market, Killa says, “My backpack weighs a ton!” What does she really mean?</p>
+    <div class="opts"><button class="opt" data-c="1">Her backpack feels very heavy</button><button class="opt">Her backpack weighs exactly 2,000 pounds</button><button class="opt">Her backpack is empty</button><button class="opt">She wants a new backpack</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s0" data-pts="4" data-logic="Only people whisper, so giving the wind that action is personification. It really means the wind makes a soft, hushed sound. There is no like or as, so it is not a simile.">
+    <span class="pts">+4</span>
+    <p class="qtext">Read: “The wind whispered through the quinoa.” Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It is personification: the wind makes a soft, quiet sound, the way a person whispers</button><button class="opt">It is a simile because it compares the wind and the quinoa</button><button class="opt">It is hyperbole because wind can never be quiet</button><button class="opt">It means the wind is telling secrets to the plants</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="m1_s1" data-pts="4" data-logic="This metaphor compares the river to a snake. Like a snake’s body, the river bends and curves as it moves through the valley.">
+    <span class="pts">+4</span>
+    <p class="qtext">Killa’s uncle says, “The river is a snake winding through the valley.” What does he really mean?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The river twists and curves back and forth through the valley</button><button class="opt">A real snake lives in the river</button><button class="opt">The river is dangerous and bites people</button><button class="opt">The river is perfectly straight</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s1" data-pts="4" data-logic="The comparison uses “as,” so it is a simile, and it means the wool is bright white. It does not say the wool IS snow.">
+    <span class="pts">+4</span>
+    <p class="qtext">Read: “The alpaca’s wool was as white as fresh snow.” Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It is a simile that shows the wool is very white</button><button class="opt">It is a metaphor because it says the wool is snow</button><button class="opt">It means the wool is cold and wet</button><button class="opt">It is personification because wool cannot be white</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="m1_s2" data-pts="4" data-logic="This is hyperbole. No one could eat every potato in Peru. He is exaggerating to show how hungry he is.">
+    <span class="pts">+4</span>
+    <p class="qtext">Killa’s brother says, “I’m so hungry I could eat every potato in Peru!” What does he really mean?</p>
+    <div class="opts"><button class="opt" data-c="1">He is very hungry</button><button class="opt">He plans to eat thousands of potatoes</button><button class="opt">He does not like potatoes</button><button class="opt">He wants to become a potato farmer</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s2" data-pts="4" data-logic="It says the market WAS a beehive, with no like or as, so it is a metaphor. It means the market was full of busy, buzzing people.">
+    <span class="pts">+4</span>
+    <p class="qtext">Read: “The market was a beehive of people.” Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">It is a metaphor that shows the market was crowded, busy, and buzzing with noise</button><button class="opt">It is a simile because it uses the word “was”</button><button class="opt">It means there were real bees selling things</button><button class="opt">It is hyperbole because markets are always quiet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>🔍 Device Detective</h2>
+<p>Find the mistake and pick the explanation that is really correct. Check the signal words, and read every choice carefully, because the wrong ones are sneaky!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="d1_s0" data-pts="4" data-logic="“The fog is a gray blanket” says the fog IS a blanket, with no like or as, so it is a metaphor, not a simile.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake! Mateo labeled four lines. Which label is WRONG?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“The fog is a gray blanket.” = simile</button><button class="opt">“The river sang all night.” = personification</button><button class="opt">“I’ve told you a million times!” = hyperbole</button><button class="opt">“Her hands were as cold as ice.” = simile</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s0" data-pts="4" data-logic="Similes and metaphors both compare two things. The difference is the signal word: a simile uses like or as, and this one uses “like.”">
+    <span class="pts">+4</span>
+    <p class="qtext">Sofia says, “‘The alpaca’s wool is like a cloud’ is a metaphor because it compares two things.” Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Sofia is wrong: it uses “like,” so it is a simile. Similes and metaphors both compare.</button><button class="opt">Sofia is right: every comparison is a metaphor.</button><button class="opt">Sofia is wrong: it is hyperbole.</button><button class="opt">Sofia is right because clouds are not made of wool.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="d1_s1" data-pts="4" data-logic="“The sun was a golden coin” says the sun IS a coin. The sun does not do anything human, so it is a metaphor, not personification.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake! Which label is WRONG?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“The sun was a golden coin.” = personification</button><button class="opt">“The mountain slept under the stars.” = personification</button><button class="opt">“The bus was as slow as a snail.” = simile</button><button class="opt">“This bag weighs a thousand pounds!” = hyperbole</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s1" data-pts="4" data-logic="Trail and hail share a sound (A), and clear and near share a different sound (B). The letters go A, B, A, B.">
+    <span class="pts">+4</span>
+    <p class="qtext">Diego says the rhyme pattern of this stanza is AABB:<br><i>The llamas walk the mountain trail.<br>Their bells ring out so clear.<br>They do not stop for wind or hail,<br>and soon the town is near.</i><br>Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Diego is wrong: lines 1 and 3 rhyme (trail, hail) and lines 2 and 4 rhyme (clear, near), so the pattern is ABAB.</button><button class="opt">Diego is right: lines 1 and 2 rhyme.</button><button class="opt">Diego is wrong: none of the lines rhyme.</button><button class="opt">Diego is right because the stanza has four lines.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="d1_s2" data-pts="4" data-logic="“The wind is like a flute” uses the word “like,” so it is a simile, not a metaphor.">
+    <span class="pts">+4</span>
+    <p class="qtext">Find the mistake! Which label is WRONG?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“The wind is like a flute.” = metaphor</button><button class="opt">“The old truck coughed and groaned up the hill.” = personification</button><button class="opt">“My little sister is a busy bee.” = metaphor</button><button class="opt">“I walked a hundred miles to the market today!” = hyperbole</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s2" data-pts="4" data-logic="Free verse is poetry without a set rhyme pattern. It is still a poem because it uses lines, images, and figurative language.">
+    <span class="pts">+4</span>
+    <p class="qtext">Lucia says this is NOT a poem because it does not rhyme:<br><i>Morning mist<br>curls around the corn<br>like a sleepy kitten.</i><br>Which explanation is correct?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Lucia is wrong: poems do not have to rhyme. Free verse uses lines and images without a rhyme pattern.</button><button class="opt">Lucia is right: every poem must rhyme.</button><button class="opt">Lucia is right: a poem must have exactly four lines.</button><button class="opt">Lucia is wrong because “mist” and “kitten” rhyme.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>🖊️ Writer's Workshop</h2>
+<div class="box box-guided">
+  <div class="icon">✨</div>
+  <h4>Now You're the Poet</h4>
+  <p>Write your own simile, then finish a rhyming couplet (two lines in a row that rhyme). The Pathway Points check for the simile looks for the word <b>like</b> or <b>as</b>, so make sure your comparison uses one of them.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="4" data-ans="The fog drifted over the terraces like a soft gray scarf.|like|as" data-logic="A simile compares two different things using like or as. Example: The fog was as soft as alpaca wool.">
+    <span class="pts">+4</span>
+    <p class="qtext">Write your own SIMILE about the morning fog over the terraced fields. Pathway Points check: your sentence must use the word like or as.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type your simile here" autocomplete="off" spellcheck="true"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="4" data-ans="sight" data-logic="“Sight” rhymes with “white,” and it makes sense: the fog hides the village so you cannot see it.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type ONE word that rhymes with “white” to finish the couplet: The fog rolls in so soft and white / and hides the village from my ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="w2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="4" data-ans="The alpaca’s ears stood up like two little flags.|like|as" data-logic="A simile compares two different things using like or as. Example: The alpaca’s neck was as long as a broom handle.">
+    <span class="pts">+4</span>
+    <p class="qtext">Write your own SIMILE about an alpaca. Pathway Points check: your sentence must use the word like or as.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type your simile here" autocomplete="off" spellcheck="true"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="4" data-ans="still|chill" data-logic="“Still” rhymes with “hill,” and it makes sense: the alpacas stand calm and not moving.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type ONE word that rhymes with “hill” to finish the couplet: The alpacas climb the hill, / then stand together, calm and ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="w2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="4" data-ans="Her red yarn glowed like a sunrise.|like|as" data-logic="A simile compares two different things using like or as. Example: The loom clicked like a busy clock.">
+    <span class="pts">+4</span>
+    <p class="qtext">Write your own SIMILE about Grandma’s loom or her yarn. Pathway Points check: your sentence must use the word like or as.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type your simile here" autocomplete="off" spellcheck="true"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="4" data-ans="floor|floors" data-logic="“Floor” rhymes with “door,” and it makes sense: the threads fall down to the floor.">
+    <span class="pts">+4</span>
+    <p class="qtext">Type ONE word that rhymes with “door” to finish the couplet: Grandma weaves beside the door. / Red threads tumble to the ___.</p>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-check="w2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="box box-story">
+  <div class="icon">📓</div>
+  <h4>Writer's Notebook (practice, not scored)</h4>
+  <p>Write a 4-line stanza about market day, the terraces, the alpacas, or Grandma's loom. Put each line on its own row (press Enter). Then check off each goal.</p>
+  <textarea class="notebook" id="notebookStanza" placeholder="Line 1&#10;Line 2&#10;Line 3&#10;Line 4"></textarea>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> My stanza has 4 lines.</label></li>
+    <li><label><input type="checkbox"> Lines 2 and 4 rhyme (ABCB) or I chose another pattern on purpose.</label></li>
+    <li><label><input type="checkbox"> I used a simile, metaphor, or personification.</label></li>
+    <li><label><input type="checkbox"> I included at least one sensory detail (sight, sound, smell, taste, or touch).</label></li>
+  </ul>
+  <p style="margin-top:8px">You'll write another stanza on your Post-Lesson Challenge sheet, so this is a great warm-up.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>🛠️ Fix the Sentence</h2>
+<div class="box box-guided">
+  <div class="icon">✏️</div>
+  <h4>Be the Editor</h4>
+  <p>Retype each sentence with the mistakes fixed. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake. Straight or curly quotation marks and apostrophes both work.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="fs1_s0" data-pts="3" data-exact="1" data-ans="On Sunday, Killa walked to the market." data-logic="Capitalize the first word of a sentence, days of the week (Sunday), and names (Killa).">
+    <span class="pts">+3</span>
+    <p class="qtext">Capitalization: fix the three capital-letter mistakes.</p>
+    <p class="brokensent">on sunday, killa walked to the market.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s0" data-pts="3" data-exact="1" data-ans="The weaver&#x27;s loom is tied to a wooden post." data-logic="To show that something belongs to one person, add an apostrophe and s: weaver’s.">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: add the apostrophe. The loom belongs to ONE weaver.</p>
+    <p class="brokensent">The weavers loom is tied to a wooden post.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s0" data-pts="3" data-exact="1" data-ans="Where do the alpacas sleep at night?" data-logic="This sentence asks a question, so it ends with a question mark.">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: fix the end mark.</p>
+    <p class="brokensent">Where do the alpacas sleep at night.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s0" data-pts="3" data-exact="1" data-ans="The alpacas walk up the steep hill." data-logic="“Alpacas” is plural, so it takes the plural verb “walk,” not “walks.”">
+    <span class="pts">+3</span>
+    <p class="qtext">Grammar: fix the verb so it agrees with the subject. Keep the word “alpacas.”</p>
+    <p class="brokensent">The alpacas walks up the steep hill.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="fs1_s1" data-pts="3" data-exact="1" data-ans="Many people in the Andes speak Quechua and Spanish." data-logic="Capitalize the first word, the name of a place (Andes), and the names of languages (Quechua, Spanish).">
+    <span class="pts">+3</span>
+    <p class="qtext">Capitalization: fix the four capital-letter mistakes.</p>
+    <p class="brokensent">many people in the andes speak quechua and spanish.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s1" data-pts="3" data-exact="1" data-ans="Killa read the poem &quot;Morning Fog&quot; aloud." data-logic="The title of a poem goes inside quotation marks.">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: put quotation marks around the poem’s title.</p>
+    <p class="brokensent">Killa read the poem Morning Fog aloud.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s1" data-pts="3" data-exact="1" data-ans="Grandma doesn&#x27;t rush her weaving." data-logic="“Doesn’t” is short for “does not.” The apostrophe takes the place of the missing letter o.">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: add the missing apostrophe in the contraction.</p>
+    <p class="brokensent">Grandma doesnt rush her weaving.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s1" data-pts="3" data-exact="1" data-ans="The alpaca shook its fluffy head." data-logic="“It’s” means “it is.” The head belongs to the alpaca, so use the possessive “its” with no apostrophe.">
+    <span class="pts">+3</span>
+    <p class="qtext">Grammar: fix the its / it’s mistake.</p>
+    <p class="brokensent">The alpaca shook it's fluffy head.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="fs1_s2" data-pts="3" data-exact="1" data-ans="The terraces near Cusco were built long ago by the Inca." data-logic="Capitalize the first word, the name of a city (Cusco), and the name of a people (Inca).">
+    <span class="pts">+3</span>
+    <p class="qtext">Capitalization: fix the three capital-letter mistakes.</p>
+    <p class="brokensent">the terraces near cusco were built long ago by the inca.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs2_s2" data-pts="3" data-exact="1" data-ans="My favorite poem is &quot;Grandma&#x27;s Loom.&quot;" data-logic="Poem titles go inside quotation marks. In American English, a period at the end goes inside the closing quotation mark.">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: put quotation marks around the poem’s title. (The period goes inside the closing quotation mark.)</p>
+    <p class="brokensent">My favorite poem is Grandma's Loom.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs3_s2" data-pts="3" data-exact="1" data-ans="Market day was on Sunday, May 3, 2026." data-logic="Put a comma after the day of the week (Sunday) and another comma between the date and the year (May 3, 2026).">
+    <span class="pts">+3</span>
+    <p class="qtext">Punctuation: add the two commas this date needs.</p>
+    <p class="brokensent">Market day was on Sunday May 3 2026.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="fs4_s2" data-pts="3" data-exact="1" data-ans="Yesterday the fog rolled down the valley.||Yesterday, the fog rolled down the valley." data-logic="“Yesterday” tells us it happened in the past, so use the past-tense verb “rolled.”">
+    <span class="pts">+3</span>
+    <p class="qtext">Grammar: fix the verb tense. This happened yesterday.</p>
+    <p class="brokensent">Yesterday the fog roll down the valley.</p>
+    <div class="fillrow"><input class="fillin fillwide" placeholder="Type the whole sentence correctly" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn btn-pri" data-check="fs4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a word on the left, then its meaning on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick poetry questions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-q="tt1" data-pts="4" data-bonus="1" data-logic="Similes use like or as to compare.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which word is a signal for a simile?</p>
+    <div class="opts"><button class="opt" data-c="1">like</button><button class="opt">is</button><button class="opt">very</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt2" data-pts="4" data-bonus="1" data-logic="The sun cannot really smile, so this is personification.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">“The sun smiled down on the village.” Which device is this?</p>
+    <div class="opts"><button class="opt" data-c="1">Personification</button><button class="opt">Simile</button><button class="opt">Hyperbole</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="tt3" data-pts="4" data-bonus="1" data-logic="“Hill” and “still” both end with the -ill sound.">
+    <span class="pts">+4 XP</span>
+    <p class="qtext">Which pair of words rhymes?</p>
+    <div class="opts"><button class="opt" data-c="1">hill and still</button><button class="opt">hill and hall</button><button class="opt">hill and fog</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>👑 Boss Challenge</h2>
+<div class="box box-alert">
+<div class="icon">👑</div>
+<h4>Think Like a Poet</h4>
+<p>These take two steps: check EVERY part of the question (the device, the number of lines, and the rhyme pattern), then choose the one answer that gets them all right.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="A mountain cannot yawn, so line 1 gives it a human action (personification). Line 2 compares the snow to wool using “as” (simile).">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Read the lines <i>The mountain yawned in the morning sun, / its snow as white as Grandma’s wool.</i> Which choice names the device in EACH line correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Line 1: personification; line 2: simile</button><button class="opt">Line 1: simile; line 2: metaphor</button><button class="opt">Line 1: hyperbole; line 2: personification</button><button class="opt">Both lines are hyperbole</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="The correct stanza has 4 lines, “grain” and “rain” rhyme on lines 2 and 4 (ABCB), and “like sheep” is a simile. The “fluffy sheep” stanza uses a metaphor instead, the short stanza has only 3 lines, and the stanza ending “water there” does not rhyme.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Which stanza has 4 lines, an ABCB rhyme pattern, AND a simile?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The bus bumps down the road<br>with sacks of corn and grain.<br>The clouds roll in like sheep<br>and bring the mountain rain.</button><button class="opt">The bus bumps down the road<br>with sacks of corn and grain.<br>The clouds are fluffy sheep<br>that bring the mountain rain.</button><button class="opt">The bus bumps down the road.<br>The clouds roll in like sheep<br>and bring the mountain rain.</button><button class="opt">The bus bumps down the road<br>with sacks of corn and grain.<br>The clouds roll in like sheep<br>and drop their water there.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="A bus cannot really groan like a tired person (personification), and no bus could carry a million sacks (hyperbole).">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Read <i>The old bus groaned up the mountain road, carrying a million sacks of potatoes.</i> Which choice names BOTH devices correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">“Groaned” is personification; “a million sacks” is hyperbole</button><button class="opt">“Groaned” is a simile; “a million sacks” is a metaphor</button><button class="opt">Both parts are similes</button><button class="opt">“Groaned” is hyperbole; “a million sacks” is personification</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Steep and asleep (lines 1 and 3) share sound A. Seeds and weeds (lines 2 and 4) share sound B. Four lines with the pattern A, B, A, B.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Read this stanza.<br><i>Up on the terrace, high and steep,<br>the farmers sow their quinoa seeds.<br>They work until the sun’s asleep,<br>then pull away the weeds.</i><br>Which choice gives the number of lines AND the rhyme pattern correctly?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">4 lines; ABAB: lines 1 and 3 rhyme, and lines 2 and 4 rhyme</button><button class="opt">4 lines; AABB: lines 1 and 2 rhyme, and lines 3 and 4 rhyme</button><button class="opt">2 lines; ABAB</button><button class="opt">4 lines; no rhyme pattern (free verse)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="It says the fog IS a ghost, with no like or as, so it is a metaphor. It means the fog is pale and drifts quietly, the way people imagine a ghost would.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Read <i>The fog is a gray ghost.</i> Which choice names the device AND tells what it really means?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">Metaphor; the fog is pale and moves silently</button><button class="opt">Simile; the fog is pale and moves silently</button><button class="opt">Metaphor; there is a real ghost in the village</button><button class="opt">Hyperbole; the fog is very loud</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="The correct stanza has 4 lines, the pairs stones/bones and town/down rhyme (AABB), and a river that laughs is personification. The stanza ending “rest” has no AABB rhyme, the short stanza has only 2 lines, and the stanza ending “never settles down” rhymes ABAB.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two-step: Which stanza has 4 lines, an AABB rhyme pattern, AND personification?</p>
+    <div class="opts opts-wide"><button class="opt" data-c="1">The river laughs along the stones.<br>It rattles like a bag of bones.<br>It hurries down to reach the town<br>and never stops to settle down.</button><button class="opt">The river laughs along the stones.<br>It rattles past the trees.<br>It hurries down to reach the town<br>and never stops to rest.</button><button class="opt">The river laughs along the stones<br>and rattles like a bag of bones.</button><button class="opt">The river laughs along the stones<br>and hurries to the town.<br>It rattles like a bag of bones<br>and never settles down.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, including your own stanza, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Poems Finished!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🦙</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Great job finishing your Post-Lesson Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 3: Building Things &mdash; Week 13 complete &mdash; Week 14 is next!</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 19;
+const FINAL_INDEX = 18;
+const MODULE_ID = 'grade4-5-week13-reading';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS = 10;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    let name='Unnamed Student'; try{ name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student'; }catch(e){}
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically. Tell your parent or teacher your score.';});
+  }catch(e){}
+}
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) lsSet('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())lsSet('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())lsSet('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = lsGet('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = lsGet('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+  document.querySelectorAll('.qbox[data-fq] .fillin').forEach(inp=>inp.addEventListener('keydown', e=>{ if(e.key==='Enter'){ const b=inp.parentNode.querySelector('[data-check]'); if(b) b.click(); } }));
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(n){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464','#7CC6FF']; const count=n||28; for(let i=0;i<count;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); if(!b.animate){ setTimeout(()=>b.remove(),2000); continue; } const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function bigConfetti(){ for(let w=0;w<6;w++) setTimeout(()=>confetti(90), w*450); }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); if(!s) return; const d=s.querySelector('.nav + .dots'); if(!d) return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; }
+const CURRENT_SET = getAttemptSetIndex();
+// Self-check: every question set must total exactly 100 Pathway Points.
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]:not(#trailQset) .qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); return t; }
+const MATCH_PAIRS_SETS = [[["simile", "compares using like or as"], ["metaphor", "says one thing IS another"], ["personification", "gives human actions to a non-human thing"], ["hyperbole", "a huge exaggeration"], ["stanza", "a group of lines in a poem"]], [["imagery", "details that appeal to the five senses"], ["rhyme", "words that end with the same sound"], ["rhythm", "the beat you hear in a poem"], ["line", "one row of words in a poem"], ["free verse", "a poem with no set rhyme pattern"]], [["simile", "compares using like or as"], ["hyperbole", "a huge exaggeration"], ["rhyme scheme", "the pattern of rhymes, like ABCB"], ["personification", "gives human actions to a non-human thing"], ["literal", "what the words exactly say"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  shuffle(facts); shuffle(prods);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  prods.forEach(p=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=lsGet(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=lsGet(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ lsSet(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above. <br><b>Why:</b> <span class="why"></span> No points this time, but you’ve got this next time!';
+      fb.querySelector('.why').textContent=box.dataset.logic||'';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet. Reread carefully and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+// Exact-match checking for Fix the Sentence and Punctuate the Conversation:
+// curly quotes become straight quotes, extra spaces are removed, and everything else must match exactly.
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′`´]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const exact=box.dataset.exact==='1';
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  let matched;
+  if(exact){ matched = String(box.dataset.ans).split('||').some(a=>normSentence(val)===normSentence(a)); }
+  else { const cleanVal=val.replace(/\.$/,'').toLowerCase(); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z]|$)').test(cleanVal)); }
+  if(matched){
+    state.answered['fill-'+fid]=true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML=(exact?'📚 Here is the corrected sentence:':'📚 The answer is:')+'<br><span class="corrected"></span><br><b>Why:</b> <span class="why"></span> No points this time, but you’ve got this next time!';
+      fb.querySelector('.corrected').textContent=correctAnswer;
+      fb.querySelector('.why').textContent=box.dataset.logic||'';
+      fb.className='feedback show bad';
+    } else {
+      fb.textContent = exact ? '❌ Not yet. Check every quotation mark, comma, capital letter and end mark, then try again.' : '❌ Not yet. Reread and try again.';
+      fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Lesson Mastered';
+    document.getElementById('finalHeadline').textContent='Poetry Pro!';
+    document.getElementById('finalMessageHeading').textContent='🎉 Poetry pro! You read the village poems like a true poet, from the fog that crept like an alpaca to the plaza that woke up yawning!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Today you mastered spotting similes, metaphors, personification, hyperbole, and imagery, and explaining what each figure of speech really means. You counted lines and stanzas, found rhyme schemes like ABCB, AABB, and ABAB, heard the rhythm of a poem, and recognized free verse in “Market Day.” Then you wrote your own simile and stanza, just like the poet who turned Grandma\u2019s yarn into a river of red and gold. Your results go to KingCretot Experience. Tell your parent or teacher your score, and make sure you finish your Post-Lesson Challenge sheet.';
+    playFanfare(); bigConfetti();
+  } else {
+    document.getElementById('finalBadge').textContent='Lesson Complete';
+    document.getElementById('finalHeadline').textContent='Keep Going!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You’re getting closer, and every try makes you stronger.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Poetry takes practice, even for real poets! Look back at the Picture It charts (like or as means simile, IS means metaphor, and rhyme letters show the pattern), then hit Play Again. You\u2019ll get a fresh set of questions next try. Your results go to KingCretot Experience. Make sure you finish your Post-Lesson Challenge sheet too.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+</body>
+</html>
