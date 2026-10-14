@@ -1200,8 +1200,7 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
     </div>
     <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
       <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
-      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 4 of 8</p>
-      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 4 complete</p>
     </div>
     <p class="quote" id="priorAttemptNote" style="display:none"></p>
     <div class="nav" style="justify-content:center">
@@ -1224,7 +1223,7 @@ const TOTAL_SLIDES = 15;
 const FINAL_INDEX = 14;
 const MODULE_ID = 'grade3-math-w4';
 const MASTERY_THRESHOLD = 85;
-const MAX_RAW_SCORE = 325;
+const MAX_RAW_SCORE = 115;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const NEXT_LESSON_URL = '';
 const PROGRESS_KEY = 'kce_pathways_progress';
@@ -1320,7 +1319,7 @@ function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ 
 function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
 function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
 
-const MATCH_PAIRS_SETS = [[['Estimate','a close, reasonable guess made by rounding first'],['Round','change a number to the nearest ten or hundred'],['Total','the whole amount after adding'],['In all / Altogether','clue words for addition'],['Left / Remaining','clue words for subtraction']],[['178 + 213','391'],['312 \u2212 184','128'],['247 + 266','513'],['450 \u2212 275','175'],['167 + 155','322']],[['243 + 368 (estimate)','about 600'],['176 + 519 (estimate)','about 700'],['352 + 449 (estimate)','about 800'],['264 + 218 (estimate)','about 500'],['342 + 289 (estimate)','about 600']]];
+const MATCH_PAIRS_SETS = [[['Estimate','a close, reasonable guess made by rounding first'],['Round','change a number to the nearest ten or hundred'],['Total','the whole amount after adding'],['In all / Altogether','clue words for addition'],['Left / Remaining','clue words for subtraction']],[['178 + 213','391'],['312 \u2212 184','128'],['247 + 266','513'],['450 \u2212 275','175'],['167 + 155','322']],[['243 + 368 (estimate)','about 600'],['176 + 519 (estimate)','about 700'],['352 + 449 (estimate)','about 800'],['264 + 218 (estimate)','about 500'],['412 + 489 (estimate)','about 900']]];
 let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
 let mSel = null;
 function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }

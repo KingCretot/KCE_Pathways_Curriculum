@@ -1210,8 +1210,7 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
     </div>
     <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
       <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">&#128220; Portfolio Passport</span>
-      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 2 of 8</p>
-      <div class="dots" style="margin-top:8px"><span class="dot done"></span><span class="dot done"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 1: First Steps &mdash; Week 2 complete</p>
     </div>
     <p class="quote" id="priorAttemptNote" style="display:none"></p>
     <div class="nav" style="justify-content:center">
@@ -1234,7 +1233,7 @@ const TOTAL_SLIDES = 15;
 const FINAL_INDEX = 14;
 const MODULE_ID = 'grade3-math-w2';
 const MASTERY_THRESHOLD = 85;
-const MAX_RAW_SCORE = 325;
+const MAX_RAW_SCORE = 115;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const NEXT_LESSON_URL = '';
 const PROGRESS_KEY = 'kce_pathways_progress';
@@ -1330,7 +1329,7 @@ function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ 
 function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
 function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
 
-const MATCH_PAIRS_SETS = [[['523 ___ 253','>'],['416 ___ 461','<'],['680 ___ 680','='],['729 ___ 792','<'],['905 ___ 590','>']],[['647 ___ 476','>'],['258 ___ 285','<'],['413 ___ 413','='],['861 ___ 816','>'],['394 ___ 439','<']],[['762 ___ 726','>'],['519 ___ 591','<'],['227 ___ 227','='],['845 ___ 854','<'],['630 ___ 360','>']]];
+const MATCH_PAIRS_SETS = [[['Greater: 523 or 253','523'],['Less: 416 or 461','416'],['Greater: 680 or 608','680'],['Greater: 729 or 792','792'],['Less: 905 or 590','590']],[['Greater: 647 or 476','647'],['Less: 258 or 285','258'],['Greater: 413 or 431','431'],['Greater: 861 or 816','861'],['Less: 394 or 439','394']],[['Greater: 762 or 726','762'],['Less: 519 or 591','519'],['Greater: 227 or 272','272'],['Less: 845 or 854','845'],['Greater: 630 or 360','630']]];
 let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
 let mSel = null;
 function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
