@@ -201,6 +201,11 @@ ul.tips li{margin:5px 0}
     <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
     <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Bonus Stop between Week 7 &amp; Week 8</p>
   </div>
+<div class="box box-alert">
+  <div class="icon">🖨️</div>
+  <h4>Print Your Post-Lesson Sheet</h4>
+  <p>You will finish today with a 2-page paper sheet. Print it now so it is ready.</p><p style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="btn btn-go" onclick="kcePrintPost()">🖨️ Print Post-Lesson</button><a class="btn btn-pri" style="text-decoration:none;display:inline-block" href="post-lesson.pdf" target="_blank" rel="noopener">📄 Open Post-Lesson</a></p>
+</div>
   <div class="box box-vocab" id="nameCaptureCard">
     <div class="icon">👤</div>
     <h4>Before You Start</h4>
@@ -972,7 +977,7 @@ ul.tips li{margin:5px 0}
       <div class="icon">✏️</div>
       <h4>Pencil Time: Post-Lesson Sheet</h4>
       <p>Now grab your printed <b>Week 7A Post-Lesson</b> sheet and a pencil. Show what you learned on paper!</p>
-      <p style="margin-top:8px"><a class="btn btn-pri" style="text-decoration:none;display:inline-block" href="post-lesson.pdf" target="_blank" rel="noopener">🖨️ Open the Post-Lesson sheet</a></p>
+      <p style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="btn btn-go" onclick="kcePrintPost()">🖨️ Print Post-Lesson</button><a class="btn btn-pri" style="text-decoration:none;display:inline-block" href="post-lesson.pdf" target="_blank" rel="noopener">📄 Open Post-Lesson</a></p>
     </div>
     <div class="passport">
       <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
@@ -1005,6 +1010,7 @@ function kceSkip(btn){ const inp=btn&&btn.parentNode.querySelector('.kcecode'); 
 function kceGateUI(){ document.querySelectorAll('.slide').forEach(sl=>{ const ts=[...sl.querySelectorAll('textarea.journal')]; if(!ts.length) return; const done=kceTeacherSkip||ts.every(t=>kceWords(t.value)>=+t.dataset.min); const b=sl.querySelector('.nav .btn-go'); if(!b) return; if(!b.dataset.label) b.dataset.label=b.innerHTML; b.innerHTML=done?b.dataset.label:'🔒 Write to unlock'; b.style.opacity=done?'1':'.55'; }); }
 document.addEventListener('input', e=>{ if(e.target.classList&&e.target.classList.contains('journal')){ e.target.classList.remove('need'); kceGateUI(); } });
 document.addEventListener('DOMContentLoaded', ()=>setTimeout(kceGateUI,50));
+function kcePrintPost(){ try{ const old=document.getElementById('kcePrintFrame'); if(old) old.remove(); const f=document.createElement('iframe'); f.id='kcePrintFrame'; f.style.cssText='position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0'; f.src='post-lesson.pdf'; f.onload=()=>{ setTimeout(()=>{ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){ window.open('post-lesson.pdf','_blank'); } },400); }; document.body.appendChild(f); }catch(e){ window.open('post-lesson.pdf','_blank'); } }
 function readPassage(btn){ const p=document.getElementById('storyText'); if(p) speakText(p.innerText, btn); }
 
 const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0, reflectMostConfident:null, reflectPracticeMore:null };
