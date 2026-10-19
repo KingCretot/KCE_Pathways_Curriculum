@@ -150,6 +150,7 @@ ul.tips li{margin:5px 0}
 @keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
 .subjtag{display:inline-block;font-weight:900;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-right:6px}
 .journal{width:100%;border:3px solid #D9E0EC;border-radius:12px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.5;resize:vertical;margin-top:8px;background:#fff}
+.journal.need{border-color:var(--bad);background:#FFF5F5}
 .journal:focus{outline:none;border-color:var(--gold)}
 .wc{font-weight:800;color:#8A8FA0;font-size:.85rem;margin-top:4px;text-align:right}.wc.ok{color:var(--ok)}
 .teach{background:#fff;border:3px solid #D9E0EC;border-radius:16px;padding:16px 18px;margin:12px 0}.teach h4{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:6px}
@@ -691,6 +692,7 @@ ul.tips li{margin:5px 0}
   <textarea class="journal" data-j="setting" data-min="12" rows="3" placeholder="Write at least 12 words..."></textarea>
   <p class="wc" data-wc="setting">0 / 12 words</p>
 </div>
+<p style="font-weight:800;color:var(--navy);margin-top:6px">🔒 Next unlocks when every box reaches its word count.</p>
 <p class="feedback gatefb" style="display:none"></p>
 <div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
@@ -713,6 +715,7 @@ ul.tips li{margin:5px 0}
   <textarea class="journal" data-j="theme" data-min="15" rows="4" placeholder="Write at least 15 words..."></textarea>
   <p class="wc" data-wc="theme">0 / 15 words</p>
 </div>
+<p style="font-weight:800;color:var(--navy);margin-top:6px">🔒 Next unlocks when every box reaches its word count.</p>
 <p class="feedback gatefb" style="display:none"></p>
 <div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
@@ -730,6 +733,7 @@ ul.tips li{margin:5px 0}
   <textarea class="journal" data-j="writing" data-min="25" rows="5" placeholder="Write at least 25 words..."></textarea>
   <p class="wc" data-wc="writing">0 / 25 words</p>
 </div>
+<p style="font-weight:800;color:var(--navy);margin-top:6px">🔒 Next unlocks when every box reaches its word count.</p>
 <p class="feedback gatefb" style="display:none"></p>
 <div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
 <div class="dots" id="dots"></div>
@@ -993,7 +997,12 @@ function kceWords(t){ return (t.trim().match(/\S+/g)||[]).length; }
 function kceJournal(){ const o={}; document.querySelectorAll('textarea.journal').forEach(t=>{ o['book_'+t.dataset.j]=t.value.trim()||'(blank)'; }); return o; }
 document.addEventListener('input', e=>{ const t=e.target; if(!t.classList||!t.classList.contains('journal')) return; const w=kceWords(t.value), m=+t.dataset.min; const el=document.querySelector('[data-wc="'+t.dataset.j+'"]'); if(el){ el.textContent=w+' / '+m+' words'+(w>=m?' ✅':''); el.classList.toggle('ok', w>=m); } try{ localStorage.setItem('kce7a_'+MODULE_ID+'_'+t.dataset.j, t.value); }catch(x){} });
 document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('textarea.journal').forEach(t=>{ try{ const v=localStorage.getItem('kce7a_'+MODULE_ID+'_'+t.dataset.j); if(v){ t.value=v; t.dispatchEvent(new Event('input',{bubbles:true})); } }catch(x){} }); });
-document.addEventListener('click', e=>{ const b=e.target.closest('[data-go]'); if(!b) return; const cur=document.querySelector('.slide.on'); if(!cur || +b.dataset.go < +cur.dataset.slide) return; const short=[...cur.querySelectorAll('textarea.journal')].filter(t=>kceWords(t.value) < +t.dataset.min); if(!short.length) return; e.stopImmediatePropagation(); e.preventDefault(); const fb=cur.querySelector('.gatefb'); if(fb){ fb.style.display='block'; fb.className='feedback show bad gatefb'; fb.textContent='✏️ Finish your writing first: each answer needs the number of words shown under its box. Use details from your book!'; } short[0].focus(); }, true);
+document.addEventListener('click', e=>{ const b=e.target.closest('[data-go]'); if(!b) return; const cur=document.querySelector('.slide.on'); if(!cur || +b.dataset.go < +cur.dataset.slide) return; const short=[...cur.querySelectorAll('textarea.journal')].filter(t=>kceWords(t.value) < +t.dataset.min); if(!short.length) return; if(kceTeacherSkip) return; e.stopImmediatePropagation(); e.preventDefault(); const fb=cur.querySelector('.gatefb'); if(fb){ fb.style.display='block'; fb.className='feedback show bad gatefb'; fb.innerHTML='✏️ <b>Next is locked until you finish writing.</b> '+short.length+' box'+(short.length>1?'es need':' needs')+' more words. Look at the counter under each box. Use details from your book!<br><button type="button" class="btn btn-back" style="margin-top:10px;font-size:.85rem" onclick="kceSkip()">Teacher: skip with code</button>'; } levelup('✏️ Finish your writing to unlock Next'); playWrong(); short[0].scrollIntoView({behavior:'smooth',block:'center'}); short[0].classList.add('need'); setTimeout(()=>short[0].focus(),400); }, true);
+let kceTeacherSkip=false;
+function kceSkip(){ const p=prompt('Teacher code'); if(p==='9110'){ kceTeacherSkip=true; levelup('Teacher mode: writing lock off'); document.querySelectorAll('.gatefb').forEach(f=>f.style.display='none'); kceGateUI(); } else if(p!==null){ alert('That code is not right.'); } }
+function kceGateUI(){ document.querySelectorAll('.slide').forEach(sl=>{ const ts=[...sl.querySelectorAll('textarea.journal')]; if(!ts.length) return; const done=kceTeacherSkip||ts.every(t=>kceWords(t.value)>=+t.dataset.min); const b=sl.querySelector('.nav .btn-go'); if(!b) return; if(!b.dataset.label) b.dataset.label=b.innerHTML; b.innerHTML=done?b.dataset.label:'🔒 Write to unlock'; b.style.opacity=done?'1':'.55'; }); }
+document.addEventListener('input', e=>{ if(e.target.classList&&e.target.classList.contains('journal')){ e.target.classList.remove('need'); kceGateUI(); } });
+document.addEventListener('DOMContentLoaded', ()=>setTimeout(kceGateUI,50));
 function readPassage(btn){ const p=document.getElementById('storyText'); if(p) speakText(p.innerText, btn); }
 
 const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0, reflectMostConfident:null, reflectPracticeMore:null };
