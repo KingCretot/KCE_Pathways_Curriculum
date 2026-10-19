@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 7A: The Bake Sale Split (Math + Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s;position:relative}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{position:absolute;top:16px;right:18px;font-weight:900;color:var(--gold);font-size:.85rem;background:#fff}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px;padding-right:56px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:158px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800;overflow:hidden}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.74rem;line-height:1.3;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.stdalgo{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);text-align:center;margin:14px 0}
+.stdalgo .row{border-bottom:3px solid var(--navy);padding:4px 0}
+.stdalgo .row:last-child{border-bottom:none;color:var(--pumpkin)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+/* NEW for 6A: fact family triangle + estimation dial */
+.trianglewrap{display:flex;justify-content:center;margin:16px 0}
+.triangle{position:relative;width:220px;height:190px}
+.tri-shape{position:absolute;inset:0;background:linear-gradient(135deg,#EAF6FF,#D9ECFF);clip-path:polygon(50% 4%,4% 96%,96% 96%);border:3px solid var(--sky)}
+.tri-num{position:absolute;font-family:'Fredoka One',cursive;font-weight:900;font-size:1.5rem;color:var(--navy);background:#fff;border:3px solid var(--navy);border-radius:12px;padding:8px 14px}
+.tri-top{top:2px;left:50%;transform:translateX(-50%)}
+.tri-left{bottom:8px;left:4px}
+.tri-right{bottom:8px;right:4px}
+.estimatebar{background:#fff;border:3px solid var(--pumpkin);border-radius:16px;padding:16px;margin:14px 0}
+.estimatebar .rangewrap{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:8px}
+.estimatebtn{padding:12px 18px;border-radius:12px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;cursor:pointer;font-family:inherit}
+.estimatebtn.right{background:#E5F7DC;border-color:var(--grass)}
+
+/* Week 7A: combined Math + Reading */
+.passage{background:#fff;border:3px solid #D9E0EC;border-radius:18px;padding:20px 22px;margin:14px 0;box-shadow:0 4px 14px rgba(27,44,92,.08)}
+.passage h3{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.3rem;margin-bottom:4px}
+.passage .part{display:inline-block;background:var(--navy);color:var(--gold);font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:3px 12px;margin:12px 0 6px}
+.passage p{margin:0 0 10px}
+.passage .num{background:#FFF3D6;border-radius:6px;padding:0 4px;font-weight:900;color:#8A5A00}
+.readbtn{background:var(--gold);color:var(--navy);border:none;border-radius:999px;padding:8px 16px;font-weight:900;font-family:'Nunito',sans-serif;cursor:pointer;font-size:.92rem}
+.readbtn.speaking,.sayq.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.sayq{border:none;background:#EAF0FF;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.9rem;vertical-align:middle}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.subjtag{display:inline-block;font-weight:900;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-right:6px}
+.subjtag.m{background:#E5F7DC;color:#2E7D32}.subjtag.r{background:#FFE4EE;color:#B23A63}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🧁 KCE Pathways — Grade 4-5 — Week 7A</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Next Level &bull; Bonus Trail Stop &bull; Math + Reading</span>
+  <h1>The Bake Sale Split</h1>
+  <h2>Long Division &amp; Comparing Two Viewpoints 🧁⚖️</h2>
+<div class="box box-story">
+  <div class="icon">🧁</div>
+  <h4>$360 and Two Big Ideas</h4>
+  <p>Ms. Okafor’s class earned $360 at a bake sale. Lila wants to give it to an animal shelter. Marcus wants to buy library books. Today you’ll divide the money each way, compare both viewpoints, and decide whose evidence is strongest.</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🏆</div>
+  <h4>How Pathway Points Work</h4>
+  <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Today is <b>Math and Reading together</b> in one lesson. Play Again gives you a <b>fresh set of questions</b>.</p>
+</div>
+<div class="box box-real">
+  <div class="icon">🗺️</div>
+  <h4>Today's Quest</h4>
+  <ul class="tips"><li>Warm up with last week’s long division and comparing viewpoints</li><li>Flip the math and reading word cards</li><li>Read Lila’s and Marcus’s pieces side by side</li><li>Compare and contrast their viewpoints and evidence</li><li>Use long division to check the numbers in each piece</li><li>Decide who solved it right when they divide with remainders</li><li>Play Match-Up, race the Speed Trail, and beat the Boss Battle!</li></ul>
+</div>
+<div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Bonus Stop between Week 7 &amp; Week 8</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="1">
+<h2>🔁 Week 7 Warm-Up: Math + Reading</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Lock In Last Week</h4>
+  <p>Week 7 was long division with 2-digit divisors and comparing two viewpoints. Let’s make sure both are locked in before we use them together. For remainders, type your answer like <b>3R8</b>.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="7" data-logic="12 × 7 = 84 exactly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 84 ÷ 12 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="The number you divide BY is the divisor.">
+    <span class="pts">+5</span>
+    <p class="qtext">In a division problem, the number you divide BY is the...</p>
+    <div class="opts"><button class="opt" data-c="1">divisor</button><button class="opt">dividend</button><button class="opt">quotient</button><button class="opt">remainder</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w3_s0" data-pts="5" data-ans="3R8" data-logic="15 × 3 = 45, and 53 − 45 = 8, so 3 R8.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 53 ÷ 15 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Comparing looks for how things are SIMILAR. Contrasting looks for differences.">
+    <span class="pts">+5</span>
+    <p class="qtext">To COMPARE two viewpoints means to look for how they are...</p>
+    <div class="opts"><button class="opt" data-c="1">similar</button><button class="opt">different</button><button class="opt">long</button><button class="opt">funny</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="7" data-logic="14 × 7 = 98 exactly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 98 ÷ 14 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="The answer to a division problem is the quotient.">
+    <span class="pts">+5</span>
+    <p class="qtext">The answer to a division problem is the...</p>
+    <div class="opts"><button class="opt" data-c="1">quotient</button><button class="opt">divisor</button><button class="opt">dividend</button><button class="opt">factor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w3_s1" data-pts="5" data-ans="5R1" data-logic="12 × 5 = 60, and 61 − 60 = 1, so 5 R1.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 61 ÷ 12 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Contrasting looks for how things are DIFFERENT.">
+    <span class="pts">+5</span>
+    <p class="qtext">To CONTRAST two viewpoints means to look for how they are...</p>
+    <div class="opts"><button class="opt" data-c="1">different</button><button class="opt">similar</button><button class="opt">short</button><button class="opt">true</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="4" data-logic="18 × 4 = 72 exactly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 72 ÷ 18 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="What’s left over is the remainder.">
+    <span class="pts">+5</span>
+    <p class="qtext">What’s left over when a number doesn’t divide evenly is the...</p>
+    <div class="opts"><button class="opt" data-c="1">remainder</button><button class="opt">quotient</button><button class="opt">divisor</button><button class="opt">estimate</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w3_s2" data-pts="5" data-ans="3R8" data-logic="13 × 3 = 39, and 47 − 39 = 8, so 3 R8.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer: 47 ÷ 13 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Facts and details that support an argument are evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Specific facts or details that support an argument are called...</p>
+    <div class="opts"><button class="opt" data-c="1">evidence</button><button class="opt">opinions</button><button class="opt">remainders</button><button class="opt">titles</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="2">
+<h2>🌟 Word Wrangler: Math + Reading Words</h2>
+<p style="margin-bottom:6px">Flip each card. Say the word, then say what it means in your own words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">divisor</div><div class="flip-face flip-back">The number you are dividing BY.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quotient</div><div class="flip-face flip-back">The answer to a division problem.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">remainder</div><div class="flip-face flip-back">What’s left over when a number doesn’t divide evenly.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">viewpoint</div><div class="flip-face flip-back">The particular way a person sees or feels about something.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">evidence</div><div class="flip-face flip-back">Specific facts or details that support an argument.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">contrast</div><div class="flip-face flip-back">To look at how two or more things are DIFFERENT.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="3">
+<h2>📖 Read the Story</h2>
+<p><span class="subjtag r">Reading</span><span class="subjtag m">Math</span> Read both pieces. As you read, ask: What does each writer want? What evidence do they use? Watch for the numbers. You will check them with long division!</p>
+<div style="margin:10px 0"><button class="readbtn" type="button" onclick="readPassage(this)">🔊 Read it to me</button></div>
+<div class="passage" id="storyText">
+<h3>The Bake Sale Split</h3>
+<p>Ms. Okafor's class held a bake sale and earned <span class="num">$360</span>. The class agreed to give the money away, but they could not agree on <i>where</i>. Two students each wrote a short piece for the class to read before the vote.</p>
+<span class="part">Piece 1 &middot; Lila: &ldquo;Give It to the Shelter&rdquo;</span>
+<p>Our class should donate all <span class="num">$360</span> to the Sunny Paws Animal Shelter. The shelter cares for <span class="num">15 dogs</span> right now, so our money would give each dog <span class="num">$24</span> worth of food and care. The shelter director told our class that donations are lowest in the fall. Helping animals teaches us to care for something besides ourselves. A gift like this would make a real difference right away.</p>
+<span class="part">Piece 2 &middot; Marcus: &ldquo;Books That Last&rdquo;</span>
+<p>I love animals, but I think our <span class="num">$360</span> should buy new books for our school library. Each new book costs about <span class="num">$18</span>, so we could buy <span class="num">20 books</span>. Our library has not gotten new books in <span class="num">2 years</span>, and many shelves are half empty. A dog's food is gone in a week, but a book can be read by hundreds of students for years. That is a gift that keeps on giving.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="4">
+<h2>👀 Reading Check: Compare &amp; Contrast</h2>
+<span class="setnotice" id="setNotice4" style="display:none"></span>
+<p style="margin-bottom:8px">Scroll up to the story any time. Good readers look back!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="rd1_s0" data-pts="6" data-logic="Both writers want the $360 to help others. They disagree on WHO to help.">
+    <span class="pts">+6</span>
+    <p class="qtext">What do Lila and Marcus AGREE on?</p>
+    <div class="opts"><button class="opt" data-c="1">The money should help others</button><button class="opt">The money should go to the shelter</button><button class="opt">Books matter more than dogs</button><button class="opt">The class should keep the money</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s0" data-pts="6" data-logic="Marcus argues a book “can be read by hundreds of students for years.”">
+    <span class="pts">+6</span>
+    <p class="qtext">What is Marcus’s main reasoning?</p>
+    <div class="opts"><button class="opt" data-c="1">A book lasts for years and helps many students</button><button class="opt">He does not like animals</button><button class="opt">Books are cheaper than dog food</button><button class="opt">The shelter has too much money</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s0" data-pts="6" data-ans="but" data-logic="“But” signals a turn: Marcus likes animals, BUT he wants the money to go somewhere else.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: In “I love animals, but I think...,” which word signals that Marcus is about to disagree?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s0" data-pts="6" data-logic="Lila uses what the shelter director told the class. The library fact is Marcus’s evidence.">
+    <span class="pts">+6</span>
+    <p class="qtext">Which sentence is EVIDENCE that Lila uses?</p>
+    <div class="opts"><button class="opt" data-c="1">The shelter director said donations are lowest in the fall.</button><button class="opt">Our library has not gotten new books in 2 years.</button><button class="opt">I love animals.</button><button class="opt">Our school is the best in the county.</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="rd1_s1" data-pts="6" data-logic="Lila stresses “right away.” Marcus stresses “for years.”">
+    <span class="pts">+6</span>
+    <p class="qtext">What is the main DIFFERENCE between their viewpoints?</p>
+    <div class="opts"><button class="opt" data-c="1">Lila wants help right away; Marcus wants help that lasts</button><button class="opt">Lila wants to keep the money; Marcus wants to give it away</button><button class="opt">Lila likes books; Marcus likes dogs</button><button class="opt">There is no difference</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s1" data-pts="6" data-logic="The library fact supports Marcus’s argument.">
+    <span class="pts">+6</span>
+    <p class="qtext">Which sentence is EVIDENCE that Marcus uses?</p>
+    <div class="opts"><button class="opt" data-c="1">Our library has not gotten new books in 2 years.</button><button class="opt">The shelter cares for 15 dogs.</button><button class="opt">Helping animals teaches us to care.</button><button class="opt">Bake sales are fun.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s1" data-pts="6" data-ans="15" data-logic="Lila writes that the shelter cares for 15 dogs.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: How many dogs does the shelter care for right now?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s1" data-pts="6" data-logic="Both writers want to convince the class. That is persuasive writing.">
+    <span class="pts">+6</span>
+    <p class="qtext">Both pieces were written mainly to...</p>
+    <div class="opts"><button class="opt" data-c="1">persuade the class to vote their way</button><button class="opt">tell a funny story</button><button class="opt">explain how to bake</button><button class="opt">describe a dog</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="rd1_s2" data-pts="6" data-logic="“A gift that keeps on giving” is Marcus’s belief. The others can be checked.">
+    <span class="pts">+6</span>
+    <p class="qtext">Which statement is an OPINION, not a fact?</p>
+    <div class="opts"><button class="opt" data-c="1">A book is a gift that keeps on giving.</button><button class="opt">The shelter cares for 15 dogs.</button><button class="opt">Each new book costs about $18.</button><button class="opt">The class earned $360.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s2" data-pts="6" data-logic="Lila wants all $360 to go to the shelter now.">
+    <span class="pts">+6</span>
+    <p class="qtext">Which sentence best states Lila’s viewpoint?</p>
+    <div class="opts"><button class="opt" data-c="1">The money should help the shelter dogs right away.</button><button class="opt">The money should buy library books.</button><button class="opt">The class should not give money away.</button><button class="opt">Dogs do not need help in the fall.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s2" data-pts="6" data-ans="2|two" data-logic="Marcus writes the library has not gotten new books in 2 years.">
+    <span class="pts">+6</span>
+    <p class="qtext">Type your answer: How many years since the library got new books?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s2" data-pts="6" data-logic="Both writers want the money to do the most good. That is their similarity.">
+    <span class="pts">+6</span>
+    <p class="qtext">Both writers care about something. What is it?</p>
+    <div class="opts"><button class="opt" data-c="1">Doing what is best with the money</button><button class="opt">Winning a prize</button><button class="opt">Baking more cookies</button><button class="opt">Getting a new class pet</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="5">
+<h2>🧮 Math from the Story: Check the Numbers</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="box box-guided">
+  <div class="icon">💡</div>
+  <h4>Long Division Check</h4>
+  <p>Every division answer can be checked with multiplication. If 360 &divide; 15 = 24, then <b>15 &times; 24</b> must equal 360. Estimate first so you know if your answer makes sense.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m1_s0" data-pts="8" data-ans="24" data-logic="15 × 24 = 360, so each dog gets $24. Lila’s number checks out.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Lila’s plan: $360 ÷ 15 dogs = $___ per dog</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s0" data-pts="8" data-ans="20" data-logic="18 × 20 = 360, so the class can buy 20 books. Marcus’s number checks out.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Marcus’s plan: $360 ÷ $18 per book = ___ books</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s0" data-pts="8" data-logic="The divisor is the number you divide BY: 15.">
+    <span class="pts">+8</span>
+    <p class="qtext">In 360 ÷ 15, which number is the divisor?</p>
+    <div class="opts"><button class="opt" data-c="1">15</button><button class="opt">360</button><button class="opt">24</button><button class="opt">0</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m4_s0" data-pts="8" data-ans="18" data-logic="360 ÷ 20 = 18. The exact answer (20) is close, so it makes sense.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Estimate 360 ÷ 18 by rounding 18 to 20. 360 ÷ 20 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="m1_s1" data-pts="8" data-ans="24" data-logic="16 × 24 = 384.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: A second bake sale earns $384. $384 ÷ 16 dogs = $___ per dog</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s1" data-pts="8" data-ans="32" data-logic="12 × 32 = 384.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Used books cost $12 each. $384 ÷ $12 = ___ books</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s1" data-pts="8" data-logic="The quotient is the answer: 24.">
+    <span class="pts">+8</span>
+    <p class="qtext">In 384 ÷ 16 = 24, which number is the quotient?</p>
+    <div class="opts"><button class="opt" data-c="1">24</button><button class="opt">16</button><button class="opt">384</button><button class="opt">4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m4_s1" data-pts="8" data-ans="20" data-logic="400 ÷ 20 = 20, so the answer should be close to 20.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Estimate 384 ÷ 19 by rounding to 400 ÷ 20. 400 ÷ 20 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="m1_s2" data-pts="8" data-ans="26" data-logic="13 × 26 = 338.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: A class earns $338 for 13 shelter cats. $338 ÷ 13 = $___ per cat</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m2_s2" data-pts="8" data-ans="13" data-logic="26 × 13 = 338.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Books cost $26 each. $338 ÷ $26 = ___ books</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m3_s2" data-pts="8" data-logic="The dividend is the number being divided: 338.">
+    <span class="pts">+8</span>
+    <p class="qtext">In 338 ÷ 13, which number is the dividend?</p>
+    <div class="opts"><button class="opt" data-c="1">338</button><button class="opt">13</button><button class="opt">26</button><button class="opt">3</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m4_s2" data-pts="8" data-ans="34" data-logic="340 ÷ 10 = 34. Rounding 13 down to 10 makes the estimate high. The exact answer is 26.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: Estimate 338 ÷ 13 by rounding to 340 ÷ 10. 340 ÷ 10 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="6">
+<h2>⚖️ Two Points of View: Math Edition</h2>
+<span class="setnotice" id="setNotice6" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">🤔</div>
+  <h4>Two Solvers, One Problem</h4>
+  <p>Lila and Marcus are packing leftover treats. They each solve the same division problem. Check their work with multiplication to see who is right. For remainders, type your answer like <b>3R8</b>.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="8" data-logic="12 × 9 = 108, which is more than 100. So only 8 full bags fit, with 4 cookies left.">
+    <span class="pts">+8</span>
+    <p class="qtext">100 cookies go into bags of 12. Lila says 8 full bags with 4 left over. Marcus says 9 full bags. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Lila, because 12 × 8 = 96 and 100 − 96 = 4</button><button class="opt">Marcus, because 12 × 9 = 100</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="8" data-ans="10R10" data-logic="14 × 10 = 140, and 150 − 140 = 10, so 10 R10.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: 150 ÷ 14 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s0" data-pts="8" data-logic="Multiply the quotient by the divisor: 15 × 24 = 360.">
+    <span class="pts">+8</span>
+    <p class="qtext">Marcus says 360 ÷ 15 = 24. Which check proves it?</p>
+    <div class="opts"><button class="opt" data-c="1">15 × 24 = 360</button><button class="opt">15 + 24 = 360</button><button class="opt">360 − 15 = 24</button><button class="opt">24 ÷ 15 = 360</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="8" data-logic="16 × 6 = 96, which is more than 90. So only 5 boxes fit, with 10 muffins left.">
+    <span class="pts">+8</span>
+    <p class="qtext">90 muffins go into boxes of 16. Lila says 5 boxes with 10 left over. Marcus says 6 boxes with 6 left over. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Lila, because 16 × 5 = 80 and 90 − 80 = 10</button><button class="opt">Marcus, because 16 × 6 = 90</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="8" data-ans="11R4" data-logic="11 × 11 = 121, and 125 − 121 = 4, so 11 R4.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: 125 ÷ 11 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s1" data-pts="8" data-logic="Multiply the quotient by the divisor: 16 × 24 = 384.">
+    <span class="pts">+8</span>
+    <p class="qtext">Lila says 384 ÷ 16 = 24. Which check proves it?</p>
+    <div class="opts"><button class="opt" data-c="1">16 × 24 = 384</button><button class="opt">16 + 24 = 384</button><button class="opt">384 − 16 = 24</button><button class="opt">24 ÷ 16 = 384</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="8" data-logic="13 × 6 = 78, which is more than 75. So only 5 trays fill up, with 10 brownies left.">
+    <span class="pts">+8</span>
+    <p class="qtext">75 brownies go on trays of 13. Lila says 5 trays with 10 left over. Marcus says 6 trays with none left over. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Lila, because 13 × 5 = 65 and 75 − 65 = 10</button><button class="opt">Marcus, because 13 × 6 = 75</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="8" data-ans="13R5" data-logic="15 × 13 = 195, and 200 − 195 = 5, so 13 R5.">
+    <span class="pts">+8</span>
+    <p class="qtext">Type your answer: 200 ÷ 15 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v3_s2" data-pts="8" data-logic="Multiply the quotient by the divisor: 13 × 26 = 338.">
+    <span class="pts">+8</span>
+    <p class="qtext">Marcus says 338 ÷ 13 = 26. Which check proves it?</p>
+    <div class="opts"><button class="opt" data-c="1">13 × 26 = 338</button><button class="opt">13 + 26 = 338</button><button class="opt">338 − 13 = 26</button><button class="opt">26 ÷ 13 = 338</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="7">
+<h2>🧩 Match-Up Round</h2>
+<p style="margin-bottom:6px">Tap a card on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+  <div class="mcol" id="mLeft"></div>
+  <div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="8">
+<h2>🏁 Speed Trail</h2>
+<p style="margin-bottom:10px">Bonus &bull; builds XP, not Pathway Points</p>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy)">Answer 5 quick facts as fast as you can. Your time is saved right on this device. Beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" type="button">Start the Trail! 🏁</button>
+  <div id="trailQset" style="display:none;text-align:left;margin-top:14px">
+    <div class="qbox" data-fq="tr1" data-pts="0" data-bonus="1" data-ans="7">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">84 ÷ 12 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr1">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr2" data-pts="0" data-bonus="1" data-ans="6">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">96 ÷ 16 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr2">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr3" data-pts="0" data-bonus="1" data-ans="5">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">75 ÷ 15 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr3">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr4" data-pts="0" data-bonus="1" data-ans="4">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">72 ÷ 18 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr4">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr5" data-pts="0" data-bonus="1" data-ans="7">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">91 ÷ 13 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr5">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="9">
+<h2>🌇 Looking Back</h2>
+<div class="box box-story">
+  <div class="icon">🧁</div>
+  <h4>Almost There!</h4>
+  <p>Before the Boss Battle, think back on what you practiced today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r1_s0" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="r1_s1" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="r1_s2" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Long division</button><button class="opt" data-c="1">Remainders</button><button class="opt" data-c="1">Estimating</button><button class="opt" data-c="1">Comparing viewpoints</button><button class="opt" data-c="1">Finding evidence</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="10">
+<h2>👑 Boss Battle: The Class Vote</h2>
+<span class="setnotice" id="setNotice10" style="display:none"></span>
+<div class="box box-alert">
+  <div class="icon">⏰</div>
+  <h4>Time to Vote!</h4>
+  <p>The class is ready to vote, and Ms. Okafor wants every number checked and every sentence written correctly. Show everything you know!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="12" data-ans="24" data-logic="18 × 24 = 432.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 432 ÷ 18 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="12" data-logic="Put a comma right after an introductory word like “However.”">
+    <span class="pts">+12</span>
+    <p class="qtext">Which sentence is punctuated correctly?</p>
+    <div class="opts"><button class="opt" data-c="1">However, Marcus thinks books last longer.</button><button class="opt">However Marcus, thinks books last longer.</button><button class="opt">However Marcus thinks, books last longer.</button><button class="opt">However, Marcus, thinks books last longer.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="12" data-ans="20R10" data-logic="12 × 20 = 240, and 250 − 240 = 10, so 20 R10.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 250 ÷ 12 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="12" data-logic="A fair comparison names the similarity AND the difference without taking sides.">
+    <span class="pts">+12</span>
+    <p class="qtext">Which sentence fairly compares BOTH viewpoints?</p>
+    <div class="opts"><button class="opt" data-c="1">Lila and Marcus both want to help others, but Lila wants help right away and Marcus wants help that lasts.</button><button class="opt">Marcus is right and Lila is wrong.</button><button class="opt">Lila only cares about dogs.</button><button class="opt">Neither writer has a reason.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s0" data-pts="20" data-ans="12" data-logic="360 ÷ 2 = 180. Then 180 ÷ 15 = 12.">
+    <span class="pts">+20</span>
+    <p class="qtext">Type your answer: Two-step challenge! The class splits the $360 in half. The shelter half is shared equally by the 15 dogs. How many dollars does each dog get?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="12" data-ans="32" data-logic="14 × 32 = 448.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 448 ÷ 14 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="12" data-logic="Comma before the quote, capital letter to start the quote, question mark inside the quotation marks.">
+    <span class="pts">+12</span>
+    <p class="qtext">Which sentence is punctuated correctly?</p>
+    <div class="opts"><button class="opt" data-c="1">Marcus asked, “Can we buy more books?”</button><button class="opt">Marcus asked “can we buy more books?”</button><button class="opt">Marcus asked, “can we buy more books”?</button><button class="opt">marcus asked, “Can we buy more books.”</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s1" data-pts="12" data-ans="12R10" data-logic="15 × 12 = 180, and 190 − 180 = 10, so 12 R10.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 190 ÷ 15 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="12" data-logic="They agree on helping others. They differ on who to help.">
+    <span class="pts">+12</span>
+    <p class="qtext">Which is a SIMILARITY between Lila and Marcus?</p>
+    <div class="opts"><button class="opt" data-c="1">Both want the money to help others</button><button class="opt">Both want to help the shelter</button><button class="opt">Both want library books</button><button class="opt">Both want to keep the money</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s1" data-pts="20" data-ans="10" data-logic="360 ÷ 2 = 180. Then 180 ÷ 18 = 10.">
+    <span class="pts">+20</span>
+    <p class="qtext">Type your answer: Two-step challenge! The class splits the $360 in half. The library half buys books at $18 each. How many books can they buy?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="12" data-ans="23" data-logic="17 × 23 = 391.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 391 ÷ 17 = ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="12" data-logic="“Its” shows something belongs to the shelter. “It’s” only means “it is.”">
+    <span class="pts">+12</span>
+    <p class="qtext">Which sentence uses its or it’s correctly?</p>
+    <div class="opts"><button class="opt" data-c="1">The shelter needs help because its food supply is low.</button><button class="opt">The shelter needs help because it’s food supply is low.</button><button class="opt">Its time to vote, and the shelter needs it’s food.</button><button class="opt">The shelter need’s help because its low.</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s2" data-pts="12" data-ans="12R4" data-logic="13 × 12 = 156, and 160 − 156 = 4, so 12 R4.">
+    <span class="pts">+12</span>
+    <p class="qtext">Type your answer: 160 ÷ 13 = ___ (type like 3R8)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="12" data-logic="“However” signals a difference. The others signal something similar or added.">
+    <span class="pts">+12</span>
+    <p class="qtext">Which word would a writer use to show CONTRAST?</p>
+    <div class="opts"><button class="opt" data-c="1">However</button><button class="opt">Also</button><button class="opt">Similarly</button><button class="opt">In addition</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s2" data-pts="20" data-ans="24" data-logic="360 + 72 = 432. Then 432 ÷ 18 = 24.">
+    <span class="pts">+20</span>
+    <p class="qtext">Type your answer: Two-step challenge! The class earns $360 and then $72 more at a second sale. How many $18 library books can they buy with ALL of it?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-finish>See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="11">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Bake Sale Settled!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🧁</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">You used math AND reading today: long division, remainders, and comparing two viewpoints with evidence. Nice job!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="box box-real" style="text-align:left">
+      <div class="icon">✏️</div>
+      <h4>Pencil Time: Post-Lesson Sheet</h4>
+      <p>Now grab your printed <b>Week 7A Post-Lesson</b> sheet and a pencil. Show what you learned on paper!</p>
+      <p style="margin-top:8px"><a class="btn btn-pri" style="text-decoration:none;display:inline-block" href="post-lesson.pdf" target="_blank" rel="noopener">🖨️ Open the Post-Lesson sheet</a></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Next Level &mdash; Bonus Stop complete, ready for Week 8!</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+<script>
+'use strict';
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Read-aloud is not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,' '));
+  u.rate = 0.9; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function readPassage(btn){ const p=document.getElementById('storyText'); if(p) speakText(p.innerText, btn); }
+
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0, reflectMostConfident:null, reflectPracticeMore:null };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 12;
+const FINAL_INDEX = 11;
+const MODULE_ID = 'grade4-5-week7a-combined';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 188;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, most_confident_skill: state.reflectMostConfident||'(not answered)', wants_more_practice_on: state.reflectPracticeMore||'(not answered)', timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+/* --- 3 rotating question sets, keyed to attempt count --- */
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ __kceApplyQS(idx); document.querySelectorAll('.slide').forEach(function(s){ var qs=Array.prototype.filter.call(s.querySelectorAll('.qset'),function(e){return e.id!=='trailQset';}); if(qs.length && qs.every(function(e){return e.style.display==='none';})){ qs.forEach(function(e){ if(+e.dataset.set===0) e.style.display=''; }); } }); }
+function __kceApplyQS(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+/* --- Match-Up game --- */
+const MATCH_PAIRS_SETS = [[["divisor", "the number you divide BY"], ["quotient", "the answer to a division problem"], ["remainder", "what is left over"], ["viewpoint", "the way a person sees something"], ["contrast", "how things are DIFFERENT"]], [["dividend", "the number being divided"], ["compare", "how things are SIMILAR"], ["evidence", "facts that support an argument"], ["reasoning", "the thinking behind a belief"], ["360 ÷ 15", "24"]], [["persuasive", "writing meant to convince"], ["estimate", "a smart guess made by rounding"], ["336 ÷ 12", "28"], ["remainder", "what is left over"], ["viewpoint", "the way a person sees something"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const L = MATCH_PAIRS.map((p,i)=>({t:p[0],k:String(i)})); const R = MATCH_PAIRS.map((p,i)=>({t:p[1],k:String(i)}));
+  shuffle(L); shuffle(R);
+  L.forEach((f,fi)=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.mi=fi; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  R.forEach(p=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk+'-'+mSel.dataset.mi; /* per-fact key: two facts can share a product (e.g. 3x6, 6x3) */ const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+/* --- Speed Trail: self-referential timed bonus --- */
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=5 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const chartBtn=e.target.closest('[data-check-chart]'); if(chartBtn){ checkMultChart(); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    if(qid.indexOf('r1_')===0) state.reflectMostConfident = opt.textContent;
+    if(qid.indexOf('r2_')===0) state.reflectPracticeMore = opt.textContent;
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function checkMultChart(){
+  const inputs = document.querySelectorAll('.chartin');
+  let anyChecked = false;
+  inputs.forEach(inp=>{
+    if(inp.disabled) return;
+    const val = inp.value.trim();
+    if(val==='') return;
+    anyChecked = true;
+    const ans = inp.dataset.ans;
+    const wrongBefore = +(inp.dataset.wrong||0);
+    if(val===ans){
+      inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true;
+      if(wrongBefore===0) addScore(1);
+      addXP(1);
+    } else {
+      const w = wrongBefore+1; inp.dataset.wrong = w;
+      inp.classList.add('bad');
+      if(w>=MAX_ATTEMPTS){ inp.value = ans; inp.classList.remove('bad'); inp.classList.add('revealed'); inp.disabled=true; }
+    }
+  });
+  const fb = document.getElementById('chartFeedback');
+  const allDone = Array.from(document.querySelectorAll('.chartin')).every(i=>i.disabled);
+  if(allDone){
+    const correctCount = document.querySelectorAll('.chartin.ok').length;
+    fb.innerHTML = '🎉 Chart complete! You got '+correctCount+' out of 45 boxes right on your own. Great multiplying!';
+    fb.className='feedback show ok';
+    playFanfare(); confetti();
+  } else if(anyChecked){
+    fb.textContent = '👍 Keep going — fill in the rest, then hit Check My Chart again.';
+    fb.className='feedback show';
+    tone(660,.08,'sine',0,.15);
+  } else {
+    fb.textContent = 'Type a number in at least one box first!';
+    fb.className='feedback show';
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  const rec=saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore()>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(!passed){
+    document.getElementById('finalMessageHeading').textContent='🌱 Practice makes progress.';
+    document.getElementById('finalMessageBody').textContent='You scored '+displayScore()+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Review the lesson and hit Play Again for a fresh set of questions whenever you\u2019re ready.';
+  }
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+<script src="../../gate.js"></script>
+</body>
+</html>

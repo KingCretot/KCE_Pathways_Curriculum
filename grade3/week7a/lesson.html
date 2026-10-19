@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 — Week 7A: The Price Tag Mix-Up (Math + Reading) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s;position:relative}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{position:absolute;top:16px;right:18px;font-weight:900;color:var(--gold);font-size:.85rem;background:#fff}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px;padding-right:56px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:158px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800;overflow:hidden}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.76rem;line-height:1.3;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+/* NEW for 6A: multiplication challenge chart */
+.multchartwrap{overflow-x:auto;margin:14px 0}
+.multchart{border-collapse:collapse;width:100%;min-width:520px}
+.multchart th,.multchart td{border:2px solid #D9E0EC;text-align:center;padding:7px 4px;font-family:'Fredoka One',cursive;font-size:.92rem}
+.chartin{width:34px;padding:3px 2px;text-align:center;border:2px solid #B9C4DA;border-radius:6px;font-family:'Fredoka One',cursive;font-size:.82rem;background:#fff}
+.chartin.ok{border-color:#3FAE58;background:#E8FBEE;color:#1B7A3B}
+.chartin.bad{border-color:#E0524A;background:#FDEDEC}
+.chartin.revealed{border-color:#E0AC3C;background:#FFF3D6;color:#8A6410}
+.chartin:disabled{opacity:1;cursor:default}
+.chartcheckrow{margin:14px 0;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.multchart thead th,.multchart tr th:first-child{background:var(--navy);color:var(--gold)}
+.multchart tr:nth-child(even) td{background:#F8FAFF}
+.multchart tr:nth-child(odd) td{background:#fff}
+
+/* Week 7A: combined Math + Reading */
+.passage{background:#fff;border:3px solid #D9E0EC;border-radius:18px;padding:20px 22px;margin:14px 0;box-shadow:0 4px 14px rgba(27,44,92,.08)}
+.passage h3{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.3rem;margin-bottom:4px}
+.passage .part{display:inline-block;background:var(--navy);color:var(--gold);font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:3px 12px;margin:12px 0 6px}
+.passage p{margin:0 0 10px}
+.passage .num{background:#FFF3D6;border-radius:6px;padding:0 4px;font-weight:900;color:#8A5A00}
+.readbtn{background:var(--gold);color:var(--navy);border:none;border-radius:999px;padding:8px 16px;font-weight:900;font-family:'Nunito',sans-serif;cursor:pointer;font-size:.92rem}
+.readbtn.speaking,.sayq.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.sayq{border:none;background:#EAF0FF;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.9rem;vertical-align:middle}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.subjtag{display:inline-block;font-weight:900;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-right:6px}
+.subjtag.m{background:#E5F7DC;color:#2E7D32}.subjtag.r{background:#FFE4EE;color:#B23A63}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🏷️ KCE Pathways — Grade 3 — Week 7A</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Bonus Trail Stop &bull; Math + Reading</span>
+  <h1>The Price Tag Mix-Up</h1>
+  <h2>Skip-Counting, Pricing &amp; Point of View 🏷️👀</h2>
+<div class="box box-story">
+  <div class="icon">🏷️</div>
+  <h4>One Price Tag, Two Points of View</h4>
+  <p>Theo made the price tags for the trading post in record time. Then a customer walked in, read a tag, and walked right back out. Theo saw one thing. Mia saw something completely different. Today you'll use your math AND your reading to solve the mystery of the price tag.</p>
+</div>
+<div class="box box-guided">
+  <div class="icon">🏆</div>
+  <h4>How Pathway Points Work</h4>
+  <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Today is <b>Math and Reading together</b> in one lesson. Play Again gives you a <b>fresh set of questions</b>.</p>
+</div>
+<div class="box box-real">
+  <div class="icon">🗺️</div>
+  <h4>Today's Quest</h4>
+  <ul class="tips"><li>Warm up with last week’s skip-counting, pricing and point of view</li><li>Flip the math and reading word cards</li><li>Read the story <b>The Price Tag Mix-Up</b> (tap 🔊 to hear it)</li><li>Answer reading questions about Theo’s and Mia’s points of view</li><li>Solve the price tag math from the story</li><li>Decide who is right when Theo and Mia solve the same problem</li><li>Play Match-Up, race the Speed Trail, and beat the Boss Battle!</li></ul>
+</div>
+<div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Bonus Stop between Week 7 &amp; Week 8</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+  <div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="1">
+<h2>🔁 Week 7 Warm-Up: Math + Reading</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Lock In Last Week</h4>
+  <p>Week 7 was all about skip-counting, prices, and seeing a moment through two different points of view. Let’s make sure those skills are locked in.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="25" data-logic="Skip-counting by 5s: 15, 20, 25.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 5s: 15, 20, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 5s: 15, 20, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="20" data-logic="4 × 5 = 20, so 4 bags cost $20.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Trail mix costs $5 a bag. 4 bags cost $___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Trail mix costs $5 a bag. 4 bags cost $___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Point of view is the perspective, or angle, a moment is seen or told from.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Point of view means.... the angle a moment is seen or told from. the place where a story happens. the last page of a story. the title of a story&quot;,this)" title="Hear this read aloud">🔊</button> Point of view means...</p>
+    <div class="opts"><button class="opt" data-c="1">the angle a moment is seen or told from</button><button class="opt">the place where a story happens</button><button class="opt">the last page of a story</button><button class="opt">the title of a story</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Theo thought the hiker was just being rude.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In Week 7, what did Theo think about the grumpy hiker?. He was just being rude. He was lost. He was very happy. He was Grandpa\u2019s friend&quot;,this)" title="Hear this read aloud">🔊</button> In Week 7, what did Theo think about the grumpy hiker?</p>
+    <div class="opts"><button class="opt" data-c="1">He was just being rude</button><button class="opt">He was lost</button><button class="opt">He was very happy</button><button class="opt">He was Grandpa’s friend</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="50" data-logic="Skip-counting by 10s: 30, 40, 50.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 10s: 30, 40, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 10s: 30, 40, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="60" data-logic="6 × 10 = 60, so 6 canteens cost $60.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Canteens cost $10 each. 6 canteens cost $___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Canteens cost $10 each. 6 canteens cost $___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="To infer is to figure something out using clues, without being told directly.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;To infer means to.... figure something out using clues. copy the words from the story. read the story very fast. skip the hard words&quot;,this)" title="Hear this read aloud">🔊</button> To infer means to...</p>
+    <div class="opts"><button class="opt" data-c="1">figure something out using clues</button><button class="opt">copy the words from the story</button><button class="opt">read the story very fast</button><button class="opt">skip the hard words</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Mia noticed muddy boots, a torn pack strap, and an empty water bottle.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In Week 7, which clue did Mia notice on the hiker?. Muddy boots. A new hat. A big smile. A full water bottle&quot;,this)" title="Hear this read aloud">🔊</button> In Week 7, which clue did Mia notice on the hiker?</p>
+    <div class="opts"><button class="opt" data-c="1">Muddy boots</button><button class="opt">A new hat</button><button class="opt">A big smile</button><button class="opt">A full water bottle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="50" data-logic="Skip-counting by 5s: 40, 45, 50.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 5s: 40, 45, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 5s: 40, 45, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="35" data-logic="7 × 5 = 35, so 7 trail bars cost $35.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Trail bars cost $5 each. 7 trail bars cost $___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Trail bars cost $5 each. 7 trail bars cost $___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Empathy is understanding and caring about how someone else might feel.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Empathy means.... understanding and caring how someone else feels. counting by the same number. writing a price tag. reading out loud&quot;,this)" title="Hear this read aloud">🔊</button> Empathy means...</p>
+    <div class="opts"><button class="opt" data-c="1">understanding and caring how someone else feels</button><button class="opt">counting by the same number</button><button class="opt">writing a price tag</button><button class="opt">reading out loud</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Mia inferred the hiker was exhausted, not rude.">
+    <span class="pts">+5</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In Week 7, what did Mia infer about the hiker?. He was exhausted, not rude. He wanted to buy everything. He was a famous hiker. He was Theo\u2019s uncle&quot;,this)" title="Hear this read aloud">🔊</button> In Week 7, what did Mia infer about the hiker?</p>
+    <div class="opts"><button class="opt" data-c="1">He was exhausted, not rude</button><button class="opt">He wanted to buy everything</button><button class="opt">He was a famous hiker</button><button class="opt">He was Theo’s uncle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="2">
+<h2>🌟 Word Wrangler: Math + Reading Words</h2>
+<p style="margin-bottom:6px">Flip each card. Say the word, then say what it means in your own words.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">skip-count</div><div class="flip-face flip-back">To count forward by the same number each time, like 5, 10, 15, 20.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">price</div><div class="flip-face flip-back">How much ONE item costs.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">total</div><div class="flip-face flip-back">The full amount after adding or multiplying everything together.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">point of view</div><div class="flip-face flip-back">The angle, or perspective, a moment is seen or told from.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">infer</div><div class="flip-face flip-back">To figure something out using clues, without being told directly.</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">clue</div><div class="flip-face flip-back">A small detail that helps you figure something out.</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="3">
+<h2>📖 Read the Story</h2>
+<p><span class="subjtag r">Reading</span><span class="subjtag m">Math</span> Read both parts. Part 1 shows the moment through Theo’s eyes. Part 2 shows the SAME moment through Mia’s eyes. Watch for the numbers!</p>
+<div style="margin:10px 0"><button class="readbtn" type="button" onclick="readPassage(this)">🔊 Read it to me</button></div>
+<div class="passage" id="storyText">
+<h3>The Price Tag Mix-Up</h3>
+<span class="part">Part 1 &middot; Theo's Side</span>
+<p>&ldquo;Price tags done!&rdquo; Theo shouted. He had written every tag in record time. Water bottles: <span class="num">$5 each</span>. Trail maps: <span class="num">$10 each</span>. Trail bars: <span class="num">$5 each</span>. Theo hung the tags on the shelves while Mia stacked boxes in the back room.</p>
+<p>Soon a dad and his three kids walked in, hot and dusty from the trail. The dad picked up a water bottle and looked at the tag. His eyebrows shot up. He put the bottle back on the shelf, shook his head, and walked toward the door.</p>
+<p>Theo's face got hot. &ldquo;He didn't even say hello,&rdquo; Theo thought. &ldquo;He must think our trading post is junk.&rdquo;</p>
+<span class="part">Part 2 &middot; Mia's Side</span>
+<p>Mia looked up from her boxes just in time to see the same moment. She did not see a rude customer. She saw clues. The kids were holding empty water bottles. The dad was counting dollar bills in his hand. When he read the price tag, he looked surprised, not angry.</p>
+<p>&ldquo;Something on that tag surprised him,&rdquo; Mia thought. She walked over and read it. The tag said <span class="num">$50 each</span>!</p>
+<p>&ldquo;Theo,&rdquo; she whispered, &ldquo;you wrote an extra zero!&rdquo;</p>
+<p>Theo fixed the tag to <span class="num">$5</span>, and Mia hurried to catch the family at the door. &ldquo;We're sorry! Our water is $5 a bottle, not $50!&rdquo;</p>
+<p>The dad laughed. &ldquo;Now THAT is a price I can pay!&rdquo; He bought <span class="num">4 water bottles</span>, one for each person, and <span class="num">2 trail maps</span>.</p>
+<p>Theo grinned at Mia. &ldquo;I only saw a grumpy customer. You saw the whole story.&rdquo;</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="4">
+<h2>👀 Reading Check: Theo's Side vs. Mia's Side</h2>
+<span class="setnotice" id="setNotice4" style="display:none"></span>
+<p style="margin-bottom:8px">Scroll up to the story any time. Good readers look back!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="rd1_s0" data-pts="6" data-logic="Part 1 is Theo’s Side. We learn what Theo thinks and feels.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In Part 1, whose point of view do we see the moment from?. Theo\u2019s. Mia\u2019s. The dad\u2019s. Grandpa\u2019s&quot;,this)" title="Hear this read aloud">🔊</button> In Part 1, whose point of view do we see the moment from?</p>
+    <div class="opts"><button class="opt" data-c="1">Theo’s</button><button class="opt">Mia’s</button><button class="opt">The dad’s</button><button class="opt">Grandpa’s</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s0" data-pts="6" data-logic="Theo thought, “He must think our trading post is junk.”">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;What did Theo think about the dad?. He was rude and thought the store was junk. He was thirsty. He was lost on the trail. He wanted a trail map&quot;,this)" title="Hear this read aloud">🔊</button> What did Theo think about the dad?</p>
+    <div class="opts"><button class="opt" data-c="1">He was rude and thought the store was junk</button><button class="opt">He was thirsty</button><button class="opt">He was lost on the trail</button><button class="opt">He wanted a trail map</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s0" data-pts="6" data-ans="0|zero" data-logic="Theo wrote an extra zero, so $5 became $50.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo wrote an extra ___ on the price tag. (Type the number.)&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Theo wrote an extra ___ on the price tag. (Type the number.)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s0" data-pts="6" data-logic="Empty water bottles are a clue that the family was thirsty.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which clue told Mia the family really needed water?. The kids were holding empty water bottles. The dad shook his head. Theo\u2019s face got hot. The tags were done fast&quot;,this)" title="Hear this read aloud">🔊</button> Which clue told Mia the family really needed water?</p>
+    <div class="opts"><button class="opt" data-c="1">The kids were holding empty water bottles</button><button class="opt">The dad shook his head</button><button class="opt">Theo’s face got hot</button><button class="opt">The tags were done fast</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="rd1_s1" data-pts="6" data-logic="Part 2 is Mia’s Side. We learn what Mia notices and thinks.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In Part 2, whose point of view do we see the moment from?. Mia\u2019s. Theo\u2019s. The dad\u2019s. One of the kids\u2019&quot;,this)" title="Hear this read aloud">🔊</button> In Part 2, whose point of view do we see the moment from?</p>
+    <div class="opts"><button class="opt" data-c="1">Mia’s</button><button class="opt">Theo’s</button><button class="opt">The dad’s</button><button class="opt">One of the kids’</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s1" data-pts="6" data-logic="Theo’s face got hot and he thought the dad didn’t like the store. He felt upset and hurt.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;How did Theo feel when the dad walked toward the door?. Upset and hurt. Proud. Sleepy. Excited&quot;,this)" title="Hear this read aloud">🔊</button> How did Theo feel when the dad walked toward the door?</p>
+    <div class="opts"><button class="opt" data-c="1">Upset and hurt</button><button class="opt">Proud</button><button class="opt">Sleepy</button><button class="opt">Excited</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s1" data-pts="6" data-ans="50" data-logic="The tag said $50 each instead of $5 each.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;The wrong tag said $___ each.&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: The wrong tag said $___ each.</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s1" data-pts="6" data-logic="Mia inferred: she used clues (empty bottles, counting money, a surprised face) to figure it out.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;How did Mia figure out what was really going on?. She used clues she noticed. Grandpa told her. Theo told her. She made a guess with no clues&quot;,this)" title="Hear this read aloud">🔊</button> How did Mia figure out what was really going on?</p>
+    <div class="opts"><button class="opt" data-c="1">She used clues she noticed</button><button class="opt">Grandpa told her</button><button class="opt">Theo told her</button><button class="opt">She made a guess with no clues</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="rd1_s2" data-pts="6" data-logic="Both parts describe the moment the dad put the bottle back and headed for the door.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo and Mia saw the SAME moment two different ways. What was the moment?. The dad put the bottle back and walked toward the door. Theo writing the price tags. Mia stacking boxes. The family leaving with trail maps&quot;,this)" title="Hear this read aloud">🔊</button> Theo and Mia saw the SAME moment two different ways. What was the moment?</p>
+    <div class="opts"><button class="opt" data-c="1">The dad put the bottle back and walked toward the door</button><button class="opt">Theo writing the price tags</button><button class="opt">Mia stacking boxes</button><button class="opt">The family leaving with trail maps</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd2_s2" data-pts="6" data-logic="Mia saw the dad counting dollar bills, a clue that he was thinking about the price.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;What was the dad counting in his hand?. Dollar bills. Coins. Trail maps. Price tags&quot;,this)" title="Hear this read aloud">🔊</button> What was the dad counting in his hand?</p>
+    <div class="opts"><button class="opt" data-c="1">Dollar bills</button><button class="opt">Coins</button><button class="opt">Trail maps</button><button class="opt">Price tags</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="rd3_s2" data-pts="6" data-ans="mia" data-logic="Mia noticed the clues and spotted the extra zero.">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Who noticed the clues and fixed the mystery? (Type the name.)&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Who noticed the clues and fixed the mystery? (Type the name.)</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="rd3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="rd4_s2" data-pts="6" data-logic="Theo said, “I only saw a grumpy customer. You saw the whole story.”">
+    <span class="pts">+6</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;What did Theo learn at the end?. Looking for clues can show you the whole story. Customers are always rude. Price tags don\u2019t matter. Writing fast is always best&quot;,this)" title="Hear this read aloud">🔊</button> What did Theo learn at the end?</p>
+    <div class="opts"><button class="opt" data-c="1">Looking for clues can show you the whole story</button><button class="opt">Customers are always rude</button><button class="opt">Price tags don’t matter</button><button class="opt">Writing fast is always best</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="5">
+<h2>🧮 Math from the Story: Price Tags</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="box box-guided">
+  <div class="icon">💡</div>
+  <h4>The Clue Word "Each"</h4>
+  <p>When a price says <b>each</b>, multiply the price by how many you buy. <b>4 bottles at $5 each</b> means 4 &times; 5. You can check by skip-counting: 5, 10, 15, 20.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="m1_s0" data-pts="8" data-ans="20" data-logic="4 × 5 = 20. Skip-count: 5, 10, 15, 20.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;The dad bought 4 water bottles at $5 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: The dad bought 4 water bottles at $5 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s0" data-pts="8" data-logic="The next jump after 15 is 20.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 5s to check: 5, 10, 15, ___. 20. 16. 25. 30&quot;,this)" title="Hear this read aloud">🔊</button> Skip-count by 5s to check: 5, 10, 15, ___</p>
+    <div class="opts"><button class="opt" data-c="1">20</button><button class="opt">16</button><button class="opt">25</button><button class="opt">30</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s0" data-pts="8" data-ans="20" data-logic="2 × 10 = 20.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;The dad also bought 2 trail maps at $10 each. How many dollars for the maps?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: The dad also bought 2 trail maps at $10 each. How many dollars for the maps?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m4_s0" data-pts="8" data-logic="“Each” tells you every item costs the same, so you multiply.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;In \u201c$5 each,\u201d which word tells you to multiply?. each. left. fewer. gave away&quot;,this)" title="Hear this read aloud">🔊</button> In “$5 each,” which word tells you to multiply?</p>
+    <div class="opts"><button class="opt" data-c="1">each</button><button class="opt">left</button><button class="opt">fewer</button><button class="opt">gave away</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="m1_s1" data-pts="8" data-ans="30" data-logic="6 × 5 = 30. Skip-count: 5, 10, 15, 20, 25, 30.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Another family buys 6 water bottles at $5 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Another family buys 6 water bottles at $5 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s1" data-pts="8" data-logic="The next jump after 30 is 40.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 10s: 10, 20, 30, ___. 40. 31. 35. 50&quot;,this)" title="Hear this read aloud">🔊</button> Skip-count by 10s: 10, 20, 30, ___</p>
+    <div class="opts"><button class="opt" data-c="1">40</button><button class="opt">31</button><button class="opt">35</button><button class="opt">50</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s1" data-pts="8" data-ans="30" data-logic="3 × 10 = 30.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;A hiker buys 3 trail maps at $10 each. How many dollars?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: A hiker buys 3 trail maps at $10 each. How many dollars?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m4_s1" data-pts="8" data-logic="Price times how many: 7 × 5 = 35.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which number sentence finds the cost of 7 bottles at $5 each?. 7 \u00d7 5. 7 + 5. 7 \u2212 5. 75&quot;,this)" title="Hear this read aloud">🔊</button> Which number sentence finds the cost of 7 bottles at $5 each?</p>
+    <div class="opts"><button class="opt" data-c="1">7 × 5</button><button class="opt">7 + 5</button><button class="opt">7 − 5</button><button class="opt">75</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="m1_s2" data-pts="8" data-ans="40" data-logic="8 × 5 = 40.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;A scout troop buys 8 trail bars at $5 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: A scout troop buys 8 trail bars at $5 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m2_s2" data-pts="8" data-logic="The next jump after 35 is 40.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 5s: 25, 30, 35, ___. 40. 36. 45. 50&quot;,this)" title="Hear this read aloud">🔊</button> Skip-count by 5s: 25, 30, 35, ___</p>
+    <div class="opts"><button class="opt" data-c="1">40</button><button class="opt">36</button><button class="opt">45</button><button class="opt">50</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="m3_s2" data-pts="8" data-ans="50" data-logic="5 × 10 = 50.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;A teacher buys 5 trail maps at $10 each. How many dollars?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: A teacher buys 5 trail maps at $10 each. How many dollars?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="m3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="m4_s2" data-pts="8" data-logic="2 × 50 = 100. With the right tag, 2 × 5 = $10. One extra zero makes a big difference!">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;With the WRONG tag ($50 each), 2 water bottles would cost.... $100. $10. $52. $25&quot;,this)" title="Hear this read aloud">🔊</button> With the WRONG tag ($50 each), 2 water bottles would cost...</p>
+    <div class="opts"><button class="opt" data-c="1">$100</button><button class="opt">$10</button><button class="opt">$52</button><button class="opt">$25</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="6">
+<h2>⚖️ Two Points of View: Math Edition</h2>
+<span class="setnotice" id="setNotice6" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">🤔</div>
+  <h4>Who Is Right?</h4>
+  <p>Theo and Mia each solve a problem their own way. Sometimes one of them is right. Sometimes BOTH are right, just using different ways. Check their thinking!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="8" data-logic="“Each” means multiply: 3 × 10 = 30. Theo added instead of multiplying.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo says 3 trail maps at $10 each cost $13. Mia says $30. Who is right?. Mia, because 3 \u00d7 10 = 30. Theo, because 3 + 10 = 13. Both of them. Neither of them&quot;,this)" title="Hear this read aloud">🔊</button> Theo says 3 trail maps at $10 each cost $13. Mia says $30. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Mia, because 3 × 10 = 30</button><button class="opt">Theo, because 3 + 10 = 13</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v2_s0" data-pts="8" data-logic="Skip-counting and multiplying are two ways to get the same answer: $30.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo skip-counts 6 bottles by 5s: 5, 10, 15, 20, 25, 30. Mia multiplies 6 \u00d7 5 = 30. Who is right?. Both, two ways to the same answer. Only Theo. Only Mia. Neither&quot;,this)" title="Hear this read aloud">🔊</button> Theo skip-counts 6 bottles by 5s: 5, 10, 15, 20, 25, 30. Mia multiplies 6 × 5 = 30. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Both, two ways to the same answer</button><button class="opt">Only Theo</button><button class="opt">Only Mia</button><button class="opt">Neither</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v3_s0" data-pts="8" data-ans="7" data-logic="10, 20, 30, 40, 50, 60, 70 is 7 jumps, so 7 × 10 = 70.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo skip-counts by 10s and lands on 70. How many jumps did he make?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Theo skip-counts by 10s and lands on 70. How many jumps did he make?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="8" data-logic="“Each” means multiply: 4 × 5 = 20.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo says 4 water bottles at $5 each cost $9. Mia says $20. Who is right?. Mia, because 4 \u00d7 5 = 20. Theo, because 4 + 5 = 9. Both of them. Neither of them&quot;,this)" title="Hear this read aloud">🔊</button> Theo says 4 water bottles at $5 each cost $9. Mia says $20. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Mia, because 4 × 5 = 20</button><button class="opt">Theo, because 4 + 5 = 9</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v2_s1" data-pts="8" data-logic="Both ways give $50.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo skip-counts 5 maps by 10s: 10, 20, 30, 40, 50. Mia multiplies 5 \u00d7 10 = 50. Who is right?. Both, two ways to the same answer. Only Theo. Only Mia. Neither&quot;,this)" title="Hear this read aloud">🔊</button> Theo skip-counts 5 maps by 10s: 10, 20, 30, 40, 50. Mia multiplies 5 × 10 = 50. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Both, two ways to the same answer</button><button class="opt">Only Theo</button><button class="opt">Only Mia</button><button class="opt">Neither</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v3_s1" data-pts="8" data-ans="7" data-logic="5, 10, 15, 20, 25, 30, 35 is 7 jumps, so 7 × 5 = 35.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Mia skip-counts by 5s and lands on 35. How many jumps did she make?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Mia skip-counts by 5s and lands on 35. How many jumps did she make?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="8" data-logic="“Each” means multiply: 7 × 10 = 70.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo says 7 trail maps at $10 each cost $17. Mia says $70. Who is right?. Mia, because 7 \u00d7 10 = 70. Theo, because 7 + 10 = 17. Both of them. Neither of them&quot;,this)" title="Hear this read aloud">🔊</button> Theo says 7 trail maps at $10 each cost $17. Mia says $70. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Mia, because 7 × 10 = 70</button><button class="opt">Theo, because 7 + 10 = 17</button><button class="opt">Both of them</button><button class="opt">Neither of them</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="v2_s2" data-pts="8" data-logic="Both ways give $40.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo skip-counts 8 trail bars by 5s up to 40. Mia multiplies 8 \u00d7 5 = 40. Who is right?. Both, two ways to the same answer. Only Theo. Only Mia. Neither&quot;,this)" title="Hear this read aloud">🔊</button> Theo skip-counts 8 trail bars by 5s up to 40. Mia multiplies 8 × 5 = 40. Who is right?</p>
+    <div class="opts"><button class="opt" data-c="1">Both, two ways to the same answer</button><button class="opt">Only Theo</button><button class="opt">Only Mia</button><button class="opt">Neither</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v3_s2" data-pts="8" data-ans="9" data-logic="9 jumps of 10 land on 90, so 9 × 10 = 90.">
+    <span class="pts">+8</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo skip-counts by 10s and lands on 90. How many jumps did he make?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Theo skip-counts by 10s and lands on 90. How many jumps did he make?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="v3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="7">
+<h2>🧩 Match-Up Round</h2>
+<p style="margin-bottom:6px">Tap a card on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+  <div class="mcol" id="mLeft"></div>
+  <div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="8">
+<h2>🏁 Speed Trail</h2>
+<p style="margin-bottom:10px">Bonus &bull; builds XP, not Pathway Points</p>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy)">Answer 5 quick facts as fast as you can. Your time is saved right on this device. Beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" type="button">Start the Trail! 🏁</button>
+  <div id="trailQset" style="display:none;text-align:left;margin-top:14px">
+    <div class="qbox" data-fq="tr1" data-pts="0" data-bonus="1" data-ans="25">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">5 × 5 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr1">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr2" data-pts="0" data-bonus="1" data-ans="60">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">10 × 6 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr2">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr3" data-pts="0" data-bonus="1" data-ans="45">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">5 × 9 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr3">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr4" data-pts="0" data-bonus="1" data-ans="80">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">10 × 8 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr4">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+    <div class="qbox" data-fq="tr5" data-pts="0" data-bonus="1" data-ans="35">
+      <span class="pts">+4 XP</span>
+      <div class="fillrow"><span class="eq">5 × 7 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tr5">Check</button></div>
+      <p class="feedback"></p>
+    </div>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="9">
+<h2>🌇 Looking Back</h2>
+<div class="box box-story">
+  <div class="icon">🏷️</div>
+  <h4>Almost There!</h4>
+  <p>Before the Boss Battle, think back on what you practiced today.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="r1_s0" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="r1_s1" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="r1_s2" data-pts="5" data-logic="Any skill is a good answer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill from today do you feel MOST confident about?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="5" data-logic="Any skill is a good answer for what to keep practicing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which skill do you want to practice MORE before Week 8?</p>
+    <div class="opts"><button class="opt" data-c="1">Skip-counting</button><button class="opt" data-c="1">Price word problems</button><button class="opt" data-c="1">Point of view</button><button class="opt" data-c="1">Finding clues</button><button class="opt" data-c="1">Contractions</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="10">
+<h2>👑 Boss Battle: Opening Day Rush</h2>
+<span class="setnotice" id="setNotice10" style="display:none"></span>
+<div class="box box-alert">
+  <div class="icon">⏰</div>
+  <h4>The Doors Are Open!</h4>
+  <p>Customers are lining up at the trading post. Grandpa needs every price right AND every customer understood. This is the hardest part of the day. Show everything you know!</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="12" data-ans="45" data-logic="9 × 5 = 45.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Grandpa sells 9 water bottles at $5 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Grandpa sells 9 water bottles at $5 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="12" data-logic="Same moment, different points of view: Mia noticed the clues.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Theo saw a grumpy customer. Mia saw a surprised customer. Why did they see it differently?. Mia noticed clues that Theo missed. Mia was not in the store. Theo was reading a book. The dad told Mia&quot;,this)" title="Hear this read aloud">🔊</button> Theo saw a grumpy customer. Mia saw a surprised customer. Why did they see it differently?</p>
+    <div class="opts"><button class="opt" data-c="1">Mia noticed clues that Theo missed</button><button class="opt">Mia was not in the store</button><button class="opt">Theo was reading a book</button><button class="opt">The dad told Mia</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s0" data-pts="12" data-ans="70" data-logic="The next jump after 60 is 70.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 10s: 40, 50, 60, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 10s: 40, 50, 60, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="12" data-logic="did not = didn’t. The apostrophe takes the place of the missing o.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which word is the contraction for \u201cdid not\u201d?. didn\u2019t. didnt. did\u2019nt. don\u2019t&quot;,this)" title="Hear this read aloud">🔊</button> Which word is the contraction for “did not”?</p>
+    <div class="opts"><button class="opt" data-c="1">didn’t</button><button class="opt">didnt</button><button class="opt">did’nt</button><button class="opt">don’t</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s0" data-pts="20" data-ans="40" data-logic="4 × 5 = 20 and 2 × 10 = 20. Then 20 + 20 = 40.">
+    <span class="pts">+20</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Two-step challenge! The dad buys 4 water bottles at $5 each AND 2 trail maps at $10 each. How many dollars does he spend in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Two-step challenge! The dad buys 4 water bottles at $5 each AND 2 trail maps at $10 each. How many dollars does he spend in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="12" data-ans="70" data-logic="7 × 10 = 70.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Grandpa sells 7 trail maps at $10 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Grandpa sells 7 trail maps at $10 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="12" data-logic="Mia used clues like the empty bottles. The other lines belong to Theo or the dad.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which sentence shows MIA\u2019S point of view?. \u201cThe kids\u2019 bottles are empty. They must be thirsty.\u201d. \u201cHe must think our trading post is junk.\u201d. \u201cPrice tags done!\u201d. \u201cNow THAT is a price I can pay!\u201d&quot;,this)" title="Hear this read aloud">🔊</button> Which sentence shows MIA’S point of view?</p>
+    <div class="opts"><button class="opt" data-c="1">“The kids’ bottles are empty. They must be thirsty.”</button><button class="opt">“He must think our trading post is junk.”</button><button class="opt">“Price tags done!”</button><button class="opt">“Now THAT is a price I can pay!”</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s1" data-pts="12" data-ans="50" data-logic="The next jump after 45 is 50.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 5s: 35, 40, 45, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 5s: 35, 40, 45, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="12" data-logic="it is = it’s. The apostrophe takes the place of the missing i.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which word is the contraction for \u201cit is\u201d?. it\u2019s. its. its\u2019. i\u2019ts&quot;,this)" title="Hear this read aloud">🔊</button> Which word is the contraction for “it is”?</p>
+    <div class="opts"><button class="opt" data-c="1">it’s</button><button class="opt">its</button><button class="opt">its’</button><button class="opt">i’ts</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s1" data-pts="20" data-ans="45" data-logic="3 × 5 = 15 and 3 × 10 = 30. Then 15 + 30 = 45.">
+    <span class="pts">+20</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Two-step challenge! A mom buys 3 water bottles at $5 each AND 3 trail maps at $10 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Two-step challenge! A mom buys 3 water bottles at $5 each AND 3 trail maps at $10 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="12" data-ans="30" data-logic="6 × 5 = 30.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Grandpa sells 6 trail bars at $5 each. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Grandpa sells 6 trail bars at $5 each. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="12" data-logic="In Part 1, Theo thought the dad didn’t like the store.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which sentence shows THEO\u2019S point of view in Part 1?. \u201cHe must think our trading post is junk.\u201d. \u201cSomething on that tag surprised him.\u201d. \u201cYou wrote an extra zero!\u201d. \u201cNow THAT is a price I can pay!\u201d&quot;,this)" title="Hear this read aloud">🔊</button> Which sentence shows THEO’S point of view in Part 1?</p>
+    <div class="opts"><button class="opt" data-c="1">“He must think our trading post is junk.”</button><button class="opt">“Something on that tag surprised him.”</button><button class="opt">“You wrote an extra zero!”</button><button class="opt">“Now THAT is a price I can pay!”</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b3_s2" data-pts="12" data-ans="90" data-logic="The next jump after 80 is 90.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Skip-count by 10s: 60, 70, 80, ___&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Skip-count by 10s: 60, 70, 80, ___</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="12" data-logic="we are = we’re. The apostrophe takes the place of the missing a.">
+    <span class="pts">+12</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Which word is the contraction for \u201cwe are\u201d?. we\u2019re. were. we\u2019r. wer\u2019e&quot;,this)" title="Hear this read aloud">🔊</button> Which word is the contraction for “we are”?</p>
+    <div class="opts"><button class="opt" data-c="1">we’re</button><button class="opt">were</button><button class="opt">we’r</button><button class="opt">wer’e</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s2" data-pts="20" data-ans="35" data-logic="5 × 5 = 25. Then 25 + 10 = 35.">
+    <span class="pts">+20</span>
+    <p class="qtext"><button class="sayq" type="button" onclick="speakText(&quot;Two-step challenge! A hiker buys 5 trail bars at $5 each AND 1 trail map for $10. How many dollars in all?&quot;,this)" title="Hear this read aloud">🔊</button> Type your answer: Two-step challenge! A hiker buys 5 trail bars at $5 each AND 1 trail map for $10. How many dollars in all?</p>
+    <div class="fillrow"><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b5_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-finish>See My Score &rarr;</button></div>
+<div class="dots" id="dots"></div>
+</div>
+
+<div class="slide" data-slide="11">
+  <div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Price Tags Fixed!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🏷️</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">You used math AND reading today: skip-counting, price tags, and two points of view. Nice job!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="box box-real" style="text-align:left">
+      <div class="icon">✏️</div>
+      <h4>Pencil Time: Post-Lesson Sheet</h4>
+      <p>Now grab your printed <b>Week 7A Post-Lesson</b> sheet and a pencil. Show what you learned on paper!</p>
+      <p style="margin-top:8px"><a class="btn btn-pri" style="text-decoration:none;display:inline-block" href="post-lesson.pdf" target="_blank" rel="noopener">🖨️ Open the Post-Lesson sheet</a></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 2: The Trail Ahead &mdash; Bonus Stop complete, ready for Week 8!</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+
+</div>
+<script>
+'use strict';
+function speakText(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Read-aloud is not supported in this browser'; return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,' '));
+  u.rate = 0.9; u.pitch = 1.05;
+  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(u);
+}
+function readPassage(btn){ const p=document.getElementById('storyText'); if(p) speakText(p.innerText, btn); }
+
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0, reflectMostConfident:null, reflectPracticeMore:null };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 12;
+const FINAL_INDEX = 11;
+const MODULE_ID = 'grade3-week7a-combined';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 188;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, most_confident_skill: state.reflectMostConfident||'(not answered)', wants_more_practice_on: state.reflectPracticeMore||'(not answered)', timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C']; for(let i=0;i<28;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const d=document.getElementById('dots'); if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+/* --- 3 rotating question sets, keyed to attempt count --- */
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ __kceApplyQS(idx); document.querySelectorAll('.slide').forEach(function(s){ var qs=Array.prototype.filter.call(s.querySelectorAll('.qset'),function(e){return e.id!=='trailQset';}); if(qs.length && qs.every(function(e){return e.style.display==='none';})){ qs.forEach(function(e){ if(+e.dataset.set===0) e.style.display=''; }); } }); }
+function __kceApplyQS(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+/* --- Match-Up game --- */
+const MATCH_PAIRS_SETS = [[["6 × 5", "30"], ["4 × 10", "40"], ["point of view", "the angle a moment is seen from"], ["infer", "figure it out from clues"], ["empathy", "caring how someone else feels"]], [["8 × 5", "40"], ["3 × 10", "30"], ["price", "how much ONE item costs"], ["clue", "a detail that helps you figure something out"], ["skip-count", "count by the same number each time"]], [["9 × 5", "45"], ["6 × 10", "60"], ["total", "the full amount in all"], ["perspective", "a person’s own way of seeing"], ["infer", "figure it out from clues"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const L = MATCH_PAIRS.map((p,i)=>({t:p[0],k:String(i)})); const R = MATCH_PAIRS.map((p,i)=>({t:p[1],k:String(i)}));
+  shuffle(L); shuffle(R);
+  L.forEach((f,fi)=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.mi=fi; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  R.forEach(p=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk+'-'+mSel.dataset.mi; /* per-fact key: two facts can share a product (e.g. 3x6, 6x3) */ const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+/* --- Speed Trail: self-referential timed bonus --- */
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=5 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const chartBtn=e.target.closest('[data-check-chart]'); if(chartBtn){ checkMultChart(); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    if(qid.indexOf('r1_')===0) state.reflectMostConfident = opt.textContent;
+    if(qid.indexOf('r2_')===0) state.reflectPracticeMore = opt.textContent;
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
+  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function checkMultChart(){
+  const inputs = document.querySelectorAll('.chartin');
+  let anyChecked = false;
+  inputs.forEach(inp=>{
+    if(inp.disabled) return;
+    const val = inp.value.trim();
+    if(val==='') return;
+    anyChecked = true;
+    const ans = inp.dataset.ans;
+    const wrongBefore = +(inp.dataset.wrong||0);
+    if(val===ans){
+      inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true;
+      if(wrongBefore===0) addScore(1);
+      addXP(1);
+    } else {
+      const w = wrongBefore+1; inp.dataset.wrong = w;
+      inp.classList.add('bad');
+      if(w>=MAX_ATTEMPTS){ inp.value = ans; inp.classList.remove('bad'); inp.classList.add('revealed'); inp.disabled=true; }
+    }
+  });
+  const fb = document.getElementById('chartFeedback');
+  const allDone = Array.from(document.querySelectorAll('.chartin')).every(i=>i.disabled);
+  if(allDone){
+    const correctCount = document.querySelectorAll('.chartin.ok').length;
+    fb.innerHTML = '🎉 Chart complete! You got '+correctCount+' out of 45 boxes right on your own. Great multiplying!';
+    fb.className='feedback show ok';
+    playFanfare(); confetti();
+  } else if(anyChecked){
+    fb.textContent = '👍 Keep going — fill in the rest, then hit Check My Chart again.';
+    fb.className='feedback show';
+    tone(660,.08,'sine',0,.15);
+  } else {
+    fb.textContent = 'Type a number in at least one box first!';
+    fb.className='feedback show';
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent=displayScore();
+  const rec=saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore()>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(displayScore()>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(displayScore()>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(displayScore()>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(!passed){
+    document.getElementById('finalMessageHeading').textContent='🌱 Practice makes progress.';
+    document.getElementById('finalMessageBody').textContent='You scored '+displayScore()+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Review the lesson and hit Play Again for a fresh set of questions whenever you\u2019re ready.';
+  }
+  playFanfare(); setTimeout(confetti,250); setTimeout(confetti,1100);
+}
+</script>
+<script src="../../gate.js"></script>
+</body>
+</html>
