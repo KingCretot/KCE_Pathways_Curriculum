@@ -980,6 +980,8 @@ ul.tips li{margin:5px 0}
 </div>
 <script>
 'use strict';
+const LS=(()=>{ try{ const k='__kce'; localStorage.setItem(k,k); localStorage.removeItem(k); return localStorage; }catch(e){ const m={}; return { getItem:k=>(k in m?m[k]:null), setItem:(k,v)=>{m[k]=String(v);}, removeItem:k=>{delete m[k];} }; } })();
+
 function speakText(text, btn){
   if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Read-aloud is not supported in this browser'; return; }
   window.speechSynthesis.cancel();
@@ -990,11 +992,11 @@ function speakText(text, btn){
 }
 function kceWords(t){ return (t.trim().match(/\S+/g)||[]).length; }
 function kceJournal(){ const o={}; document.querySelectorAll('textarea.journal').forEach(t=>{ o['book_'+t.dataset.j]=t.value.trim()||'(blank)'; }); return o; }
-document.addEventListener('input', e=>{ const t=e.target; if(!t.classList||!t.classList.contains('journal')) return; const w=kceWords(t.value), m=+t.dataset.min; const el=document.querySelector('[data-wc="'+t.dataset.j+'"]'); if(el){ el.textContent=w+' / '+m+' words'+(w>=m?' ✅':''); el.classList.toggle('ok', w>=m); } try{ localStorage.setItem('kce7a_'+MODULE_ID+'_'+t.dataset.j, t.value); }catch(x){} });
-document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('textarea.journal').forEach(t=>{ try{ const v=localStorage.getItem('kce7a_'+MODULE_ID+'_'+t.dataset.j); if(v){ t.value=v; t.dispatchEvent(new Event('input',{bubbles:true})); } }catch(x){} }); });
-document.addEventListener('click', e=>{ const b=e.target.closest('[data-go]'); if(!b) return; const cur=document.querySelector('.slide.on'); if(!cur || +b.dataset.go < +cur.dataset.slide) return; const short=[...cur.querySelectorAll('textarea.journal')].filter(t=>kceWords(t.value) < +t.dataset.min); if(!short.length) return; if(kceTeacherSkip) return; e.stopImmediatePropagation(); e.preventDefault(); const fb=cur.querySelector('.gatefb'); if(fb){ fb.style.display='block'; fb.className='feedback show bad gatefb'; fb.innerHTML='✏️ <b>Next is locked until you finish writing.</b> '+short.length+' box'+(short.length>1?'es need':' needs')+' more words. Look at the counter under each box. Use details from your book!<br><button type="button" class="btn btn-back" style="margin-top:10px;font-size:.85rem" onclick="kceSkip()">Teacher: skip with code</button>'; } levelup('✏️ Finish your writing to unlock Next'); playWrong(); short[0].scrollIntoView({behavior:'smooth',block:'center'}); short[0].classList.add('need'); setTimeout(()=>short[0].focus(),400); }, true);
+document.addEventListener('input', e=>{ const t=e.target; if(!t.classList||!t.classList.contains('journal')) return; const w=kceWords(t.value), m=+t.dataset.min; const el=document.querySelector('[data-wc="'+t.dataset.j+'"]'); if(el){ el.textContent=w+' / '+m+' words'+(w>=m?' ✅':''); el.classList.toggle('ok', w>=m); } try{ LS.setItem('kce7a_'+MODULE_ID+'_'+t.dataset.j, t.value); }catch(x){} });
+document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('textarea.journal').forEach(t=>{ try{ const v=LS.getItem('kce7a_'+MODULE_ID+'_'+t.dataset.j); if(v){ t.value=v; t.dispatchEvent(new Event('input',{bubbles:true})); } }catch(x){} }); });
+document.addEventListener('click', e=>{ const b=e.target.closest('[data-go]'); if(!b) return; const cur=document.querySelector('.slide.on'); if(!cur || +b.dataset.go < +cur.dataset.slide) return; const short=[...cur.querySelectorAll('textarea.journal')].filter(t=>kceWords(t.value) < +t.dataset.min); if(!short.length) return; if(kceTeacherSkip) return; e.stopImmediatePropagation(); e.preventDefault(); const fb=cur.querySelector('.gatefb'); if(fb){ fb.style.display='block'; fb.className='feedback show bad gatefb'; fb.innerHTML='✏️ <b>Next is locked until you finish writing.</b> '+short.length+' box'+(short.length>1?'es need':' needs')+' more words. Look at the counter under each box. Use details from your book!<br><span style="display:inline-flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap"><input type="password" inputmode="numeric" class="fillin kcecode" placeholder="Teacher code" style="width:140px;font-size:.95rem;padding:8px 10px"><button type="button" class="btn btn-back" style="font-size:.85rem" onclick="kceSkip(this)">Teacher: skip</button></span>'; } levelup('✏️ Finish your writing to unlock Next'); playWrong(); short[0].scrollIntoView({behavior:'smooth',block:'center'}); short[0].classList.add('need'); setTimeout(()=>short[0].focus(),400); }, true);
 let kceTeacherSkip=false;
-function kceSkip(){ const p=prompt('Teacher code'); if(p==='9110'){ kceTeacherSkip=true; levelup('Teacher mode: writing lock off'); document.querySelectorAll('.gatefb').forEach(f=>f.style.display='none'); kceGateUI(); } else if(p!==null){ alert('That code is not right.'); } }
+function kceSkip(btn){ const inp=btn&&btn.parentNode.querySelector('.kcecode'); const p=inp?inp.value.trim():''; if(p==='9110'){ kceTeacherSkip=true; levelup('Teacher mode: writing lock off'); document.querySelectorAll('.gatefb').forEach(f=>f.style.display='none'); kceGateUI(); } else if(inp){ inp.value=''; inp.placeholder='Code not right'; inp.classList.add('bad'); } }
 function kceGateUI(){ document.querySelectorAll('.slide').forEach(sl=>{ const ts=[...sl.querySelectorAll('textarea.journal')]; if(!ts.length) return; const done=kceTeacherSkip||ts.every(t=>kceWords(t.value)>=+t.dataset.min); const b=sl.querySelector('.nav .btn-go'); if(!b) return; if(!b.dataset.label) b.dataset.label=b.innerHTML; b.innerHTML=done?b.dataset.label:'🔒 Write to unlock'; b.style.opacity=done?'1':'.55'; }); }
 document.addEventListener('input', e=>{ if(e.target.classList&&e.target.classList.contains('journal')){ e.target.classList.remove('need'); kceGateUI(); } });
 document.addEventListener('DOMContentLoaded', ()=>setTimeout(kceGateUI,50));
@@ -1010,12 +1012,12 @@ const MAX_RAW_SCORE = 232;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
 const PROGRESS_KEY = 'kce_pathways_progress';
-function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
-function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function loadProgress(){ try{ return JSON.parse(LS.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ LS.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
 function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
 function reportProgress(score, rec){
   try{
-    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const name=(LS.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
     const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, most_confident_skill: state.reflectMostConfident||'(not answered)', wants_more_practice_on: state.reflectPracticeMore||'(not answered)', timestamp:new Date().toISOString() };
     fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.assign(payload, kceJournal()))})
       .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to your parent/teacher automatically.';})
@@ -1024,9 +1026,9 @@ function reportProgress(score, rec){
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
-  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
-  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
-  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) LS.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())LS.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())LS.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = LS.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = LS.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
   buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime();
 });
 
@@ -1082,7 +1084,7 @@ function handleMatch(el){
 /* --- Speed Trail: self-referential timed bonus --- */
 const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
 let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
-function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function loadBestTrailTime(){ const best=LS.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
 function startTrail(){
   if(trailRunning) return;
   trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
@@ -1095,8 +1097,8 @@ function trailQuestionAnswered(){
   if(trailAnswered>=5 && trailRunning){
     trailRunning=false; clearInterval(trailInterval);
     const finalTime=(Date.now()-trailStartTime)/1000;
-    const best=localStorage.getItem(TRAIL_KEY);
-    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    const best=LS.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ LS.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
     loadBestTrailTime();
   }
 }
