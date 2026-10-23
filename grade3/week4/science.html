@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 4 Science: Food Chains | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 4</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 4 &bull; Science</span>
+  <h1>Food Chains</h1>
+  <h2>Who eats whom, and what happens when one link is lost</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>What happens to a food chain when one living thing disappears?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;What happens to a food chain when one living thing disappears?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with needs, life cycles, and habitats</li><li>Follow energy from the Sun to plants to animals</li><li>Sort herbivores, carnivores, omnivores, and decomposers</li><li>Read a pond study to see what happens when one link is lost</li><li>Meet Rachel Carson, then Match-Up, Type-It, and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's review Weeks 1, 2, and 3. Needs, life cycles, habitats, and adaptations all connect to today.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Animals eat to get food. Food gives them energy to grow and move.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which basic need do <b>all</b> animals get from eating?</p>
+    <div class="opts">
+      <button class="opt">shelter</button>
+      <button class="opt" data-c="1">food</button>
+      <button class="opt">sunlight</button>
+      <button class="opt">soil</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="A life cycle is how a living thing is born, grows, changes, and makes new young.">
+    <span class="pts">+5</span>
+    <p class="qtext">A tadpole grows legs and becomes a frog. This is part of its ____.</p>
+    <div class="opts">
+      <button class="opt">habitat</button>
+      <button class="opt">food chain</button>
+      <button class="opt">camouflage</button>
+      <button class="opt" data-c="1">life cycle</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Swamps and marshes are wetlands. They have soggy land and shallow water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which habitat is soggy land with shallow water?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">wetland</button>
+      <button class="opt">desert</button>
+      <button class="opt">Arctic</button>
+      <button class="opt">forest</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Turner&#x27;s tests showed bees go back to the color where they found food. They remember.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Henry Turner showed that bees can ____.</p>
+    <div class="opts">
+      <button class="opt">live underwater</button>
+      <button class="opt">eat meat</button>
+      <button class="opt" data-c="1">remember colors</button>
+      <button class="opt">hibernate</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Blubber is a thick layer of fat. It holds in heat for animals like seals and polar bears.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is an <b>adaptation</b> for staying warm?</p>
+    <div class="opts">
+      <button class="opt">big thin ears</button>
+      <button class="opt">webbed feet</button>
+      <button class="opt" data-c="1">thick blubber</button>
+      <button class="opt">bright colors</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Maria Sibylla Merian watched and painted insects as they changed. She was our Week 2 scientist.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which scientist painted caterpillars turning into butterflies?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Maria Sibylla Merian</button>
+      <button class="opt">Jane Goodall</button>
+      <button class="opt">Eugenie Clark</button>
+      <button class="opt">Charles Henry Turner</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Nocturnal animals are active at night. Many moths fly in the dark.">
+    <span class="pts">+5</span>
+    <p class="qtext">Many moths fly at night and rest during the day. This behavior is called being ____.</p>
+    <div class="opts">
+      <button class="opt">webbed</button>
+      <button class="opt" data-c="1">nocturnal</button>
+      <button class="opt">migratory</button>
+      <button class="opt">camouflaged</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="A marble does not eat, grow, or make young. Moss, beetles, and ferns are all alive.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a <b>nonliving</b> thing?</p>
+    <div class="opts">
+      <button class="opt">a moss</button>
+      <button class="opt">a beetle</button>
+      <button class="opt">a fern</button>
+      <button class="opt" data-c="1">a marble</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="To migrate is to travel far when seasons change. Birds fly where food is easier to find.">
+    <span class="pts">+5</span>
+    <p class="qtext">Many birds fly south in fall to find food. This is called ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">migrating</button>
+      <button class="opt">hibernating</button>
+      <button class="opt">hatching</button>
+      <button class="opt">hiding</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Jane Goodall saw chimpanzees poke grass stems into termite mounds to pull out termites to eat.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jane Goodall watched chimpanzees use grass stems to catch ____.</p>
+    <div class="opts">
+      <button class="opt">lizards</button>
+      <button class="opt" data-c="1">termites</button>
+      <button class="opt">rabbits</button>
+      <button class="opt">minnows</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Brown on brown is hard to see. That is camouflage, which helps the rabbit hide.">
+    <span class="pts">+5</span>
+    <p class="qtext">A brown rabbit hides in brown grass. Its color is ____.</p>
+    <div class="opts">
+      <button class="opt">a habitat</button>
+      <button class="opt">a life cycle</button>
+      <button class="opt" data-c="1">camouflage</button>
+      <button class="opt">migration</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Plants need sunlight, water, and air. They do not eat meat or grow fur.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these do <b>plants</b> need to live?</p>
+    <div class="opts">
+      <button class="opt">meat and bones</button>
+      <button class="opt" data-c="1">sunlight and water</button>
+      <button class="opt">fur and fat</button>
+      <button class="opt">sand and salt</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: answer what you already know about who eats what. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This video follows energy from the Sun, to plants, to animals that eat plants, and to animals that eat other animals.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>The Food Chain for Kids | What is a food chain?</b> &mdash; Learn Bright</p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=aesKZR7J2nI" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for the words <b>producer</b> and <b>consumer</b>. Which one makes its own food?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">food chain<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;food chain. A path that shows who eats whom. Grass \u2192 rabbit \u2192 fox.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A path that shows who eats whom. Grass → rabbit → fox.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">producer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;producer. A living thing that makes its own food from sunlight. Plants are producers.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A living thing that makes its own food from sunlight. Plants are producers.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">consumer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;consumer. A living thing that eats other living things for food. A rabbit is a consumer.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A living thing that eats other living things for food. A rabbit is a consumer.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">herbivore<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;herbivore. An animal that eats only plants. Deer and rabbits are herbivores.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An animal that eats only plants. Deer and rabbits are herbivores.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">carnivore<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;carnivore. An animal that eats only other animals. Lions and sharks are carnivores.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An animal that eats only other animals. Lions and sharks are carnivores.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">omnivore<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;omnivore. An animal that eats both plants and animals. Bears and raccoons are omnivores.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An animal that eats both plants and animals. Bears and raccoons are omnivores.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">decomposer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;decomposer. A living thing that breaks down dead plants and animals. Mushrooms are decomposers.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A living thing that breaks down dead plants and animals. Mushrooms are decomposers.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>☀️ Energy Starts With the Sun</h2>
+<div class="card card">
+<p>A <b>food chain</b> shows who eats whom. Every food chain starts with the <b>Sun</b>. Plants use sunlight to make their own food. They are <b>producers</b>. Animals cannot make food, so they eat. They are <b>consumers</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A food chain shows who eats whom. Every food chain starts with the Sun . Plants use sunlight to make their own food. They are producers . Animals cannot make food, so they eat. They are consumers .&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Look at this chain: Sun → grass → rabbit → fox. Each arrow points to the one that eats. The grass uses sunlight. The rabbit eats the grass. The fox eats the rabbit. Energy moves along the arrows.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Look at this chain: Sun \u2192 grass \u2192 rabbit \u2192 fox. Each arrow points to the one that eats. The grass uses sunlight. The rabbit eats the grass. The fox eats the rabbit. Energy moves along the arrows.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: A Meadow Food Chain</h4><p><b>Sun</b> → <b>grass</b> → <b>grasshopper</b> → <b>frog</b> → <b>snake</b> → <b>hawk</b></p><ul><li>The arrow means "is eaten by."</li><li>Grass is the <b>producer</b>.</li><li>Every animal in the chain is a <b>consumer</b>.</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Put these in order: frog, Sun, grass, grasshopper. The Sun always comes first. Grass uses sunlight, so grass is next. The grasshopper eats grass. The frog eats the grasshopper. So: <b>Sun → grass → grasshopper → frog</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Put these in order: frog, Sun, grass, grasshopper. The Sun always comes first. Grass uses sunlight, so grass is next. The grasshopper eats grass. The frog eats the grasshopper. So: Sun \u2192 grass \u2192 grasshopper \u2192 frog .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="producer|producers" data-logic="Producers make their own food. Plants use sunlight to do it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A plant makes its own food from sunlight. It is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="The arrow goes from grasshopper to frog. That means the grasshopper is eaten by the frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Meadow Food Chain. What does the frog eat?</p>
+    <div class="opts">
+      <button class="opt">green grass</button>
+      <button class="opt">a snake</button>
+      <button class="opt">a hawk</button>
+      <button class="opt" data-c="1">a grasshopper</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="The arrow shows energy moving to the eater. Grass → rabbit means the rabbit eats the grass.">
+    <span class="pts">+5</span>
+    <p class="qtext">In a food chain, what does the arrow point to?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the one that eats</button>
+      <button class="opt">the one that is eaten</button>
+      <button class="opt">the biggest animal</button>
+      <button class="opt">the Sun</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="Sun|the Sun|sunlight" data-logic="Plants use the Sun&#x27;s light to make food. Then animals get that energy by eating.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">All the energy in a food chain starts with the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="The arrow goes from snake to hawk. The hawk eats the snake.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Meadow Food Chain. What eats the snake?</p>
+    <div class="opts">
+      <button class="opt">frog</button>
+      <button class="opt">grass</button>
+      <button class="opt" data-c="1">hawk</button>
+      <button class="opt">grasshopper</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Consumers get food by eating. A rabbit cannot make food from sunlight, so it eats plants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is a rabbit a <b>consumer</b>?</p>
+    <div class="opts">
+      <button class="opt">It makes food from light.</button>
+      <button class="opt">It lives in a burrow.</button>
+      <button class="opt" data-c="1">It eats other living things.</button>
+      <button class="opt">It has long ears.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="consumer|consumers" data-logic="Animals cannot make their own food. They eat, so they are consumers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An animal that eats other living things for food is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="An oak tree makes its own food from sunlight. Deer, hawks, and snakes must eat.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one is a <b>producer</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">an oak tree</button>
+      <button class="opt">a deer</button>
+      <button class="opt">a hawk</button>
+      <button class="opt">a snake</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="The Sun comes first, then the producer (seeds), then the animal that eats seeds, then the animal that eats the mouse.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which food chain is in the right order?</p>
+    <div class="opts">
+      <button class="opt">owl → mouse → seeds → Sun</button>
+      <button class="opt" data-c="1">Sun → seeds → mouse → owl</button>
+      <button class="opt">Sun → owl → seeds → mouse</button>
+      <button class="opt">mouse → Sun → owl → seeds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🍄 Plant Eaters, Meat Eaters, and Cleaners</h2>
+<div class="card card-grass">
+<p>Consumers eat different foods. A <b>herbivore</b> eats only plants. A <b>carnivore</b> eats only animals. An <b>omnivore</b> eats both. When living things die, <b>decomposers</b> break them down. Mushrooms, worms, and tiny bacteria do this job. They put food back into the soil for plants.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Consumers eat different foods. A herbivore eats only plants. A carnivore eats only animals. An omnivore eats both. When living things die, decomposers break them down. Mushrooms, worms, and tiny bacteria do this job. They put food back into the soil for plants.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>A raccoon eats berries, fish, and eggs. Berries come from plants. Fish and eggs come from animals. It eats both kinds. So a raccoon is an omnivore.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A raccoon eats berries, fish, and eggs. Berries come from plants. Fish and eggs come from animals. It eats both kinds. So a raccoon is an omnivore.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Who Eats What?</h4><table><tr><th>Living thing</th><th>What it eats</th><th>Group</th></tr><tr><td>Deer</td><td>grass, leaves</td><td>herbivore</td></tr><tr><td>Shark</td><td>fish, seals</td><td>carnivore</td></tr><tr><td>Black bear</td><td>berries, fish, insects</td><td>omnivore</td></tr><tr><td>Mushroom</td><td>dead logs and leaves</td><td>decomposer</td></tr><tr><td>Earthworm</td><td>dead leaves in soil</td><td>decomposer</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>A log falls in the forest. Months later, mushrooms grow on it. The log gets soft and crumbly. What happened? The mushrooms broke it down. Mushrooms are <b>decomposers</b>. Now the soil is richer for new plants.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A log falls in the forest. Months later, mushrooms grow on it. The log gets soft and crumbly. What happened? The mushrooms broke it down. Mushrooms are decomposers . Now the soil is richer for new plants.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="herbivore|herbivores" data-logic="Herb means plant. An herbivore eats only plants, like a deer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An animal that eats only plants is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The black bear eats berries (plants) and fish and insects (animals). Eating both makes it an omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Who Eats What. Which one is an <b>omnivore</b>?</p>
+    <div class="opts">
+      <button class="opt">deer</button>
+      <button class="opt">shark</button>
+      <button class="opt">mushroom</button>
+      <button class="opt" data-c="1">black bear</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="When decomposers break down dead things, they return nutrients to the soil. Plants use them to grow.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do decomposers put back into the soil?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">food for plants</button>
+      <button class="opt">sunlight</button>
+      <button class="opt">rain clouds</button>
+      <button class="opt">rocks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="carnivore|carnivores" data-logic="A carnivore eats meat, or other animals. Sharks and lions are carnivores.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An animal that eats only other animals is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="Grass and hay are plants. An animal that eats only plants is an herbivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">A cow eats grass and hay. It is ____.</p>
+    <div class="opts">
+      <button class="opt">a carnivore</button>
+      <button class="opt" data-c="1">an herbivore</button>
+      <button class="opt">an omnivore</button>
+      <button class="opt">a decomposer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="The table says earthworms eat dead leaves in soil. That is why they are decomposers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Who Eats What. What does an earthworm eat?</p>
+    <div class="opts">
+      <button class="opt">live fish</button>
+      <button class="opt">fresh berries</button>
+      <button class="opt" data-c="1">dead leaves</button>
+      <button class="opt">seals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="decomposer|decomposers" data-logic="Decomposers, like mushrooms and worms, break down dead things.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A living thing that breaks down dead plants and animals is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="Rice and beans are plants. Chicken is an animal. Eating both makes a person an omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">A person eats rice, beans, and chicken. A person can be ____.</p>
+    <div class="opts">
+      <button class="opt">an herbivore</button>
+      <button class="opt" data-c="1">an omnivore</button>
+      <button class="opt">a producer</button>
+      <button class="opt">a decomposer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Decomposers clean up dead things. Without them, dead leaves and logs would pile up and the soil would lose food.">
+    <span class="pts">+5</span>
+    <p class="qtext">What would happen if there were <b>no</b> decomposers?</p>
+    <div class="opts">
+      <button class="opt">Plants would grow faster.</button>
+      <button class="opt">The Sun would go out.</button>
+      <button class="opt">Animals would stop eating.</button>
+      <button class="opt" data-c="1">Dead things would pile up.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🔗 When One Link Is Lost</h2>
+<div class="card card-sky">
+<p>In a food chain, every living thing is a <b>link</b>. If one link is lost, others change too. The animals that ate it go <b>hungry</b>. The things it ate grow in <b>number</b>. Scientist <b>Rachel Carson</b> warned that a bug poison called <b>DDT</b> moved up food chains. It harmed birds.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;In a food chain, every living thing is a link . If one link is lost, others change too. The animals that ate it go hungry . The things it ate grow in number . Scientist Rachel Carson warned that a bug poison called DDT moved up food chains. It harmed birds.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Chain: grass → rabbit → fox. What if all the rabbits got sick and died? First, foxes lose their food, so there are fewer foxes. Next, nothing eats the grass, so the grass grows thick and tall.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Chain: grass \u2192 rabbit \u2192 fox. What if all the rabbits got sick and died? First, foxes lose their food, so there are fewer foxes. Next, nothing eats the grass, so the grass grows thick and tall.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: How Poison Moved Up a Food Chain</h4><p><b>Spray on trees</b> → <b>leaves</b> → <b>worms and insects</b> eat the leaves → <b>robins</b> eat many worms</p><ul><li>Each worm had a little poison.</li><li>A robin eats many worms.</li><li>So the robin got a <b>lot</b> of poison.</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Chain: plants → insects → frogs → herons. A sickness kills most frogs. What happens to herons? They lose food, so there are <b>fewer herons</b>. What happens to insects? Fewer frogs eat them, so there are <b>more insects</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Chain: plants \u2192 insects \u2192 frogs \u2192 herons. A sickness kills most frogs. What happens to herons? They lose food, so there are fewer herons . What happens to insects? Fewer frogs eat them, so there are more insects .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="DDT" data-logic="DDT was a poison sprayed to kill insects. Carson showed it also harmed birds and other animals.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The bug poison Rachel Carson warned about was called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="Foxes eat rabbits. With no rabbits, foxes lose their food and go hungry.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: grass → rabbit → fox. If the rabbits disappear, what happens to the foxes?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They go hungry.</button>
+      <button class="opt">They get bigger.</button>
+      <button class="opt">They eat grass.</button>
+      <button class="opt">They make food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Each worm had a little poison. A robin eats many worms, so the poison added up inside the robin.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the poison picture. Why did robins get the <b>most</b> poison?</p>
+    <div class="opts">
+      <button class="opt">They sprayed the trees.</button>
+      <button class="opt">They drank rain.</button>
+      <button class="opt" data-c="1">They ate many worms.</button>
+      <button class="opt">They ate only seeds.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="Silent" data-logic="Carson wrote &lt;i&gt;Silent Spring&lt;/i&gt;. The title means a spring with no birds singing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Rachel Carson's famous book was called ____ Spring:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="Owls eat mice. With no owls hunting them, more mice survive, so their number grows.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: seeds → mouse → owl. If owls disappear, what happens to the mice?</p>
+    <div class="opts">
+      <button class="opt">There are fewer mice.</button>
+      <button class="opt">Mice become owls.</button>
+      <button class="opt" data-c="1">There are more mice.</button>
+      <button class="opt">Mice stop eating.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Carson warned that poison could kill so many birds that spring would be quiet, with no birdsong.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Carson call her book <i>Silent Spring</i>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Birds stopped singing.</button>
+      <button class="opt">Snow fell all spring.</button>
+      <button class="opt">People stayed inside.</button>
+      <button class="opt">Rivers dried up.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="food" data-logic="Rabbits are food for foxes. Losing rabbits means losing food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">If all the rabbits are gone, foxes lose their ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Frogs eat insects. With fewer frogs, more insects survive and their number grows.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: plants → insects → frogs. Frogs disappear. What happens to the <b>insects</b>?</p>
+    <div class="opts">
+      <button class="opt">They all die.</button>
+      <button class="opt" data-c="1">They grow in number.</button>
+      <button class="opt">They turn into frogs.</button>
+      <button class="opt">They stop eating.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="The chain starts with spray on trees. The poison moved from leaves, to worms, to robins.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the poison picture. Where did the poison start?</p>
+    <div class="opts">
+      <button class="opt">inside robins</button>
+      <button class="opt">in the soil worms</button>
+      <button class="opt">in bird eggs</button>
+      <button class="opt" data-c="1">spray on trees</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🐸 Lab: The Pond Study</h2>
+<p>Scientists count living things to see how a habitat is changing. Read the pond chain and the table. Use the numbers to answer.</p>
+<div class="sourcebox"><h4>Pond Study: Three Summers</h4><div><p><b>Pond food chain:</b> Sun → algae → insects → frogs → herons</p><p>Scientists counted living things at one pond each summer. In <b>Year 2</b>, a sickness spread among the frogs.</p><table><tr><th>Year</th><th>Frogs</th><th>Insects</th><th>Herons</th></tr><tr><td>Year 1</td><td>40</td><td>300</td><td>6</td></tr><tr><td>Year 2</td><td>12</td><td>600</td><td>4</td></tr><tr><td>Year 3</td><td>2</td><td>900</td><td>1</td></tr></table></div><div class="src">Practice data made for this lesson. It shows the kind of counts ecologists keep at real ponds.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Pond food chain: Sun, algae, insects, frogs, herons. Scientists counted living things at one pond each summer. In Year 2, a sickness spread among the frogs. Year 1: 40 frogs, 300 insects, 6 herons. Year 2: 12 frogs, 600 insects, 4 herons. Year 3: 2 frogs, 900 insects, 1 heron.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Ecologist</h4><p>An ecologist reads one column at a time. Frogs went 40, 12, 2. That is down. Insects went 300, 600, 900. That is up. Then I check the chain. Frogs eat insects. So fewer frogs means more insects.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Year 1 had 40 frogs. Year 2 had 12 and Year 3 had 2. Year 1 is the most.">
+    <span class="pts">+5</span>
+    <p class="qtext">In which year were there the <b>most</b> frogs?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Year 1</button>
+      <button class="opt">Year 2</button>
+      <button class="opt">Year 3</button>
+      <button class="opt">All the same</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="600|six hundred" data-logic="Find the Year 2 row, then the Insects column. It says 600.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many insects were counted in <b>Year 2</b>? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="Insects went from 300 to 600 to 900. That is up. Fewer frogs were eating them.">
+    <span class="pts">+5</span>
+    <p class="qtext">As the frogs went down, what happened to the insects?</p>
+    <div class="opts">
+      <button class="opt">They went down.</button>
+      <button class="opt" data-c="1">They went up.</button>
+      <button class="opt">They stayed the same.</button>
+      <button class="opt">They all died.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="lab1_s1" data-pts="5" data-ans="1|one" data-logic="Find the Year 3 row, then the Herons column. It says 1.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many herons were counted in <b>Year 3</b>? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="The chain shows herons eat frogs. When frogs went down, herons had less food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did the number of herons go down?</p>
+    <div class="opts">
+      <button class="opt">They ate too many insects.</button>
+      <button class="opt">The algae ate them.</button>
+      <button class="opt" data-c="1">They had fewer frogs to eat.</button>
+      <button class="opt">The Sun got too hot.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="In the chain, the arrow goes from insects to frogs. So frogs eat insects.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the pond chain. What do the frogs eat?</p>
+    <div class="opts">
+      <button class="opt">algae</button>
+      <button class="opt" data-c="1">insects</button>
+      <button class="opt">herons</button>
+      <button class="opt">the Sun</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="lab1_s2" data-pts="5" data-ans="600|six hundred" data-logic="Year 3 had 900 insects and Year 1 had 300. 900 minus 300 is 600.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many <b>more</b> insects were there in Year 3 than in Year 1? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="Algae come right after the Sun. They use sunlight to make food, so they are the producer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which living thing is the <b>producer</b> in the pond chain?</p>
+    <div class="opts">
+      <button class="opt">insects</button>
+      <button class="opt">frogs</button>
+      <button class="opt">herons</button>
+      <button class="opt" data-c="1">algae</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="Frogs eat insects. If frogs come back, they will eat more insects, so insects should go down.">
+    <span class="pts">+5</span>
+    <p class="qtext">Healthy frogs come back in Year 4. What would you predict?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Insects go down.</button>
+      <button class="opt">Insects go up more.</button>
+      <button class="opt">Herons disappear.</button>
+      <button class="opt">Algae stop growing.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🌿 Scientists Who Protected Living Things</h2>
+<p>These scientists studied how living things depend on each other. They spoke up to protect them.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Rachel Carson</h4><div class="yrs">1907–1964</div><p>A <b>scientist and writer</b> who studied the ocean. She learned that birds were dying where a bug poison called <b>DDT</b> was sprayed. She explained how DDT built up as it moved up food chains. Her book <i>Silent Spring</i> (1962) helped lead the U.S. to ban most uses of DDT.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Rachel Carson. A scientist and writer who studied the ocean. She learned that birds were dying where a bug poison called DDT was sprayed. She explained how DDT built up as it moved up food chains. Her book Silent Spring (1962) helped lead the U.S. to ban most uses of DDT.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Charles Elton</h4><div class="yrs">1900–1991</div><p>An <b>English</b> scientist who studied animals in the cold <b>Arctic</b>. In his 1927 book <i>Animal Ecology</i>, he explained <b>food chains</b>. He saw many small animals at the bottom and only a few big hunters at the top.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Charles Elton. An English scientist who studied animals in the cold Arctic . In his 1927 book Animal Ecology , he explained food chains . He saw many small animals at the bottom and only a few big hunters at the top.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Ruth Patrick</h4><div class="yrs">1907–2013</div><p>A scientist who studied <b>tiny living things in rivers</b>. By counting them, she could tell if a river was healthy or polluted.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Ruth Patrick. A scientist who studied tiny living things in rivers . By counting them, she could tell if a river was healthy or polluted.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Ayana Elizabeth Johnson</h4><div class="yrs">Living today</div><p>A <b>Black American</b> ocean scientist who grew up in Brooklyn, New York. She studied <b>coral reefs</b> and the fish people catch there. She has worked with island communities so people can fish and still keep reefs healthy.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Ayana Elizabeth Johnson. A Black American ocean scientist who grew up in Brooklyn, New York. She studied coral reefs and the fish people catch there. She has worked with island communities so people can fish and still keep reefs healthy.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Carson collected reports that birds were dying after DDT was sprayed.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Rachel Carson learn was happening to birds?</p>
+    <div class="opts">
+      <button class="opt">They grew bigger.</button>
+      <button class="opt">They learned to swim.</button>
+      <button class="opt" data-c="1">They were dying.</button>
+      <button class="opt">They moved to the ocean.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="In &lt;i&gt;Animal Ecology&lt;/i&gt; (1927), Charles Elton explained how food chains link living things.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Charles Elton explain in his 1927 book?</p>
+    <div class="opts">
+      <button class="opt">shark learning</button>
+      <button class="opt">bee colors</button>
+      <button class="opt" data-c="1">food chains</button>
+      <button class="opt">bird songs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="After &lt;i&gt;Silent Spring&lt;/i&gt;, the U.S. banned most uses of DDT.">
+    <span class="pts">+5</span>
+    <p class="qtext">Carson's book helped lead the U.S. to ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">ban most DDT use</button>
+      <button class="opt">plant more trees</button>
+      <button class="opt">build a sea lab</button>
+      <button class="opt">count bees</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="Patrick counted tiny living things in the water. Which ones lived there showed if the river was clean.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Ruth Patrick tell if a river was healthy?</p>
+    <div class="opts">
+      <button class="opt">She tasted the water.</button>
+      <button class="opt" data-c="1">She counted tiny living things.</button>
+      <button class="opt">She measured the rain.</button>
+      <button class="opt">She watched the clouds.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Elton noticed there are many small animals but only a few big hunters at the top of a food chain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Elton saw many small animals at the bottom of a food chain. What did he find at the top?</p>
+    <div class="opts">
+      <button class="opt">many tiny insects</button>
+      <button class="opt">only green plants</button>
+      <button class="opt">lots of mushrooms</button>
+      <button class="opt" data-c="1">a few big hunters</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="All three studied nature and worked to protect plants, animals, and water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Carson, Patrick, and Johnson all worked to ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">protect living things</button>
+      <button class="opt">build tall cities</button>
+      <button class="opt">find gold</button>
+      <button class="opt">train animals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="omnivore|omnivores" data-logic="Berries are plants and fish are animals. Eating both makes the bear an omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A bear eats berries and fish. It is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="Elton" data-logic="Charles Elton explained food chains in his 1927 book &lt;i&gt;Animal Ecology&lt;/i&gt;.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The scientist who explained food chains in 1927 was Charles ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="eats|eats it|is eating" data-logic="Grass → rabbit means the rabbit eats the grass. The arrow points to the eater.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In a food chain, the arrow points to the one that ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="producers|producer" data-logic="Grass, trees, and algae use sunlight to make food. They are producers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Grass, trees, and algae are all ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="Carson" data-logic="Rachel Carson wrote &lt;i&gt;Silent Spring&lt;/i&gt; in 1962.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The scientist who wrote <i>Silent Spring</i> was Rachel ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="energy|food energy|food" data-logic="Energy from the Sun moves to plants, then to the animals that eat them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A food chain shows how ____ moves from one living thing to the next:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="rivers|river|streams|rivers and streams" data-logic="Ruth Patrick studied tiny living things in rivers to tell if the water was healthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Ruth Patrick studied tiny living things in ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="herbivore|herbivores" data-logic="Grass and leaves are plants. An animal that eats only plants is an herbivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A deer eats grass and leaves. It is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="birds|bird|robins" data-logic="Carson showed DDT harmed birds, like robins, as it moved up food chains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In <i>Silent Spring</i>, Carson warned that poison harmed ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Every food chain starts with the Sun&#x27;s energy.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">What comes <b>first</b> in every food chain?</p>
+    <div class="opts">
+      <button class="opt">a hawk</button>
+      <button class="opt" data-c="1">the Sun</button>
+      <button class="opt">a mushroom</button>
+      <button class="opt">a rabbit</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Fish and seals are animals. An animal that eats only animals is a carnivore.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A shark eats fish and seals. It is a ____.</p>
+    <div class="opts">
+      <button class="opt">herbivore</button>
+      <button class="opt">producer</button>
+      <button class="opt" data-c="1">carnivore</button>
+      <button class="opt">decomposer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp3" data-pts="5" data-ans="decomposers|decomposer" data-bonus="1" data-logic="Mushrooms break down dead things, so they are decomposers.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Mushrooms that break down dead logs are ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp3">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about food chains. Use the pond data as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about food chains? Write one question, like "What eats a hawk?"</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, look at your dinner plate. Trace one food back to the Sun. Example: Sun → corn → chicken → me. You can also ask your library for <i>Rachel Carson and Her Book That Changed the World</i> by Laurie Lawlor.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Battle: Save the Food Chain</h2>
+<p>Think like an ecologist. Follow the arrows and ask what changes next.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Algae use sunlight to make food. Every fish and the seal are consumers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: Sun → algae → small fish → big fish → seal. Which one is the <b>producer</b>?</p>
+    <div class="opts">
+      <button class="opt">small fish</button>
+      <button class="opt" data-c="1">algae</button>
+      <button class="opt">big fish</button>
+      <button class="opt">seal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Each bug has a little poison. A bird eats many bugs, so poison adds up inside the bird. Carson warned about this.">
+    <span class="pts">+5</span>
+    <p class="qtext">A farmer sprays poison on bugs. Birds eat many bugs. What could happen to the birds?</p>
+    <div class="opts">
+      <button class="opt">They grow stronger.</button>
+      <button class="opt">They make their own food.</button>
+      <button class="opt">They become producers.</button>
+      <button class="opt" data-c="1">Poison builds up in them.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Snakes eat mice. With no snakes, more mice survive. That change happens first.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: grass → grasshopper → mouse → snake. Snakes disappear. What happens <b>first</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Mice grow in number.</button>
+      <button class="opt">Grass grows in number.</button>
+      <button class="opt">Grasshoppers all die.</button>
+      <button class="opt">The Sun gets brighter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Mushrooms do not make food from sunlight. They break down dead logs and leaves, so they are decomposers.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "Mushrooms are producers because they grow in soil." What is the best answer?</p>
+    <div class="opts">
+      <button class="opt">Yes, all things in soil are producers.</button>
+      <button class="opt">Yes, they use sunlight.</button>
+      <button class="opt" data-c="1">No, they break down dead things.</button>
+      <button class="opt">No, they are carnivores.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="The raccoon eats eggs (from animals) and berries (from plants). Eating both means omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which animal is the <b>omnivore</b>?</p>
+    <div class="opts">
+      <button class="opt">a deer eating leaves and twigs</button>
+      <button class="opt">a lion eating a zebra it caught</button>
+      <button class="opt" data-c="1">a raccoon eating eggs and berries</button>
+      <button class="opt">a cow eating hay and grass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Fewer plants means less food for rabbits, so rabbits drop. Then foxes have less food. The change moves up the chain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: plants → rabbits → foxes. A dry year kills many plants. What happens to the foxes later?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Fewer foxes, because fewer rabbits</button>
+      <button class="opt">More foxes, because more plants</button>
+      <button class="opt">No change at all</button>
+      <button class="opt">Foxes start eating plants</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="The numbers 300 to 900 prove the insects went up. The other facts are true but do not answer the question.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the pond study, frogs went down and insects went up. Which is the best <b>evidence</b>?</p>
+    <div class="opts">
+      <button class="opt">Herons are tall birds.</button>
+      <button class="opt" data-c="1">Insects went from 300 to 900.</button>
+      <button class="opt">The Sun shines on ponds.</button>
+      <button class="opt">Algae are green.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Birds are near the end of the chain. They eat many bugs, so poison built up in them and was easy to notice.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why was it smart for Rachel Carson to study birds to learn about DDT?</p>
+    <div class="opts">
+      <button class="opt">Birds make their own food.</button>
+      <button class="opt">Birds never eat insects.</button>
+      <button class="opt">Birds live under the soil.</button>
+      <button class="opt" data-c="1">Birds eat many poisoned bugs.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="The Sun is first. Kelp is the producer. Sea urchins eat kelp. Sea otters eat sea urchins.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which ocean food chain is in the right order?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sun → kelp → sea urchin → sea otter</button>
+      <button class="opt">sea otter → Sun → kelp → sea urchin</button>
+      <button class="opt">kelp → Sun → sea otter → sea urchin</button>
+      <button class="opt">Sun → sea otter → sea urchin → kelp</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="No otters means more urchins. More urchins eat more kelp, so there is less kelp.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sea otters eat sea urchins. Sea urchins eat kelp. If otters disappear, what happens to the kelp?</p>
+    <div class="opts">
+      <button class="opt">More kelp</button>
+      <button class="opt" data-c="1">Less kelp</button>
+      <button class="opt">No change</button>
+      <button class="opt">Kelp eats urchins</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Decomposers return food to the soil. Without them, the soil gets poor and plants grow less.">
+    <span class="pts">+5</span>
+    <p class="qtext">Without decomposers, why would plants have trouble growing?</p>
+    <div class="opts">
+      <button class="opt">The Sun would be gone.</button>
+      <button class="opt">Animals would eat less.</button>
+      <button class="opt" data-c="1">The soil would lose food.</button>
+      <button class="opt">The rain would stop.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="The data show frogs dropped after a sickness. Testing whether it ended helps predict what happens next.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question would an ecologist ask <b>next</b> about the pond?</p>
+    <div class="opts">
+      <button class="opt">What color is the pond?</button>
+      <button class="opt" data-c="1">Did the frog sickness end?</button>
+      <button class="opt">How old is the pond?</button>
+      <button class="opt">Who named the pond?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Seed Sprout</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-science-w4';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"What happens to a food chain when one living thing disappears?": "../audio/heart/66b93ac787.mp3", "food chain. A path that shows who eats whom. Grass → rabbit → fox.": "../audio/heart/8d71f399ed.mp3", "producer. A living thing that makes its own food from sunlight. Plants are producers.": "../audio/heart/0bae360672.mp3", "consumer. A living thing that eats other living things for food. A rabbit is a consumer.": "../audio/heart/7aa0eba032.mp3", "herbivore. An animal that eats only plants. Deer and rabbits are herbivores.": "../audio/heart/676f9344db.mp3", "carnivore. An animal that eats only other animals. Lions and sharks are carnivores.": "../audio/heart/62fc820fe7.mp3", "omnivore. An animal that eats both plants and animals. Bears and raccoons are omnivores.": "../audio/heart/2f43dedc45.mp3", "decomposer. A living thing that breaks down dead plants and animals. Mushrooms are decomposers.": "../audio/heart/720ea462f9.mp3", "A food chain shows who eats whom. Every food chain starts with the Sun . Plants use sunlight to make their own food. They are producers . Animals cannot make food, so they eat. They are consumers .": "../audio/heart/3f95bb994d.mp3", "Look at this chain: Sun → grass → rabbit → fox. Each arrow points to the one that eats. The grass uses sunlight. The rabbit eats the grass. The fox eats the rabbit. Energy moves along the arrows.": "../audio/heart/2e443d92d3.mp3", "Put these in order: frog, Sun, grass, grasshopper. The Sun always comes first. Grass uses sunlight, so grass is next. The grasshopper eats grass. The frog eats the grasshopper. So: Sun → grass → grasshopper → frog .": "../audio/heart/8118b388b0.mp3", "Consumers eat different foods. A herbivore eats only plants. A carnivore eats only animals. An omnivore eats both. When living things die, decomposers break them down. Mushrooms, worms, and tiny bacteria do this job. They put food back into the soil for plants.": "../audio/heart/1d789b2aec.mp3", "A raccoon eats berries, fish, and eggs. Berries come from plants. Fish and eggs come from animals. It eats both kinds. So a raccoon is an omnivore.": "../audio/heart/852c6ea4ac.mp3", "A log falls in the forest. Months later, mushrooms grow on it. The log gets soft and crumbly. What happened? The mushrooms broke it down. Mushrooms are decomposers . Now the soil is richer for new plants.": "../audio/heart/79fa58c2e7.mp3", "In a food chain, every living thing is a link . If one link is lost, others change too. The animals that ate it go hungry . The things it ate grow in number . Scientist Rachel Carson warned that a bug poison called DDT moved up food chains. It harmed birds.": "../audio/heart/6e1c5381d4.mp3", "Chain: grass → rabbit → fox. What if all the rabbits got sick and died? First, foxes lose their food, so there are fewer foxes. Next, nothing eats the grass, so the grass grows thick and tall.": "../audio/heart/097891c23a.mp3", "Chain: plants → insects → frogs → herons. A sickness kills most frogs. What happens to herons? They lose food, so there are fewer herons . What happens to insects? Fewer frogs eat them, so there are more insects .": "../audio/heart/863b3e6238.mp3", "Pond food chain: Sun, algae, insects, frogs, herons. Scientists counted living things at one pond each summer. In Year 2, a sickness spread among the frogs. Year 1: 40 frogs, 300 insects, 6 herons. Year 2: 12 frogs, 600 insects, 4 herons. Year 3: 2 frogs, 900 insects, 1 heron.": "../audio/heart/86525e7994.mp3", "Rachel Carson. A scientist and writer who studied the ocean. She learned that birds were dying where a bug poison called DDT was sprayed. She explained how DDT built up as it moved up food chains. Her book Silent Spring (1962) helped lead the U.S. to ban most uses of DDT.": "../audio/heart/89be9b451d.mp3", "Charles Elton. An English scientist who studied animals in the cold Arctic . In his 1927 book Animal Ecology , he explained food chains . He saw many small animals at the bottom and only a few big hunters at the top.": "../audio/heart/95761c24b6.mp3", "Ruth Patrick. A scientist who studied tiny living things in rivers . By counting them, she could tell if a river was healthy or polluted.": "../audio/heart/f94eb8a430.mp3", "Ayana Elizabeth Johnson. A Black American ocean scientist who grew up in Brooklyn, New York. She studied coral reefs and the fish people catch there. She has worked with island communities so people can fish and still keep reefs healthy.": "../audio/heart/00cfe826bd.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["producer", "makes its own food"], ["consumer", "eats other living things"], ["decomposer", "breaks down dead things"], ["herbivore", "eats only plants"], ["carnivore", "eats only animals"]], [["deer", "herbivore"], ["lion", "carnivore"], ["raccoon", "omnivore"], ["mushroom", "decomposer"], ["sunflower", "producer"]], [["fewer rabbits", "hungry foxes"], ["fewer frogs", "more insects"], ["no decomposers", "dead things pile up"], ["DDT sprayed", "birds harmed"], ["no sunlight", "plants cannot make food"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Seed Sprout", "Food Chain Finder", "Energy Tracker", "Master Ecologist"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

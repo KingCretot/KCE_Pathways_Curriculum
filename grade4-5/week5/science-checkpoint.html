@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 5 Science Checkpoint | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 5</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 5 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 1</h1>
+  <h2>Fair tests, food webs, adaptations and plants. Show what you know and connect the big ideas.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Plan and judge <b>fair tests</b> and read data from trials</li><li>Trace energy through <b>food chains</b> and <b>food webs</b></li><li>Explain <b>adaptations</b> and how populations change</li><li>Show what goes into and comes out of <b>photosynthesis</b></li><li>Connect all four weeks in the Boss Battle</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 1–4 and mark what you are still unsure of. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🔬 Week 1: Thinking Like a Scientist</h2>
+<p>Remember testable questions, hypotheses, variables, trials and conclusions. Read every data list carefully before you answer.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c01_s0" data-pts="5" data-logic="A testable question can be answered by measuring. You can time how long a sponge takes to dry, but “better” and “beautiful” are opinions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question could be answered with a fair test?</p>
+    <div class="opts">
+      <button class="opt">Is a cat a better pet than a dog?</button>
+      <button class="opt" data-c="1">Does a wet sponge dry faster in sun or in shade?</button>
+      <button class="opt">Which season is the most beautiful?</button>
+      <button class="opt">Should people eat more apples?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s0" data-pts="5" data-ans="independent|changed|manipulated" data-logic="Priya changes the amount of salt on purpose, so it is the independent variable. Melting time is what she measures.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Priya adds different amounts of salt to ice cubes to see how fast they melt. The amount of salt is the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s0" data-pts="5" data-logic="Add the trials (14 + 16 + 15 = 45), then divide by 3 trials. The average is 15 minutes. 45 is the total, not the average.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kwame timed three melting ice cubes.<br>Trial 1: 14 minutes<br>Trial 2: 16 minutes<br>Trial 3: 15 minutes<br>What is the average time?</p>
+    <div class="opts">
+      <button class="opt">14 minutes</button>
+      <button class="opt">16 minutes</button>
+      <button class="opt" data-c="1">15 minutes</button>
+      <button class="opt">45 minutes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s0" data-pts="5" data-logic="A fair test changes only one variable. Every other plan changes something besides temperature, so you could not tell what caused the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sofia asks, “Does water temperature change how fast sugar dissolves?” Which plan is a fair test?</p>
+    <div class="opts">
+      <button class="opt">Hot water with stirring and cold water with no stirring</button>
+      <button class="opt">Hot water in a big cup and cold water in a small cup</button>
+      <button class="opt">One sugar cube in hot water and three in cold water</button>
+      <button class="opt" data-c="1">Same cup, sugar and stirring; only the water temperature differs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s0" data-pts="5" data-logic="Nightingale counted and graphed hospital deaths, and Wu ran careful experiments. Evidence, not fame, changed people’s minds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florence Nightingale and Chien-Shiung Wu both changed what powerful people believed. What did they use?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Careful data that others could check</button>
+      <button class="opt">Their fame and important jobs</button>
+      <button class="opt">Lucky guesses that turned out right</button>
+      <button class="opt">Old rules from earlier scientists</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c01_s1" data-pts="5" data-ans="hypothesis|hypotheses|prediction" data-logic="It is a testable prediction written in “If… then… because…” form. That is a hypothesis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Marcus writes: “If a ball is colder, then it will bounce lower, because the rubber gets stiff.” This sentence is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s1" data-pts="5" data-logic="The dependent variable is what you measure to see what happened: the flight distance. Wing length is what Ji-woo changes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ji-woo tests whether the length of paper airplane wings changes how far the plane flies. What is the dependent variable?</p>
+    <div class="opts">
+      <button class="opt">The length of the wings</button>
+      <button class="opt">The kind of paper used</button>
+      <button class="opt">The person who throws it</button>
+      <button class="opt" data-c="1">How far the plane flies</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s1" data-pts="5" data-logic="The tile bounces average about 90 cm and the rug bounces about 30 cm, roughly three times as high. “Better” is an opinion, not a data claim.">
+    <span class="pts">+5</span>
+    <p class="qtext">A ball was dropped from 1 meter three times on each floor.<br>Tile: 90, 88, 92 cm<br>Rug: 31, 29, 30 cm<br>Which conclusion do the data support?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It bounced about three times higher on tile</button>
+      <button class="opt">A rug makes every ball bounce higher</button>
+      <button class="opt">The floor made no difference to bounce</button>
+      <button class="opt">Tile floors are better than rugs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c04_s1" data-pts="5" data-ans="controlled|control|constant|constants" data-logic="Something kept the same in every trial so the test stays fair is a controlled variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Ji-woo uses the same kind of paper for every plane. The kind of paper is a ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c04_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s1" data-pts="5" data-logic="Her data pointed to dirty hospitals as the big problem, so leaders worked to keep hospitals cleaner.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florence Nightingale’s numbers showed that more soldiers died from disease in dirty hospitals than from battle wounds. What did her evidence help change?</p>
+    <div class="opts">
+      <button class="opt">How many soldiers went to battle</button>
+      <button class="opt">How many nurses were hired</button>
+      <button class="opt" data-c="1">How clean hospitals were kept</button>
+      <button class="opt">What weapons the army used</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c01_s2" data-pts="5" data-logic="“Prettiest” is an opinion that cannot be measured. The other questions can be tested by measuring times or counting.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question could NOT be answered with a fair test?</p>
+    <div class="opts">
+      <button class="opt">Does salt make water boil sooner?</button>
+      <button class="opt">Do earthworms move toward light or dark?</button>
+      <button class="opt" data-c="1">Which song is the prettiest?</button>
+      <button class="opt">Does a longer string make a swing slower?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s2" data-pts="5" data-logic="Lila changed the coin on purpose, so the kind of coin is the independent variable. The number of drops is what she measured.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lila counted how many water drops fit on a coin.<br>Penny: 25, 27, 26 drops<br>Quarter: 48, 50, 49 drops<br>What is the independent variable?</p>
+    <div class="opts">
+      <button class="opt">The number of drops</button>
+      <button class="opt" data-c="1">The kind of coin</button>
+      <button class="opt">The size of the dropper</button>
+      <button class="opt">The number of trials</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c03_s2" data-pts="5" data-ans="dependent|measured|responding" data-logic="The number of drops is what Lila measured to see what happened, so it is the dependent variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In Lila’s coin test, the number of drops is the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c04_s2" data-pts="5" data-ans="trial|trials" data-logic="Each repeat of a test is a trial. Scientists run several trials because one result could be a fluke.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Lila counted drops on the penny three separate times. Each of those times is called one ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c04_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c05_s2" data-pts="5" data-ans="soybeans|soybean|soy beans|soy bean|soy" data-logic="Julian found ways to make important medicines from soybeans, a crop farmers already grew.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Percy Julian and his partner Josef Pikl made a medicine for the eye disease glaucoma. Later, Julian found ways to make medicines from which plant?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🌲 Week 2: Ecosystems and Food Webs</h2>
+<p>Remember producers, consumers, decomposers, food chains, food webs and populations. Follow the energy, and use the counts as evidence.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c11_s0" data-pts="5" data-logic="Algae use sunlight to make their own food, so they are producers. Turtles, dragonflies and herons eat other living things.">
+    <span class="pts">+5</span>
+    <p class="qtext">In a pond ecosystem, which living thing is a producer?</p>
+    <div class="opts">
+      <button class="opt">Turtle</button>
+      <button class="opt">Dragonfly</button>
+      <button class="opt">Heron</button>
+      <button class="opt" data-c="1">Algae</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s0" data-pts="5" data-ans="decomposers|decomposer" data-logic="Decomposers break down dead plants and animals and return nutrients so producers can use them again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Bacteria that break down a dead fish and return its nutrients to the water are ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s0" data-pts="5" data-logic="Rabbits fell in 2022, and hawks fell in 2023. A predator often drops after its food supply drops.">
+    <span class="pts">+5</span>
+    <p class="qtext">Meadow counts each spring:<br>2020: 300 rabbits, 10 hawks<br>2021: 450 rabbits, 14 hawks<br>2022: 150 rabbits, 15 hawks<br>2023: 120 rabbits, 8 hawks<br>Which pattern do the data show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Hawks dropped a year after rabbits dropped</button>
+      <button class="opt">Hawks dropped before rabbits dropped</button>
+      <button class="opt">Rabbits and hawks never changed</button>
+      <button class="opt">Hawks rose every single year</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="Snakes eat mice (consumers) and are eaten by hawks (consumers). Mice eat seeds, which are producers, and nothing here eats hawks.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the chain seeds → mice → snakes → hawks, which living thing eats a consumer AND is eaten by one?</p>
+    <div class="opts">
+      <button class="opt">Seeds</button>
+      <button class="opt">Mice</button>
+      <button class="opt" data-c="1">Snakes</button>
+      <button class="opt">Hawks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s0" data-pts="5" data-logic="Insects took in DDT, fish and small animals ate the insects, and birds ate those animals. The poison passed along the food web.">
+    <span class="pts">+5</span>
+    <p class="qtext">DDT was sprayed to kill insects, yet Rachel Carson found it harming birds. How did the poison reach the birds?</p>
+    <div class="opts">
+      <button class="opt">Birds sprayed it on their own feathers</button>
+      <button class="opt" data-c="1">It moved up the food web as animals ate</button>
+      <button class="opt">It fell only on the birds’ nests</button>
+      <button class="opt">Birds drank it straight from the ocean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c11_s1" data-pts="5" data-ans="population|populations" data-logic="A population is all the members of one kind of living thing in an area.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">All the deer living in one forest make up a deer ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c12_s1" data-pts="5" data-logic="Coral is an animal, seagrass is a plant, and sea turtles are animals. Salt water is nonliving, but it is still part of the ecosystem.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a NONLIVING part of a coral reef ecosystem?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Salt water</button>
+      <button class="opt">Coral</button>
+      <button class="opt">Sea turtle</button>
+      <button class="opt">Seagrass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s1" data-pts="5" data-logic="Without otters, the urchin population grows. More urchins eat more kelp, so the kelp forest shrinks. Otters affect kelp even though they never eat it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sea urchins eat kelp, and sea otters eat sea urchins. If the sea otters disappear, what will most likely happen to the kelp?</p>
+    <div class="opts">
+      <button class="opt">It grows, because otters stop eating it</button>
+      <button class="opt">It stays the same, since otters skip kelp</button>
+      <button class="opt">It grows, because urchins vanish too</button>
+      <button class="opt" data-c="1">It shrinks, because more urchins eat it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c14_s1" data-pts="5" data-ans="tenth|10th" data-logic="Only about one-tenth of the energy moves to the next link. The rest is used for living or given off as heat.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In acorns → mice → owls, only about one-____ of the energy in the mice passes on to the owls:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c14_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c15_s1" data-pts="5" data-ans="Citizen Potawatomi|Potawatomi|Citizen Potawatomi Nation|Potawatomi Nation" data-logic="Kimmerer is a member of the Citizen Potawatomi Nation. She shows how Indigenous knowledge and Western science can work together.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Botanist Robin Wall Kimmerer is a member of which Indigenous nation? The ____ Nation:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c11_s2" data-pts="5" data-logic="It eats both animals (mice, rabbits, insects) and plant foods (fruit), so it is an omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">A coyote eats mice, rabbits, insects and fruit. What is it?</p>
+    <div class="opts">
+      <button class="opt">An herbivore</button>
+      <button class="opt" data-c="1">An omnivore</button>
+      <button class="opt">A carnivore</button>
+      <button class="opt">A producer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s2" data-pts="5" data-ans="producer|producers" data-logic="Lettuce makes its own food from sunlight, so it is the producer at the start of the chain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the garden chain lettuce → snail → toad, the lettuce is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s2" data-pts="5" data-logic="When fish more than doubled, tadpoles dropped by more than half. More predators means more of their prey gets eaten.">
+    <span class="pts">+5</span>
+    <p class="qtext">Pond survey (fish eat tadpoles):<br>Year 1: 900 tadpoles, 40 fish<br>Year 2: 400 tadpoles, 90 fish<br>Year 3: 250 tadpoles, 70 fish<br>What best explains the change in Year 2?</p>
+    <div class="opts">
+      <button class="opt">The tadpoles ate many of the fish</button>
+      <button class="opt">The pond lost all of its producers</button>
+      <button class="opt" data-c="1">More fish ate more of the tadpoles</button>
+      <button class="opt">Fish and tadpoles do not interact</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s2" data-pts="5" data-logic="Drought, hunting by people and bears changed at the same time, so a careful scientist says the wolves likely played a part and keeps collecting data.">
+    <span class="pts">+5</span>
+    <p class="qtext">People killed every gray wolf in Yellowstone by the late 1920s. After scientists brought wolves back in 1995 and 1996, elk numbers fell. Which conclusion is the most scientific?</p>
+    <div class="opts">
+      <button class="opt">Wolves alone caused the drop; nothing else changed</button>
+      <button class="opt">The elk fell only because the willows grew back</button>
+      <button class="opt">Wolves had no effect at all on the elk numbers</button>
+      <button class="opt" data-c="1">Wolves likely helped, but other things changed too</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c15_s2" data-pts="5" data-ans="Maathai" data-logic="Wangari Maathai’s Green Belt Movement helped women plant tens of millions of trees to protect soil and water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Kenyan scientist who started the Green Belt Movement in 1977 was Wangari ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🦎 Week 3: Adaptations and Survival</h2>
+<p>Remember structural and behavioral adaptations, instinct and learned behavior, inherited traits, and how populations change when environments change.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c21_s0" data-pts="5" data-logic="Quills are a body part, so they are a structural adaptation. A behavioral adaptation is something the animal does.">
+    <span class="pts">+5</span>
+    <p class="qtext">A porcupine’s sharp quills keep predators away. What kind of adaptation are the quills?</p>
+    <div class="opts">
+      <button class="opt">Behavioral</button>
+      <button class="opt">Learned</button>
+      <button class="opt" data-c="1">Structural</button>
+      <button class="opt">Seasonal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s0" data-pts="5" data-ans="instinct|instincts|instinctive behavior" data-logic="A behavior an animal does correctly the first time, with no one to teach it, is an instinct.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A newborn kangaroo crawls into its mother’s pouch without ever being taught. This kind of behavior is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s0" data-pts="5" data-logic="On dark bark, light moths were easy for birds to spot. More dark moths survived and passed on their color.">
+    <span class="pts">+5</span>
+    <p class="qtext">Moths caught in one forest (out of 100):<br>Light-bark years: 85 light, 15 dark<br>Sooty-bark years: 20 light, 80 dark<br>What best explains the change?</p>
+    <div class="opts">
+      <button class="opt">Moths changed their wing color to match</button>
+      <button class="opt" data-c="1">Birds caught more of the moths that stood out</button>
+      <button class="opt">Soot turned every moth in the forest dark</button>
+      <button class="opt">Dark moths flew in from somewhere else</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c24_s0" data-pts="5" data-ans="extinct" data-logic="When no members of a species are left alive anywhere, the species is extinct.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Passenger pigeons once filled the skies of North America, but the last one died in 1914. The species is now ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c24_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s0" data-pts="5" data-logic="Turner’s results suggested that honeybees can tell colors and patterns apart. He also showed that insects can learn and remember.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Henry Turner trained honeybees in experiments on colors and patterns. What did his results suggest?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Bees can tell colors apart</button>
+      <button class="opt">Bees can never learn anything</button>
+      <button class="opt">Bees only visit the color red</button>
+      <button class="opt">Bees find food by smell alone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c21_s1" data-pts="5" data-ans="structural|physical" data-logic="They are body parts, so they are structural adaptations.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Webbed feet, a thick shell and sharp talons are all ____ adaptations:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c22_s1" data-pts="5" data-logic="The crow gained the skill by watching others, so it is a learned behavior, not something it was born knowing.">
+    <span class="pts">+5</span>
+    <p class="qtext">A young crow watches older crows drop nuts on a road so cars crack them. Soon it does the same. This is…</p>
+    <div class="opts">
+      <button class="opt">an instinct</button>
+      <button class="opt">a structural adaptation</button>
+      <button class="opt">an inherited trait</button>
+      <button class="opt" data-c="1">a learned behavior</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s1" data-pts="5" data-logic="Birds with deeper beaks survived the drought and had chicks, and beak shape is inherited. Birds cannot choose to grow a new beak.">
+    <span class="pts">+5</span>
+    <p class="qtext">A biologist measured seed-eating birds on an island.<br>Before a drought: average beak 9.0 mm<br>Chicks after it: average beak 9.5 mm<br>Which explanation fits?</p>
+    <div class="opts">
+      <button class="opt">Each bird grew a bigger beak on purpose</button>
+      <button class="opt" data-c="1">Deep-beaked survivors passed on their beaks</button>
+      <button class="opt">The dry weather stretched the chicks’ beaks</button>
+      <button class="opt">Small-beaked birds learned to crack seeds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s1" data-pts="5" data-logic="Fur pattern is an inherited trait. Scars, learned skills and fears from experience happen during a life and are not inherited.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these could a parent cat pass on to its kittens?</p>
+    <div class="opts">
+      <button class="opt">A scar from a fight</button>
+      <button class="opt">How to open a door</button>
+      <button class="opt" data-c="1">Its striped fur pattern</button>
+      <button class="opt">Fear of a noisy dog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c25_s1" data-pts="5" data-ans="Just" data-logic="Ernest Everett Just studied the egg cells of sea animals and won the first Spingarn Medal in 1915.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1915, the NAACP gave its first Spingarn Medal to biologist Ernest Everett ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c25_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c21_s2" data-pts="5" data-logic="Changing color gives the hare camouflage in each season, so predators have a harder time spotting it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A snowshoe hare’s fur is brown in summer and white in winter. How does this help it survive?</p>
+    <div class="opts">
+      <button class="opt">White fur helps it run much faster</button>
+      <button class="opt">Brown fur keeps it cool in the snow</button>
+      <button class="opt">It warns predators that it is poisonous</button>
+      <button class="opt" data-c="1">It blends in, so predators see it less</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s2" data-pts="5" data-ans="evolution|natural selection" data-logic="A change in a population’s inherited traits over generations is evolution, and the Grants measured it happening fast.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Grants measured finches on Daphne Major and saw the population’s beaks change in just a few years. They watched ____ happen:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s2" data-pts="5" data-logic="Brown hides best on rocks and green hides best on leaves, so those lizards survive and reproduce more on each island.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lizards seen on two islands:<br>Rocky island: 70 brown, 30 green<br>Leafy island: 15 brown, 85 green<br>Which is the best explanation?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Each color blends in best on its own island</button>
+      <button class="opt">Green lizards cannot live near rocks</button>
+      <button class="opt">Lizards pick a new color every morning</button>
+      <button class="opt">Brown lizards are always the stronger ones</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s2" data-pts="5" data-logic="Migration is something the butterflies do, so it is a behavioral adaptation. Hibernation is sleeping through winter, not traveling.">
+    <span class="pts">+5</span>
+    <p class="qtext">Many monarch butterflies fly up to about 3,000 miles to central Mexico each fall. What kind of adaptation is this?</p>
+    <div class="opts">
+      <button class="opt">A structural adaptation</button>
+      <button class="opt" data-c="1">A behavioral adaptation</button>
+      <button class="opt">A kind of camouflage</button>
+      <button class="opt">A kind of hibernation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s2" data-pts="5" data-logic="A cactus stores water in its thick stem, and its spines lose very little water. Every plant needs some water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why can a cactus survive in a desert where a fern would dry out?</p>
+    <div class="opts">
+      <button class="opt">Its roots grow only in winter</button>
+      <button class="opt">It makes water from sunlight</button>
+      <button class="opt" data-c="1">Its thick stem stores water</button>
+      <button class="opt">It never needs any water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌱 Week 4: Plants: Structures and Photosynthesis</h2>
+<p>Remember plant parts and their jobs, what goes into and comes out of photosynthesis, and how the Three Sisters and crop rotation keep soil healthy.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c31_s0" data-pts="5" data-logic="Holding the plant up and carrying water are the jobs of a stem.">
+    <span class="pts">+5</span>
+    <p class="qtext">An asparagus spear holds up the young plant and carries water to its tip. Which plant part is it?</p>
+    <div class="opts">
+      <button class="opt">Root</button>
+      <button class="opt" data-c="1">Stem</button>
+      <button class="opt">Leaf</button>
+      <button class="opt">Flower</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s0" data-pts="5" data-ans="oxygen|O2" data-logic="Photosynthesis makes sugar and releases oxygen into the air.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Finish the equation. Light energy + water + carbon dioxide → sugar + ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s0" data-pts="5" data-logic="The closer, brighter lamp gave the most oxygen bubbles. More light speeds up photosynthesis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Bubbles from an underwater plant, counted for 1 minute:<br>Lamp 10 cm away: 30<br>Lamp 30 cm away: 14<br>Lamp 50 cm away: 5<br>What do the data show?</p>
+    <div class="opts">
+      <button class="opt">Plants make more oxygen in the dark</button>
+      <button class="opt">The lamp distance made no difference</button>
+      <button class="opt">Plants breathe the bubbles back in</button>
+      <button class="opt" data-c="1">More light means more photosynthesis</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c34_s0" data-pts="5" data-ans="chlorophyll" data-logic="Chlorophyll is the green pigment that captures light energy. When it breaks down, other colors show.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In autumn, maple leaves stop making their green pigment, so yellow and orange colors show through. That green pigment is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c34_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s0" data-pts="5" data-logic="The six nations are the Mohawk, Oneida, Onondaga, Cayuga, Seneca and Tuscarora. The Calusa lived in what is now southwest Florida.">
+    <span class="pts">+5</span>
+    <p class="qtext">Haudenosaunee farmers grew the Three Sisters. Which of these is NOT one of the six Haudenosaunee nations?</p>
+    <div class="opts">
+      <button class="opt">Seneca</button>
+      <button class="opt">Mohawk</button>
+      <button class="opt">Oneida</button>
+      <button class="opt" data-c="1">Calusa</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c31_s1" data-pts="5" data-ans="fruit|fruits" data-logic="A fruit protects the seeds and helps spread them, even when we cook it like a vegetable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tomato and a pea pod both protect seeds, so both are a plant’s ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c32_s1" data-pts="5" data-logic="Carbon dioxide is a gas in the air. It enters the leaf through the stomata.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where does a plant get the carbon dioxide it uses to make sugar?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">From the air, through its leaves</button>
+      <button class="opt">From the soil, through its roots</button>
+      <button class="opt">From sugar stored in its fruit</button>
+      <button class="opt">From water inside its stem</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s1" data-pts="5" data-logic="A fair test changes only one variable. Amir changed both fertilizer and light, so he cannot tell which one caused any difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">Amir’s fertilizer test:<br>Pot A: fertilizer, sunny window, 50 mL water<br>Pot B: no fertilizer, dark shelf, 50 mL water<br>What is wrong with his plan?</p>
+    <div class="opts">
+      <button class="opt">Both pots got the same water</button>
+      <button class="opt">He needs one pot, not two</button>
+      <button class="opt" data-c="1">Light and fertilizer both changed</button>
+      <button class="opt">Beans cannot use fertilizer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c34_s1" data-pts="5" data-ans="Helmont" data-logic="Van Helmont’s willow experiment showed that a tree’s mass does not come mainly from the soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 1600s scientist grew a willow in a pot for five years, and the soil lost only about 2 ounces. His name was Jan Baptist van ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c34_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s1" data-pts="5" data-logic="Squash spreads big leaves that shade the ground, keeping moisture in and crowding out weeds. Beans mostly add nitrogen.">
+    <span class="pts">+5</span>
+    <p class="qtext">A farmer plants corn alone, and the field fills with weeds and dry soil. Which Three Sisters partner would help most with THAT problem?</p>
+    <div class="opts">
+      <button class="opt">Beans</button>
+      <button class="opt" data-c="1">Squash</button>
+      <button class="opt">More corn</button>
+      <button class="opt">Cotton</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c31_s2" data-pts="5" data-logic="The stem works like a bundle of pipes. Tiny tubes carry water up from the roots.">
+    <span class="pts">+5</span>
+    <p class="qtext">How does water travel from a plant’s roots up to its leaves?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Through tiny tubes in the stem</button>
+      <button class="opt">Through the petals of flowers</button>
+      <button class="opt">Through the stomata on leaves</button>
+      <button class="opt">Through the chlorophyll</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s2" data-pts="5" data-ans="food|energy" data-logic="The sugar is the plant’s food. It gives the plant energy and material to grow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Plants do not eat food from the soil. The sugar a plant makes in photosynthesis is its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s2" data-pts="5" data-logic="The class measured how many seeds sprouted. How often they watered is the independent variable they changed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Bean seeds that sprouted after 7 days (out of 20):<br>Watered daily: 18<br>Every 3 days: 11<br>Never watered: 0<br>What is the dependent variable?</p>
+    <div class="opts">
+      <button class="opt">How often the seeds were watered</button>
+      <button class="opt">Kind of bean seed used</button>
+      <button class="opt">Number of days the class waited</button>
+      <button class="opt" data-c="1">Number of seeds that sprouted</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c34_s2" data-pts="5" data-ans="cowpeas|cowpea|cow peas|cow pea" data-logic="Carver taught Southern farmers to plant peanuts and cowpeas, which add nitrogen back to soil worn out by cotton.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">George Washington Carver taught farmers to restore worn-out soil by rotating in peanuts and ____, which also add nitrogen:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c34_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s2" data-pts="5" data-logic="Through photosynthesis, plants turn light energy into food. Every consumer depends on that food, directly or through other animals.">
+    <span class="pts">+5</span>
+    <p class="qtext">Almost every food chain on land starts with a plant. Which process makes that true?</p>
+    <div class="opts">
+      <button class="opt">Pollination</button>
+      <button class="opt">Decomposition</button>
+      <button class="opt" data-c="1">Photosynthesis</button>
+      <button class="opt">Migration</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned across all of Unit 1, connect two weeks with evidence, and try the Challenge.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>Which Unit 1 idea still puzzles you? Write one question about it that you could answer with a test or by looking up evidence.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, choose a plant in your yard or a park and observe it for 10 minutes. List every animal that visits, eats it or lives on it, then draw a small food web. Or read <i>Seeds of Change: Wangari’s Gift to the World</i> by Jen Cullerton Johnson, about how Wangari Maathai used science to protect Kenya’s land.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>👑 Boss Battle: Unit 1 Science Showdown</h2>
+<p>These questions connect all four weeks. Read the data, picture the food web, and reason with evidence before you choose.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Only the hours of light change, everything else stays the same, and each group has several plants. The other plans change more than one thing or never change light.">
+    <span class="pts">+5</span>
+    <p class="qtext">Design a fair test: Does the amount of light change how many leaves bean plants grow? Which plan is best?</p>
+    <div class="opts">
+      <button class="opt">One plant at 12 hours by a window, one in a cold dark garage</button>
+      <button class="opt" data-c="1">Same seeds, soil and water; 3 plants each at 0, 6 and 12 hours</button>
+      <button class="opt">Three plants with 12 hours and three in the dark with less water</button>
+      <button class="opt">Six plants under the same light, each with a new fertilizer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Green grasshoppers lose their camouflage and get eaten more. Brown ones survive and pass on their color over generations.">
+    <span class="pts">+5</span>
+    <p class="qtext">Green grasshoppers blend in with green grass. A long drought turns the grass brown for years. What is the best prediction?</p>
+    <div class="opts">
+      <button class="opt">Every grasshopper turns brown to match the grass</button>
+      <button class="opt">Birds stop eating grasshoppers until it rains</button>
+      <button class="opt" data-c="1">Birds spot green ones more; brown ones grow common</button>
+      <button class="opt">Nothing changes, since color is not inherited</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Without pollination, fewer flowers become fruit. Animals that eat apples then have less food, so the change ripples through the food web.">
+    <span class="pts">+5</span>
+    <p class="qtext">A disease kills most of the bees that pollinate an apple orchard. What is the best prediction?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Fewer apples form, so apple eaters lose food</button>
+      <button class="opt">More apples form, since bees stop eating them</button>
+      <button class="opt">The trees make extra pollen to replace bees</button>
+      <button class="opt">Nothing changes, because bees are not producers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4_s0" data-pts="5" data-ans="evidence|data" data-logic="Each one gathered careful evidence: hospital data, wildlife data and experiment results.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florence Nightingale, Rachel Carson and Chien-Shiung Wu all changed people’s minds with ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s0" data-pts="5" data-logic="Beans, with bacteria on their roots, add nitrogen to soil. Corn grown after beans gets more of that nutrient, like Carver’s crop rotation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Corn harvests from two fields:<br>Field A, corn after corn: 90 bushels<br>Field B, corn after beans: 130 bushels<br>What is the best explanation?</p>
+    <div class="opts">
+      <button class="opt">Beans ate the weeds in Field B</button>
+      <button class="opt">Corn makes nitrogen for the next crop</button>
+      <button class="opt">Corn grows best with no nutrients</button>
+      <button class="opt" data-c="1">Beans added nitrogen that the corn used</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Kendra changes the light color on purpose. To be fair, water, soil and hours of light must stay the same. Height is what she measures.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kendra asks: Does light color change how tall pea plants grow? What is her independent variable, and what should she control?</p>
+    <div class="opts">
+      <button class="opt">Plant height; same light color for all plants</button>
+      <button class="opt">Water amount; different soil for each color</button>
+      <button class="opt">Light color; more water for red-light plants</button>
+      <button class="opt" data-c="1">Light color; same water, soil and hours of light</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="On brown sand, green beetles stand out and are eaten more. Brown beetles survive and pass on their color, so they become more common.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lizards eat beetles. Green beetles hide on leaves, but a storm knocks down most trees, so beetles now live on brown sand. What is the best prediction?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Green beetles get spotted; brown ones increase</button>
+      <button class="opt">Green beetles turn brown during their lives</button>
+      <button class="opt">Lizards stop eating beetles after the storm</button>
+      <button class="opt">Colors stay the same, since sand is not alive</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="The bears’ hunting adaptations work from the ice. With less ice, they catch fewer seals. An adaptation cannot change within one bear’s life.">
+    <span class="pts">+5</span>
+    <p class="qtext">Polar bears hunt seals from sea ice, and seals eat fish. If warm years melt the ice early, what is most likely?</p>
+    <div class="opts">
+      <button class="opt">Seals stop eating fish and eat plants</button>
+      <button class="opt" data-c="1">Polar bears catch fewer seals and go hungry</button>
+      <button class="opt">Polar bears turn brown like grizzly bears</button>
+      <button class="opt">Fish disappear because the ice melted</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4_s1" data-pts="5" data-ans="photosynthesis" data-logic="Photosynthesis turns light energy, water and carbon dioxide into sugar, the food that starts the web.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Plants are the producers in almost every food web because they make food by ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s1" data-pts="5" data-logic="The groups started at different sizes, so compare percents: 45 of 300 is 15%, but 40 of 100 is 40%.">
+    <span class="pts">+5</span>
+    <p class="qtext">Finches after a drought:<br>Small beaks: 300 at start, 45 alive<br>Large beaks: 100 at start, 40 alive<br>Which group survived better?</p>
+    <div class="opts">
+      <button class="opt">Small beaks: 45 birds survived, more than 40</button>
+      <button class="opt">Both groups survived about equally well</button>
+      <button class="opt" data-c="1">Large beaks: 40% survived, compared with 15%</button>
+      <button class="opt">Small beaks: they started with more birds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="If light is the only difference and the dark plants lose their green chlorophyll, the evidence supports that light is needed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jamal asks: Do bean plants need light to stay green? Which result from his fair test would support “yes”?</p>
+    <div class="opts">
+      <button class="opt">All plants stay green no matter how much light</button>
+      <button class="opt" data-c="1">Plants in the dark turn pale; plants in light stay green</button>
+      <button class="opt">Plants in the dark grow greener than plants in light</button>
+      <button class="opt">Only plants given fertilizer stay green</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Oaks are the producers. Fewer acorns means less food for weevils and mice, and fewer mice means less food for owls.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mice eat acorns and acorn weevils (insects), weevils eat acorns, and owls eat mice. A fungus kills most of the oak trees. What is the best prediction?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Weevils and mice decline, then owls may too</button>
+      <button class="opt">Owls increase because they never eat acorns</button>
+      <button class="opt">Mice increase because they have fewer enemies</button>
+      <button class="opt">Nothing changes, since owls do not eat trees</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Wide, thin leaves catch dim light but lose water easily, so the plant fits a shady, damp place, not a desert.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scientists find a new plant with wide, thin leaves and shallow roots. Which habitat most likely fits it?</p>
+    <div class="opts">
+      <button class="opt">A dry, sunny desert</button>
+      <button class="opt">A windy, icy mountaintop</button>
+      <button class="opt">A salty ocean beach</button>
+      <button class="opt" data-c="1">A shady, damp forest floor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4_s2" data-pts="5" data-ans="10|ten" data-logic="Each extra 4 hours adds 2 leaves, so 16 hours predicts about 10 leaves. A scientist would still test it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Bean plants: 4 hours of light, 4 leaves; 8 hours, 6 leaves; 12 hours, 8 leaves. If the pattern continues, how many leaves at 16 hours?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s2" data-pts="5" data-logic="They worked in different places on different topics, but each one gathered careful evidence that others could check.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chien-Shiung Wu, Rachel Carson, the Grants and George Washington Carver all did one thing that made people trust their work. What was it?</p>
+    <div class="opts">
+      <button class="opt">They worked at the same university</button>
+      <button class="opt">They studied the same kind of living thing</button>
+      <button class="opt" data-c="1">They backed claims with careful evidence</button>
+      <button class="opt">They never changed their minds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Unit 1 Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 10;
+const FINAL_INDEX = 9;
+const MODULE_ID = 'grade4-5-science-checkpoint1';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["hypothesis", "testable if-then prediction"], ["controlled variable", "stays the same every trial"], ["decomposer", "returns nutrients to the soil"], ["camouflage", "helps hide from predators"], ["chlorophyll", "captures light in leaves"]], [["Florence Nightingale", "hospital data diagrams"], ["Rachel Carson", "DDT moving through food webs"], ["Charles Henry Turner", "bees can tell colors apart"], ["Ynés Mexía", "collected plants across the Americas"], ["Wangari Maathai", "Green Belt Movement"]], [["stomata", "let carbon dioxide into leaves"], ["instinct", "done right the first time"], ["food web", "many linked food chains"], ["trial", "one repeat of a test"], ["nitrogen", "nutrient beans add to soil"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Unit 1 Rookie", "Evidence Seeker", "Field Scientist", "Unit 1 Science Champion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

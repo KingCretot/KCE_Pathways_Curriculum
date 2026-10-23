@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 5 Science Checkpoint | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 5</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 5 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 1</h1>
+  <h2>Show what you know about living things, life cycles, habitats and food chains 🔬</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Show what you remember about living things and their needs</li><li>Put life cycles in order</li><li>Match adaptations to habitats</li><li>Read data and follow food chains</li><li>Face the Unit 1 Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 1&ndash;4 and what you are unsure about. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🌱 Week 1: What Living Things Need</h2>
+<p>Living or nonliving? The four needs. Evidence. Show what you remember!</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c01_s0" data-pts="5" data-logic="Living things grow, eat, respond and make more. Being hard or still is not the test. A mushroom sits still, and it is alive!">
+    <span class="pts">+5</span>
+    <p class="qtext">A seashell lies empty on the beach. Which clue shows it is <b>nonliving</b> now?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It cannot grow or eat.</button>
+      <button class="opt">It is hard and smooth.</button>
+      <button class="opt">It is white and pink.</button>
+      <button class="opt">It sits very still.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s0" data-pts="5" data-ans="organism|organisms" data-logic="Any living thing is called an organism.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A worm, a fern and a goldfish are all alive. Each one is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s0" data-pts="5" data-logic="The four needs are food, water, air and shelter. Fish get air from the water with their gills.">
+    <span class="pts">+5</span>
+    <p class="qtext">A goldfish bowl has water, food flakes and a little castle to hide in. Which need is <b>not</b> on the list?</p>
+    <div class="opts">
+      <button class="opt">sunlight to make food</button>
+      <button class="opt">a toy to play with</button>
+      <button class="opt">sand on the bottom</button>
+      <button class="opt" data-c="1">air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s0" data-pts="5" data-logic="Evidence comes from watching and counting. A half-dark, half-light box lets the worms choose, and Lee can count.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lee wants to know if worms like dark places or light places. Which plan gives the best <b>evidence</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Put worms in a half-dark box. Count where they go.</button>
+      <button class="opt">Ask a friend which side worms like best.</button>
+      <button class="opt">Write down a guess and stop right there.</button>
+      <button class="opt">Look at one worm once for one second.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s0" data-pts="5" data-logic="Trees meet needs. They give food, shade and shelter, and they help keep water clean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Wangari Maathai's Green Belt Movement planted trees in Kenya. Why did trees help people and animals?</p>
+    <div class="opts">
+      <button class="opt">Trees make the days much hotter.</button>
+      <button class="opt">Trees keep all the animals away.</button>
+      <button class="opt">Trees use up all of the water.</button>
+      <button class="opt" data-c="1">Trees give food, shelter and clean water.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c01_s1" data-pts="5" data-logic="To respond means to react to something around you. The snail reacted to the touch.">
+    <span class="pts">+5</span>
+    <p class="qtext">You gently touch a snail. It pulls into its shell. Which clue of living things is this?</p>
+    <div class="opts">
+      <button class="opt">It makes more.</button>
+      <button class="opt" data-c="1">It responds.</button>
+      <button class="opt">It is nonliving.</button>
+      <button class="opt">It makes its own food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s1" data-pts="5" data-ans="observe|watch" data-logic="To observe is to watch carefully and notice details. That is how Jane collected evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Jane Goodall did not just guess. She sat for hours to ____ the chimps carefully.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s1" data-pts="5" data-logic="The only difference was water. The plant with no water did not grow, so the data shows plants need water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kim grew two bean plants.<br><b>Plant 1:</b> sun and water. Grew 6 cm.<br><b>Plant 2:</b> sun, no water. Grew 0 cm.<br>What is the best conclusion?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Bean plants need water to grow.</button>
+      <button class="opt">Bean plants do not need sun.</button>
+      <button class="opt">Plant 2 got too much water.</button>
+      <button class="opt">Both plants were nonliving.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s1" data-pts="5" data-logic="Shelter is a safe place to live. The shell keeps the crab safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hermit crab moves into an empty shell. Which need does the shell meet?</p>
+    <div class="opts">
+      <button class="opt">food</button>
+      <button class="opt" data-c="1">shelter</button>
+      <button class="opt">water</button>
+      <button class="opt">air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s1" data-pts="5" data-logic="More samples mean more evidence. Scientists can compare plants and even find new kinds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ynés Mexía collected thousands of plants. Why does a big collection help scientists?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They can compare many plants as evidence.</button>
+      <button class="opt">They never have to observe again.</button>
+      <button class="opt">It proves plants are nonliving.</button>
+      <button class="opt">It makes the plants grow faster.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c01_s2" data-pts="5" data-logic="A snowman changes when it melts, but it does not grow, eat or make more snowmen. The others are organisms.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one is <b>nonliving</b>, even though it changes over time?</p>
+    <div class="opts">
+      <button class="opt">a sprouting bean</button>
+      <button class="opt" data-c="1">a melting snowman</button>
+      <button class="opt">a crawling ladybug</button>
+      <button class="opt">a growing mushroom</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s2" data-pts="5" data-ans="shelter" data-logic="Shelter is a safe place to live, like a nest, a den or a shell.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The four needs of living things are food, water, air and ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s2" data-pts="5" data-logic="The test was fair because both were the same distance. Ants went to the apple, which is food.">
+    <span class="pts">+5</span>
+    <p class="qtext">A class put food near an anthill. Both foods were the same distance away.<br><b>Apple piece:</b> 15 ants<br><b>Paper piece:</b> 0 ants<br>What does this evidence show?</p>
+    <div class="opts">
+      <button class="opt">Ants like paper more than apples.</button>
+      <button class="opt" data-c="1">The ants came for food, not paper.</button>
+      <button class="opt">The apple was closer to the ants.</button>
+      <button class="opt">Ants do not need any food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s2" data-pts="5" data-logic="Plants make food with sunlight. Without light, a plant gets pale and weak, like Plant C in our lab.">
+    <span class="pts">+5</span>
+    <p class="qtext">A houseplant gets water but sits in a dark closet for two weeks. What will you most likely observe?</p>
+    <div class="opts">
+      <button class="opt">It turns dark green and strong.</button>
+      <button class="opt" data-c="1">It turns pale and weak.</button>
+      <button class="opt">It grows faster than ever.</button>
+      <button class="opt">It stops needing water.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s2" data-pts="5" data-logic="When you see something many times, you can trust it more. One day could be a fluke.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jane Goodall watched chimps for years, not just one day. Why did that make her evidence stronger?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">She saw the same thing again and again.</button>
+      <button class="opt">She could make more guesses each day.</button>
+      <button class="opt">The chimps stopped needing food.</button>
+      <button class="opt">She did not need to take notes.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🦋 Week 2: Life Cycles</h2>
+<p>Eggs, larvae, tadpoles and seeds. Put the stages in order and read the evidence.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c11_s0" data-pts="5" data-logic="A butterfly starts as an egg. A larva (caterpillar) hatches. It makes a pupa. Then an adult comes out.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which shows a butterfly's life cycle in the right order?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">egg → larva → pupa → adult</button>
+      <button class="opt">egg → pupa → larva → adult</button>
+      <button class="opt">larva → egg → adult → pupa</button>
+      <button class="opt">adult → pupa → egg → larva</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s0" data-pts="5" data-ans="pupa" data-logic="The pupa is the resting stage. Inside the chrysalis, the body changes into a butterfly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The resting stage, when a caterpillar changes inside a chrysalis, is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s0" data-pts="5" data-logic="The tail keeps shrinking and lungs grow. The froglet becomes an adult frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">A froglet has four legs and a short tail. What does it become next?</p>
+    <div class="opts">
+      <button class="opt">a tadpole</button>
+      <button class="opt" data-c="1">an adult frog</button>
+      <button class="opt">a frog egg</button>
+      <button class="opt">a nymph</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="The journal says 8 were pupae in Week 6. Pupae rest and do not eat.">
+    <span class="pts">+5</span>
+    <p class="qtext">A class kept a mealworm journal. Mealworms are beetle larvae.<br><b>Week 1:</b> 10 larvae, eating oats<br><b>Week 6:</b> 8 pupae, 2 larvae, no eating<br><b>Week 9:</b> 8 beetles<br>In Week 6, most of them were in which stage?</p>
+    <div class="opts">
+      <button class="opt">larva</button>
+      <button class="opt" data-c="1">pupa</button>
+      <button class="opt">adult</button>
+      <button class="opt">egg</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s0" data-pts="5" data-logic="Merian&#x27;s paintings were evidence. They showed each stage and the food plant each caterpillar needs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Maria Sibylla Merian painted each caterpillar with the plant it ate. Why was that useful?</p>
+    <div class="opts">
+      <button class="opt">It made her paintings a lot bigger.</button>
+      <button class="opt">It proved insects come from mud.</button>
+      <button class="opt">It showed plants have no life cycle.</button>
+      <button class="opt" data-c="1">It showed what each caterpillar needs for food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c11_s1" data-pts="5" data-logic="A baby rabbit looks like a small adult. It has no big change in body shape, so no metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lila says, "All animals go through metamorphosis." Which animal proves her wrong?</p>
+    <div class="opts">
+      <button class="opt">a frog</button>
+      <button class="opt">a moth</button>
+      <button class="opt">a beetle</button>
+      <button class="opt" data-c="1">a rabbit</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s1" data-pts="5" data-ans="gills|gill" data-logic="Tadpoles breathe with gills. Adult frogs breathe with lungs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A fish and a tadpole both live in water. Both of them breathe with ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s1" data-pts="5" data-logic="A young plant that just sprouted is a seedling. Later it grows into an adult plant.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bean seed sprouts. Two small leaves pop up out of the soil. What stage is it in now?</p>
+    <div class="opts">
+      <button class="opt">adult plant</button>
+      <button class="opt" data-c="1">seedling</button>
+      <button class="opt">flower</button>
+      <button class="opt">seed pod</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s1" data-pts="5" data-logic="200 eggs but only 20 frogs. Many eggs and tadpoles did not survive. That is why frogs lay so many eggs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scientists counted at a pond.<br><b>Week 1:</b> 200 frog eggs<br><b>Week 3:</b> 150 tadpoles<br><b>Week 10:</b> 20 young frogs<br>What does the data show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Most eggs did not grow into frogs.</button>
+      <button class="opt">Every egg grew into a frog.</button>
+      <button class="opt">Tadpoles turned back into eggs.</button>
+      <button class="opt">Frogs laid more eggs in Week 10.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s1" data-pts="5" data-logic="Frog eggs and tadpoles live in water. If the water is harmful, they may not grow into healthy frogs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Dr. Tyrone Hayes studies how chemicals in water change the way tadpoles grow. Why does clean water matter for a frog’s life cycle?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Tadpoles grow up in the water.</button>
+      <button class="opt">Adult frogs never touch water.</button>
+      <button class="opt">Frogs lay their eggs in dry dirt.</button>
+      <button class="opt">Frogs hatch with lungs, not gills.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c11_s2" data-pts="5" data-logic="Only the adult butterfly lays eggs. Then the cycle starts again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which stage of a butterfly lays eggs?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">adult</button>
+      <button class="opt">larva</button>
+      <button class="opt">pupa</button>
+      <button class="opt">egg</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s2" data-pts="5" data-ans="metamorphosis" data-logic="Metamorphosis means a big change in body shape as an animal grows up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tadpole slowly turns into a frog. A body change that big is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s2" data-pts="5" data-logic="A tadpole looks nothing like a frog. A caterpillar looks nothing like a butterfly. That is metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">A frog and a butterfly both go through metamorphosis. What is the <b>same</b> for both?</p>
+    <div class="opts">
+      <button class="opt">Both make a hard chrysalis.</button>
+      <button class="opt">Both breathe with gills as adults.</button>
+      <button class="opt">Both start life as a seed.</button>
+      <button class="opt" data-c="1">Their young look very different from adults.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s2" data-pts="5" data-logic="Seeds start the cycle again. A seed can sprout into a seedling and grow into a new tree.">
+    <span class="pts">+5</span>
+    <p class="qtext">An apple has seeds inside. Why do the seeds matter for the apple tree's life cycle?</p>
+    <div class="opts">
+      <button class="opt">They help the tree sleep all winter.</button>
+      <button class="opt">They turn into caterpillars.</button>
+      <button class="opt" data-c="1">They can grow into new apple trees.</button>
+      <button class="opt">They make the apple taste sweeter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s2" data-pts="5" data-logic="Watching living insects shows behavior and change over time. A pinned insect cannot grow or act.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jean-Henri Fabre studied insects <b>alive</b> in his garden. What could he see that a dead insect in a box could not show?</p>
+    <div class="opts">
+      <button class="opt">What color the box was inside</button>
+      <button class="opt" data-c="1">How they act and grow each day</button>
+      <button class="opt">How long a box lasts outside</button>
+      <button class="opt">How heavy a pin is</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🦉 Week 3: Habitats and Adaptations</h2>
+<p>Match animals to habitats. Tell body parts from behaviors. Read the data like Charles Henry Turner.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c21_s0" data-pts="5" data-logic="Soggy land with shallow water is a wetland. Alligators, herons and frogs live there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Alligators float in shallow water. Herons wade past tall grass, and the mud is soggy. Which habitat is this?</p>
+    <div class="opts">
+      <button class="opt">desert</button>
+      <button class="opt" data-c="1">wetland</button>
+      <button class="opt">Arctic</button>
+      <button class="opt">forest</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s0" data-pts="5" data-ans="camouflage" data-logic="Camouflage is a color or pattern that helps an animal blend in.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A brown rabbit is hard to see in dry brown leaves. Its color is a kind of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s0" data-pts="5" data-logic="Big ears are part of the fox&#x27;s body. Flying south, hunting at night and swimming in schools are things animals do.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which adaptation is a <b>body part</b>, not a behavior?</p>
+    <div class="opts">
+      <button class="opt">monarchs flying to Mexico</button>
+      <button class="opt">owls hunting at night</button>
+      <button class="opt" data-c="1">a fennec fox's big ears</button>
+      <button class="opt">fish swimming in schools</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s0" data-pts="5" data-logic="There was no food on test day, so the fish were not smelling it. They learned, just like Turner&#x27;s bees.">
+    <span class="pts">+5</span>
+    <p class="qtext">A class tested goldfish. For one week, they tapped the tank, then gave food. On test day they tapped but gave <b>no</b> food.<br><b>Before the week:</b> 1 of 6 fish swam up<br><b>Test day:</b> 6 of 6 fish swam up<br>What does this evidence show?</p>
+    <div class="opts">
+      <button class="opt">The fish were born knowing the tap.</button>
+      <button class="opt">The fish smelled food on test day.</button>
+      <button class="opt">The fish like the tank glass.</button>
+      <button class="opt" data-c="1">The fish learned a tap means food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s0" data-pts="5" data-logic="She studies how bears change where they go when people build roads and homes near their habitat.">
+    <span class="pts">+5</span>
+    <p class="qtext">Rae Wynn-Grant studies bears, like black bears and grizzly bears, as people build roads and homes near them. What question is she trying to answer?</p>
+    <div class="opts">
+      <button class="opt">How do bears make their own food?</button>
+      <button class="opt">Why do bears have webbed feet?</button>
+      <button class="opt" data-c="1">How do bears change where they go?</button>
+      <button class="opt">How do bears grow from a pupa?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c21_s1" data-pts="5" data-logic="Fur and blubber are adaptations for cold. In a hot desert, they would make the animal overheat.">
+    <span class="pts">+5</span>
+    <p class="qtext">An animal has thick white fur and blubber. What would happen if it moved to the hot desert?</p>
+    <div class="opts">
+      <button class="opt">It would hide well in the sand.</button>
+      <button class="opt" data-c="1">It would get too hot.</button>
+      <button class="opt">It would find lots of ice.</button>
+      <button class="opt">It would grow webbed feet.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s1" data-pts="5" data-ans="migrate" data-logic="To migrate means to travel far when the seasons change, then come back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Many birds fly south in fall and come back in spring. They ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s1" data-pts="5" data-logic="Deserts have very hot days. Hiding in shade helps the lizard stay cool.">
+    <span class="pts">+5</span>
+    <p class="qtext">A lizard hides under a rock during the hot afternoon. This behavior helps it live in which habitat?</p>
+    <div class="opts">
+      <button class="opt">Arctic</button>
+      <button class="opt" data-c="1">desert</button>
+      <button class="opt">ocean</button>
+      <button class="opt">wetland</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s1" data-pts="5" data-logic="The green moths matched the grass. That is camouflage, so the bird found fewer of them.">
+    <span class="pts">+5</span>
+    <p class="qtext">A class put 10 green and 10 brown paper moths on green grass. A "bird" had 15 seconds to grab moths.<br><b>Green moths grabbed:</b> 2<br><b>Brown moths grabbed:</b> 8<br>What does the evidence show?</p>
+    <div class="opts">
+      <button class="opt">Brown moths were faster runners.</button>
+      <button class="opt" data-c="1">Green moths were hidden better on grass.</button>
+      <button class="opt">The bird liked brown moths best.</button>
+      <button class="opt">Green moths were much bigger.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s1" data-pts="5" data-logic="Learning means changing what you do because of what happened before. The others are body parts animals are born with.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Henry Turner and Eugenie Clark both showed animals can <b>learn</b>. Which is an example of learning?</p>
+    <div class="opts">
+      <button class="opt">A duck is born with webbed feet.</button>
+      <button class="opt">A polar bear grows thick fur.</button>
+      <button class="opt">A fennec fox has big ears.</button>
+      <button class="opt" data-c="1">A bee goes back to a color that had food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c21_s2" data-pts="5" data-logic="Desert days are very hot. Many desert animals are nocturnal so they can move around when it is cooler.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is being active at night helpful for a desert fox?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Nights are cooler than days.</button>
+      <button class="opt">Nights are hotter than days.</button>
+      <button class="opt">There is no food at night.</button>
+      <button class="opt">The Sun helps it hunt.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s2" data-pts="5" data-ans="habitat|habitats" data-logic="A habitat is the natural home that gives an animal food, water and shelter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Camels, lizards and fennec foxes all live in the hot, dry desert. The desert is their ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s2" data-pts="5" data-logic="A behavior is something an animal does. Flying south helps monarchs survive the cold.">
+    <span class="pts">+5</span>
+    <p class="qtext">Monarch butterflies fly to Mexico in fall. Why is this a <b>behavior</b> adaptation?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is something they do to survive winter.</button>
+      <button class="opt">It is a body part that keeps them warm.</button>
+      <button class="opt">It is a color that helps them hide.</button>
+      <button class="opt">It means they sleep all winter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s2" data-pts="5" data-logic="The forest is the deer&#x27;s habitat. Cutting trees took away food and shelter, so fewer deer could live there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scientists counted deer in a forest.<br><b>Year 1:</b> 50 deer<br>Then people cut down half the trees.<br><b>Year 2:</b> 20 deer<br>What is the best explanation?</p>
+    <div class="opts">
+      <button class="opt">The deer moved to the ocean.</button>
+      <button class="opt" data-c="1">The deer lost food and shelter.</button>
+      <button class="opt">The deer began to hibernate.</button>
+      <button class="opt">Deer like fewer trees.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s2" data-pts="5" data-logic="Clark trained sharks and showed they can learn, like Turner showed with insects.">
+    <span class="pts">+5</span>
+    <p class="qtext">Eugenie Clark was called the "Shark Lady." What did she show that surprised many people?</p>
+    <div class="opts">
+      <button class="opt">Sharks live in deserts.</button>
+      <button class="opt">Sharks make their own food.</button>
+      <button class="opt" data-c="1">Sharks can learn.</button>
+      <button class="opt">Sharks sleep all winter in caves.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🍃 Week 4: Food Chains</h2>
+<p>Producers, consumers and decomposers. What happens when one link is lost?</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c31_s0" data-pts="5" data-logic="The rabbit eats clover, a plant. It is a consumer and a herbivore. Clover is the producer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: Sun → clover → rabbit → hawk. Which one is a consumer that eats <b>only plants</b>?</p>
+    <div class="opts">
+      <button class="opt">clover</button>
+      <button class="opt" data-c="1">rabbit</button>
+      <button class="opt">Sun</button>
+      <button class="opt">hawk</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s0" data-pts="5" data-ans="decomposers|decomposer" data-logic="Decomposers break down dead things and put food back into the soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A fallen leaf slowly turns into soil because worms, mushrooms and bacteria break it down. These living things are ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s0" data-pts="5" data-logic="Mice eat seeds, and owls eat mice. Fewer seeds meant fewer mice, so the owls lose food.">
+    <span class="pts">+5</span>
+    <p class="qtext">A field study counted mice and owls. Owls eat mice.<br><b>Year 1:</b> 100 mice, 4 owls<br><b>Year 2:</b> dry year, few seeds, 40 mice<br>What do you predict for the owls next?</p>
+    <div class="opts">
+      <button class="opt">More owls, because mice are easy to find.</button>
+      <button class="opt" data-c="1">Fewer owls, because they have less food.</button>
+      <button class="opt">No change, because owls eat seeds.</button>
+      <button class="opt">More owls, because the year was dry.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s0" data-pts="5" data-logic="Omnivores, like bears and raccoons, eat both plants and animals.">
+    <span class="pts">+5</span>
+    <p class="qtext">An <b>omnivore</b> eats…</p>
+    <div class="opts">
+      <button class="opt">only plants</button>
+      <button class="opt" data-c="1">plants and animals</button>
+      <button class="opt">only animals</button>
+      <button class="opt">only dead things</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s0" data-pts="5" data-logic="Elton found many small animals at the bottom of a food chain and few big hunters at the top.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Elton saw many small animals and only a few big hunters. In a forest, which would you count the <b>most</b> of?</p>
+    <div class="opts">
+      <button class="opt">hawks</button>
+      <button class="opt">foxes</button>
+      <button class="opt">owls</button>
+      <button class="opt" data-c="1">insects</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c31_s1" data-pts="5" data-logic="Grass uses sunlight to make food. The energy passes to the deer and then the wolf.">
+    <span class="pts">+5</span>
+    <p class="qtext">A wolf eats a deer. The deer ate grass. Where did the wolf’s energy first come from?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the Sun</button>
+      <button class="opt">the wolf</button>
+      <button class="opt">the deer</button>
+      <button class="opt">the soil</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s1" data-pts="5" data-ans="carnivore|carnivores" data-logic="A carnivore eats only other animals. The eagle eats no plants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An eagle eats fish, snakes and mice, but no plants. It is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s1" data-pts="5" data-logic="Ducks eat snails. With fewer ducks, fewer snails get eaten, so the snail number grows.">
+    <span class="pts">+5</span>
+    <p class="qtext">Pond chain: algae → snails → ducks.<br><b>Year 1:</b> 30 ducks, 500 snails<br><b>Year 2:</b> most ducks fly away, 5 ducks left<br>What do you predict for the snails?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">More snails, since fewer are eaten.</button>
+      <button class="opt">Fewer snails, since ducks left.</button>
+      <button class="opt">No snails, since algae are gone.</button>
+      <button class="opt">The same number of snails.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s1" data-pts="5" data-logic="Mold, worms and bacteria are decomposers. They slowly break down dead things and put food back into the soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">An apple falls under a tree. Weeks later it is soft and mushy, with fuzzy mold on it. What is happening?</p>
+    <div class="opts">
+      <button class="opt">Producers are eating the apple.</button>
+      <button class="opt">The apple is hibernating.</button>
+      <button class="opt">Carnivores are eating the apple.</button>
+      <button class="opt" data-c="1">Decomposers are breaking it down.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s1" data-pts="5" data-logic="She works with communities so people can keep fishing and the reef food chain stays healthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ayana Elizabeth Johnson works with people who fish near coral reefs. What is her goal?</p>
+    <div class="opts">
+      <button class="opt">All fishing stops forever.</button>
+      <button class="opt" data-c="1">People fish and reefs stay healthy.</button>
+      <button class="opt">Reefs are cleared for big boats.</button>
+      <button class="opt">Reef fish move into rivers.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c31_s2" data-pts="5" data-logic="The skunk eats plants (berries) and animals (worms, beetles). That makes it an omnivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">A skunk eats berries, worms and beetles. A student says, "Skunks are carnivores." What is the best answer?</p>
+    <div class="opts">
+      <button class="opt">Yes, because it eats worms.</button>
+      <button class="opt" data-c="1">No, it is an omnivore.</button>
+      <button class="opt">No, it is a producer.</button>
+      <button class="opt">Yes, because skunks smell.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s2" data-pts="5" data-ans="consumer|consumers|carnivore" data-logic="A consumer eats other living things. The fox is a consumer (and a carnivore).">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Chain: grass → rabbit → fox. The fox cannot make its own food. It eats other living things, so it is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s2" data-pts="5" data-logic="Frogs eat grasshoppers, so frogs lose food first. Later the snakes feel it too.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: Sun → grass → grasshopper → frog → snake. The grasshoppers disappear. Who goes hungry <b>first</b>?</p>
+    <div class="opts">
+      <button class="opt">the snake</button>
+      <button class="opt">the grass</button>
+      <button class="opt">the Sun</button>
+      <button class="opt" data-c="1">the frog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s2" data-pts="5" data-logic="Poison adds up as it moves up a food chain. Rachel Carson warned that DDT builds up this way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scientists measured a bug poison at a lake.<br><b>Water:</b> a tiny bit<br><b>Small fish:</b> more<br><b>Big fish:</b> even more<br><b>Fish-eating bird:</b> the most<br>Why did the bird have the most?</p>
+    <div class="opts">
+      <button class="opt">Birds make poison in their bodies.</button>
+      <button class="opt">The bird drank the most water.</button>
+      <button class="opt" data-c="1">It ate many fish that each had some.</button>
+      <button class="opt">The bird is a producer.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s2" data-pts="5" data-logic="Plants need sunlight to make food. Every other link depends on the plants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Smoke from a fire blocks the Sun for weeks. What happens <b>first</b> in the food chain?</p>
+    <div class="opts">
+      <button class="opt">Foxes eat more rabbits.</button>
+      <button class="opt" data-c="1">Plants make less food.</button>
+      <button class="opt">Decomposers stop working.</button>
+      <button class="opt">Hawks grow larger.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned across all of Unit 1. Use data from our labs as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about living things? Maybe: Do all insects have a pupa stage? What eats a hawk? Write one question on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, go outside for 10 minutes. List 3 living and 3 nonliving things you observe. Pick one animal and write its habitat, one adaptation and what it eats. You can also ask your library for <i>Me&hellip;Jane</i> by Patrick McDonnell, a picture book about young Jane Goodall.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>👑 Boss Battle: The Unit 1 Science Challenge</h2>
+<p>These mix all four weeks. Read the evidence carefully. Think like Jane Goodall, Charles Henry Turner and Rachel Carson!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Evidence is something observed or measured. Only the note about the 7-day test tells what really happened.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement is <b>evidence</b>, not a guess?</p>
+    <div class="opts">
+      <button class="opt">I think seeds really like water.</button>
+      <button class="opt">Seeds are probably happy when wet.</button>
+      <button class="opt" data-c="1">After 7 days, the watered seeds sprouted.</button>
+      <button class="opt">My friend says seeds need water.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Fewer lizards eat fewer grasshoppers, so grasshoppers go up. Hawks lose food, so hawks go down.">
+    <span class="pts">+5</span>
+    <p class="qtext">Field chain: grass → grasshoppers → lizards → hawks. A cold snap kills most of the lizards. Which <b>two</b> changes will most likely happen?</p>
+    <div class="opts">
+      <button class="opt">fewer grasshoppers, more hawks</button>
+      <button class="opt" data-c="1">more grasshoppers, fewer hawks</button>
+      <button class="opt">more grasshoppers, more hawks</button>
+      <button class="opt">fewer grasshoppers, fewer hawks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Frog eggs and tadpoles must live in water. Without the pond, they cannot grow into frogs.">
+    <span class="pts">+5</span>
+    <p class="qtext">A pond dries up in a drought. Whose <b>life cycle</b> is hurt the most?</p>
+    <div class="opts">
+      <button class="opt">grasshopper</button>
+      <button class="opt">rabbit</button>
+      <button class="opt">robin</button>
+      <button class="opt" data-c="1">frog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="White fur is camouflage in snow. Without snow, the fox stands out to the animals it hunts.">
+    <span class="pts">+5</span>
+    <p class="qtext">An Arctic fox is white in winter. One winter is warm with no snow. What problem might the fox have?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Its white fur no longer hides it.</button>
+      <button class="opt">It cannot find any air to breathe.</button>
+      <button class="opt">It turns back into a young fox.</button>
+      <button class="opt">It starts making its own food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s0" data-pts="5" data-logic="A fair test changes only one thing. Same box and same light, only the wetness is different.">
+    <span class="pts">+5</span>
+    <p class="qtext">Do pill bugs like wet or dry soil? Which test is <b>fair</b>?</p>
+    <div class="opts">
+      <button class="opt">Wet soil in sun, dry soil in a dark box</button>
+      <button class="opt">Ten bugs in wet soil and no dry soil</button>
+      <button class="opt" data-c="1">One box, half wet soil, half dry, same light</button>
+      <button class="opt">Look at one bug for one second</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Mushrooms grow and make more mushrooms, so they are alive. They break down dead logs, so they are decomposers.">
+    <span class="pts">+5</span>
+    <p class="qtext">A mushroom grows on a dead log. Is it living, and what is its job?</p>
+    <div class="opts">
+      <button class="opt">Nonliving; it does not move.</button>
+      <button class="opt">Living; it is a producer.</button>
+      <button class="opt" data-c="1">Living; it is a decomposer.</button>
+      <button class="opt">Nonliving; it is part of the log.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="The larva stage needs milkweed. Without food, fewer caterpillars grow into butterflies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Monarch caterpillars eat only milkweed. A town clears all its milkweed. What happens to the monarchs there?</p>
+    <div class="opts">
+      <button class="opt">Pupae eat more to make up for it.</button>
+      <button class="opt">Adults lay eggs in bare soil.</button>
+      <button class="opt" data-c="1">Larvae have no food, so fewer adults.</button>
+      <button class="opt">Caterpillars start eating fish.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Aphids dropped after ladybugs came. Ladybugs are consumers that eat aphids.">
+    <span class="pts">+5</span>
+    <p class="qtext">Garden notes:<br><b>Week 1:</b> 20 aphids on the roses, 0 ladybugs<br><b>Week 2:</b> 5 ladybugs added<br><b>Week 4:</b> 3 aphids, 5 ladybugs<br>What is the best conclusion?</p>
+    <div class="opts">
+      <button class="opt">The aphids turned into ladybugs.</button>
+      <button class="opt">The roses ate the aphids.</button>
+      <button class="opt" data-c="1">The ladybugs ate many aphids.</button>
+      <button class="opt">The aphids migrated to Mexico.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Each one watched carefully and collected evidence: chimps, insects and birds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jane Goodall, Charles Henry Turner and Rachel Carson all…</p>
+    <div class="opts">
+      <button class="opt">studied only sharks in the ocean</button>
+      <button class="opt">worked only in the Arctic cold</button>
+      <button class="opt">studied only plants and seeds</button>
+      <button class="opt" data-c="1">used careful observation as evidence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s1" data-pts="5" data-logic="Without snakes, more mice survive. More mice eat more seeds, so seeds go down.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: seeds → mice → snakes → hawks. A farmer removes all the snakes. Predict the mice and the seeds.</p>
+    <div class="opts">
+      <button class="opt">fewer mice, more seeds</button>
+      <button class="opt">more mice, more seeds</button>
+      <button class="opt">no change at all</button>
+      <button class="opt" data-c="1">more mice, fewer seeds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="A tadpole is a stage in a frog&#x27;s life cycle. It grows legs and lungs and becomes a frog.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "A tadpole is a fish. It lives in water and has gills." What is the best answer?</p>
+    <div class="opts">
+      <button class="opt">Yes. Gills always mean a fish.</button>
+      <button class="opt">No. It is already an adult frog.</button>
+      <button class="opt" data-c="1">No. It is a young frog that grows lungs.</button>
+      <button class="opt">Yes. It never leaves the water.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Sandy color hides it in sand, and night keeps it cool: desert. Eating only seeds makes it a herbivore.">
+    <span class="pts">+5</span>
+    <p class="qtext">An animal is sandy brown, active at night and eats only seeds. Which habitat and food group fit it best?</p>
+    <div class="opts">
+      <button class="opt">Arctic; carnivore</button>
+      <button class="opt" data-c="1">desert; herbivore</button>
+      <button class="opt">ocean; omnivore</button>
+      <button class="opt">desert; decomposer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Fewer caterpillars grew into adult butterflies, so fewer eggs were laid. Fewer caterpillars hatched the next spring.">
+    <span class="pts">+5</span>
+    <p class="qtext">Butterfly garden counts:<br><b>Spring:</b> 30 caterpillars<br><b>Summer:</b> a bird family moves in. Birds eat caterpillars.<br><b>Next spring:</b> 10 caterpillars<br>What best explains next spring?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Birds ate many larvae, so fewer became adults.</button>
+      <button class="opt">Caterpillars do not need any food.</button>
+      <button class="opt">The butterflies skipped the egg stage.</button>
+      <button class="opt">The birds became decomposers.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="More plants give more evidence. If most plants act the same way, we can trust the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why would a scientist test 10 plants instead of just 1?</p>
+    <div class="opts">
+      <button class="opt">Ten plants grow faster together.</button>
+      <button class="opt">It turns the test into a guess.</button>
+      <button class="opt" data-c="1">One plant could be different by chance.</button>
+      <button class="opt">One plant cannot be observed.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s2" data-pts="5" data-logic="Maathai planted trees that give homes and food. Carson warned about poison that harmed birds. Both protected living things.">
+    <span class="pts">+5</span>
+    <p class="qtext">Wangari Maathai's trees and Rachel Carson's book both helped…</p>
+    <div class="opts">
+      <button class="opt">end metamorphosis</button>
+      <button class="opt" data-c="1">protect habitats</button>
+      <button class="opt">make more poison</button>
+      <button class="opt">cut down forests</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Seed Spotter</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 10;
+const FINAL_INDEX = 9;
+const MODULE_ID = 'grade3-science-checkpoint1';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["larva", "caterpillar stage"], ["habitat", "natural home of an animal"], ["producer", "makes food from sunlight"], ["evidence", "facts you observe or measure"], ["camouflage", "colors that help an animal hide"]], [["Jane Goodall", "saw chimps use tools"], ["Maria Sibylla Merian", "painted insect life cycles"], ["Charles Henry Turner", "showed insects can learn"], ["Rachel Carson", "warned about DDT"], ["Wangari Maathai", "Green Belt Movement in Kenya"]], [["plant gets no water", "dry and drooping"], ["fewer frogs in a pond", "more insects"], ["winter gets cold", "birds migrate south"], ["caterpillar stops eating", "forms a chrysalis"], ["dead leaf on the ground", "decomposers break it down"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Seed Spotter", "Nature Detective", "Field Scientist", "Unit 1 Science Champion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

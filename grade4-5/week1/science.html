@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 1 Science: Thinking Like a Scientist | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 1</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 1 &bull; Science</span>
+  <h1>Thinking Like a Scientist</h1>
+  <h2>Evidence beats assumptions, even when everyone agrees.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do scientists know what is true?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do scientists know what is true?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Turn a wonder into a testable question</li><li>Name independent, dependent and controlled variables</li><li>Spot unfair tests and fix them</li><li>Read a ramp data table and write a conclusion</li><li>Meet Chien-Shiung Wu, who tested a famous “law” and proved it wrong</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let’s warm up! Show what you already know about how scientists ask questions and collect evidence.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A science question can be answered by measuring. You can time how long water takes to freeze, but “prettiest” and “best” are opinions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a question science can test?</p>
+    <div class="opts">
+      <button class="opt">Is blue the prettiest color in the world?</button>
+      <button class="opt" data-c="1">Does salt water freeze slower than tap water?</button>
+      <button class="opt">Which song on the radio is the very best?</button>
+      <button class="opt">Should cats be allowed inside grocery stores?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="She is saying what she thinks will happen before she tests it. That is a prediction. A conclusion comes after the data are collected.">
+    <span class="pts">+5</span>
+    <p class="qtext">A scientist says, “I think plants will grow taller with more light.” This statement is a…</p>
+    <div class="opts">
+      <button class="opt">conclusion</button>
+      <button class="opt">measurement</button>
+      <button class="opt">observation</button>
+      <button class="opt" data-c="1">prediction</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="A measuring cup measures volume (how much space a liquid takes up). A ruler measures length, a thermometer measures temperature, and a stopwatch measures time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which tool would a scientist use to measure how much water is in a cup?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Measuring cup</button>
+      <button class="opt">Ruler</button>
+      <button class="opt">Thermometer</button>
+      <button class="opt">Stopwatch</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Written records let a scientist and others look back at the evidence. Writing does not make an answer right; the evidence does.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists write down what they observe?</p>
+    <div class="opts">
+      <button class="opt">So they never have to do another test again</button>
+      <button class="opt">Because writing it down makes the answer right</button>
+      <button class="opt" data-c="1">So they can check and share their results later</button>
+      <button class="opt">So the test takes longer and looks harder</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="An observation is something you notice or measure. Anyone with a clock could check “12 minutes.” The others are feelings.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which sentence is an observation, not an opinion?</p>
+    <div class="opts">
+      <button class="opt">Ice cubes are boring to watch.</button>
+      <button class="opt">Melting ice is really beautiful.</button>
+      <button class="opt" data-c="1">The ice cube melted in 12 minutes.</button>
+      <button class="opt">Cold drinks taste the best.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Data are the facts and measurements recorded during a test. Scientists use data as evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do we call the information collected in a test, like numbers and notes?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Data</button>
+      <button class="opt">Guesses</button>
+      <button class="opt">Opinions</button>
+      <button class="opt">Titles</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Centimeters measure length. Grams measure mass, degrees measure temperature, and seconds measure time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which unit measures length?</p>
+    <div class="opts">
+      <button class="opt">Grams</button>
+      <button class="opt">Degrees</button>
+      <button class="opt">Seconds</button>
+      <button class="opt" data-c="1">Centimeters</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Science questions are answered with evidence you collect by testing and measuring.">
+    <span class="pts">+5</span>
+    <p class="qtext">A good science question is one you can…</p>
+    <div class="opts">
+      <button class="opt">answer only with your opinion</button>
+      <button class="opt" data-c="1">test and measure</button>
+      <button class="opt">answer without any evidence</button>
+      <button class="opt">never answer at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Measurements are evidence. Going from 5 cm to 9 cm shows growth. “Looks happy” and “feels bigger” are opinions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the best evidence that a plant is growing?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It measured 5 cm, then 9 cm</button>
+      <button class="opt">It looks happy and healthy</button>
+      <button class="opt">Its owner says it feels bigger</button>
+      <button class="opt">It is a nice shade of green</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Temperature is measured in degrees (Fahrenheit or Celsius) with a thermometer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which unit measures temperature?</p>
+    <div class="opts">
+      <button class="opt">Grams</button>
+      <button class="opt">Meters</button>
+      <button class="opt" data-c="1">Degrees</button>
+      <button class="opt">Liters</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="You can pour water on a paper towel and a napkin and measure how much each soaks up. The other questions are about opinions or feelings.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question could you answer by doing a test at home?</p>
+    <div class="opts">
+      <button class="opt">What is the very nicest kind of towel to own?</button>
+      <button class="opt" data-c="1">Do paper towels soak up more water than napkins?</button>
+      <button class="opt">Why do so many people like soft, fluffy towels?</button>
+      <button class="opt">Which towel color is the friendliest one?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Sharing lets other scientists repeat the test. If they get the same results, everyone can trust the evidence more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists share their results with other scientists?</p>
+    <div class="opts">
+      <button class="opt">So nobody ever asks questions again</button>
+      <button class="opt">So they can skip measuring next time</button>
+      <button class="opt">So their names appear in the news</button>
+      <button class="opt" data-c="1">So others can check and repeat the work</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: answer what you already know about how scientists test ideas. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Crash Course Kids shows why scientists and engineers test one thing at a time.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Bowled Over - Isolating Variables: Crash Course Kids #39.1</b> &mdash; Crash Course Kids</p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=BXFU86GNmrg" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for what it means to <b>isolate a variable</b>. Be ready to explain why changing only one thing at a time helps you know what caused a result.</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">hypothesis<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;hypothesis. A prediction you can test, often written \u201cIf\u2026 then\u2026 because\u2026\u201d. Example: If I add salt, then the ice will melt faster.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A prediction you can test, often written “If… then… because…”. Example: If I add salt, then the ice will melt faster.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">independent variable<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;independent variable. The one thing you change on purpose in a test. Example: the height of a ramp.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The one thing you change on purpose in a test. Example: the height of a ramp.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">dependent variable<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;dependent variable. What you measure to see what happened. Example: how far the car rolls.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">What you measure to see what happened. Example: how far the car rolls.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">controlled variable<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;controlled variable. Something you keep the same in every trial so the test is fair. Example: using the same car each time.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something you keep the same in every trial so the test is fair. Example: using the same car each time.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">fair test<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;fair test. A test that changes only one variable at a time, so you know what caused the result.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A test that changes only one variable at a time, so you know what caused the result.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">data<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;data. Facts and measurements recorded during a test, like times, lengths or counts.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Facts and measurements recorded during a test, like times, lengths or counts.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">conclusion<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;conclusion. A statement at the end of a test that tells what the data show and whether they support the hypothesis.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A statement at the end of a test that tells what the data show and whether they support the hypothesis.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>❓ Asking Testable Questions</h2>
+<div class="card card">
+<p>Science starts with a question. A <b>testable question</b> is one you can answer by doing an investigation and collecting evidence, such as “Does a ball bounce higher on wood or on carpet?” Questions about opinions, like “Which ball is the coolest?”, cannot be tested. Next, a scientist writes a <b>hypothesis</b>: a prediction you can test, often in the form “If… then… because…”. A hypothesis does not have to be right, because the test will tell us.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Science starts with a question. A testable question is one you can answer by doing an investigation and collecting evidence, such as \u201cDoes a ball bounce higher on wood or on carpet?\u201d Questions about opinions, like \u201cWhich ball is the coolest?\u201d, cannot be tested. Next, a scientist writes a hypothesis : a prediction you can test, often in the form \u201cIf\u2026 then\u2026 because\u2026\u201d. A hypothesis does not have to be right, because the test will tell us.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Here is how I check a question. Step 1: Can I measure something to answer it? “Which paper towel soaks up the most water?” Yes, I can measure the water in milliliters. Step 2: Would two people doing the same test get about the same answer? Yes. So it is testable. “Which paper towel is the prettiest?” fails Step 1, because “pretty” is an opinion, not a measurement.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Here is how I check a question. Step 1: Can I measure something to answer it? \u201cWhich paper towel soaks up the most water?\u201d Yes, I can measure the water in milliliters. Step 2: Would two people doing the same test get about the same answer? Yes. So it is testable. \u201cWhich paper towel is the prettiest?\u201d fails Step 1, because \u201cpretty\u201d is an opinion, not a measurement.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Testable or Not?</h4><table><tr><th>Testable</th><th>Not testable</th></tr><tr><td>Does warm water dissolve sugar faster than cold water?</td><td>Is sugar the best thing in the kitchen?</td></tr><tr><td>Do bean seeds sprout faster in light or in darkness?</td><td>Are beans more fun than peas?</td></tr><tr><td>Does a heavier ball roll farther down a ramp?</td><td>Which ball has the nicest color?</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Write a Hypothesis</h4><p>Question: Does warm water dissolve sugar faster than cold water?<br><b>If</b> I stir sugar into warm water, <b>then</b> it will dissolve faster than in cold water, <b>because</b> the particles in warm water move faster.<br>Notice that the hypothesis names what we will change (water temperature) and what we will measure (time to dissolve).<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Question: Does warm water dissolve sugar faster than cold water? If I stir sugar into warm water, then it will dissolve faster than in cold water, because the particles in warm water move faster. Notice that the hypothesis names what we will change (water temperature) and what we will measure (time to dissolve).&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t11_s0" data-pts="5" data-logic="You can plant seeds in light and in darkness and count the days until they sprout. “Tastiest” and “more fun” are opinions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question is testable?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Do bean seeds sprout faster in light or in dark?</button>
+      <button class="opt">Are beans the tastiest vegetable on the plate?</button>
+      <button class="opt">Is gardening more fun than reading a book?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s0" data-pts="5" data-ans="hypothesis|hypotheses" data-logic="A hypothesis is a prediction you can test. The “because” part explains your thinking.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A testable prediction, often written “If… then… because…”, is called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="Scientists report what the evidence shows, even when it surprises them. A wrong hypothesis still teaches something true.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jayden’s hypothesis was wrong. His test showed the opposite of what he predicted. What should he do?</p>
+    <div class="opts">
+      <button class="opt">Change his numbers so they match his first guess</button>
+      <button class="opt" data-c="1">Report what the data showed and ask a new question</button>
+      <button class="opt">Throw away the test and never mention it again</button>
+      <button class="opt">Say the test proved his hypothesis anyway</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="A testable question needs something you can measure. People disagree about “cute,” and no tool can measure it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is “Which dog is the cutest?” NOT a testable question?</p>
+    <div class="opts">
+      <button class="opt">Dogs are too big to study in science class</button>
+      <button class="opt">Testable questions must always be about plants</button>
+      <button class="opt" data-c="1">“Cutest” is an opinion that cannot be measured</button>
+      <button class="opt">It has too few words to become a test</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="testable" data-logic="Testable questions can be answered with evidence from a test or investigation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A question you can answer by doing an investigation and measuring is a ____ question:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Only the first one has all three parts: what you change (If), what you expect (then), and why (because).">
+    <span class="pts">+5</span>
+    <p class="qtext">Which hypothesis is written in “If… then… because…” form?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">If I add fertilizer, then plants will grow taller, because they get nutrients.</button>
+      <button class="opt">Fertilizer is sold at the garden store, and plants need it to live well.</button>
+      <button class="opt">I like growing plants, so I will plant some tomatoes in the yard soon.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t11_s2" data-pts="5" data-logic="The testable version names what to change (water temperature) and what to measure (melting time).">
+    <span class="pts">+5</span>
+    <p class="qtext">Which change turns “Is cold water better?” into a testable question?</p>
+    <div class="opts">
+      <button class="opt">Is cold water the very best water of all kinds?</button>
+      <button class="opt" data-c="1">Does cold water make ice melt slower than warm water?</button>
+      <button class="opt">Why do so many people like drinking cold water?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s2" data-pts="5" data-ans="prediction|predictions|hypothesis|hypotheses" data-logic="A prediction (or hypothesis) is what you expect to happen. The test tells you if you were right.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Saying what you think will happen before you test it is making a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="A hypothesis is a tool for testing. When the evidence goes against it, we learn something real about the world.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hypothesis is useful even when it turns out wrong because…</p>
+    <div class="opts">
+      <button class="opt">wrong hypotheses are graded as correct</button>
+      <button class="opt">scientists never need to test it again</button>
+      <button class="opt">it proves the scientist was careless</button>
+      <button class="opt" data-c="1">the test still teaches us something true</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>⚖️ Variables and Fair Tests</h2>
+<div class="card card-grass">
+<p>A <b>variable</b> is anything in a test that can change. The <b>independent variable</b> is the one thing you change on purpose. The <b>dependent variable</b> is what you measure to see what happened. Everything else must stay the same; these are the <b>controlled variables</b>. A <b>fair test</b> changes only one variable at a time, so you know what caused the result.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A variable is anything in a test that can change. The independent variable is the one thing you change on purpose. The dependent variable is what you measure to see what happened. Everything else must stay the same; these are the controlled variables . A fair test changes only one variable at a time, so you know what caused the result.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Imagine testing whether ramp height changes how far a toy car rolls. I ask three questions. What am I changing on purpose? Ramp height, so that is the independent variable. What am I measuring? How far the car rolls, so that is the dependent variable. What must stay the same? The same car, the same floor, and letting go without a push. If I changed the car AND the height, I could not tell which one made the difference.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Imagine testing whether ramp height changes how far a toy car rolls. I ask three questions. What am I changing on purpose? Ramp height, so that is the independent variable. What am I measuring? How far the car rolls, so that is the dependent variable. What must stay the same? The same car, the same floor, and letting go without a push. If I changed the car AND the height, I could not tell which one made the difference.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Three Kinds of Variables</h4><p><b>Question:</b> Does the amount of water change how tall bean plants grow?</p><table><tr><th>Kind of variable</th><th>In this test</th></tr><tr><td><b>Independent</b> (changed)</td><td>Amount of water each day</td></tr><tr><td><b>Dependent</b> (measured)</td><td>Plant height in centimeters</td></tr><tr><td><b>Controlled</b> (kept the same)</td><td>Kind of bean, pot size, soil, sunlight</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Spot the Unfair Test</h4><p>Lena tests whether salt water or fresh water freezes faster. She puts the salt water in the freezer and the fresh water outside on a cold porch. Is it fair? No! She changed two things: the kind of water AND the place. To fix it, she should put both cups in the same freezer, with the same amount of water, in the same kind of cup.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Lena tests whether salt water or fresh water freezes faster. She puts the salt water in the freezer and the fresh water outside on a cold porch. Is it fair? No! She changed two things: the kind of water AND the place. To fix it, she should put both cups in the same freezer, with the same amount of water, in the same kind of cup.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="independent|changed|manipulated" data-logic="The independent variable is the one thing the scientist changes on purpose.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The variable you change on purpose is the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The dependent variable is what you measure. Omar measures plant height to see what the sunlight did.">
+    <span class="pts">+5</span>
+    <p class="qtext">Omar tests if the amount of sunlight changes how tall bean plants grow. What is the dependent variable?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Height of the plants</button>
+      <button class="opt">Amount of sunlight</button>
+      <button class="opt">Size of the pots</button>
+      <button class="opt">Kind of bean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="If two things change, you cannot tell which one caused the result. Changing one thing makes the cause clear.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why must a fair test change only one variable?</p>
+    <div class="opts">
+      <button class="opt">So the test is finished much faster</button>
+      <button class="opt">So you use fewer supplies at home</button>
+      <button class="opt" data-c="1">So you know which change caused the result</button>
+      <button class="opt">So results always match your guess</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="dependent|measured|responding" data-logic="The dependent variable is the result you measure. It “depends” on what you changed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The variable you measure to see what happened is the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="The brand is what she changes, and the water soaked up is what she measures. The amount of water poured must stay the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ana tests which paper towel brand soaks up the most water. Which must be a controlled variable?</p>
+    <div class="opts">
+      <button class="opt">The brand of paper towel she uses</button>
+      <button class="opt">How much water each towel soaks up</button>
+      <button class="opt" data-c="1">The amount of water each towel gets</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Theo changed both height and car weight. If the car rolls farther, he cannot tell which change caused it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo tests ramp height, but he also uses a heavier car on the tallest ramp. What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">He changed two variables, so the cause is unclear</button>
+      <button class="opt">Heavier cars are not allowed in science tests</button>
+      <button class="opt">He should have used only one ramp height</button>
+      <button class="opt">Nothing; more changes give better data</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="controlled|control|constant|constants" data-logic="Controlled variables stay the same so they cannot affect the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Things a scientist keeps the same in every trial are ____ variables:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="Music is what Kiara changes on purpose. The food eaten is what she measures, and the feeding time and food stay the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kiara tests whether music helps her goldfish eat more. She plays music on Monday and none on Tuesday, giving the same food at the same time. What is her independent variable?</p>
+    <div class="opts">
+      <button class="opt">The amount of food eaten</button>
+      <button class="opt">The time of feeding</button>
+      <button class="opt">The kind of fish food</button>
+      <button class="opt" data-c="1">Music or no music</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Only weight should change. Different floors or pushing one ball adds a second variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which test of “Do heavier balls roll farther?” is fair?</p>
+    <div class="opts">
+      <button class="opt">Roll a heavy ball on carpet and a light one on tile</button>
+      <button class="opt" data-c="1">Roll balls of different weights down the same ramp</button>
+      <button class="opt">Push the heavy ball and just let go of the light one</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>📊 Data, Evidence and Conclusions</h2>
+<div class="card card-sky">
+<p><b>Data</b> are the facts and measurements you record during a test. Scientists repeat each test several times, and each repeat is called a <b>trial</b>, because one result can be a fluke. They organize data in tables and graphs to look for patterns. A <b>conclusion</b> tells what the data show and whether they support the hypothesis. A good conclusion uses evidence, not wishes, even when the evidence surprises everyone.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Data are the facts and measurements you record during a test. Scientists repeat each test several times, and each repeat is called a trial , because one result can be a fluke. They organize data in tables and graphs to look for patterns. A conclusion tells what the data show and whether they support the hypothesis. A good conclusion uses evidence, not wishes, even when the evidence surprises everyone.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Say my plant data show: without fertilizer, 10 cm, 11 cm and 9 cm; with fertilizer, 15 cm, 14 cm and 16 cm. First I look at each trial: the fertilizer group is taller every time. Next I find a typical value: about 10 cm compared with about 15 cm. Then I write: “The data support my hypothesis. Plants with fertilizer grew about 5 cm taller in all three trials.” I name the evidence, with numbers.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Say my plant data show: without fertilizer, 10 cm, 11 cm and 9 cm; with fertilizer, 15 cm, 14 cm and 16 cm. First I look at each trial: the fertilizer group is taller every time. Next I find a typical value: about 10 cm compared with about 15 cm. Then I write: \u201cThe data support my hypothesis. Plants with fertilizer grew about 5 cm taller in all three trials.\u201d I name the evidence, with numbers.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Chien-Shiung Wu’s Big Surprise</h4><p>For many years, physicists assumed that nature treats left and right exactly the same. They treated this idea like a law. In 1956 and 1957, <b>Chien-Shiung Wu</b> led a careful experiment with radioactive cobalt atoms chilled to nearly absolute zero, the coldest temperature possible. The tiny particles the atoms gave off shot out more in one direction than the other. Her evidence showed the “law” was not true for these atoms.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Write a Conclusion</h4><p>Question: Does a ball bounce higher on wood or on carpet?<br>Data (3 trials): wood 60 cm, 62 cm, 61 cm; carpet 20 cm, 22 cm, 21 cm.<br>Conclusion: “The ball bounced about 40 cm higher on wood than on carpet in all three trials, so the floor surface changes how high the ball bounces.”<br>Notice that we used numbers, and we did not claim more than the test showed.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Question: Does a ball bounce higher on wood or on carpet? Data (3 trials): wood 60 cm, 62 cm, 61 cm; carpet 20 cm, 22 cm, 21 cm. Conclusion: \u201cThe ball bounced about 40 cm higher on wood than on carpet in all three trials, so the floor surface changes how high the ball bounces.\u201d Notice that we used numbers, and we did not claim more than the test showed.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="trial|trials" data-logic="A trial is one run of a test. Scientists do several trials to make sure a result was not a fluke.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Each repeat of the same test is called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="If several trials give similar results, we can trust them more. One odd result might come from a mistake.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists run more than one trial?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">One result could be a fluke or a mistake</button>
+      <button class="opt">More trials always prove the hypothesis</button>
+      <button class="opt">It makes the data table look longer</button>
+      <button class="opt">The first trial never counts at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Both groups grew 4 to 5 cm. The results are almost the same, so the data do not show that music made a difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">A plant grew 4 cm, 5 cm and 4 cm in three trials with music, and 4 cm, 4 cm and 5 cm without music. What is the best conclusion?</p>
+    <div class="opts">
+      <button class="opt">Music made the plants grow much taller</button>
+      <button class="opt">Plants without music stopped growing</button>
+      <button class="opt" data-c="1">Music made little or no difference to growth</button>
+      <button class="opt">Plants grew much taller without music</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="data|datum" data-logic="Data are the evidence a scientist collects, such as times, lengths and counts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Facts and measurements recorded during a test are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="A strong conclusion names measured data, like “6 minutes later in all 3 trials.” Feelings and votes are not evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which conclusion uses evidence?</p>
+    <div class="opts">
+      <button class="opt">The foil cup is the best cup ever, and I am sure of it.</button>
+      <button class="opt" data-c="1">The ice in the foil cup melted 6 minutes later in all 3 trials.</button>
+      <button class="opt">Everyone in my class thinks foil is better than paper.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Science follows the evidence. Wu’s careful data beat an idea that almost everyone had assumed was true.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chien-Shiung Wu’s results showed that a famous “law” of physics was not always true. What does this teach about science?</p>
+    <div class="opts">
+      <button class="opt">Famous scientific laws can never be questioned</button>
+      <button class="opt">Results count only if experts agree with them first</button>
+      <button class="opt">Old scientific ideas always turn out to be wrong</button>
+      <button class="opt" data-c="1">Careful evidence can overturn what everyone assumed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="conclusion|conclusions" data-logic="The conclusion explains what the data show and whether they support the hypothesis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The statement at the end of a test that tells what the data show is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Honest scientists report what the data show. A hypothesis that is not supported is still a useful result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ruby’s data do NOT support her hypothesis. What is the honest conclusion?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">State clearly that the data did not support it</button>
+      <button class="opt">Say the test was broken and leave it out</button>
+      <button class="opt">Rewrite the hypothesis and say it matched</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="With only one plant per group, the difference could be a fluke. More plants (more trials) make the evidence stronger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kai tested one plant with fertilizer and one without. The fertilized plant grew more. What is the weakest part of his test?</p>
+    <div class="opts">
+      <button class="opt">He measured height in centimeters</button>
+      <button class="opt" data-c="1">He used only one plant in each group</button>
+      <button class="opt">He gave fertilizer to only one plant</button>
+      <button class="opt">He wrote down what he observed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🔬 Ramp Lab: Read the Data</h2>
+<p>A student tested how ramp height affects a toy car. Read the question, the table and the notes carefully. Every answer needs the data.</p>
+<div class="sourcebox"><h4>Data Table: Ramp Height and Rolling Distance</h4><div><p><b>Question:</b> Does the height of a ramp change how far a toy car rolls?<br><b>Notes:</b> Same car, same ramp, same floor. The car was let go from the top each time, never pushed. Distances are in centimeters (cm).</p><table><tr><th>Ramp height</th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Average</th></tr><tr><td>10 cm</td><td>48 cm</td><td>52 cm</td><td>50 cm</td><td>50 cm</td></tr><tr><td>20 cm</td><td>98 cm</td><td>102 cm</td><td>100 cm</td><td>100 cm</td></tr><tr><td>30 cm</td><td>148 cm</td><td>152 cm</td><td>150 cm</td><td>150 cm</td></tr></table></div><div class="src">Practice data from a classroom-style ramp investigation, created by KCE for this lesson.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Question: Does the height of a ramp change how far a toy car rolls? Notes: same car, same ramp, same floor. The car was let go from the top each time, never pushed. Distances are in centimeters. Ramp height 10 centimeters: trials 48, 52 and 50; average 50. Ramp height 20 centimeters: trials 98, 102 and 100; average 100. Ramp height 30 centimeters: trials 148, 152 and 150; average 150.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Scientist</h4><p>A scientist reads the title and labels first, then each row. Next she looks for a pattern: as one variable goes up, what happens to the other? Finally she asks: Was the test fair? What would I test next?</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Ramp height is what the student changed on purpose: 10, 20 and 30 cm.">
+    <span class="pts">+5</span>
+    <p class="qtext">In this lab, what is the independent variable?</p>
+    <div class="opts">
+      <button class="opt">Distance rolled</button>
+      <button class="opt">The toy car</button>
+      <button class="opt" data-c="1">Ramp height</button>
+      <button class="opt">The floor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="100|100 cm|100 centimeters" data-logic="Find the 20 cm row and read the Average column: 100 cm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the average distance, in cm, the car rolled from the 20 cm ramp?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="The averages go 50, 100, 150 cm. Each time the ramp rises 10 cm, the car rolls about 50 cm farther.">
+    <span class="pts">+5</span>
+    <p class="qtext">What pattern do the data show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Each 10 cm of height adds about 50 cm of distance</button>
+      <button class="opt">The distance stays the same at every ramp height</button>
+      <button class="opt">Higher ramps make the car roll a shorter distance</button>
+      <button class="opt">Only the 30 cm ramp made the car roll at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="The notes say the car was never pushed. Keeping that the same makes the test fair.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which was a controlled variable in this test?</p>
+    <div class="opts">
+      <button class="opt">The height of the ramp each time</button>
+      <button class="opt" data-c="1">Letting go of the car without a push</button>
+      <button class="opt">The distance the car rolled</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="48|48 cm|48 centimeters" data-logic="Find the 10 cm row and the Trial 1 column: 48 cm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In Trial 1, how many centimeters did the car roll from the 10 cm ramp?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The pattern adds about 50 cm for every 10 cm, so about 200 cm. A prediction is not proof, so a scientist would test it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Based on the pattern, what is the best prediction for a 40 cm ramp?</p>
+    <div class="opts">
+      <button class="opt">About 50 cm, like the lowest ramp</button>
+      <button class="opt">Exactly 150 cm, the same as 30 cm</button>
+      <button class="opt">It cannot roll at all from 40 cm</button>
+      <button class="opt" data-c="1">About 200 cm, but we should test it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="The three trials at each height are close together (like 48, 52 and 50), so we can trust the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did the student run three trials at each height?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">To check that the results were not a fluke</button>
+      <button class="opt">To make the ramp taller every time</button>
+      <button class="opt">Because the car got faster each trial</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="distance" data-logic="The student measured how far the car rolled, in centimeters. Distance is the dependent variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The thing measured in this lab was the ____ the car rolled:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="A good next question is testable: change one new variable (the floor) and measure the distance again.">
+    <span class="pts">+5</span>
+    <p class="qtext">What would be the best NEXT question to test?</p>
+    <div class="opts">
+      <button class="opt">Is the red car prettier than the blue car on the shelf?</button>
+      <button class="opt">Which ramp looked the coolest in the class photos?</button>
+      <button class="opt" data-c="1">Does the floor surface change how far the car rolls?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🧑‍🔬 Scientists Who Followed the Evidence</h2>
+<p>These scientists trusted careful data over what other people assumed.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Chien-Shiung Wu</h4><div class="yrs">1912–1997</div><p>Born in China, Wu came to the United States in 1936 to study physics and became a professor at Columbia University. Other scientists called her experiments some of the most careful in the world. In 1956–1957 she tested a rule called <b>conservation of parity</b>, which said nature treats left and right the same. Her data proved it was not true for certain atoms. The two theorists who suggested the test, Tsung-Dao Lee and Chen-Ning Yang, won the 1957 Nobel Prize, but Wu was left out. She later won the first Wolf Prize in Physics (1978) and became the first woman president of the American Physical Society.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Chien-Shiung Wu. Born in China, Wu came to the United States in 1936 to study physics and became a professor at Columbia University. Other scientists called her experiments some of the most careful in the world. In 1956\u20131957 she tested a rule called conservation of parity , which said nature treats left and right the same. Her data proved it was not true for certain atoms. The two theorists who suggested the test, Tsung-Dao Lee and Chen-Ning Yang, won the 1957 Nobel Prize, but Wu was left out. She later won the first Wolf Prize in Physics (1978) and became the first woman president of the American Physical Society.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Percy Lavon Julian</h4><div class="yrs">1899–1975</div><p>Julian was a Black chemist who grew up in Montgomery, Alabama, where public school for Black students ended after eighth grade. In 1935 he and his partner Josef Pikl made physostigmine, a medicine for the eye disease glaucoma, in the lab. A famous English chemist, Robert Robinson, had published a different method, but Julian found a mistake in it, and careful tests showed that Julian’s work was right. He later found ways to make important medicines from soybeans.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Percy Lavon Julian. Julian was a Black chemist who grew up in Montgomery, Alabama, where public school for Black students ended after eighth grade. In 1935 he and his partner Josef Pikl made physostigmine, a medicine for the eye disease glaucoma, in the lab. A famous English chemist, Robert Robinson, had published a different method, but Julian found a mistake in it, and careful tests showed that Julian\u2019s work was right. He later found ways to make important medicines from soybeans.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Florence Nightingale</h4><div class="yrs">1820–1910</div><p>Nightingale was a British nurse and a skilled user of data. During the Crimean War in the 1850s, she collected numbers showing that far more soldiers died from diseases in dirty hospitals than from battle wounds. She drew diagrams so leaders could see the pattern quickly, and her evidence helped change how hospitals were kept clean.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Florence Nightingale. Nightingale was a British nurse and a skilled user of data. During the Crimean War in the 1850s, she collected numbers showing that far more soldiers died from diseases in dirty hospitals than from battle wounds. She drew diagrams so leaders could see the pattern quickly, and her evidence helped change how hospitals were kept clean.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Wu’s data showed that nature does not always treat left and right the same, overturning a rule most physicists assumed.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Chien-Shiung Wu’s experiment show?</p>
+    <div class="opts">
+      <button class="opt">Atoms stop existing at very cold temperatures</button>
+      <button class="opt">Left and right always behave exactly the same</button>
+      <button class="opt" data-c="1">A “law” everyone assumed was not always true</button>
+      <button class="opt">Cobalt cannot be used in science experiments</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s0" data-pts="5" data-ans="data|statistics|numbers|evidence" data-logic="Nightingale gathered data (numbers) and turned them into diagrams that leaders could understand.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florence Nightingale collected ____ showing that diseases caused more soldiers’ deaths than battle wounds:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="Wu’s data overturned a physics rule, and Julian’s measurements proved a famous chemist’s results were wrong.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do Chien-Shiung Wu and Percy Julian have in common?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Their careful data showed others were wrong</button>
+      <button class="opt">They both studied soldiers in hospitals</button>
+      <button class="opt">They both worked only with soybeans</button>
+      <button class="opt">They both won the 1957 Nobel Prize</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="A clear diagram helps people see a pattern fast. Her diagrams convinced leaders to clean up hospitals.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Florence Nightingale draw diagrams of her data?</p>
+    <div class="opts">
+      <button class="opt">To decorate the walls of the hospital</button>
+      <button class="opt">Because she could not write in words</button>
+      <button class="opt">To hide the numbers from other people</button>
+      <button class="opt" data-c="1">So leaders could see the pattern quickly</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="Julian" data-logic="Percy Lavon Julian was a Black chemist whose careful lab work led to important medicines.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The chemist who made a glaucoma medicine in 1935 and later made medicines from soybeans was Percy ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="The rule had been assumed, not tested for this kind of atom. Wu’s experiment tested it, and the rule failed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Before Wu’s experiment, why did most physicists believe the left-right rule?</p>
+    <div class="opts">
+      <button class="opt">A law of physics can never be wrong</button>
+      <button class="opt" data-c="1">They assumed it was true without testing it</button>
+      <button class="opt">Wu had already shown it was correct</button>
+      <button class="opt">Nobody had ever studied atoms before</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Nightingale’s data showed that disease in dirty hospitals was the biggest killer of soldiers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which scientist used numbers to make hospitals cleaner and safer?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Florence Nightingale</button>
+      <button class="opt">Chien-Shiung Wu</button>
+      <button class="opt">Percy Julian</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="Wu" data-logic="Chien-Shiung Wu led the famous cobalt experiment that changed physics.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The physicist whose 1956–1957 experiment overturned a “law” about left and right was Chien-Shiung ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s2" data-pts="5" data-logic="In science, evidence settles arguments. Julian’s measurements showed he was right.">
+    <span class="pts">+5</span>
+    <p class="qtext">A famous chemist disagreed with Percy Julian’s results. How was the argument settled?</p>
+    <div class="opts">
+      <button class="opt">By asking which chemist was more famous</button>
+      <button class="opt">By voting on who sounded more sure</button>
+      <button class="opt" data-c="1">By careful measurements, not by fame</button>
+      <button class="opt">By whoever published a paper first</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="fair" data-logic="A fair test changes just one variable, so you know what caused the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A test that changes only one variable at a time is a ____ test:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="independent|changed|manipulated" data-logic="The student changed ramp height on purpose, so it is the independent variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the ramp lab, ramp height was the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="cobalt|cobalt-60|cobalt 60" data-logic="Wu used radioactive cobalt atoms cooled to nearly absolute zero.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Chien-Shiung Wu’s experiment chilled atoms of the metal ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="average|mean|averages" data-logic="The average (mean) combines several trials into one typical number.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Scientists find the ____ of several trials to get one typical value:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="dependent|measured|responding" data-logic="Plant height is what you measure, so it is the dependent variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In “Does sunlight change plant height?”, plant height is the ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="evidence|data" data-logic="Conclusions rest on evidence: the data collected in the test.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A conclusion must be supported by ____, not wishes:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="fluke|flukes|outlier|mistake|error" data-logic="A fluke is a result that happens by chance. Extra trials help catch it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">One odd result caused by chance or a mistake is called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="Nightingale" data-logic="Florence Nightingale used data and diagrams to make hospitals safer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The nurse who drew diagrams of hospital data was Florence ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="controlled|control|constant|constants" data-logic="The car stayed the same in every trial, so it was a controlled variable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the ramp lab, using the same car every time made the car a ____ variable:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="The independent variable is the one you change on purpose.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Changed on purpose =</p>
+    <div class="opts">
+      <button class="opt">dependent variable</button>
+      <button class="opt" data-c="1">independent variable</button>
+      <button class="opt">controlled variable</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Controlled variables stay the same to keep the test fair.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Kept the same in every trial =</p>
+    <div class="opts">
+      <button class="opt" data-c="1">controlled variable</button>
+      <button class="opt">independent variable</button>
+      <button class="opt">dependent variable</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="The dependent variable is the result you measure.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Measured to see what happened =</p>
+    <div class="opts">
+      <button class="opt" data-c="1">dependent variable</button>
+      <button class="opt">independent variable</button>
+      <button class="opt">controlled variable</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about variables, fair tests and evidence.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What is one thing about experiments, variables or Chien-Shiung Wu that you still wonder about? Write it on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, try a paper towel test: dip two different brands into cups with the same amount of water (like 100 mL) for 10 seconds, then measure how much water is left in each cup. Do 3 trials and record your data. Then read <i>Queen of Physics: How Wu Chien Shiung Helped Unlock the Secrets of the Atom</i> by Teresa Robeson, or look for the 2021 U.S. postage stamp that honors her.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: The Evidence Judge</h2>
+<p>These are the hardest questions. Think like a scientist: What is the evidence? Was the test fair? What would you test next?</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Only the soil should change. Changing seeds, location or water adds other variables.">
+    <span class="pts">+5</span>
+    <p class="qtext">Zara wants to know if the type of soil changes how fast radish seeds sprout. Which plan is a fair test?</p>
+    <div class="opts">
+      <button class="opt">Different seeds in each soil so she sees variety</button>
+      <button class="opt" data-c="1">Same seeds, water and light; only the soil differs</button>
+      <button class="opt">Potting soil inside, garden soil outside by the fence</button>
+      <button class="opt">Water the sand more because sand dries out fast</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A conclusion should not claim more than the test showed. She tested one car, not every object.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student finds that cars on taller ramps roll farther. She concludes, “Taller ramps make every object roll farther.” What is the problem?</p>
+    <div class="opts">
+      <button class="opt">Her data showed that shorter ramps work better</button>
+      <button class="opt">Ramps can never be part of a fair test</button>
+      <button class="opt" data-c="1">She tested one car, not every kind of object</button>
+      <button class="opt">She should not have measured the distance</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Different results mean something was different. Comparing methods and repeating the test finds the problem.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two classes test the same question and get very different results. What should the scientists do next?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Compare their methods and repeat the test</button>
+      <button class="opt">Pick the result they liked better</button>
+      <button class="opt">Average the two results and stop</button>
+      <button class="opt">Decide the question has no answer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Wu showed that even ideas everyone agrees on need evidence. Some hold up, and some do not.">
+    <span class="pts">+5</span>
+    <p class="qtext">Physicists assumed left and right behaved the same in nature, but Wu tested it anyway. Why does testing “known” rules matter?</p>
+    <div class="opts">
+      <button class="opt">Known rules always turn out to be false</button>
+      <button class="opt" data-c="1">An assumption is not evidence until it is tested</button>
+      <button class="opt">Testing rules is only for famous scientists</button>
+      <button class="opt">Rules matter only when they are written down</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Throwing force is a second variable. It must be the same for both planes so only wing size changes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Marcus tests if bigger paper airplane wings fly farther. He throws the big-wing plane hard and the small-wing plane softly. What should he change?</p>
+    <div class="opts">
+      <button class="opt">Use even bigger wings on the big plane</button>
+      <button class="opt">Time the flights instead of measuring</button>
+      <button class="opt">Throw only the small plane hard instead</button>
+      <button class="opt" data-c="1">Throw both planes with the same force</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Foil averaged about 21 minutes and foam about 45 minutes, a little more than twice as long. The data say nothing about every food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ice cube melting times: foil cup 20, 22 and 21 minutes; foam cup 45, 44 and 46 minutes. Which claim do the data best support?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Foam kept the ice frozen about twice as long</button>
+      <button class="opt">Foil kept the ice frozen longer than foam</button>
+      <button class="opt">Both cups worked about the same</button>
+      <button class="opt">Foam would work best for every food</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="A good follow-up is testable and builds on what you found: change one new variable and measure melting time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question would be the best follow-up to the ice cube test?</p>
+    <div class="opts">
+      <button class="opt">Which cup color do most people like the best?</button>
+      <button class="opt">Is foam or foil more fun to hold in your hand?</button>
+      <button class="opt" data-c="1">Does wrapping the cup in cloth slow melting?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="If others follow the same steps and get the same results, the evidence becomes stronger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists share their methods, not just their results?</p>
+    <div class="opts">
+      <button class="opt">So no one else ever needs to do the test</button>
+      <button class="opt">Because results without methods are always wrong</button>
+      <button class="opt" data-c="1">So others can repeat the test and check it</button>
+      <button class="opt">So their results sound more important</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Two variables changed (music and light), so she cannot tell which one caused the extra growth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Leah tests whether plants grow better with music. Group A has music and sits by a sunny window; Group B has no music and sits in a dark hall. Group A grows more. What can she conclude?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Nothing certain; light and music both changed</button>
+      <button class="opt">Music made Group A grow much more</button>
+      <button class="opt">Darkness has no effect on plant growth</button>
+      <button class="opt">Music helps only plants near windows</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="41 is far from the others, so it may be a fluke or mistake. Honest scientists check it and repeat the trial; they do not hide it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Four trials of the same test gave 12, 13, 41 and 12 cm. What should the scientist do about the 41 cm result?</p>
+    <div class="opts">
+      <button class="opt">Use only 41 because it is the biggest</button>
+      <button class="opt">Erase it without telling anyone</button>
+      <button class="opt">Report that the typical result is 41 cm</button>
+      <button class="opt" data-c="1">Check for a mistake and repeat that trial</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="A ruler can measure height in centimeters. Happiness, looks and love cannot be measured with a tool.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is a dependent variable that can be measured with a tool?</p>
+    <div class="opts">
+      <button class="opt">How happy the plant seems to be</button>
+      <button class="opt" data-c="1">Height of the plant in centimeters</button>
+      <button class="opt">Whether the plant looks nice</button>
+      <button class="opt">How much the owner loves it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="In both stories, careful evidence won over reputation and old habits.">
+    <span class="pts">+5</span>
+    <p class="qtext">Percy Julian’s results disagreed with a famous chemist’s. Florence Nightingale’s data showed hospitals were run badly. What do both stories show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Evidence can change minds, even powerful ones</button>
+      <button class="opt">Famous people are usually right in the end</button>
+      <button class="opt">Data matter less than a person’s fame</button>
+      <button class="opt">Only nurses should ever collect data</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Lab Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade4-5-week1-science';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 140;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do scientists know what is true?": "../audio/heart/753c68e214.mp3", "hypothesis. A prediction you can test, often written “If… then… because…”. Example: If I add salt, then the ice will melt faster.": "../audio/heart/172fe813e1.mp3", "independent variable. The one thing you change on purpose in a test. Example: the height of a ramp.": "../audio/heart/9812802196.mp3", "dependent variable. What you measure to see what happened. Example: how far the car rolls.": "../audio/heart/1c6bb0cff4.mp3", "controlled variable. Something you keep the same in every trial so the test is fair. Example: using the same car each time.": "../audio/heart/c758819f39.mp3", "fair test. A test that changes only one variable at a time, so you know what caused the result.": "../audio/heart/fd50850d56.mp3", "data. Facts and measurements recorded during a test, like times, lengths or counts.": "../audio/heart/a100b3d161.mp3", "conclusion. A statement at the end of a test that tells what the data show and whether they support the hypothesis.": "../audio/heart/734b37ff81.mp3", "Science starts with a question. A testable question is one you can answer by doing an investigation and collecting evidence, such as “Does a ball bounce higher on wood or on carpet?” Questions about opinions, like “Which ball is the coolest?”, cannot be tested. Next, a scientist writes a hypothesis : a prediction you can test, often in the form “If… then… because…”. A hypothesis does not have to be right, because the test will tell us.": "../audio/heart/e83bc6ce79.mp3", "Here is how I check a question. Step 1: Can I measure something to answer it? “Which paper towel soaks up the most water?” Yes, I can measure the water in milliliters. Step 2: Would two people doing the same test get about the same answer? Yes. So it is testable. “Which paper towel is the prettiest?” fails Step 1, because “pretty” is an opinion, not a measurement.": "../audio/heart/b657c907d1.mp3", "Question: Does warm water dissolve sugar faster than cold water? If I stir sugar into warm water, then it will dissolve faster than in cold water, because the particles in warm water move faster. Notice that the hypothesis names what we will change (water temperature) and what we will measure (time to dissolve).": "../audio/heart/1f33a74259.mp3", "A variable is anything in a test that can change. The independent variable is the one thing you change on purpose. The dependent variable is what you measure to see what happened. Everything else must stay the same; these are the controlled variables . A fair test changes only one variable at a time, so you know what caused the result.": "../audio/heart/3eb3012dc1.mp3", "Imagine testing whether ramp height changes how far a toy car rolls. I ask three questions. What am I changing on purpose? Ramp height, so that is the independent variable. What am I measuring? How far the car rolls, so that is the dependent variable. What must stay the same? The same car, the same floor, and letting go without a push. If I changed the car AND the height, I could not tell which one made the difference.": "../audio/heart/332834d447.mp3", "Lena tests whether salt water or fresh water freezes faster. She puts the salt water in the freezer and the fresh water outside on a cold porch. Is it fair? No! She changed two things: the kind of water AND the place. To fix it, she should put both cups in the same freezer, with the same amount of water, in the same kind of cup.": "../audio/heart/1e20638355.mp3", "Data are the facts and measurements you record during a test. Scientists repeat each test several times, and each repeat is called a trial , because one result can be a fluke. They organize data in tables and graphs to look for patterns. A conclusion tells what the data show and whether they support the hypothesis. A good conclusion uses evidence, not wishes, even when the evidence surprises everyone.": "../audio/heart/1ab1a5c7af.mp3", "Say my plant data show: without fertilizer, 10 cm, 11 cm and 9 cm; with fertilizer, 15 cm, 14 cm and 16 cm. First I look at each trial: the fertilizer group is taller every time. Next I find a typical value: about 10 cm compared with about 15 cm. Then I write: “The data support my hypothesis. Plants with fertilizer grew about 5 cm taller in all three trials.” I name the evidence, with numbers.": "../audio/heart/5401eaae47.mp3", "Question: Does a ball bounce higher on wood or on carpet? Data (3 trials): wood 60 cm, 62 cm, 61 cm; carpet 20 cm, 22 cm, 21 cm. Conclusion: “The ball bounced about 40 cm higher on wood than on carpet in all three trials, so the floor surface changes how high the ball bounces.” Notice that we used numbers, and we did not claim more than the test showed.": "../audio/heart/dc5f39d3fa.mp3", "Question: Does the height of a ramp change how far a toy car rolls? Notes: same car, same ramp, same floor. The car was let go from the top each time, never pushed. Distances are in centimeters. Ramp height 10 centimeters: trials 48, 52 and 50; average 50. Ramp height 20 centimeters: trials 98, 102 and 100; average 100. Ramp height 30 centimeters: trials 148, 152 and 150; average 150.": "../audio/heart/599637ae8c.mp3", "Chien-Shiung Wu. Born in China, Wu came to the United States in 1936 to study physics and became a professor at Columbia University. Other scientists called her experiments some of the most careful in the world. In 1956–1957 she tested a rule called conservation of parity , which said nature treats left and right the same. Her data proved it was not true for certain atoms. The two theorists who suggested the test, Tsung-Dao Lee and Chen-Ning Yang, won the 1957 Nobel Prize, but Wu was left out. She later won the first Wolf Prize in Physics (1978) and became the first woman president of the American Physical Society.": "../audio/heart/cfd02fddc8.mp3", "Percy Lavon Julian. Julian was a Black chemist who grew up in Montgomery, Alabama, where public school for Black students ended after eighth grade. In 1935 he and his partner Josef Pikl made physostigmine, a medicine for the eye disease glaucoma, in the lab. A famous English chemist, Robert Robinson, had published a different method, but Julian found a mistake in it, and careful tests showed that Julian’s work was right. He later found ways to make important medicines from soybeans.": "../audio/heart/4e440074c5.mp3", "Florence Nightingale. Nightingale was a British nurse and a skilled user of data. During the Crimean War in the 1850s, she collected numbers showing that far more soldiers died from diseases in dirty hospitals than from battle wounds. She drew diagrams so leaders could see the pattern quickly, and her evidence helped change how hospitals were kept clean.": "../audio/heart/7f9e1a7efe.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["independent variable", "the one thing you change"], ["dependent variable", "what you measure"], ["controlled variable", "kept the same every trial"], ["hypothesis", "a testable prediction"], ["conclusion", "what the data show"]], [["trial", "one run of a test"], ["data", "recorded facts and measurements"], ["fair test", "changes only one variable"], ["Chien-Shiung Wu", "overturned a physics “law”"], ["Florence Nightingale", "used hospital data to save lives"]], [["testable question", "answered by measuring and evidence"], ["observation", "noticed with senses or tools"], ["Percy Julian", "made medicines in the lab"], ["average", "typical value of several trials"], ["evidence", "data that support a claim"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Lab Rookie", "Lab Partner", "Field Scientist", "Master Scientist"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

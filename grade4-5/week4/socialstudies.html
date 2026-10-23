@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 4 Social Studies: When Worlds Met | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 4</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 4 &bull; Social Studies</span>
+  <h1>When Worlds Met</h1>
+  <h2>1492 to the 1600s: Columbus, the Taíno, and a world changed forever, told honestly.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>When two worlds met after 1492, who benefited, who paid the cost, and how do we know?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;When two worlds met after 1492, who benefited, who paid the cost, and how do we know?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with Weeks 1 to 3: sources, great Indigenous societies, and West Africa</li><li>Meet the Taíno and learn what really happened in 1492</li><li>Track the Columbian Exchange: foods, animals, people and diseases</li><li>Study conquest, resistance, and the founding of St. Augustine in 1565</li><li>Be a Source Detective with Columbus's own journal</li><li>Beat the Boss Battle by weighing who benefited and who paid the cost</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's warm up with Weeks 1 to 3: sources, great Indigenous societies, and the empires of West Africa.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="When people pass down what they remember by speaking, that is oral history.">
+    <span class="pts">+5</span>
+    <p class="qtext">An interview with an elder about her childhood is an example of what?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Oral history</button>
+      <button class="opt">A secondary textbook</button>
+      <button class="opt">An archaeology dig</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Tenochtitlan stood on an island in Lake Texcoco, linked to shore by causeways.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where did the Mexica build Tenochtitlan?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">On an island in a lake</button>
+      <button class="opt">High in the Andes</button>
+      <button class="opt">In the Sahara Desert</button>
+      <button class="opt">On the Pacific Northwest coast</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="So much gold arrived that it was no longer rare, so its value dropped for years.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Mansa Musa's huge spending in Cairo cause?</p>
+    <div class="opts">
+      <button class="opt">Salt became worthless</button>
+      <button class="opt">Cairo ran out of camels</button>
+      <button class="opt" data-c="1">The value of gold fell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="Cahokia" data-logic="Cahokia was the largest city north of Mexico, built by the Mississippians.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The great Mississippian city near today's St. Louis was ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="A website written today is made long after the events by someone who was not there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a secondary source?</p>
+    <div class="opts">
+      <button class="opt">A Chilkat robe woven long ago</button>
+      <button class="opt" data-c="1">A website written today about the Inca</button>
+      <button class="opt">Al-Umari's report from the 1330s</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="The Tlingit live along the coast of Alaska. The Taíno are from the Caribbean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which nation lives in the Pacific Northwest?</p>
+    <div class="opts">
+      <button class="opt">Taíno</button>
+      <button class="opt">Mexica</button>
+      <button class="opt" data-c="1">Tlingit</button>
+      <button class="opt">Haudenosaunee</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="The Peacemaker and Hiawatha brought the Haudenosaunee nations together under the Great Law of Peace.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who were the Peacemaker and Hiawatha?</p>
+    <div class="opts">
+      <button class="opt">Inca rulers who built mountain roads</button>
+      <button class="opt" data-c="1">Leaders who helped unite the Haudenosaunee</button>
+      <button class="opt">Scholars who studied in Timbuktu</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="caravans|caravan" data-logic="Camel caravans carried salt, gold, cloth and books across the desert.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">West African traders crossed the Sahara in groups called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Knowing who made a source and why helps us judge what it shows and what it leaves out.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do historians ask, 'Who made this source, and why?'</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Every source has a point of view</button>
+      <button class="opt">Old sources are always wrong</button>
+      <button class="opt">It tells how long the source is</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Ancestral Puebloans built stone and adobe towns in the Southwest.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did the Ancestral Puebloans build?</p>
+    <div class="opts">
+      <button class="opt">Plank houses made of cedar</button>
+      <button class="opt">Causeways across a lake</button>
+      <button class="opt" data-c="1">Stone and adobe towns, some in cliffs</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Ghana rose first, then Mali, then Songhai.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which West African empire came first?</p>
+    <div class="opts">
+      <button class="opt">Mali</button>
+      <button class="opt">Songhai</button>
+      <button class="opt" data-c="1">Ghana</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="Month" data-logic="Woodson began a history week in 1926 that later grew into Black History Month.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Carter G. Woodson started the celebration that grew into Black History ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about Christopher Columbus and the Taíno, and make a prediction. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This video from OER Project explains the Columbian Exchange: how plants, animals, people and diseases moved between the Americas and the rest of the world after 1492, and who paid the cost.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>The Columbian Exchange Explained: How 1492 Changed the World</b> &mdash; OER Project</p>
+  <a class="btn btn-pri" href="https://www.youtube.com/watch?v=uykwq3El_fI" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-size:1.15rem;padding:16px 32px">&#9654;&#65039; Click to Watch the Video</a>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for (1) foods that traveled from the Americas to the rest of the world, (2) animals and crops that came to the Americas, and (3) the costs: disease, conquest and the forced movement of enslaved Africans. The video was made for older students, so pause when you hear a new word. If you hear the word &ldquo;discovery,&rdquo; ask yourself: can you discover a place where millions of people already live?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">colonization<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;colonization. When a country takes control of land where other people already live and sends its own settlers there.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">When a country takes control of land where other people already live and sends its own settlers there.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">Columbian Exchange<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Columbian Exchange. The movement of plants, animals, people and diseases across the Atlantic in both directions after 1492.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The movement of plants, animals, people and diseases across the Atlantic in both directions after 1492.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">immunity<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;immunity. The body\'s protection against a disease. Indigenous people had no immunity to smallpox.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The body's protection against a disease. Indigenous people had no immunity to smallpox.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">enslave<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;enslave. To force a person to work without pay or freedom. We say \&quot;enslaved people\&quot; because slavery was done to them; it is not who they were.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To force a person to work without pay or freedom. We say "enslaved people" because slavery was done to them; it is not who they were.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">resistance<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;resistance. Actions people take to fight back against unfair control, from battles to keeping their language alive.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Actions people take to fight back against unfair control, from battles to keeping their language alive.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">conquest<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;conquest. Taking control of a place and its people by force. Example: the Spanish conquest of Tenochtitlan in 1521.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Taking control of a place and its people by force. Example: the Spanish conquest of Tenochtitlan in 1521.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">encomienda<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;encomienda. A Spanish system that forced Indigenous people to work for Spanish colonists.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A Spanish system that forced Indigenous people to work for Spanish colonists.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>⛵ 1492: Columbus Arrives in the Taíno World</h2>
+<div class="card card">
+<p>The Taíno lived on Caribbean islands such as Hispaniola, Cuba, Puerto Rico and Jamaica, in villages led by leaders called <b>caciques</b> (kah-SEE-kays). In October 1492, Christopher Columbus, a sailor from Genoa working for the king and queen of Spain, arrived on an island in the Bahamas. He believed he had reached Asia, so he called the people "Indios." Columbus forced Taíno people to search for gold, and he sent hundreds of them to Spain as enslaved people. Forced labor, violence and new diseases caused a huge loss of life, yet Taíno descendants and culture survive today.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The Ta\u00edno lived on Caribbean islands such as Hispaniola, Cuba, Puerto Rico and Jamaica, in villages led by leaders called caciques (kah-SEE-kays). In October 1492, Christopher Columbus, a sailor from Genoa working for the king and queen of Spain, arrived on an island in the Bahamas. He believed he had reached Asia, so he called the people \&quot;Indios.\&quot; Columbus forced Ta\u00edno people to search for gold, and he sent hundreds of them to Spain as enslaved people. Forced labor, violence and new diseases caused a huge loss of life, yet Ta\u00edno descendants and culture survive today.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I want to keep two true facts together. Fact one: Columbus was a skilled sailor who crossed the Atlantic and came back. Fact two: he enslaved Taíno people and ruled so harshly that Spain removed him as governor in 1500 and sent him home in chains. A historian does not pick only the fact they like. I hold both, and I ask: whose story gets told on holidays, and whose gets left out?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I want to keep two true facts together. Fact one: Columbus was a skilled sailor who crossed the Atlantic and came back. Fact two: he enslaved Ta\u00edno people and ruled so harshly that Spain removed him as governor in 1500 and sent him home in chains. A historian does not pick only the fact they like. I hold both, and I ask: whose story gets told on holidays, and whose gets left out?&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The Caribbean in 1492</h4><p>Picture the warm Caribbean Sea. Florida is at the top. Below it stretches the chain of the Bahamas, then the large islands: Cuba, Hispaniola (today Haiti and the Dominican Republic), Jamaica and Puerto Rico. Taíno villages dot the coasts, linked by large dugout canoes that could carry many people. Columbus's three ships, the Niña, the Pinta and the Santa María, left Spain in August 1492 and reached the Bahamas on October 12.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Taíno Words We Still Use</h4><p>English still uses words that came from the Taíno language: hammock, canoe and hurricane. Let's reason: what does that tell us? It shows Europeans learned from the Taíno, and that Taíno culture lasted. Today, many people in Puerto Rico, Cuba and the Dominican Republic have Taíno ancestors and keep Taíno traditions alive.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;English still uses words that came from the Ta\u00edno language: hammock, canoe and hurricane. Let\'s reason: what does that tell us? It shows Europeans learned from the Ta\u00edno, and that Ta\u00edno culture lasted. Today, many people in Puerto Rico, Cuba and the Dominican Republic have Ta\u00edno ancestors and keep Ta\u00edno traditions alive.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t11_s0" data-pts="5" data-logic="Columbus was trying to reach Asia, so he thought the Caribbean islands were near Asia.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where did Columbus believe he had arrived in 1492?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Asia</button>
+      <button class="opt">Africa</button>
+      <button class="opt">Florida</button>
+      <button class="opt">Europe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s0" data-pts="5" data-ans="Taíno|Taino|Taínos|Tainos" data-logic="The Taíno lived on the Caribbean islands Columbus reached.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Indigenous people Columbus met in the Caribbean were the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="Columbus forced Taíno people to search for gold and sent hundreds to Spain as enslaved people.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Columbus do to many Taíno people?</p>
+    <div class="opts">
+      <button class="opt">Paid them fairly in gold for work</button>
+      <button class="opt" data-c="1">Forced them to work and enslaved some</button>
+      <button class="opt">Left their islands alone forever</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="Columbus&#x27;s ships reached the Bahamas on October 12, 1492.">
+    <span class="pts">+5</span>
+    <p class="qtext">When did Columbus first arrive in the Bahamas?</p>
+    <div class="opts">
+      <button class="opt">July 1776</button>
+      <button class="opt">August 1565</button>
+      <button class="opt" data-c="1">October 1492</button>
+      <button class="opt">October 1324</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="cacique|caciques" data-logic="Taíno villages and regions were led by caciques.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A Taíno village leader was called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Spanish forced labor and violence, plus diseases the Taíno had never faced, caused enormous loss of life.">
+    <span class="pts">+5</span>
+    <p class="qtext">What caused the huge loss of Taíno lives?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Forced labor, violence and new diseases</button>
+      <button class="opt">A long war with the Inca Empire</button>
+      <button class="opt">Hurricanes that struck every island</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t11_s2" data-pts="5" data-logic="Many complaints about his cruel and harsh rule reached Spain, so he was removed and sent home in chains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Spain remove Columbus as governor of Hispaniola in 1500?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Complaints about his harsh rule</button>
+      <button class="opt">He found too much gold</button>
+      <button class="opt">He wanted to retire to Genoa</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s2" data-pts="5" data-ans="Spain" data-logic="King Ferdinand and Queen Isabella of Spain paid for his voyage.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Columbus's voyage was paid for by the king and queen of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="Hammock comes from a Taíno word. Pizza is Italian, kindergarten is German, and algebra comes from Arabic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which English word comes from the Taíno language?</p>
+    <div class="opts">
+      <button class="opt">pizza</button>
+      <button class="opt" data-c="1">hammock</button>
+      <button class="opt">kindergarten</button>
+      <button class="opt">algebra</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🌽 The Columbian Exchange</h2>
+<div class="card card-grass">
+<p>After 1492, ships carried plants, animals, people and diseases across the Atlantic in both directions. Historians call this the <b>Columbian Exchange</b>. From the Americas came corn, potatoes, tomatoes, peanuts, chili peppers and cacao (chocolate), which changed diets around the world. From Europe, Africa and Asia came horses, cattle, pigs, wheat, sugarcane and coffee. Diseases like smallpox and measles came too, and because Indigenous people had no <b>immunity</b>, millions died. Europeans also forced millions of enslaved Africans across the ocean to work on plantations.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;After 1492, ships carried plants, animals, people and diseases across the Atlantic in both directions. Historians call this the Columbian Exchange . From the Americas came corn, potatoes, tomatoes, peanuts, chili peppers and cacao (chocolate), which changed diets around the world. From Europe, Africa and Asia came horses, cattle, pigs, wheat, sugarcane and coffee. Diseases like smallpox and measles came too, and because Indigenous people had no immunity , millions died. Europeans also forced millions of enslaved Africans across the ocean to work on plantations.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>The word exchange sounds fair, like trading cards with a friend. So I check: did both sides benefit equally? Europe gained new foods that helped its population grow. Indigenous nations gained horses but lost millions of people to disease, and enslaved Africans were taken by force. So exchange describes the movement, but not fairness. A good historian asks who benefited and who paid the cost.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The word exchange sounds fair, like trading cards with a friend. So I check: did both sides benefit equally? Europe gained new foods that helped its population grow. Indigenous nations gained horses but lost millions of people to disease, and enslaved Africans were taken by force. So exchange describes the movement, but not fairness. A good historian asks who benefited and who paid the cost.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: A Two-Way Chart</h4><table><tr><th>From the Americas to the world</th><th>From Europe, Africa and Asia to the Americas</th></tr><tr><td>corn, potatoes, tomatoes</td><td>horses, cattle, pigs</td></tr><tr><td>cacao, peanuts, chili peppers</td><td>wheat, rice, sugarcane, coffee</td></tr><tr><td>squash, beans, turkeys</td><td>smallpox, measles, flu</td></tr><tr><td></td><td>enslaved Africans, taken by force</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Trace One Food</h4><p>Tomatoes first grew in the Americas. Before 1492, there were no tomatoes in Italy. Today, tomato sauce is famous in Italian cooking. Let's reason: the Columbian Exchange changed food far from where it began. Now try potatoes: they came from the Andes, the Inca homeland, and became a main food in Ireland and much of Europe.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Tomatoes first grew in the Americas. Before 1492, there were no tomatoes in Italy. Today, tomato sauce is famous in Italian cooking. Let\'s reason: the Columbian Exchange changed food far from where it began. Now try potatoes: they came from the Andes, the Inca homeland, and became a main food in Ireland and much of Europe.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t21_s0" data-pts="5" data-logic="Potatoes came from the Andes. Wheat, coffee and bananas came to the Americas from other continents.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which food first came from the Americas?</p>
+    <div class="opts">
+      <button class="opt">Wheat</button>
+      <button class="opt">Coffee</button>
+      <button class="opt">Bananas</button>
+      <button class="opt" data-c="1">Potatoes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s0" data-pts="5" data-ans="Exchange" data-logic="Historians call it the Columbian Exchange.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The movement of plants, animals, people and diseases after 1492 is called the Columbian ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="Smallpox was new in the Americas, so Indigenous people&#x27;s bodies had no protection against it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did smallpox kill so many Indigenous people?</p>
+    <div class="opts">
+      <button class="opt">They refused to see any doctors</button>
+      <button class="opt">It only harmed people in the Americas</button>
+      <button class="opt" data-c="1">They had no immunity to it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t21_s1" data-pts="5" data-logic="Horses came from Europe. Turkeys, llamas and alpacas were already in the Americas.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which animal did Europeans bring to the Americas?</p>
+    <div class="opts">
+      <button class="opt">Turkeys</button>
+      <button class="opt" data-c="1">Horses</button>
+      <button class="opt">Llamas</button>
+      <button class="opt">Alpacas</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s1" data-pts="5" data-ans="immunity" data-logic="Immunity is the body&#x27;s protection against a disease.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The body's protection against a disease is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Millions died of disease and millions of Africans were enslaved, so the exchange was not fair to everyone.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is the word exchange not the whole story?</p>
+    <div class="opts">
+      <button class="opt">Nothing really moved across the ocean</button>
+      <button class="opt" data-c="1">Not everyone benefited, and some were taken by force</button>
+      <button class="opt">Only food moved, never animals or people</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t21_s2" data-pts="5" data-logic="Cacao grew in the Americas, and Indigenous peoples of Mexico and Central America made the first chocolate drinks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chocolate comes from cacao, which first grew where?</p>
+    <div class="opts">
+      <button class="opt">Western Europe</button>
+      <button class="opt" data-c="1">the Americas</button>
+      <button class="opt">Southern Asia</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s2" data-pts="5" data-ans="Andes" data-logic="Potatoes were first grown in the Andes of South America.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Potatoes first came from the ____ Mountains, the Inca homeland:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Sugarcane came from the other side of the ocean and was grown on plantations using forced labor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which crop, brought across the ocean, was grown on Caribbean plantations by enslaved workers?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sugarcane</button>
+      <button class="opt">Tomatoes</button>
+      <button class="opt">Peanuts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🏰 Conquest, Resistance and St. Augustine</h2>
+<div class="card card-sky">
+<p>Spanish soldiers called <b>conquistadors</b> took over huge Indigenous empires. Hernán Cortés and thousands of Indigenous allies captured Tenochtitlan in 1521, and Francisco Pizarro attacked the Inca Empire in 1532. Indigenous people resisted in many ways: Taíno leaders like Hatuey and Enriquillo fought back, and the Calusa of Florida drove off Juan Ponce de León in 1521. In 1565, Pedro Menéndez de Avilés founded St. Augustine, Florida, on land where the Timucua people lived, and Africans, both free and enslaved, were among its first settlers. St. Augustine is the oldest continuously inhabited city founded by Europeans in the continental United States.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Spanish soldiers called conquistadors took over huge Indigenous empires. Hern\u00e1n Cort\u00e9s and thousands of Indigenous allies captured Tenochtitlan in 1521, and Francisco Pizarro attacked the Inca Empire in 1532. Indigenous people resisted in many ways: Ta\u00edno leaders like Hatuey and Enriquillo fought back, and the Calusa of Florida drove off Juan Ponce de Le\u00f3n in 1521. In 1565, Pedro Men\u00e9ndez de Avil\u00e9s founded St. Augustine, Florida, on land where the Timucua people lived, and Africans, both free and enslaved, were among its first settlers. St. Augustine is the oldest continuously inhabited city founded by Europeans in the continental United States.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>How could a few hundred Spanish soldiers defeat empires of millions? I list the causes: steel weapons and horses; thousands of Indigenous allies who wanted to escape Mexica rule; and smallpox, which had already killed many people. One cause alone does not explain it. Historians look for several causes working together.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How could a few hundred Spanish soldiers defeat empires of millions? I list the causes: steel weapons and horses; thousands of Indigenous allies who wanted to escape Mexica rule; and smallpox, which had already killed many people. One cause alone does not explain it. Historians look for several causes working together.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Timeline: When Worlds Met</h4><table><tr><th>Year</th><th>Event</th></tr><tr><td>1492</td><td>Columbus arrives in the Bahamas</td></tr><tr><td>1512</td><td>Hatuey, a Taíno leader who resisted in Cuba, is executed by the Spanish</td></tr><tr><td>1519–1533</td><td>Enriquillo leads Taíno resistance on Hispaniola</td></tr><tr><td>1521</td><td>Cortés and his allies capture Tenochtitlan; the Calusa drive off Ponce de León</td></tr><tr><td>1528–1536</td><td>Estevanico and three others cross from Texas to Mexico City</td></tr><tr><td>1565</td><td>St. Augustine is founded in Florida</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Several Causes</h4><p>Let's sort the causes of the fall of Tenochtitlan: one, Spanish steel weapons and horses; two, tens of thousands of Indigenous allies, such as the Tlaxcalans; three, a smallpox outbreak in 1520. Which cause would Spanish writers talk about most? Their own weapons and courage. Which causes are often left out? The allies and the disease. Asking whose story is told changes what we think happened.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s sort the causes of the fall of Tenochtitlan: one, Spanish steel weapons and horses; two, tens of thousands of Indigenous allies, such as the Tlaxcalans; three, a smallpox outbreak in 1520. Which cause would Spanish writers talk about most? Their own weapons and courage. Which causes are often left out? The allies and the disease. Asking whose story is told changes what we think happened.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t31_s0" data-pts="5" data-logic="Several causes worked together: Indigenous allies, Spanish weapons and horses, and disease.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which best explains how the Spanish defeated the Mexica?</p>
+    <div class="opts">
+      <button class="opt">Only the bravery of a few soldiers</button>
+      <button class="opt">The Mexica gave up without a fight</button>
+      <button class="opt" data-c="1">Allies, weapons and smallpox together</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s0" data-pts="5" data-ans="Augustine" data-logic="Pedro Menéndez de Avilés founded St. Augustine in 1565.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Florida city founded by Spain in 1565 is St. ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="The Calusa of southwest Florida resisted the Spanish and drove off Ponce de León.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which Indigenous nation drove off Ponce de León in Florida in 1521?</p>
+    <div class="opts">
+      <button class="opt">Haida</button>
+      <button class="opt">Mexica</button>
+      <button class="opt">Tlingit</button>
+      <button class="opt" data-c="1">Calusa</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t31_s1" data-pts="5" data-logic="It is the oldest continuously lived-in city founded by Europeans in the continental United States. Indigenous cities like Cahokia are far older.">
+    <span class="pts">+5</span>
+    <p class="qtext">What makes St. Augustine special?</p>
+    <div class="opts">
+      <button class="opt">First city ever built anywhere in the Americas</button>
+      <button class="opt">The Mexica capital city before 1521</button>
+      <button class="opt" data-c="1">Oldest European-founded city in the continental U.S.</button>
+      <button class="opt">The place where Columbus first landed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s1" data-pts="5" data-ans="conquistadors|conquistadores|conquistador" data-logic="Conquistador is the Spanish word for conqueror.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Spanish soldiers who conquered lands in the Americas were called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="St. Augustine was built where the Timucua people lived.">
+    <span class="pts">+5</span>
+    <p class="qtext">On whose land was St. Augustine founded?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Timucua people's</button>
+      <button class="opt">The Taíno people's</button>
+      <button class="opt">The Haida people's</button>
+      <button class="opt">The Inca people's</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t31_s2" data-pts="5" data-logic="Resistance means fighting back against unfair control, as Enriquillo did.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is an example of resistance?</p>
+    <div class="opts">
+      <button class="opt">Columbus writing in his journal</button>
+      <button class="opt">Spain paying for three ships</button>
+      <button class="opt" data-c="1">Enriquillo leading Taíno fighters for years</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s2" data-pts="5" data-ans="1521" data-logic="Tenochtitlan fell in 1521.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Mexica capital fell to Cortés and his allies in the year ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="Records show that Africans, both free and enslaved, were among the first settlers of St. Augustine.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who were among St. Augustine's first settlers in 1565?</p>
+    <div class="opts">
+      <button class="opt">Only Spanish soldiers, with no one else</button>
+      <button class="opt" data-c="1">Spanish settlers and Africans, free and enslaved</button>
+      <button class="opt">Taíno families from Hispaniola</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🔍 Source Detective: Columbus's Journal</h2>
+<p>Columbus kept a journal on his first voyage. Here are his words about the Taíno people he met in the Bahamas in October 1492. Read carefully, then decide what they tell us about his plans.</p>
+<div class="sourcebox"><h4>Primary Source (English translation): Christopher Columbus's journal, October 1492</h4><div><p><b>October 12:</b> "They should be good servants and of quick intelligence, since I see that they very soon say all that is said to them, and I believe that they would easily be made Christians."</p><p><b>October 14:</b> "With fifty men they can all be subjugated and made to do what is required of them."</p><p><b>Word help:</b> <i>servants</i> = people who work for others; <i>subjugated</i> = brought under control by force.</p></div><div class="src">Journal of the First Voyage of Christopher Columbus, as copied and summarized by Bartolomé de las Casas. English translation as published in the Internet Medieval Sourcebook (Fordham University); shortened. Wording differs slightly between translations.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Columbus wrote on October 12: They should be good servants and of quick intelligence, since I see that they very soon say all that is said to them, and I believe that they would easily be made Christians. On October 14 he wrote: With fifty men they can all be subjugated and made to do what is required of them. Word help: servants are people who work for others. Subjugated means brought under control by force.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Historian</h4><p>First, I check how we have this source. Columbus's original journal is lost. What survives is a copy and summary made decades later by Bartolomé de las Casas, who quoted parts of it word for word. So these are probably Columbus's words, passed through another writer. Next, I ask about purpose: Columbus was writing for the king and queen who paid for his trip, and he wanted to show them the voyage would pay off.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="He wrote that they &#x27;should be good servants,&#x27; showing he thought of them as workers for Spain.">
+    <span class="pts">+5</span>
+    <p class="qtext">On October 12, what did Columbus say the Taíno would make?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Good servants</button>
+      <button class="opt">Good soldiers for Spain</button>
+      <button class="opt">Good teachers for sailors</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s0" data-pts="5" data-logic="The word help says subjugated means brought under control by force.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the October 14 entry, what does subjugated mean?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Brought under control by force</button>
+      <button class="opt">Taught to read and write</button>
+      <button class="opt">Traded with fairly and equally</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="He was reporting to the king and queen who paid for the voyage, so he wanted it to sound profitable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who was Columbus mainly writing for?</p>
+    <div class="opts">
+      <button class="opt">The Taíno people he met</button>
+      <button class="opt">Sailors on other ships</button>
+      <button class="opt" data-c="1">Spain's king and queen, his sponsors</button>
+      <button class="opt">Students in the future</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="He writes about servants and about controlling them with fifty men, which shows a plan to rule them.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do the two entries suggest about Columbus's plans for the Taíno?</p>
+    <div class="opts">
+      <button class="opt">He planned to learn their language as equals</button>
+      <button class="opt">He planned to leave their islands untouched</button>
+      <button class="opt" data-c="1">He planned to control them and make them work</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="It tells us what Columbus thought, but the Taíno did not get to tell their side in it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is this source both useful and limited?</p>
+    <div class="opts">
+      <button class="opt">It shows the Taíno view, but not Columbus's</button>
+      <button class="opt" data-c="1">It shows Columbus's view, but not the Taíno view</button>
+      <button class="opt">It was written by a Taíno cacique</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The original is lost. Las Casas copied and summarized it, quoting some parts word for word.">
+    <span class="pts">+5</span>
+    <p class="qtext">How do we have Columbus's journal today?</p>
+    <div class="opts">
+      <button class="opt">From the original book in Columbus's handwriting</button>
+      <button class="opt" data-c="1">Through a copy and summary made by Las Casas</button>
+      <button class="opt">From a Taíno oral history only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="He wrote they were of &#x27;quick intelligence&#x27; and would be good servants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus noticed the Taíno quickly repeated what was said to them. What did he conclude?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They were smart and could be made to serve</button>
+      <button class="opt">They had no interest in visitors</button>
+      <button class="opt">They already spoke Spanish</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="The journal is written by Columbus. We do not hear the Taíno speak for themselves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Whose voice is missing from this source?</p>
+    <div class="opts">
+      <button class="opt">Columbus's</button>
+      <button class="opt">The Spanish crew's</button>
+      <button class="opt" data-c="1">The Taíno people's</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="Planning to control a whole people with a few soldiers shows he did not see them as equals.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus wrote that fifty men could control all the Taíno. What does this show about his attitude?</p>
+    <div class="opts">
+      <button class="opt">He was afraid of the Taíno's strength</button>
+      <button class="opt">He wanted to protect the Taíno from others</button>
+      <button class="opt" data-c="1">He saw them as people to rule, not equals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>👥 People of the Encounter</h2>
+<p>These people lived through the meeting of worlds. Look at each one honestly: what did they do, and whom did it help or hurt?</p>
+<div class="peoplegrid"><div class="pcard"><h4>Christopher Columbus</h4><div class="yrs">1451–1506</div><p>A skilled sailor from Genoa who made four voyages across the Atlantic for Spain. He also enslaved Taíno people and ruled Hispaniola so harshly that Spain removed him as governor in 1500. He believed he had reached Asia.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Christopher Columbus. A skilled sailor from Genoa who made four voyages across the Atlantic for Spain. He also enslaved Ta\u00edno people and ruled Hispaniola so harshly that Spain removed him as governor in 1500. He believed he had reached Asia.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Hatuey</h4><div class="yrs">Died 1512</div><p>A Taíno cacique from Hispaniola who crossed to Cuba to warn people about the Spanish. He led resistance there until Spanish soldiers captured and executed him. Today he is honored in Cuba as a hero of resistance.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Hatuey. A Ta\u00edno cacique from Hispaniola who crossed to Cuba to warn people about the Spanish. He led resistance there until Spanish soldiers captured and executed him. Today he is honored in Cuba as a hero of resistance.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Enriquillo</h4><div class="yrs">About 1495–1535</div><p>A Taíno cacique on Hispaniola who led resistance from the mountains from 1519 to 1533. In the end, Spain signed a peace agreement with him, one of the few times it did.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Enriquillo. A Ta\u00edno cacique on Hispaniola who led resistance from the mountains from 1519 to 1533. In the end, Spain signed a peace agreement with him, one of the few times it did.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Bartolomé de las Casas</h4><div class="yrs">1484–1566</div><p>A Spanish priest who at first held Taíno workers himself, then changed his mind and spent about 50 years speaking out against cruelty to Indigenous people. Early on, he suggested using enslaved Africans instead. Later he wrote that he deeply regretted it, because their enslavement was just as wrong.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Bartolom\u00e9 de las Casas. A Spanish priest who at first held Ta\u00edno workers himself, then changed his mind and spent about 50 years speaking out against cruelty to Indigenous people. Early on, he suggested using enslaved Africans instead. Later he wrote that he deeply regretted it, because their enslavement was just as wrong.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Estevanico (Esteban)</h4><div class="yrs">About 1500–1539</div><p>An enslaved man from Azemmour, Morocco, who landed in Florida in 1528 with a Spanish expedition. He was one of only four survivors who crossed Texas and the Southwest to Mexico City with Cabeza de Vaca, learning Indigenous languages and serving as a guide and translator.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Estevanico (Esteban). An enslaved man from Azemmour, Morocco, who landed in Florida in 1528 with a Spanish expedition. He was one of only four survivors who crossed Texas and the Southwest to Mexico City with Cabeza de Vaca, learning Indigenous languages and serving as a guide and translator.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="History includes both his sailing skill and the harm he did to the Taíno.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement about Columbus is honest and complete?</p>
+    <div class="opts">
+      <button class="opt">A hero who never did anything wrong</button>
+      <button class="opt" data-c="1">Skilled sailor who also enslaved Taíno people</button>
+      <button class="opt">A poor sailor who never crossed the ocean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="Hatuey crossed to Cuba to warn people about the Spanish and led them in resisting.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Hatuey do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Warned people in Cuba and led resistance</button>
+      <button class="opt">Founded St. Augustine in 1565</button>
+      <button class="opt">Copied Columbus's journal</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp3_s0" data-pts="5" data-ans="Casas" data-logic="Bartolomé de las Casas spent most of his life speaking out for Indigenous people.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The priest who spoke out against cruelty to Indigenous people was Bartolomé de las ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="He came to see that enslaving Africans was just as wrong, and he regretted his suggestion.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Las Casas later regret?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Suggesting enslaved Africans be used instead</button>
+      <button class="opt">Becoming a priest on Hispaniola</button>
+      <button class="opt">Writing about the Taíno people</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="Estevanico was born in Azemmour, Morocco, in North Africa.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where was Estevanico born?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Morocco</button>
+      <button class="opt">Spain</button>
+      <button class="opt">Cuba</button>
+      <button class="opt">Mexico</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp3_s1" data-pts="5" data-ans="Hatuey" data-logic="Hatuey led Taíno resistance in Cuba.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Taíno leader who resisted the Spanish in Cuba was ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="He learned to communicate with Indigenous nations and served as a guide and translator.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Estevanico help the survivors cross the Southwest?</p>
+    <div class="opts">
+      <button class="opt">He sailed them home on a Spanish ship</button>
+      <button class="opt">He followed a road built by the Inca</button>
+      <button class="opt" data-c="1">He learned Indigenous languages and guided them</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="After years of resistance, Spain agreed to peace with Enriquillo, which rarely happened.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was unusual about how Enriquillo's resistance ended?</p>
+    <div class="opts">
+      <button class="opt">He sailed to Spain to become governor</button>
+      <button class="opt" data-c="1">Spain signed a peace agreement with him</button>
+      <button class="opt">He joined Cortés against the Mexica</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp3_s2" data-pts="5" data-ans="four|4" data-logic="Only four men from the expedition survived the long journey to Mexico City.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Estevanico was one of only ____ survivors who crossed to Mexico City:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="Asia" data-logic="Columbus was looking for a sea route to Asia and believed he had found it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1492, Columbus thought he had reached the continent of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="Taíno|Taino" data-logic="These English words came from the Taíno language.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Hammock and hurricane are words from the ____ language:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="enslave" data-logic="To enslave someone is to take away their freedom and force them to work.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To force a person to work without pay or freedom is to ____ them:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="1565" data-logic="St. Augustine was founded in 1565.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">St. Augustine was founded in the year ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="smallpox|measles" data-logic="Smallpox and measles were new to the Americas and killed millions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A disease from Europe that killed millions of Indigenous people: ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="Genoa|Genova" data-logic="Columbus came from Genoa, a port city in Italy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Columbus was born in the Italian city of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="resistance" data-logic="Resistance means fighting back against unfair control.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Actions people take to fight back against unfair control are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="cacao|cocoa" data-logic="Chocolate comes from the seeds of the cacao tree, first grown in the Americas.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Chocolate is made from a plant called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="encomienda" data-logic="The encomienda system forced Indigenous people to work for Spanish colonists.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Spanish system that forced Indigenous people to work for colonists was the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Columbus&#x27;s first voyage was in 1492.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">In what year did Columbus first sail across the Atlantic?</p>
+    <div class="opts">
+      <button class="opt">1565</button>
+      <button class="opt" data-c="1">1492</button>
+      <button class="opt">1325</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Tomatoes came from the Americas and reached Italy after 1492.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Where did tomatoes first grow?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Americas</button>
+      <button class="opt">Southern Italy</button>
+      <button class="opt">Northern Spain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="St. Augustine is on Florida&#x27;s northeast coast.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">St. Augustine is in which state?</p>
+    <div class="opts">
+      <button class="opt">Texas</button>
+      <button class="opt">Virginia</button>
+      <button class="opt" data-c="1">Florida</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: use evidence from Columbus's journal and today's lesson to explain what happened when worlds met.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder? Maybe: How do Taíno descendants keep their culture alive today? What did the Timucua think of the Spanish at St. Augustine? Write one question of your own on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore the Smithsonian National Museum of the American Indian's online exhibit <i>Taíno: Native Heritage and Identity in the Caribbean</i>, or the National Park Service website for Castillo de San Marcos in St. Augustine. Pick one object or photo and ask: who made it, and what does it tell us?</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Who Benefited, Who Paid the Cost?</h2>
+<p>Use evidence and reasoning. These are the hardest questions today. Read every choice before you pick.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="You cannot discover a place where millions of people already live. Historians say Columbus arrived.">
+    <span class="pts">+5</span>
+    <p class="qtext">An old poster says Columbus "discovered" the Americas. What is the biggest problem with that word?</p>
+    <div class="opts">
+      <button class="opt">Columbus never sailed in 1492</button>
+      <button class="opt">Columbus actually landed in Africa</button>
+      <button class="opt" data-c="1">Millions of people already lived there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="The gold went to Spanish colonists and rulers, while the Taíno did the forced labor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who benefited most from the gold Taíno people were forced to mine?</p>
+    <div class="opts">
+      <button class="opt">The Taíno families who mined it</button>
+      <button class="opt" data-c="1">Spanish colonists and the Spanish crown</button>
+      <button class="opt">Traders in the city of Timbuktu</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Real people can do good and harm, and can change their minds, so historians look at the whole record.">
+    <span class="pts">+5</span>
+    <p class="qtext">Las Casas spoke out for Indigenous people but first suggested enslaving Africans. What does this show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">People in history can be right and wrong</button>
+      <button class="opt">Las Casas never changed his mind</button>
+      <button class="opt">Only Columbus ever made mistakes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Spanish forced labor, violence and new diseases together caused the losses.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which list best explains the huge loss of Taíno lives?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Forced labor, violence and disease</button>
+      <button class="opt">Hurricanes, droughts and floods</button>
+      <button class="opt">Wars with the Inca and Mexica</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Tomatoes moved from the Americas to Europe after 1492, changing cooking far away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Before 1492, there were no tomatoes in Italy. Which conclusion is best supported?</p>
+    <div class="opts">
+      <button class="opt">Italians were the first to grow tomatoes</button>
+      <button class="opt">Tomatoes came to the Americas from Europe</button>
+      <button class="opt" data-c="1">The Columbian Exchange changed food worldwide</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Most written records come from the Spanish, so historians also use archaeology and Taíno descendants&#x27; traditions.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus's journal and Las Casas's writings are both Spanish sources. What is missing?</p>
+    <div class="opts">
+      <button class="opt">Sources about Spanish ships</button>
+      <button class="opt" data-c="1">Sources from the Taíno point of view</button>
+      <button class="opt">Sources written in the 1500s</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Cortés had only a few hundred soldiers. Tens of thousands of allies, like the Tlaxcalans, made the attack possible.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Cortés need Indigenous allies to attack Tenochtitlan?</p>
+    <div class="opts">
+      <button class="opt">The allies knew how to sail Spanish ships</button>
+      <button class="opt" data-c="1">Spain had few soldiers; allies added thousands</button>
+      <button class="opt">The Mexica asked the Spanish to bring them</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Estevanico shows Africans were part of exploring North America from the very start.">
+    <span class="pts">+5</span>
+    <p class="qtext">Estevanico's story is often left out. Why does including it matter?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Africans shaped early American history too</button>
+      <button class="opt">Spain used no enslaved people at all</button>
+      <button class="opt">Florida had no people living in it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="&#x27;Greatest ever&#x27; is a judgment, not something that can be proven. The other two can be checked.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement is an opinion, not a fact?</p>
+    <div class="opts">
+      <button class="opt">Columbus reached the Bahamas in 1492</button>
+      <button class="opt">St. Augustine was founded in 1565</button>
+      <button class="opt" data-c="1">Columbus was the greatest explorer ever</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Both fought back against Spanish control, in Cuba and in Florida.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do Hatuey and the Calusa both show?</p>
+    <div class="opts">
+      <button class="opt">Indigenous people welcomed Spanish rule</button>
+      <button class="opt">The Spanish never reached Florida</button>
+      <button class="opt" data-c="1">Indigenous people resisted Spanish control</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="The same exchange brought gains to some people and terrible losses to others.">
+    <span class="pts">+5</span>
+    <p class="qtext">Corn and potatoes helped Europe's population grow, while smallpox made Indigenous populations fall. What does this show?</p>
+    <div class="opts">
+      <button class="opt">The exchange helped everyone equally</button>
+      <button class="opt" data-c="1">The exchange helped some and harmed others</button>
+      <button class="opt">The exchange moved only food</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Both parts are true: enormous losses, and survival of Taíno culture and descendants today.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Taíno population fell sharply, yet Taíno words and descendants survive. Which statement is most accurate?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Taíno suffered huge losses, but their culture lives on</button>
+      <button class="opt">The Taíno disappeared completely in 1492</button>
+      <button class="opt">The Taíno were never affected by the Spanish</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Ship's Lookout</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade4-5-week4-socialstudies';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 140;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"When two worlds met after 1492, who benefited, who paid the cost, and how do we know?": "../audio/heart/737d4531ce.mp3", "colonization. When a country takes control of land where other people already live and sends its own settlers there.": "../audio/heart/72b851c6c6.mp3", "Columbian Exchange. The movement of plants, animals, people and diseases across the Atlantic in both directions after 1492.": "../audio/heart/638e8965f5.mp3", "immunity. The body's protection against a disease. Indigenous people had no immunity to smallpox.": "../audio/heart/ce8029ed86.mp3", "enslave. To force a person to work without pay or freedom. We say \"enslaved people\" because slavery was done to them; it is not who they were.": "../audio/heart/291b36680b.mp3", "resistance. Actions people take to fight back against unfair control, from battles to keeping their language alive.": "../audio/heart/b7bcac563b.mp3", "conquest. Taking control of a place and its people by force. Example: the Spanish conquest of Tenochtitlan in 1521.": "../audio/heart/89cc7b9903.mp3", "encomienda. A Spanish system that forced Indigenous people to work for Spanish colonists.": "../audio/heart/4cb2a3845a.mp3", "The Taíno lived on Caribbean islands such as Hispaniola, Cuba, Puerto Rico and Jamaica, in villages led by leaders called caciques (kah-SEE-kays). In October 1492, Christopher Columbus, a sailor from Genoa working for the king and queen of Spain, arrived on an island in the Bahamas. He believed he had reached Asia, so he called the people \"Indios.\" Columbus forced Taíno people to search for gold, and he sent hundreds of them to Spain as enslaved people. Forced labor, violence and new diseases caused a huge loss of life, yet Taíno descendants and culture survive today.": "../audio/heart/7d451f5660.mp3", "I want to keep two true facts together. Fact one: Columbus was a skilled sailor who crossed the Atlantic and came back. Fact two: he enslaved Taíno people and ruled so harshly that Spain removed him as governor in 1500 and sent him home in chains. A historian does not pick only the fact they like. I hold both, and I ask: whose story gets told on holidays, and whose gets left out?": "../audio/heart/9646493821.mp3", "English still uses words that came from the Taíno language: hammock, canoe and hurricane. Let's reason: what does that tell us? It shows Europeans learned from the Taíno, and that Taíno culture lasted. Today, many people in Puerto Rico, Cuba and the Dominican Republic have Taíno ancestors and keep Taíno traditions alive.": "../audio/heart/80cd53b226.mp3", "After 1492, ships carried plants, animals, people and diseases across the Atlantic in both directions. Historians call this the Columbian Exchange . From the Americas came corn, potatoes, tomatoes, peanuts, chili peppers and cacao (chocolate), which changed diets around the world. From Europe, Africa and Asia came horses, cattle, pigs, wheat, sugarcane and coffee. Diseases like smallpox and measles came too, and because Indigenous people had no immunity , millions died. Europeans also forced millions of enslaved Africans across the ocean to work on plantations.": "../audio/heart/7b51b6f13e.mp3", "The word exchange sounds fair, like trading cards with a friend. So I check: did both sides benefit equally? Europe gained new foods that helped its population grow. Indigenous nations gained horses but lost millions of people to disease, and enslaved Africans were taken by force. So exchange describes the movement, but not fairness. A good historian asks who benefited and who paid the cost.": "../audio/heart/fd9c717b83.mp3", "Tomatoes first grew in the Americas. Before 1492, there were no tomatoes in Italy. Today, tomato sauce is famous in Italian cooking. Let's reason: the Columbian Exchange changed food far from where it began. Now try potatoes: they came from the Andes, the Inca homeland, and became a main food in Ireland and much of Europe.": "../audio/heart/fade593440.mp3", "Spanish soldiers called conquistadors took over huge Indigenous empires. Hernán Cortés and thousands of Indigenous allies captured Tenochtitlan in 1521, and Francisco Pizarro attacked the Inca Empire in 1532. Indigenous people resisted in many ways: Taíno leaders like Hatuey and Enriquillo fought back, and the Calusa of Florida drove off Juan Ponce de León in 1521. In 1565, Pedro Menéndez de Avilés founded St. Augustine, Florida, on land where the Timucua people lived, and Africans, both free and enslaved, were among its first settlers. St. Augustine is the oldest continuously inhabited city founded by Europeans in the continental United States.": "../audio/heart/dfd42e8275.mp3", "How could a few hundred Spanish soldiers defeat empires of millions? I list the causes: steel weapons and horses; thousands of Indigenous allies who wanted to escape Mexica rule; and smallpox, which had already killed many people. One cause alone does not explain it. Historians look for several causes working together.": "../audio/heart/ef72a94a2a.mp3", "Let's sort the causes of the fall of Tenochtitlan: one, Spanish steel weapons and horses; two, tens of thousands of Indigenous allies, such as the Tlaxcalans; three, a smallpox outbreak in 1520. Which cause would Spanish writers talk about most? Their own weapons and courage. Which causes are often left out? The allies and the disease. Asking whose story is told changes what we think happened.": "../audio/heart/2cc426cea4.mp3", "Columbus wrote on October 12: They should be good servants and of quick intelligence, since I see that they very soon say all that is said to them, and I believe that they would easily be made Christians. On October 14 he wrote: With fifty men they can all be subjugated and made to do what is required of them. Word help: servants are people who work for others. Subjugated means brought under control by force.": "../audio/heart/dd87ec2aac.mp3", "Christopher Columbus. A skilled sailor from Genoa who made four voyages across the Atlantic for Spain. He also enslaved Taíno people and ruled Hispaniola so harshly that Spain removed him as governor in 1500. He believed he had reached Asia.": "../audio/heart/bc5e2ca812.mp3", "Hatuey. A Taíno cacique from Hispaniola who crossed to Cuba to warn people about the Spanish. He led resistance there until Spanish soldiers captured and executed him. Today he is honored in Cuba as a hero of resistance.": "../audio/heart/e094c900e7.mp3", "Enriquillo. A Taíno cacique on Hispaniola who led resistance from the mountains from 1519 to 1533. In the end, Spain signed a peace agreement with him, one of the few times it did.": "../audio/heart/77b87cd21d.mp3", "Bartolomé de las Casas. A Spanish priest who at first held Taíno workers himself, then changed his mind and spent about 50 years speaking out against cruelty to Indigenous people. Early on, he suggested using enslaved Africans instead. Later he wrote that he deeply regretted it, because their enslavement was just as wrong.": "../audio/heart/b88e844b88.mp3", "Estevanico (Esteban). An enslaved man from Azemmour, Morocco, who landed in Florida in 1528 with a Spanish expedition. He was one of only four survivors who crossed Texas and the Southwest to Mexico City with Cabeza de Vaca, learning Indigenous languages and serving as a guide and translator.": "../audio/heart/5a7abe57c7.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["Taíno", "Caribbean Indigenous people"], ["Hatuey", "Taíno leader who resisted in Cuba"], ["cacique", "Taíno village leader"], ["Columbian Exchange", "two-way movement after 1492"], ["St. Augustine", "founded in Florida in 1565"]], [["immunity", "body's protection from disease"], ["smallpox", "disease that killed millions"], ["potatoes", "crop from the Andes"], ["horses", "animal brought by Europeans"], ["conquest", "taking control by force"]], [["Las Casas", "priest who spoke against cruelty"], ["Estevanico", "Moroccan guide across the Southwest"], ["Columbus", "sailor who enslaved Taíno people"], ["Calusa", "Florida nation that resisted Spain"], ["Enriquillo", "Taíno leader who won peace"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Ship's Lookout", "Map Reader", "Source Detective", "Master Historian"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

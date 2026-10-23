@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 5 Social Studies Checkpoint | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 5</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 1: First Steps &bull; Week 5 &bull; Social Studies Checkpoint</span>
+  <h1>Social Studies Checkpoint: Unit 1</h1>
+  <h2>Sources, great societies before 1492, and the meeting of worlds: show what you know, with evidence</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Show what you remember about sources, artifacts and oral history (Week 1)</li><li>Revisit Cahokia, Chaco Canyon, Mesa Verde and the Haudenosaunee (Week 2)</li><li>Return to Tenochtitlan, the Inca roads, the Pacific Northwest and West Africa (Week 3)</li><li>Weigh who benefited and who paid the cost when worlds met (Week 4)</li><li>Beat the Boss Battle by comparing sources and evidence across the whole unit</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 1 to 4 and what you are still unsure about. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>📜 Week 1: How Do We Know About the Past?</h2>
+<p>Primary and secondary sources, artifacts, oral history, and the people who saved stories others left out.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c01_s0" data-pts="5" data-logic="The guide was not there when the pot was made. She studied it later, so her booklet is a secondary source. The pot itself is the artifact.">
+    <span class="pts">+5</span>
+    <p class="qtext">A museum guide writes a booklet in 2022 about a clay pot made centuries ago. The booklet is a&hellip;</p>
+    <div class="opts">
+      <button class="opt">Primary source</button>
+      <button class="opt" data-c="1">Secondary source</button>
+      <button class="opt">Artifact</button>
+      <button class="opt">Oral history</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s0" data-pts="5" data-ans="February|Feb" data-logic="Woodson chose February because both Douglass and Lincoln celebrated birthdays in that month.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Woodson placed his history week in the month of ____ to honor the birthdays of Frederick Douglass and Abraham Lincoln:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s0" data-pts="5" data-logic="Aaron Anthony, who enslaved Douglass&#x27;s family, kept the record, but young Frederick was never allowed to see it. It is a primary source, made at the time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Douglass wrote in 1845 that he never saw a record of his birth. A record was found in the 1900s. Was Douglass wrong?</p>
+    <div class="opts">
+      <button class="opt">Yes, because the record existed all along</button>
+      <button class="opt">Yes, because enslavers shared all their records</button>
+      <button class="opt">No, because the record is only a secondary source</button>
+      <button class="opt" data-c="1">No, it existed, but he was never shown it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s0" data-pts="5" data-logic="Fort Mose was the first legal free Black town in what is now the U.S. Its artifacts tell the story of the people who lived there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why are the artifacts found at Fort Mose so important?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They show daily life in a free Black town</button>
+      <button class="opt">They prove Fort Mose was a gold mine</button>
+      <button class="opt">They show it was built in the 1990s</button>
+      <button class="opt">They came from a volcano long ago</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s0" data-pts="5" data-logic="Schomburg collected books, letters and art by people of African descent. His collection became the Schomburg Center in New York.">
+    <span class="pts">+5</span>
+    <p class="qtext">Arturo Schomburg spent his life doing what?</p>
+    <div class="opts">
+      <button class="opt">Digging up ancient mounds in Illinois</button>
+      <button class="opt">Weaving robes from mountain goat wool</button>
+      <button class="opt" data-c="1">Collecting works by people of African descent</button>
+      <button class="opt">Mapping roads in the Andes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c01_s1" data-pts="5" data-logic="Layers build up over time, so a layer underneath is usually older than the layer above it.">
+    <span class="pts">+5</span>
+    <p class="qtext">An archaeologist finds a coin in a middle layer of a dig. What can she say about objects in the layer <b>below</b> it?</p>
+    <div class="opts">
+      <button class="opt">They are probably newer than the coin</button>
+      <button class="opt">They must be the same age as the coin</button>
+      <button class="opt" data-c="1">They are probably older than the coin</button>
+      <button class="opt">They were placed there by the coin's owner</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s1" data-pts="5" data-ans="perspective|point of view|viewpoint|perspectives" data-logic="A perspective is a point of view shaped by who a person is and what they experienced.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two people describe the same storm in different ways because each has a different ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s1" data-pts="5" data-logic="The Two Row Wampum records an agreement with Dutch traders in the early 1600s: two boats traveling side by side.">
+    <span class="pts">+5</span>
+    <p class="qtext">Haudenosaunee keepers explain that the Two Row Wampum records an agreement with whom?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Dutch traders</button>
+      <button class="opt">Spanish soldiers</button>
+      <button class="opt">French monks</button>
+      <button class="opt">Mexica merchants</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s1" data-pts="5" data-logic="Artifacts found at the village itself back up the oral history. The other items were made later or somewhere else.">
+    <span class="pts">+5</span>
+    <p class="qtext">An elder says her grandmother's village grew corn. Which find would best <b>corroborate</b> her story?</p>
+    <div class="opts">
+      <button class="opt">A cartoon about farming made last year</button>
+      <button class="opt">A photo of a cornfield in a different state</button>
+      <button class="opt">A cookbook printed in 2024 in another city</button>
+      <button class="opt" data-c="1">Corn cobs and a grinding stone dug up there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s1" data-pts="5" data-logic="Hurston traveled the South and recorded the tales and songs people told her, so her book is first-hand evidence of them. Not every book is a primary source.">
+    <span class="pts">+5</span>
+    <p class="qtext">Is Hurston's <i>Mules and Men</i> a primary source about Southern folktales of her time?</p>
+    <div class="opts">
+      <button class="opt">Yes, because every printed book is a primary source</button>
+      <button class="opt">No, because it was written centuries after the tales</button>
+      <button class="opt" data-c="1">Yes, because she heard and wrote them down herself</button>
+      <button class="opt">No, because folktales can never be evidence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c01_s2" data-pts="5" data-logic="Douglass wrote his 1845 book about his own experiences, so it is a primary source. The others were made later by people studying him.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a <b>primary</b> source about Frederick Douglass's life?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">His own 1845 book about his life</button>
+      <button class="opt">A historian's 1980 book about him</button>
+      <button class="opt">A website about him from last year</button>
+      <button class="opt">A recent movie about his life</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s2" data-pts="5" data-logic="Words change over time. Historians keep names as they were, but use today&#x27;s respectful words in their own speech.">
+    <span class="pts">+5</span>
+    <p class="qtext">A historian quotes the name &ldquo;Negro History Week&rdquo; but says &ldquo;Black&rdquo; when speaking. Why?</p>
+    <div class="opts">
+      <button class="opt">She thinks the old name was always an insult</button>
+      <button class="opt">She does not know the week's real name</button>
+      <button class="opt" data-c="1">She keeps the historical name but uses today's words</button>
+      <button class="opt">She wants to change what Woodson wrote</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c03_s2" data-pts="5" data-ans="Mose" data-logic="Fort Mose, near St. Augustine, Florida, was the first legal free Black town in what is now the United States.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Archaeologists dug at Fort ____, near St. Augustine, the first legal free Black town in what is now the U.S.:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s2" data-pts="5" data-logic="Haudenosaunee wampum keepers speak the meaning of the belts at councils, so each new generation learns it. That is oral history.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Two Row Wampum has no written words. How do people today still know what it means?</p>
+    <div class="opts">
+      <button class="opt">A Dutch trader's diary explains every bead</button>
+      <button class="opt" data-c="1">Keepers have passed its meaning down by speaking it</button>
+      <button class="opt">The beads spell out its meaning in English letters</button>
+      <button class="opt">Archaeologists dated it with tree rings</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s2" data-pts="5" data-logic="Woodson worked in coal mines, started high school at about 20, and later earned a Ph.D. in history from Harvard.">
+    <span class="pts">+5</span>
+    <p class="qtext">What makes Carter G. Woodson's own education story remarkable?</p>
+    <div class="opts">
+      <button class="opt">He was born rich and never had to work a day</button>
+      <button class="opt">He never went to any school in his whole life</button>
+      <button class="opt">He went to school only as a child in Puerto Rico</button>
+      <button class="opt" data-c="1">He began high school at 20 and later earned a Ph.D.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>⛰️ Week 2: Life in America Before 1492</h2>
+<p>Cahokia, the Ancestral Puebloans, the Haudenosaunee and the Great Law of Peace, and trade across a continent.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c11_s0" data-pts="5" data-logic="Millions of people lived in North America in hundreds of nations that spoke hundreds of languages.">
+    <span class="pts">+5</span>
+    <p class="qtext">Before 1492, how many people lived in North America?</p>
+    <div class="opts">
+      <button class="opt">A few hundred, in one nation</button>
+      <button class="opt" data-c="1">Millions, in hundreds of nations</button>
+      <button class="opt">Nobody lived there yet</button>
+      <button class="opt">About fifty families</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s0" data-pts="5" data-ans="Mississippian|Mississippians" data-logic="Cahokia was built by Mississippian people, named for the Mississippi River valley where they lived.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Cahokia, near present-day St. Louis, was built by ____ people:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s0" data-pts="5" data-logic="Monks Mound was named for French monks who lived near it in the 1800s, long after the builders.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where does the name &ldquo;Monks Mound&rdquo; come from?</p>
+    <div class="opts">
+      <button class="opt">The builders' own word for their city</button>
+      <button class="opt">A Spanish explorer who climbed it in 1492</button>
+      <button class="opt">A poem written by Longfellow</button>
+      <button class="opt" data-c="1">French monks who lived nearby in the 1800s</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="The center stands for the Onondaga, who keep the council fire of the confederacy.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Hiawatha Belt has a tree or heart in the center. Which nation does it stand for?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Onondaga</button>
+      <button class="opt">Tuscarora</button>
+      <button class="opt">Wendat</button>
+      <button class="opt">Ojibwe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s0" data-pts="5" data-logic="Cahokia had no copper of its own. It traveled from far to the north, which is evidence of a trade network.">
+    <span class="pts">+5</span>
+    <p class="qtext">Copper found at Cahokia came mostly from around Lake Superior. What is the best explanation?</p>
+    <div class="opts">
+      <button class="opt">Cahokia had its own copper mine</button>
+      <button class="opt">European ships brought it before 1492</button>
+      <button class="opt" data-c="1">People traded it over long distances</button>
+      <button class="opt">The copper formed inside Cahokia's mounds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c11_s1" data-pts="5" data-logic="House floors show where people lived, and tools and corn show they farmed. No Europeans reached Cahokia before 1492.">
+    <span class="pts">+5</span>
+    <p class="qtext">Archaeologists found house floors, tools and corn at Cahokia. What is the best inference?</p>
+    <div class="opts">
+      <button class="opt">The city was used only for ceremonies</button>
+      <button class="opt">Nobody lived there until the 1600s</button>
+      <button class="opt" data-c="1">Many people lived and farmed there</button>
+      <button class="opt">The builders bought their corn from Europe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s1" data-pts="5" data-ans="Longfellow" data-logic="Longfellow was an outsider whose poem mixed the Haudenosaunee leader with Ojibwe stories, so it is a weak source about Hiawatha.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The poet whose 1855 <i>Song of Hiawatha</i> mixed up Haudenosaunee and Ojibwe stories was Henry Wadsworth ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s1" data-pts="5" data-logic="Anasazi is a Navajo word, not a word from the builders&#x27; descendants. Many Pueblo people prefer Ancestral Puebloans.">
+    <span class="pts">+5</span>
+    <p class="qtext">Some older books call the builders of Chaco Canyon the &ldquo;Anasazi.&rdquo; Where does that word come from?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Navajo language</button>
+      <button class="opt">The Hopi people's own word</button>
+      <button class="opt">A Spanish governor's report</button>
+      <button class="opt">Longfellow's poem</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s1" data-pts="5" data-logic="Jigonsaseh was the first to accept the message. She is honored as the Mother of Nations.">
+    <span class="pts">+5</span>
+    <p class="qtext">In Haudenosaunee tradition, who was the <b>first</b> person to accept the Peacemaker's message?</p>
+    <div class="opts">
+      <button class="opt">Hiawatha</button>
+      <button class="opt">Longfellow</button>
+      <button class="opt">Pachacuti</button>
+      <button class="opt" data-c="1">Jigonsaseh</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s1" data-pts="5" data-logic="Both finds came from Pueblo Bonito in Chaco Canyon, and both came from lands far to the south.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scarlet macaw bones and traces of cacao were both found at which site?</p>
+    <div class="opts">
+      <button class="opt">Monks Mound</button>
+      <button class="opt" data-c="1">Pueblo Bonito</button>
+      <button class="opt">The Hopewell mounds</button>
+      <button class="opt">Cliff Palace</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c11_s2" data-pts="5" data-logic="Estimates range from about the 1100s to the 1500s. Most place it before Europeans began coming regularly in the early 1600s.">
+    <span class="pts">+5</span>
+    <p class="qtext">Scholars give different dates for when the Great Law began. What do <b>most</b> of their estimates agree on?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It began before Europeans came regularly</button>
+      <button class="opt">It began in exactly the year 1776, in a town</button>
+      <button class="opt">It began soon after Columbus sailed in 1492</button>
+      <button class="opt">It was first written down in a printed book</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s2" data-pts="5" data-ans="Woodhenge|Wood henge|Woodhenges" data-logic="Archaeologists found rings of post holes, now called Woodhenge, that tracked the sun like a calendar.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Cahokia's circles of posts that lined up with the sunrise on special days are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s2" data-pts="5" data-logic="Longfellow mixed the Haudenosaunee leader with Ojibwe stories. That is why the Haudenosaunee&#x27;s own keepers are the better source.">
+    <span class="pts">+5</span>
+    <p class="qtext">Longfellow named his hero Hiawatha, but many stories in his poem came from which other nation?</p>
+    <div class="opts">
+      <button class="opt">Mohawk</button>
+      <button class="opt">Hopi</button>
+      <button class="opt" data-c="1">Ojibwe</button>
+      <button class="opt">Wendat</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s2" data-pts="5" data-logic="Burying weapons under the Tree of Peace showed that the nations agreed to stop fighting each other.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the story of the Great Law, weapons were buried under the Great White Pine. What did that stand for?</p>
+    <div class="opts">
+      <button class="opt">Hiding weapons from European traders</button>
+      <button class="opt" data-c="1">Ending war between the nations</button>
+      <button class="opt">Marking the grave of a great chief</button>
+      <button class="opt">Storing hunting tools for the winter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s2" data-pts="5" data-logic="The two time spans overlap from about 1050 to 1150, so both places were busy at the same time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Cahokia was at its height about 1050&ndash;1200. Chaco's great houses were built about 850&ndash;1150. What does that tell us?</p>
+    <div class="opts">
+      <button class="opt">Chaco was built after Columbus arrived</button>
+      <button class="opt">Cahokia was empty before Chaco was begun</button>
+      <button class="opt">The two were built 1,000 years apart</button>
+      <button class="opt" data-c="1">Both places were thriving around 1100</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🐪 Week 3: Cities, Roads and Kingdoms</h2>
+<p>Tenochtitlan, the Inca roads, Pacific Northwest nations, and the West African empires of Ghana, Mali and Songhai.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c21_s0" data-pts="5" data-logic="An island city needs a way to reach land and clean drinking water. The Mexica built causeways to the shore and an aqueduct that carried fresh water from springs.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Mexica built Tenochtitlan on an island in Lake Texcoco. Which problem did that location create?</p>
+    <div class="opts">
+      <button class="opt">Too little sunlight for growing corn</button>
+      <button class="opt" data-c="1">Reaching the shore and getting fresh water</button>
+      <button class="opt">No stone for building temples</button>
+      <button class="opt">Too far from the ocean for salmon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s0" data-pts="5" data-ans="Cairo" data-logic="Mansa Musa visited Cairo in 1324, and his gifts of gold made its value fall there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On his way to Mecca, Mansa Musa passed through the Egyptian city of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s0" data-pts="5" data-logic="Al-Umari wrote years later from other people&#x27;s reports. Checking other sources helps corroborate the details.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why would a historian look for a second source about Mansa Musa's 1324 visit, besides al-Umari's?</p>
+    <div class="opts">
+      <button class="opt">Because al-Umari lived far away in Timbuktu</button>
+      <button class="opt">Because gold prices in Egypt never changed</button>
+      <button class="opt">Because al-Umari was Mansa Musa's own son</button>
+      <button class="opt" data-c="1">Because al-Umari heard it secondhand, years later</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s0" data-pts="5" data-logic="1324 minus 1235 is 89, so the events are about 90 years apart.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mali was founded about 1235. Mansa Musa made his pilgrimage in 1324. About how far apart are these events?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">About 90 years</button>
+      <button class="opt">About 9 years</button>
+      <button class="opt">About 900 years</button>
+      <button class="opt">About 300 years</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s0" data-pts="5" data-logic="Jennie Thlunaut was a Tlingit weaver from Klukwan, Alaska, who taught younger weavers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jennie Thlunaut was a master Chilkat weaver from which nation?</p>
+    <div class="opts">
+      <button class="opt">Mexica</button>
+      <button class="opt">Onondaga</button>
+      <button class="opt" data-c="1">Tlingit</button>
+      <button class="opt">Taíno</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c21_s1" data-pts="5" data-logic="Canada banned the potlatch for those years, but many families kept it alive, and it is still practiced today.">
+    <span class="pts">+5</span>
+    <p class="qtext">From 1884 to 1951, what did the Canadian government ban?</p>
+    <div class="opts">
+      <button class="opt">Salmon fishing</button>
+      <button class="opt">Cedar canoes</button>
+      <button class="opt" data-c="1">The potlatch</button>
+      <button class="opt">Carving with tools</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s1" data-pts="5" data-ans="chasquis|chasqui|chaskis|chaski" data-logic="Chasquis ran in relays, each passing the message to the next runner.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Inca relay runners who carried messages along the roads were called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s1" data-pts="5" data-logic="Historians estimate 200,000 or more people may have lived there, making it one of the world&#x27;s great cities.">
+    <span class="pts">+5</span>
+    <p class="qtext">Historians estimate that about how many people may have lived in Tenochtitlan at its height?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">200,000 or more</button>
+      <button class="opt">About 200</button>
+      <button class="opt">About 2,000</button>
+      <button class="opt">More than 20 million</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s1" data-pts="5" data-logic="Griots are West African oral historians who pass down history like Sundiata&#x27;s through speech and song.">
+    <span class="pts">+5</span>
+    <p class="qtext">How has Sundiata Keita's life story been kept for centuries?</p>
+    <div class="opts">
+      <button class="opt">By Spanish priests, in journals</button>
+      <button class="opt">By wampum keepers, in belts</button>
+      <button class="opt">By archaeologists, in layers</button>
+      <button class="opt" data-c="1">By griots, through speech and song</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s1" data-pts="5" data-logic="Scholars in Timbuktu studied and copied books on law, math, astronomy and medicine. The manuscripts are the evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Thousands of handwritten manuscripts are still kept in Timbuktu. What do they show?</p>
+    <div class="opts">
+      <button class="opt">Nobody in West Africa could read</button>
+      <button class="opt" data-c="1">Timbuktu was a real center of learning</button>
+      <button class="opt">The books all came from Europe</button>
+      <button class="opt">Timbuktu was founded in 1992</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c21_s2" data-pts="5" data-logic="Families who held potlatches in secret passed down the memory. Their oral histories are the evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">How do historians know that families kept holding potlatches during Canada's ban?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">From the oral histories of those families</button>
+      <button class="opt">From photos taken by Spanish soldiers</button>
+      <button class="opt">From al-Umari's book about Cairo</button>
+      <button class="opt">From tree rings in cedar poles</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s2" data-pts="5" data-ans="Cusco|Cuzco|Qosqo" data-logic="Pachacuti turned a small kingdom around Cusco into a large empire.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Inca city at the center of Pachacuti's growing empire was ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s2" data-pts="5" data-logic="The desert had salt but no gold, and the south had gold but little salt. People needed salt for health and to keep food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Gold came from the south and salt from the Sahara. Why did each side want to trade?</p>
+    <div class="opts">
+      <button class="opt">Both sides already had too much gold</button>
+      <button class="opt">Salt was worth nothing to people in the south</button>
+      <button class="opt" data-c="1">Each side had what the other needed</button>
+      <button class="opt">A ruler in Europe ordered them to trade</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s2" data-pts="5" data-logic="One of his giant canoe sculptures stands at the Vancouver airport in Canada.">
+    <span class="pts">+5</span>
+    <p class="qtext">Haida artist Bill Reid made a huge sculpture of a canoe full of figures. Where does it stand?</p>
+    <div class="opts">
+      <button class="opt">In a Timbuktu library</button>
+      <button class="opt" data-c="1">At the Vancouver airport</button>
+      <button class="opt">In Mexico City's plaza</button>
+      <button class="opt">In St. Augustine's fort</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s2" data-pts="5" data-logic="Songhai ended in 1591. Mali was founded about 1235, Mansa Musa&#x27;s pilgrimage was in 1324, and Columbus sailed in 1492.">
+    <span class="pts">+5</span>
+    <p class="qtext">Songhai, the last and largest of the three West African empires, ended in which year?</p>
+    <div class="opts">
+      <button class="opt">1324</button>
+      <button class="opt">1235</button>
+      <button class="opt">1492</button>
+      <button class="opt" data-c="1">1591</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>⛵ Week 4: When Worlds Met</h2>
+<p>The Taíno and Columbus, the Columbian Exchange, conquest and resistance, and the founding of St. Augustine.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c31_s0" data-pts="5" data-logic="Columbus made four voyages. His first one, in 1492, used three ships: the Niña, the Pinta and the Santa María.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many voyages across the Atlantic did Columbus make for Spain?</p>
+    <div class="opts">
+      <button class="opt">One</button>
+      <button class="opt">Three</button>
+      <button class="opt" data-c="1">Four</button>
+      <button class="opt">Two</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s0" data-pts="5" data-ans="conquest|conquests" data-logic="Conquest means taking control by force. Cortés and thousands of Indigenous allies captured Tenochtitlan in 1521.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Taking control of a place and its people by force, as Spain did at Tenochtitlan in 1521, is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s0" data-pts="5" data-logic="Tens of thousands of Indigenous allies helped defeat the Mexica, but Spanish writers often focused on themselves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Spanish writers praised their own courage at Tenochtitlan. Which cause did they often leave out?</p>
+    <div class="opts">
+      <button class="opt">The steel weapons the Spanish carried</button>
+      <button class="opt">The horses the Spanish rode into battle</button>
+      <button class="opt">The bravery of Cortés and his soldiers</button>
+      <button class="opt" data-c="1">The Indigenous allies, like the Tlaxcalans</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s0" data-pts="5" data-logic="Estevanico, from Azemmour, Morocco, was enslaved and came with a Spanish expedition.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Estevanico first arrive in Florida in 1528?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">As an enslaved man on a Spanish expedition</button>
+      <button class="opt">As the new Spanish governor of Hispaniola</button>
+      <button class="opt">As a Taíno cacique leading a canoe trip</button>
+      <button class="opt">As a Mexica trader looking for copper</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s0" data-pts="5" data-logic="Corn first grew in the Americas and went out to the world. Horses came from Europe to the Americas.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair shows that the Columbian Exchange moved things in <b>both</b> directions?</p>
+    <div class="opts">
+      <button class="opt">Horses and cattle both went to Europe</button>
+      <button class="opt">Corn and potatoes both came to the Americas</button>
+      <button class="opt" data-c="1">Corn went to Europe; horses came to the Americas</button>
+      <button class="opt">Wheat and coffee both went to Europe</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c31_s1" data-pts="5" data-logic="Borrowed words show Europeans learned from the Taíno, and that Taíno culture lasted.">
+    <span class="pts">+5</span>
+    <p class="qtext">The English words hammock, canoe and hurricane come from the Taíno language. What does that show?</p>
+    <div class="opts">
+      <button class="opt">The Taíno spoke English in 1492</button>
+      <button class="opt">Columbus invented these words</button>
+      <button class="opt" data-c="1">Europeans learned from Taíno culture</button>
+      <button class="opt">Spain had the first hurricanes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s1" data-pts="5" data-ans="Hispaniola" data-logic="Columbus ruled Hispaniola so harshly that Spain removed him as governor in 1500 and sent him home in chains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Spain removed Columbus as governor of the island of ____ in 1500 because he ruled so harshly:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s1" data-pts="5" data-logic="Menéndez de Avilés founded St. Augustine on Timucua land in 1565.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who founded St. Augustine, Florida, in 1565?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Pedro Menéndez de Avilés</button>
+      <button class="opt">Juan Ponce de León</button>
+      <button class="opt">Hernán Cortés</button>
+      <button class="opt">Francisco Pizarro</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s1" data-pts="5" data-logic="A writer&#x27;s purpose shapes a source. Columbus wanted his sponsors to see the voyage would pay off.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus wrote his journal for the king and queen who paid for his trip. How might that shape what he wrote?</p>
+    <div class="opts">
+      <button class="opt">He wanted to tell the Taíno side fairly</button>
+      <button class="opt">He wanted to warn other sailors away</button>
+      <button class="opt">He had no reason to choose his words</button>
+      <button class="opt" data-c="1">He wanted the voyage to sound worth the money</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s1" data-pts="5" data-logic="Hatuey crossed from Hispaniola to Cuba to warn people about the Spanish and led resistance there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Today, where is Hatuey honored as a hero of resistance?</p>
+    <div class="opts">
+      <button class="opt">Spain</button>
+      <button class="opt" data-c="1">Cuba</button>
+      <button class="opt">Morocco</button>
+      <button class="opt">Peru</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c31_s2" data-pts="5" data-logic="Las Casas changed his mind about holding Taíno workers and spoke out for Indigenous people for about 50 years.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Bartolomé de las Casas spend about 50 years doing?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Speaking out against cruelty to Indigenous people</button>
+      <button class="opt">Sailing ships on all of Columbus's voyages</button>
+      <button class="opt">Leading the Spanish conquest of the Inca</button>
+      <button class="opt">Governing the new city of St. Augustine</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s2" data-pts="5" data-ans="Inca|Incan" data-logic="Pizarro attacked the Inca Empire in the Andes of South America in 1532.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Francisco Pizarro attacked the ____ Empire in 1532:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s2" data-pts="5" data-logic="Millions of Indigenous people died of new diseases, and millions of Africans were enslaved and taken by force.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who paid the greatest cost in the Columbian Exchange?</p>
+    <div class="opts">
+      <button class="opt">European farmers who got potatoes</button>
+      <button class="opt">Spanish rulers who got gold</button>
+      <button class="opt" data-c="1">Indigenous nations and enslaved Africans</button>
+      <button class="opt">Italian cooks who got tomatoes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s2" data-pts="5" data-logic="The Calusa resisted and drove off Ponce de León in 1521. St. Augustine was founded later, in 1565.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1521, Tenochtitlan fell. What happened in Florida that same year?</p>
+    <div class="opts">
+      <button class="opt">St. Augustine was founded</button>
+      <button class="opt" data-c="1">The Calusa drove off Ponce de León</button>
+      <button class="opt">Columbus first landed there</button>
+      <button class="opt">Estevanico reached Mexico City</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s2" data-pts="5" data-logic="Hatuey resisted in Cuba and was executed in 1512. Tenochtitlan fell in 1521, Pizarro attacked the Inca in 1532, and St. Augustine was founded in 1565.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these events happened <b>first</b>?</p>
+    <div class="opts">
+      <button class="opt">Cortés and his allies capture Tenochtitlan</button>
+      <button class="opt">St. Augustine is founded in Florida</button>
+      <button class="opt" data-c="1">Hatuey leads resistance in Cuba</button>
+      <button class="opt">Pizarro attacks the Inca Empire</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned across Unit 1, using evidence from all four weeks.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about Unit 1? Maybe: What did Cahokia's builders call their city? How do Taíno descendants keep their traditions alive? Write one question of your own on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore the National Park Service website for Chaco Culture National Historical Park or the Florida State Parks page for Fort Mose Historic State Park. Pick one object, building or photo and ask: who made it, when, and how do we know?</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>👑 Boss Battle: Unit 1 Boss Battle: Compare the Evidence</h2>
+<p>These questions connect all four weeks. Compare sources, ask whose voice is missing, and weigh who benefited and who paid the cost. Read every choice before you pick.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Cahokia&#x27;s builders left no books, so we rely on mounds and artifacts. Tenochtitlan has ruins plus accounts by Spanish writers, like those who described its fall, and they had their own point of view.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement best compares how we know about Cahokia and Tenochtitlan?</p>
+    <div class="opts">
+      <button class="opt">Both cities left diaries written by their own builders</button>
+      <button class="opt" data-c="1">Cahokia mostly from archaeology; Tenochtitlan also from Spanish writing</button>
+      <button class="opt">Cahokia from Spanish writing; Tenochtitlan only from legends</button>
+      <button class="opt">Neither city left any evidence we can study today</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Columbus wrote about the Taíno, and al-Umari wrote about Mansa Musa&#x27;s visit as people in Cairo saw it. Neither lets the people speak for themselves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus's journal and al-Umari's account of Mansa Musa have something in common. What is it?</p>
+    <div class="opts">
+      <button class="opt">Both were written by the people being described</button>
+      <button class="opt">Both are secondary sources from the 1900s</button>
+      <button class="opt">Both were kept by wampum keepers</button>
+      <button class="opt" data-c="1">Both describe people from an outsider's point of view</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Al-Umari was not in Cairo in 1324. He collected reports from people who were. The other two writers recorded what they knew directly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which source is <b>secondhand</b>, based on what other people told the writer?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Al-Umari's account of Mansa Musa in Cairo</button>
+      <button class="opt">Aaron Anthony's list of births</button>
+      <button class="opt">Douglass's 1845 book about his own life</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="In West Africa, some salt miners were enslaved while rulers taxed the trade. In the Caribbean, the Taíno were forced to search for gold for Spain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Think about the West African gold-salt trade and the Spanish gold search in the Caribbean. What pattern appears in both?</p>
+    <div class="opts">
+      <button class="opt">Workers got most of the wealth from the gold</button>
+      <button class="opt">Nobody was forced to work in either place at all</button>
+      <button class="opt" data-c="1">Rulers grew rich while forced workers did hard labor</button>
+      <button class="opt">The gold all stayed with the miners who dug it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s0" data-pts="5" data-logic="Families held potlatches during Canada&#x27;s ban, and Taíno descendants keep traditions alive today. Both are forms of resistance.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair shows people keeping their culture alive under pressure?</p>
+    <div class="opts">
+      <button class="opt">Longfellow's poem; Columbus's journal of 1492</button>
+      <button class="opt">Spanish steel weapons; Spanish horses in battle</button>
+      <button class="opt" data-c="1">Secret potlatches during the ban; Taíno traditions today</button>
+      <button class="opt">Cortés's march; Pizarro's attack on the Inca</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Haudenosaunee keepers and West African griots passed these histories down by speaking, singing and remembering.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Great Law of Peace and Sundiata Keita's story were both kept mainly by&hellip;</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Oral tradition passed down by trained keepers</button>
+      <button class="opt">Spanish priests who wrote them in journals</button>
+      <button class="opt">Photographs taken at the time</button>
+      <button class="opt">Poems written by outsiders</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Tree rings give the year a beam was cut, and deeper layers are usually older. Both are tools for dating evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Tree-ring dating at Chaco Canyon and reading layers at a dig both help answer which question?</p>
+    <div class="opts">
+      <button class="opt">What was each person thinking?</button>
+      <button class="opt">Who was the leader's best friend?</button>
+      <button class="opt">What did the builders call themselves?</button>
+      <button class="opt" data-c="1">When was this made or used?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Cahokia came from a later nation, Anasazi from Navajo, and Indios from Columbus. Historians always ask: whose word is this?">
+    <span class="pts">+5</span>
+    <p class="qtext">The names &ldquo;Cahokia,&rdquo; &ldquo;Anasazi&rdquo; and &ldquo;Indios&rdquo; share what problem?</p>
+    <div class="opts">
+      <button class="opt">They all come from the Taíno language of the Caribbean</button>
+      <button class="opt" data-c="1">Outsiders gave the names, not the people themselves</button>
+      <button class="opt">They were all chosen by Mansa Musa on his journey</button>
+      <button class="opt">They are the builders' own names for themselves</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Long before 1492, goods moved across North America and from West Africa to Egypt through trade.">
+    <span class="pts">+5</span>
+    <p class="qtext">Copper from around Lake Superior at Cahokia and Mali gold in Cairo both show what about the world before 1492?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Goods traveled far through trade networks</button>
+      <button class="opt">Each society made only its own goods</button>
+      <button class="opt">Only Europeans traded over long distances</button>
+      <button class="opt">Trade began after Columbus sailed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s1" data-pts="5" data-logic="The sign is true but leaves people out. Indigenous cities like Cahokia are much older, and the Timucua already lived there.">
+    <span class="pts">+5</span>
+    <p class="qtext">A sign says St. Augustine is the oldest continuously inhabited European-founded city in the continental U.S. What should a historian add?</p>
+    <div class="opts">
+      <button class="opt">It was the first city ever built in the Americas</button>
+      <button class="opt">Nobody lived in Florida before 1565</button>
+      <button class="opt" data-c="1">It was built on Timucua land, and Cahokia is far older</button>
+      <button class="opt">Columbus founded it on his first voyage</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Artifacts and oral history can tell the stories of people who did not write the official records.">
+    <span class="pts">+5</span>
+    <p class="qtext">Columbus's journal leaves out the Taíno's own voice. Which Week 1 method could help historians recover it?</p>
+    <div class="opts">
+      <button class="opt">Read more pages of Columbus's journal and nothing else</button>
+      <button class="opt" data-c="1">Study artifacts and Taíno descendants' oral history</button>
+      <button class="opt">Use only the records kept by Spanish rulers</button>
+      <button class="opt">Decide that no evidence about the Taíno can exist</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="The 2020 website was made much later by people studying older evidence. The others come from the time itself.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a <b>secondary</b> source about a Unit 1 topic?</p>
+    <div class="opts">
+      <button class="opt">Aaron Anthony's handwritten list of births</button>
+      <button class="opt">Columbus's journal from October 1492</button>
+      <button class="opt">A wampum belt made by the Haudenosaunee</button>
+      <button class="opt" data-c="1">A 2020 website about Mesa Verde's cliff homes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Woodson and Schomburg saved Black history that books left out, and Taíno descendants keep alive a culture that Columbus&#x27;s journal ignored.">
+    <span class="pts">+5</span>
+    <p class="qtext">Woodson, Schomburg and Taíno descendants keeping traditions alive all push back against which problem?</p>
+    <div class="opts">
+      <button class="opt">Too many sources agreeing about the past</button>
+      <button class="opt" data-c="1">Some peoples' stories being left out</button>
+      <button class="opt">Archaeologists digging too slowly</button>
+      <button class="opt">Wampum belts being too long to read</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="The Mexica built fields in a lake, and Northwest nations relied on salmon that returned each year. Both fit their land.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chinampas in Lake Texcoco and salmon runs in the Pacific Northwest both show what?</p>
+    <div class="opts">
+      <button class="opt">People could not live without big farms</button>
+      <button class="opt">Every society grew the same crops</button>
+      <button class="opt">Food came mostly from trade with Europe</button>
+      <button class="opt" data-c="1">People used their geography to get steady food</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s2" data-pts="5" data-logic="Every source has a perspective and a purpose. Asking who made it and who is missing helps you judge it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A Spanish soldier's report praises Spanish courage at Tenochtitlan. What should you ask <b>first</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Who wrote it, for whom, and what is left out?</button>
+      <button class="opt">How many pages long is the whole report?</button>
+      <button class="opt">Was it written in neat and careful handwriting?</button>
+      <button class="opt">Does it use many exciting and colorful words?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">History Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 10;
+const FINAL_INDEX = 9;
+const MODULE_ID = 'grade4-5-socialstudies-checkpoint1';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["encomienda", "Spanish system of forced labor"], ["Pueblo Bonito", "Chaco great house with hundreds of rooms"], ["Fort Mose", "free Black town near St. Augustine"], ["chasquis", "Inca relay runners who carried messages"], ["Aaron Anthony's list", "record of Douglass's birth in 1818"]], [["Carter G. Woodson", "coal miner who later earned a Ph.D."], ["Arturo Schomburg", "born in Puerto Rico, collected Black history"], ["al-Umari", "wrote about Mansa Musa in Cairo"], ["Longfellow", "1855 poem that mixed up Hiawatha's story"], ["Hernán Cortés", "led the Spanish attack on Tenochtitlan"]], [["Hiawatha Belt", "wampum showing the nations joined"], ["Timucua", "people whose land became St. Augustine"], ["Templo Mayor", "great temple in Tenochtitlan's center"], ["Cliff Palace", "Mesa Verde home with about 150 rooms"], ["Tlaxcalans", "Indigenous allies who fought beside Cortés"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["History Rookie", "Source Sleuth", "Evidence Expert", "Master Historian"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>
