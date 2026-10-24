@@ -1312,14 +1312,28 @@ function updateHud(){ document.getElementById('hudScore').textContent = displayS
 function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
 function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
 
-function speakText(text, btn){
-  if (!('speechSynthesis' in window)) { if (btn) btn.title = 'Speech not supported in this browser'; return; }
-  window.speechSynthesis.cancel();
+/* KCE read-aloud: recorded free voice (Heart); browser voice only as a backup */
+var KCE_CLIPS = {"place value": "../audio/heart/36a82c22a7.mp3", "digit": "../audio/heart/dcb93bd720.mp3", "standard form": "../audio/heart/a9f8e34b05.mp3", "expanded form": "../audio/heart/7eb2246dd1.mp3", "round": "../audio/heart/f0590a6dd3.mp3"};
+var _kceAud = null;
+function _kceBackup(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.classList.remove('speaking'); return; }
   const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
-  const u = new SpeechSynthesisUtterance(clean);
-  u.rate = 0.88; u.pitch = 1.05;
-  if (btn) { btn.classList.add('speaking'); u.onend = ()=>btn.classList.remove('speaking'); u.onerror = ()=>btn.classList.remove('speaking'); }
+  const u = new SpeechSynthesisUtterance(clean); u.rate = 0.88; u.lang = 'en-US';
+  u.onend = u.onerror = ()=>{ if (btn) btn.classList.remove('speaking'); };
   window.speechSynthesis.speak(u);
+}
+function speakText(text, btn){
+  if (_kceAud) { try { _kceAud.pause(); } catch(e){} _kceAud = null; }
+  if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch(e){} }
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  if (btn) btn.classList.add('speaking');
+  const f = KCE_CLIPS[text];
+  if (!f) { _kceBackup(text, btn); return; }
+  const a = new Audio(f); _kceAud = a; let done = false;
+  const end = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  a.onended = end;
+  a.onerror = ()=>{ if (!done) { done = true; _kceBackup(text, btn); } };
+  const p = a.play(); if (p && p.catch) p.catch(()=>{ if (!done) { done = true; _kceBackup(text, btn); } });
 }
 function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
 function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
