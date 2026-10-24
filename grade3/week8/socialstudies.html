@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 8 Social Studies: Land, Water and People | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 8</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 8 &bull; Social Studies</span>
+  <h1>Land, Water and People</h1>
+  <h2>See how rivers, coasts, mountains and deserts shape the way people live 🏞️</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do land and water shape where and how people live, and how can we care for the land?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do land and water shape where and how people live, and how can we care for the land?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with the Trading Post and Unit 1</li><li>Name landforms and bodies of water</li><li>See how land and weather shape homes and jobs</li><li>Be a Source Detective with a valley map</li><li>Meet Three Sisters farmers, John Muir, Charles Young and the Ahwahneechee</li><li>Then Match-Up, Type-It and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's remember Weeks 6 and 7 at Grandpa's Trading Post (needs, wants, goods and services) and a few ideas from Unit 1.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="On a rainy hike, staying dry keeps Theo safe. That makes the poncho a need. The toy compass is a want.">
+    <span class="pts">+5</span>
+    <p class="qtext">Rain is coming. Theo can buy a $4 poncho OR a $4 toy compass. Why is the poncho the smart pick?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It keeps him dry, so it is a need.</button>
+      <button class="opt">It costs more than the compass.</button>
+      <button class="opt">Ponchos are a service.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="Share" data-logic="Mia&#x27;s three jars are Save, Spend and Share. The Share jar is money to give to others.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Mia puts her money in three jars: Save, Spend and ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Grandpa does work for the hiker. Doing a service makes him a producer. The hiker is the consumer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Grandpa fixes a hiker's broken backpack strap. Here Grandpa is the ___.</p>
+    <div class="opts">
+      <button class="opt">consumer</button>
+      <button class="opt">raw material</button>
+      <button class="opt" data-c="1">producer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Their stick charts used sticks to show waves and shells to show islands.">
+    <span class="pts">+5</span>
+    <p class="qtext">Marshall Islands navigators made ocean maps from ___.</p>
+    <div class="opts">
+      <button class="opt">paper and ink</button>
+      <button class="opt" data-c="1">sticks and shells</button>
+      <button class="opt">clay and stone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Romana Acosta Bañuelos used her savings to start a tortilla factory in Los Angeles.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who started a tortilla factory in Los Angeles in 1949?</p>
+    <div class="opts">
+      <button class="opt">Joyce Chen</button>
+      <button class="opt" data-c="1">Romana Acosta Bañuelos</button>
+      <button class="opt">Maggie Lena Walker</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="The next best thing you give up is the opportunity cost. Theo gave up swimming.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo can help Grandpa OR go swimming. He helps Grandpa. Swimming was his next best choice. Swimming is his ___.</p>
+    <div class="opts">
+      <button class="opt">savings</button>
+      <button class="opt">raw material</button>
+      <button class="opt" data-c="1">opportunity cost</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Malone made Poro hair products. Her school trained beauty workers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Annie Turnbo Malone opened a school in St. Louis to train ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">beauty workers</button>
+      <button class="opt">bank tellers</button>
+      <button class="opt">park rangers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Ootah, Egingwah, Seegloo and Ooqueah were Inuit men from Greenland. Their knowledge made the trip possible.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who helped Matthew Henson's team travel on the Arctic sea ice?</p>
+    <div class="opts">
+      <button class="opt">Marshall Islands sailors</button>
+      <button class="opt">Chickasaw trail makers</button>
+      <button class="opt" data-c="1">Inuit men from Greenland</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="3|three|$3|3 dollars" data-logic="$8 minus $5 is $3. Theo has $3 left.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Theo has $8. He buys the $5 toy compass. He has $____ left.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="A consumer buys and uses goods and services. Farmers and drivers are producers.">
+    <span class="pts">+5</span>
+    <p class="qtext">At the Trading Post, a consumer is someone who ___.</p>
+    <div class="opts">
+      <button class="opt">grows the peanuts</button>
+      <button class="opt" data-c="1">buys and uses the goods</button>
+      <button class="opt">drives the delivery truck</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Her bank helped Black families save money, even small amounts, and buy homes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Maggie Lena Walker's St. Luke Penny Savings Bank helped Black families ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">save money and buy homes</button>
+      <button class="opt">grow cotton and corn</button>
+      <button class="opt">sell hair-care products</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Susan B. Anthony was arrested for voting. Women won the right to vote in 1920, after she died.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1872, Susan B. Anthony voted even though women were not allowed. What happened next?</p>
+    <div class="opts">
+      <button class="opt">She was elected mayor.</button>
+      <button class="opt">She won a prize.</button>
+      <button class="opt" data-c="1">She was arrested.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about land, water and the people who live there. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch a short video from Lesson Boosters about how geography shapes a community.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Communities and Geography | Learn how geography affects a community | Lesson Boosters</b> &mdash; Lesson Boosters - Kids Science and History Videos</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/K5KwEpoIs6c?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Communities and Geography | Learn how geography affects a community | Lesson Boosters" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for how life is different near an <b>ocean</b>, in the <b>mountains</b> and in a <b>desert</b>. Notice one job that fits each place. Then ask yourself: what are the land and water like where YOU live?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">geography<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;geography. The study of Earth\'s land, water, weather and people, and how they shape each other.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The study of Earth's land, water, weather and people, and how they shape each other.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">landform<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;landform. A natural shape of the land. Examples: a mountain, a valley, a plain.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A natural shape of the land. Examples: a mountain, a valley, a plain.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">coast<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;coast. Land right next to an ocean or sea.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Land right next to an ocean or sea.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">climate<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;climate. The usual weather in a place over many years. Example: Florida\'s climate is hot and wet.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The usual weather in a place over many years. Example: Florida's climate is hot and wet.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">natural resource<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;natural resource. Something from nature that people use. Examples: water, soil, trees, fish.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something from nature that people use. Examples: water, soil, trees, fish.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">conservation<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;conservation. Caring for nature and using it wisely, so it lasts.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Caring for nature and using it wisely, so it lasts.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">national park<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;national park. Land the country protects so everyone can enjoy it, now and later.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Land the country protects so everyone can enjoy it, now and later.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🏔️ Land and Water Shapes</h2>
+<div class="card card">
+<p><b>Geography</b> is the study of land, water, weather and people. A <b>landform</b> is a natural shape of the land. Mountains, valleys, plains and deserts are landforms. Rivers, lakes and oceans are bodies of water.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Geography is the study of land, water, weather and people. A landform is a natural shape of the land. Mountains, valleys, plains and deserts are landforms. Rivers, lakes and oceans are bodies of water.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I want to sort what I see. A mountain is very high, rocky land. A plain is wide, flat land. A desert gets very little rain. A river is fresh water that flows downhill. So first I ask: is it land or water? Then I name it.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I want to sort what I see. A mountain is very high, rocky land. A plain is wide, flat land. A desert gets very little rain. A river is fresh water that flows downhill. So first I ask: is it land or water? Then I name it.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Land and Water Words</h4><table><tr><th>Name</th><th>What it is like</th></tr><tr><td>Mountain</td><td>very high land with steep sides</td></tr><tr><td>Valley</td><td>low land between hills or mountains</td></tr><tr><td>Plain</td><td>wide, flat land</td></tr><tr><td>Desert</td><td>dry land with very little rain</td></tr><tr><td>River</td><td>fresh water that flows downhill</td></tr><tr><td>Coast</td><td>land next to the ocean</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Sort It</h4><p>Let's sort four words: <b>river, mountain, lake, plain</b>. Ask: is it land or water? A mountain and a plain are land, so they are <b>landforms</b>. A river and a lake are <b>bodies of water</b>. A lake is mostly still. A river flows.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s sort four words: river, mountain, lake, plain . Ask: is it land or water? A mountain and a plain are land, so they are landforms . A river and a lake are bodies of water . A lake is mostly still. A river flows.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="landform|land form" data-logic="A landform is a natural shape of the land. Mountains, valleys and plains are landforms.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A natural shape of the land, like a mountain, is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="A plain is wide, flat land. A mountain is high, and a valley is low land between mountains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which landform is wide and flat?</p>
+    <div class="opts">
+      <button class="opt">a mountain</button>
+      <button class="opt" data-c="1">a plain</button>
+      <button class="opt">a valley</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="A lake is water. A desert and a hill are landforms, which are land.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one is a body of water?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a lake</button>
+      <button class="opt">a desert</button>
+      <button class="opt">a hill</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="desert" data-logic="A desert is dry land with very little rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Dry land that gets very little rain is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="A valley is low land between hills or mountains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Low land between two mountains is a ___.</p>
+    <div class="opts">
+      <button class="opt">coast</button>
+      <button class="opt">plain</button>
+      <button class="opt" data-c="1">valley</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Water always flows downhill, so rivers run from high land to low land.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which way does river water flow?</p>
+    <div class="opts">
+      <button class="opt">uphill</button>
+      <button class="opt" data-c="1">downhill</button>
+      <button class="opt">in a circle</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="coast|coastline|shore|seashore" data-logic="The coast is the land right next to the ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Land right next to the ocean is the ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="Geography studies land, water, weather and people. History studies the past.">
+    <span class="pts">+5</span>
+    <p class="qtext">The study of land, water, weather and people is ___.</p>
+    <div class="opts">
+      <button class="opt">history</button>
+      <button class="opt" data-c="1">geography</button>
+      <button class="opt">math</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="Mountains are very high land. Plains are flat, and valleys are low.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the highest kind of landform?</p>
+    <div class="opts">
+      <button class="opt">a plain</button>
+      <button class="opt">a valley</button>
+      <button class="opt" data-c="1">a mountain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🏘️ Land Shapes How People Live</h2>
+<div class="card card-grass">
+<p>Long ago and today, many people live near <b>water</b>. Rivers give water to drink and to grow food. The land and the <b>climate</b> shape people's jobs, homes and clothes. People use <b>natural resources</b> like soil, trees and fish.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Long ago and today, many people live near water . Rivers give water to drink and to grow food. The land and the climate shape people\'s jobs, homes and clothes. People use natural resources like soil, trees and fish.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I look at a place and ask three questions. What is the land like? What is the weather like? What can people use there? A coast has fish, so many people fish. A plain has flat land and rich soil, so many people farm. Florida gets hurricanes, so many homes are built strong.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I look at a place and ask three questions. What is the land like? What is the weather like? What can people use there? A coast has fish, so many people fish. A plain has flat land and rich soil, so many people farm. Florida gets hurricanes, so many homes are built strong.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Places, Resources and Jobs</h4><table><tr><th>Place</th><th>Natural resources</th><th>Jobs people do</th></tr><tr><td>Coast</td><td>fish, beaches</td><td>fishing, boat building</td></tr><tr><td>Plain</td><td>flat land, rich soil</td><td>farming, ranching</td></tr><tr><td>Mountains</td><td>trees, rocks</td><td>cutting wood, mining</td></tr><tr><td>Desert</td><td>strong sun, little water</td><td>solar power, farming with river water</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Match the Job to the Land</h4><p>Mr. Diaz catches shrimp for a living. Does he live on a coast or in a desert? Shrimp live in the ocean, so he lives on a <b>coast</b>. Ms. Lee grows corn on wide, flat land with rich soil. That land is a <b>plain</b>. The land helped give each person their work.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Mr. Diaz catches shrimp for a living. Does he live on a coast or in a desert? Shrimp live in the ocean, so he lives on a coast . Ms. Lee grows corn on wide, flat land with rich soil. That land is a plain . The land helped give each person their work.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t21_s0" data-pts="5" data-logic="People need water to drink and to grow food. A river gives both.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why have many towns been built next to rivers?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Rivers give water for people and farms.</button>
+      <button class="opt">Rivers keep away all bad weather.</button>
+      <button class="opt">Rivers are always easy to cross.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s0" data-pts="5" data-ans="resources|resource" data-logic="Soil, trees, water and fish are natural resources. They come from nature and people use them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Things from nature that people use, like soil and trees, are natural ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="Fish live in the ocean, so fishing jobs are on the coast.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where would a fishing boat captain MOST likely live?</p>
+    <div class="opts">
+      <button class="opt">in a desert</button>
+      <button class="opt" data-c="1">on a coast</button>
+      <button class="opt">on a mountaintop</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="climate" data-logic="Climate is the usual weather over many years. Weather is what happens today.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The usual weather in a place over many years is its ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="Flat land with rich soil is great for growing crops, so farming fits best.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which job fits a plain with rich soil BEST?</p>
+    <div class="opts">
+      <button class="opt">fishing</button>
+      <button class="opt">mining</button>
+      <button class="opt" data-c="1">farming</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="The climate is cold, so people need warm clothes. The land and weather shape what people wear.">
+    <span class="pts">+5</span>
+    <p class="qtext">A town has very cold winters. What will people there need MOST?</p>
+    <div class="opts">
+      <button class="opt">thin sandals</button>
+      <button class="opt" data-c="1">warm coats</button>
+      <button class="opt">beach umbrellas</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t21_s2" data-pts="5" data-logic="Wood from trees is used to build houses and furniture.">
+    <span class="pts">+5</span>
+    <p class="qtext">Trees from a mountain forest are a natural resource. People use them to ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">build houses</button>
+      <button class="opt">catch fish</button>
+      <button class="opt">make salt water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s2" data-pts="5" data-ans="river|stream|creek" data-logic="A river is moving fresh water. It flows downhill to a lake or the ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Fresh water that flows downhill to a lake or the ocean is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Florida&#x27;s climate brings hurricanes with strong winds, so homes are built to stand up to them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why are many Florida homes built extra strong?</p>
+    <div class="opts">
+      <button class="opt">to hold up heavy snow</button>
+      <button class="opt">to keep out desert sand</button>
+      <button class="opt" data-c="1">to stand up to hurricanes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🌱 Caring for the Land</h2>
+<div class="card card-sky">
+<p>People also care for the land. This is called <b>conservation</b>. Haudenosaunee farmers plant corn, beans and squash together as the <b>Three Sisters</b>. The three plants help each other and keep the soil healthy.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;People also care for the land. This is called conservation . Haudenosaunee farmers plant corn, beans and squash together as the Three Sisters . The three plants help each other and keep the soil healthy.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>How can three plants help each other? I look at each one's job. The corn grows tall, so the bean vine can climb it like a pole. The beans help put plant food back into the soil. The squash has big leaves that shade the ground. Shade keeps the soil wet and blocks weeds. Each sister gives something to the others.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How can three plants help each other? I look at each one\'s job. The corn grows tall, so the bean vine can climb it like a pole. The beans help put plant food back into the soil. The squash has big leaves that shade the ground. Shade keeps the soil wet and blocks weeds. Each sister gives something to the others.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The Three Sisters Garden</h4><table><tr><th>Sister</th><th>Her job in the garden</th></tr><tr><td>🌽 Corn</td><td>grows tall, like a pole for the beans to climb</td></tr><tr><td>🫘 Beans</td><td>help put plant food (nitrogen) back into the soil</td></tr><tr><td>🎃 Squash</td><td>big leaves shade the soil, keep it wet and block weeds</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Think Like a Farmer</h4><p>A farmer plants only corn, year after year. Corn uses up plant food, so the soil wears out. What can the farmer add? <b>Beans</b>, because beans help put plant food back. That is conservation: using the land so it stays healthy for next year.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A farmer plants only corn, year after year. Corn uses up plant food, so the soil wears out. What can the farmer add? Beans , because beans help put plant food back. That is conservation: using the land so it stays healthy for next year.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="conservation" data-logic="Conservation means caring for nature and using it wisely, so it lasts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Caring for nature and using it wisely is called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="Corn grows tall and strong, so the bean vines climb up the corn stalks.">
+    <span class="pts">+5</span>
+    <p class="qtext">In a Three Sisters garden, what does the corn do for the beans?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It gives them a pole to climb.</button>
+      <button class="opt">It shades them from the sun.</button>
+      <button class="opt">It keeps their roots dry.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="The Three Sisters are corn, beans and squash, planted together.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which three plants are the Three Sisters?</p>
+    <div class="opts">
+      <button class="opt">rice, wheat and oats</button>
+      <button class="opt" data-c="1">corn, beans and squash</button>
+      <button class="opt">apples, pears and plums</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="squash" data-logic="Squash leaves are big and wide. They shade the soil so it stays wet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The big leaves of the ____ shade the soil.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="The Haudenosaunee homelands are in what is now New York and Canada. The Miccosukee live in Florida, and the Ancestral Puebloans lived in the Southwest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which nation's farmers plant the Three Sisters in what is now New York?</p>
+    <div class="opts">
+      <button class="opt">Miccosukee</button>
+      <button class="opt">Ancestral Puebloan</button>
+      <button class="opt" data-c="1">Haudenosaunee</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Turning off the water saves it. Using nature wisely is conservation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is an example of conservation?</p>
+    <div class="opts">
+      <button class="opt">leaving the water running</button>
+      <button class="opt" data-c="1">turning off water while brushing</button>
+      <button class="opt">throwing trash in a river</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="food|nutrients|nitrogen" data-logic="Beans help add plant food, called nitrogen, back into the soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Beans help put plant ____ back into the soil.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Shade keeps water in the soil and blocks sunlight that weeds need.">
+    <span class="pts">+5</span>
+    <p class="qtext">Shade from squash leaves helps the soil stay ___.</p>
+    <div class="opts">
+      <button class="opt">hard and full of rocks</button>
+      <button class="opt">dry and dusty</button>
+      <button class="opt" data-c="1">moist and free of weeds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="The plants help each other, and the beans put plant food back. So the soil stays healthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do the Three Sisters keep soil healthy year after year?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They help each other and feed the soil.</button>
+      <button class="opt">The farmer never waters the garden.</button>
+      <button class="opt">They grow only in the cold winter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🕵️ Source Detective: Read the Valley Map</h2>
+<p>Geographers use maps to see why people live where they do. Here is a practice map of a valley. Use the key, the north arrow and the notes to answer.</p>
+<div class="sourcebox"><h4>Map: Green River Valley (practice map)</h4><div><p><b>Practice Map: Green River Valley</b></p><table style="text-align:center;font-size:1.6rem;max-width:380px"><tr><th colspan="5" style="text-align:center">&#8593; N (north is at the top)</th></tr><tr><td>⛰️</td><td>⛰️</td><td>🌲</td><td>🌲</td><td>🌊</td></tr><tr><td>🏜️</td><td>💧</td><td>🏘️</td><td>🌾</td><td>🌊</td></tr><tr><td>🏜️</td><td>💧</td><td>🌾</td><td>🌾</td><td>⛵</td></tr></table><p><b>Map key:</b></p><ul><li>⛰️ = mountains</li><li>🌲 = forest</li><li>🏜️ = desert</li><li>💧 = Green River</li><li>🏘️ = town</li><li>🌾 = farm fields</li><li>🌊 = ocean</li><li>⛵ = fishing harbor</li></ul><p><b>Notes:</b> The Green River starts in the mountains and flows south. The desert in the west gets very little rain. The east gets plenty of rain.</p></div><div class="src">A practice map made for this KCE lesson.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Practice map of Green River Valley. North is at the top. The map has three rows of five squares. Top row, from west to east: mountains, mountains, forest, forest, ocean. Middle row: desert, river, town, farm fields, ocean. Bottom row: desert, river, farm fields, farm fields, fishing harbor. Notes: The Green River starts in the mountains and flows south. The desert in the west gets very little rain. The east gets plenty of rain.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Geographer</h4><p>A geographer reads the map in order. First the north arrow: north is at the top. Next the key, to name each symbol. Then the notes about rain and the river. Last I ask: where is the water? Where is the good land? That is where people will live and work.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="West is to the left. The square left of the town is the water drop, which is the Green River.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is directly west of the town?</p>
+    <div class="opts">
+      <button class="opt">the forest</button>
+      <button class="opt" data-c="1">the river</button>
+      <button class="opt">the ocean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s0" data-pts="5" data-logic="The town sits beside the river, so people have water to drink and to grow food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is the town a good place to live?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is right next to the river.</button>
+      <button class="opt">It is on the tallest mountain.</button>
+      <button class="opt">It is in the middle of the desert.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab3_s0" data-pts="5" data-ans="mountains|mountain" data-logic="Northwest is the top left corner. That square shows mountains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On this map, the landform in the northwest corner is the ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="The notes say the desert gets very little rain. Crops need water, so the desert is hardest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where on this map would it be hardest to grow food?</p>
+    <div class="opts">
+      <button class="opt">the farm fields</button>
+      <button class="opt">the land by the river</button>
+      <button class="opt" data-c="1">the desert</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="ocean|sea" data-logic="The harbor is in the bottom right corner. The ocean is right above it, so boats can sail out to fish.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The fishing harbor is right next to the ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The notes say the river starts in the mountains and flows south.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which way does the Green River flow?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">south</button>
+      <button class="opt">north</button>
+      <button class="opt">west</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="Trees grow in the forest. Wood from trees is a natural resource for building.">
+    <span class="pts">+5</span>
+    <p class="qtext">A builder needs wood for new homes. Which part of the map should she go to?</p>
+    <div class="opts">
+      <button class="opt">the desert</button>
+      <button class="opt">the ocean</button>
+      <button class="opt" data-c="1">the forest</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="fields|field" data-logic="The square right below the town shows wheat. The key says that means farm fields.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Directly south of the town are farm ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="The notes say the western desert gets very little rain, and crops need water. The ocean is in the east.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why are there no farm fields in the west?</p>
+    <div class="opts">
+      <button class="opt">The west is too close to the ocean.</button>
+      <button class="opt" data-c="1">The west is too dry for crops.</button>
+      <button class="opt">The west has too many towns.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🌎 Caretakers of the Land</h2>
+<p>Meet people who cared for the land. As you read, ask: Who lived on this land first? Who benefited, and who paid a cost?</p>
+<div class="peoplegrid"><div class="pcard"><h4>Haudenosaunee Three Sisters farmers</h4><div class="yrs">long ago to today</div><p>The Haudenosaunee are six nations: the Mohawk, Oneida, Onondaga, Cayuga, Seneca and Tuscarora. Their homelands are in what is now New York and Canada. Haudenosaunee women led the farming. Families still plant the Three Sisters today.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Haudenosaunee Three Sisters farmers. The Haudenosaunee are six nations: the Mohawk, Oneida, Onondaga, Cayuga, Seneca and Tuscarora. Their homelands are in what is now New York and Canada. Haudenosaunee women led the farming. Families still plant the Three Sisters today.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>John Muir</h4><div class="yrs">1838–1914</div><p>John Muir was born in Scotland and moved to Wisconsin as a boy. He loved the mountains of California. He wrote, "Everybody needs beauty as well as bread." He helped Yosemite become a <b>national park</b> in 1890. In 1892, he helped start the Sierra Club. He also wrote some unkind words about Indigenous people.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;John Muir. John Muir was born in Scotland and moved to Wisconsin as a boy. He loved the mountains of California. He wrote, \&quot;Everybody needs beauty as well as bread.\&quot; He helped Yosemite become a national park in 1890. In 1892, he helped start the Sierra Club. He also wrote some unkind words about Indigenous people.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>The Ahwahneechee people of Yosemite</h4><div class="yrs">long ago to today</div><p>Yosemite Valley was the home of the Ahwahneechee people long before it was a park. In 1851, armed men called the Mariposa Battalion came into the valley. They forced many Ahwahneechee people to leave. Later, park leaders also made Indigenous families move out. Early parks sometimes pushed Indigenous people off their lands. Their families still live nearby and still care for Yosemite.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The Ahwahneechee people of Yosemite. Yosemite Valley was the home of the Ahwahneechee people long before it was a park. In 1851, armed men called the Mariposa Battalion came into the valley. They forced many Ahwahneechee people to leave. Later, park leaders also made Indigenous families move out. Early parks sometimes pushed Indigenous people off their lands. Their families still live nearby and still care for Yosemite.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Charles Young</h4><div class="yrs">1864–1922</div><p>Charles Young was born enslaved in Kentucky. He grew up to be an Army officer. In 1903, he led Black soldiers called the <b>Buffalo Soldiers</b> in Sequoia National Park, California. He was the park's <b>acting superintendent</b>, the leader in charge. He was the first Black superintendent of a national park. His soldiers built a road so visitors could see the giant sequoia trees.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Charles Young. Charles Young was born enslaved in Kentucky. He grew up to be an Army officer. In 1903, he led Black soldiers called the Buffalo Soldiers in Sequoia National Park, California. He was the park\'s acting superintendent , the leader in charge. He was the first Black superintendent of a national park. His soldiers built a road so visitors could see the giant sequoia trees.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="pp1_s0" data-pts="5" data-ans="park" data-logic="In 1890, Yosemite became a national park. John Muir wrote and spoke to help make it happen.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">John Muir helped Yosemite become a national ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="The card says Haudenosaunee women led the farming.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who led the farming in Haudenosaunee communities?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">women</button>
+      <button class="opt">soldiers</button>
+      <button class="opt">park rangers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="The Ahwahneechee lived in Yosemite Valley long before it was a park.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who lived in Yosemite Valley before it was a park?</p>
+    <div class="opts">
+      <button class="opt">the Inuit people</button>
+      <button class="opt">the Buffalo Soldiers</button>
+      <button class="opt" data-c="1">the Ahwahneechee people</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="In 1903, Charles Young was the acting superintendent of Sequoia National Park. He was the first Black superintendent, or leader, of a national park.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Young was the first Black leader of ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a national park</button>
+      <button class="opt">the Sierra Club</button>
+      <button class="opt">a fishing harbor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="Soldiers|Soldier" data-logic="The Buffalo Soldiers were Black soldiers in the U.S. Army. Some of them protected national parks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Charles Young led soldiers called the Buffalo ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="Muir was born in Scotland and moved to Wisconsin as a boy. Charles Young was born in Kentucky.">
+    <span class="pts">+5</span>
+    <p class="qtext">John Muir was born in ___.</p>
+    <div class="opts">
+      <button class="opt">California</button>
+      <button class="opt" data-c="1">Scotland</button>
+      <button class="opt">Kentucky</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Some early parks made Indigenous families leave their homes. That was a real cost.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is an honest problem with some early national parks?</p>
+    <div class="opts">
+      <button class="opt">They had too many trees and rivers.</button>
+      <button class="opt">They were too far from the ocean.</button>
+      <button class="opt" data-c="1">They pushed Indigenous people off their lands.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="6|six" data-logic="The six nations are the Mohawk, Oneida, Onondaga, Cayuga, Seneca and Tuscarora.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Haudenosaunee are made up of ____ nations.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s2" data-pts="5" data-logic="Muir wrote, &quot;Everybody needs beauty as well as bread.&quot; Bread stands for food, a need.">
+    <span class="pts">+5</span>
+    <p class="qtext">John Muir wrote that everybody needs beauty as well as ___.</p>
+    <div class="opts">
+      <button class="opt">money</button>
+      <button class="opt" data-c="1">bread</button>
+      <button class="opt">sunshine</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="mountain|mountains" data-logic="A mountain is very high land with steep sides.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A very high, rocky landform is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="Wisconsin" data-logic="Muir&#x27;s family moved from Scotland to Wisconsin when he was a boy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">John Muir moved from Scotland to the state of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="sequoia|sequoias" data-logic="The road let visitors reach the giant sequoia trees in Sequoia National Park.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Charles Young's soldiers built a road to the giant ____ trees.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="lake|pond" data-logic="A lake is water with land all around it. A river flows; a lake is mostly still.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A body of mostly still water with land all around it is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="1890" data-logic="Yosemite became a national park in 1890.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Yosemite became a national park in the year ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="Sisters" data-logic="Haudenosaunee farmers call corn, beans and squash the Three Sisters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Corn, beans and squash are called the Three ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="Kentucky" data-logic="The card says Charles Young was born enslaved in Kentucky.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Charles Young was born in the state of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="plain|plains" data-logic="A plain is wide, flat land. Rich soil on plains is great for crops.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Wide, flat land that is good for farming is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="Sierra" data-logic="The Sierra Club is a group that works to protect nature.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1892, John Muir helped start the ____ Club.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Crops need water. River water helps farmers grow food.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Water from a river helps farmers ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">grow crops</button>
+      <button class="opt">make sand</button>
+      <button class="opt">build snowmen</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="wet|rainy|humid" data-bonus="1" data-logic="Florida&#x27;s climate is hot and wet, with lots of rain.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florida's climate is hot and ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Oceans are salt water. Most rivers and ponds are fresh water.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which one is a body of salt water?</p>
+    <div class="opts">
+      <button class="opt">a river</button>
+      <button class="opt" data-c="1">an ocean</button>
+      <button class="opt">a pond</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned about landforms, how land and water shape people's lives, and how people care for the land.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder? Maybe: Why do rivers flow to the ocean? Who lived on the land where my home is now? Write one question on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, find your town on a map. Find the closest river, lake or coast. Then explore the <b>Native Land Digital</b> map (native-land.ca) together to learn which Indigenous nations' homelands you live on. You can also plant a bean seed in a cup and watch it climb a pencil, like a bean on a corn stalk.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: The Master Geographer</h2>
+<p>This is the hardest round. Use landforms, resources and the people you met. Think like a geographer and a historian!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="A river gives water, and a plain has flat land with rich soil for farms.">
+    <span class="pts">+5</span>
+    <p class="qtext">A new town needs drinking water and good farmland. Where should it be built?</p>
+    <div class="opts">
+      <button class="opt">on a dry, rocky mountaintop</button>
+      <button class="opt">in a desert far from rivers</button>
+      <button class="opt" data-c="1">on a plain next to a river</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="The Ahwahneechee people lived in Yosemite Valley long before Muir arrived. Nobody needed to find it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A book says, "John Muir found Yosemite." What is wrong with this sentence?</p>
+    <div class="opts">
+      <button class="opt">Muir never went to California.</button>
+      <button class="opt" data-c="1">The Ahwahneechee lived there long before.</button>
+      <button class="opt">Yosemite is not a real place.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Beans help put plant food back into the soil, like in a Three Sisters garden.">
+    <span class="pts">+5</span>
+    <p class="qtext">A farmer's soil is worn out after years of only corn. What is the BEST plan?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">plant beans with the corn</button>
+      <button class="opt">plant the corn closer together</button>
+      <button class="opt">stop watering the field</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="The coast has fish, and the mountains have trees and rocks. People work with what the land gives.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do people on a coast and people in the mountains often do different jobs?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Each place has different resources.</button>
+      <button class="opt">Jobs are the same in every place.</button>
+      <button class="opt">The mayor picks every job in town.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Fish live in the ocean, so the ocean town is more likely to have fishing jobs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Town A is by the ocean. Town B is in the desert. Which town is more likely to have fishing jobs?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Town A</button>
+      <button class="opt">Town B</button>
+      <button class="opt">both the same</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Ahwahneechee families were pushed out of their homeland. Visitors gained a park, but the Ahwahneechee paid a cost.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who paid a cost when Yosemite became a park?</p>
+    <div class="opts">
+      <button class="opt">John Muir</button>
+      <button class="opt" data-c="1">the Ahwahneechee people</button>
+      <button class="opt">visitors from other states</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Only the bean fact tells how the garden helps the soil. The others are true but are not about soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the BEST evidence that the Three Sisters help the soil?</p>
+    <div class="opts">
+      <button class="opt">Corn grows bright yellow kernels.</button>
+      <button class="opt">Squash can be cooked into soup.</button>
+      <button class="opt" data-c="1">Beans put plant food back in the soil.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="The road let people reach the giant sequoia trees and enjoy the park.">
+    <span class="pts">+5</span>
+    <p class="qtext">Charles Young's soldiers built a road in Sequoia. How did that help?</p>
+    <div class="opts">
+      <button class="opt">It stopped the rain in the park.</button>
+      <button class="opt" data-c="1">More visitors could see the trees.</button>
+      <button class="opt">It moved the trees near the city.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Alaska&#x27;s climate is much colder than Florida&#x27;s, so the family will need warm clothes.">
+    <span class="pts">+5</span>
+    <p class="qtext">A family moves from Florida to Alaska. What will change MOST about their clothes?</p>
+    <div class="opts">
+      <button class="opt">They will need more swimsuits.</button>
+      <button class="opt">Nothing will change at all.</button>
+      <button class="opt" data-c="1">They will need warmer clothes.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Rivers can flood. High ground near a river gives water but stays drier in a flood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why might a town be built on high ground near a river, not right on the riverbank?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">to stay safe from floods</button>
+      <button class="opt">to be far from all water</button>
+      <button class="opt">to get more beach sand</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="The Ahwahneechee lived in Yosemite first. Their story belongs on the sign too.">
+    <span class="pts">+5</span>
+    <p class="qtext">A park sign tells only John Muir's story. Whose voice is missing?</p>
+    <div class="opts">
+      <button class="opt">the gift shop workers</button>
+      <button class="opt" data-c="1">the Ahwahneechee people</button>
+      <button class="opt">the people who sell maps</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Picking up trash keeps it out of the river. Clean water helps everyone who lives downstream.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which choice helps a river stay clean for people downstream?</p>
+    <div class="opts">
+      <button class="opt">dumping trash in the water</button>
+      <button class="opt">washing paint brushes in it</button>
+      <button class="opt" data-c="1">picking up trash on the riverbank</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Puddle Jumper</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-socialstudies-w8';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 140;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do land and water shape where and how people live, and how can we care for the land?": "../audio/heart/84967fe3df.mp3", "geography. The study of Earth's land, water, weather and people, and how they shape each other.": "../audio/heart/a21f456947.mp3", "landform. A natural shape of the land. Examples: a mountain, a valley, a plain.": "../audio/heart/8b1553f2a1.mp3", "coast. Land right next to an ocean or sea.": "../audio/heart/1df4bdcc3e.mp3", "climate. The usual weather in a place over many years. Example: Florida's climate is hot and wet.": "../audio/heart/519ae57236.mp3", "natural resource. Something from nature that people use. Examples: water, soil, trees, fish.": "../audio/heart/68c933c806.mp3", "conservation. Caring for nature and using it wisely, so it lasts.": "../audio/heart/2b8857a8a5.mp3", "national park. Land the country protects so everyone can enjoy it, now and later.": "../audio/heart/8f29e4697e.mp3", "Geography is the study of land, water, weather and people. A landform is a natural shape of the land. Mountains, valleys, plains and deserts are landforms. Rivers, lakes and oceans are bodies of water.": "../audio/heart/2d970764b5.mp3", "I want to sort what I see. A mountain is very high, rocky land. A plain is wide, flat land. A desert gets very little rain. A river is fresh water that flows downhill. So first I ask: is it land or water? Then I name it.": "../audio/heart/7368506f05.mp3", "Let's sort four words: river, mountain, lake, plain . Ask: is it land or water? A mountain and a plain are land, so they are landforms . A river and a lake are bodies of water . A lake is mostly still. A river flows.": "../audio/heart/96ea601b28.mp3", "Long ago and today, many people live near water . Rivers give water to drink and to grow food. The land and the climate shape people's jobs, homes and clothes. People use natural resources like soil, trees and fish.": "../audio/heart/1497f1827f.mp3", "I look at a place and ask three questions. What is the land like? What is the weather like? What can people use there? A coast has fish, so many people fish. A plain has flat land and rich soil, so many people farm. Florida gets hurricanes, so many homes are built strong.": "../audio/heart/4367594c0a.mp3", "Mr. Diaz catches shrimp for a living. Does he live on a coast or in a desert? Shrimp live in the ocean, so he lives on a coast . Ms. Lee grows corn on wide, flat land with rich soil. That land is a plain . The land helped give each person their work.": "../audio/heart/009839f7b5.mp3", "People also care for the land. This is called conservation . Haudenosaunee farmers plant corn, beans and squash together as the Three Sisters . The three plants help each other and keep the soil healthy.": "../audio/heart/0ca1adb7a4.mp3", "How can three plants help each other? I look at each one's job. The corn grows tall, so the bean vine can climb it like a pole. The beans help put plant food back into the soil. The squash has big leaves that shade the ground. Shade keeps the soil wet and blocks weeds. Each sister gives something to the others.": "../audio/heart/fe7c73297f.mp3", "A farmer plants only corn, year after year. Corn uses up plant food, so the soil wears out. What can the farmer add? Beans , because beans help put plant food back. That is conservation: using the land so it stays healthy for next year.": "../audio/heart/e23be543ad.mp3", "Practice map of Green River Valley. North is at the top. The map has three rows of five squares. Top row, from west to east: mountains, mountains, forest, forest, ocean. Middle row: desert, river, town, farm fields, ocean. Bottom row: desert, river, farm fields, farm fields, fishing harbor. Notes: The Green River starts in the mountains and flows south. The desert in the west gets very little rain. The east gets plenty of rain.": "../audio/heart/d40b449d63.mp3", "Haudenosaunee Three Sisters farmers. The Haudenosaunee are six nations: the Mohawk, Oneida, Onondaga, Cayuga, Seneca and Tuscarora. Their homelands are in what is now New York and Canada. Haudenosaunee women led the farming. Families still plant the Three Sisters today.": "../audio/heart/407ff1a1f8.mp3", "John Muir. John Muir was born in Scotland and moved to Wisconsin as a boy. He loved the mountains of California. He wrote, \"Everybody needs beauty as well as bread.\" He helped Yosemite become a national park in 1890. In 1892, he helped start the Sierra Club. He also wrote some unkind words about Indigenous people.": "../audio/heart/e107811398.mp3", "The Ahwahneechee people of Yosemite. Yosemite Valley was the home of the Ahwahneechee people long before it was a park. In 1851, armed men called the Mariposa Battalion came into the valley. They forced many Ahwahneechee people to leave. Later, park leaders also made Indigenous families move out. Early parks sometimes pushed Indigenous people off their lands. Their families still live nearby and still care for Yosemite.": "../audio/heart/37cef4c1ea.mp3", "Charles Young. Charles Young was born enslaved in Kentucky. He grew up to be an Army officer. In 1903, he led Black soldiers called the Buffalo Soldiers in Sequoia National Park, California. He was the park's acting superintendent , the leader in charge. He was the first Black superintendent of a national park. His soldiers built a road so visitors could see the giant sequoia trees.": "../audio/heart/5635c1e75a.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["geography", "study of land, water and people"], ["landform", "natural shape of the land"], ["climate", "usual weather over many years"], ["natural resource", "something from nature people use"], ["conservation", "caring for nature wisely"]], [["mountain", "very high land"], ["plain", "wide, flat land"], ["desert", "dry land, little rain"], ["valley", "low land between mountains"], ["coast", "land next to the ocean"]], [["corn", "tall pole for the beans"], ["beans", "put plant food in soil"], ["squash", "big leaves shade the soil"], ["John Muir", "helped protect Yosemite"], ["Charles Young", "led Buffalo Soldiers in Sequoia"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Puddle Jumper", "River Rafter", "Trail Guardian", "Master Geographer"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

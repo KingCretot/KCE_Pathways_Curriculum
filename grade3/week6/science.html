@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 6 Science: Weather and How We Measure It | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 6</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 6 &bull; Science</span>
+  <h1>Weather and How We Measure It</h1>
+  <h2>Thermometers, rain gauges, wind vanes, and the scientists who read them</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do scientists measure the weather and tell how it is changing?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do scientists measure the weather and tell how it is changing?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with living things, life cycles, habitats, and food chains</li><li>Read a thermometer and learn what temperature means</li><li>Use a rain gauge, a wind vane, and an anemometer</li><li>Read a week-long weather chart and find a pattern</li><li>Meet June Bacon-Bercey, then Match-Up, Type-It, and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Unit 2 starts today! First, let's review Unit 1: living things, life cycles, habitats, and food chains.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A life cycle is how a living thing starts, grows, and makes young. Hatching and growing up are part of it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which sentence about a robin is about its <b>life cycle</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It hatches from an egg and grows up.</button>
+      <button class="opt">It builds a nest in a tree.</button>
+      <button class="opt">It eats worms and berries.</button>
+      <button class="opt">It has a red chest.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="The pupa is the stage inside a case. The caterpillar changes into a butterfly there.">
+    <span class="pts">+5</span>
+    <p class="qtext">A caterpillar makes a hard case and changes inside it. This stage is the ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">pupa</button>
+      <button class="opt">larva</button>
+      <button class="opt">egg</button>
+      <button class="opt">adult</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Hot sand and little water are signs of a desert. Wide feet help camels walk on sand.">
+    <span class="pts">+5</span>
+    <p class="qtext">A camel has wide feet for walking on hot sand. What is its habitat?</p>
+    <div class="opts">
+      <button class="opt">ocean</button>
+      <button class="opt">Arctic</button>
+      <button class="opt">wetland</button>
+      <button class="opt" data-c="1">desert</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="The arrow goes from seaweed to sea urchin. So the sea urchin eats the seaweed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: Sun → seaweed → sea urchin → sea otter. What does the sea urchin eat?</p>
+    <div class="opts">
+      <button class="opt">the sea otter</button>
+      <button class="opt" data-c="1">seaweed</button>
+      <button class="opt">the Sun</button>
+      <button class="opt">sand</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Shelter is a safe place to live. A burrow or nest keeps an animal out of bad weather.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which need gives an animal a safe place out of the wind and rain?</p>
+    <div class="opts">
+      <button class="opt">food</button>
+      <button class="opt" data-c="1">shelter</button>
+      <button class="opt">water</button>
+      <button class="opt">air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A frog starts as a tadpole with a tail and gills. It changes into a frog. That is metamorphosis.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which animal changes its whole body shape as it grows up?</p>
+    <div class="opts">
+      <button class="opt">dog</button>
+      <button class="opt">horse</button>
+      <button class="opt">robin</button>
+      <button class="opt" data-c="1">frog</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="To migrate is to travel far when seasons change. Monarchs fly south to warmer places.">
+    <span class="pts">+5</span>
+    <p class="qtext">Monarch butterflies fly south to Mexico each fall. This is called ____.</p>
+    <div class="opts">
+      <button class="opt">hibernating</button>
+      <button class="opt">hatching</button>
+      <button class="opt" data-c="1">migrating</button>
+      <button class="opt">hunting</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Frogs hatch as tadpoles with tails. Later they change into frogs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Frog eggs in a pond hatch. What comes out of them?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">tadpoles</button>
+      <button class="opt">small frogs</button>
+      <button class="opt">caterpillars</button>
+      <button class="opt">seeds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A producer makes its own food from sunlight, water, and air. Plants do that.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is a plant called a <b>producer</b>?</p>
+    <div class="opts">
+      <button class="opt">It eats insects.</button>
+      <button class="opt">It breaks down dead things.</button>
+      <button class="opt">It hunts at night.</button>
+      <button class="opt" data-c="1">It makes its own food.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Seeds need water to sprout. A dry seed waits until it gets wet.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bean seed is kept dry in a box. It does not sprout. What does it need to start growing?</p>
+    <div class="opts">
+      <button class="opt">wind</button>
+      <button class="opt">darkness</button>
+      <button class="opt">sand</button>
+      <button class="opt" data-c="1">water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="White fur on white snow is hard to see. That is camouflage. It helps the fox hide.">
+    <span class="pts">+5</span>
+    <p class="qtext">A white fox lives in the snowy Arctic. Its white fur is ____.</p>
+    <div class="opts">
+      <button class="opt">a habitat</button>
+      <button class="opt">a life cycle</button>
+      <button class="opt" data-c="1">camouflage</button>
+      <button class="opt">a food chain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="The arrow goes from mouse to hawk. That means the mouse is eaten by the hawk.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chain: seeds → mouse → hawk. What does the hawk eat?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the mouse</button>
+      <button class="opt">the seeds</button>
+      <button class="opt">the Sun</button>
+      <button class="opt">green grass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about weather. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This short video shows the tools people use to measure the weather outside.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Measuring Weather with Weather Tools</b> &mdash; Growing Learners</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/e3inavDlwfk?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Measuring Weather with Weather Tools" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for each <b>weather tool</b> and what it measures. Which tool has <b>cups that spin</b> in the wind?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">weather<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;weather. What the air outside is like right now. Sunny, rainy, windy, hot, and cold are all weather.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">What the air outside is like right now. Sunny, rainy, windy, hot, and cold are all weather.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">temperature<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;temperature. How hot or cold something is. It is measured in degrees, like 75\u00b0F.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">How hot or cold something is. It is measured in degrees, like 75°F.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">thermometer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;thermometer. A tool that measures temperature. Its line goes up when it gets warmer.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A tool that measures temperature. Its line goes up when it gets warmer.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">rain gauge<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;rain gauge. A tool that catches rain and shows how much fell. 1 inch of rain is a lot!&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A tool that catches rain and shows how much fell. 1 inch of rain is a lot!</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">wind vane<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;wind vane. A tool with an arrow that shows which way the wind is coming from.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A tool with an arrow that shows which way the wind is coming from.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">anemometer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;anemometer. A tool with spinning cups that measures wind speed. Say it: an-uh-MOM-uh-ter.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A tool with spinning cups that measures wind speed. Say it: an-uh-MOM-uh-ter.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">meteorologist<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;meteorologist. A scientist who studies weather and makes forecasts. Say it: mee-tee-uh-ROL-uh-jist.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A scientist who studies weather and makes forecasts. Say it: mee-tee-uh-ROL-uh-jist.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌡️ Temperature: How Hot or Cold?</h2>
+<div class="card card">
+<p><b>Weather</b> is what the air outside is like right now. It can be hot or cold, rainy or dry, windy or calm. <b>Temperature</b> tells how hot or cold the air is. We measure it with a <b>thermometer</b>. Temperature is counted in <b>degrees</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Weather is what the air outside is like right now. It can be hot or cold, rainy or dry, windy or calm. Temperature tells how hot or cold the air is. We measure it with a thermometer . Temperature is counted in degrees .&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I look at a thermometer. The line stops at 80. That means 80 degrees. Is that hot or cold? Water freezes at 32 degrees. 80 is much higher than 32. So it is a warm day. Shorts weather!<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I look at a thermometer. The line stops at 80. That means 80 degrees. Is that hot or cold? Water freezes at 32 degrees. 80 is much higher than 32. So it is a warm day. Shorts weather!&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Reading a Thermometer</h4><p>The liquid inside a thermometer goes <b>up</b> when it gets warmer. It goes <b>down</b> when it gets cooler. In the United States, we often use <b>degrees Fahrenheit (°F)</b>.</p><table><tr><th>Temperature</th><th>What it feels like</th></tr><tr><td>32°F</td><td>Freezing. Water turns to ice.</td></tr><tr><td>50°F</td><td>Cool. Wear a jacket.</td></tr><tr><td>70°F</td><td>Mild. Just right for most people.</td></tr><tr><td>90°F</td><td>Hot. Find some shade!</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>In the morning, the thermometer reads <b>60°F</b>. In the afternoon, it reads <b>75°F</b>. Did it get warmer or cooler? 75 is more than 60. The line went <b>up</b>. So it got <b>warmer</b>. How much? 75 minus 60 is <b>15 degrees</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;In the morning, the thermometer reads 60\u00b0F . In the afternoon, it reads 75\u00b0F . Did it get warmer or cooler? 75 is more than 60. The line went up . So it got warmer . How much? 75 minus 60 is 15 degrees .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="thermometer|thermometers" data-logic="A thermometer measures how hot or cold the air is.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The tool that measures temperature is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="The chart says water turns to ice at 32°F. That is freezing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Reading a Thermometer. At what temperature does water freeze?</p>
+    <div class="opts">
+      <button class="opt">50°F</button>
+      <button class="opt">70°F</button>
+      <button class="opt" data-c="1">32°F</button>
+      <button class="opt">90°F</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="The liquid goes up when it gets warmer. A thermometer shows heat, not rain or wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">The line in a thermometer goes <b>up</b>. The air is getting ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">warmer</button>
+      <button class="opt">cooler</button>
+      <button class="opt">wetter</button>
+      <button class="opt">windier</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="temperature|temp" data-logic="Temperature tells how hot or cold something is.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How hot or cold the air is called the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="The chart says 50°F is cool, so you would wear a jacket. 70°F and higher feel mild to hot.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Reading a Thermometer. Which temperature feels <b>cool</b>, so you want a jacket?</p>
+    <div class="opts">
+      <button class="opt">90°F</button>
+      <button class="opt">70°F</button>
+      <button class="opt">80°F</button>
+      <button class="opt" data-c="1">50°F</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Weather is what the air outside is like. Windy and cold describe the air today.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which sentence tells about the <b>weather</b>?</p>
+    <div class="opts">
+      <button class="opt">A frog is green and wet.</button>
+      <button class="opt" data-c="1">It is windy and cold today.</button>
+      <button class="opt">Rocks are hard and heavy.</button>
+      <button class="opt">Fish swim in the pond.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="degrees|degree|degrees Fahrenheit" data-logic="We count temperature in degrees, like 70 degrees Fahrenheit (70°F).">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Temperature is measured in ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="70 is more than 55. The temperature went up 15 degrees, so it got warmer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Morning: 55°F. Afternoon: 70°F. What happened?</p>
+    <div class="opts">
+      <button class="opt">It got cooler.</button>
+      <button class="opt" data-c="1">It got warmer.</button>
+      <button class="opt">It stayed the same.</button>
+      <button class="opt">It snowed.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="The liquid goes down when it gets cooler. Rain and wind do not move the line by themselves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does the liquid in a thermometer go <b>down</b>?</p>
+    <div class="opts">
+      <button class="opt">The air got wetter.</button>
+      <button class="opt">The wind blew harder.</button>
+      <button class="opt">The Sun came out.</button>
+      <button class="opt" data-c="1">The air got cooler.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🌧️ Rain and Wind</h2>
+<div class="card card-grass">
+<p>A <b>rain gauge</b> catches rain. Its marks show how much rain fell, in <b>inches</b>. A <b>wind vane</b> shows which way the wind comes <b>from</b>. An <b>anemometer</b> has cups that spin in the wind. The faster the cups spin, the faster the wind.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A rain gauge catches rain. Its marks show how much rain fell, in inches . A wind vane shows which way the wind comes from . An anemometer has cups that spin in the wind. The faster the cups spin, the faster the wind.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>The wind vane's arrow points north. The arrow points into the wind. So the wind is coming from the north. We call it a north wind. Next I look at the anemometer. Its cups are spinning fast. So the wind is strong today.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The wind vane\'s arrow points north. The arrow points into the wind. So the wind is coming from the north. We call it a north wind. Next I look at the anemometer. Its cups are spinning fast. So the wind is strong today.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Weather Tools</h4><table><tr><th>Tool</th><th>What it measures</th></tr><tr><td>Thermometer</td><td><b>temperature</b>: liquid goes up and down</td></tr><tr><td>Rain gauge</td><td><b>how much rain fell</b>: water fills to a mark</td></tr><tr><td>Wind vane</td><td><b>wind direction</b>: arrow points to where the wind comes from</td></tr><tr><td>Anemometer</td><td><b>wind speed</b>: cups spin faster in faster wind</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>On Monday, the rain gauge fills to the <b>1</b> mark. That is 1 inch of rain. We empty it. On Tuesday, a big storm fills it to the <b>3</b> mark. Which day was rainier? 3 inches is more than 1 inch. So <b>Tuesday</b> was rainier.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;On Monday, the rain gauge fills to the 1 mark. That is 1 inch of rain. We empty it. On Tuesday, a big storm fills it to the 3 mark. Which day was rainier? 3 inches is more than 1 inch. So Tuesday was rainier.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="from" data-logic="A wind vane&#x27;s arrow points into the wind. It shows where the wind is coming from.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A wind vane shows the direction the wind comes ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The anemometer has cups that spin. Faster spinning means faster wind. A wind vane shows direction, not speed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Weather Tools. Which tool measures wind <b>speed</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">anemometer</button>
+      <button class="opt">wind vane</button>
+      <button class="opt">rain gauge</button>
+      <button class="opt">thermometer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="A rain gauge measures rain in inches. Degrees are for temperature.">
+    <span class="pts">+5</span>
+    <p class="qtext">The rain gauge has water up to the 2 mark. How much rain fell?</p>
+    <div class="opts">
+      <button class="opt">2 degrees</button>
+      <button class="opt">2 miles</button>
+      <button class="opt" data-c="1">2 inches</button>
+      <button class="opt">2 hours</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="inches|inch" data-logic="The marks on a rain gauge show inches of rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Rain in a rain gauge is measured in ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="The arrow points into the wind. If it points east, the wind is blowing from the east.">
+    <span class="pts">+5</span>
+    <p class="qtext">The wind vane's arrow points <b>east</b>. Where is the wind coming from?</p>
+    <div class="opts">
+      <button class="opt">the west</button>
+      <button class="opt">the north</button>
+      <button class="opt">the south</button>
+      <button class="opt" data-c="1">the east</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Wind makes the cups spin. If they are still, the air is calm.">
+    <span class="pts">+5</span>
+    <p class="qtext">The anemometer cups are not moving at all. What is the wind like?</p>
+    <div class="opts">
+      <button class="opt">The wind is very strong.</button>
+      <button class="opt" data-c="1">There is no wind.</button>
+      <button class="opt">The wind is from the north.</button>
+      <button class="opt">It is about to rain.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="vane|vanes" data-logic="A wind vane turns so its arrow points into the wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tool that shows which way the wind is coming from is a wind ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="A rain gauge catches rain. Its marks show how much fell.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Weather Tools. Which tool tells how much it rained?</p>
+    <div class="opts">
+      <button class="opt">wind vane</button>
+      <button class="opt">anemometer</button>
+      <button class="opt" data-c="1">rain gauge</button>
+      <button class="opt">thermometer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="In the open, rain falls straight in. A tree or roof would block some rain and make the reading too low.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where should you put a rain gauge to get a <b>fair</b> reading?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">in an open yard</button>
+      <button class="opt">under a big tree</button>
+      <button class="opt">under the porch roof</button>
+      <button class="opt">inside the garage</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>📊 Weather Charts and Changes</h2>
+<div class="card card-sky">
+<p>Weather <b>changes</b> from day to day. One day is sunny. The next may be rainy. Scientists write the weather down every day on a <b>weather chart</b>. Many days of data help them see <b>patterns</b>. A <b>meteorologist</b> uses data to make a <b>forecast</b>, a careful guess about the weather to come.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Weather changes from day to day. One day is sunny. The next may be rainy. Scientists write the weather down every day on a weather chart . Many days of data help them see patterns . A meteorologist uses data to make a forecast , a careful guess about the weather to come.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>My chart says Monday 72°F, Tuesday 75°F, Wednesday 78°F. Each day is a little warmer. That is a pattern. Now dark clouds are moving in. My forecast: Thursday may be warm with rain. I used evidence, not a wild guess.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;My chart says Monday 72\u00b0F, Tuesday 75\u00b0F, Wednesday 78\u00b0F. Each day is a little warmer. That is a pattern. Now dark clouds are moving in. My forecast: Thursday may be warm with rain. I used evidence, not a wild guess.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Mia's Weather Chart</h4><table><tr><th>Day</th><th>Sky</th><th>Temp</th><th>Rain</th></tr><tr><td>Monday</td><td>☀️ sunny</td><td>72°F</td><td>0 inches</td></tr><tr><td>Tuesday</td><td>⛅ partly cloudy</td><td>75°F</td><td>0 inches</td></tr><tr><td>Wednesday</td><td>🌧️ rainy</td><td>68°F</td><td>1 inch</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Use Mia's chart. Which day was the <b>coolest</b>? Look down the Temp column: 72, 75, 68. The smallest number is 68. So <b>Wednesday</b> was coolest. Look across that row. Wednesday was also the rainy day.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Use Mia\'s chart. Which day was the coolest ? Look down the Temp column: 72, 75, 68. The smallest number is 68. So Wednesday was coolest. Look across that row. Wednesday was also the rainy day.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="forecast|forecasts|weather forecast" data-logic="A forecast uses data and patterns to tell what the weather will likely do.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A careful guess about future weather, based on evidence, is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="Find the Wednesday row, then the Rain column. It says 1 inch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Mia's Weather Chart. How much rain fell on Wednesday?</p>
+    <div class="opts">
+      <button class="opt">0 inches</button>
+      <button class="opt">2 inches</button>
+      <button class="opt" data-c="1">1 inch</button>
+      <button class="opt">68 inches</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Writing data every day lets scientists see patterns. People cannot make rain or stop storms by writing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists write down the weather every day?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">to find patterns</button>
+      <button class="opt">to make it rain</button>
+      <button class="opt">to change the wind</button>
+      <button class="opt">to stop storms</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="chart|charts|table" data-logic="A weather chart keeps many days of data in one place.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Writing the weather each day on a weather ____ helps us see patterns:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="The temperatures were 72, 75, and 68. The biggest number is 75, on Tuesday.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Mia's Weather Chart. Which day was the <b>warmest</b>?</p>
+    <div class="opts">
+      <button class="opt">Monday</button>
+      <button class="opt" data-c="1">Tuesday</button>
+      <button class="opt">Wednesday</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Meteorologists study weather. They measure it and make forecasts.">
+    <span class="pts">+5</span>
+    <p class="qtext">A <b>meteorologist</b> is a scientist who studies ____.</p>
+    <div class="opts">
+      <button class="opt">rocks</button>
+      <button class="opt">insects</button>
+      <button class="opt">fossils</button>
+      <button class="opt" data-c="1">weather</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="changes|change" data-logic="Weather does not stay the same. It changes from day to day.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">One day is sunny and the next is rainy. Weather ____ from day to day:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Find the Monday row, then the Sky column. It shows a Sun and says sunny.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Mia's Weather Chart. What was the sky like on Monday?</p>
+    <div class="opts">
+      <button class="opt">rainy</button>
+      <button class="opt" data-c="1">sunny</button>
+      <button class="opt">partly cloudy</button>
+      <button class="opt">snowy</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="A forecast uses evidence. Dark clouds moving in are evidence that rain is coming.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the best <b>forecast</b>?</p>
+    <div class="opts">
+      <button class="opt">I wish it would snow tomorrow.</button>
+      <button class="opt" data-c="1">Dark clouds are coming, so rain is likely.</button>
+      <button class="opt">Tomorrow will be a fun day.</button>
+      <button class="opt">Rain is wet and cold.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🌦️ Lab: One Week of Weather</h2>
+<p>A class kept a weather chart for one school week. They read their tools at 3 PM each day. Use the chart to answer.</p>
+<div class="sourcebox"><h4>Class Weather Chart: One School Week</h4><div><table><tr><th>Day</th><th>Temp</th><th>Rain</th><th>Wind from</th><th>Cups</th></tr><tr><td>Mon</td><td>84°F</td><td>0 in.</td><td>south</td><td>slow</td></tr><tr><td>Tue</td><td>82°F</td><td>2 in.</td><td>south</td><td>fast</td></tr><tr><td>Wed</td><td>70°F</td><td>0 in.</td><td>north</td><td>fast</td></tr><tr><td>Thu</td><td>68°F</td><td>0 in.</td><td>north</td><td>slow</td></tr><tr><td>Fri</td><td>76°F</td><td>1 in.</td><td>east</td><td>slow</td></tr></table></div><div class="src">Temp = temperature at 3 PM. in. = inches. Cups = how fast the anemometer cups spun. Practice data made for this lesson. It is the kind of chart weather watchers keep every day.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Class weather chart, read at 3 PM. Monday: 84 degrees, no rain, wind from the south, cups spin slowly. Tuesday: 82 degrees, 2 inches of rain, wind from the south, cups spin fast. Wednesday: 70 degrees, no rain, wind from the north, cups spin fast. Thursday: 68 degrees, no rain, wind from the north, cups spin slowly. Friday: 76 degrees, 1 inch of rain, wind from the east, cups spin slowly.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Meteorologist</h4><p>A meteorologist reads one column at a time. Temperatures: 84, 82, 70, 68, 76. They dropped on Wednesday. Now I check the wind column. Wednesday is when the wind started coming from the north. Two changes happened together. I would check more weeks to be sure.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Monday was 84°F. That is the biggest number in the Temp column.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which day was the <b>warmest</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Monday</button>
+      <button class="opt">Tuesday</button>
+      <button class="opt">Wednesday</button>
+      <button class="opt">Thursday</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="2|two|2 inches|two inches" data-logic="Find the Tuesday row, then the Rain column. It says 2 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many inches of rain fell on Tuesday? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="On Wednesday the wind came from the north and the temperature fell from 82°F to 70°F.">
+    <span class="pts">+5</span>
+    <p class="qtext">What happened when the wind started coming from the <b>north</b>?</p>
+    <div class="opts">
+      <button class="opt">It got hotter.</button>
+      <button class="opt">It rained more.</button>
+      <button class="opt">The wind stopped.</button>
+      <button class="opt" data-c="1">It got cooler.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="lab1_s1" data-pts="5" data-ans="Thursday|Thurs|Thu" data-logic="Find 68°F in the Temp column. It is in the Thursday row.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On which day was it 68°F? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="The Cups column says fast only on Tuesday and Wednesday. Those were the windiest days.">
+    <span class="pts">+5</span>
+    <p class="qtext">On which days did the anemometer cups spin <b>fast</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Tuesday and Wednesday</button>
+      <button class="opt">Monday and Friday</button>
+      <button class="opt">Thursday and Friday</button>
+      <button class="opt">Monday and Thursday</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="Monday, Wednesday, and Thursday show 0 inches. That is 3 days with no rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many days had <b>no</b> rain at all?</p>
+    <div class="opts">
+      <button class="opt">2 days</button>
+      <button class="opt" data-c="1">3 days</button>
+      <button class="opt">4 days</button>
+      <button class="opt">5 days</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="lab1_s2" data-pts="5" data-ans="3|three|3 inches|three inches" data-logic="Add the Rain column: 0 + 2 + 0 + 0 + 1 = 3 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many inches of rain fell in all this week? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="Tuesday was 82°F and Wednesday was 70°F. 82 minus 70 is 12 degrees.">
+    <span class="pts">+5</span>
+    <p class="qtext">How much cooler was Wednesday than Tuesday?</p>
+    <div class="opts">
+      <button class="opt">2 degrees</button>
+      <button class="opt">70 degrees</button>
+      <button class="opt" data-c="1">12 degrees</button>
+      <button class="opt">8 degrees</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="In this chart, the north wind days were the coolest. That is evidence. A scientist would still check more weeks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Next Monday the wind comes from the north again. Using this chart, what would you predict?</p>
+    <div class="opts">
+      <button class="opt">a hotter day</button>
+      <button class="opt">lots of snow</button>
+      <button class="opt">no wind at all</button>
+      <button class="opt" data-c="1">a cooler day</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🌤️ Weather Scientists</h2>
+<p>Many kinds of people have helped us measure and understand weather.</p>
+<div class="peoplegrid"><div class="pcard"><h4>June Bacon-Bercey</h4><div class="yrs">about 1930–2019</div><p>A <b>Black American</b> scientist from Wichita, Kansas. In 1954 she became the <b>first Black woman</b> to earn a college degree in <b>meteorology</b>. She worked as a <b>TV weather forecaster</b> in Buffalo, New York. She won money on a TV quiz show. She used it to help young women study weather science.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;June Bacon-Bercey. A Black American scientist from Wichita, Kansas. In 1954 she became the first Black woman to earn a college degree in meteorology . She worked as a TV weather forecaster in Buffalo, New York. She won money on a TV quiz show. She used it to help young women study weather science.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Eunice Foote</h4><div class="yrs">1819–1888</div><p>A scientist and women's rights leader from New York. In 1856 she put <b>thermometers</b> inside glass tubes filled with different gases. She set the tubes in the <b>sunlight</b>. The tube with <b>carbon dioxide</b>, a gas in the air, got the hottest. She was one of the first to show that this gas can <b>trap heat</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Eunice Foote. A scientist and women\'s rights leader from New York. In 1856 she put thermometers inside glass tubes filled with different gases. She set the tubes in the sunlight . The tube with carbon dioxide , a gas in the air, got the hottest. She was one of the first to show that this gas can trap heat .&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Daniel Fahrenheit</h4><div class="yrs">1686–1736</div><p>A maker of science tools who lived in Europe. He built some of the first <b>thermometers</b> that gave the same reading every time. The <b>°F</b> temperature scale is named after him.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Daniel Fahrenheit. A maker of science tools who lived in Europe. He built some of the first thermometers that gave the same reading every time. The \u00b0F temperature scale is named after him.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>J. Marshall Shepherd</h4><div class="yrs">Living today</div><p>A <b>Black American</b> meteorologist who worked at NASA and now teaches at a university in Georgia. He studies how big <b>cities</b> can change where <b>rain</b> falls. In 2013 he became the first Black president of the American Meteorological Society.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;J. Marshall Shepherd. A Black American meteorologist who worked at NASA and now teaches at a university in Georgia. He studies how big cities can change where rain falls. In 2013 he became the first Black president of the American Meteorological Society.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="She earned her meteorology degree in 1954. Meteorology is the science of weather.">
+    <span class="pts">+5</span>
+    <p class="qtext">June Bacon-Bercey was the first Black woman to earn a college degree in ____.</p>
+    <div class="opts">
+      <button class="opt">medicine</button>
+      <button class="opt" data-c="1">meteorology</button>
+      <button class="opt">music</button>
+      <button class="opt">math</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="The °F scale is a way to count degrees of temperature. It is named after Daniel Fahrenheit.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the Fahrenheit (°F) scale used for?</p>
+    <div class="opts">
+      <button class="opt">measuring rain</button>
+      <button class="opt">measuring wind</button>
+      <button class="opt" data-c="1">measuring temperature</button>
+      <button class="opt">telling time</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="She forecast the weather on TV in Buffalo, New York.">
+    <span class="pts">+5</span>
+    <p class="qtext">What job did June Bacon-Bercey do on TV?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">weather forecaster</button>
+      <button class="opt">sports reporter</button>
+      <button class="opt">cooking teacher</button>
+      <button class="opt">cartoon voice</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="Foote used thermometers to measure how hot each tube got in the sunlight.">
+    <span class="pts">+5</span>
+    <p class="qtext">What tool did Eunice Foote put inside her glass tubes?</p>
+    <div class="opts">
+      <button class="opt">rain gauges</button>
+      <button class="opt">wind vanes</button>
+      <button class="opt" data-c="1">thermometers</button>
+      <button class="opt">anemometers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="She used her prize to help young women study weather science.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did June Bacon-Bercey use money she won on a quiz show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">to help women study weather</button>
+      <button class="opt">to buy a TV station</button>
+      <button class="opt">to build a big rain gauge</button>
+      <button class="opt">to travel into space</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="Shepherd studies how cities can change where rain falls. Cities hold heat, which can change rain clouds.">
+    <span class="pts">+5</span>
+    <p class="qtext">J. Marshall Shepherd studies how big cities can change ____.</p>
+    <div class="opts">
+      <button class="opt">the shape of rocks</button>
+      <button class="opt">where birds nest</button>
+      <button class="opt">the Moon's shape</button>
+      <button class="opt" data-c="1">where rain falls</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="32|thirty-two|thirty two" data-logic="Water turns to ice at 32°F. That is the freezing point.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Water freezes at ____ degrees Fahrenheit:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="Bacon" data-logic="June Bacon-Bercey earned her meteorology degree in 1954.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">June ____-Bercey was the first Black woman to earn a meteorology degree:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="thermometer|thermometers" data-logic="The liquid in a thermometer rises when the air warms up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The tool with a line that goes up when it gets warm is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="tools|tool|instruments|instrument" data-logic="They are tools scientists use to measure weather.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Rain gauges, thermometers, and wind vanes are all weather ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="sun|sunlight|sunshine|the sun" data-logic="Foote put the tubes in sunlight. Then she read the thermometers to see which got hottest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Eunice Foote set her glass tubes in the ____ to warm them up:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="north|N" data-logic="The arrow points into the wind. Pointing north means the wind comes from the north.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A wind vane's arrow points north. The wind is coming from the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="south|southern" data-logic="Winds are named for where they come from. Wind from the south is a south wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The wind is coming from the south. It is called a ____ wind:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="wind" data-logic="Wind spins the cups. No spinning means no wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When the anemometer cups do not spin, there is no ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="TV|television|the TV|the news" data-logic="She was a TV weather forecaster in Buffalo, New York.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">June Bacon-Bercey forecast the weather on ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="A thermometer measures temperature, or how hot or cold it is.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which tool measures how hot it is?</p>
+    <div class="opts">
+      <button class="opt">rain gauge</button>
+      <button class="opt" data-c="1">thermometer</button>
+      <button class="opt">wind vane</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="A rain gauge shows rain in inches. Degrees are for temperature.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Rain is measured in ____.</p>
+    <div class="opts">
+      <button class="opt">degrees</button>
+      <button class="opt" data-c="1">inches</button>
+      <button class="opt">hours</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Weather is what the air outside is like. Hot, rainy, and windy are weather words.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Hot, rainy, and windy all describe the ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">weather</button>
+      <button class="opt">soil</button>
+      <button class="opt">rocks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about weather tools. Use the weather chart as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about weather? Write one question, like "How do clouds make rain?"</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, check a thermometer at the same time each day for one week. Write it on your own weather chart. You can also ask your library for <i>Weather Words and What They Mean</i> by Gail Gibbons, or explore the SciJinks weather site from NOAA and NASA with a parent.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Battle: Weather Station</h2>
+<p>Think like a meteorologist. Read the tools, check the evidence, and ask if the test was fair.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Leaves catch some rain before it reaches the gauge. That is why gauges go in an open spot.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ana puts one rain gauge in the open and one under a tree. After rain, they show different amounts. Why?</p>
+    <div class="opts">
+      <button class="opt">The tree made more rain.</button>
+      <button class="opt">Rain gauges never agree.</button>
+      <button class="opt">The wind vane was broken.</button>
+      <button class="opt" data-c="1">The tree blocked some rain.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="The chart data shows the temperature changed by many degrees. That is evidence weather changes.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "Weather is the same every day." Which evidence shows this is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Our chart shows 84°F one day and 68°F another.</button>
+      <button class="opt">Thermometers use a liquid that moves up and down.</button>
+      <button class="opt">Wind vanes are often shaped like an arrow.</button>
+      <button class="opt">Rain gauges are made of clear plastic.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Water freezes at 32°F. 28°F is colder than that, so the puddle can turn to ice.">
+    <span class="pts">+5</span>
+    <p class="qtext">The thermometer reads 28°F all night. What will happen to a puddle outside?</p>
+    <div class="opts">
+      <button class="opt">It will boil away.</button>
+      <button class="opt">It will get warmer.</button>
+      <button class="opt" data-c="1">It may freeze into ice.</button>
+      <button class="opt">It will turn to sand.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="The anemometer measures wind speed. A wind vane only shows direction, not how strong the wind is.">
+    <span class="pts">+5</span>
+    <p class="qtext">You want to know if it is too windy to fly a kite safely. Which tool helps most?</p>
+    <div class="opts">
+      <button class="opt">wind vane</button>
+      <button class="opt">thermometer</button>
+      <button class="opt">rain gauge</button>
+      <button class="opt" data-c="1">anemometer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="The vane points into the wind, so it comes from the west. Fast cups mean a strong wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">The wind vane points west and the anemometer cups spin fast. What is the wind like?</p>
+    <div class="opts">
+      <button class="opt">calm, from the east</button>
+      <button class="opt" data-c="1">strong, from the west</button>
+      <button class="opt">strong, from the east</button>
+      <button class="opt">calm, from the west</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Mornings are usually cooler than afternoons. For a fair test, read the thermometer at the same time each day.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mia read the thermometer at 7 AM on Monday and at 3 PM on Tuesday. Is that a fair way to compare the two days?</p>
+    <div class="opts">
+      <button class="opt">Yes, any time is fine.</button>
+      <button class="opt">Yes, both are school days.</button>
+      <button class="opt" data-c="1">No, the times are different.</button>
+      <button class="opt">No, Tuesday is too far away.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="A weather chart records rain, temperature, and wind. It can show which day was rainiest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question can a weather chart help answer?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Which day was the rainiest?</button>
+      <button class="opt">What do frogs eat?</button>
+      <button class="opt">How tall is the oak tree?</button>
+      <button class="opt">Which rock is the hardest?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Good forecasts come from evidence. Meteorologists use data from thermometers, rain gauges, and more.">
+    <span class="pts">+5</span>
+    <p class="qtext">June Bacon-Bercey made forecasts on TV. What did she need most to make a good forecast?</p>
+    <div class="opts">
+      <button class="opt">a lucky guess</button>
+      <button class="opt">a quiz show prize</button>
+      <button class="opt" data-c="1">data from weather tools</button>
+      <button class="opt">a big telescope</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Sunlight shining on a thermometer heats it up. Weather stations keep thermometers in the shade for a fair reading.">
+    <span class="pts">+5</span>
+    <p class="qtext">One thermometer is in the shade and reads 80°F. One is in the Sun and reads 95°F. Why are they different?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sunlight heated the second one.</button>
+      <button class="opt">The shade one is broken.</button>
+      <button class="opt">Shade makes air hotter.</button>
+      <button class="opt">They measure rain, not heat.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="3 inches is more than 1 inch, so more rain fell on Tuesday. The rain gauge says nothing about temperature.">
+    <span class="pts">+5</span>
+    <p class="qtext">Rain gauge: Monday 1 inch, Tuesday 3 inches. What does this data show?</p>
+    <div class="opts">
+      <button class="opt">Monday was rainier.</button>
+      <button class="opt">Both days were dry.</button>
+      <button class="opt">Tuesday was colder.</button>
+      <button class="opt" data-c="1">Tuesday was rainier.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Each number is 5 more than the one before. So each day is 5 degrees warmer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Temperatures for four days: 60°F, 65°F, 70°F, 75°F. What is the pattern?</p>
+    <div class="opts">
+      <button class="opt">Each day is 5 degrees cooler.</button>
+      <button class="opt" data-c="1">Each day is 5 degrees warmer.</button>
+      <button class="opt">Each day is the same.</button>
+      <button class="opt">Each day is 10 degrees warmer.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Dark clouds moving closer are real evidence of rain. Wishes and old weather are not.">
+    <span class="pts">+5</span>
+    <p class="qtext">A forecaster says rain is likely tomorrow. Which is the best evidence?</p>
+    <div class="opts">
+      <button class="opt">It was sunny last month.</button>
+      <button class="opt" data-c="1">Dark clouds are moving toward town.</button>
+      <button class="opt">The thermometer is red.</button>
+      <button class="opt">Kids want a rainy day.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Cloud Spotter</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-science-w6';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do scientists measure the weather and tell how it is changing?": "../audio/heart/47f3aa6a94.mp3", "weather. What the air outside is like right now. Sunny, rainy, windy, hot, and cold are all weather.": "../audio/heart/8172924409.mp3", "temperature. How hot or cold something is. It is measured in degrees, like 75°F.": "../audio/heart/384bdd229c.mp3", "thermometer. A tool that measures temperature. Its line goes up when it gets warmer.": "../audio/heart/8eeefd3ae4.mp3", "rain gauge. A tool that catches rain and shows how much fell. 1 inch of rain is a lot!": "../audio/heart/83993ef661.mp3", "wind vane. A tool with an arrow that shows which way the wind is coming from.": "../audio/heart/a32a06c700.mp3", "anemometer. A tool with spinning cups that measures wind speed. Say it: an-uh-MOM-uh-ter.": "../audio/heart/d40dc847a1.mp3", "meteorologist. A scientist who studies weather and makes forecasts. Say it: mee-tee-uh-ROL-uh-jist.": "../audio/heart/6be11f0c13.mp3", "Weather is what the air outside is like right now. It can be hot or cold, rainy or dry, windy or calm. Temperature tells how hot or cold the air is. We measure it with a thermometer . Temperature is counted in degrees .": "../audio/heart/f8905998c6.mp3", "I look at a thermometer. The line stops at 80. That means 80 degrees. Is that hot or cold? Water freezes at 32 degrees. 80 is much higher than 32. So it is a warm day. Shorts weather!": "../audio/heart/14163dd378.mp3", "In the morning, the thermometer reads 60°F . In the afternoon, it reads 75°F . Did it get warmer or cooler? 75 is more than 60. The line went up . So it got warmer . How much? 75 minus 60 is 15 degrees .": "../audio/heart/74131e90eb.mp3", "A rain gauge catches rain. Its marks show how much rain fell, in inches . A wind vane shows which way the wind comes from . An anemometer has cups that spin in the wind. The faster the cups spin, the faster the wind.": "../audio/heart/ab83a4906a.mp3", "The wind vane's arrow points north. The arrow points into the wind. So the wind is coming from the north. We call it a north wind. Next I look at the anemometer. Its cups are spinning fast. So the wind is strong today.": "../audio/heart/cc897c3066.mp3", "On Monday, the rain gauge fills to the 1 mark. That is 1 inch of rain. We empty it. On Tuesday, a big storm fills it to the 3 mark. Which day was rainier? 3 inches is more than 1 inch. So Tuesday was rainier.": "../audio/heart/361833b02e.mp3", "Weather changes from day to day. One day is sunny. The next may be rainy. Scientists write the weather down every day on a weather chart . Many days of data help them see patterns . A meteorologist uses data to make a forecast , a careful guess about the weather to come.": "../audio/heart/362ddd2b33.mp3", "My chart says Monday 72°F, Tuesday 75°F, Wednesday 78°F. Each day is a little warmer. That is a pattern. Now dark clouds are moving in. My forecast: Thursday may be warm with rain. I used evidence, not a wild guess.": "../audio/heart/3868852948.mp3", "Use Mia's chart. Which day was the coolest ? Look down the Temp column: 72, 75, 68. The smallest number is 68. So Wednesday was coolest. Look across that row. Wednesday was also the rainy day.": "../audio/heart/3f3f773303.mp3", "Class weather chart, read at 3 PM. Monday: 84 degrees, no rain, wind from the south, cups spin slowly. Tuesday: 82 degrees, 2 inches of rain, wind from the south, cups spin fast. Wednesday: 70 degrees, no rain, wind from the north, cups spin fast. Thursday: 68 degrees, no rain, wind from the north, cups spin slowly. Friday: 76 degrees, 1 inch of rain, wind from the east, cups spin slowly.": "../audio/heart/d896fd813d.mp3", "June Bacon-Bercey. A Black American scientist from Wichita, Kansas. In 1954 she became the first Black woman to earn a college degree in meteorology . She worked as a TV weather forecaster in Buffalo, New York. She won money on a TV quiz show. She used it to help young women study weather science.": "../audio/heart/2b76d33b9a.mp3", "Eunice Foote. A scientist and women's rights leader from New York. In 1856 she put thermometers inside glass tubes filled with different gases. She set the tubes in the sunlight . The tube with carbon dioxide , a gas in the air, got the hottest. She was one of the first to show that this gas can trap heat .": "../audio/heart/1ba0966c55.mp3", "Daniel Fahrenheit. A maker of science tools who lived in Europe. He built some of the first thermometers that gave the same reading every time. The °F temperature scale is named after him.": "../audio/heart/1fcb91e3af.mp3", "J. Marshall Shepherd. A Black American meteorologist who worked at NASA and now teaches at a university in Georgia. He studies how big cities can change where rain falls. In 2013 he became the first Black president of the American Meteorological Society.": "../audio/heart/1b19edf605.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["thermometer", "temperature"], ["rain gauge", "how much rain fell"], ["wind vane", "wind direction"], ["anemometer", "wind speed"], ["weather chart", "weather over many days"]], [["weather", "what the air is like now"], ["meteorologist", "scientist who studies weather"], ["forecast", "careful guess about coming weather"], ["temperature", "how hot or cold it is"], ["pattern", "something that repeats"]], [["June Bacon-Bercey", "TV weather forecaster"], ["Eunice Foote", "thermometers in sunny tubes"], ["Daniel Fahrenheit", "°F temperature scale"], ["Marshall Shepherd", "studies rain near cities"], ["32°F", "water freezes"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Cloud Spotter", "Weather Watcher", "Storm Tracker", "Master Meteorologist"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

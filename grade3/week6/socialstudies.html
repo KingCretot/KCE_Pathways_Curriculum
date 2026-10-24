@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 6 Social Studies: Needs, Wants and Choices | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 6</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Trail Ahead &bull; Week 6 &bull; Social Studies</span>
+  <h1>Needs, Wants and Choices</h1>
+  <h2>We can't have everything. Learn to choose, save and spend like a pro 🪙</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>Why can't we have everything we want, and how do people make good choices?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Why can\'t we have everything we want, and how do people make good choices?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with communities, leaders, rules and maps</li><li>Sort needs and wants</li><li>Learn about scarcity and what we give up when we choose</li><li>Plan how to save and spend</li><li>Be a Source Detective with the Trading Post price list</li><li>Meet Madam C.J. Walker and two more business builders</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Welcome to Unit 2! First, let's remember Unit 1: communities, leaders, rules and maps.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Suburban means near a city. Urban is the busy city, and rural is the countryside.">
+    <span class="pts">+5</span>
+    <p class="qtext">Homes with yards, near a big city but not in it, make a ___ community.</p>
+    <div class="opts">
+      <button class="opt">urban</button>
+      <button class="opt">rural</button>
+      <button class="opt" data-c="1">suburban</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="council" data-logic="A town has a mayor and a council. They work together to lead the town.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The group that helps the mayor make town laws is the town ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="A volunteer gives time to help others without getting paid.">
+    <span class="pts">+5</span>
+    <p class="qtext">Some community helpers are volunteers. A volunteer ___.</p>
+    <div class="opts">
+      <button class="opt">is always the mayor</button>
+      <button class="opt" data-c="1">helps without being paid</button>
+      <button class="opt">lives only on a farm</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="A secret vote means each voter&#x27;s choice is private.">
+    <span class="pts">+5</span>
+    <p class="qtext">Voting is secret. What does that mean?</p>
+    <div class="opts">
+      <button class="opt">Only leaders get to vote.</button>
+      <button class="opt" data-c="1">No one has to show their choice.</button>
+      <button class="opt">Votes are never counted.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Rules help us take turns, get along and stay safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kids take turns on the slide. What does this rule help them do?</p>
+    <div class="opts">
+      <button class="opt">win more prizes</button>
+      <button class="opt" data-c="1">get along and stay safe</button>
+      <button class="opt">skip recess</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Earth has 5 oceans. Most of Earth is covered by water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Earth has 7 continents and how many oceans?</p>
+    <div class="opts">
+      <button class="opt">3</button>
+      <button class="opt">7</button>
+      <button class="opt" data-c="1">5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="To depend means to need each other&#x27;s help. Rural and urban communities help each other.">
+    <span class="pts">+5</span>
+    <p class="qtext">Farms grow food for city people. City hospitals help farm families. This shows communities ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">depend on each other</button>
+      <button class="opt">never meet</button>
+      <button class="opt">do not need rules</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Patsy Mink was from Hawaii. In 1964 she became the first woman of color elected to Congress.">
+    <span class="pts">+5</span>
+    <p class="qtext">Patsy Mink was a leader from which state?</p>
+    <div class="opts">
+      <button class="opt">California</button>
+      <button class="opt">New York</button>
+      <button class="opt" data-c="1">Hawaii</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="With north at the top, east is on the right and west is on the left.">
+    <span class="pts">+5</span>
+    <p class="qtext">A map has north at the top. Where is east?</p>
+    <div class="opts">
+      <button class="opt">on the left</button>
+      <button class="opt" data-c="1">on the right</button>
+      <button class="opt">at the bottom</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="A responsibility is something you should do. Homework is your job as a student.">
+    <span class="pts">+5</span>
+    <p class="qtext">Going to school is a right. Doing your homework is a ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">responsibility</button>
+      <button class="opt">right to play</button>
+      <button class="opt">town council</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w3_s2" data-pts="5" data-ans="land" data-logic="At first, mostly white men who owned land could vote. People worked for years to change that.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Long ago, mostly white men who owned ____ could vote.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Marshall was a lawyer. He went to court and won Brown v. Board of Education in 1954.">
+    <span class="pts">+5</span>
+    <p class="qtext">Thurgood Marshall changed an unfair rule by going to ___.</p>
+    <div class="opts">
+      <button class="opt">a parade</button>
+      <button class="opt" data-c="1">court</button>
+      <button class="opt">the beach</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about needs, wants and money choices. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Great warm-up! Now watch a short video from Learn Bright about needs, wants and choices.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Financial Literacy—Needs and Wants | Learn about needs, wants, and opportunity costs</b> &mdash; Learn Bright</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/aRcXutXvfmM?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Financial Literacy—Needs and Wants | Learn about needs, wants, and opportunity costs" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for three things: What is a <b>need</b>? What is a <b>want</b>? What does <b>opportunity cost</b> mean? Be ready to give one example of each.</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">need<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;need. Something you must have to live. Example: food, water, clothes and a safe home.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something you must have to live. Example: food, water, clothes and a safe home.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">want<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;want. Something nice to have that you can live without. Example: a toy or a game.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something nice to have that you can live without. Example: a toy or a game.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">scarcity<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;scarcity. Not having enough for everyone to get everything they want. Money and time run out.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Not having enough for everyone to get everything they want. Money and time run out.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">trade-off<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;trade-off. Giving up one thing to get another thing.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Giving up one thing to get another thing.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">opportunity cost<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;opportunity cost. The next best thing you give up when you make a choice.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The next best thing you give up when you make a choice.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">save<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;save. To keep money to use later. Example: putting coins in a jar or a bank.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To keep money to use later. Example: putting coins in a jar or a bank.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">spend<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;spend. To use money to buy something now.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To use money to buy something now.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🍎 Needs and Wants</h2>
+<div class="card card">
+<p>A <b>need</b> is something you must have to live. Food, water, clothes and a safe home are needs. A <b>want</b> is something nice to have. You can live without a want.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A need is something you must have to live. Food, water, clothes and a safe home are needs. A want is something nice to have. You can live without a want.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I ask one question: <b>Can I live without it?</b> Water? No. I need water to live. So water is a need. A video game? Yes, I can live without it. So it is a want. Shoes are tricky. Shoes are a need. But light-up shoes with a cartoon are a want, because plain shoes do the job.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I ask one question: Can I live without it? Water? No. I need water to live. So water is a need. A video game? Yes, I can live without it. So it is a want. Shoes are tricky. Shoes are a need. But light-up shoes with a cartoon are a want, because plain shoes do the job.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Sort It!</h4><table><tr><th>Needs (must have)</th><th>Wants (nice to have)</th></tr><tr><td>food</td><td>candy</td></tr><tr><td>water</td><td>soda</td></tr><tr><td>a warm coat</td><td>a team jersey</td></tr><tr><td>a safe home</td><td>a big TV</td></tr><tr><td>medicine when sick</td><td>a toy robot</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Mia's Trail List</h4><p>Mia is getting ready for a hike from Grandpa's Trading Post. Her list: <b>water, a rain jacket, a toy compass, candy</b>. Let's ask, 'Can I live without it?' Water and a rain jacket keep her safe, so they are <b>needs</b>. The toy compass and candy are fun, so they are <b>wants</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Mia is getting ready for a hike from Grandpa\'s Trading Post. Her list: water, a rain jacket, a toy compass, candy . Let\'s ask, \'Can I live without it?\' Water and a rain jacket keep her safe, so they are needs . The toy compass and candy are fun, so they are wants .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="need|needs" data-logic="A need is something you must have to live, like food or water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Something you must have to live is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="You can live without a video game, so it is a want. A coat and water are needs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a want?</p>
+    <div class="opts">
+      <button class="opt">a winter coat</button>
+      <button class="opt">clean water</button>
+      <button class="opt" data-c="1">a video game</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="If you can live without it, it is a want. If you can&#x27;t, it is a need.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question helps you sort a need from a want?</p>
+    <div class="opts">
+      <button class="opt">Is it a fun color?</button>
+      <button class="opt" data-c="1">Can I live without it?</button>
+      <button class="opt">Does my friend have one?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="Your body must have food to live. A bike and a skateboard are fun, but they are wants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one is a need?</p>
+    <div class="opts">
+      <button class="opt">a new bike</button>
+      <button class="opt">a skateboard</button>
+      <button class="opt" data-c="1">healthy food</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="want|wants" data-logic="A want is nice to have, but you can live without it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Something nice to have that you can live without is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Plain shoes do the job. The lights and cartoon are extras, so those shoes are a want.">
+    <span class="pts">+5</span>
+    <p class="qtext">Plain shoes are a need. Light-up shoes with a cartoon on them are ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a want</button>
+      <button class="opt">a need</button>
+      <button class="opt">a law</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="needs|need" data-logic="These are things people must have to live, so they are needs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Water, food, clothes and a safe home are all ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="Kai can live without the game. That makes it a want, even if he wants it a lot.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kai says, 'I NEED that new game!' Is he right?</p>
+    <div class="opts">
+      <button class="opt">Yes. Games are needs.</button>
+      <button class="opt" data-c="1">No. A game is a want.</button>
+      <button class="opt">Yes. Everyone has one.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="Milk is food, a need. A toy car is a want. Bread and rice are both needs; a doll and a kite are both wants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair has one need and one want?</p>
+    <div class="opts">
+      <button class="opt">a doll and a kite</button>
+      <button class="opt">bread and rice</button>
+      <button class="opt" data-c="1">milk and a toy car</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>⚖️ Scarcity and Choices</h2>
+<div class="card card-grass">
+<p><b>Scarcity</b> means we can't have everything we want. Money, time and things run out. So we must make <b>choices</b>. The next best thing you give up is the <b>opportunity cost</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Scarcity means we can\'t have everything we want. Money, time and things run out. So we must make choices . The next best thing you give up is the opportunity cost .&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I have $3. A book, a kite and a smoothie each cost $3. I can only buy one. That is scarcity! First, I rank them: 1. book, 2. kite, 3. smoothie. I pick the book. Every choice is a <b>trade-off</b>. My opportunity cost is the kite, because the kite was my <b>next best</b> choice. It is not the smoothie. I only count the next best thing I gave up.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I have $3. A book, a kite and a smoothie each cost $3. I can only buy one. That is scarcity! First, I rank them: 1. book, 2. kite, 3. smoothie. I pick the book. Every choice is a trade-off . My opportunity cost is the kite, because the kite was my next best choice. It is not the smoothie. I only count the next best thing I gave up.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Choose in 3 Steps</h4><ul><li><b>Step 1:</b> List your choices.</li><li><b>Step 2:</b> Rank them: 1st, 2nd, 3rd.</li><li><b>Step 3:</b> Pick your 1st choice.</li></ul><p>Your <b>2nd</b> choice is your <b>opportunity cost</b>.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Theo's Saturday</h4><p>On Saturday, Theo can go to the park <b>or</b> help Grandpa at the Trading Post and earn $2. He has time for only one. That is scarcity of time. Theo picks helping Grandpa. What did he give up? <b>Park time.</b> Park time is his opportunity cost. His trade-off: he got $2 but gave up play time.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;On Saturday, Theo can go to the park or help Grandpa at the Trading Post and earn $2. He has time for only one. That is scarcity of time. Theo picks helping Grandpa. What did he give up? Park time. Park time is his opportunity cost. His trade-off: he got $2 but gave up play time.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="scarcity" data-logic="Scarcity means there is not enough for everyone to have everything they want.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Not having enough to get everything we want is called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The opportunity cost is the next best thing she gave up. That was the tacos.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lily picks pizza over tacos for lunch. Tacos were her 2nd choice. What is her opportunity cost?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the tacos</button>
+      <button class="opt">the pizza</button>
+      <button class="opt">her lunch box</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="Because money and time run out, we can&#x27;t have it all. So we choose.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do people have to make choices?</p>
+    <div class="opts">
+      <button class="opt">Stores sell only one thing.</button>
+      <button class="opt">Choices never cost anything.</button>
+      <button class="opt" data-c="1">Money and time are limited.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="cost" data-logic="Opportunity cost is the next best thing you give up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The next best thing you give up when you choose is the opportunity ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="There are not enough muffins for all 30 customers. That is scarcity.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one shows scarcity?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A bakery has 10 muffins and 30 customers.</button>
+      <button class="opt">A store has 20 kites for 5 kids.</button>
+      <button class="opt">Every child gets all the toys they want.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Sam chose soccer, so he gave up art class. Art class is his opportunity cost.">
+    <span class="pts">+5</span>
+    <p class="qtext">Sam has time for soccer OR art class, not both. He picks soccer. What did he give up?</p>
+    <div class="opts">
+      <button class="opt">soccer</button>
+      <button class="opt" data-c="1">art class</button>
+      <button class="opt">nothing at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="off|trade-off|tradeoff|trade off" data-logic="A trade-off means you give up one thing to get another.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Giving up one thing to get another thing is a trade-____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="Three shows will not fit in 1 hour. There is not enough time, so it is scarce.">
+    <span class="pts">+5</span>
+    <p class="qtext">Time can be scarce too. Which shows scarcity of time?</p>
+    <div class="opts">
+      <button class="opt">You have 3 hours and 1 show to watch.</button>
+      <button class="opt">A clock on the wall has 12 numbers.</button>
+      <button class="opt" data-c="1">You have 1 hour and 3 shows to watch.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="The puzzle was her 2nd choice, her next best thing. So the puzzle is her opportunity cost.">
+    <span class="pts">+5</span>
+    <p class="qtext">Nia ranks: 1. book, 2. puzzle, 3. ball. She buys the book. Her opportunity cost is ___.</p>
+    <div class="opts">
+      <button class="opt">the ball</button>
+      <button class="opt" data-c="1">the puzzle</button>
+      <button class="opt">the book</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🐷 Saving and Spending</h2>
+<div class="card card-sky">
+<p>When you <b>spend</b>, you use money to buy something now. When you <b>save</b>, you keep money to use later. Saving helps you buy bigger things. It also helps when there is an emergency.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;When you spend , you use money to buy something now. When you save , you keep money to use later. Saving helps you buy bigger things. It also helps when there is an emergency.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I earn $2 each week helping at the Trading Post. I want a $10 kite. If I spend my $2 on candy every week, I will never get the kite. If I save $2 each week, I count: 2, 4, 6, 8, 10. In 5 weeks I have $10! Saving means I have to wait. But waiting gets me the bigger thing I want.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I earn $2 each week helping at the Trading Post. I want a $10 kite. If I spend my $2 on candy every week, I will never get the kite. If I save $2 each week, I count: 2, 4, 6, 8, 10. In 5 weeks I have $10! Saving means I have to wait. But waiting gets me the bigger thing I want.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Theo's Savings Chart</h4><table><tr><th>Week</th><th>Saved this week</th><th>Total saved</th></tr><tr><td>1</td><td>$2</td><td>$2</td></tr><tr><td>2</td><td>$2</td><td>$4</td></tr><tr><td>3</td><td>$2</td><td>$6</td></tr><tr><td>4</td><td>$2</td><td>$8</td></tr><tr><td>5</td><td>$2</td><td>$10 &#10003; kite!</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Mia's Three Jars</h4><p>Many families use three jars: <b>Save</b>, <b>Spend</b> and <b>Share</b>. Mia earns $6. She puts $3 in Save, $2 in Spend and $1 in Share, to give to others. Let's check: 3 + 2 + 1 = 6. Every dollar has a job!<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Many families use three jars: Save , Spend and Share . Mia earns $6. She puts $3 in Save, $2 in Spend and $1 in Share, to give to others. Let\'s check: 3 + 2 + 1 = 6. Every dollar has a job!&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="saving|save|saves" data-logic="Saving means keeping money now so you can use it later.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Keeping money to use later is called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="Count by 2s: 2, 4, 6, 8. That is 4 weeks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ari saves $2 each week for an $8 book. How many weeks will it take?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">4 weeks</button>
+      <button class="opt">2 weeks</button>
+      <button class="opt">8 weeks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Spending means using money to buy something now, like a snack.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which one is spending?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">buying a snack at the store</button>
+      <button class="opt">putting coins in a jar</button>
+      <button class="opt">keeping $5 in a bank</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t31_s1" data-pts="5" data-logic="Families save so they have money later, like when a car breaks or someone gets sick.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why might a family save money?</p>
+    <div class="opts">
+      <button class="opt">so the money is never used</button>
+      <button class="opt">because saving is the law</button>
+      <button class="opt" data-c="1">for a later need or emergency</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s1" data-pts="5" data-ans="spending|spend|spends" data-logic="Spending means using money to buy something now.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Using money to buy something now is called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Jo does not have enough yet. If she saves, she can buy the ball later.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jo has $5. A ball costs $8. What is a smart plan?</p>
+    <div class="opts">
+      <button class="opt">buy the ball today</button>
+      <button class="opt">take the ball for free</button>
+      <button class="opt" data-c="1">save until she has $8</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="9|nine|9 dollars|$9" data-logic="Count by 3s: 3, 6, 9. Mia has $9.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Mia saves $3 each week. After 3 weeks, she has $____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="People keep saved money in a bank so it is safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bank is a safe place to ___.</p>
+    <div class="opts">
+      <button class="opt">grow food</button>
+      <button class="opt" data-c="1">keep saved money</button>
+      <button class="opt">mail letters</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="When you save, you wait. Then you have enough money for the bigger thing.">
+    <span class="pts">+5</span>
+    <p class="qtext">Saving up for a bigger thing usually means ___.</p>
+    <div class="opts">
+      <button class="opt">buying it right away</button>
+      <button class="opt" data-c="1">waiting before you buy</button>
+      <button class="opt">never getting it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🕵️ Source Detective: The Trading Post Price List</h2>
+<p>Theo is getting ready for a hike. He has <b>$8</b>. Read Grandpa's price list carefully. Then help Theo make smart choices.</p>
+<div class="sourcebox"><h4>Price List: Grandpa's Trading Post (practice source)</h4><div><p><b>Grandpa's Trading Post: Opening Day Prices</b></p><table><tr><th>Item</th><th>Price</th></tr><tr><td>Water bottle</td><td>$1</td></tr><tr><td>Loaf of bread</td><td>$3</td></tr><tr><td>Rain poncho</td><td>$4</td></tr><tr><td>Toy compass</td><td>$5</td></tr><tr><td>Kite</td><td>$6</td></tr><tr><td>Bag of candy</td><td>$2</td></tr></table><p><i>Thank you for shopping with us!</i></p></div><div class="src">A practice price list made for this KCE lesson, set at Grandpa's Trading Post from our Unit 2 Math and Reading story.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Grandpa\'s Trading Post, Opening Day Prices. Water bottle, 1 dollar. Loaf of bread, 3 dollars. Rain poncho, 4 dollars. Toy compass, 5 dollars. Kite, 6 dollars. Bag of candy, 2 dollars. Thank you for shopping with us!&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Economist</h4><p>An economist studies how people choose with money. First, I read the title: Opening Day Prices. Next, I read each item and its price. Then I sort: Which items are needs for a hike? Which are wants? Last, I add the prices. I check that the total is not more than $8.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="lab1_s0" data-pts="5" data-ans="6|six|$6|6 dollars" data-logic="The price list says the kite costs $6.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How much does the kite cost? $____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s0" data-pts="5" data-logic="The poncho costs $4. $8 minus $4 leaves $4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo has $8. He buys the rain poncho. How much money is left?</p>
+    <div class="opts">
+      <button class="opt">$2</button>
+      <button class="opt">$5</button>
+      <button class="opt" data-c="1">$4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="Bread $3 + poncho $4 + kite $6 = $13. That is more than his $8, so he must choose.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo wants bread, a poncho AND the kite. What do they add up to?</p>
+    <div class="opts">
+      <button class="opt">$8</button>
+      <button class="opt" data-c="1">$13</button>
+      <button class="opt">$10</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="lab1_s1" data-pts="5" data-ans="candy" data-logic="The list shows a bag of candy costs $2.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The item that costs $2 is the bag of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="The compass costs $5 and the bread costs $3. So the compass costs more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which costs more on the list?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the toy compass</button>
+      <button class="opt">the loaf of bread</button>
+      <button class="opt">They cost the same.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="Water is $1 and bread is $3. $1 + $3 = $4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo buys a water bottle and bread. Both are needs. How much does he spend?</p>
+    <div class="opts">
+      <button class="opt">$3</button>
+      <button class="opt" data-c="1">$4</button>
+      <button class="opt">$5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="After bread, Theo has $8 - $3 = $5. The compass is $5, so it fits. The kite is $6, too much.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo has $8. He buys bread first. Which ONE want can he still afford?</p>
+    <div class="opts">
+      <button class="opt">the kite</button>
+      <button class="opt" data-c="1">the toy compass</button>
+      <button class="opt">both the kite and compass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="3|three|3 weeks|three weeks" data-logic="The kite costs $6. Count by 2s: 2, 4, 6. That is 3 weeks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Theo saves $2 a week for the $6 kite. How many weeks will it take?</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="Water $1 + poncho $4 = $5. $8 minus $5 leaves $3 to save.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo has $8. He buys a water bottle and the poncho. How much is left to save?</p>
+    <div class="opts">
+      <button class="opt">$5</button>
+      <button class="opt">$4</button>
+      <button class="opt" data-c="1">$3</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>💼 Business Builders</h2>
+<p>These women made smart money choices and helped others do the same. As you read, ask: Who did their work help?</p>
+<div class="peoplegrid"><div class="pcard"><h4>Madam C.J. Walker</h4><div class="yrs">1867–1919</div><p>She was born <b>Sarah Breedlove</b> in Louisiana. Her parents had been enslaved. She was the first child in her family born free. She washed clothes for very little pay. Then she made <b>hair-care products</b> for Black women. In 1910 she moved her company to Indianapolis, Indiana. She trained thousands of Black women to sell her products and earn their own money. She became one of the first <b>self-made</b> women millionaires in America. Self-made means she earned it herself.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Madam C.J. Walker. She was born Sarah Breedlove in Louisiana. Her parents had been enslaved. She was the first child in her family born free. She washed clothes for very little pay. Then she made hair-care products for Black women. In 1910 she moved her company to Indianapolis, Indiana. She trained thousands of Black women to sell her products and earn their own money. She became one of the first self-made women millionaires in America. Self-made means she earned it herself.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Annie Turnbo Malone</h4><div class="yrs">1869–1957</div><p>Annie Turnbo Malone was a Black businesswoman from Illinois. She made hair products for Black women called <b>Poro</b>. Sarah Breedlove once worked selling Poro products. Later the two women became business rivals. Malone opened a school in St. Louis to train beauty workers.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Annie Turnbo Malone. Annie Turnbo Malone was a Black businesswoman from Illinois. She made hair products for Black women called Poro . Sarah Breedlove once worked selling Poro products. Later the two women became business rivals. Malone opened a school in St. Louis to train beauty workers.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Maggie Lena Walker</h4><div class="yrs">1864–1934</div><p>Maggie Lena Walker lived in Richmond, Virginia. She was not related to Madam C.J. Walker. Her mother had been enslaved. In 1903 she started the <b>St. Luke Penny Savings Bank</b>. She was the first Black woman in the United States to start a bank. Her bank helped Black families save money and buy homes.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Maggie Lena Walker. Maggie Lena Walker lived in Richmond, Virginia. She was not related to Madam C.J. Walker. Her mother had been enslaved. In 1903 she started the St. Luke Penny Savings Bank . She was the first Black woman in the United States to start a bank. Her bank helped Black families save money and buy homes.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="pp1_s0" data-pts="5" data-ans="Breedlove" data-logic="Her birth name was Sarah Breedlove. Later she called herself Madam C.J. Walker.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Madam C.J. Walker was born with the name Sarah ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="She made hair-care products for Black women and built a big business.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Madam C.J. Walker make and sell?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">hair-care products</button>
+      <button class="opt">peanut snacks</button>
+      <button class="opt">farm tools</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="She started the St. Luke Penny Savings Bank in Richmond, Virginia.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1903, Maggie Lena Walker started a ___.</p>
+    <div class="opts">
+      <button class="opt">factory</button>
+      <button class="opt">farm</button>
+      <button class="opt" data-c="1">bank</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="She trained thousands of women to sell her products, so they earned their own money.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Madam Walker help other Black women?</p>
+    <div class="opts">
+      <button class="opt">She gave each one a free house.</button>
+      <button class="opt" data-c="1">She trained them to sell and earn money.</button>
+      <button class="opt">She taught them to drive trucks.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="Savings" data-logic="The bank&#x27;s name was the St. Luke Penny Savings Bank.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Maggie Lena Walker started the St. Luke Penny ____ Bank.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="Sarah Breedlove once worked selling Annie Turnbo Malone&#x27;s Poro products.">
+    <span class="pts">+5</span>
+    <p class="qtext">Before she started her own business, Sarah Breedlove sold products for ___.</p>
+    <div class="opts">
+      <button class="opt">Maggie Lena Walker</button>
+      <button class="opt">Clara Barton</button>
+      <button class="opt" data-c="1">Annie Turnbo Malone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Her parents had been enslaved. Sarah was the first child in her family born free.">
+    <span class="pts">+5</span>
+    <p class="qtext">Madam Walker's parents had been ___.</p>
+    <div class="opts">
+      <button class="opt">bankers</button>
+      <button class="opt">store owners</button>
+      <button class="opt" data-c="1">enslaved</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="Poro" data-logic="Malone sold hair products under the name Poro.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Annie Turnbo Malone's hair products were called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s2" data-pts="5" data-logic="Self-made means she earned her money herself by building her business.">
+    <span class="pts">+5</span>
+    <p class="qtext">'Self-made' millionaire means Madam Walker ___.</p>
+    <div class="opts">
+      <button class="opt">got money from family</button>
+      <button class="opt" data-c="1">built her own business</button>
+      <button class="opt">won money in a game</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="need" data-logic="You must have food to live, so it is a need.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Food is a ____, not a want.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="scarcity" data-logic="There is not enough time to do both. That is scarcity.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Theo has 1 hour. He can read OR play, not both. Not enough time is an example of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="Indianapolis" data-logic="She moved her company to Indianapolis, Indiana, in 1910.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1910, Madam C.J. Walker moved her company to the city of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="want" data-logic="You can live without a toy robot, so it is a want.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A toy robot is a ____, not a need.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="10|ten|$10|10 dollars" data-logic="$5 + $5 = $10. Ben has $10.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Ben saves $5 each week. After 2 weeks he has $____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="Virginia|VA" data-logic="Her bank, the St. Luke Penny Savings Bank, was in Richmond, Virginia.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Maggie Lena Walker's bank was in Richmond, ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="bank" data-logic="People keep saved money safe in a bank.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A safe place to keep saved money is a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="Louisiana" data-logic="Sarah Breedlove was born in Louisiana in 1867.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Madam C.J. Walker was born in the state of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="savings|saving" data-logic="Money you keep for later is called your savings.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The money you keep in a jar for later is your ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="You can live without stickers. Water and a coat are needs.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Fast! Which one is a want?</p>
+    <div class="opts">
+      <button class="opt">water</button>
+      <button class="opt">a coat</button>
+      <button class="opt" data-c="1">stickers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="saving|save" data-bonus="1" data-logic="Keeping money for later is saving.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Using money now is spending. Keeping it for later is ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Add the two prices: $3 + $2 = $5 in all.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A $3 snack and a $2 drink cost ___ in all.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">$5</button>
+      <button class="opt">$6</button>
+      <button class="opt">$1</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned about needs, wants, scarcity, choices, saving and spending.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder? Maybe: How does a bank keep money safe? How did Madam Walker get her first customers? Write one question on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, make a grocery list for your home. Mark each item N for need or W for want. Then explore the <b>Maggie L. Walker National Historic Site</b> on the National Park Service website (nps.gov/mawa) to see her home in Richmond, Virginia.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: The Money Choice Challenge</h2>
+<p>This is the hardest round. Use needs, wants, opportunity cost, saving and the people you met. Think like an economist!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Needs come first. After the $4 milk, they still have $16 and can decide about the movie.">
+    <span class="pts">+5</span>
+    <p class="qtext">A family has $20. They need milk ($4) and want a movie ($15). What should they buy first?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the milk</button>
+      <button class="opt">the movie</button>
+      <button class="opt">nothing at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Every day has only 24 hours, so we can&#x27;t do everything. We have to choose.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is time scarce, just like money?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A day has only 24 hours.</button>
+      <button class="opt">Clocks can break.</button>
+      <button class="opt">Time costs $1 an hour.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="The women earned their own money, which helped them and their families.">
+    <span class="pts">+5</span>
+    <p class="qtext">Madam Walker trained thousands of women to sell her products. Who benefited?</p>
+    <div class="opts">
+      <button class="opt">only Madam Walker herself</button>
+      <button class="opt" data-c="1">the women and their families</button>
+      <button class="opt">nobody in her company</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="The compass was his next best choice, so it is his opportunity cost.">
+    <span class="pts">+5</span>
+    <p class="qtext">Theo ranks: 1. kite, 2. compass, 3. candy. He buys the kite. What is his opportunity cost?</p>
+    <div class="opts">
+      <button class="opt">the candy</button>
+      <button class="opt" data-c="1">the compass</button>
+      <button class="opt">the kite</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Count by 3s: 3, 6, 9, 12. That is 4 weeks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ana wants a $12 game. She saves $3 a week. How many weeks will it take?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">4 weeks</button>
+      <button class="opt">3 weeks</button>
+      <button class="opt">9 weeks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="There is not enough water for everyone who wants it. That is scarcity.">
+    <span class="pts">+5</span>
+    <p class="qtext">A storm is coming. Many people buy water, and the store runs low. This is ___.</p>
+    <div class="opts">
+      <button class="opt">saving</button>
+      <button class="opt">a want</button>
+      <button class="opt" data-c="1">scarcity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Some things can be a need or a want. A phone for safety or work can be a need. A phone just for games is a want.">
+    <span class="pts">+5</span>
+    <p class="qtext">Is a phone a need or a want? Which answer uses the best reasoning?</p>
+    <div class="opts">
+      <button class="opt">It is always a want, since phones are fun.</button>
+      <button class="opt" data-c="1">It depends: it can be needed for safety or work.</button>
+      <button class="opt">It is always a need, since everyone has one.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Even small amounts grow when you keep saving. That helped families buy homes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Maggie Lena Walker's bank let working families save small amounts. Why did that matter?</p>
+    <div class="opts">
+      <button class="opt">Banks only like big money.</button>
+      <button class="opt">Pennies are worth nothing.</button>
+      <button class="opt" data-c="1">Small savings add up over time.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="The evidence is that thousands of women earned money selling her products.">
+    <span class="pts">+5</span>
+    <p class="qtext">How do we know Madam Walker's business helped many women?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Thousands of women earned money as agents.</button>
+      <button class="opt">Her hair products came in pretty tins.</button>
+      <button class="opt">She moved her company to a big city.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="$5 minus $2 is $3. Mia saves $3.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mia has $5. She spends $2 and saves the rest. How much does she save?</p>
+    <div class="opts">
+      <button class="opt">$7</button>
+      <button class="opt">$2</button>
+      <button class="opt" data-c="1">$3</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="There are only 5 ponchos for 9 hikers. That is scarcity, so 4 hikers miss out.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Trading Post has 5 ponchos. 9 hikers want one. What will happen?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Some hikers will not get one.</button>
+      <button class="opt">Every hiker will get one.</button>
+      <button class="opt">The ponchos will cost $0.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="She worked hard, made products people needed and trained sellers. Luck leaves out her real work.">
+    <span class="pts">+5</span>
+    <p class="qtext">A story says Madam Walker 'just got lucky.' What is MISSING from that story?</p>
+    <div class="opts">
+      <button class="opt">the color of her factory</button>
+      <button class="opt" data-c="1">her hard work and smart choices</button>
+      <button class="opt">the name of her street</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Window Shopper</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-socialstudies-w6';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 140;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"Why can't we have everything we want, and how do people make good choices?": "../audio/heart/4391c8e359.mp3", "need. Something you must have to live. Example: food, water, clothes and a safe home.": "../audio/heart/25d646b3f0.mp3", "want. Something nice to have that you can live without. Example: a toy or a game.": "../audio/heart/ab73e98671.mp3", "scarcity. Not having enough for everyone to get everything they want. Money and time run out.": "../audio/heart/dde74384ac.mp3", "trade-off. Giving up one thing to get another thing.": "../audio/heart/e231d85c1b.mp3", "opportunity cost. The next best thing you give up when you make a choice.": "../audio/heart/e97e43a75d.mp3", "save. To keep money to use later. Example: putting coins in a jar or a bank.": "../audio/heart/a195fd1cd7.mp3", "spend. To use money to buy something now.": "../audio/heart/986f34d392.mp3", "A need is something you must have to live. Food, water, clothes and a safe home are needs. A want is something nice to have. You can live without a want.": "../audio/heart/df1a04f643.mp3", "I ask one question: Can I live without it? Water? No. I need water to live. So water is a need. A video game? Yes, I can live without it. So it is a want. Shoes are tricky. Shoes are a need. But light-up shoes with a cartoon are a want, because plain shoes do the job.": "../audio/heart/0c057ae518.mp3", "Mia is getting ready for a hike from Grandpa's Trading Post. Her list: water, a rain jacket, a toy compass, candy . Let's ask, 'Can I live without it?' Water and a rain jacket keep her safe, so they are needs . The toy compass and candy are fun, so they are wants .": "../audio/heart/d1da486652.mp3", "Scarcity means we can't have everything we want. Money, time and things run out. So we must make choices . The next best thing you give up is the opportunity cost .": "../audio/heart/9cae042f59.mp3", "I have $3. A book, a kite and a smoothie each cost $3. I can only buy one. That is scarcity! First, I rank them: 1. book, 2. kite, 3. smoothie. I pick the book. Every choice is a trade-off . My opportunity cost is the kite, because the kite was my next best choice. It is not the smoothie. I only count the next best thing I gave up.": "../audio/heart/acc155c25f.mp3", "On Saturday, Theo can go to the park or help Grandpa at the Trading Post and earn $2. He has time for only one. That is scarcity of time. Theo picks helping Grandpa. What did he give up? Park time. Park time is his opportunity cost. His trade-off: he got $2 but gave up play time.": "../audio/heart/073ba8ad36.mp3", "When you spend , you use money to buy something now. When you save , you keep money to use later. Saving helps you buy bigger things. It also helps when there is an emergency.": "../audio/heart/25a8c64d82.mp3", "I earn $2 each week helping at the Trading Post. I want a $10 kite. If I spend my $2 on candy every week, I will never get the kite. If I save $2 each week, I count: 2, 4, 6, 8, 10. In 5 weeks I have $10! Saving means I have to wait. But waiting gets me the bigger thing I want.": "../audio/heart/4a7edb9930.mp3", "Many families use three jars: Save , Spend and Share . Mia earns $6. She puts $3 in Save, $2 in Spend and $1 in Share, to give to others. Let's check: 3 + 2 + 1 = 6. Every dollar has a job!": "../audio/heart/2d88f749a2.mp3", "Grandpa's Trading Post, Opening Day Prices. Water bottle, 1 dollar. Loaf of bread, 3 dollars. Rain poncho, 4 dollars. Toy compass, 5 dollars. Kite, 6 dollars. Bag of candy, 2 dollars. Thank you for shopping with us!": "../audio/heart/d7ce0b3b63.mp3", "Madam C.J. Walker. She was born Sarah Breedlove in Louisiana. Her parents had been enslaved. She was the first child in her family born free. She washed clothes for very little pay. Then she made hair-care products for Black women. In 1910 she moved her company to Indianapolis, Indiana. She trained thousands of Black women to sell her products and earn their own money. She became one of the first self-made women millionaires in America. Self-made means she earned it herself.": "../audio/heart/ad0626cf99.mp3", "Annie Turnbo Malone. Annie Turnbo Malone was a Black businesswoman from Illinois. She made hair products for Black women called Poro . Sarah Breedlove once worked selling Poro products. Later the two women became business rivals. Malone opened a school in St. Louis to train beauty workers.": "../audio/heart/8d20959c93.mp3", "Maggie Lena Walker. Maggie Lena Walker lived in Richmond, Virginia. She was not related to Madam C.J. Walker. Her mother had been enslaved. In 1903 she started the St. Luke Penny Savings Bank . She was the first Black woman in the United States to start a bank. Her bank helped Black families save money and buy homes.": "../audio/heart/f6600a1d22.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["need", "must have to live"], ["want", "nice to have, not a must"], ["scarcity", "not enough for everything"], ["opportunity cost", "next best thing you give up"], ["save", "keep money for later"]], [["spend", "use money to buy now"], ["trade-off", "give up one thing for another"], ["bank", "safe place to keep money"], ["clean water", "a need"], ["toy kite", "a want"]], [["Madam C.J. Walker", "built a hair-care business"], ["Sarah Breedlove", "Madam Walker's birth name"], ["Maggie Lena Walker", "first Black woman to start a bank"], ["Annie Turnbo Malone", "made Poro hair products"], ["Walker sales agents", "women who earned money selling"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Window Shopper", "Smart Chooser", "Super Saver", "Master of Money Choices"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

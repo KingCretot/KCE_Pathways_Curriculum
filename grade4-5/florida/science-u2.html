@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Florida Focus Science: Hurricanes and Florida Weather | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌴 KCE Pathways — Grades 4&ndash;5 &mdash; Florida Focus</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 2: The Next Level &bull; Florida Focus (Bonus) &bull; Science</span>
+  <h1>Hurricanes and Florida Weather</h1>
+  <h2>Follow a hurricane from warm ocean water to landfall, and learn how forecasters and families stay a step ahead.</h2>
+<span class="flbadge">🌴 Florida Focus &bull; Bonus lesson &bull; never blocks your next lesson</span>  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do scientists use evidence to forecast hurricanes, and how does that evidence help Florida families stay safe?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do scientists use evidence to forecast hurricanes, and how does that evidence help Florida families stay safe?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Explain how warm ocean water, evaporation and low pressure build a hurricane</li><li>Classify storms by wind speed with the Saffir-Simpson scale</li><li>Explain why storm surge is often the most dangerous part of a hurricane</li><li>Read a storm track table like a forecaster</li><li>Meet the hurricane hunters and National Hurricane Center scientists who track storms</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's warm up with ideas you will use today: the water cycle and weather tools from Week 7, fair tests, and Florida's coasts from Unit 1. A hurricane is the water cycle working on a giant scale.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Evaporation is liquid water turning into a gas called water vapor. Heat from the Sun makes it happen.">
+    <span class="pts">+5</span>
+    <p class="qtext">When the Sun heats ocean water and some of it turns into water vapor, that is called...</p>
+    <div class="opts">
+      <button class="opt">condensation</button>
+      <button class="opt" data-c="1">evaporation</button>
+      <button class="opt">precipitation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Weather is what the air is doing now or soon: temperature, wind, rain. Climate is the long-term average pattern.">
+    <span class="pts">+5</span>
+    <p class="qtext">Weather describes...</p>
+    <div class="opts">
+      <button class="opt">the average pattern over many years</button>
+      <button class="opt">the type of rocks under the ground</button>
+      <button class="opt" data-c="1">the conditions outside today or this week</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Thick mangrove roots take energy out of waves and storm surge before the water reaches land.">
+    <span class="pts">+5</span>
+    <p class="qtext">In Unit 1, mangrove forests helped protect Florida's coasts because...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">their roots slow waves and storm surge</button>
+      <button class="opt">their leaves stop wind from forming</button>
+      <button class="opt">they drink up all of the rain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Repeating a measurement shows whether the result stays about the same. That makes the evidence more trustworthy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do scientists repeat a measurement several times?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">To check that the result is reliable</button>
+      <button class="opt">To make the numbers come out bigger</button>
+      <button class="opt">Because the first number is always wrong</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Condensation is water vapor cooling and turning back into tiny liquid droplets. Clouds form the same way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Steam from a hot shower turns into tiny drops on a cool mirror. Which water cycle process is that?</p>
+    <div class="opts">
+      <button class="opt">evaporation</button>
+      <button class="opt">transpiration</button>
+      <button class="opt">runoff</button>
+      <button class="opt" data-c="1">condensation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Precipitation is any water that falls from clouds to the ground, including a hurricane&#x27;s heavy rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Rain pouring from a hurricane's clouds onto the ground is an example of...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">precipitation</button>
+      <button class="opt">condensation</button>
+      <button class="opt">evaporation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="An anemometer has spinning cups. The faster they spin, the faster the wind.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which weather tool measures wind speed?</p>
+    <div class="opts">
+      <button class="opt">thermometer</button>
+      <button class="opt">rain gauge</button>
+      <button class="opt" data-c="1">anemometer</button>
+      <button class="opt">barometer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Very hot water makes the algae leave the coral, so the coral turns white. Warm water matters for hurricanes too.">
+    <span class="pts">+5</span>
+    <p class="qtext">In Unit 1, corals bleached when the ocean water got too...</p>
+    <div class="opts">
+      <button class="opt">cold</button>
+      <button class="opt" data-c="1">hot</button>
+      <button class="opt">salty</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A barometer measures air pressure. Falling pressure often means stormy weather is coming.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which weather tool measures air pressure?</p>
+    <div class="opts">
+      <button class="opt">thermometer</button>
+      <button class="opt">anemometer</button>
+      <button class="opt" data-c="1">barometer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="The Sun heats the water so it evaporates. The Sun&#x27;s energy keeps the whole water cycle moving.">
+    <span class="pts">+5</span>
+    <p class="qtext">A puddle dries up on a sunny afternoon. What gave the water the energy to evaporate?</p>
+    <div class="opts">
+      <button class="opt">the Moon's pull</button>
+      <button class="opt" data-c="1">sunlight</button>
+      <button class="opt">Earth's core</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Weather is what the air does in one place over hours or days. Climate is the usual pattern over many years.">
+    <span class="pts">+5</span>
+    <p class="qtext">A forecaster says, 'Expect 3 inches of rain in Arcadia tomorrow.' Is that weather or climate?</p>
+    <div class="opts">
+      <button class="opt">Climate, because it is about rain</button>
+      <button class="opt" data-c="1">Weather, because it is one place and day</button>
+      <button class="opt">Climate, because it is a prediction</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="An estuary is where river or marsh water mixes with ocean water, so it is brackish, a mix of fresh and salty.">
+    <span class="pts">+5</span>
+    <p class="qtext">An estuary like Florida Bay has water that is...</p>
+    <div class="opts">
+      <button class="opt">completely fresh</button>
+      <button class="opt">frozen in winter</button>
+      <button class="opt" data-c="1">a mix of fresh and salty</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about hurricanes and predict what makes one grow stronger. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This short video comes from NOAA SciJinks, the student science site of the National Oceanic and Atmospheric Administration. It shows how a hurricane forms over warm ocean water.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>How Do Hurricanes Form?</b> &mdash; NOAA SciJinks</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/wPDoIrGUrEc?rel=0&amp;modestbranding=1&amp;playsinline=1" title="How Do Hurricanes Form?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for the ingredients a hurricane needs. Watch where the storm gets its energy and what happens to warm, moist air as it rises. Then connect it to evaporation and condensation.</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">hurricane<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;hurricane. A large, spinning storm that forms over warm ocean water and has winds of at least 74 miles per hour.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A large, spinning storm that forms over warm ocean water and has winds of at least 74 miles per hour.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">air pressure<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;air pressure. The push of the air above us. Rising air leaves low pressure near the ground, and low pressure often brings storms.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The push of the air above us. Rising air leaves low pressure near the ground, and low pressure often brings storms.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">eye<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;eye. The calm, nearly round center of a hurricane. Winds there are light, and the sky can even be clear.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The calm, nearly round center of a hurricane. Winds there are light, and the sky can even be clear.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">eyewall<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;eyewall. The ring of tall thunderstorms around the eye, where a hurricane\'s strongest winds and heaviest rain are.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The ring of tall thunderstorms around the eye, where a hurricane's strongest winds and heaviest rain are.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">storm surge<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;storm surge. A rise of ocean water pushed toward the shore by a storm\'s winds. It can flood coastal land quickly.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A rise of ocean water pushed toward the shore by a storm's winds. It can flood coastal land quickly.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">Saffir-Simpson scale<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Saffir-Simpson scale. The 1-to-5 scale that ranks hurricanes by their top sustained wind speed.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The 1-to-5 scale that ranks hurricanes by their top sustained wind speed.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">evacuate<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;evacuate. To leave an area to stay safe. Example: officials tell families in a storm surge zone to evacuate.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To leave an area to stay safe. Example: officials tell families in a storm surge zone to evacuate.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌀 How a Hurricane Forms</h2>
+<div class="card card">
+<p>A <b>hurricane</b> forms over warm ocean water, usually at least about 80°F. The Sun heats the ocean, and water <b>evaporates</b> into warm, moist air that rises. As the air rises and cools, the water vapor <b>condenses</b> into towering clouds and gives off heat, which makes the air rise even faster. Rising air leaves <b>low pressure</b> at the ocean surface, so more air rushes in, and Earth's spin turns it into a spiral. In the Northern Hemisphere, hurricanes spin counterclockwise around a calm center called the <b>eye</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A hurricane forms over warm ocean water, usually at least about 80\u00b0F. The Sun heats the ocean, and water evaporates into warm, moist air that rises. As the air rises and cools, the water vapor condenses into towering clouds and gives off heat, which makes the air rise even faster. Rising air leaves low pressure at the ocean surface, so more air rushes in, and Earth\'s spin turns it into a spiral. In the Northern Hemisphere, hurricanes spin counterclockwise around a calm center called the eye .&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I connect this to the water cycle. Evaporation carries energy from the warm ocean into the air, and condensation releases that energy inside the clouds. So warm water is the storm's fuel. Now I can predict: what happens when a hurricane moves over land or cooler water? It loses its fuel, so it usually weakens. If warm water feeds the storm, taking the warm water away should weaken it. That is reasoning from evidence.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I connect this to the water cycle. Evaporation carries energy from the warm ocean into the air, and condensation releases that energy inside the clouds. So warm water is the storm\'s fuel. Now I can predict: what happens when a hurricane moves over land or cooler water? It loses its fuel, so it usually weakens. If warm water feeds the storm, taking the warm water away should weaken it. That is reasoning from evidence.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Inside a Hurricane</h4><ul><li><b>Eye:</b> the calm center, often about 20 to 40 miles wide. The sky can be clear.</li><li><b>Eyewall:</b> a ring of tall thunderstorms around the eye with the strongest winds and heaviest rain.</li><li><b>Rain bands:</b> spiral arms of clouds and rain that can stretch hundreds of miles out.</li><li><b>Ocean below:</b> warm water, at least about 80°F, that fuels the storm.</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: From Clouds to Hurricane</h4><p>Follow the steps together. The Sun warms the ocean. Water evaporates, and warm, moist air rises. The vapor condenses into tall clouds and releases heat. Low pressure at the surface pulls in more air, and Earth's spin turns it. Forecasters name the stages by wind speed: a <b>tropical depression</b> has winds under 39 mph, a <b>tropical storm</b> has winds of 39 to 73 mph and gets a name, and a <b>hurricane</b> has winds of 74 mph or more.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Follow the steps together. The Sun warms the ocean. Water evaporates, and warm, moist air rises. The vapor condenses into tall clouds and releases heat. Low pressure at the surface pulls in more air, and Earth\'s spin turns it. Forecasters name the stages by wind speed: a tropical depression has winds under 39 mph, a tropical storm has winds of 39 to 73 mph and gets a name, and a hurricane has winds of 74 mph or more.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="80|eighty" data-logic="Hurricanes need warm water, usually at least about 80°F, to supply enough heat and moisture.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Hurricanes form over ocean water that is at least about ____ degrees Fahrenheit. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="Warm water evaporates and carries heat into the air. Condensation releases that heat and powers the storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where does a hurricane get most of its energy?</p>
+    <div class="opts">
+      <button class="opt">Cold air from the north</button>
+      <button class="opt">Lightning inside the clouds</button>
+      <button class="opt" data-c="1">Warm ocean water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="Earth&#x27;s spin turns the inflowing air. North of the equator, hurricanes spin counterclockwise.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the Northern Hemisphere, a hurricane's winds spin...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">counterclockwise</button>
+      <button class="opt">clockwise</button>
+      <button class="opt">straight up and down</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="eye" data-logic="The eye is the calm center. Winds are light there, even though the eyewall around it is the most violent part.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The calm, nearly round center of a hurricane is called the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="Condensation gives off heat. That warms the air inside the storm, so it rises faster and the storm grows.">
+    <span class="pts">+5</span>
+    <p class="qtext">When rising water vapor condenses into clouds, it...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">releases heat that makes air rise faster</button>
+      <button class="opt">soaks up heat and makes the storm stop</button>
+      <button class="opt">turns straight into hail and falls out</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Land has no warm ocean water to evaporate, so the storm loses its fuel and usually weakens. It does not stop all at once.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hurricane moves from the warm Gulf onto land. A scientist predicts it will...</p>
+    <div class="opts">
+      <button class="opt">grow stronger because land is hotter</button>
+      <button class="opt" data-c="1">usually weaken because it loses its fuel</button>
+      <button class="opt">stop spinning the moment it hits land</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="pressure" data-logic="When warm air rises, it leaves low pressure below. Air from around it rushes in toward that low pressure.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Rising air leaves an area of low air ____ near the ocean surface:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="A storm becomes a hurricane when its winds reach 74 mph. A tropical storm has winds of 39 to 73 mph.">
+    <span class="pts">+5</span>
+    <p class="qtext">A storm's top winds reach 74 miles per hour. It is now called a...</p>
+    <div class="opts">
+      <button class="opt">tropical depression</button>
+      <button class="opt">tropical storm</button>
+      <button class="opt" data-c="1">hurricane</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="The eyewall is the ring of tall thunderstorms around the eye. It has the strongest winds. The eye itself is calm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which part of a hurricane usually has the strongest winds?</p>
+    <div class="opts">
+      <button class="opt">The eye</button>
+      <button class="opt" data-c="1">The eyewall</button>
+      <button class="opt">The outer rain bands</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🌊 Measuring a Hurricane: Wind and Storm Surge</h2>
+<div class="card card-grass">
+<p>Forecasters rank hurricanes with the <b>Saffir-Simpson Hurricane Wind Scale</b>, from Category 1 (winds of 74 to 95 mph) to Category 5 (157 mph or higher). Category 3 and above are called <b>major hurricanes</b>. But the scale measures only wind. <b>Storm surge</b>, ocean water pushed toward the shore by a storm's winds, is often the greatest danger to life in a hurricane. In 2022, Hurricane Ian came ashore in southwest Florida as a Category 4, and its surge flooded Fort Myers Beach with water about 10 to 15 feet above the ground in some spots, and nearby Sanibel Island flooded too.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Forecasters rank hurricanes with the Saffir-Simpson Hurricane Wind Scale , from Category 1 (winds of 74 to 95 mph) to Category 5 (157 mph or higher). Category 3 and above are called major hurricanes . But the scale measures only wind. Storm surge , ocean water pushed toward the shore by a storm\'s winds, is often the greatest danger to life in a hurricane. In 2022, Hurricane Ian came ashore in southwest Florida as a Category 4, and its surge flooded Fort Myers Beach with water about 10 to 15 feet above the ground in some spots, and nearby Sanibel Island flooded too.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>The category tells me about wind, so I ask: what else matters? Storm surge depends on more than wind. It also depends on the storm's size, its path, the tide, and the shape of the sea floor. Southwest Florida's Gulf coast has a wide, shallow sea floor offshore, so water piles up easily. That is why even a lower-category storm can bring a dangerous surge. Heavy rain is a third danger. Ian's rain also flooded rivers far from the coast, including the Peace River.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The category tells me about wind, so I ask: what else matters? Storm surge depends on more than wind. It also depends on the storm\'s size, its path, the tide, and the shape of the sea floor. Southwest Florida\'s Gulf coast has a wide, shallow sea floor offshore, so water piles up easily. That is why even a lower-category storm can bring a dangerous surge. Heavy rain is a third danger. Ian\'s rain also flooded rivers far from the coast, including the Peace River.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The Saffir-Simpson Hurricane Wind Scale</h4><table><tr><th>Category</th><th>Sustained wind (mph)</th></tr><tr><td>Tropical storm (not a hurricane yet)</td><td>39 to 73</td></tr><tr><td>Category 1</td><td>74 to 95</td></tr><tr><td>Category 2</td><td>96 to 110</td></tr><tr><td>Category 3 (major)</td><td>111 to 129</td></tr><tr><td>Category 4 (major)</td><td>130 to 156</td></tr><tr><td>Category 5 (major)</td><td>157 or higher</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Classify Two Storms</h4><p>Storm A has winds of 120 mph. Find the row: 120 is between 111 and 129, so Storm A is a Category 3, a major hurricane. Storm B has winds of 85 mph, so it is a Category 1. Storm B has the lower category, but if it is very wide and heads toward a shallow coast at high tide, its surge could still be dangerous. The category describes wind, not every danger.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Storm A has winds of 120 mph. Find the row: 120 is between 111 and 129, so Storm A is a Category 3, a major hurricane. Storm B has winds of 85 mph, so it is a Category 1. Storm B has the lower category, but if it is very wide and heads toward a shallow coast at high tide, its surge could still be dangerous. The category describes wind, not every danger.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="surge" data-logic="Storm surge is ocean water pushed onto land by the storm&#x27;s winds. It is often the most dangerous part of a hurricane.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A rise of ocean water pushed toward the shore by a storm's winds is called storm ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="140 mph falls between 130 and 156 mph, so it is a Category 4.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hurricane has sustained winds of 140 mph. What category is it?</p>
+    <div class="opts">
+      <button class="opt">Category 2</button>
+      <button class="opt">Category 3</button>
+      <button class="opt" data-c="1">Category 4</button>
+      <button class="opt">Category 5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="The Saffir-Simpson scale uses only sustained wind speed. That is why forecasters warn about surge and rain separately.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Saffir-Simpson scale ranks hurricanes by...</p>
+    <div class="opts">
+      <button class="opt">amount of rain</button>
+      <button class="opt">size of the eye</button>
+      <button class="opt">storm surge height</button>
+      <button class="opt" data-c="1">wind speed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="major" data-logic="Hurricanes of Category 3 and higher are called major hurricanes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A Category 3, 4 or 5 storm is called a ____ hurricane:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="The category measures only wind. A lower-category storm can still push in a big surge or drop flooding rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why can a Category 1 hurricane still be very dangerous?</p>
+    <div class="opts">
+      <button class="opt">Category 1 storms have the fastest winds</button>
+      <button class="opt" data-c="1">Its storm surge and rain can still flood homes</button>
+      <button class="opt">Category 1 storms never move inland</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Ian made landfall near Cayo Costa in southwest Florida as a strong Category 4 hurricane.">
+    <span class="pts">+5</span>
+    <p class="qtext">Hurricane Ian came ashore in southwest Florida in 2022 as a...</p>
+    <div class="opts">
+      <button class="opt">tropical storm</button>
+      <button class="opt">Category 1</button>
+      <button class="opt">Category 2</button>
+      <button class="opt" data-c="1">Category 4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="5|five" data-logic="Category 5 is the top of the scale: sustained winds of 157 mph or more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Hurricanes with winds of 157 mph or higher are Category ____. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="Over a wide, shallow sea floor, the pushed water has nowhere to go but up and onto land. Deep water lets it spread down.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which coast is likely to get a higher storm surge from the same storm?</p>
+    <div class="opts">
+      <button class="opt">A coast with deep water right next to the shore</button>
+      <button class="opt" data-c="1">A coast with a wide, shallow sea floor offshore</button>
+      <button class="opt">A coast on top of a tall rocky cliff</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Heavy rain can fill rivers far from the coast. Ian&#x27;s rain flooded the Peace River area, miles inland.">
+    <span class="pts">+5</span>
+    <p class="qtext">Besides wind and storm surge, which hurricane danger can flood places far inland?</p>
+    <div class="opts">
+      <button class="opt">Ocean tides</button>
+      <button class="opt" data-c="1">Heavy rain</button>
+      <button class="opt">Coral bleaching</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>📡 Forecasting and Staying Safe</h2>
+<div class="card card-sky">
+<p>The Atlantic hurricane season runs from June 1 to November 30. Scientists at the <b>National Hurricane Center</b> in Miami use satellites, radar, ocean buoys and computer models to forecast where a storm will go. <b>Hurricane hunters</b> fly airplanes into storms and drop instruments called <b>dropsondes</b>, which measure wind, temperature, humidity and pressure as they fall. Forecasts show a <b>cone of uncertainty</b>, the area where the storm's center will probably travel. Families use forecasts to learn their <b>evacuation zone</b>, pack a kit, and leave when officials tell their zone to go.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The Atlantic hurricane season runs from June 1 to November 30. Scientists at the National Hurricane Center in Miami use satellites, radar, ocean buoys and computer models to forecast where a storm will go. Hurricane hunters fly airplanes into storms and drop instruments called dropsondes , which measure wind, temperature, humidity and pressure as they fall. Forecasts show a cone of uncertainty , the area where the storm\'s center will probably travel. Families use forecasts to learn their evacuation zone , pack a kit, and leave when officials tell their zone to go.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>The cone is easy to misread, so I slow down. It shows where the <b>center</b> of the storm will probably go, and the center stays inside the cone only about two-thirds of the time. It does not show how big the storm is, so wind, rain and surge can reach places outside the cone. Evacuation zones are based mostly on storm surge risk. That is why Florida emergency managers say, 'Run from water, hide from wind.' Families in a zone that is told to leave go. Many families outside the zones can shelter in a sturdy home, but mobile homes are not safe in hurricane winds.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The cone is easy to misread, so I slow down. It shows where the center of the storm will probably go, and the center stays inside the cone only about two-thirds of the time. It does not show how big the storm is, so wind, rain and surge can reach places outside the cone. Evacuation zones are based mostly on storm surge risk. That is why Florida emergency managers say, \'Run from water, hide from wind.\' Families in a zone that is told to leave go. Many families outside the zones can shelter in a sturdy home, but mobile homes are not safe in hurricane winds.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Watch, Warning and Kit</h4><table><tr><th>Alert</th><th>What it means</th></tr><tr><td>Hurricane Watch</td><td>Hurricane conditions are <b>possible</b>, usually issued about 48 hours ahead. Finish getting ready.</td></tr><tr><td>Hurricane Warning</td><td>Hurricane conditions are <b>expected</b>, usually issued about 36 hours ahead. Finish preparing and leave if your zone is told to.</td></tr></table><p><b>Kit:</b> water for each person and pet for several days, food that needs no cooking, flashlights and batteries, medicines, important papers, phone chargers.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Read the Cone Together</h4><p>Imagine a cone drawn from the Gulf toward Tampa Bay, and your town is just outside its edge. Does that mean you are safe? No. The cone shows the likely path of the storm's center only. Strong winds and heavy rain can reach far outside it. So your family keeps watching official forecasts, checks your evacuation zone, and gets the kit ready.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Imagine a cone drawn from the Gulf toward Tampa Bay, and your town is just outside its edge. Does that mean you are safe? No. The cone shows the likely path of the storm\'s center only. Strong winds and heavy rain can reach far outside it. So your family keeps watching official forecasts, checks your evacuation zone, and gets the kit ready.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="hunters|hunter" data-logic="Hurricane hunters fly into storms to measure them directly, giving forecasters evidence from inside the storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Airplane crews who fly into storms to collect data are called hurricane ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="The cone shows the probable path of the center. It does not show the storm&#x27;s size or every place that will be affected.">
+    <span class="pts">+5</span>
+    <p class="qtext">The cone of uncertainty on a forecast map shows...</p>
+    <div class="opts">
+      <button class="opt">every place that will get wind and rain</button>
+      <button class="opt">exactly how big the storm will grow</button>
+      <button class="opt" data-c="1">where the storm's center will probably go</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Zones are drawn around places that storm surge could flood. That is why &#x27;run from water&#x27; is the first rule.">
+    <span class="pts">+5</span>
+    <p class="qtext">Evacuation zones in Florida are based mostly on the risk of...</p>
+    <div class="opts">
+      <button class="opt">lightning</button>
+      <button class="opt">tornadoes</button>
+      <button class="opt">hail</button>
+      <button class="opt" data-c="1">storm surge</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="dropsonde|dropsondes|dropwindsonde" data-logic="A dropsonde falls through the storm on a small parachute and radios back wind, temperature, humidity and pressure.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An instrument dropped from a plane that measures wind and pressure as it falls is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="A watch means possible. A warning means expected, usually issued about 36 hours ahead.">
+    <span class="pts">+5</span>
+    <p class="qtext">A Hurricane Warning means hurricane conditions are...</p>
+    <div class="opts">
+      <button class="opt">possible in about 48 hours</button>
+      <button class="opt" data-c="1">expected, usually within about 36 hours</button>
+      <button class="opt">over and it is safe to go outside</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Surge zones should evacuate. People outside the zones can often shelter from the wind in a strong building.">
+    <span class="pts">+5</span>
+    <p class="qtext">What does 'Run from water, hide from wind' tell families?</p>
+    <div class="opts">
+      <button class="opt">Go to the beach to watch the waves come in</button>
+      <button class="opt" data-c="1">Leave places that may flood; shelter from wind indoors</button>
+      <button class="opt">Stay in a mobile home because it can bend with the wind</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="Hurricane" data-logic="The National Hurricane Center in Miami issues the official forecasts, watches and warnings.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The forecast center in Miami that tracks hurricanes is the National ____ Center:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="The cone shows only the center&#x27;s likely path. A big storm can bring wind, rain and surge far outside it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Your town is just outside the cone. What should your family do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Keep watching forecasts and get ready anyway</button>
+      <button class="opt">Ignore the storm, since the cone missed you</button>
+      <button class="opt">Drive toward the middle of the cone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="Water is the most important item. Candles can start fires, so flashlights are safer, and ice cream melts when the power goes out.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which item belongs in a hurricane kit?</p>
+    <div class="opts">
+      <button class="opt">A tub of fresh ice cream</button>
+      <button class="opt" data-c="1">Bottled water for several days</button>
+      <button class="opt">Extra candles to light every room</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>📊 Lab: Track a Practice Storm</h2>
+<p>Forecasters record a storm's position, winds and pressure every few hours. Study this storm track table for a practice storm. Use the Saffir-Simpson scale from the lesson to classify it each day.</p>
+<div class="sourcebox"><h4>Data Table: Practice Storm Track</h4><div><p><b>Sample data, rounded, made for this lesson.</b> It is based on how real Gulf hurricanes often behave. Pressure is measured in millibars (mb).</p><table><tr><th>Day</th><th>Where the center is</th><th>Water below</th><th>Top winds (mph)</th><th>Pressure (mb)</th></tr><tr><td>1</td><td>Open Atlantic</td><td>84°F</td><td>40</td><td>1005</td></tr><tr><td>2</td><td>Caribbean Sea</td><td>86°F</td><td>75</td><td>990</td></tr><tr><td>3</td><td>Gulf</td><td>88°F</td><td>115</td><td>965</td></tr><tr><td>4</td><td>Gulf</td><td>89°F</td><td>145</td><td>940</td></tr><tr><td>5</td><td>Landfall, Florida Gulf coast</td><td>(land)</td><td>125</td><td>955</td></tr><tr><td>6</td><td>Central Florida</td><td>(land)</td><td>65</td><td>985</td></tr></table></div><div class="src">Sample data made for this lesson. Real storm tracks and reports are published by the National Hurricane Center (nhc.noaa.gov).</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Practice storm track, sample data. Day 1: open Atlantic, water 84 degrees, winds 40 miles per hour, pressure 1005 millibars. Day 2: Caribbean Sea, water 86 degrees, winds 75, pressure 990. Day 3: Gulf, water 88 degrees, winds 115, pressure 965. Day 4: Gulf, water 89 degrees, winds 145, pressure 940. Day 5: landfall on Florida\'s Gulf coast, winds 125, pressure 955. Day 6: central Florida, over land, winds 65, pressure 985.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Forecaster</h4><p>A forecaster looks for patterns across the whole table, not one row. I compare the winds and the pressure each day, then check what was under the storm: warm water or land. When pressure falls, winds usually rise. When the storm moves over land, it loses its warm-water fuel. I also remember that the table shows wind, so I still have to think about surge and rain separately.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Day 4 had winds of 145 mph, the highest number in the Top winds column.">
+    <span class="pts">+5</span>
+    <p class="qtext">On which day did the storm have its strongest winds?</p>
+    <div class="opts">
+      <button class="opt">Day 3</button>
+      <button class="opt" data-c="1">Day 4</button>
+      <button class="opt">Day 5</button>
+      <button class="opt">Day 6</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="1|one" data-logic="75 mph is between 74 and 95 mph, so it is a Category 1 hurricane.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Use the scale. On Day 2 (75 mph), the storm was a Category ____ hurricane. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="Pressure fell from 1005 to 990 to 965 to 940 mb while the winds grew. Lower pressure usually means a stronger storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">From Day 1 to Day 4, as the winds got stronger, the pressure...</p>
+    <div class="opts">
+      <button class="opt">went up each day</button>
+      <button class="opt">stayed the same</button>
+      <button class="opt" data-c="1">went down each day</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="125 mph is between 111 and 129 mph, so the storm made landfall as a Category 3 major hurricane.">
+    <span class="pts">+5</span>
+    <p class="qtext">What category was the storm at landfall on Day 5 (125 mph)?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Category 3</button>
+      <button class="opt">Category 2</button>
+      <button class="opt">Category 4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="80|80 mph" data-logic="145 minus 65 equals 80 mph.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many miles per hour did the top winds drop from Day 4 to Day 6? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The table shows the storm over land on Days 5 and 6. Without warm water to evaporate, it loses fuel and weakens.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which evidence best explains why the storm weakened on Day 6?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It moved over land and lost its warm-water fuel</button>
+      <button class="opt">The pressure dropped to its lowest number</button>
+      <button class="opt">The water below reached 89°F</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="Days 3 (115 mph), 4 (145 mph) and 5 (125 mph) are all 111 mph or higher. Day 2 was Category 1, and Day 6 was a tropical storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">On which days was the storm a major hurricane (Category 3 or higher)?</p>
+    <div class="opts">
+      <button class="opt">Days 2, 3 and 4</button>
+      <button class="opt">Days 4, 5 and 6</button>
+      <button class="opt" data-c="1">Days 3, 4 and 5</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="940|940 mb" data-logic="Day 4 had 940 mb, the lowest pressure, on the same day as the strongest winds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What was the lowest pressure in the table, in millibars? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="The table shows wind and pressure. Surge also depends on the storm&#x27;s size, the tide and the shape of the coast and sea floor.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, 'This table tells us exactly how high the storm surge will be.' What would a forecaster say?</p>
+    <div class="opts">
+      <button class="opt">Yes, wind speed is all you need for surge</button>
+      <button class="opt" data-c="1">No, surge also depends on size, tide and coast shape</button>
+      <button class="opt">Surge only happens when pressure goes up</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>✈️ People Who Track Hurricanes</h2>
+<p>Hurricane science takes pilots, engineers, forecasters and researchers. Notice how each person gathered evidence or turned evidence into warnings that help families.</p>
+<div class="peoplegrid"><div class="pcard"><h4>NOAA Hurricane Hunters</h4><div class="yrs">Today</div><p>NOAA's hurricane hunter airplanes are based in Lakeland, Florida. Two four-engine propeller planes nicknamed <b>Kermit</b> and <b>Miss Piggy</b> fly through the eyewall into the eye, and a jet flies high around storms. Crews of pilots, engineers and scientists use radar and drop dropsondes. In 2019, three women formed NOAA's first all-woman hurricane hunter pilot team, flying the jet on a mission to study Hurricane Dorian.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;NOAA Hurricane Hunters. NOAA\'s hurricane hunter airplanes are based in Lakeland, Florida. Two four-engine propeller planes nicknamed Kermit and Miss Piggy fly through the eyewall into the eye, and a jet flies high around storms. Crews of pilots, engineers and scientists use radar and drop dropsondes. In 2019, three women formed NOAA\'s first all-woman hurricane hunter pilot team, flying the jet on a mission to study Hurricane Dorian.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Karen Moore</h4><div class="yrs">Air Force Reserve hurricane hunter</div><p>Karen Moore grew up in Norfolk, Virginia, served in the Marine Corps, and later joined the U.S. Air Force Reserve's 53rd Weather Reconnaissance Squadron, the Air Force hurricane hunters based in Mississippi. She has been called the first African American woman to serve as an Air Force hurricane hunter. She flew through Hurricane Maria in 2017. Her advice: 'Go for what you want to do against all odds.'<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Karen Moore. Karen Moore grew up in Norfolk, Virginia, served in the Marine Corps, and later joined the U.S. Air Force Reserve\'s 53rd Weather Reconnaissance Squadron, the Air Force hurricane hunters based in Mississippi. She has been called the first African American woman to serve as an Air Force hurricane hunter. She flew through Hurricane Maria in 2017. Her advice: \'Go for what you want to do against all odds.\'&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Lixion Avila</h4><div class="yrs">born 1950</div><p>Born and raised in Cuba, Lixion Avila studied meteorology at the University of Havana. After moving to the United States, he joined the National Hurricane Center in Miami in 1983, first sharing hurricane warnings in Spanish with radio and TV stations. He became a hurricane specialist in 1989, later earned a Ph.D., and forecast storms there until he retired in 2020.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Lixion Avila. Born and raised in Cuba, Lixion Avila studied meteorology at the University of Havana. After moving to the United States, he joined the National Hurricane Center in Miami in 1983, first sharing hurricane warnings in Spanish with radio and TV stations. He became a hurricane specialist in 1989, later earned a Ph.D., and forecast storms there until he retired in 2020.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Shirley Murillo</h4><div class="yrs">NOAA hurricane scientist</div><p>Shirley Murillo was born and raised in Miami. Seeing what Hurricane Andrew did to South Florida in 1992 sparked her interest in weather science. She studied meteorology at Florida State University and became a research meteorologist at NOAA's Hurricane Research Division in Miami, where she later helped lead the team. She flies on hurricane hunter planes to collect data and helps turn new research into better forecasts. Her advice: 'Take the initiative and ask.'<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Shirley Murillo. Shirley Murillo was born and raised in Miami. Seeing what Hurricane Andrew did to South Florida in 1992 sparked her interest in weather science. She studied meteorology at Florida State University and became a research meteorologist at NOAA\'s Hurricane Research Division in Miami, where she later helped lead the team. She flies on hurricane hunter planes to collect data and helps turn new research into better forecasts. Her advice: \'Take the initiative and ask.\'&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Herbert Saffir and Robert Simpson</h4><div class="yrs">1917–2007 and 1912–2014</div><p>Herbert Saffir was an engineer in Coral Gables, Florida, who studied how wind damages buildings. Robert Simpson was a meteorologist who directed the National Hurricane Center. In the early 1970s, they put their knowledge together to create the 1-to-5 hurricane wind scale used today.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Herbert Saffir and Robert Simpson. Herbert Saffir was an engineer in Coral Gables, Florida, who studied how wind damages buildings. Robert Simpson was a meteorologist who directed the National Hurricane Center. In the early 1970s, they put their knowledge together to create the 1-to-5 hurricane wind scale used today.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="NOAA&#x27;s hurricane hunter planes fly out of Lakeland, Florida, close to the storms they study.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where are NOAA's hurricane hunter airplanes based?</p>
+    <div class="opts">
+      <button class="opt">Denver, Colorado</button>
+      <button class="opt" data-c="1">Lakeland, Florida</button>
+      <button class="opt">Houston, Texas</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s0" data-pts="5" data-ans="Andrew" data-logic="Murillo saw what Hurricane Andrew did to South Florida in 1992. It sparked her interest in studying hurricanes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Shirley Murillo became interested in weather science after Hurricane ____ hit South Florida in 1992:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="Saffir studied wind damage to buildings. That knowledge helped describe what each category of wind can do.">
+    <span class="pts">+5</span>
+    <p class="qtext">Herbert Saffir was an engineer who studied...</p>
+    <div class="opts">
+      <button class="opt">how corals build reefs</button>
+      <button class="opt">how rockets reach space</button>
+      <button class="opt" data-c="1">how wind damages buildings</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="Avila first shared hurricane warnings in Spanish with radio and TV, so Spanish-speaking families got the same information. Later he became a hurricane specialist.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lixion Avila's first job at the National Hurricane Center was to...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">share warnings in Spanish</button>
+      <button class="opt">fly hurricane hunter planes</button>
+      <button class="opt">build its first satellite</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="Piggy" data-logic="The two NOAA WP-3D Orion planes are nicknamed Kermit and Miss Piggy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">NOAA's two hurricane hunter propeller planes are nicknamed Kermit and Miss ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="Moore flew with the Air Force Reserve&#x27;s 53rd Weather Reconnaissance Squadron, the Air Force hurricane hunters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Karen Moore served as a hurricane hunter with...</p>
+    <div class="opts">
+      <button class="opt">NASA's astronaut corps</button>
+      <button class="opt" data-c="1">the U.S. Air Force Reserve</button>
+      <button class="opt">the National Park Service</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="The scale is named for its creators, engineer Herbert Saffir and hurricane center director Robert Simpson.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair created the 1-to-5 hurricane wind scale?</p>
+    <div class="opts">
+      <button class="opt">Shirley Murillo and Lixion Avila</button>
+      <button class="opt">Karen Moore and Shirley Murillo</button>
+      <button class="opt" data-c="1">Herbert Saffir and Robert Simpson</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="Satellites show clouds from above, but planes and dropsondes measure the wind and pressure inside the storm directly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do hurricane hunters fly into storms when satellites can see them from space?</p>
+    <div class="opts">
+      <button class="opt">Satellites only work over land, not the ocean</button>
+      <button class="opt" data-c="1">Planes measure wind and pressure inside the storm</button>
+      <button class="opt">Pilots must mark the storm so satellites find it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp3_s2" data-pts="5" data-ans="Research" data-logic="The Hurricane Research Division studies storms, including with data from hurricane hunter flights, to improve forecasts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Shirley Murillo works on hurricane science at NOAA's Hurricane ____ Division in Miami:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="eyewall|eye wall" data-logic="The eyewall surrounds the eye and has the strongest winds and heaviest rain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The ring of tall thunderstorms around the eye is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="evacuate" data-logic="To evacuate means to leave an area to stay safe.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When officials tell people in a surge zone to leave, they order them to ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="30|30th|thirtieth" data-logic="Hurricane season runs from June 1 to November 30.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Atlantic hurricane season ends on November ____. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="storm" data-logic="Tropical storms have winds of 39 to 73 mph. That is when a storm gets a name.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A storm with winds of 39 to 73 mph that gets a name is a tropical ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="condensation" data-logic="Condensation turns vapor back into liquid droplets and gives off heat that powers the storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Water vapor turning into cloud droplets and releasing heat is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="Simpson" data-logic="The Saffir-Simpson Hurricane Wind Scale is named for Herbert Saffir and Robert Simpson.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The scale that ranks hurricanes from 1 to 5 is the Saffir-____ scale:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="uncertainty" data-logic="The cone of uncertainty shows the probable path of the storm&#x27;s center, not its size.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The area on a forecast map where a storm's center will probably go is the cone of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="2022" data-logic="Ian came ashore near Cayo Costa on September 28, 2022.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Hurricane Ian made landfall in southwest Florida in the year ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="wind" data-logic="Leave places that may flood from surge, and shelter from the wind in a sturdy building.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florida's safety saying is: Run from water, hide from ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Hurricane season runs from June 1 to November 30, so September is in it.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which month is part of hurricane season?</p>
+    <div class="opts">
+      <button class="opt">February</button>
+      <button class="opt">April</button>
+      <button class="opt" data-c="1">September</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="100 mph is between 96 and 110 mph, so it is a Category 2.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A hurricane has 100 mph winds. What category is it?</p>
+    <div class="opts">
+      <button class="opt">Category 1</button>
+      <button class="opt" data-c="1">Category 2</button>
+      <button class="opt">Category 3</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Hurricanes need warm ocean water for fuel.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Hurricanes form over...</p>
+    <div class="opts">
+      <button class="opt">snowy mountains</button>
+      <button class="opt" data-c="1">warm ocean water</button>
+      <button class="opt">dry deserts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about how hurricanes form, how they are measured and how families stay safe.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about hurricanes or Florida weather? Write one question.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, visit the National Hurricane Center website (nhc.noaa.gov) and find this year's list of storm names. Then use the Florida Division of Emergency Management's Know Your Zone page (floridadisaster.org/knowyourzone) to look up your family's evacuation zone, and check your hurricane kit together.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Challenge: Chief Forecaster</h2>
+<p>Use the scale, the science of how storms form, and what you know about surge and safety. Reason from the evidence like a forecaster.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Surge depends on size and the shape of the coast, not only wind. A wide storm pushes more water, and shallow water lets it pile up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two storms both have 110 mph winds. Storm A is small. Storm B is very wide and heading for a shallow coast. Which likely brings the bigger surge?</p>
+    <div class="opts">
+      <button class="opt">Storm A, because small storms spin faster</button>
+      <button class="opt" data-c="1">Storm B, because size and shallow water raise surge</button>
+      <button class="opt">Neither, because the same wind means the same surge</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Hurricanes need water of at least about 80°F. Cooler water gives less fuel, so the storm will likely weaken.">
+    <span class="pts">+5</span>
+    <p class="qtext">Forecasters see a hurricane heading over water that is only 76°F. What is the best prediction?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It will likely weaken, since the water is below about 80°F</button>
+      <button class="opt">It will grow stronger because cooler water has more vapor</button>
+      <button class="opt">It will become a Category 5 hurricane right away</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="The cone tracks only the center. A storm&#x27;s winds, rain and surge can reach far beyond the cone.">
+    <span class="pts">+5</span>
+    <p class="qtext">A neighbor says, 'We're outside the cone, so we don't need to do anything.' Which reply uses evidence?</p>
+    <div class="opts">
+      <button class="opt">Right, storms never reach outside the cone</button>
+      <button class="opt" data-c="1">The cone shows only the center's path, not the size</button>
+      <button class="opt">Only people right under the eye need to prepare</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Land and cooler water cut off the warm-water fuel. Warmer water and falling pressure go with a stronger storm.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which change would make a hurricane weaker?</p>
+    <div class="opts">
+      <button class="opt">Moving over warmer Gulf water</button>
+      <button class="opt">Its central pressure dropping lower</button>
+      <button class="opt" data-c="1">Moving over land or cooler water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s0" data-pts="5" data-logic="Zones are based on surge risk, and even a Category 1 storm can bring dangerous surge. Waiting for water is too late.">
+    <span class="pts">+5</span>
+    <p class="qtext">Your family lives in a coastal evacuation zone, and officials order your zone to leave. The storm is only Category 1. What should you do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Leave, because surge risk sets evacuation, not category</button>
+      <button class="opt">Stay, since Category 1 has the weakest winds</button>
+      <button class="opt">Wait to see if water reaches the street first</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Category 4 starts at 130 mph, and Category 3 ends at 129 mph. One mph puts them in different categories.">
+    <span class="pts">+5</span>
+    <p class="qtext">Storm X has 130 mph winds. Storm Y has 129 mph winds. What is true?</p>
+    <div class="opts">
+      <button class="opt">Both are Category 3</button>
+      <button class="opt">X is Category 5 and Y is Category 4</button>
+      <button class="opt" data-c="1">X is Category 4 and Y is Category 3</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Falling pressure usually goes with strengthening winds. A big drop in a day is a sign of rapid strengthening.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hurricane's central pressure falls from 980 mb to 950 mb in one day. A forecaster expects its winds to...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">get stronger</button>
+      <button class="opt">get weaker</button>
+      <button class="opt">stop completely</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Hurricanes can drop huge amounts of rain. That rain flows into rivers, which can flood towns far from the ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Hurricane Ian bring flooding to the Peace River area, far from the coast?</p>
+    <div class="opts">
+      <button class="opt">Ocean tides always reach inland towns</button>
+      <button class="opt">Its eye stayed over the river for a week</button>
+      <button class="opt" data-c="1">Heavy rain filled rivers far inland</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="An observation records what is measured now. A forecast predicts what will probably happen next.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement is a forecast, not an observation?</p>
+    <div class="opts">
+      <button class="opt">The dropsonde measured 950 mb in the eye.</button>
+      <button class="opt" data-c="1">The center will probably reach the coast Thursday.</button>
+      <button class="opt">Satellite images show a clear eye right now.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s1" data-pts="5" data-logic="Low coastal areas face storm surge; most inland areas do not. Zones send the right people out and keep roads clear for them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do officials order evacuations by zone instead of telling everyone in the county to leave?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Surge risk is very different near the coast than inland</button>
+      <button class="opt">Zones are picked by the alphabet each year</button>
+      <button class="opt">Inland homes never get any wind or rain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Category 3 starts at 111 mph. 111 minus 105 equals 6 mph.">
+    <span class="pts">+5</span>
+    <p class="qtext">A Category 2 hurricane has winds of 105 mph. How much faster must they blow for it to reach Category 3?</p>
+    <div class="opts">
+      <button class="opt">15 mph</button>
+      <button class="opt" data-c="1">6 mph</button>
+      <button class="opt">25 mph</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Falling pressure in the eye means the storm is getting stronger, so forecasters warn people to be ready.">
+    <span class="pts">+5</span>
+    <p class="qtext">Hurricane hunters report the pressure in the eye dropping every hour. What should forecasters warn?</p>
+    <div class="opts">
+      <button class="opt">The storm is falling apart</button>
+      <button class="opt">The storm is turning into a tornado</button>
+      <button class="opt" data-c="1">The storm is strengthening</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="From summer into fall, the ocean is warm enough, about 80°F or more, to fuel hurricanes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is the Atlantic hurricane season mostly from June through November?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">That's when ocean water is warm enough to fuel storms</button>
+      <button class="opt">Earth stops spinning during the winter months</button>
+      <button class="opt">The Moon pulls storms toward land in summer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="A fair test changes only one variable. Then any difference in strength must come from the water temperature.">
+    <span class="pts">+5</span>
+    <p class="qtext">A scientist uses a computer model to test whether warmer water makes stronger storms. Which is a fair test?</p>
+    <div class="opts">
+      <button class="opt">Change the water temperature and the storm size together</button>
+      <button class="opt" data-c="1">Change only the water temperature and keep the rest the same</button>
+      <button class="opt">Run the model once and pick the result you like best</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s2" data-pts="5" data-logic="The National Hurricane Center uses data from satellites, radar and hurricane hunters, and its scientists check it carefully.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which source would give you the most trustworthy hurricane forecast?</p>
+    <div class="opts">
+      <button class="opt">A post shared by a stranger online</button>
+      <button class="opt">A rumor from a friend at school</button>
+      <button class="opt" data-c="1">The National Hurricane Center advisory</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Cloud Watcher</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade4-5-florida-science-u2';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 145;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do scientists use evidence to forecast hurricanes, and how does that evidence help Florida families stay safe?": "../audio/heart/9bf94d142d.mp3", "hurricane. A large, spinning storm that forms over warm ocean water and has winds of at least 74 miles per hour.": "../audio/heart/d849929559.mp3", "air pressure. The push of the air above us. Rising air leaves low pressure near the ground, and low pressure often brings storms.": "../audio/heart/15ff402377.mp3", "eye. The calm, nearly round center of a hurricane. Winds there are light, and the sky can even be clear.": "../audio/heart/394429b453.mp3", "eyewall. The ring of tall thunderstorms around the eye, where a hurricane's strongest winds and heaviest rain are.": "../audio/heart/dd9021619f.mp3", "storm surge. A rise of ocean water pushed toward the shore by a storm's winds. It can flood coastal land quickly.": "../audio/heart/b642dbd589.mp3", "Saffir-Simpson scale. The 1-to-5 scale that ranks hurricanes by their top sustained wind speed.": "../audio/heart/bda7ef4230.mp3", "evacuate. To leave an area to stay safe. Example: officials tell families in a storm surge zone to evacuate.": "../audio/heart/bbb172ac65.mp3", "A hurricane forms over warm ocean water, usually at least about 80°F. The Sun heats the ocean, and water evaporates into warm, moist air that rises. As the air rises and cools, the water vapor condenses into towering clouds and gives off heat, which makes the air rise even faster. Rising air leaves low pressure at the ocean surface, so more air rushes in, and Earth's spin turns it into a spiral. In the Northern Hemisphere, hurricanes spin counterclockwise around a calm center called the eye .": "../audio/heart/e031a0d25e.mp3", "I connect this to the water cycle. Evaporation carries energy from the warm ocean into the air, and condensation releases that energy inside the clouds. So warm water is the storm's fuel. Now I can predict: what happens when a hurricane moves over land or cooler water? It loses its fuel, so it usually weakens. If warm water feeds the storm, taking the warm water away should weaken it. That is reasoning from evidence.": "../audio/heart/e60890c51e.mp3", "Follow the steps together. The Sun warms the ocean. Water evaporates, and warm, moist air rises. The vapor condenses into tall clouds and releases heat. Low pressure at the surface pulls in more air, and Earth's spin turns it. Forecasters name the stages by wind speed: a tropical depression has winds under 39 mph, a tropical storm has winds of 39 to 73 mph and gets a name, and a hurricane has winds of 74 mph or more.": "../audio/heart/ba21def5fe.mp3", "Forecasters rank hurricanes with the Saffir-Simpson Hurricane Wind Scale , from Category 1 (winds of 74 to 95 mph) to Category 5 (157 mph or higher). Category 3 and above are called major hurricanes . But the scale measures only wind. Storm surge , ocean water pushed toward the shore by a storm's winds, is often the greatest danger to life in a hurricane. In 2022, Hurricane Ian came ashore in southwest Florida as a Category 4, and its surge flooded Fort Myers Beach with water about 10 to 15 feet above the ground in some spots, and nearby Sanibel Island flooded too.": "../audio/heart/0da1c0d620.mp3", "The category tells me about wind, so I ask: what else matters? Storm surge depends on more than wind. It also depends on the storm's size, its path, the tide, and the shape of the sea floor. Southwest Florida's Gulf coast has a wide, shallow sea floor offshore, so water piles up easily. That is why even a lower-category storm can bring a dangerous surge. Heavy rain is a third danger. Ian's rain also flooded rivers far from the coast, including the Peace River.": "../audio/heart/cc18b77449.mp3", "Storm A has winds of 120 mph. Find the row: 120 is between 111 and 129, so Storm A is a Category 3, a major hurricane. Storm B has winds of 85 mph, so it is a Category 1. Storm B has the lower category, but if it is very wide and heads toward a shallow coast at high tide, its surge could still be dangerous. The category describes wind, not every danger.": "../audio/heart/b1587c9d4f.mp3", "The Atlantic hurricane season runs from June 1 to November 30. Scientists at the National Hurricane Center in Miami use satellites, radar, ocean buoys and computer models to forecast where a storm will go. Hurricane hunters fly airplanes into storms and drop instruments called dropsondes , which measure wind, temperature, humidity and pressure as they fall. Forecasts show a cone of uncertainty , the area where the storm's center will probably travel. Families use forecasts to learn their evacuation zone , pack a kit, and leave when officials tell their zone to go.": "../audio/heart/3337f7e67b.mp3", "The cone is easy to misread, so I slow down. It shows where the center of the storm will probably go, and the center stays inside the cone only about two-thirds of the time. It does not show how big the storm is, so wind, rain and surge can reach places outside the cone. Evacuation zones are based mostly on storm surge risk. That is why Florida emergency managers say, 'Run from water, hide from wind.' Families in a zone that is told to leave go. Many families outside the zones can shelter in a sturdy home, but mobile homes are not safe in hurricane winds.": "../audio/heart/c59f20af72.mp3", "Imagine a cone drawn from the Gulf toward Tampa Bay, and your town is just outside its edge. Does that mean you are safe? No. The cone shows the likely path of the storm's center only. Strong winds and heavy rain can reach far outside it. So your family keeps watching official forecasts, checks your evacuation zone, and gets the kit ready.": "../audio/heart/4f1ac6ff73.mp3", "Practice storm track, sample data. Day 1: open Atlantic, water 84 degrees, winds 40 miles per hour, pressure 1005 millibars. Day 2: Caribbean Sea, water 86 degrees, winds 75, pressure 990. Day 3: Gulf, water 88 degrees, winds 115, pressure 965. Day 4: Gulf, water 89 degrees, winds 145, pressure 940. Day 5: landfall on Florida's Gulf coast, winds 125, pressure 955. Day 6: central Florida, over land, winds 65, pressure 985.": "../audio/heart/cf206acec7.mp3", "NOAA Hurricane Hunters. NOAA's hurricane hunter airplanes are based in Lakeland, Florida. Two four-engine propeller planes nicknamed Kermit and Miss Piggy fly through the eyewall into the eye, and a jet flies high around storms. Crews of pilots, engineers and scientists use radar and drop dropsondes. In 2019, three women formed NOAA's first all-woman hurricane hunter pilot team, flying the jet on a mission to study Hurricane Dorian.": "../audio/heart/8e5f61690c.mp3", "Karen Moore. Karen Moore grew up in Norfolk, Virginia, served in the Marine Corps, and later joined the U.S. Air Force Reserve's 53rd Weather Reconnaissance Squadron, the Air Force hurricane hunters based in Mississippi. She has been called the first African American woman to serve as an Air Force hurricane hunter. She flew through Hurricane Maria in 2017. Her advice: 'Go for what you want to do against all odds.'": "../audio/heart/7fa2cbfa98.mp3", "Lixion Avila. Born and raised in Cuba, Lixion Avila studied meteorology at the University of Havana. After moving to the United States, he joined the National Hurricane Center in Miami in 1983, first sharing hurricane warnings in Spanish with radio and TV stations. He became a hurricane specialist in 1989, later earned a Ph.D., and forecast storms there until he retired in 2020.": "../audio/heart/1a047568f9.mp3", "Shirley Murillo. Shirley Murillo was born and raised in Miami. Seeing what Hurricane Andrew did to South Florida in 1992 sparked her interest in weather science. She studied meteorology at Florida State University and became a research meteorologist at NOAA's Hurricane Research Division in Miami, where she later helped lead the team. She flies on hurricane hunter planes to collect data and helps turn new research into better forecasts. Her advice: 'Take the initiative and ask.'": "../audio/heart/7ddf203f37.mp3", "Herbert Saffir and Robert Simpson. Herbert Saffir was an engineer in Coral Gables, Florida, who studied how wind damages buildings. Robert Simpson was a meteorologist who directed the National Hurricane Center. In the early 1970s, they put their knowledge together to create the 1-to-5 hurricane wind scale used today.": "../audio/heart/8864b0e4ce.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["eye", "calm center of a hurricane"], ["eyewall", "ring with the strongest winds"], ["storm surge", "ocean water pushed onto land"], ["evacuate", "leave an area to stay safe"], ["dropsonde", "instrument dropped from a plane"]], [["evaporation", "warm ocean water becoming vapor"], ["condensation", "vapor forming clouds and releasing heat"], ["low pressure", "pulls surrounding air inward"], ["Category 5", "winds of 157 mph or higher"], ["major hurricane", "Category 3 or higher"]], [["Herbert Saffir", "engineer who studied wind damage"], ["Lixion Avila", "hurricane specialist who grew up in Cuba"], ["Shirley Murillo", "Miami-born hurricane research meteorologist"], ["Karen Moore", "Air Force Reserve hurricane hunter"], ["Kermit and Miss Piggy", "NOAA planes based in Lakeland"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Cloud Watcher", "Storm Spotter", "Hurricane Hunter", "Chief Forecaster"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>
