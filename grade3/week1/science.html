@@ -80,6 +80,7 @@ h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);marg
 .flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
 .flip{perspective:800px;cursor:pointer;height:128px}
 .flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
 .flip.flipped .flip-inner{transform:rotateY(180deg)}
 .flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
 .flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
@@ -160,7 +161,7 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 .pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
 .pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
 </style>
-<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+</head>
 <body>
 <div class="hud">
   <div class="hud-left"><div class="kc-logo kc-logo-onhud">
@@ -223,143 +224,10 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="1">
-<h2>&#128257; Warm-Up</h2>
-<p>Look around you. What do you already know about things that are <b>alive</b>? Warm up your science brain!</p>
-<p id="setNotice" class="setnotice" style="display:none"></p>
-<div class="qset" data-set="0">
-  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A squirrel grows, eats, and has babies. A compass, a backpack, and a rock cannot do any of that.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these is <b>alive</b>?</p>
-    <div class="opts">
-      <button class="opt">a compass</button>
-      <button class="opt" data-c="1">a squirrel</button>
-      <button class="opt">a backpack</button>
-      <button class="opt">a rock</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="A tent was made by people. It does not grow or eat. Trees, birds, and frogs all grow.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these is <b>not</b> alive?</p>
-    <div class="opts">
-      <button class="opt">a tree</button>
-      <button class="opt">a bird</button>
-      <button class="opt">a frog</button>
-      <button class="opt" data-c="1">a tent</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Your body needs water every day. Toys, phones, and TV are nice, but you can live without them.">
-    <span class="pts">+5</span>
-    <p class="qtext">What do <b>you</b> need every day to stay alive?</p>
-    <div class="opts">
-      <button class="opt" data-c="1">water to drink</button>
-      <button class="opt">a TV show</button>
-      <button class="opt">a new toy</button>
-      <button class="opt">a phone</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="grows|grow|is growing" data-logic="Getting bigger over time is called growing. Living things grow.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">A baby turtle gets bigger over time. We say it ____.</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s0">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
-</div>
-<div class="qset" data-set="1" style="display:none">
-  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="A butterfly eats and lays eggs. A pillow, a crayon, and a blanket are made by people and do not grow.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which one is a <b>living</b> thing?</p>
-    <div class="opts">
-      <button class="opt">a pillow</button>
-      <button class="opt">a crayon</button>
-      <button class="opt" data-c="1">a butterfly</button>
-      <button class="opt">a blanket</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A bicycle cannot grow or eat. A fish, a flower, and a worm are all living things.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which one is <b>nonliving</b>?</p>
-    <div class="opts">
-      <button class="opt">a fish</button>
-      <button class="opt">a flower</button>
-      <button class="opt" data-c="1">a bicycle</button>
-      <button class="opt">a worm</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="A puppy grows into a dog. A table, a spoon, and a pencil stay the same size.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these <b>grows</b> bigger by itself?</p>
-    <div class="opts">
-      <button class="opt">a table</button>
-      <button class="opt" data-c="1">a puppy</button>
-      <button class="opt">a spoon</button>
-      <button class="opt">a pencil</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="water" data-logic="All living things need water. Animals drink it and plants take it in with their roots.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">Animals drink this. Plants soak it up through their roots. It is ____.</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s1">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
-</div>
-<div class="qset" data-set="2" style="display:none">
-  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A spider eats bugs and lays eggs. A helmet, a flag, and a bottle are not alive.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these can grow and have babies?</p>
-    <div class="opts">
-      <button class="opt" data-c="1">a spider</button>
-      <button class="opt">a helmet</button>
-      <button class="opt">a flag</button>
-      <button class="opt">a bottle</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="A canoe does not grow or eat. A mushroom may look odd, but it grows and makes more mushrooms, so it is alive.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these can <b>never</b> grow on its own?</p>
-    <div class="opts">
-      <button class="opt">a mushroom</button>
-      <button class="opt">a deer</button>
-      <button class="opt">an ant</button>
-      <button class="opt" data-c="1">a canoe</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="A rabbit must eat plants to live. A rock, a cloud, and a car do not eat.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which of these needs <b>food</b> to stay alive?</p>
-    <div class="opts">
-      <button class="opt">a rock</button>
-      <button class="opt" data-c="1">a rabbit</button>
-      <button class="opt">a cloud</button>
-      <button class="opt">a car</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="air|oxygen" data-logic="We breathe in air all day long. Air has oxygen, which our bodies need.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">We breathe this in all day. You cannot see it. It is ____.</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s2">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about living things and make a prediction. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_PrePost_G3W1.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_PrePost_G3W1.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
 </div>
   <div class="nav">
 <button class="btn btn-back" data-go="0">&larr; Back</button>
@@ -368,17 +236,7 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="2">
-<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
-<div class="card card-gold">
-<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about living things and make a prediction. It is OK to guess!</p>
-</div>
-  <div class="nav">
-<button class="btn btn-back" data-go="1">&larr; Back</button>
-<button class="btn btn-go" data-go="3">Next &rarr;</button>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-<div class="slide" data-slide="3">
+<span class="badge" style="display:inline-block;margin-bottom:6px">&#128216; Today's lesson starts here</span>
 <h2>&#127909; Watch &amp; Learn</h2>
 <p>Watch this short video from <b>SciShow Kids</b>. It asks a big question: how do we know if something is <b>alive</b>?</p>
 <div class="card card-gold" style="text-align:center">
@@ -391,12 +249,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="2">&larr; Back</button>
-<button class="btn btn-go" data-go="4">Next &rarr;</button>
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="4">
+<div class="slide" data-slide="3">
 <h2>🌟 Word Wrangler</h2>
 <p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
 <div class="flipgrid">
@@ -444,12 +302,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 </div>
   </div>
   <div class="nav">
-<button class="btn btn-back" data-go="3">&larr; Back</button>
-<button class="btn btn-go" data-go="5">Next &rarr;</button>
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="5">
+<div class="slide" data-slide="4">
 <h2>🐿️ Living or Nonliving?</h2>
 <div class="card card">
 <p>A <b>living</b> thing is called an <b>organism</b>. Every organism <b>grows</b>. It <b>needs food and water</b>. It <b>responds</b>, or reacts, to things around it. It can <b>make more</b> of its own kind. A <b>nonliving</b> thing cannot do these things on its own.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A living thing is called an organism . Every organism grows . It needs food and water . It responds , or reacts, to things around it. It can make more of its own kind. A nonliving thing cannot do these things on its own.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I see a squirrel. Does it grow? Yes. Does it need food and water? Yes. Does it respond? Yes, it runs when I get close. Can it have babies? Yes. Four yes answers. The squirrel is <b>living</b>. Now a rock. It does not grow or eat. It does not react. It cannot make baby rocks. The rock is <b>nonliving</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I see a squirrel. Does it grow? Yes. Does it need food and water? Yes. Does it respond? Yes, it runs when I get close. Can it have babies? Yes. Four yes answers. The squirrel is living . Now a rock. It does not grow or eat. It does not react. It cannot make baby rocks. The rock is nonliving .&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The 4-Clue Test</h4><table><tr><th>Clue</th><th>Squirrel</th><th>Rock</th></tr><tr><td>Grows?</td><td>yes</td><td>no</td></tr><tr><td>Needs food, water?</td><td>yes</td><td>no</td></tr><tr><td>Responds?</td><td>yes</td><td>no</td></tr><tr><td>Makes more?</td><td>yes</td><td>no</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: A Tricky Campfire</h4><p>A campfire moves. It seems to get bigger. Is it alive? Let's test it. It does not need water. Water puts it out! It cannot have baby fires on its own. So a fire is <b>nonliving</b>. Moving is <b>not</b> enough to be alive.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A campfire moves. It seems to get bigger. Is it alive? Let\'s test it. It does not need water. Water puts it out! It cannot have baby fires on its own. So a fire is nonliving . Moving is not enough to be alive.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -557,12 +415,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="4">&larr; Back</button>
-<button class="btn btn-go" data-go="6">Next &rarr;</button>
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="6">
+<div class="slide" data-slide="5">
 <h2>💧 The Four Needs</h2>
 <div class="card card-grass">
 <p>Every living thing has <b>four needs</b>. It needs <b>food</b>. It needs <b>water</b>. It needs <b>air</b>. It needs <b>shelter</b>, a safe space to live. Animals eat other living things for food. <b>Plants make their own food</b> using sunlight.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Every living thing has four needs . It needs food . It needs water . It needs air . It needs shelter , a safe space to live. Animals eat other living things for food. Plants make their own food using sunlight.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let me check a squirrel's needs. Food? It eats nuts and seeds. Water? It drinks from puddles and streams. Air? It breathes all the time. Shelter? It sleeps in a nest high in a tree. All four needs are met. The squirrel can stay alive.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let me check a squirrel\'s needs. Food? It eats nuts and seeds. Water? It drinks from puddles and streams. Air? It breathes all the time. Shelter? It sleeps in a nest high in a tree. All four needs are met. The squirrel can stay alive.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Needs Checklist</h4><table><tr><th>Need</th><th>Squirrel</th><th>Oak tree</th></tr><tr><td>Food</td><td>nuts and seeds</td><td>makes its own</td></tr><tr><td>Water</td><td>drinks</td><td>roots soak it up</td></tr><tr><td>Air</td><td>breathes</td><td>through its leaves</td></tr><tr><td>Shelter</td><td>a nest</td><td>room for roots</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: A Fish in a Pond</h4><p>Let's check a fish. Food? It eats bugs and tiny plants. Water? It lives in water! Air? It gets air from the water with its <b>gills</b>. Shelter? It hides under rocks and plants. All four needs come from the pond.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s check a fish. Food? It eats bugs and tiny plants. Water? It lives in water! Air? It gets air from the water with its gills . Shelter? It hides under rocks and plants. All four needs come from the pond.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -670,12 +528,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="5">&larr; Back</button>
-<button class="btn btn-go" data-go="7">Next &rarr;</button>
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="7">
+<div class="slide" data-slide="6">
 <h2>🔍 Evidence: Watch Like a Scientist</h2>
 <div class="card card-sky">
 <p>Scientists do not just guess. They <b>observe</b>, or watch carefully. They write down what they see. The facts they collect are called <b>evidence</b>. Evidence helps us know what is true.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Scientists do not just guess. They observe , or watch carefully. They write down what they see. The facts they collect are called evidence . Evidence helps us know what is true.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>My friend says, "Birds drink water." Is that a guess or evidence? I watch a bird bath for ten minutes. I see three birds dip their beaks in the water. I write it down. Now I have <b>evidence</b> that birds drink water.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;My friend says, \&quot;Birds drink water.\&quot; Is that a guess or evidence? I watch a bird bath for ten minutes. I see three birds dip their beaks in the water. I write it down. Now I have evidence that birds drink water.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Guess or Evidence?</h4><ul><li><b>Guess:</b> "I think ants like sugar."</li><li><b>Evidence:</b> "I put sugar and salt near an anthill. After 10 minutes, I counted 20 ants at the sugar and 2 at the salt."</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: The Ant Test</h4><p>Look at the ant notes above. Which one is evidence? The second one! It tells what was <b>seen</b> and <b>counted</b>. The first one is only a guess. A scientist would ask: was it fair? Were the sugar and salt the same distance from the anthill?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Look at the ant notes above. Which one is evidence? The second one! It tells what was seen and counted . The first one is only a guess. A scientist would ask: was it fair? Were the sugar and salt the same distance from the anthill?&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -783,12 +641,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="6">&larr; Back</button>
-<button class="btn btn-go" data-go="8">Next &rarr;</button>
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="8">
+<div class="slide" data-slide="7">
 <h2>🌱 Plant Lab: What Happens Without a Need?</h2>
 <p>A class did a test with three bean plants. All three were the <b>same kind</b> of plant. They were the <b>same height</b> on Day 1. They had the <b>same soil</b>. Only <b>one thing</b> was different for each plant. Read the table to find the evidence.</p>
 <div class="sourcebox"><h4>Data Table: Bean Plant Test</h4><div><table><tr><th>Plant</th><th>What it got</th><th>Day 1</th><th>Day 10</th><th>Looks</th></tr><tr><td>A</td><td>water, sun</td><td>5 cm</td><td>11 cm</td><td>green, strong</td></tr><tr><td>B</td><td>sun, <b>no water</b></td><td>5 cm</td><td>5 cm</td><td>dry, drooping</td></tr><tr><td>C</td><td>water, <b>no sun</b> (dark closet)</td><td>5 cm</td><td>8 cm</td><td>pale yellow, weak</td></tr></table></div><div class="src">Sample class investigation written by KCE for this lesson. You can try it at home with a parent!</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Bean plant test. Plant A got water and sunlight. It grew from 5 centimeters to 11 centimeters. It was green and strong. Plant B got sunlight but no water. It stayed 5 centimeters. It was dry and drooping. Plant C got water but no sunlight, in a dark closet. It grew from 5 to 8 centimeters. It was pale yellow and weak.&quot;, this)">&#128266;</button></div>
@@ -894,12 +752,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="7">&larr; Back</button>
-<button class="btn btn-go" data-go="9">Next &rarr;</button>
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="9">
+<div class="slide" data-slide="8">
 <h2>🔭 Scientists Who Watch Nature</h2>
 <p>Scientists come from all over the world. These scientists learned about living things by <b>observing</b> them carefully.</p>
 <div class="peoplegrid"><div class="pcard"><h4>Jane Goodall</h4><div class="yrs">1934–2025 · England</div><p>In 1960, Jane went to <b>Gombe</b> in Tanzania, in Africa. She watched <b>chimpanzees</b> every day for years. She saw a chimp poke a grass stem into a termite mound to catch termites. That showed chimps <b>make and use tools</b>. She learned by <b>careful watching</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Jane Goodall. In 1960, Jane went to Gombe in Tanzania, in Africa. She watched chimpanzees every day for years. She saw a chimp poke a grass stem into a termite mound to catch termites. That showed chimps make and use tools . She learned by careful watching .&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Wangari Maathai</h4><div class="yrs">1940–2011 · Kenya</div><p>Wangari saw that cut-down forests in Kenya hurt people and animals. She started the <b>Green Belt Movement</b>. Women in Kenya planted <b>millions of trees</b>. Trees give food, shelter, and clean water. She won the <b>Nobel Peace Prize</b> in 2004.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Wangari Maathai. Wangari saw that cut-down forests in Kenya hurt people and animals. She started the Green Belt Movement . Women in Kenya planted millions of trees . Trees give food, shelter, and clean water. She won the Nobel Peace Prize in 2004.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Ynés Mexía</h4><div class="yrs">1870–1938 · United States and Mexico</div><p>Ynés was a <b>Mexican American</b> plant scientist. She began her science work in her fifties! She traveled across Mexico and South America. She collected <b>thousands of plants</b>. Some were kinds scientists had never named before.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Yn\u00e9s Mex\u00eda. Yn\u00e9s was a Mexican American plant scientist. She began her science work in her fifties! She traveled across Mexico and South America. She collected thousands of plants . Some were kinds scientists had never named before.&quot;, this)">&#128266;</button></p></div></div>
@@ -974,12 +832,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="8">&larr; Back</button>
-<button class="btn btn-go" data-go="10">Next &rarr;</button>
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="10">
+<div class="slide" data-slide="9">
 <h2>&#129513; Match-Up Round</h2>
 <p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
 <div class="matchgrid">
@@ -988,12 +846,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 </div>
 <p class="scoreline" id="matchScore">Matches: 0 / 5</p>
   <div class="nav">
-<button class="btn btn-back" data-go="9">&larr; Back</button>
-<button class="btn btn-go" data-go="11">Next &rarr;</button>
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="11">
+<div class="slide" data-slide="10">
 <h2>&#8996;&#65039; Type-It Corral</h2>
 <p>Type each answer from memory, then press Check.</p>
 <div class="qset" data-set="0">
@@ -1093,12 +951,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="10">&larr; Back</button>
-<button class="btn btn-go" data-go="12">Next &rarr;</button>
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="12">
+<div class="slide" data-slide="11">
 <h2>&#9889; Speed Arena</h2>
 <span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
 <p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
@@ -1135,25 +993,26 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned about living things and their needs. Use evidence from the Lab!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_PrePost_G3W1.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_PrePost_G3W1.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about living things? Write one question, like: <i>Is a seed alive before it sprouts?</i></p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, be a scientist like Jane Goodall. Sit quietly outside or by a window for <b>10 minutes</b>. Watch one bird, squirrel, or bug. Write down everything it does. Which need was it meeting? You can also read <i>Me... Jane</i> by Patrick McDonnell or <i>Wangari's Trees of Peace</i> by Jeanette Winter.</p></div>
+  <div class="nav">
 <button class="btn btn-back" data-go="11">&larr; Back</button>
 <button class="btn btn-go" data-go="13">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="13">
-<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
-<div class="card card-gold">
-<p>Do <b>Page 2 (Post)</b> now: show what you learned about living things and their needs. Use evidence from the Lab!</p>
-</div>
-<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about living things? Write one question, like: <i>Is a seed alive before it sprouts?</i></p></div>
-<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, be a scientist like Jane Goodall. Sit quietly outside or by a window for <b>10 minutes</b>. Watch one bird, squirrel, or bug. Write down everything it does. Which need was it meeting? You can also read <i>Me... Jane</i> by Patrick McDonnell or <i>Wangari's Trees of Peace</i> by Jeanette Winter.</p></div>
-  <div class="nav">
-<button class="btn btn-back" data-go="12">&larr; Back</button>
-<button class="btn btn-go" data-go="14">Next &rarr;</button>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-<div class="slide" data-slide="14">
 <h2>👑 Boss Battle: Boss Battle: The Evidence Challenge</h2>
 <p>Use the 4-clue test, the four needs, and the Lab evidence to win!</p>
 <div class="qset" data-set="0">
@@ -1294,12 +1153,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-back" data-go="12">&larr; Back</button>
 <button class="btn btn-go" data-finish>See My Score 🏆</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="15">
+<div class="slide" data-slide="14">
   <div class="kc-logo kc-logo-large">
   <span class="kc-logo-box">KC</span>
   <span class="kc-logo-text">
@@ -1335,11 +1194,11 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 'use strict';
 const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
 const MAX_ATTEMPTS = 3;
-const TOTAL_SLIDES = 16;
-const FINAL_INDEX = 15;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
 const MODULE_ID = 'grade3-science-w1';
 const MASTERY_THRESHOLD = 85;
-const MAX_RAW_SCORE = 135;
+const MAX_RAW_SCORE = 115;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const NEXT_LESSON_URL = '';
 const PROGRESS_KEY = 'kce_pathways_progress';
@@ -1579,6 +1438,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 });
 document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
 </script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
 <script src="../../gate.js"></script>
 <div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
 </body>

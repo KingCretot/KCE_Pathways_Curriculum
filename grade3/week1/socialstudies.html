@@ -80,6 +80,7 @@ h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);marg
 .flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
 .flip{perspective:800px;cursor:pointer;height:128px}
 .flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
 .flip.flipped .flip-inner{transform:rotateY(180deg)}
 .flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
 .flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
@@ -160,7 +161,7 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 .pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
 .pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
 </style>
-<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+</head>
 <body>
 <div class="hud">
   <div class="hud-left"><div class="kc-logo kc-logo-onhud">
@@ -223,143 +224,10 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="1">
-<h2>&#128257; Warm-Up</h2>
-<p>Warm up by thinking about the place you live and the people you see every day.</p>
-<p id="setNotice" class="setnotice" style="display:none"></p>
-<div class="qset" data-set="0">
-  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A neighborhood is a small community: the homes and people near you.">
-    <span class="pts">+5</span>
-    <p class="qtext">Your street, the homes on it, and the people who live there make a ___.</p>
-    <div class="opts">
-      <button class="opt">solar system</button>
-      <button class="opt">rain forest</button>
-      <button class="opt" data-c="1">neighborhood</button>
-      <button class="opt">holiday</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Firefighters are trained to put out fires and keep people safe.">
-    <span class="pts">+5</span>
-    <p class="qtext">Who would you call if a house were on fire?</p>
-    <div class="opts">
-      <button class="opt" data-c="1">a firefighter</button>
-      <button class="opt">a librarian</button>
-      <button class="opt">a mail carrier</button>
-      <button class="opt">a baker</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Stores sell food, but farms grow it first. Then trucks bring it to the store.">
-    <span class="pts">+5</span>
-    <p class="qtext">Where does most of the food in a grocery store FIRST come from?</p>
-    <div class="opts">
-      <button class="opt">the store's back room</button>
-      <button class="opt">the cash register</button>
-      <button class="opt">the parking lot</button>
-      <button class="opt" data-c="1">farms</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="teacher|teachers" data-logic="A teacher is a community helper who helps people learn.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">A person who teaches you to read is a ___</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s0">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
-</div>
-<div class="qset" data-set="1" style="display:none">
-  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Tall buildings, busy streets and crowds are clues that the place is a city.">
-    <span class="pts">+5</span>
-    <p class="qtext">A place with many tall buildings, busy streets and lots of people is most likely a ___.</p>
-    <div class="opts">
-      <button class="opt">farm</button>
-      <button class="opt" data-c="1">city</button>
-      <button class="opt">forest</button>
-      <button class="opt">desert</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A mail carrier delivers letters and packages so people stay connected.">
-    <span class="pts">+5</span>
-    <p class="qtext">Who brings letters and packages to homes?</p>
-    <div class="opts">
-      <button class="opt">a crossing guard</button>
-      <button class="opt" data-c="1">a mail carrier</button>
-      <button class="opt">a dentist</button>
-      <button class="opt">a pilot</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="A hospital needs many workers, tools and money. No family can build one alone.">
-    <span class="pts">+5</span>
-    <p class="qtext">Which thing can a family usually NOT make all by itself?</p>
-    <div class="opts">
-      <button class="opt">a peanut butter sandwich</button>
-      <button class="opt">a drawing</button>
-      <button class="opt">a paper card</button>
-      <button class="opt" data-c="1">a whole hospital</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="doctor|doctors|nurse|nurses" data-logic="Doctors and nurses are community helpers who care for sick people.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">A person who helps sick people get well is a ___</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s1">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
-</div>
-<div class="qset" data-set="2" style="display:none">
-  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Fields, farms and homes far apart are clues for the countryside.">
-    <span class="pts">+5</span>
-    <p class="qtext">A place with wide fields, farms and homes far apart is most likely ___.</p>
-    <div class="opts">
-      <button class="opt" data-c="1">the countryside</button>
-      <button class="opt">a big city</button>
-      <button class="opt">a shopping mall</button>
-      <button class="opt">an airport</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="A librarian knows where books are and helps people find them.">
-    <span class="pts">+5</span>
-    <p class="qtext">Who helps you find a book at the library?</p>
-    <div class="opts">
-      <button class="opt">a firefighter</button>
-      <button class="opt">a farmer</button>
-      <button class="opt" data-c="1">a librarian</button>
-      <button class="opt">a mechanic</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Everyone pitching in for the same goal is working together.">
-    <span class="pts">+5</span>
-    <p class="qtext">When neighbors clean up a park together, they are ___.</p>
-    <div class="opts">
-      <button class="opt" data-c="1">working together</button>
-      <button class="opt">breaking a rule</button>
-      <button class="opt">staying apart</button>
-      <button class="opt">wasting time</button>
-      </div>
-    <p class="feedback"></p>
-  </div>
-  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="farmer|farmers" data-logic="A farmer grows food that people in many communities eat.">
-    <span class="pts">+5</span>
-    <p class="qtext">Type your answer:</p>
-    <div class="fillrow">
-      <span class="eq">A person who grows food for others is a ___</span>
-      <input class="fillin" inputmode="text" aria-label="answer">
-      <button class="btn btn-pri" data-check="w4_s2">Check</button>
-    </div>
-    <p class="feedback"></p>
-  </div>
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: tell what you already know about your community. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_SocialStudies_PrePost_G3W1.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_SocialStudies_PrePost_G3W1.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
 </div>
   <div class="nav">
 <button class="btn btn-back" data-go="0">&larr; Back</button>
@@ -368,9 +236,17 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="2">
-<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
-<div class="card card-gold">
-<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: tell what you already know about your community. It is OK to guess!</p>
+<span class="badge" style="display:inline-block;margin-bottom:6px">&#128216; Today's lesson starts here</span>
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Nice warm-up! Now watch this short video about the three main kinds of communities.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Urban, Suburban, and Rural Communities | It&#x27;s Easy With Twinkl</b> &mdash; Twinkl Teaching Resources - United States</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/5oFcTglYJc0?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Urban, Suburban, and Rural Communities | It&#x27;s Easy With Twinkl" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for three words: <b>urban</b>, <b>suburban</b> and <b>rural</b>. For each one, notice one clue that makes it different. Then ask yourself: which kind is most like where YOU live?</p>
+  </div>
 </div>
   <div class="nav">
 <button class="btn btn-back" data-go="1">&larr; Back</button>
@@ -379,24 +255,6 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="3">
-<h2>&#127909; Watch &amp; Learn</h2>
-<p>Nice warm-up! Now watch this short video about the three main kinds of communities.</p>
-<div class="card card-gold" style="text-align:center">
-  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
-  <p style="margin:0 0 16px 0"><b>Urban, Suburban, and Rural Communities | It&#x27;s Easy With Twinkl</b> &mdash; Twinkl Teaching Resources - United States</p>
-  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/5oFcTglYJc0?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Urban, Suburban, and Rural Communities | It&#x27;s Easy With Twinkl | Twinkl USA" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
-  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
-    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
-    <p style="margin:0">Listen for three words: <b>urban</b>, <b>suburban</b> and <b>rural</b>. For each one, notice one clue that makes it different. Then ask yourself: which kind is most like where YOU live?</p>
-  </div>
-</div>
-  <div class="nav">
-<button class="btn btn-back" data-go="2">&larr; Back</button>
-<button class="btn btn-go" data-go="4">Next &rarr;</button>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-<div class="slide" data-slide="4">
 <h2>🌟 Word Wrangler</h2>
 <p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
 <div class="flipgrid">
@@ -444,12 +302,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 </div>
   </div>
   <div class="nav">
-<button class="btn btn-back" data-go="3">&larr; Back</button>
-<button class="btn btn-go" data-go="5">Next &rarr;</button>
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="5">
+<div class="slide" data-slide="4">
 <h2>🏙️ Three Kinds of Communities</h2>
 <div class="card card">
 <p>A <b>community</b> is a place where people live, work and help each other. An <b>urban</b> community is a busy city with many people close together. A <b>suburban</b> community is near a city, with houses and yards. A <b>rural</b> community is the countryside, with farms and homes far apart.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A community is a place where people live, work and help each other. An urban community is a busy city with many people close together. A suburban community is near a city, with houses and yards. A rural community is the countryside, with farms and homes far apart.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I look for clues, like a detective. Clue one: how many people are there? Clue two: how close are the homes? Tall apartment buildings and subways mean many people close together. That is urban. Big fields and long roads between houses mean few people, spread out. That is rural. Streets of houses with yards, near a city, mean suburban.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I look for clues, like a detective. Clue one: how many people are there? Clue two: how close are the homes? Tall apartment buildings and subways mean many people close together. That is urban. Big fields and long roads between houses mean few people, spread out. That is rural. Streets of houses with yards, near a city, mean suburban.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Three Communities</h4><ul><li>🏙️ <b>Urban:</b> very many people, apartments close together, buses and trains</li><li>🏡 <b>Suburban:</b> many people, houses with yards, cars and school buses</li><li>🚜 <b>Rural:</b> fewer people, homes far apart near farms, long roads</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Sort Two Kids</h4><p>Maya lives on the 12th floor. She rides the subway to school. Clues: tall building, subway, many people. Maya lives in an <b>urban</b> community. Ben lives on a farm. His nearest neighbor is a mile away. Clues: few people, far apart. Ben lives in a <b>rural</b> community.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Maya lives on the 12th floor. She rides the subway to school. Clues: tall building, subway, many people. Maya lives in an urban community. Ben lives on a farm. His nearest neighbor is a mile away. Clues: few people, far apart. Ben lives in a rural community.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -553,12 +411,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="4">&larr; Back</button>
-<button class="btn btn-go" data-go="6">Next &rarr;</button>
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="6">
+<div class="slide" data-slide="5">
 <h2>🤝 We Depend on Each Other</h2>
 <div class="card card-grass">
 <p>To <b>depend</b> on someone means you need their help. No one can do every job alone. Rural farms grow food for city people. City hospitals and factories help rural families too.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;To depend on someone means you need their help. No one can do every job alone. Rural farms grow food for city people. City hospitals and factories help rural families too.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Let me follow an orange in Florida. A farm worker picks it in a rural grove. A truck driver carries it down the highway. A store worker in a city puts it on a shelf. A family buys it. That is four people, in different communities, all depending on each other. If one of them stopped working, the orange would never reach the table.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let me follow an orange in Florida. A farm worker picks it in a rural grove. A truck driver carries it down the highway. A store worker in a city puts it on a shelf. A family buys it. That is four people, in different communities, all depending on each other. If one of them stopped working, the orange would never reach the table.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The Orange Trail</h4><ul><li>🍊 <b>Rural grove:</b> a farm worker picks the oranges</li><li>🚚 <b>Highway:</b> a truck driver carries them</li><li>🏬 <b>City store:</b> a store worker puts them on the shelf</li><li>🏠 <b>Suburban home:</b> a family eats them at breakfast</li></ul></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Whose Work Is Hidden?</h4><p>Look at the Orange Trail again. Which worker do shoppers never see? The <b>farm worker</b>! Many farm workers pick fruit for long hours in the hot sun. Many came to the United States from Mexico, Central America and Haiti. A good historian always asks: <b>whose work is missing from the story?</b><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Look at the Orange Trail again. Which worker do shoppers never see? The farm worker ! Many farm workers pick fruit for long hours in the hot sun. Many came to the United States from Mexico, Central America and Haiti. A good historian always asks: whose work is missing from the story?&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -664,12 +522,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="5">&larr; Back</button>
-<button class="btn btn-go" data-go="7">Next &rarr;</button>
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="7">
+<div class="slide" data-slide="6">
 <h2>🚒 Community Helpers</h2>
 <div class="card card-sky">
 <p>A <b>community helper</b> is a person whose job helps others stay safe, healthy or learning. Firefighters, nurses, teachers and sanitation workers are community helpers. Some helpers are <b>volunteers</b>, who help without being paid. Every kind of community needs helpers.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A community helper is a person whose job helps others stay safe, healthy or learning. Firefighters, nurses, teachers and sanitation workers are community helpers. Some helpers are volunteers , who help without being paid. Every kind of community needs helpers.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I name the problem first. Then I find the helper. Problem: a fire. Helper: a firefighter. Problem: trash piling up. Helper: a sanitation worker. Problem: a person lost a lot of blood after an accident. Helpers: doctors, and a <b>blood bank</b> that stores blood until someone needs it. Dr. Charles Drew led some of the first big blood banks.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I name the problem first. Then I find the helper. Problem: a fire. Helper: a firefighter. Problem: trash piling up. Helper: a sanitation worker. Problem: a person lost a lot of blood after an accident. Helpers: doctors, and a blood bank that stores blood until someone needs it. Dr. Charles Drew led some of the first big blood banks.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Problem and Helper</h4><table><tr><th>Problem</th><th>Helper</th></tr><tr><td>A fire</td><td>firefighter</td></tr><tr><td>A sick child</td><td>doctor or nurse</td></tr><tr><td>Trash in the street</td><td>sanitation worker</td></tr><tr><td>A busy crosswalk</td><td>crossing guard</td></tr><tr><td>Needs blood after an accident</td><td>doctors and a blood bank</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: A Rural Problem</h4><p>In a rural place, the nearest hospital may be far away. Who comes when someone is hurt? Often it is <b>volunteer</b> firefighters and medics who live nearby. Many rural fire departments are run mostly by volunteers. Problem first: someone is hurt far from town. Helper: volunteers from the community.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;In a rural place, the nearest hospital may be far away. Who comes when someone is hurt? Often it is volunteer firefighters and medics who live nearby. Many rural fire departments are run mostly by volunteers. Problem first: someone is hurt far from town. Helper: volunteers from the community.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
@@ -776,12 +634,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="6">&larr; Back</button>
-<button class="btn btn-go" data-go="8">Next &rarr;</button>
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="8">
+<div class="slide" data-slide="7">
 <h2>🔍 Source Detective: The Blood Drive Sign</h2>
 <p>Communities make signs to ask for help. Read this sign closely, like a historian reading a clue.</p>
 <div class="sourcebox"><h4>Practice Source: A Community Blood Drive Sign</h4><div><p><b>COMMUNITY BLOOD DRIVE</b><br><b>Give blood. Help a neighbor.</b></p><ul><li><b>When:</b> Saturday, 9 a.m. to 2 p.m.</li><li><b>Where:</b> Oak Street Community Center</li><li><b>Who can give:</b> Healthy adults. Bring a photo ID.</li><li><b>Kids can help too:</b> make thank-you cards and hand out snacks!</li></ul><p>Blood from today goes to a blood bank. It can help a city hospital, a small-town clinic, or a patient hurt on a rural road.</p><p><i>Made by the Oak Street Library and the Oak Street Fire Department</i></p></div><div class="src">A practice sign made for KCE, modeled on real American Red Cross community blood drive signs.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Community Blood Drive. Give blood. Help a neighbor. When: Saturday, 9 a.m. to 2 p.m. Where: Oak Street Community Center. Who can give: Healthy adults. Bring a photo ID. Kids can help too: make thank-you cards and hand out snacks! Blood from today goes to a blood bank. It can help a city hospital, a small-town clinic, or a patient hurt on a rural road. Made by the Oak Street Library and the Oak Street Fire Department.&quot;, this)">&#128266;</button></div>
@@ -888,12 +746,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="7">&larr; Back</button>
-<button class="btn btn-go" data-go="9">Next &rarr;</button>
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="9">
+<div class="slide" data-slide="8">
 <h2>🩺 Helpers Who Changed Communities</h2>
 <p>Some community helpers changed how help works for everyone. Meet four of them.</p>
 <div class="peoplegrid"><div class="pcard"><h4>Dr. Charles Drew</h4><div class="yrs">1904–1950</div><p>Dr. Drew was a Black doctor and scientist. He found better ways to store blood and <b>plasma</b>, a part of blood. In 1940 and 1941 he led some of the first big <b>blood banks</b>. Back then, the military and the Red Cross kept blood from Black donors separate. Dr. Drew said science did not support that, and he spoke out. Blood banks now save lives in every community.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Dr. Charles Drew. Dr. Drew was a Black doctor and scientist. He found better ways to store blood and plasma , a part of blood. In 1940 and 1941 he led some of the first big blood banks . Back then, the military and the Red Cross kept blood from Black donors separate. Dr. Drew said science did not support that, and he spoke out. Blood banks now save lives in every community.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Clara Barton</h4><div class="yrs">1821–1912</div><p>Clara Barton was a nurse who cared for hurt soldiers in the Civil War. In 1881 she started the <b>American Red Cross</b>. Today the Red Cross runs blood drives and helps families after storms and fires.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Clara Barton. Clara Barton was a nurse who cared for hurt soldiers in the Civil War. In 1881 she started the American Red Cross . Today the Red Cross runs blood drives and helps families after storms and fires.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Dr. Susan La Flesche Picotte</h4><div class="yrs">1865–1915</div><p>Dr. Picotte was a member of the <b>Omaha Nation</b>. In 1889 she became the first Indigenous woman in the U.S. to earn a medical degree. She cared for her people in rural Nebraska and traveled far to reach them. In 1913 she opened a hospital in a small town.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Dr. Susan La Flesche Picotte. Dr. Picotte was a member of the Omaha Nation . In 1889 she became the first Indigenous woman in the U.S. to earn a medical degree. She cared for her people in rural Nebraska and traveled far to reach them. In 1913 she opened a hospital in a small town.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Pura Belpré</h4><div class="yrs">1899–1982</div><p>Pura Belpré came from <b>Puerto Rico</b>. In 1921 she became the first Puerto Rican librarian at the New York Public Library. She told stories in Spanish and English so more children felt welcome at the library.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Pura Belpr\u00e9. Pura Belpr\u00e9 came from Puerto Rico . In 1921 she became the first Puerto Rican librarian at the New York Public Library. She told stories in Spanish and English so more children felt welcome at the library.&quot;, this)">&#128266;</button></p></div></div>
@@ -1000,12 +858,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="8">&larr; Back</button>
-<button class="btn btn-go" data-go="10">Next &rarr;</button>
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="10">
+<div class="slide" data-slide="9">
 <h2>&#129513; Match-Up Round</h2>
 <p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
 <div class="matchgrid">
@@ -1014,12 +872,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 </div>
 <p class="scoreline" id="matchScore">Matches: 0 / 5</p>
   <div class="nav">
-<button class="btn btn-back" data-go="9">&larr; Back</button>
-<button class="btn btn-go" data-go="11">Next &rarr;</button>
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="11">
+<div class="slide" data-slide="10">
 <h2>&#8996;&#65039; Type-It Corral</h2>
 <p>Type each answer from memory, then press Check.</p>
 <div class="qset" data-set="0">
@@ -1119,12 +977,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="10">&larr; Back</button>
-<button class="btn btn-go" data-go="12">Next &rarr;</button>
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="12">
+<div class="slide" data-slide="11">
 <h2>&#9889; Speed Arena</h2>
 <span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
 <p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
@@ -1161,25 +1019,26 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned about kinds of communities, how people depend on each other, and community helpers.</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_SocialStudies_PrePost_G3W1.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_SocialStudies_PrePost_G3W1.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about communities? Write one question on your sheet. For example: Who are the helpers in my town that I never see?</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, take a walk or a drive around your community. Count the community helpers you see, and name one you never noticed before. Then look for the book <i>Planting Stories: The Life of Librarian and Storyteller Pura Belpré</i> by Anika Aldamuy Denise at your library.</p></div>
+  <div class="nav">
 <button class="btn btn-back" data-go="11">&larr; Back</button>
 <button class="btn btn-go" data-go="13">Next &rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
 <div class="slide" data-slide="13">
-<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
-<div class="card card-gold">
-<p>Do <b>Page 2 (Post)</b> now: show what you learned about kinds of communities, how people depend on each other, and community helpers.</p>
-</div>
-<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about communities? Write one question on your sheet. For example: Who are the helpers in my town that I never see?</p></div>
-<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, take a walk or a drive around your community. Count the community helpers you see, and name one you never noticed before. Then look for the book <i>Planting Stories: The Life of Librarian and Storyteller Pura Belpré</i> by Anika Aldamuy Denise at your library.</p></div>
-  <div class="nav">
-<button class="btn btn-back" data-go="12">&larr; Back</button>
-<button class="btn btn-go" data-go="14">Next &rarr;</button>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-<div class="slide" data-slide="14">
 <h2>👑 Boss Battle: The Community Challenge</h2>
 <p>Use everything you learned. Think like a historian and use evidence!</p>
 <div class="qset" data-set="0">
@@ -1353,12 +1212,12 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
   </div>
 </div>
   <div class="nav">
-<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-back" data-go="12">&larr; Back</button>
 <button class="btn btn-go" data-finish>See My Score 🏆</button>
   </div>
   <div class="dots" id="dots"></div>
 </div>
-<div class="slide" data-slide="15">
+<div class="slide" data-slide="14">
   <div class="kc-logo kc-logo-large">
   <span class="kc-logo-box">KC</span>
   <span class="kc-logo-text">
@@ -1394,11 +1253,11 @@ table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
 'use strict';
 const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
 const MAX_ATTEMPTS = 3;
-const TOTAL_SLIDES = 16;
-const FINAL_INDEX = 15;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
 const MODULE_ID = 'grade3-socialstudies-w1';
 const MASTERY_THRESHOLD = 85;
-const MAX_RAW_SCORE = 145;
+const MAX_RAW_SCORE = 125;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const NEXT_LESSON_URL = '';
 const PROGRESS_KEY = 'kce_pathways_progress';
@@ -1638,6 +1497,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 });
 document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
 </script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
 <script src="../../gate.js"></script>
 <div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
 </body>
