@@ -546,7 +546,9 @@ const MASTERY_THRESHOLD = 85;
 const MAX_RAW_SCORE = 112;
 function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
 const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function kceSaveProgress(score){try{var K='kce_pathways_progress',all=JSON.parse(localStorage.getItem(K)||'{}')||{},p=all[MODULE_ID]||{},best=Math.max(Math.round(score),(p.score==null?-1:p.score));all[MODULE_ID]={score:best,passed:best>=MASTERY_THRESHOLD,lastScore:Math.round(score),lastPassed:score>=MASTERY_THRESHOLD,date:new Date().toISOString(),attempts:(p.attempts||0)+1};localStorage.setItem(K,JSON.stringify(all));}catch(e){}}
 function reportProgress(score){
+  kceSaveProgress(score);
   try{
     const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
     const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, timestamp:new Date().toISOString() };
