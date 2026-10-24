@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 15 Science Checkpoint | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 15</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Week 15 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 3</h1>
+  <h2>Matter and mixtures, energy and electricity, forces and motion, the human body. Show what you know and connect the big ideas.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Identify <b>mixtures</b>, <b>solutions</b> and <b>chemical changes</b> and use <b>conservation of mass</b></li><li>Trace <b>energy</b> as it changes form and explain <b>circuits</b>, <b>conductors</b> and <b>insulators</b></li><li>Find the <b>net force</b>, explain <b>friction</b> and <b>gravity</b>, and name <b>simple machines</b></li><li>Explain how <b>body systems</b> work together and read heart and breathing data</li><li>Connect all four weeks in the Boss Battle</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 11–14 and mark what you are still unsure of. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🧪 Week 11: Matter and Mixtures</h2>
+<p>Remember how properties identify matter, how to separate mixtures and solutions, and how to spot a chemical change. Read every data list carefully.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c01_s0" data-pts="5" data-logic="Dissolved salt stays behind when the water evaporates, so only the salt water leaves crystals. Both liquids are clear, and salt is not magnetic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two cups hold clear liquids that look exactly the same. One is pure water and one is salt water. Which test tells them apart without tasting?</p>
+    <div class="opts">
+      <button class="opt">Compare their colors in a clear glass</button>
+      <button class="opt">Hold a magnet close to each cup</button>
+      <button class="opt" data-c="1">Let a little of each evaporate and look for crystals</button>
+      <button class="opt">Shake each cup and listen closely</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s0" data-pts="5" data-ans="mixture" data-logic="In a mixture, every part keeps its own properties, so you can separate the parts again. The raisins are still raisins.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Raisins and peanuts in trail mix can be picked apart again, because each keeps its own properties. Trail mix is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s0" data-pts="5" data-logic="The color and texture changed, so a new substance (rust) formed. The jar was sealed and the mass stayed 150 g, so nothing was created or destroyed.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student seals steel wool inside a jar and weighs it.<br>Day 1: 150 g, gray and springy<br>Day 7: 150 g, reddish-brown and crumbly<br>What do these results show?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A new substance formed, but no mass was lost</button>
+      <button class="opt">Rusting destroyed part of the steel wool</button>
+      <button class="opt">Rust was made out of nothing at all</button>
+      <button class="opt">Oxygen leaked in from outside the jar</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s0" data-pts="5" data-logic="A new solid forming is one of the clues of a chemical change, like bubbles, a new color, a new smell, or light and heat.">
+    <span class="pts">+5</span>
+    <p class="qtext">You pour two clear liquids together. Which clue best shows that a chemical change happened?</p>
+    <div class="opts">
+      <button class="opt">The liquids fill a bigger cup</button>
+      <button class="opt">The liquids are poured slowly</button>
+      <button class="opt">The cup stays the same size</button>
+      <button class="opt" data-c="1">A new solid forms and sinks</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s0" data-pts="5" data-logic="Mario Molina, born in Mexico City, loved chemistry as a boy. In 1974 he and F. Sherwood Rowland showed that CFCs destroy ozone.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which scientist set up a chemistry lab in a bathroom at home as a boy and later warned the world about CFCs?</p>
+    <div class="opts">
+      <button class="opt">Antoine Lavoisier</button>
+      <button class="opt" data-c="1">Mario Molina</button>
+      <button class="opt">Stephanie Kwolek</button>
+      <button class="opt">Alice Ball</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c01_s1" data-pts="5" data-ans="solution" data-logic="A solution is a mixture where one substance dissolves evenly into another. The sugar is still in the tea; you just can&#x27;t see it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Sugar stirred into hot tea spreads out evenly and can no longer be seen, but it is still there. The sweet tea is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s1" data-pts="5" data-logic="The beans are too big to fit through the holes, but the rice is small enough. A screen separates pieces by size.">
+    <span class="pts">+5</span>
+    <p class="qtext">A cook mixed rice and dried beans in one jar. She pours them over a screen whose holes let rice fall through. Which property is she using?</p>
+    <div class="opts">
+      <button class="opt">Magnetism</button>
+      <button class="opt" data-c="1">Size</button>
+      <button class="opt">Smell</button>
+      <button class="opt">Dissolving</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s1" data-pts="5" data-logic="Aluminum is shiny, conducts electricity and is not magnetic. Iron would jump to the magnet, and wood and salt do not conduct.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mystery object tests:<br>Shiny and silver-colored<br>NOT pulled by a magnet<br>Conducts electricity<br>Which material from the Week 11 property table fits best?</p>
+    <div class="opts">
+      <button class="opt">Iron nail</button>
+      <button class="opt">Wood stick</button>
+      <button class="opt">Dry table salt</button>
+      <button class="opt" data-c="1">Aluminum foil</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s1" data-pts="5" data-logic="In an open cup the gas escapes into the air. In a sealed bottle the gas is trapped, and the mass should stay the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">Jada mixes baking soda and vinegar in an open cup. It fizzes and the scale reads less. She says matter was destroyed. What should she do to test her claim?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Repeat it in a sealed bottle</button>
+      <button class="opt">Use a bigger open cup</button>
+      <button class="opt">Add twice as much vinegar</button>
+      <button class="opt">Weigh it only before it fizzes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c05_s1" data-pts="5" data-logic="Kwolek noticed the liquid&#x27;s unusual properties and had it spun into fibers. The result, Kevlar, is used in helmets, vests and gloves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Stephanie Kwolek almost threw out a cloudy liquid. What did it become?</p>
+    <div class="opts">
+      <button class="opt">A medicine for Hansen's disease</button>
+      <button class="opt">A gas that repairs the ozone</button>
+      <button class="opt" data-c="1">A strong fiber used in helmets</button>
+      <button class="opt">A metal that never rusts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c01_s2" data-pts="5" data-logic="Melting and hardening only change the state. No new substance forms, and the mass stays the same, so it is a physical change.">
+    <span class="pts">+5</span>
+    <p class="qtext">A chocolate bar melts in your hand, then hardens again in the fridge. What kind of change is this?</p>
+    <div class="opts">
+      <button class="opt">Chemical, because it changed state</button>
+      <button class="opt">Chemical, because a gas was made</button>
+      <button class="opt">Physical, because its mass went down</button>
+      <button class="opt" data-c="1">Physical, because it is still chocolate</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c02_s2" data-pts="5" data-ans="evaporates|evaporate|evaporated|dries up|dries" data-logic="The water turns to vapor and goes into the air, but the dissolved salt cannot evaporate with it, so salt crystals are left.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Salt water drips through filter paper. To get the salt back, you leave the water in a sunny dish until it ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c02_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c03_s2" data-pts="5" data-logic="Burning is a chemical change that makes gases and smoke, which float away from an open candle. Cup A kept all its mass: 100 + 10 = 110.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two tests in open containers:<br>Cup A: 100 g water + 10 g salt, stirred: 110 g after<br>Candle B: 40 g before burning, 31 g after<br>Which statement is correct?</p>
+    <div class="opts">
+      <button class="opt">The flame destroyed 9 g of matter</button>
+      <button class="opt" data-c="1">The candle's missing mass left as gases</button>
+      <button class="opt">Dissolving made the salt's mass vanish</button>
+      <button class="opt">Cup A gained matter from the air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s2" data-pts="5" data-logic="Steel is magnetic, and sand and salt are not. A magnet pulls the pins out and leaves the rest behind.">
+    <span class="pts">+5</span>
+    <p class="qtext">A jar holds sand, salt and steel pins. Which tool should you use to pull out only the pins?</p>
+    <div class="opts">
+      <button class="opt">Filter paper</button>
+      <button class="opt">A sunny dish</button>
+      <button class="opt" data-c="1">A magnet</button>
+      <button class="opt">A cup of water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c05_s2" data-pts="5" data-ans="oxygen" data-logic="Lavoisier named oxygen and hydrogen. Rust forms when iron joins with oxygen from the air.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Antoine Lavoisier named two gases. One was hydrogen. The other, which joins iron when it rusts, is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>💡 Week 12: Energy and Electricity</h2>
+<p>Remember how energy changes form, what a circuit needs, and which materials conduct or insulate. Use the test results as evidence.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c11_s0" data-pts="5" data-logic="The spring is not moving yet, so its energy is stored. When you let go, the stored energy becomes motion.">
+    <span class="pts">+5</span>
+    <p class="qtext">A wind-up toy's spring has been wound tight, but you have not let go yet. What kind of energy does the spring have?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Potential (stored) energy</button>
+      <button class="opt">Kinetic (motion) energy</button>
+      <button class="opt">Sound energy</button>
+      <button class="opt">Light energy</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s0" data-pts="5" data-ans="insulators|insulator|electrical insulators" data-logic="Glass and wood block the flow of electricity, so the circuit stays open and the LED stays off. Those materials are insulators.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A glass marble and a wooden craft stick both kept the tester's LED dark. Materials like these are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s0" data-pts="5" data-logic="In a series circuit there is only one path, so one gap stops everything. A parallel circuit has more than one path, so the others stay lit.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two strings of lights:<br>String X: remove one bulb, and all the rest go dark<br>String Y: remove one bulb, and the rest stay lit<br>Which is true?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">X is series; Y is parallel</button>
+      <button class="opt">X is parallel; Y is series</button>
+      <button class="opt">Both strings are series</button>
+      <button class="opt">Both strings are parallel</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="Food stores chemical energy. Your muscles change it into motion (kinetic energy), and some becomes heat, which is why you warm up.">
+    <span class="pts">+5</span>
+    <p class="qtext">You eat breakfast, then run to catch the bus. What energy change happens in your muscles?</p>
+    <div class="opts">
+      <button class="opt">Light energy to sound energy</button>
+      <button class="opt">Electrical energy to chemical</button>
+      <button class="opt" data-c="1">Chemical energy to motion and heat</button>
+      <button class="opt">Motion to stored energy in food</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s0" data-pts="5" data-logic="Lewis Latimer drew the diagrams for Alexander Graham Bell&#x27;s 1876 telephone patent and patented a better way to make filaments in 1882.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who drew the patent diagrams for the telephone and later found a better way to make carbon filaments for light bulbs?</p>
+    <div class="opts">
+      <button class="opt">Granville T. Woods</button>
+      <button class="opt" data-c="1">Lewis Latimer</button>
+      <button class="opt">Michael Faraday</button>
+      <button class="opt">Edith Clarke</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c11_s1" data-pts="5" data-ans="circuit|electric circuit" data-logic="A circuit is a complete path for electricity. When there are no gaps, it is closed and current can flow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A battery, wires and a bulb joined in a complete loop with no gaps make a closed ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c12_s1" data-pts="5" data-logic="The fan takes in electrical energy and spins its blades, which is motion. A wind turbine does the opposite change.">
+    <span class="pts">+5</span>
+    <p class="qtext">An electric fan is switched on. What is the main energy change it is built to make?</p>
+    <div class="opts">
+      <button class="opt">Motion to electrical energy</button>
+      <button class="opt">Light energy to chemical</button>
+      <button class="opt">Chemical energy to light</button>
+      <button class="opt" data-c="1">Electrical energy to motion</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s1" data-pts="5" data-logic="A dim light means the material conducts, but not easily. The key glowed brightly, and the eraser and straw blocked the current.">
+    <span class="pts">+5</span>
+    <p class="qtext">A class tester's results:<br>Brass key: bright<br>Rubber eraser: off<br>Cup of lemon juice: dim<br>Paper straw: off<br>Which item conducts, but not very well?</p>
+    <div class="opts">
+      <button class="opt">The brass key</button>
+      <button class="opt">The rubber eraser</button>
+      <button class="opt" data-c="1">The lemon juice</button>
+      <button class="opt">The paper straw</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s1" data-pts="5" data-logic="Metal conducts heat to the food, but wood is an insulator, so it keeps the heat away from your hand.">
+    <span class="pts">+5</span>
+    <p class="qtext">A cooking pot is metal, but its handle is wood. Why is wood a good choice for the handle?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Wood insulates against heat</button>
+      <button class="opt">Wood conducts heat quickly</button>
+      <button class="opt">Wood is pulled by magnets</button>
+      <button class="opt">Wood dissolves in hot water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c15_s1" data-pts="5" data-ans="MIT|M.I.T." data-logic="Edith Clarke earned her master&#x27;s degree at MIT in 1919, then became a pioneering electrical engineer at General Electric.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1919 Edith Clarke became the first woman to earn a master's degree in electrical engineering from this school. Type its three letters: ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c11_s2" data-pts="5" data-logic="Turning a switch off opens a gap in the circuit. The current cannot get across the gap, so the light goes out.">
+    <span class="pts">+5</span>
+    <p class="qtext">You flip a light switch to OFF. What happens to the circuit?</p>
+    <div class="opts">
+      <button class="opt">It closes, with no gap</button>
+      <button class="opt">It gets more paths</button>
+      <button class="opt">It stores more current</button>
+      <button class="opt" data-c="1">It opens, leaving a gap</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s2" data-pts="5" data-ans="kinetic|motion|mechanical" data-logic="Moving things have kinetic energy. The stored (potential) energy at the top changes into kinetic energy as the ball rolls.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A ball at the top of a slide has stored energy. As it rolls down, the stored energy becomes the energy of motion, called ____ energy:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c13_s2" data-pts="5" data-logic="Energy changes form but is never created or destroyed. In the bulb, electrical energy becomes light, and some becomes heat.">
+    <span class="pts">+5</span>
+    <p class="qtext">A flashlight test:<br>Switch on: bulb lights<br>After 10 minutes: bulb is lit and feels warm<br>Where did the heat come from?</p>
+    <div class="opts">
+      <button class="opt">The battery made brand-new energy</button>
+      <button class="opt" data-c="1">Some electrical energy became heat</button>
+      <button class="opt">The plastic case gave off heat</button>
+      <button class="opt">Light energy was destroyed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s2" data-pts="5" data-logic="Graphite is not a metal, and salt water is a liquid, yet both conducted a little. The bright metals conducted best.">
+    <span class="pts">+5</span>
+    <p class="qtext">A graphite pencil core and a cup of salt water both made the LED glow dimly. What does this show?</p>
+    <div class="opts">
+      <button class="opt">Only metals can conduct at all</button>
+      <button class="opt" data-c="1">Some things that are not metal conduct</button>
+      <button class="opt">They conduct better than copper</button>
+      <button class="opt">Both of them are insulators</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c15_s2" data-pts="5" data-logic="Woods learned by working on railroads and studying on his own. He went on to earn more than 50 patents.">
+    <span class="pts">+5</span>
+    <p class="qtext">Granville T. Woods left school as a boy to work in a machine shop. How did he learn engineering?</p>
+    <div class="opts">
+      <button class="opt">At MIT, like Edith Clarke</button>
+      <button class="opt">From Thomas Edison himself</button>
+      <button class="opt">At a school in Scotland</button>
+      <button class="opt" data-c="1">On railroads and studying alone</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🛝 Week 13: Forces and Motion</h2>
+<p>Remember balanced and unbalanced forces, friction and gravity, and the six simple machines. Do the force math step by step.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c21_s0" data-pts="5" data-logic="The forces are equal and opposite, so they are balanced. Balanced forces do not change motion, so the wagon keeps the same speed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Forces on a wagon that is already rolling:<br>Pull to the right: 60 N<br>Friction to the left: 60 N<br>What happens to the wagon?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It keeps rolling at the same speed</button>
+      <button class="opt">It speeds up to the right</button>
+      <button class="opt">It stops right away</button>
+      <button class="opt">It speeds up to the left</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s0" data-pts="5" data-ans="gravity" data-logic="Gravity is the pull between objects with mass. Earth&#x27;s gravity pulls everything toward its center.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Skydivers and raindrops fall toward Earth because of the pulling force called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s0" data-pts="5" data-logic="A screw is an inclined plane wrapped around a post. The spiral threads on a bulb base are a screw.">
+    <span class="pts">+5</span>
+    <p class="qtext">A light bulb's metal base twists into a lamp along spiral threads. Which simple machine is the base?</p>
+    <div class="opts">
+      <button class="opt">Wedge</button>
+      <button class="opt">Pulley</button>
+      <button class="opt" data-c="1">Screw</button>
+      <button class="opt">Lever</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s0" data-pts="5" data-logic="Galileo reasoned that a ball with no friction would never stop. Newton&#x27;s first law says objects keep doing what they are doing until a force acts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Galileo rolled balls on ramps and asked what would happen with less and less friction. What idea did Newton build on his work?</p>
+    <div class="opts">
+      <button class="opt">Heavy objects always fall faster</button>
+      <button class="opt">Moving things stop on their own</button>
+      <button class="opt">Friction pushes objects forward</button>
+      <button class="opt" data-c="1">Objects keep moving unless a force acts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c25_s0" data-pts="5" data-ans="friction" data-logic="Without oil, the moving parts rubbed together. Friction wore them down, and oil reduced it so trains could keep running.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Elijah McCoy's automatic lubricator dripped oil into engines to fight this force, which made parts grind and wear out: ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c25_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="c21_s1" data-pts="5" data-logic="Smooth tile makes less friction than carpet, sandpaper or a towel. In the friction lab, the car rolled farthest on smooth tile.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which change would help a toy car roll FARTHER after it leaves the same ramp?</p>
+    <div class="opts">
+      <button class="opt">Lay sandpaper past the ramp</button>
+      <button class="opt" data-c="1">Let it roll onto tile, not carpet</button>
+      <button class="opt">Lay a thick rug past the ramp</button>
+      <button class="opt">Let it roll onto a bath towel</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c22_s1" data-pts="5" data-ans="fulcrum" data-logic="A seesaw is a lever, and the point a lever turns on is the fulcrum.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A seesaw tips up and down on the point in its middle. That point is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s1" data-pts="5" data-logic="The longer, gentler ramp spreads the work over more distance, so it takes less force. A simple machine trades force for distance.">
+    <span class="pts">+5</span>
+    <p class="qtext">The same 60-pound box is raised 2 feet.<br>Ramp A: 4 feet long<br>Ramp B: 8 feet long<br>Ignoring friction, which is true?</p>
+    <div class="opts">
+      <button class="opt">Ramp A needs less force than B</button>
+      <button class="opt">Both ramps need the same force</button>
+      <button class="opt" data-c="1">Ramp B needs less force over more distance</button>
+      <button class="opt">Ramp B needs no force at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s1" data-pts="5" data-logic="The curb stopped the board, but nothing stopped the rider right away. The rider&#x27;s body kept moving because of inertia.">
+    <span class="pts">+5</span>
+    <p class="qtext">A skateboard hits a curb and stops, but the rider keeps moving forward. Which idea explains this?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Inertia</button>
+      <button class="opt">Gravity</button>
+      <button class="opt">Air resistance</button>
+      <button class="opt">Balanced forces</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s1" data-pts="5" data-logic="Al-Jazari wrote careful drawings and instructions for about 50 machines, so people can still follow them more than 800 years later.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why can engineers today still rebuild machines from Al-Jazari's 1206 book?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">He explained exactly how to build each one</button>
+      <button class="opt">The book has color photographs</button>
+      <button class="opt">His machines ran on gasoline</button>
+      <button class="opt">He sold kits of all the parts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c21_s2" data-pts="5" data-ans="25|25 newtons|25 n|twenty-five" data-logic="Subtract the smaller force from the larger one: 90 − 65 = 25 newtons, pointing forward. The forces are unbalanced, so the cart speeds up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kai pushes a cart forward with 90 newtons. Friction pushes back with 65 newtons. What is the net force, in newtons? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c22_s2" data-pts="5" data-logic="The Moon has no air. On Earth, air pushes against the light, fluffy feather and slows it, so the hammer lands first.">
+    <span class="pts">+5</span>
+    <p class="qtext">On the Moon, a hammer and a feather dropped together land together. Why doesn't that happen on Earth?</p>
+    <div class="opts">
+      <button class="opt">Earth's gravity skips light things</button>
+      <button class="opt">The Moon pulls feathers harder</button>
+      <button class="opt" data-c="1">Air resistance slows the feather</button>
+      <button class="opt">The hammer has no mass on Earth</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c23_s2" data-pts="5" data-logic="Friction wears parts down over time. The other choices are helpful friction: gripping, stopping and keeping people from slipping.">
+    <span class="pts">+5</span>
+    <p class="qtext">Friction is not always our friend. In which case is it wearing something out instead of helping?</p>
+    <div class="opts">
+      <button class="opt">Shoe soles gripping a gym floor</button>
+      <button class="opt" data-c="1">Bike tires slowly wearing thin</button>
+      <button class="opt">Sand helping people walk on ice</button>
+      <button class="opt">Brakes stopping a bike at a corner</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c24_s2" data-pts="5" data-logic="A rope over a grooved wheel changes the direction of a force. You pull down, and the flag goes up.">
+    <span class="pts">+5</span>
+    <p class="qtext">A pulley at the top of a flagpole lets you raise the flag by pulling DOWN on the rope. What does this pulley change?</p>
+    <div class="opts">
+      <button class="opt">The mass of the flag</button>
+      <button class="opt">Earth's pull on the flag</button>
+      <button class="opt">The rope's friction to zero</button>
+      <button class="opt" data-c="1">The direction of your pull</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c25_s2" data-pts="5" data-logic="Optical systems use light. Ochoa earned a doctorate in electrical engineering and co-invented systems that use light to study objects.">
+    <span class="pts">+5</span>
+    <p class="qtext">Besides flying in space, Ellen Ochoa is a co-inventor on patents for optical systems. What do those systems use to study objects?</p>
+    <div class="opts">
+      <button class="opt">Magnets</button>
+      <button class="opt">Sound</button>
+      <button class="opt" data-c="1">Light</button>
+      <button class="opt">Steam</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🫀 Week 14: The Human Body</h2>
+<p>Remember the levels from cell to system, how the heart and lungs deliver oxygen, and how the body defends itself. Read the data carefully.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="c31_s0" data-pts="5" data-logic="Different tissues joined to do one job make an organ. The stomach is one organ in the digestive system.">
+    <span class="pts">+5</span>
+    <p class="qtext">The stomach is made of muscle tissue, nerve tissue and lining tissue working together. Which level of the body is the stomach?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">An organ</button>
+      <button class="opt">A cell</button>
+      <button class="opt">A tissue</button>
+      <button class="opt">A body system</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s0" data-pts="5" data-ans="arteries|artery" data-logic="Arteries carry blood away from the heart. Veins carry it back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Oxygen-rich blood leaves the heart and travels out to the body in vessels called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s0" data-pts="5" data-logic="Multiply a 15-second count by 4 to get beats per minute: 30 × 4 = 120. (The resting rate is 19 × 4 = 76.)">
+    <span class="pts">+5</span>
+    <p class="qtext">Pulse counts taken for 15 seconds:<br>Resting: 19 beats<br>After 1 minute of marching: 30 beats<br>What is the heart rate after marching, in beats per minute?</p>
+    <div class="opts">
+      <button class="opt">76</button>
+      <button class="opt">49</button>
+      <button class="opt">30</button>
+      <button class="opt" data-c="1">120</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s0" data-pts="5" data-logic="The nervous system is the brain, spinal cord and nerves. Nerves carry messages to and from the brain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which body system carries the message from your eyes to your brain that a ball is coming?</p>
+    <div class="opts">
+      <button class="opt">Circulatory system</button>
+      <button class="opt" data-c="1">Nervous system</button>
+      <button class="opt">Digestive system</button>
+      <button class="opt">Immune system</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s0" data-pts="5" data-logic="Ibn al-Nafis wrote about the path through the lungs in the 1200s, about 300 years before European doctors described it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ibn al-Nafis described blood traveling through the lungs about how long before European doctors did?</p>
+    <div class="opts">
+      <button class="opt">About 30 years</button>
+      <button class="opt" data-c="1">About 300 years</button>
+      <button class="opt">About 3,000 years</button>
+      <button class="opt">About 3 years</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c31_s1" data-pts="5" data-ans="windpipe|wind pipe|trachea" data-logic="The windpipe carries air down to the lungs. Then oxygen passes from tiny air sacs into the blood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When you breathe in, air travels from your nose or mouth down a tube into your lungs. That tube is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c32_s1" data-pts="5" data-logic="Air goes down the windpipe into the lungs. Oxygen moves into the blood, and the heart pumps that blood to the cells.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which list shows the path oxygen takes from the air to a muscle cell?</p>
+    <div class="opts">
+      <button class="opt">Stomach → heart → windpipe → muscle cell</button>
+      <button class="opt">Muscle cell → blood → lungs → windpipe</button>
+      <button class="opt">Lungs → windpipe → bones → muscle cell</button>
+      <button class="opt" data-c="1">Windpipe → lungs → blood → muscle cell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s1" data-pts="5" data-logic="A strong study needs many people and a comparison group that is alike except for one thing. This study has neither.">
+    <span class="pts">+5</span>
+    <p class="qtext">An ad says: "Kids who wear ZoomBand wristbands catch fewer colds!"<br>Kids studied: 6<br>Comparison group: none<br>What is the best conclusion?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The claim is not strong evidence yet</button>
+      <button class="opt">The wristband clearly stops colds</button>
+      <button class="opt">Six kids is enough for any claim</button>
+      <button class="opt">Wristbands are what cause colds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s1" data-pts="5" data-logic="Skin is the first barrier. White blood cells in the blood are the next line of defense: they find and destroy germs.">
+    <span class="pts">+5</span>
+    <p class="qtext">A germ gets past your skin through a scrape. What is the job of your white blood cells?</p>
+    <div class="opts">
+      <button class="opt">To carry oxygen to the scrape</button>
+      <button class="opt">To send messages to your muscles</button>
+      <button class="opt" data-c="1">To find and destroy the germ</button>
+      <button class="opt">To break down food in the stomach</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c35_s1" data-pts="5" data-ans="Cross" data-logic="Charles Drew directed the American Red Cross&#x27;s first blood bank in 1941, after leading the Blood for Britain program.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1941 Charles Drew directed the first blood bank of the American Red ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c35_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="c31_s2" data-pts="5" data-logic="The skeletal system supports and protects. The skull is a bony case around the brain, the main organ of the nervous system.">
+    <span class="pts">+5</span>
+    <p class="qtext">How does your skeletal system help your nervous system?</p>
+    <div class="opts">
+      <button class="opt">It carries messages to muscles</button>
+      <button class="opt">It breaks down food for energy</button>
+      <button class="opt">It pumps blood to the brain</button>
+      <button class="opt" data-c="1">Its skull protects the brain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c32_s2" data-pts="5" data-ans="organ" data-logic="Cells form tissues, and different tissues working together form an organ, such as the heart or the brain.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A body part such as the heart, made of different tissues working together on one job, is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c33_s2" data-pts="5" data-logic="Dancing muscles needed more oxygen, so breathing rose from 16 to 28. During rest it dropped back toward the resting rate.">
+    <span class="pts">+5</span>
+    <p class="qtext">Breathing rate (breaths per minute):<br>Resting: 16<br>Right after 2 minutes of dancing: 28<br>After 3 minutes of rest: 18<br>What pattern does this show?</p>
+    <div class="opts">
+      <button class="opt">It slowed down during the dancing</button>
+      <button class="opt" data-c="1">It sped up, then slowed toward resting</button>
+      <button class="opt">It stayed the same the whole time</button>
+      <button class="opt">It kept rising during the rest</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c34_s2" data-pts="5" data-logic="Muscles pull on bones to move them. The muscular and skeletal systems team up, guided by signals from the nervous system.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which two body systems work together to bend your arm at the elbow?</p>
+    <div class="opts">
+      <button class="opt">Digestive and immune</button>
+      <button class="opt">Respiratory and digestive</button>
+      <button class="opt" data-c="1">Muscular and skeletal</button>
+      <button class="opt">Immune and circulatory</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c35_s2" data-pts="5" data-logic="Corbett&#x27;s team at the National Institutes of Health worked with the company Moderna. DuPont (Kwolek), General Electric (Clarke) and Edison&#x27;s company (Latimer) come from other weeks.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kizzmekia Corbett's team designed one of the first COVID-19 vaccines with which company?</p>
+    <div class="opts">
+      <button class="opt">DuPont</button>
+      <button class="opt">General Electric</button>
+      <button class="opt" data-c="1">Moderna</button>
+      <button class="opt">Thomas Edison's company</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned across all of Unit 3, connect two weeks with evidence, and try the Challenge.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>Which Unit 3 idea still puzzles you? Write one question about it that you could answer with a safe, fair test.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore the American Chemical Society's <i>Adventures in Chemistry</i> website for safe kitchen experiments, or look up Elijah McCoy, Lewis Latimer and Granville T. Woods on the National Inventors Hall of Fame website (invent.org) together.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>👑 Boss Battle: Unit 3 Physical Science Showdown</h2>
+<p>These questions connect all four weeks: matter that is never lost, energy that changes form, forces that change motion, and a body that runs on food, oxygen and teamwork. Reason with evidence before you choose.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Food stores chemical energy, your legs turn it into motion, the generator turns motion into electrical energy, and the lamp turns that into light.">
+    <span class="pts">+5</span>
+    <p class="qtext">You eat a corn tortilla, then pedal a bike that spins a small generator and lights a lamp. Which energy chain is in order?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Chemical → motion → electrical → light</button>
+      <button class="opt">Light → chemical → electrical → motion</button>
+      <button class="opt">Electrical → chemical → light → motion</button>
+      <button class="opt">Motion → light → chemical → electrical</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Evaporation leaves the salt behind (Week 11). Dry table salt did not conduct in the property table; it helps carry current only when dissolved in water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Salt water made the tester's LED glow dimly. You let the water evaporate. What is left in the dish, and will it light the LED?</p>
+    <div class="opts">
+      <button class="opt">Nothing; the salt was destroyed</button>
+      <button class="opt">Dry salt crystals that glow brightly</button>
+      <button class="opt" data-c="1">Dry salt crystals that do not conduct</button>
+      <button class="opt">Copper wire that conducts well</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Both looked at evidence: the solid heart wall, and balls rolling farther with less friction. When an expert&#x27;s idea did not match, they followed the evidence.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ibn al-Nafis questioned Galen, and Galileo questioned Aristotle. What did both of them do?</p>
+    <div class="opts">
+      <button class="opt">Repeated the expert's idea untested</button>
+      <button class="opt" data-c="1">Trusted evidence over a famous expert</button>
+      <button class="opt">Proved every old idea was wrong</button>
+      <button class="opt">Studied only how the heart works</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4_s0" data-pts="5" data-ans="10|10 pounds|ten" data-logic="The ramp is 5 times longer than the height, so the push is one-fifth of 50 pounds: 10 pounds. Check: 50 × 2 = 100 and 10 × 10 = 100.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 10-foot ramp raises a 50-pound box 2 feet. Ignoring friction, how many pounds of push are needed? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s0" data-pts="5" data-logic="Rubber is an insulator that keeps current inside the wire. Oil makes surfaces slide more easily, which reduces friction.">
+    <span class="pts">+5</span>
+    <p class="qtext">A worker wraps a copper wire in rubber tape, then puts oil on a squeaky wheel. What is each one doing?</p>
+    <div class="opts">
+      <button class="opt">Rubber conducts; oil adds friction</button>
+      <button class="opt">Rubber reduces friction; oil insulates</button>
+      <button class="opt">Rubber adds gravity; oil conducts</button>
+      <button class="opt" data-c="1">Rubber insulates; oil reduces friction</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Aluminum conducts electricity well but is not magnetic. Iron is magnetic, and rubber and glass are insulators.">
+    <span class="pts">+5</span>
+    <p class="qtext">A mystery strip of metal is NOT pulled by a magnet, but it makes the tester's LED glow brightly. Which could it be?</p>
+    <div class="opts">
+      <button class="opt">Iron</button>
+      <button class="opt">Rubber</button>
+      <button class="opt" data-c="1">Aluminum</button>
+      <button class="opt">Glass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="In a fair test you change one variable and keep everything else the same, so you know what caused the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">The sealed-bottle test, the circuit tester and the friction ramp were all fair tests. What did all three do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Changed only one thing at a time</button>
+      <button class="opt">Used only liquids in every trial</button>
+      <button class="opt">Measured everything in grams</button>
+      <button class="opt">Ran just one trial and stopped</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Cells need oxygen to release energy from food. The respiratory system brings oxygen in, and the circulatory system delivers it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A runner's muscles release energy from food, and her breathing speeds up. Which system brings in the oxygen her muscle cells need?</p>
+    <div class="opts">
+      <button class="opt">Digestive system</button>
+      <button class="opt">Skeletal system</button>
+      <button class="opt">Immune system</button>
+      <button class="opt" data-c="1">Respiratory system</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b4_s1" data-pts="5" data-ans="electrical|electric|electricity" data-logic="A generator uses Faraday&#x27;s discovery: moving a magnet and a coil of wire makes electric current, so motion becomes electrical energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Pedaling a bike that spins a generator changes motion into ____ energy:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b5_s1" data-pts="5" data-logic="Energy is never created or destroyed. Friction changes motion energy into other forms, mostly heat, along with a little sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">A ball rolling on grass slows down and stops. Was its energy destroyed?</p>
+    <div class="opts">
+      <button class="opt">Yes; friction destroys motion energy</button>
+      <button class="opt" data-c="1">No; friction changed it to heat and sound</button>
+      <button class="opt">No; it turned into new matter</button>
+      <button class="opt">Yes; the grass erased it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="The book&#x27;s stored energy comes from its height. When it falls, Earth&#x27;s gravity pulls it down and the stored energy becomes kinetic energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">A book sits on a high shelf with stored energy. If it falls, which force turns that stored energy into motion?</p>
+    <div class="opts">
+      <button class="opt">Friction</button>
+      <button class="opt" data-c="1">Gravity</button>
+      <button class="opt">Magnetism</button>
+      <button class="opt">Inertia</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Like every muscle, the heart changes the chemical energy from food into motion. Energy is changed, never created.">
+    <span class="pts">+5</span>
+    <p class="qtext">Your heart is a muscle that pumps all day. Which statement about its energy is correct?</p>
+    <div class="opts">
+      <button class="opt">It makes new energy with each beat</button>
+      <button class="opt">It runs on energy from wall outlets</button>
+      <button class="opt">It uses sunlight directly as energy</button>
+      <button class="opt" data-c="1">It turns chemical energy into motion</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Water with dissolved salts conducts, as the salt water in the tester showed. That is why we keep electrical devices away from water.">
+    <span class="pts">+5</span>
+    <p class="qtext">The water inside our bodies has dissolved salts and minerals. Why does that matter for electrical safety?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The body can conduct electricity</button>
+      <button class="opt">The body is a perfect insulator</button>
+      <button class="opt">Salt stops all electric current</button>
+      <button class="opt">Only metal objects get shocked</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Friction works against the motion, so the mover must push a little harder than the ideal 25 pounds, but still far less than lifting 100.">
+    <span class="pts">+5</span>
+    <p class="qtext">A 100-pound box goes up a 12-foot ramp onto a 3-foot truck bed. Without friction, the push is 25 pounds. With real friction, the push is…</p>
+    <div class="opts">
+      <button class="opt">exactly 25 pounds</button>
+      <button class="opt">a bit less than 25 pounds</button>
+      <button class="opt" data-c="1">a bit more than 25 pounds</button>
+      <button class="opt">100 pounds or more</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s2" data-pts="5" data-ans="cell" data-logic="The cell is the smallest living unit of the body. Cells use oxygen to release the chemical energy stored in food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Your body is made of trillions of tiny living units, and each one needs oxygen to release energy from food. Each unit is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Unit 3 Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 10;
+const FINAL_INDEX = 9;
+const MODULE_ID = 'grade4-5-science-checkpoint3';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["conservation of mass", "total mass stays the same"], ["chemical change", "makes a new substance"], ["conductor", "lets current flow easily"], ["friction", "force that opposes sliding"], ["capillaries", "where oxygen enters the blood"]], [["rusting nail", "chemical change"], ["wind turbine", "motion into electrical energy"], ["doorknob", "wheel and axle"], ["rubber glove", "electrical insulator"], ["white blood cells", "destroy germs"]], [["Stephanie Kwolek", "strong fiber for helmets"], ["Granville T. Woods", "messages from moving trains"], ["Elijah McCoy", "oil for running engines"], ["Daniel Hale Williams", "early heart sac surgery"], ["Mario Molina", "warned about ozone-harming CFCs"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Unit 3 Rookie", "Circuit Builder", "Force Finder", "Pathways Science Champion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

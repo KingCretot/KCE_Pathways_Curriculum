@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Florida Focus Science: Florida's Space Coast | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌴 KCE Pathways — Grades 4&ndash;5 &mdash; Florida Focus</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Building Things &bull; Florida Focus (Bonus) &bull; Science</span>
+  <h1>Florida's Space Coast</h1>
+  <h2>Why does America launch rockets from Florida, and who are the people who make every launch happen?</h2>
+<span class="flbadge">🌴 Florida Focus &bull; Bonus lesson &bull; never blocks your next lesson</span>  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>Why did the United States build its spaceport on Florida's Atlantic coast, how do rockets reach space, and who are the people who make launches happen?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Why did the United States build its spaceport on Florida\'s Atlantic coast, how do rockets reach space, and who are the people who make launches happen?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Use latitude data to explain why rockets launch from Florida's east coast</li><li>Explain how <b>thrust</b>, gravity and speed get a rocket into <b>orbit</b></li><li>Trace the Space Coast's story from the Ais people to Apollo, the shuttle and Artemis</li><li>Learn how a spaceport shares its land with a wildlife refuge</li><li>Meet JoAnn Morgan, Guion Bluford, John Herrington, Janet Petro and Victor Glover</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's warm up with Florida Focus 1 and 2, Florida's ecosystems and hurricanes, plus a little review of forces and space.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Coral reefs are built by tiny animals called coral polyps. Sawgrass, mangroves and pines are plants.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 1 review: Which Florida ecosystem is built by tiny animals?</p>
+    <div class="opts">
+      <button class="opt">A sawgrass marsh</button>
+      <button class="opt" data-c="1">A coral reef</button>
+      <button class="opt">A mangrove forest</button>
+      <button class="opt">A pine flatwood</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="3|three" data-logic="Category 3 covers winds from 111 to 129 mph, so a 115 mph storm is a Category 3, a major hurricane.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florida Focus 2 review: A hurricane has top winds of 115 mph. On the Saffir-Simpson scale, it is a Category ____ hurricane. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="The eye is the calm center of a hurricane. The eyewall on the other side will soon bring strong winds again, so families stay inside.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 2 review: During a hurricane, the wind suddenly goes calm and the sky looks brighter. What is most likely happening?</p>
+    <div class="opts">
+      <button class="opt">The storm is over for good</button>
+      <button class="opt">The storm turned into a tornado</button>
+      <button class="opt" data-c="1">The eye is passing overhead</button>
+      <button class="opt">Hurricane season just ended</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Most crewed American launches, from Alan Shepard&#x27;s flight in 1961 to Artemis II in 2026, lifted off from Florida&#x27;s Space Coast. Today you will find out why.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where do you think most American astronauts have launched from?</p>
+    <div class="opts">
+      <button class="opt">Kansas</button>
+      <button class="opt">Alaska</button>
+      <button class="opt" data-c="1">Florida</button>
+      <button class="opt">New York</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="In the dry season, alligators keep gator holes open. These still hold water, so fish, turtles and birds gather there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 1 review: How do alligators help other Everglades animals survive the dry season?</p>
+    <div class="opts">
+      <button class="opt">They carry fish out to the ocean</button>
+      <button class="opt" data-c="1">They keep gator holes open that hold water</button>
+      <button class="opt">They build dams across the whole marsh</button>
+      <button class="opt">They eat all the apple snails</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="producers|producer" data-logic="Producers make their own food from sunlight. They are the base of the Everglades food web.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florida Focus 1 review: Sawgrass and periphyton make their own food from sunlight, so in a food web they are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Storm surge is ocean water pushed toward the shore by a storm&#x27;s winds, so it floods the coast most. Inland towns still face wind and rain flooding.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 2 review: Why do coastal towns usually face a bigger storm surge danger than towns 50 miles inland?</p>
+    <div class="opts">
+      <button class="opt">Inland towns never get wind</button>
+      <button class="opt">Rain never falls far inland</button>
+      <button class="opt">Hurricanes skip over the coast</button>
+      <button class="opt" data-c="1">Surge is ocean water pushed onto the shore</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Only an unbalanced force changes an object&#x27;s motion. Balanced forces cancel out, and inertia never gets used up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Week 13 review: Newton's first law says a moving object keeps moving in the same way unless...</p>
+    <div class="opts">
+      <button class="opt">it uses up all of its inertia</button>
+      <button class="opt" data-c="1">an unbalanced force acts on it</button>
+      <button class="opt">it travels a set distance</button>
+      <button class="opt">balanced forces act on it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Hurricane season runs from June 1 to November 30, so February is outside it. Launch teams still watch for other storms all year.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 2 review: A launch team is choosing a month. Which month is OUTSIDE the Atlantic hurricane season?</p>
+    <div class="opts">
+      <button class="opt">September</button>
+      <button class="opt" data-c="1">February</button>
+      <button class="opt">July</button>
+      <button class="opt">November</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="Seminole|Seminoles|Seminole Tribe" data-logic="The Miccosukee and Seminole peoples know the Everglades deeply and still live there today.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Florida Focus 1 review: The Miccosukee and ____ peoples have long lived in the Everglades and help protect it today:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Burning fuel releases heat, and the hot gas rushing out pushes the rocket, giving it motion energy. Energy changes form; it is not created.">
+    <span class="pts">+5</span>
+    <p class="qtext">Week 12 review: When a rocket's fuel burns, its stored chemical energy changes mostly into...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">heat and motion energy</button>
+      <button class="opt">electrical energy only</button>
+      <button class="opt">sound energy only</button>
+      <button class="opt">more stored chemical energy</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Without roots to slow waves and hold the mud, storms wash away more of the shoreline.">
+    <span class="pts">+5</span>
+    <p class="qtext">Florida Focus 1 review: Mangrove roots hold mud in place. If a shoreline's mangroves are cut down, what will most likely happen in big storms?</p>
+    <div class="opts">
+      <button class="opt">Storms will stop forming nearby</button>
+      <button class="opt">The seawater will turn fresh</button>
+      <button class="opt" data-c="1">More of the shore will wash away</button>
+      <button class="opt">Coral reefs will grow much faster</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about rockets, astronauts and launches from Florida. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>NASA Space Place, NASA's science website for kids, explains how a huge rocket sends spacecraft and satellites into space, and why they stay in orbit once they get there.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>How Do We Launch Things into Space?</b> &mdash; NASA Space Place</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/o2FFtPPM3iY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="How Do We Launch Things into Space?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for what a rocket has to do to get a spacecraft or satellite into space, and what keeps a satellite in orbit once it is there. Connect it to the forces you learned in Week 13: gravity, and balanced and unbalanced forces.</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">thrust<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;thrust. The push that moves a rocket forward. Hot gas shoots out of the engines one way, and the rocket is pushed the other way.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The push that moves a rocket forward. Hot gas shoots out of the engines one way, and the rocket is pushed the other way.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">orbit<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;orbit. The curved path an object follows around a planet, moon or star, held by gravity. Example: the space station orbits Earth.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The curved path an object follows around a planet, moon or star, held by gravity. Example: the space station orbits Earth.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">latitude<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;latitude. How far a place is north or south of the equator, measured in degrees. Kennedy Space Center is at about 28.5 degrees north.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">How far a place is north or south of the equator, measured in degrees. Kennedy Space Center is at about 28.5 degrees north.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">launch pad<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;launch pad. The platform a rocket lifts off from. Apollo 11 left from Launch Complex 39A at Kennedy Space Center.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The platform a rocket lifts off from. Apollo 11 left from Launch Complex 39A at Kennedy Space Center.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">payload<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;payload. The cargo a rocket carries into space, such as a satellite, a space probe or a spacecraft with astronauts.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The cargo a rocket carries into space, such as a satellite, a space probe or a spacecraft with astronauts.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">spaceport<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;spaceport. A place built to launch, and sometimes land, rockets and spacecraft.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A place built to launch, and sometimes land, rockets and spacecraft.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">wildlife refuge<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;wildlife refuge. Land set aside to protect animals and their habitats, like the Merritt Island National Wildlife Refuge around Kennedy Space Center.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Land set aside to protect animals and their habitats, like the Merritt Island National Wildlife Refuge around Kennedy Space Center.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌎 Why Launch from Florida?</h2>
+<div class="card card">
+<p>Earth spins toward the east, and the ground at the equator moves at about 1,040 miles per hour; the farther a place is from the equator, the slower its ground moves. A rocket launched toward the east gets a free boost from that spin, so launch sites closer to the equator need less fuel to reach orbit. Cape Canaveral, at about 28.5 degrees north <b>latitude</b>, is one of the farthest-south places in the continental United States with open ocean to its east. That ocean matters too: empty rocket stages and any pieces from an accident fall into the Atlantic instead of onto towns. Florida's ports also let huge rocket parts arrive by barge, since they are too big to travel easily by road.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Earth spins toward the east, and the ground at the equator moves at about 1,040 miles per hour; the farther a place is from the equator, the slower its ground moves. A rocket launched toward the east gets a free boost from that spin, so launch sites closer to the equator need less fuel to reach orbit. Cape Canaveral, at about 28.5 degrees north latitude , is one of the farthest-south places in the continental United States with open ocean to its east. That ocean matters too: empty rocket stages and any pieces from an accident fall into the Atlantic instead of onto towns. Florida\'s ports also let huge rocket parts arrive by barge, since they are too big to travel easily by road.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Picture a merry-go-round spinning to the right. If I stand on it and throw a ball forward in the same direction it spins, the ball gets the merry-go-round's speed plus my throw. If I throw it backward, against the spin, my throw first has to cancel out the merry-go-round's speed. Earth is a giant merry-go-round spinning east. So launching east is like throwing with the spin. And the closer to the equator, the faster the ground moves, the bigger the free boost. Comparing a big idea to something I can feel helps me reason about it.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Picture a merry-go-round spinning to the right. If I stand on it and throw a ball forward in the same direction it spins, the ball gets the merry-go-round\'s speed plus my throw. If I throw it backward, against the spin, my throw first has to cancel out the merry-go-round\'s speed. Earth is a giant merry-go-round spinning east. So launching east is like throwing with the spin. And the closer to the equator, the faster the ground moves, the bigger the free boost. Comparing a big idea to something I can feel helps me reason about it.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Map Description: The Space Coast</h4><p>Picture Florida's Atlantic coast, about halfway down the state. A long, thin strip of land called a barrier island sits between the ocean and the mainland. On it, a point of land juts out into the Atlantic: that is <b>Cape Canaveral</b>, home of Cape Canaveral Space Force Station. Just north and west of it is <b>Merritt Island</b>, where NASA's <b>Kennedy Space Center</b> and its two big launch pads, 39A and 39B, sit near the beach. Shallow lagoons and the Banana River separate the islands from the mainland city of Titusville. To the east there is nothing but open ocean for thousands of miles.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Pick a Launch Site</h4><p>Let's compare two make-believe launch site choices using four questions. Site 1 is on Florida's east coast at 28.5° N. Site 2 is in the middle of Kansas at about 38° N. Question 1: Which is closer to the equator? Florida, so its ground moves faster and gives a bigger boost. Question 2: Is there open water to the east for falling rocket stages? Florida has the Atlantic; Kansas has farms and towns. Question 3: Can giant rocket parts be shipped in by water? Florida has ports; Kansas does not. Question 4: Any problem? Florida has hurricanes and summer thunderstorms, so launches are sometimes delayed. Weighing all the evidence, Florida wins, even with its weather.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s compare two make-believe launch site choices using four questions. Site 1 is on Florida\'s east coast at 28.5\u00b0 N. Site 2 is in the middle of Kansas at about 38\u00b0 N. Question 1: Which is closer to the equator? Florida, so its ground moves faster and gives a bigger boost. Question 2: Is there open water to the east for falling rocket stages? Florida has the Atlantic; Kansas has farms and towns. Question 3: Can giant rocket parts be shipped in by water? Florida has ports; Kansas does not. Question 4: Any problem? Florida has hurricanes and summer thunderstorms, so launches are sometimes delayed. Weighing all the evidence, Florida wins, even with its weather.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t11_s0" data-pts="5" data-logic="Earth spins toward the east, so a rocket launched east starts with the speed of the spinning ground.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do rockets from Florida usually launch toward the east?</p>
+    <div class="opts">
+      <button class="opt">To avoid the Sun's light</button>
+      <button class="opt" data-c="1">To get a boost from Earth's spin</button>
+      <button class="opt">Because the wind always blows east</button>
+      <button class="opt">To stay close to the land</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s0" data-pts="5" data-ans="latitude" data-logic="Latitude is measured in degrees. Kennedy Space Center is at about 28.5 degrees north.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How far a place is north or south of the equator is called its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="Rockets drop empty stages as they climb east. Over the Atlantic, those pieces fall into the ocean, away from people.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why is it safer to launch with the ocean to the east?</p>
+    <div class="opts">
+      <button class="opt">Fish help guide the rockets</button>
+      <button class="opt">The ocean makes rockets lighter</button>
+      <button class="opt">Ocean water cools the engines</button>
+      <button class="opt" data-c="1">Falling parts land in water, not towns</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="The equator is the widest part of Earth, so the ground there travels the farthest each day, about 1,040 miles per hour.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where on Earth does the ground move fastest because of Earth's spin?</p>
+    <div class="opts">
+      <button class="opt">At the South Pole</button>
+      <button class="opt">At the North Pole</button>
+      <button class="opt" data-c="1">At the equator</button>
+      <button class="opt">It is the same everywhere</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="east" data-logic="Earth spins from west to east. That is also why the Sun rises in the east.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Earth spins toward the ____, so rockets get a boost by launching that way:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="Florida&#x27;s hurricanes and summer lightning storms can delay launches. Launch teams follow the forecast closely.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is a weather challenge for launching rockets from Florida?</p>
+    <div class="opts">
+      <button class="opt">Deserts with no rain</button>
+      <button class="opt">Heavy snow every winter</button>
+      <button class="opt" data-c="1">Hurricanes and thunderstorms</button>
+      <button class="opt">Volcanoes erupting nearby</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t11_s2" data-pts="5" data-logic="Some rocket parts are too big to travel easily by road, so they come by barge over the water to Florida&#x27;s ports.">
+    <span class="pts">+5</span>
+    <p class="qtext">How do some giant rocket parts reach the Space Coast?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">By barge over water</button>
+      <button class="opt">By mail truck</button>
+      <button class="opt">By hot air balloon</button>
+      <button class="opt">They are built in the sand</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s2" data-pts="5" data-ans="Merritt" data-logic="Kennedy Space Center is on Merritt Island, next to Cape Canaveral on Florida&#x27;s Atlantic coast.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kennedy Space Center sits on ____ Island:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="The faster-moving ground near the equator gives rockets a bigger free boost, so they need less fuel.">
+    <span class="pts">+5</span>
+    <p class="qtext">A launch site closer to the equator needs...</p>
+    <div class="opts">
+      <button class="opt">more fuel to reach orbit</button>
+      <button class="opt" data-c="1">less fuel to reach orbit</button>
+      <button class="opt">no fuel at all</button>
+      <button class="opt">a longer launch pad</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🚀 How Rockets Reach Space</h2>
+<div class="card card-grass">
+<p>A rocket burns fuel and pushes hot gas out of its engines very fast, downward. Newton's third law says that every action has an equal and opposite reaction: when the rocket pushes the gas down, the gas pushes the rocket up with a force called <b>thrust</b>. At liftoff, the thrust must be greater than gravity's pull on the rocket, which makes the forces unbalanced so the rocket speeds up. To stay in <b>orbit</b> around Earth, a spacecraft must travel sideways at about 17,500 miles per hour, so fast that as it falls toward Earth, Earth's curved surface keeps falling away beneath it. Rockets drop empty sections called stages as they climb, so the engines have less mass to push.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A rocket burns fuel and pushes hot gas out of its engines very fast, downward. Newton\'s third law says that every action has an equal and opposite reaction: when the rocket pushes the gas down, the gas pushes the rocket up with a force called thrust . At liftoff, the thrust must be greater than gravity\'s pull on the rocket, which makes the forces unbalanced so the rocket speeds up. To stay in orbit around Earth, a spacecraft must travel sideways at about 17,500 miles per hour, so fast that as it falls toward Earth, Earth\'s curved surface keeps falling away beneath it. Rockets drop empty sections called stages as they climb, so the engines have less mass to push.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>If I blow up a balloon and let it go, it zooms across the room. Why? The stretched balloon squeezes the air out of the opening, pushing the air backward, and the air pushes the balloon forward. That is Newton's third law: equal and opposite forces. Some people think a rocket needs air to push against, so it could not work in space. But the balloon is not pushing on the room's air; it is pushing on its own air. A rocket is the same: it pushes on its own hot gas, so it works even in empty space.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;If I blow up a balloon and let it go, it zooms across the room. Why? The stretched balloon squeezes the air out of the opening, pushing the air backward, and the air pushes the balloon forward. That is Newton\'s third law: equal and opposite forces. Some people think a rocket needs air to push against, so it could not work in space. But the balloon is not pushing on the room\'s air; it is pushing on its own air. A rocket is the same: it pushes on its own hot gas, so it works even in empty space.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Rockets of the Space Coast</h4><table><tr><th>Rocket</th><th>Years flown</th><th>Height (about)</th><th>A famous launch</th></tr><tr><td>Saturn V</td><td>1967–1973</td><td>363 feet</td><td>Apollo 11 to the Moon, 1969</td></tr><tr><td>Space Shuttle</td><td>1981–2011</td><td>184 feet</td><td>135 missions, all from Kennedy</td></tr><tr><td>Falcon 9</td><td>2010–today</td><td>230 feet</td><td>First astronaut launch by a company, 2020</td></tr><tr><td>SLS (Space Launch System)</td><td>2022–today</td><td>322 feet</td><td>Artemis II around the Moon, 2026</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Balanced or Unbalanced at Liftoff?</h4><p>Let's use force arrows. The Saturn V rocket sits on the pad, fully fueled. Gravity pulls it down with about 6.5 million pounds of force, and the pad pushes up just as hard: balanced, so it stays still. The five first-stage engines light, and in a few seconds they reach about 7.5 million pounds of thrust. Now subtract: 7.5 million up minus 6.5 million down leaves about 1 million pounds of net force upward. Unbalanced! The rocket rises, slowly at first. As it burns fuel, the rocket gets lighter, so the same thrust speeds it up faster and faster.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s use force arrows. The Saturn V rocket sits on the pad, fully fueled. Gravity pulls it down with about 6.5 million pounds of force, and the pad pushes up just as hard: balanced, so it stays still. The five first-stage engines light, and in a few seconds they reach about 7.5 million pounds of thrust. Now subtract: 7.5 million up minus 6.5 million down leaves about 1 million pounds of net force upward. Unbalanced! The rocket rises, slowly at first. As it burns fuel, the rocket gets lighter, so the same thrust speeds it up faster and faster.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t21_s0" data-pts="5" data-logic="Thrust is the push a rocket gets when its engines shoot hot gas out the other way.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is thrust?</p>
+    <div class="opts">
+      <button class="opt">The fuel inside the tank</button>
+      <button class="opt">The pull of Earth's gravity</button>
+      <button class="opt">The air that slows a rocket</button>
+      <button class="opt" data-c="1">The push that moves a rocket forward</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s0" data-pts="5" data-ans="orbit" data-logic="An orbit is the path an object takes around a planet, held by gravity while its speed carries it forward.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The curved path a spacecraft follows around Earth is called an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="Only when thrust is greater than gravity&#x27;s pull are the forces unbalanced upward, so the rocket speeds up.">
+    <span class="pts">+5</span>
+    <p class="qtext">At liftoff, what must be true for the rocket to rise?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Thrust is greater than gravity's pull</button>
+      <button class="opt">Thrust equals gravity's pull</button>
+      <button class="opt">Gravity is greater than thrust</button>
+      <button class="opt">There is no gravity at the launch pad</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t21_s1" data-pts="5" data-logic="By Newton&#x27;s third law, the gas pushes back on the rocket with an equal and opposite force: thrust.">
+    <span class="pts">+5</span>
+    <p class="qtext">A rocket's engines push hot gas downward. What pushes the rocket up?</p>
+    <div class="opts">
+      <button class="opt">Earth's magnetism</button>
+      <button class="opt">The ground under the pad</button>
+      <button class="opt">The ocean breeze</button>
+      <button class="opt" data-c="1">The gas pushing back on the rocket</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s1" data-pts="5" data-ans="17,500|17500|17,500 mph|17500 mph" data-logic="A spacecraft needs about 17,500 miles per hour sideways to keep missing Earth as it falls.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">About how many miles per hour must a spacecraft travel to stay in orbit around Earth? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Getting rid of empty tanks and engines means less mass to push, so the rocket can speed up more with the same thrust.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do rockets drop empty stages as they climb?</p>
+    <div class="opts">
+      <button class="opt">To make loud booms for the crowd</button>
+      <button class="opt" data-c="1">So the engines have less mass to push</button>
+      <button class="opt">To leave a trail for other rockets</button>
+      <button class="opt">Because the stages catch fire</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t21_s2" data-pts="5" data-logic="The Saturn V, about 363 feet tall, launched Apollo 11 from Launch Complex 39A on July 16, 1969.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which rocket carried Apollo 11 to the Moon in 1969?</p>
+    <div class="opts">
+      <button class="opt">SLS</button>
+      <button class="opt">Falcon 9</button>
+      <button class="opt" data-c="1">Saturn V</button>
+      <button class="opt">Space Shuttle</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s2" data-pts="5" data-ans="third|3rd|3" data-logic="Newton&#x27;s third law explains rockets: the engines push gas down, and the gas pushes the rocket up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Every action has an equal and opposite reaction. This is Newton's ____ law:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="A rocket does not need air. It pushes its own exhaust gas out, and that gas pushes the rocket the other way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why can a rocket work in space where there is no air?</p>
+    <div class="opts">
+      <button class="opt">Space has hidden ground to push on</button>
+      <button class="opt">It pushes on the air in space</button>
+      <button class="opt" data-c="1">It pushes on its own hot gas</button>
+      <button class="opt">Gravity pushes it upward</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🐢 From the Ais to Artemis</h2>
+<div class="card card-sky">
+<p>Long before rockets, the <b>Ais</b> people lived along this coast, fishing and gathering shellfish in its lagoons, and Spanish sailors in the 1500s named the point Cañaveral, meaning "a place of canes." By the 1700s, raids by English colonists and their allies and diseases brought by Europeans had destroyed the Ais communities. The first rocket launched from Cape Canaveral in 1950, and in 1958 the first U.S. satellite, Explorer 1, lifted off there. In 1963, after President John F. Kennedy's death, NASA's launch center on Merritt Island was named the John F. Kennedy Space Center, and on July 16, 1969, Apollo 11 left its Launch Complex 39A for the Moon. All 135 space shuttle missions launched from Kennedy between 1981 and 2011, and on April 1, 2026, Artemis II carried four astronauts around the Moon. Most of the land around the launch pads is also the <b>Merritt Island National Wildlife Refuge</b>, home to sea turtles, manatees, alligators and hundreds of kinds of birds.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Long before rockets, the Ais people lived along this coast, fishing and gathering shellfish in its lagoons, and Spanish sailors in the 1500s named the point Ca\u00f1averal, meaning \&quot;a place of canes.\&quot; By the 1700s, raids by English colonists and their allies and diseases brought by Europeans had destroyed the Ais communities. The first rocket launched from Cape Canaveral in 1950, and in 1958 the first U.S. satellite, Explorer 1, lifted off there. In 1963, after President John F. Kennedy\'s death, NASA\'s launch center on Merritt Island was named the John F. Kennedy Space Center, and on July 16, 1969, Apollo 11 left its Launch Complex 39A for the Moon. All 135 space shuttle missions launched from Kennedy between 1981 and 2011, and on April 1, 2026, Artemis II carried four astronauts around the Moon. Most of the land around the launch pads is also the Merritt Island National Wildlife Refuge , home to sea turtles, manatees, alligators and hundreds of kinds of birds.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Whose story is this? Most books tell the Space Coast story through astronauts. But who else is part of it? The Ais people lived here first. When NASA bought land on Merritt Island in the early 1960s, more than 1,500 landowners had to sell, and families who lived and farmed there had to move away. Every launch needs thousands of engineers, technicians, weather forecasters, safety workers and cafeteria and cleaning staff. For years, women and Black workers had to fight to be hired and promoted. Asking who is missing from a story gives me a fuller, more honest picture.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Whose story is this? Most books tell the Space Coast story through astronauts. But who else is part of it? The Ais people lived here first. When NASA bought land on Merritt Island in the early 1960s, more than 1,500 landowners had to sell, and families who lived and farmed there had to move away. Every launch needs thousands of engineers, technicians, weather forecasters, safety workers and cafeteria and cleaning staff. For years, women and Black workers had to fight to be hired and promoted. Asking who is missing from a story gives me a fuller, more honest picture.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Space Coast Timeline</h4><table><tr><th>Year</th><th>Event</th></tr><tr><td>1500s and earlier</td><td>The Ais people live along the coast and lagoons; Spanish sailors arrive in the 1500s</td></tr><tr><td>1700s</td><td>Raids and European diseases destroy the Ais communities</td></tr><tr><td>1950</td><td>First rocket launch from Cape Canaveral</td></tr><tr><td>1958</td><td>Explorer 1, the first U.S. satellite, launches from the Cape</td></tr><tr><td>1961</td><td>Alan Shepard becomes the first American in space</td></tr><tr><td>1963</td><td>Kennedy Space Center is named; the wildlife refuge is created</td></tr><tr><td>1969</td><td>Apollo 11 launches to the Moon from Pad 39A</td></tr><tr><td>1981–2011</td><td>135 space shuttle missions launch from Kennedy</td></tr><tr><td>2020</td><td>Astronauts launch on a company-built rocket for the first time</td></tr><tr><td>2026</td><td>Artemis II carries four astronauts around the Moon</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Rockets and Sea Turtles Share a Beach</h4><p>Loggerhead, green and leatherback sea turtles lay their eggs on the beaches near the launch pads. When baby turtles hatch at night, they crawl toward the brightest horizon, which is normally moonlight over the ocean. But bright lights from buildings can lead them the wrong way. So what can a spaceport do? Kennedy Space Center limits and shields outdoor lights near the beach during nesting season and uses lighting that is easier on turtles. Scientists count nests each year to check whether the plan works. Here engineering and ecology work side by side.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Loggerhead, green and leatherback sea turtles lay their eggs on the beaches near the launch pads. When baby turtles hatch at night, they crawl toward the brightest horizon, which is normally moonlight over the ocean. But bright lights from buildings can lead them the wrong way. So what can a spaceport do? Kennedy Space Center limits and shields outdoor lights near the beach during nesting season and uses lighting that is easier on turtles. Scientists count nests each year to check whether the plan works. Here engineering and ecology work side by side.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t31_s0" data-pts="5" data-logic="The Ais people lived along Florida&#x27;s Atlantic coast around Cape Canaveral, fishing and gathering shellfish.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which Indigenous people lived along this coast long before rockets?</p>
+    <div class="opts">
+      <button class="opt">The Inuit</button>
+      <button class="opt" data-c="1">The Ais</button>
+      <button class="opt">The Maya</button>
+      <button class="opt">The Haudenosaunee</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s0" data-pts="5" data-ans="Explorer" data-logic="Explorer 1 launched in 1958 and discovered belts of radiation around Earth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1958, the first U.S. satellite launched from Cape Canaveral. It was called ____ 1:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="President Kennedy had set the goal of landing on the Moon. After his death in 1963, the center was named in his honor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why was the launch center named for John F. Kennedy?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It was named after his death in 1963</button>
+      <button class="opt">He was the first astronaut</button>
+      <button class="opt">He designed the Saturn V</button>
+      <button class="opt">He was born on Merritt Island</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t31_s1" data-pts="5" data-logic="All 135 space shuttle missions, from 1981 to 2011, launched from Kennedy Space Center.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many space shuttle missions launched from Kennedy Space Center?</p>
+    <div class="opts">
+      <button class="opt">1,040</button>
+      <button class="opt">11</button>
+      <button class="opt">39</button>
+      <button class="opt" data-c="1">135</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s1" data-pts="5" data-ans="Refuge" data-logic="The refuge protects sea turtles, manatees, alligators and hundreds of kinds of birds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The land around Kennedy's launch pads is also the Merritt Island National Wildlife ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Hatchlings head for the brightest horizon. Bright building lights could lead them away from the ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does Kennedy Space Center limit bright lights near the beach in nesting season?</p>
+    <div class="opts">
+      <button class="opt">Birds need total darkness to fly</button>
+      <button class="opt">Lights scare away the rockets</button>
+      <button class="opt">Lights make the ocean too warm</button>
+      <button class="opt" data-c="1">Hatchling turtles could crawl the wrong way</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t31_s2" data-pts="5" data-logic="Families already lived and farmed on Merritt Island, and more than 1,500 landowners had to sell. Telling the full story includes them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who had to sell their land and move when NASA bought land on Merritt Island in the early 1960s?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Families who lived and farmed there</button>
+      <button class="opt">The families of the astronauts</button>
+      <button class="opt">Engineers from the Moon mission</button>
+      <button class="opt">Nobody, because no one lived there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s2" data-pts="5" data-ans="Moon" data-logic="Artemis II was the first time people traveled around the Moon since Apollo 17 in 1972.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Artemis II carried four astronauts around the ____ in April 2026:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="Spanish sailors named the cape for the tall cane plants that grew there.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Spanish name Cañaveral means...</p>
+    <div class="opts">
+      <button class="opt">a place of rockets</button>
+      <button class="opt" data-c="1">a place of canes</button>
+      <button class="opt">land of the sun</button>
+      <button class="opt">the eastern sea</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>📊 Data Lab: The Spin Boost</h2>
+<p>Every launch site on Earth spins east with the planet, but not at the same speed. The table shows how fast the ground moves at several real launch sites, and whether each site has open ocean to the east. Use it to decide why Florida is a smart place for America's spaceport.</p>
+<div class="sourcebox"><h4>Data Table: Earth's Spin Speed at Launch Sites</h4><div><table><tr><th>Launch site</th><th>Latitude</th><th>Ground speed from Earth's spin</th><th>Open ocean to the east?</th></tr><tr><td>The equator</td><td>0°</td><td>about 1,040 mph</td><td>(not a site)</td></tr><tr><td>Guiana Space Center, French Guiana (Europe's spaceport)</td><td>5° N</td><td>about 1,035 mph</td><td>Yes</td></tr><tr><td>Kennedy Space Center, Florida</td><td>28.5° N</td><td>about 915 mph</td><td>Yes</td></tr><tr><td>Wallops Flight Facility, Virginia</td><td>38° N</td><td>about 820 mph</td><td>Yes</td></tr><tr><td>Baikonur Cosmodrome, Kazakhstan</td><td>46° N</td><td>about 720 mph</td><td>No (land)</td></tr><tr><td>Plesetsk Cosmodrome, Russia</td><td>63° N</td><td>about 470 mph</td><td>No (land)</td></tr></table></div><div class="src">Speeds calculated as 1,040 mph (the equator's speed) times the cosine of each site's rounded latitude, then rounded to the nearest 5 mph. Latitudes from NASA, ESA and published maps.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Data table: Earth\'s spin speed at launch sites. The equator: latitude 0 degrees, about 1,040 miles per hour, not a launch site. Guiana Space Center in French Guiana, Europe\'s spaceport: 5 degrees north, about 1,035 miles per hour, open ocean to the east. Kennedy Space Center, Florida: 28.5 degrees north, about 915 miles per hour, open ocean to the east. Wallops Flight Facility, Virginia: 38 degrees north, about 820 miles per hour, open ocean to the east. Baikonur Cosmodrome, Kazakhstan: 46 degrees north, about 720 miles per hour, land to the east. Plesetsk Cosmodrome, Russia: 63 degrees north, about 470 miles per hour, land to the east.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Launch Engineer</h4><p>A launch engineer reads the speed column first: a faster spin speed means a bigger free boost for rockets launched east. Then she checks the safety column, because a boost is not much use if rockets must fly over cities. Finally she asks what the table leaves out, such as weather, cost and which country owns the site.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="At only 5° N, the Guiana Space Center&#x27;s ground moves about 1,035 mph, faster than any other site in the table.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which real launch site in the table gets the BIGGEST boost from Earth's spin?</p>
+    <div class="opts">
+      <button class="opt">Wallops Flight Facility</button>
+      <button class="opt">Kennedy Space Center</button>
+      <button class="opt" data-c="1">Guiana Space Center</button>
+      <button class="opt">Baikonur Cosmodrome</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="915|915 mph" data-logic="The Kennedy Space Center row shows about 915 mph.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">About how fast does the ground move at Kennedy Space Center, in miles per hour? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="As latitude goes up from 0° to 63°, the spin speed drops from about 1,040 to about 470 mph.">
+    <span class="pts">+5</span>
+    <p class="qtext">What pattern does the table show?</p>
+    <div class="opts">
+      <button class="opt">Every site spins at the same speed</button>
+      <button class="opt">Higher latitude means faster spin speed</button>
+      <button class="opt" data-c="1">Higher latitude means slower spin speed</button>
+      <button class="opt">Only ocean sites spin at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="Kennedy (28.5° N, about 915 mph) is farther south than Wallops (38° N, about 820 mph), so its ground moves faster.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which U.S. site in the table gets the bigger spin boost?</p>
+    <div class="opts">
+      <button class="opt">Wallops Flight Facility</button>
+      <button class="opt" data-c="1">Kennedy Space Center</button>
+      <button class="opt">They are exactly equal</button>
+      <button class="opt">The table does not say</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="95|95 mph" data-logic="915 minus 820 is 95 miles per hour.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many miles per hour faster is the ground at Kennedy than at Wallops? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The table shows &quot;No (land)&quot; for Baikonur and Plesetsk. Rockets there must fly over land, so dropped stages fall on land.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which two sites have land, not open ocean, to the east?</p>
+    <div class="opts">
+      <button class="opt">Wallops and Guiana</button>
+      <button class="opt">Kennedy and Wallops</button>
+      <button class="opt">Guiana and Kennedy</button>
+      <button class="opt" data-c="1">Baikonur and Plesetsk</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="Guiana is closer to the equator and also has ocean to the east. Kennedy is a strong choice for the United States, but the data does not make it the best in the world.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "The table proves Kennedy is the best launch site in the whole world." Is that claim supported?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">No, Guiana gets a bigger spin boost</button>
+      <button class="opt">Yes, Kennedy has the fastest spin</button>
+      <button class="opt">Yes, it is the only site with ocean</button>
+      <button class="opt">No, Plesetsk is the fastest</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="28.5|28.5 degrees|28.5°" data-logic="Kennedy Space Center is at about 28.5° N.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">What is the latitude of Kennedy Space Center, in degrees north? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="The table shows latitude, speed and ocean, but not weather. Florida&#x27;s storms are a real challenge the table leaves out.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which important launch factor does this table NOT show?</p>
+    <div class="opts">
+      <button class="opt">Latitude</button>
+      <button class="opt" data-c="1">Weather such as storms</button>
+      <button class="opt">Spin speed</button>
+      <button class="opt">Ocean to the east</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>👩‍🚀 The People of the Space Coast</h2>
+<p>Launches take engineers, leaders and astronauts. These five people helped make history at Kennedy Space Center.</p>
+<div class="peoplegrid"><div class="pcard"><h4>JoAnn Morgan</h4><div class="yrs">at the Cape until 2003</div><p>JoAnn Morgan's family moved to Titusville, Florida, across the water from Cape Canaveral, when she was in high school. At 17 she began working summers at the Cape as an engineering trainee for the Army's rocket program. On July 16, 1969, she was the instrumentation controller for the Apollo 11 launch and the only woman in the launch firing room. Some coworkers did not think a woman belonged there, but she kept proving herself. In more than 45 years at the Cape, she became the first woman senior executive at Kennedy Space Center before retiring in 2003.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;JoAnn Morgan. JoAnn Morgan\'s family moved to Titusville, Florida, across the water from Cape Canaveral, when she was in high school. At 17 she began working summers at the Cape as an engineering trainee for the Army\'s rocket program. On July 16, 1969, she was the instrumentation controller for the Apollo 11 launch and the only woman in the launch firing room. Some coworkers did not think a woman belonged there, but she kept proving herself. In more than 45 years at the Cape, she became the first woman senior executive at Kennedy Space Center before retiring in 2003.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Guion "Guy" Bluford</h4><div class="yrs">born 1942</div><p>Guion Bluford grew up in Philadelphia and became an Air Force fighter pilot and an aerospace engineer with a doctorate. On August 30, 1983, he lifted off from Kennedy Space Center aboard the space shuttle Challenger and became the first African American in space. His launch was also the shuttle program's first night launch, lighting up the dark Florida sky. Bluford flew on four shuttle missions in all.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Guion \&quot;Guy\&quot; Bluford. Guion Bluford grew up in Philadelphia and became an Air Force fighter pilot and an aerospace engineer with a doctorate. On August 30, 1983, he lifted off from Kennedy Space Center aboard the space shuttle Challenger and became the first African American in space. His launch was also the shuttle program\'s first night launch, lighting up the dark Florida sky. Bluford flew on four shuttle missions in all.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>John Herrington</h4><div class="yrs">born 1958</div><p>John Herrington was born in Wetumka, Oklahoma, and is a citizen of the Chickasaw Nation. A Navy pilot and engineer, he launched from Kennedy Space Center aboard the space shuttle Endeavour in November 2002 and became the first Chickasaw citizen to fly in space. He carried the Chickasaw Nation flag with him. During the mission he made three spacewalks to help build the International Space Station.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;John Herrington. John Herrington was born in Wetumka, Oklahoma, and is a citizen of the Chickasaw Nation. A Navy pilot and engineer, he launched from Kennedy Space Center aboard the space shuttle Endeavour in November 2002 and became the first Chickasaw citizen to fly in space. He carried the Chickasaw Nation flag with him. During the mission he made three spacewalks to help build the International Space Station.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Janet Petro</h4><div class="yrs">born 1960</div><p>Janet Petro graduated from the U.S. Military Academy at West Point in 1981, in only the second class to include women, and flew helicopters as an Army officer. She later earned a business degree and joined NASA. In 2021 she became the first woman to direct Kennedy Space Center, where companies and NASA now share the launch pads, making it a spaceport for many users. From January to July 2025 she also served as acting head of all of NASA, the first woman to do so. She retired from NASA in 2026.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Janet Petro. Janet Petro graduated from the U.S. Military Academy at West Point in 1981, in only the second class to include women, and flew helicopters as an Army officer. She later earned a business degree and joined NASA. In 2021 she became the first woman to direct Kennedy Space Center, where companies and NASA now share the launch pads, making it a spaceport for many users. From January to July 2025 she also served as acting head of all of NASA, the first woman to do so. She retired from NASA in 2026.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Victor Glover</h4><div class="yrs">born 1976</div><p>Victor Glover grew up in Pomona, California, and became a Navy test pilot and engineer. In November 2020 he launched from Kennedy Space Center as pilot of SpaceX's Crew-1 and spent nearly six months on the International Space Station. On April 1, 2026, he lifted off from Kennedy's Launch Complex 39B as pilot of Artemis II. On that mission he became the first Black astronaut to travel around the Moon, alongside Christina Koch, the first woman, and Jeremy Hansen, the first Canadian.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Victor Glover. Victor Glover grew up in Pomona, California, and became a Navy test pilot and engineer. In November 2020 he launched from Kennedy Space Center as pilot of SpaceX\'s Crew-1 and spent nearly six months on the International Space Station. On April 1, 2026, he lifted off from Kennedy\'s Launch Complex 39B as pilot of Artemis II. On that mission he became the first Black astronaut to travel around the Moon, alongside Christina Koch, the first woman, and Jeremy Hansen, the first Canadian.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Morgan was the instrumentation controller and the only woman in the launch firing room.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was JoAnn Morgan's role during the Apollo 11 launch?</p>
+    <div class="opts">
+      <button class="opt">Weather forecaster on the news</button>
+      <button class="opt">Pilot flying the Saturn V rocket</button>
+      <button class="opt">Astronaut walking on the Moon</button>
+      <button class="opt" data-c="1">Instrumentation controller</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s0" data-pts="5" data-ans="Philadelphia|Philadelphia, Pennsylvania|Philly" data-logic="Bluford grew up in Philadelphia, Pennsylvania, and later launched from Kennedy Space Center on August 30, 1983.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Guion Bluford, the first African American in space, grew up in the city of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="Herrington is a citizen of the Chickasaw Nation. In 2002 he became the first Chickasaw citizen to fly in space.">
+    <span class="pts">+5</span>
+    <p class="qtext">John Herrington is a citizen of which nation?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Chickasaw Nation</button>
+      <button class="opt">The Seminole Tribe of Florida</button>
+      <button class="opt">The Cherokee Nation</button>
+      <button class="opt">The Navajo Nation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="Bluford&#x27;s mission, STS-8, was the first space shuttle launch at night.">
+    <span class="pts">+5</span>
+    <p class="qtext">What was special about Guion Bluford's 1983 launch, besides his first?</p>
+    <div class="opts">
+      <button class="opt">It went to the Moon</button>
+      <button class="opt">It was the first launch from Florida</button>
+      <button class="opt" data-c="1">It was the shuttle's first night launch</button>
+      <button class="opt">It used the Saturn V</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="Kennedy" data-logic="Janet Petro led Kennedy Space Center from 2021 to 2026, as it became a spaceport shared by NASA and private companies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 2021, Janet Petro became the first woman to direct ____ Space Center:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="Glover was the pilot of Artemis II, which carried four astronauts around the Moon.">
+    <span class="pts">+5</span>
+    <p class="qtext">On Artemis II in 2026, Victor Glover became the first Black astronaut to...</p>
+    <div class="opts">
+      <button class="opt">fly a space shuttle</button>
+      <button class="opt">walk on Mars</button>
+      <button class="opt">launch from Florida</button>
+      <button class="opt" data-c="1">travel around the Moon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Herrington carried the Chickasaw Nation flag to honor his nation.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did John Herrington carry with him into space in 2002?</p>
+    <div class="opts">
+      <button class="opt">A Moon rock</button>
+      <button class="opt" data-c="1">The Chickasaw Nation flag</button>
+      <button class="opt">A Saturn V engine part</button>
+      <button class="opt">A sea turtle egg</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="Titusville" data-logic="Titusville sits on the mainland, across the lagoon from the launch pads.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">JoAnn Morgan's family lived in ____, a town across the water from Cape Canaveral:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp3_s2" data-pts="5" data-logic="Petro graduated from West Point in 1981 and flew helicopters as an Army officer.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Janet Petro do before joining NASA?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Flew helicopters as an Army officer</button>
+      <button class="opt">Played professional baseball</button>
+      <button class="opt">Built rockets in Russia</button>
+      <button class="opt">Worked as a sea turtle biologist</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="thrust" data-logic="Thrust comes from engines pushing hot gas the opposite way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The push that moves a rocket upward is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="payload" data-logic="The payload is what the rocket is delivering to space.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The cargo a rocket carries, like a satellite, is called its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="Canaveral" data-logic="Cape Canaveral&#x27;s name comes from the Spanish word for a place of canes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The point of land on Florida's Atlantic coast where launches began in 1950 is Cape ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="V|5|five" data-logic="The Saturn V was about 363 feet tall.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The giant rocket that carried Apollo 11 to the Moon was the Saturn ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="spaceport" data-logic="Today Kennedy is a spaceport shared by NASA and private companies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kennedy Space Center is a ____, a place built to launch rockets and spacecraft:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="Ais|Ais people" data-logic="The Ais lived along the coast and lagoons, fishing and gathering shellfish.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Indigenous people who lived around Cape Canaveral long before rockets were the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="A" data-logic="Apollo 11 launched from Launch Complex 39A on July 16, 1969.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Apollo 11 lifted off from Launch Complex 39____ (type the letter):</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="4|four" data-logic="Bluford flew on four shuttle missions, starting with Challenger&#x27;s STS-8 in 1983.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Guion Bluford flew on how many space shuttle missions in all? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="Glover" data-logic="Victor Glover piloted Artemis II in April 2026.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Artemis II pilot who became the first Black astronaut to travel around the Moon is Victor ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Kennedy Space Center faces the Atlantic Ocean, so rockets fly east over water.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which ocean is east of Kennedy Space Center?</p>
+    <div class="opts">
+      <button class="opt">Indian</button>
+      <button class="opt">Pacific</button>
+      <button class="opt" data-c="1">Atlantic</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Earth spins toward the east, which is why the Sun rises in the east.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which way does Earth spin?</p>
+    <div class="opts">
+      <button class="opt">Toward the west</button>
+      <button class="opt" data-c="1">Toward the east</button>
+      <button class="opt">Toward the north</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Thrust must be greater than gravity&#x27;s pull for a rocket to rise.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which force must thrust beat at liftoff?</p>
+    <div class="opts">
+      <button class="opt">Magnetism</button>
+      <button class="opt">Friction</button>
+      <button class="opt" data-c="1">Gravity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: use the spin speed data to explain why America launches from Florida, describe how a rocket reaches orbit, and finish the Challenge.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about rockets, launches or the people of the Space Coast? Write one question you could research.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore NASA's Kennedy Space Center website (nasa.gov/kennedy) to find the next launch from Florida, and watch it live online together. If you live in Florida, you may even see a launch from a beach park on the Space Coast.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Launch Director Challenge</h2>
+<p>These are the hardest questions. Use the data, the forces you know and your best reasoning.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Kennedy (28.5° N) moves about 915 mph, faster than Wallops (38° N) at about 820 mph. Both have ocean to the east.">
+    <span class="pts">+5</span>
+    <p class="qtext">Using the data, why is Kennedy Space Center a better launch site for the U.S. than Wallops?</p>
+    <div class="opts">
+      <button class="opt">It has land to the east for safety</button>
+      <button class="opt">It has no storms or weather problems at all</button>
+      <button class="opt" data-c="1">It is farther south, so its spin boost is bigger</button>
+      <button class="opt">It is closer to the North Pole and colder</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Gravity&#x27;s pull is bigger than the thrust, so the rocket cannot lift off. Thrust must be greater than gravity.">
+    <span class="pts">+5</span>
+    <p class="qtext">A rocket's thrust is 5 million pounds and gravity pulls on it with 6 million pounds. What happens?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It stays on the pad</button>
+      <button class="opt">It rises slowly</button>
+      <button class="opt">It rises very fast</button>
+      <button class="opt">It flies sideways</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="As fuel burns and stages drop away, the rocket has less mass, so the same thrust speeds it up more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a rocket speed up more and more as it climbs, even with the same thrust?</p>
+    <div class="opts">
+      <button class="opt">The launch pad keeps pushing</button>
+      <button class="opt">Gravity gets stronger higher up</button>
+      <button class="opt">The air pushes it faster</button>
+      <button class="opt" data-c="1">It burns fuel, so it has less mass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Asking who else was part of the story brings in the Ais people, the families who moved, and the many workers behind each launch.">
+    <span class="pts">+5</span>
+    <p class="qtext">When telling the history of the Space Coast, which question helps include people often left out?</p>
+    <div class="opts">
+      <button class="opt">What color was Apollo 11?</button>
+      <button class="opt">How tall was the tallest rocket?</button>
+      <button class="opt" data-c="1">Who lived and worked here besides astronauts?</button>
+      <button class="opt">How loud was the first launch?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s0" data-pts="5" data-ans="125|125 mph" data-logic="1,040 minus 915 is 125 miles per hour.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Using the table, how many mph faster is the ground at the equator than at Kennedy? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="At 46° N and 63° N, they get a smaller spin boost, and their rockets fly over land instead of ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do launch sites in Kazakhstan and northern Russia have a disadvantage compared with Florida?</p>
+    <div class="opts">
+      <button class="opt">They are closer to the equator</button>
+      <button class="opt" data-c="1">They are farther north and over land</button>
+      <button class="opt">They have too much ocean</button>
+      <button class="opt">Earth does not spin there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Gravity still pulls it down, but its sideways speed is so great that Earth&#x27;s curved surface keeps falling away below it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A spacecraft travels sideways at 17,500 mph. Why does it stay in orbit instead of falling to the ground?</p>
+    <div class="opts">
+      <button class="opt">Air holds it up</button>
+      <button class="opt">There is no gravity in space</button>
+      <button class="opt">Its engines push it up the whole time</button>
+      <button class="opt" data-c="1">It falls, but Earth curves away beneath it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Counting nests and hatchlings that reach the ocean, year after year, shows whether the turtles are doing well.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kennedy Space Center limits beach lights in sea turtle nesting season. What evidence would show the plan works?</p>
+    <div class="opts">
+      <button class="opt">How many rockets launch each year</button>
+      <button class="opt" data-c="1">Nest and hatchling counts over many years</button>
+      <button class="opt">The height of the launch tower</button>
+      <button class="opt">How many visitors come to watch</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Women were shut out of many engineering jobs at the time. Morgan had to prove herself to get there.">
+    <span class="pts">+5</span>
+    <p class="qtext">JoAnn Morgan was the only woman in the Apollo 11 firing room. What does this suggest about NASA in 1969?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Few women were hired for engineering jobs</button>
+      <button class="opt">Women were not interested in space</button>
+      <button class="opt">Engineering jobs were easy to get</button>
+      <button class="opt">There were no women in Florida</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s1" data-pts="5" data-ans="1|one|1 million" data-logic="7.5 minus 6.5 is 1 million pounds of net force upward, so the rocket rose slowly at first.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Saturn V thrust was about 7.5 million pounds and gravity's pull about 6.5 million. The net force was about how many million pounds? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="At 5° N, French Guiana gets nearly the full equator boost, and the Atlantic lies to its east.">
+    <span class="pts">+5</span>
+    <p class="qtext">Europe launches many rockets from French Guiana in South America instead of from Europe. What is the best reason?</p>
+    <div class="opts">
+      <button class="opt">It has the coldest weather on Earth</button>
+      <button class="opt">It is far from any ocean or coastline</button>
+      <button class="opt" data-c="1">It is near the equator with ocean to the east</button>
+      <button class="opt">Earth spins faster in Europe than there</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="By Newton&#x27;s third law, a rocket pushes its gas out one way and is pushed the other way. It needs no air.">
+    <span class="pts">+5</span>
+    <p class="qtext">Some people say rockets cannot work in space because there is no air to push against. What is the best answer?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Rockets push on their own exhaust gas</button>
+      <button class="opt">Space is full of air</button>
+      <button class="opt">Rockets only work near Earth</button>
+      <button class="opt">Gravity pushes rockets in space</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Launch delays caused by lightning, clouds or hurricanes show that weather affects launches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is the BEST evidence that Florida's weather is a real challenge for launches?</p>
+    <div class="opts">
+      <button class="opt">Florida has many beaches</button>
+      <button class="opt" data-c="1">Launches are sometimes delayed by storms</button>
+      <button class="opt">The Sun rises in the east</button>
+      <button class="opt">Rockets are very tall</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Some rocket stages are so wide and long that moving them over water is easier than squeezing them along roads and under bridges.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why are rocket parts like the Saturn V stages often moved by barge instead of by road?</p>
+    <div class="opts">
+      <button class="opt">Roads in Florida are made of sand</button>
+      <button class="opt">Barges are faster than rockets</button>
+      <button class="opt">Water makes rockets lighter</button>
+      <button class="opt" data-c="1">They are too big for most roads</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b5_s2" data-pts="5" data-ans="135" data-logic="There were 135 space shuttle missions between 1981 and 2011, and every one launched from Kennedy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">All of the space shuttle missions launched from Kennedy Space Center. How many were there? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Launch Spectator</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade4-5-florida-science-u3';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 145;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"Why did the United States build its spaceport on Florida's Atlantic coast, how do rockets reach space, and who are the people who make launches happen?": "../audio/heart/3034157d8c.mp3", "thrust. The push that moves a rocket forward. Hot gas shoots out of the engines one way, and the rocket is pushed the other way.": "../audio/heart/db34074626.mp3", "orbit. The curved path an object follows around a planet, moon or star, held by gravity. Example: the space station orbits Earth.": "../audio/heart/082d6d767b.mp3", "latitude. How far a place is north or south of the equator, measured in degrees. Kennedy Space Center is at about 28.5 degrees north.": "../audio/heart/4d0ec694b0.mp3", "launch pad. The platform a rocket lifts off from. Apollo 11 left from Launch Complex 39A at Kennedy Space Center.": "../audio/heart/eafa931c20.mp3", "payload. The cargo a rocket carries into space, such as a satellite, a space probe or a spacecraft with astronauts.": "../audio/heart/596da420fd.mp3", "spaceport. A place built to launch, and sometimes land, rockets and spacecraft.": "../audio/heart/ce391b0deb.mp3", "wildlife refuge. Land set aside to protect animals and their habitats, like the Merritt Island National Wildlife Refuge around Kennedy Space Center.": "../audio/heart/0199180723.mp3", "Earth spins toward the east, and the ground at the equator moves at about 1,040 miles per hour; the farther a place is from the equator, the slower its ground moves. A rocket launched toward the east gets a free boost from that spin, so launch sites closer to the equator need less fuel to reach orbit. Cape Canaveral, at about 28.5 degrees north latitude , is one of the farthest-south places in the continental United States with open ocean to its east. That ocean matters too: empty rocket stages and any pieces from an accident fall into the Atlantic instead of onto towns. Florida's ports also let huge rocket parts arrive by barge, since they are too big to travel easily by road.": "../audio/heart/41dca90c46.mp3", "Picture a merry-go-round spinning to the right. If I stand on it and throw a ball forward in the same direction it spins, the ball gets the merry-go-round's speed plus my throw. If I throw it backward, against the spin, my throw first has to cancel out the merry-go-round's speed. Earth is a giant merry-go-round spinning east. So launching east is like throwing with the spin. And the closer to the equator, the faster the ground moves, the bigger the free boost. Comparing a big idea to something I can feel helps me reason about it.": "../audio/heart/954a549412.mp3", "Let's compare two make-believe launch site choices using four questions. Site 1 is on Florida's east coast at 28.5° N. Site 2 is in the middle of Kansas at about 38° N. Question 1: Which is closer to the equator? Florida, so its ground moves faster and gives a bigger boost. Question 2: Is there open water to the east for falling rocket stages? Florida has the Atlantic; Kansas has farms and towns. Question 3: Can giant rocket parts be shipped in by water? Florida has ports; Kansas does not. Question 4: Any problem? Florida has hurricanes and summer thunderstorms, so launches are sometimes delayed. Weighing all the evidence, Florida wins, even with its weather.": "../audio/heart/369634e024.mp3", "A rocket burns fuel and pushes hot gas out of its engines very fast, downward. Newton's third law says that every action has an equal and opposite reaction: when the rocket pushes the gas down, the gas pushes the rocket up with a force called thrust . At liftoff, the thrust must be greater than gravity's pull on the rocket, which makes the forces unbalanced so the rocket speeds up. To stay in orbit around Earth, a spacecraft must travel sideways at about 17,500 miles per hour, so fast that as it falls toward Earth, Earth's curved surface keeps falling away beneath it. Rockets drop empty sections called stages as they climb, so the engines have less mass to push.": "../audio/heart/04c4551a73.mp3", "If I blow up a balloon and let it go, it zooms across the room. Why? The stretched balloon squeezes the air out of the opening, pushing the air backward, and the air pushes the balloon forward. That is Newton's third law: equal and opposite forces. Some people think a rocket needs air to push against, so it could not work in space. But the balloon is not pushing on the room's air; it is pushing on its own air. A rocket is the same: it pushes on its own hot gas, so it works even in empty space.": "../audio/heart/f46917a130.mp3", "Let's use force arrows. The Saturn V rocket sits on the pad, fully fueled. Gravity pulls it down with about 6.5 million pounds of force, and the pad pushes up just as hard: balanced, so it stays still. The five first-stage engines light, and in a few seconds they reach about 7.5 million pounds of thrust. Now subtract: 7.5 million up minus 6.5 million down leaves about 1 million pounds of net force upward. Unbalanced! The rocket rises, slowly at first. As it burns fuel, the rocket gets lighter, so the same thrust speeds it up faster and faster.": "../audio/heart/965f933cd6.mp3", "Long before rockets, the Ais people lived along this coast, fishing and gathering shellfish in its lagoons, and Spanish sailors in the 1500s named the point Cañaveral, meaning \"a place of canes.\" By the 1700s, raids by English colonists and their allies and diseases brought by Europeans had destroyed the Ais communities. The first rocket launched from Cape Canaveral in 1950, and in 1958 the first U.S. satellite, Explorer 1, lifted off there. In 1963, after President John F. Kennedy's death, NASA's launch center on Merritt Island was named the John F. Kennedy Space Center, and on July 16, 1969, Apollo 11 left its Launch Complex 39A for the Moon. All 135 space shuttle missions launched from Kennedy between 1981 and 2011, and on April 1, 2026, Artemis II carried four astronauts around the Moon. Most of the land around the launch pads is also the Merritt Island National Wildlife Refuge , home to sea turtles, manatees, alligators and hundreds of kinds of birds.": "../audio/heart/4a78aafc1f.mp3", "Whose story is this? Most books tell the Space Coast story through astronauts. But who else is part of it? The Ais people lived here first. When NASA bought land on Merritt Island in the early 1960s, more than 1,500 landowners had to sell, and families who lived and farmed there had to move away. Every launch needs thousands of engineers, technicians, weather forecasters, safety workers and cafeteria and cleaning staff. For years, women and Black workers had to fight to be hired and promoted. Asking who is missing from a story gives me a fuller, more honest picture.": "../audio/heart/edcaa49af5.mp3", "Loggerhead, green and leatherback sea turtles lay their eggs on the beaches near the launch pads. When baby turtles hatch at night, they crawl toward the brightest horizon, which is normally moonlight over the ocean. But bright lights from buildings can lead them the wrong way. So what can a spaceport do? Kennedy Space Center limits and shields outdoor lights near the beach during nesting season and uses lighting that is easier on turtles. Scientists count nests each year to check whether the plan works. Here engineering and ecology work side by side.": "../audio/heart/bc28d86feb.mp3", "Data table: Earth's spin speed at launch sites. The equator: latitude 0 degrees, about 1,040 miles per hour, not a launch site. Guiana Space Center in French Guiana, Europe's spaceport: 5 degrees north, about 1,035 miles per hour, open ocean to the east. Kennedy Space Center, Florida: 28.5 degrees north, about 915 miles per hour, open ocean to the east. Wallops Flight Facility, Virginia: 38 degrees north, about 820 miles per hour, open ocean to the east. Baikonur Cosmodrome, Kazakhstan: 46 degrees north, about 720 miles per hour, land to the east. Plesetsk Cosmodrome, Russia: 63 degrees north, about 470 miles per hour, land to the east.": "../audio/heart/686bf3540c.mp3", "JoAnn Morgan. JoAnn Morgan's family moved to Titusville, Florida, across the water from Cape Canaveral, when she was in high school. At 17 she began working summers at the Cape as an engineering trainee for the Army's rocket program. On July 16, 1969, she was the instrumentation controller for the Apollo 11 launch and the only woman in the launch firing room. Some coworkers did not think a woman belonged there, but she kept proving herself. In more than 45 years at the Cape, she became the first woman senior executive at Kennedy Space Center before retiring in 2003.": "../audio/heart/6ba915b38a.mp3", "Guion \"Guy\" Bluford. Guion Bluford grew up in Philadelphia and became an Air Force fighter pilot and an aerospace engineer with a doctorate. On August 30, 1983, he lifted off from Kennedy Space Center aboard the space shuttle Challenger and became the first African American in space. His launch was also the shuttle program's first night launch, lighting up the dark Florida sky. Bluford flew on four shuttle missions in all.": "../audio/heart/f06f835dd2.mp3", "John Herrington. John Herrington was born in Wetumka, Oklahoma, and is a citizen of the Chickasaw Nation. A Navy pilot and engineer, he launched from Kennedy Space Center aboard the space shuttle Endeavour in November 2002 and became the first Chickasaw citizen to fly in space. He carried the Chickasaw Nation flag with him. During the mission he made three spacewalks to help build the International Space Station.": "../audio/heart/31d9add4b4.mp3", "Janet Petro. Janet Petro graduated from the U.S. Military Academy at West Point in 1981, in only the second class to include women, and flew helicopters as an Army officer. She later earned a business degree and joined NASA. In 2021 she became the first woman to direct Kennedy Space Center, where companies and NASA now share the launch pads, making it a spaceport for many users. From January to July 2025 she also served as acting head of all of NASA, the first woman to do so. She retired from NASA in 2026.": "../audio/heart/7c205b3265.mp3", "Victor Glover. Victor Glover grew up in Pomona, California, and became a Navy test pilot and engineer. In November 2020 he launched from Kennedy Space Center as pilot of SpaceX's Crew-1 and spent nearly six months on the International Space Station. On April 1, 2026, he lifted off from Kennedy's Launch Complex 39B as pilot of Artemis II. On that mission he became the first Black astronaut to travel around the Moon, alongside Christina Koch, the first woman, and Jeremy Hansen, the first Canadian.": "../audio/heart/b9b26cf76d.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["thrust", "push from rocket engines"], ["orbit", "curved path around a planet"], ["latitude", "distance from the equator"], ["payload", "cargo a rocket carries"], ["spaceport", "place built for launches"]], [["1950", "first Cape Canaveral launch"], ["1958", "Explorer 1 satellite"], ["1969", "Apollo 11 to the Moon"], ["1981", "first space shuttle launch"], ["2026", "Artemis II around the Moon"]], [["JoAnn Morgan", "only woman in Apollo 11 firing room"], ["Guion Bluford", "first African American in space"], ["John Herrington", "first Chickasaw citizen in space"], ["Janet Petro", "first woman to direct Kennedy"], ["Victor Glover", "first Black astronaut around the Moon"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Launch Spectator", "Countdown Crew", "Flight Controller", "Launch Director"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

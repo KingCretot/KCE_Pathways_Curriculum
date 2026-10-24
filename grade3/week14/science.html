@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 14 Science: Engineering Challenge: Design It, Test It, Fix It | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 14</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Market Days &bull; Week 14 &bull; Science</span>
+  <h1>Engineering Challenge: Design It, Test It, Fix It</h1>
+  <h2>Ask, imagine, plan, build, test, and improve like a real engineer</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do engineers turn a problem into a solution that works?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do engineers turn a problem into a solution that works?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with matter, motion, light, and sound</li><li>Learn the six steps of the design process</li><li>Plan and build a paper bridge at home</li><li>Test it, fix it, and test it again</li><li>Read a bridge test table like an engineer</li><li>Meet Lonnie Johnson and Mary Anderson, then Match-Up, Type-It, and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's review Weeks 11, 12, and 13. Engineers use all of these ideas when they build.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Ice is a solid. Heat it and it melts into liquid water. Heat it more and it becomes steam, a gas.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ice is heated. It melts, and then it boils. Which order shows what it becomes?</p>
+    <div class="opts">
+      <button class="opt">steam, water, ice</button>
+      <button class="opt" data-c="1">ice, water, steam</button>
+      <button class="opt">water, ice, steam</button>
+      <button class="opt">ice, steam, water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Friction is rubbing between the tires, the road, and the bike parts. It slowly stops the bike.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bike rider stops pedaling on a flat road. Why does the bike slowly stop?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Friction slows it down.</button>
+      <button class="opt">Gravity pushes it forward.</button>
+      <button class="opt">A magnet pulls it back.</button>
+      <button class="opt">The wheels melt.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="A campfire is a light source. The Moon only reflects light from the Sun.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Moon and a campfire both look bright at night. Which one makes its own light?</p>
+    <div class="opts">
+      <button class="opt">the Moon</button>
+      <button class="opt">both of them</button>
+      <button class="opt">neither of them</button>
+      <button class="opt" data-c="1">the campfire</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Wood is opaque. It blocks all light, so it makes a dark shadow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which object blocks all light and makes a dark shadow?</p>
+    <div class="opts">
+      <button class="opt">a clear window</button>
+      <button class="opt">a plastic sandwich bag</button>
+      <button class="opt" data-c="1">a wooden board</button>
+      <button class="opt">a glass of water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Sound comes from vibration. When the rubber band stops vibrating, the sound stops.">
+    <span class="pts">+5</span>
+    <p class="qtext">You pluck a rubber band and it hums. Then it stops moving. What happens to the sound?</p>
+    <div class="opts">
+      <button class="opt">It gets louder.</button>
+      <button class="opt" data-c="1">It stops too.</button>
+      <button class="opt">It turns into light.</button>
+      <button class="opt">It gets higher.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Magnets pull on steel. The fridge door has steel in it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A refrigerator magnet sticks to the fridge door. Why?</p>
+    <div class="opts">
+      <button class="opt">The door is covered in glue.</button>
+      <button class="opt">The magnet is a little wet.</button>
+      <button class="opt">Light from the room holds it.</button>
+      <button class="opt" data-c="1">The magnet pulls on the steel door.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="Latimer found a better way to make light bulb filaments, so bulbs lasted longer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lewis Latimer improved which invention?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the light bulb</button>
+      <button class="opt">the bicycle</button>
+      <button class="opt">the water toy</button>
+      <button class="opt">the windshield wiper</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Warmth melts ice cream. The cooler keeps the ice cream cold, so it stays a solid longer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does ice cream in a cold cooler stay frozen longer than ice cream on the counter?</p>
+    <div class="opts">
+      <button class="opt">The counter is too high.</button>
+      <button class="opt">The cooler adds sugar.</button>
+      <button class="opt" data-c="1">The cooler keeps it cold.</button>
+      <button class="opt">Ice cream likes the dark.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="An echo is sound that bounces off something hard, like a cliff, and comes back to you.">
+    <span class="pts">+5</span>
+    <p class="qtext">You yell "Hi!" toward a tall cliff. You hear "Hi!" come back. What is that?</p>
+    <div class="opts">
+      <button class="opt">a shadow</button>
+      <button class="opt">a pitch</button>
+      <button class="opt">a magnet</button>
+      <button class="opt" data-c="1">an echo</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Gravity pulls everything down toward Earth. A bridge must be strong enough to hold that pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">A heavy truck drives over a bridge. Which force pulls the truck down on the bridge?</p>
+    <div class="opts">
+      <button class="opt">friction</button>
+      <button class="opt">magnetism</button>
+      <button class="opt" data-c="1">gravity</button>
+      <button class="opt">an echo</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Her Laserphaco Probe used laser light to remove cloudy cataracts, so people could see again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Dr. Patricia Bath was an eye doctor. Her laser tool helped people ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">see again</button>
+      <button class="opt">hear better</button>
+      <button class="opt">walk faster</button>
+      <button class="opt">sleep longer</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="In the Week 13 shadow test, the closer the light, the bigger the shadow.">
+    <span class="pts">+5</span>
+    <p class="qtext">You move a flashlight closer to a toy. What happens to the toy's shadow?</p>
+    <div class="opts">
+      <button class="opt">It gets smaller.</button>
+      <button class="opt" data-c="1">It gets bigger.</button>
+      <button class="opt">It disappears.</button>
+      <button class="opt">It changes color.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: answer what you already know about engineers and building things. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This SciShow Kids video shows how engineers think when they design a solution to a problem.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Think Like an Engineer: Let&#x27;s Design a Solution! | SciShow Kids</b> &mdash; SciShow Kids</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/M6t26J-Bbkg?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Think Like an Engineer: Let&#x27;s Design a Solution! | SciShow Kids" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for the problem. How do they come up with ideas? What do they do when the first try does not work?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">engineer<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;engineer. A person who uses science and math to design things that solve problems.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A person who uses science and math to design things that solve problems.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">design process<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;design process. The steps engineers follow: ask, imagine, plan, build, test, and improve.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The steps engineers follow: ask, imagine, plan, build, test, and improve.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">criteria<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;criteria. What a design must do to succeed. A bridge must hold 20 pennies.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">What a design must do to succeed. A bridge must hold 20 pennies.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">constraint<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;constraint. A limit on a design. You may use only one sheet of paper.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A limit on a design. You may use only one sheet of paper.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">prototype<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;prototype. A first model of a design that you build to test.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A first model of a design that you build to test.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">test<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;test. To try out a design and see if it works. Engineers record what happens.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To try out a design and see if it works. Engineers record what happens.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">improve<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;improve. To make a design better after you test it.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To make a design better after you test it.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>❓ Ask and Imagine</h2>
+<div class="card card">
+<p>An <b>engineer</b> solves problems. First, engineers <b>ask</b>. What is the problem? What must the design do? Those are the <b>criteria</b>. What are the limits? Those are the <b>constraints</b>. Next, they <b>imagine</b> many ideas, not just one.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;An engineer solves problems. First, engineers ask . What is the problem? What must the design do? Those are the criteria . What are the limits? Those are the constraints . Next, they imagine many ideas, not just one.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>My problem: my pencils roll off my desk. I ask what a good solution must do. It must keep pencils from rolling. That is a criterion. I can only use things I have at home. That is a constraint. Now I imagine ideas: a cup, a box, or a rubber band around them.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;My problem: my pencils roll off my desk. I ask what a good solution must do. It must keep pencils from rolling. That is a criterion. I can only use things I have at home. That is a constraint. Now I imagine ideas: a cup, a box, or a rubber band around them.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: The Design Process</h4><table><tr><th>Step</th><th>What you do</th></tr><tr><td>1. Ask</td><td>Find the problem. List the criteria and constraints.</td></tr><tr><td>2. Imagine</td><td>Think of many ideas. Pick the best one.</td></tr><tr><td>3. Plan</td><td>Draw it. Label it. List the materials.</td></tr><tr><td>4. Build</td><td>Make a prototype.</td></tr><tr><td>5. Test</td><td>Try it. Record what happens.</td></tr><tr><td>6. Improve</td><td>Fix one thing. Test again.</td></tr></table><p>The steps make a loop. After Improve, you can go back and test again.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>A lunch box design: "It must keep food cold." Is that a criterion or a constraint? It says what the design <b>must do</b>. So it is a <b>criterion</b>. "You may spend only 10 dollars." That is a <b>limit</b>. So it is a <b>constraint</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A lunch box design: \&quot;It must keep food cold.\&quot; Is that a criterion or a constraint? It says what the design must do . So it is a criterion . \&quot;You may spend only 10 dollars.\&quot; That is a limit . So it is a constraint .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="engineer|engineers" data-logic="Engineers use science and math to design solutions to problems.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A person who designs things to solve problems is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="The table starts with Ask. Engineers first find the problem before they build anything.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use The Design Process. What is the <b>first</b> step?</p>
+    <div class="opts">
+      <button class="opt">Build</button>
+      <button class="opt">Test</button>
+      <button class="opt" data-c="1">Ask</button>
+      <button class="opt">Improve</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="It tells what the design must do to succeed. That is a criterion.">
+    <span class="pts">+5</span>
+    <p class="qtext">"The bridge must hold 20 pennies." What is this?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a criterion</button>
+      <button class="opt">a constraint</button>
+      <button class="opt">a prototype</button>
+      <button class="opt">a test</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="constraint|constraints" data-logic="A constraint is a limit, like how much material, time, or money you can use.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A limit on a design, like "use only one sheet of paper," is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="The table says Imagine means thinking of many ideas and picking the best one.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use The Design Process. What do you do in the Imagine step?</p>
+    <div class="opts">
+      <button class="opt">Test the design.</button>
+      <button class="opt">Build a prototype.</button>
+      <button class="opt">Fix one thing.</button>
+      <button class="opt" data-c="1">Think of many ideas.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="More ideas give more choices. The first idea is not always the best one.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do engineers imagine <b>many</b> ideas, not just one?</p>
+    <div class="opts">
+      <button class="opt">Engineers like to waste time.</button>
+      <button class="opt" data-c="1">The first idea may not be the best.</button>
+      <button class="opt">One idea is always too easy.</button>
+      <button class="opt">Ideas are all the same.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="criteria|criterion" data-logic="Criteria tell what a design must do, like &quot;hold 20 pennies&quot; or &quot;keep food cold.&quot;">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The things a design must do to succeed are its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="It is a limit on materials. A limit is a constraint.">
+    <span class="pts">+5</span>
+    <p class="qtext">"You may use only 2 pieces of tape." What is this?</p>
+    <div class="opts">
+      <button class="opt">a criterion</button>
+      <button class="opt" data-c="1">a constraint</button>
+      <button class="opt">an idea</button>
+      <button class="opt">a prototype</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="The table goes Ask, Imagine, then Plan. You draw and label your idea next.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use The Design Process. Which step comes right <b>after</b> Imagine?</p>
+    <div class="opts">
+      <button class="opt">Ask</button>
+      <button class="opt">Test</button>
+      <button class="opt">Improve</button>
+      <button class="opt" data-c="1">Plan</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>✏️ Plan and Build a Prototype</h2>
+<div class="card card-grass">
+<p>Next, engineers <b>plan</b>. They draw the design and label each part. They list the materials. Then they <b>build</b> a <b>prototype</b>. A prototype is a first model to test. Today you will build a paper bridge at home!<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Next, engineers plan . They draw the design and label each part. They list the materials. Then they build a prototype . A prototype is a first model to test. Today you will build a paper bridge at home!&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>My bridge must cross a 6-inch gap between two stacks of books. It must hold pennies. My constraint is one sheet of paper. A flat sheet is floppy. What if I fold it? Folds might make it stiffer. I will draw a folded bridge and label the folds.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;My bridge must cross a 6-inch gap between two stacks of books. It must hold pennies. My constraint is one sheet of paper. A flat sheet is floppy. What if I fold it? Folds might make it stiffer. I will draw a folded bridge and label the folds.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Paper Bridge Build Kit</h4><table><tr><th>Material</th><th>Job</th></tr><tr><td>two stacks of books, the same height</td><td>the two sides of the river</td></tr><tr><td>one sheet of paper</td><td>the bridge</td></tr><tr><td>2 small pieces of tape</td><td>hold folds in place</td></tr><tr><td>pennies</td><td>the load to test strength</td></tr><tr><td>a ruler</td><td>keep the gap 6 inches wide</td></tr></table><p><b>Safety:</b> Ask a grown-up before you use scissors. Keep pennies away from little brothers and sisters.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Let's plan! Step 1: Draw the two book stacks with a 6-inch gap. Step 2: Draw your paper bridge across the gap. Step 3: Label it, like "folded like a fan." Step 4: List materials: 1 sheet of paper, 2 pieces of tape. Now you have a <b>plan</b>. Next you build the <b>prototype</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s plan! Step 1: Draw the two book stacks with a 6-inch gap. Step 2: Draw your paper bridge across the gap. Step 3: Label it, like \&quot;folded like a fan.\&quot; Step 4: List materials: 1 sheet of paper, 2 pieces of tape. Now you have a plan . Next you build the prototype .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="prototype|prototypes|model" data-logic="A prototype is a first model. Engineers test it to learn what works.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A first model of a design that you build to test is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The table says pennies are the load. They show how much weight the bridge can hold.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Build Kit. What is the job of the pennies?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the load to test strength</button>
+      <button class="opt">the sides of the river</button>
+      <button class="opt">to hold folds in place</button>
+      <button class="opt">to keep the gap wide</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="Planning means drawing the design, labeling the parts, and listing the materials.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do engineers do in the Plan step?</p>
+    <div class="opts">
+      <button class="opt">Test the bridge with pennies.</button>
+      <button class="opt">Give up on the problem.</button>
+      <button class="opt" data-c="1">Draw, label, and list materials.</button>
+      <button class="opt">Pick a new problem.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="label|labels|name" data-logic="Engineers draw and label each part so they know exactly what to build.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the Plan step, you draw your design and ____ each part:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="The table says to use a ruler to keep the gap 6 inches wide.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Build Kit. How wide should the gap between the books be?</p>
+    <div class="opts">
+      <button class="opt">2 inches</button>
+      <button class="opt">10 inches</button>
+      <button class="opt">1 inch</button>
+      <button class="opt" data-c="1">6 inches</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="If one stack is taller, the bridge tilts. Pennies could slide off, and the test would not be fair.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do the book stacks need to be the same height?</p>
+    <div class="opts">
+      <button class="opt">So the books look nice.</button>
+      <button class="opt">So the pennies stay shiny.</button>
+      <button class="opt" data-c="1">So the bridge sits level.</button>
+      <button class="opt">So the tape sticks better.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="materials|material|supplies" data-logic="In the Plan step, engineers list their materials so they know what they need to build.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Before you build, you make a list of all the ____ you will use:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="The safety note says to ask a grown-up before using scissors.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Build Kit. What should you do before you use scissors?</p>
+    <div class="opts">
+      <button class="opt">Run to the kitchen.</button>
+      <button class="opt" data-c="1">Ask a grown-up.</button>
+      <button class="opt">Close your eyes.</button>
+      <button class="opt">Hide the scissors.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="A prototype lets you test and find problems early, before you build the final design.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does an engineer build a prototype before the real thing?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">To test it and find problems.</button>
+      <button class="opt">To sell it right away.</button>
+      <button class="opt">To skip the test step.</button>
+      <button class="opt">To make it look pretty.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🔧 Test It, Fix It, Test Again</h2>
+<div class="card card-sky">
+<p>Engineers <b>test</b> their prototype. They write down what happens. If it fails, that is OK! A failed test gives <b>information</b>. Engineers <b>improve</b> the design. They change <b>one thing</b> at a time. Then they test again.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Engineers test their prototype. They write down what happens. If it fails, that is OK! A failed test gives information . Engineers improve the design. They change one thing at a time. Then they test again.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>My flat paper bridge sagged and fell with only 3 pennies. Why? Flat paper bends easily. What one thing can I change? I can fold it like a fan. I will keep the same paper, gap, and pennies. Then I test again and compare.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;My flat paper bridge sagged and fell with only 3 pennies. Why? Flat paper bends easily. What one thing can I change? I can fold it like a fan. I will keep the same paper, gap, and pennies. Then I test again and compare.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Test Log</h4><table><tr><th>Try</th><th>Design</th><th>What happened</th><th>Next idea</th></tr><tr><td>1</td><td>flat sheet</td><td>sagged and fell at 3 pennies</td><td>fold it</td></tr><tr><td>2</td><td>sides folded up</td><td>held 25 pennies</td><td>add more folds</td></tr><tr><td>3</td><td>folded like a fan</td><td>held 60 pennies</td><td>try a wider gap</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Your bridge fell. Your friend says, "Use thicker paper, more tape, AND fold it!" What is wrong with that? If you change three things and it works, you will not know which change helped. Change <b>one thing</b>. Fold it first. Test. Then try the next change.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Your bridge fell. Your friend says, \&quot;Use thicker paper, more tape, AND fold it!\&quot; What is wrong with that? If you change three things and it works, you will not know which change helped. Change one thing . Fold it first. Test. Then try the next change.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="improve|fix|redesign" data-logic="Improve means making the design better. It is the last step, and then you test again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To make a design better after you test it is to ____ it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="The log says the flat sheet sagged and fell at 3 pennies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Test Log. How many pennies did the flat sheet hold before it fell?</p>
+    <div class="opts">
+      <button class="opt">25</button>
+      <button class="opt">60</button>
+      <button class="opt" data-c="1">3</button>
+      <button class="opt">0</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="A failed test gives information. Engineers use it to improve the design.">
+    <span class="pts">+5</span>
+    <p class="qtext">Your first test fails. What should an engineer do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Learn from it and improve the design.</button>
+      <button class="opt">Quit and start a new problem.</button>
+      <button class="opt">Hide the results.</button>
+      <button class="opt">Say the test was wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="one|1" data-logic="Changing one thing at a time shows which change made the difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When you improve a design, change only ____ thing at a time:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="The fan-folded bridge held 60 pennies. That is more than 25 or 3.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Test Log. Which design held the <b>most</b> pennies?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">folded like a fan</button>
+      <button class="opt">flat sheet</button>
+      <button class="opt">sides folded up</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Records let engineers compare each try. The data shows which design is best.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do engineers write down every test?</p>
+    <div class="opts">
+      <button class="opt">To make the page look full.</button>
+      <button class="opt" data-c="1">To compare tries and see what works.</button>
+      <button class="opt">Because tests are boring.</button>
+      <button class="opt">To remember snack time.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="test|try" data-logic="Testing shows if a design meets its criteria.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To try out a design and see if it works is to ____ it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="The Next idea column says to try a wider gap. Engineers keep testing to learn more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Test Log. What did the Next idea column say to try after the fan-folded bridge?</p>
+    <div class="opts">
+      <button class="opt">a flat sheet</button>
+      <button class="opt" data-c="1">a wider gap</button>
+      <button class="opt">no more tests</button>
+      <button class="opt">a smaller gap</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="Two changes at once mix up the evidence. You cannot tell which one made the bridge stronger.">
+    <span class="pts">+5</span>
+    <p class="qtext">You change the paper <b>and</b> the folds at the same time. The bridge gets stronger. What do you know?</p>
+    <div class="opts">
+      <button class="opt">The paper helped.</button>
+      <button class="opt">The folds helped.</button>
+      <button class="opt">Both helped the same.</button>
+      <button class="opt" data-c="1">Not which change helped.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🌉 Lab: The Paper Bridge Test</h2>
+<p>A student built four paper bridges. Each crossed a 6-inch gap between two stacks of books. She added pennies one at a time to the middle until each bridge fell.</p>
+<div class="sourcebox"><h4>Paper Bridge Test Results</h4><div><p><b>Criteria:</b> hold at least 20 pennies. <b>Constraints:</b> one sheet of paper, 2 pieces of tape. Same gap, same pennies, every time.</p><table><tr><th>Bridge</th><th>Shape</th><th>Pennies held before it fell</th></tr><tr><td>A</td><td>flat sheet</td><td>3</td></tr><tr><td>B</td><td>folded in half (2 flat layers)</td><td>6</td></tr><tr><td>C</td><td>sides folded up</td><td>25</td></tr><tr><td>D</td><td>folded like a fan</td><td>60</td></tr></table></div><div class="src">Sample numbers made for this lesson, like the bridge test you can do at home.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Criteria: hold at least 20 pennies. Constraints: one sheet of paper, 2 pieces of tape. Same gap, same pennies, every time. Bridge A, a flat sheet, held 3 pennies before it fell. Bridge B, folded in half into 2 flat layers, held 6. Bridge C, with the sides folded up, held 25. Bridge D, folded like a fan, held 60.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Engineer</h4><p>An engineer reads test data to choose the best design. First I check that the test was fair. Then I compare the penny counts. I look for which shape made the paper stronger. Last, I check the criteria: did it hold 20 pennies?</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Bridge A held only 3 pennies. That is the smallest number in the table.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which bridge held the <b>fewest</b> pennies?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Bridge A, the flat sheet</button>
+      <button class="opt">Bridge B, folded in half</button>
+      <button class="opt">Bridge C, sides up</button>
+      <button class="opt">Bridge D, the fan</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="25|twenty-five|twenty five|25 pennies" data-logic="Find Bridge C in the table. It held 25 pennies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many pennies did Bridge C hold? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="Bridge C held 25 and Bridge D held 60. Both are 20 or more. A and B held fewer than 20.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which bridges met the criteria of at least 20 pennies?</p>
+    <div class="opts">
+      <button class="opt">A and B</button>
+      <button class="opt">only A</button>
+      <button class="opt" data-c="1">C and D</button>
+      <button class="opt">only B</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="lab1_s1" data-pts="5" data-ans="35|thirty-five|thirty five|35 pennies" data-logic="Bridge D held 60. Bridge C held 25. 60 minus 25 is 35.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many <b>more</b> pennies did Bridge D hold than Bridge C? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="Bridge C held 25 pennies. Bridge B held only 6. Folding the sides up helped more than stacking layers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Bridge B used 2 layers of flat paper. Bridge C used folded-up sides. Which was stronger?</p>
+    <div class="opts">
+      <button class="opt">B, the 2 flat layers</button>
+      <button class="opt">They held the same.</button>
+      <button class="opt">Neither held any.</button>
+      <button class="opt" data-c="1">C, the folded-up sides</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="The flat sheet held 3. The folded shapes held 25 and 60. Shape made the paper stronger.">
+    <span class="pts">+5</span>
+    <p class="qtext">What does the data show makes paper stronger?</p>
+    <div class="opts">
+      <button class="opt">leaving it flat</button>
+      <button class="opt">using fewer pennies</button>
+      <button class="opt" data-c="1">folding it into a new shape</button>
+      <button class="opt">making the gap wider</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="lab1_s2" data-pts="5" data-ans="60|sixty|60 pennies" data-logic="Bridge D, folded like a fan, held 60 pennies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many pennies did the fan-folded bridge hold? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="Keeping everything the same except the shape makes it a fair test. Then the shape explains the results.">
+    <span class="pts">+5</span>
+    <p class="qtext">Every bridge had the same gap and the same pennies. Why does that matter?</p>
+    <div class="opts">
+      <button class="opt">so it went faster</button>
+      <button class="opt" data-c="1">so the test was fair</button>
+      <button class="opt">so the paper stayed white</button>
+      <button class="opt">so she used less tape</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="She can build it and count pennies to find out. It builds on her best design. The others are opinions or not tests.">
+    <span class="pts">+5</span>
+    <p class="qtext">Bridge D passed. Which question should the student test next?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Does thicker paper make Bridge D stronger?</button>
+      <button class="opt">Which bridge looks the nicest?</button>
+      <button class="opt">What color are pennies?</button>
+      <button class="opt">Who invented paper?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🛠️ Engineers and Inventors Who Kept Fixing</h2>
+<p>These people saw a problem, built something, tested it, and made it better. None of them gave up after the first try.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Lonnie Johnson</h4><div class="yrs">born 1949</div><p>An <b>engineer</b> from Mobile, Alabama. In high school, he built a robot from scrap parts and won a science fair. Later, he worked on spacecraft for NASA, like the Galileo mission to Jupiter. At home, he was testing a new kind of pump that used water. It shot a strong stream of water across the room! That gave him the idea for the <b>Super Soaker</b> water toy. He built and fixed many prototypes. He has more than 100 patents.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Lonnie Johnson. An engineer from Mobile, Alabama. In high school, he built a robot from scrap parts and won a science fair. Later, he worked on spacecraft for NASA, like the Galileo mission to Jupiter. At home, he was testing a new kind of pump that used water. It shot a strong stream of water across the room! That gave him the idea for the Super Soaker water toy. He built and fixed many prototypes. He has more than 100 patents.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Mary Anderson</h4><div class="yrs">1866–1953</div><p>An <b>inventor</b> from Birmingham, Alabama. On a snowy trip to New York City, she watched a streetcar driver. He had to open his window again and again to clear the snow. She designed a <b>windshield wiper</b> the driver could move with a handle from inside. She got a patent in 1903. At first, companies said no. Years later, wipers came on almost every car.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Mary Anderson. An inventor from Birmingham, Alabama. On a snowy trip to New York City, she watched a streetcar driver. He had to open his window again and again to clear the snow. She designed a windshield wiper the driver could move with a handle from inside. She got a patent in 1903. At first, companies said no. Years later, wipers came on almost every car.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Margaret Knight</h4><div class="yrs">1838–1914</div><p>An <b>inventor</b> who worked in factories as a girl. She invented a machine that made <b>flat-bottomed paper bags</b>, like grocery bags today. A man copied her idea and said it was his. She showed her drawings and notes in court as evidence. She won and got her patent in 1871.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Margaret Knight. An inventor who worked in factories as a girl. She invented a machine that made flat-bottomed paper bags , like grocery bags today. A man copied her idea and said it was his. She showed her drawings and notes in court as evidence. She won and got her patent in 1871.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>William Kamkwamba</h4><div class="yrs">born 1987</div><p>An <b>inventor</b> from Malawi, a country in Africa. His family could not pay for school. So he read science books at the village library. When he was about 14, he built a <b>windmill</b> from old bicycle parts, a tractor fan, and wood. It made electricity for lights and a radio in his home. Later he built more windmills and a solar-powered water pump for his village.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;William Kamkwamba. An inventor from Malawi, a country in Africa. His family could not pay for school. So he read science books at the village library. When he was about 14, he built a windmill from old bicycle parts, a tractor fan, and wood. It made electricity for lights and a radio in his home. Later he built more windmills and a solar-powered water pump for his village.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="He was testing a new pump that used water. It shot a strong stream across the room, and that sparked his idea.">
+    <span class="pts">+5</span>
+    <p class="qtext">What gave Lonnie Johnson the idea for the Super Soaker?</p>
+    <div class="opts">
+      <button class="opt">a garden hose that broke</button>
+      <button class="opt">a rainstorm at a park</button>
+      <button class="opt" data-c="1">a pump that shot water</button>
+      <button class="opt">a fountain at a mall</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="The streetcar driver kept opening his window to clear snow. She designed a wiper to fix that.">
+    <span class="pts">+5</span>
+    <p class="qtext">What problem did Mary Anderson see in New York City?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Drivers could not clear snow off the window.</button>
+      <button class="opt">Streetcars had no seats for riders.</button>
+      <button class="opt">Streets had no lights at night.</button>
+      <button class="opt">Paper bags kept tearing open.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="Her drawings and notes were evidence. Engineers keep good records, and hers won the case.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Margaret Knight prove the paper bag machine was her idea?</p>
+    <div class="opts">
+      <button class="opt">She shouted the loudest.</button>
+      <button class="opt">She built a bigger bag.</button>
+      <button class="opt">She asked a friend to say so.</button>
+      <button class="opt" data-c="1">She showed her drawings and notes.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="He built a windmill that made electricity for lights in his home.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did William Kamkwamba build from old bicycle parts and a tractor fan?</p>
+    <div class="opts">
+      <button class="opt">a water toy</button>
+      <button class="opt" data-c="1">a windmill</button>
+      <button class="opt">a robot</button>
+      <button class="opt">a paper bridge</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Her design let the driver move the wiper with a handle from inside. He did not need to open the window.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mary Anderson's wiper was moved by ____.</p>
+    <div class="opts">
+      <button class="opt">a robot on the roof</button>
+      <button class="opt" data-c="1">a handle inside the streetcar</button>
+      <button class="opt">a motor under the seat</button>
+      <button class="opt">the wind outside</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="A patent protects an inventor&#x27;s idea. Lonnie Johnson has more than 100 of them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lonnie Johnson has more than 100 ____.</p>
+    <div class="opts">
+      <button class="opt">robots</button>
+      <button class="opt">bridges</button>
+      <button class="opt">windmills</button>
+      <button class="opt" data-c="1">patents</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="Johnson" data-logic="Lonnie Johnson got the idea while testing a pump that used water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The engineer who invented the Super Soaker is Lonnie ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="imagine|imagining" data-logic="In the Imagine step, engineers think of many ideas and pick the best one.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The step where you think of many ideas is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="load" data-logic="The load is the weight a structure holds. Pennies were the load in our test.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The weight you put on a bridge to test it is called the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="Anderson" data-logic="Mary Anderson got a patent for her windshield wiper in 1903.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The inventor of the windshield wiper was Mary ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="plan|planning" data-logic="In the Plan step, you draw, label, and list materials before you build.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The step where you draw your design and list materials is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="bags|bag" data-logic="Her machine made paper bags with flat bottoms, like grocery bags.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Margaret Knight invented a machine that made flat-bottomed paper ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="windmill|windmills" data-logic="He built a windmill from old bicycle parts, a tractor fan, and wood.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">William Kamkwamba built a ____ that made electricity for his home:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="test|testing" data-logic="In the Test step, you try the prototype and record what happens.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The step where you try out your prototype is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="fan" data-logic="The fan-folded bridge held 60 pennies, more than any other shape.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The paper bridge folded like a ____ held the most pennies:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Improve is the last step. Then engineers can test again.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which step comes <b>last</b> in the design process?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Improve</button>
+      <button class="opt">Ask</button>
+      <button class="opt">Plan</button>
+      <button class="opt">Imagine</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="ask|asking" data-bonus="1" data-logic="Engineers ask first. They find the problem and list the criteria and constraints.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The first step of the design process is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="A time limit is a limit on the design. Limits are constraints.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">A rule that says "Finish in 10 minutes" is a ____.</p>
+    <div class="opts">
+      <button class="opt">criterion</button>
+      <button class="opt">prototype</button>
+      <button class="opt" data-c="1">constraint</button>
+      <button class="opt">test</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: build and test your own paper bridge with a grown-up, then show what you learned. Use your test numbers as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about engineering? Write one question, like "Why do folds make paper stronger?"</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, look for real bridges near your home or in pictures. Which shapes do you see: arches, triangles, or folds? You can also ask your library for <i>Whoosh! Lonnie Johnson's Super-Soaking Stream of Inventions</i> by Chris Barton, or the picture book <i>The Boy Who Harnessed the Wind</i> by William Kamkwamba and Bryan Mealer.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Battle: Engineer's Challenge</h2>
+<p>Think like an engineer. Use the design steps, the bridge data, and the inventors' stories.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="First you ask about the problem. Then you plan, build a prototype, and test it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Put these steps in order: Test, Ask, Build, Plan.</p>
+    <div class="opts">
+      <button class="opt">Build, Test, Ask, Plan</button>
+      <button class="opt">Test, Build, Plan, Ask</button>
+      <button class="opt">Plan, Ask, Test, Build</button>
+      <button class="opt" data-c="1">Ask, Plan, Build, Test</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="It did not meet the criteria. Improve by changing one thing, then test again.">
+    <span class="pts">+5</span>
+    <p class="qtext">A paper bridge must hold 20 pennies. It holds 12. What should the engineer do next?</p>
+    <div class="opts">
+      <button class="opt">Say it passed the test.</button>
+      <button class="opt">Throw away the paper.</button>
+      <button class="opt" data-c="1">Change one thing and test again.</button>
+      <button class="opt">Change everything at once.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Seeing the problem and asking what people need is the Ask step.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mary Anderson saw a driver struggle with snow. Which design step was that?</p>
+    <div class="opts">
+      <button class="opt">Test: trying the wiper</button>
+      <button class="opt" data-c="1">Ask: finding the problem</button>
+      <button class="opt">Build: making a prototype</button>
+      <button class="opt">Improve: fixing the handle</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="The fan shape jumped from 3 pennies to 60. Tape, gap, and pennies stayed the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the bridge data. Which change made the biggest difference?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">folding the paper into a fan</button>
+      <button class="opt">using 2 pieces of tape</button>
+      <button class="opt">keeping the gap the same</button>
+      <button class="opt">using the same pennies</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="A constraint is a limit. Using only one sheet of foil limits your materials. The others are criteria.">
+    <span class="pts">+5</span>
+    <p class="qtext">You must build a boat from foil that floats with 10 pennies. Which is a <b>constraint</b>?</p>
+    <div class="opts">
+      <button class="opt">It must float.</button>
+      <button class="opt">It must hold 10 pennies.</button>
+      <button class="opt" data-c="1">Use only one sheet of foil.</button>
+      <button class="opt">It must stay dry inside.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Testing each prototype showed problems. Fixing them made a better toy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lonnie Johnson built many Super Soaker prototypes. Why not just one?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Each test showed what to fix.</button>
+      <button class="opt">He liked making a mess.</button>
+      <button class="opt">The first one was perfect.</button>
+      <button class="opt">Patents need ten copies.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Bridge C used one folded sheet and held more than the two flat layers of B. The shape made the difference.">
+    <span class="pts">+5</span>
+    <p class="qtext">Bridge B (2 flat layers) held 6. Bridge C (sides up) held 25. What does this show?</p>
+    <div class="opts">
+      <button class="opt">More paper always wins.</button>
+      <button class="opt">Flat paper is strongest.</button>
+      <button class="opt">Pennies change size.</button>
+      <button class="opt" data-c="1">Shape matters more than layers.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Her drawings and notes were evidence that the idea was hers. Good records matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Margaret Knight won her case because of ____.</p>
+    <div class="opts">
+      <button class="opt">her loud voice</button>
+      <button class="opt" data-c="1">her drawings and notes</button>
+      <button class="opt">her famous friends</button>
+      <button class="opt">a lucky guess</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="His constraint was no money for new parts. He solved it by using old bicycle parts, a fan, and wood.">
+    <span class="pts">+5</span>
+    <p class="qtext">William Kamkwamba could not buy new parts. What did he do?</p>
+    <div class="opts">
+      <button class="opt">He waited for someone else.</button>
+      <button class="opt" data-c="1">He used old parts he could find.</button>
+      <button class="opt">He gave up on the windmill.</button>
+      <button class="opt">He bought a whole new machine.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="A fair test changes one thing. With two changes, you cannot tell what caused the result.">
+    <span class="pts">+5</span>
+    <p class="qtext">Your bridge test: you moved the books farther apart <b>and</b> added folds. Can you trust the result?</p>
+    <div class="opts">
+      <button class="opt">Yes, it had folds.</button>
+      <button class="opt">Yes, the books were heavy.</button>
+      <button class="opt">No, pennies are too small.</button>
+      <button class="opt" data-c="1">No, two things changed.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="It can be tested and measured by counting pennies. The others are opinions or not science.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question could an engineer test next with paper bridges?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Does a wider gap hold fewer pennies?</button>
+      <button class="opt">Is blue paper the prettiest?</button>
+      <button class="opt">Who made the first bridge?</button>
+      <button class="opt">Do pennies like bridges?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="A failed test gives information. It tells the engineer what to improve.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why do engineers say a failed test is useful?</p>
+    <div class="opts">
+      <button class="opt">It means you are done.</button>
+      <button class="opt">It proves you are wrong forever.</button>
+      <button class="opt" data-c="1">It shows what needs fixing.</button>
+      <button class="opt">It means skip the next test.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Idea Sketcher</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-science-w14';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do engineers turn a problem into a solution that works?": "../audio/heart/d7bcdc3fd1.mp3", "engineer. A person who uses science and math to design things that solve problems.": "../audio/heart/bc4b1bf78f.mp3", "design process. The steps engineers follow: ask, imagine, plan, build, test, and improve.": "../audio/heart/7cf86f37b7.mp3", "criteria. What a design must do to succeed. A bridge must hold 20 pennies.": "../audio/heart/92cf5cc81d.mp3", "constraint. A limit on a design. You may use only one sheet of paper.": "../audio/heart/cd586365cc.mp3", "prototype. A first model of a design that you build to test.": "../audio/heart/7a2a036b84.mp3", "test. To try out a design and see if it works. Engineers record what happens.": "../audio/heart/e071c122eb.mp3", "improve. To make a design better after you test it.": "../audio/heart/b9d44eda8b.mp3", "An engineer solves problems. First, engineers ask . What is the problem? What must the design do? Those are the criteria . What are the limits? Those are the constraints . Next, they imagine many ideas, not just one.": "../audio/heart/d53ac431fc.mp3", "My problem: my pencils roll off my desk. I ask what a good solution must do. It must keep pencils from rolling. That is a criterion. I can only use things I have at home. That is a constraint. Now I imagine ideas: a cup, a box, or a rubber band around them.": "../audio/heart/33653ca630.mp3", "A lunch box design: \"It must keep food cold.\" Is that a criterion or a constraint? It says what the design must do . So it is a criterion . \"You may spend only 10 dollars.\" That is a limit . So it is a constraint .": "../audio/heart/fa5304dc37.mp3", "Next, engineers plan . They draw the design and label each part. They list the materials. Then they build a prototype . A prototype is a first model to test. Today you will build a paper bridge at home!": "../audio/heart/4bbc294a59.mp3", "My bridge must cross a 6-inch gap between two stacks of books. It must hold pennies. My constraint is one sheet of paper. A flat sheet is floppy. What if I fold it? Folds might make it stiffer. I will draw a folded bridge and label the folds.": "../audio/heart/567d1baa31.mp3", "Let's plan! Step 1: Draw the two book stacks with a 6-inch gap. Step 2: Draw your paper bridge across the gap. Step 3: Label it, like \"folded like a fan.\" Step 4: List materials: 1 sheet of paper, 2 pieces of tape. Now you have a plan . Next you build the prototype .": "../audio/heart/77f5948e36.mp3", "Engineers test their prototype. They write down what happens. If it fails, that is OK! A failed test gives information . Engineers improve the design. They change one thing at a time. Then they test again.": "../audio/heart/d02d759901.mp3", "My flat paper bridge sagged and fell with only 3 pennies. Why? Flat paper bends easily. What one thing can I change? I can fold it like a fan. I will keep the same paper, gap, and pennies. Then I test again and compare.": "../audio/heart/e5769af515.mp3", "Your bridge fell. Your friend says, \"Use thicker paper, more tape, AND fold it!\" What is wrong with that? If you change three things and it works, you will not know which change helped. Change one thing . Fold it first. Test. Then try the next change.": "../audio/heart/afd8c0b66c.mp3", "Criteria: hold at least 20 pennies. Constraints: one sheet of paper, 2 pieces of tape. Same gap, same pennies, every time. Bridge A, a flat sheet, held 3 pennies before it fell. Bridge B, folded in half into 2 flat layers, held 6. Bridge C, with the sides folded up, held 25. Bridge D, folded like a fan, held 60.": "../audio/heart/a94fdb4bd8.mp3", "Lonnie Johnson. An engineer from Mobile, Alabama. In high school, he built a robot from scrap parts and won a science fair. Later, he worked on spacecraft for NASA, like the Galileo mission to Jupiter. At home, he was testing a new kind of pump that used water. It shot a strong stream of water across the room! That gave him the idea for the Super Soaker water toy. He built and fixed many prototypes. He has more than 100 patents.": "../audio/heart/0299e0e678.mp3", "Mary Anderson. An inventor from Birmingham, Alabama. On a snowy trip to New York City, she watched a streetcar driver. He had to open his window again and again to clear the snow. She designed a windshield wiper the driver could move with a handle from inside. She got a patent in 1903. At first, companies said no. Years later, wipers came on almost every car.": "../audio/heart/e3d28be4b2.mp3", "Margaret Knight. An inventor who worked in factories as a girl. She invented a machine that made flat-bottomed paper bags , like grocery bags today. A man copied her idea and said it was his. She showed her drawings and notes in court as evidence. She won and got her patent in 1871.": "../audio/heart/03be885bc3.mp3", "William Kamkwamba. An inventor from Malawi, a country in Africa. His family could not pay for school. So he read science books at the village library. When he was about 14, he built a windmill from old bicycle parts, a tractor fan, and wood. It made electricity for lights and a radio in his home. Later he built more windmills and a solar-powered water pump for his village.": "../audio/heart/fca4207492.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["Ask", "find the problem"], ["Imagine", "think of many ideas"], ["Plan", "draw and label"], ["Build", "make a prototype"], ["Improve", "fix one thing, test again"]], [["criteria", "what a design must do"], ["constraint", "a limit on a design"], ["prototype", "first model to test"], ["engineer", "designs solutions to problems"], ["fan folds", "made the paper bridge strongest"]], [["Lonnie Johnson", "Super Soaker water toy"], ["Mary Anderson", "windshield wiper"], ["Margaret Knight", "paper bag machine"], ["William Kamkwamba", "windmill from old parts"], ["Lewis Latimer", "longer-lasting light bulbs"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Idea Sketcher", "Builder", "Problem Solver", "Master Engineer"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

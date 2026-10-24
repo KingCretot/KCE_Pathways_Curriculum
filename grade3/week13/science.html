@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 13 Science: Light and Sound | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 13</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Market Days &bull; Week 13 &bull; Science</span>
+  <h1>Light and Sound</h1>
+  <h2>Shadows, mirrors, and vibrations: how we see and hear</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How do light and sound travel to our eyes and ears?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How do light and sound travel to our eyes and ears?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with matter, pushes, pulls, and magnets</li><li>Find out how light helps us see</li><li>Make shadows and bounce light off mirrors</li><li>Feel sound vibrations and hear high and low pitch</li><li>Read a shadow test table like a scientist</li><li>Meet Lewis Latimer and Patricia Bath, then Match-Up, Type-It, and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's review Weeks 11 and 12. Solids, liquids, gases, pushes, and pulls will help us today.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="The flame&#x27;s heat melted the wax into a liquid. On the cool plate, it cooled and turned solid again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Wax drips from a candle onto a plate. Soon the drips get hard. What happened to the wax?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It melted, then turned solid again.</button>
+      <button class="opt">It turned into a gas, then a liquid.</button>
+      <button class="opt">It boiled, then disappeared.</button>
+      <button class="opt">It condensed, then evaporated.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Air is a gas. It spreads out to fill the whole balloon. Air takes up space, so it is matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">A balloon is filled with air. Which state of matter is the air inside?</p>
+    <div class="opts">
+      <button class="opt">a solid</button>
+      <button class="opt">a liquid</button>
+      <button class="opt" data-c="1">a gas</button>
+      <button class="opt">It is not matter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="A bigger push is a bigger force. A bigger force makes the car go faster and farther.">
+    <span class="pts">+5</span>
+    <p class="qtext">You give a toy car a harder push. What will most likely happen?</p>
+    <div class="opts">
+      <button class="opt">It stops right away.</button>
+      <button class="opt">It goes slower.</button>
+      <button class="opt">It turns around.</button>
+      <button class="opt" data-c="1">It goes faster and farther.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Magnets attract iron and steel. Glass, wood, and aluminum are not pulled by a magnet.">
+    <span class="pts">+5</span>
+    <p class="qtext">You sort a junk drawer with a magnet. Which item jumps to the magnet?</p>
+    <div class="opts">
+      <button class="opt">a glass marble</button>
+      <button class="opt">an aluminum can</button>
+      <button class="opt" data-c="1">a steel safety pin</button>
+      <button class="opt">a wooden ruler</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Melting can go back. When the melted chocolate cools, it turns solid again.">
+    <span class="pts">+5</span>
+    <p class="qtext">Chocolate chips melt in a warm pocket. Can they become hard again?</p>
+    <div class="opts">
+      <button class="opt">No, never again.</button>
+      <button class="opt" data-c="1">Yes, if they cool down.</button>
+      <button class="opt">Only if you add water.</button>
+      <button class="opt">Only if you boil them.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A push moves an object away from the one who is pushing.">
+    <span class="pts">+5</span>
+    <p class="qtext">You push a swing away from you. Which way does it move first?</p>
+    <div class="opts">
+      <button class="opt">toward you</button>
+      <button class="opt">straight down</button>
+      <button class="opt" data-c="1">away from you</button>
+      <button class="opt">It does not move.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="A push the same way the ball is going adds speed. Pushes from the front, pulls backward, and rough ground slow it down.">
+    <span class="pts">+5</span>
+    <p class="qtext">A ball is already rolling. Which force would make it go faster?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a push in the same direction</button>
+      <button class="opt">a push from the front</button>
+      <button class="opt">bumpy, rough ground</button>
+      <button class="opt">a pull backward</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Ice, liquid water, and steam are all water. They are just in different states: solid, liquid, and gas.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the same about an ice cube, a glass of water, and steam?</p>
+    <div class="opts">
+      <button class="opt">They are all solids.</button>
+      <button class="opt">They are all gases.</button>
+      <button class="opt">They are all hot.</button>
+      <button class="opt" data-c="1">They are all water.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="0°F is colder than 32°F. Water colder than 32°F freezes into solid ice.">
+    <span class="pts">+5</span>
+    <p class="qtext">Water is put in a freezer that is 0°F. Water freezes at 32°F. What will happen?</p>
+    <div class="opts">
+      <button class="opt">It will boil.</button>
+      <button class="opt">It will turn into a gas.</button>
+      <button class="opt" data-c="1">It will freeze into ice.</button>
+      <button class="opt">It will stay a liquid.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="A compass needle is a tiny magnet. It points north and south, so the hiker can find the right way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a compass help a lost hiker?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Its magnet needle points north.</button>
+      <button class="opt">It shines a light on the trail.</button>
+      <button class="opt">It pulls the hiker toward home.</button>
+      <button class="opt">It tells how fast the hiker walks.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Jones built a cooling machine for trucks. Pennington showed that cold keeps food safe. Both kept food cold.">
+    <span class="pts">+5</span>
+    <p class="qtext">Frederick McKinley Jones and Mary Engle Pennington both worked on ____.</p>
+    <div class="opts">
+      <button class="opt">growing snow in a lab</button>
+      <button class="opt" data-c="1">keeping food cold</button>
+      <button class="opt">making new magnets</button>
+      <button class="opt">building rockets</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Friction is rubbing that slows things down. Bumpy snow rubs more, so the sled stops sooner.">
+    <span class="pts">+5</span>
+    <p class="qtext">A sled slides farther on smooth ice than on bumpy snow. Why?</p>
+    <div class="opts">
+      <button class="opt">Ice has more gravity.</button>
+      <button class="opt">The sled gets lighter on ice.</button>
+      <button class="opt" data-c="1">Bumpy snow has more friction.</button>
+      <button class="opt">Snow pulls like a magnet.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: answer what you already know about light, shadows, and sound. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This SciShow Kids video explains what sound is and how it gets to your ears. After the video, we will learn about light too.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>What is Sound? | Physics for Kids | SciShow Kids</b> &mdash; SciShow Kids</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/3-xKZKxXuu0?rel=0&amp;modestbranding=1&amp;playsinline=1" title="What is Sound? | Physics for Kids | SciShow Kids" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for the word <b>vibrate</b>. What has to happen to make a sound? What does the sound travel through to reach your ears?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">light source<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;light source. Something that makes its own light. The Sun, a lamp, and a candle flame are light sources.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something that makes its own light. The Sun, a lamp, and a candle flame are light sources.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">reflect<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;reflect. To bounce back. A mirror reflects light. A far wall can reflect sound.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To bounce back. A mirror reflects light. A far wall can reflect sound.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">shadow<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;shadow. A dark shape made when an object blocks light.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A dark shape made when an object blocks light.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">opaque<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;opaque. Blocks all light. Light cannot pass through. Wood and cardboard are opaque.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Blocks all light. Light cannot pass through. Wood and cardboard are opaque.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">vibrate<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;vibrate. To move back and forth very fast. A guitar string vibrates when you pluck it.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To move back and forth very fast. A guitar string vibrates when you pluck it.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">pitch<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;pitch. How high or low a sound is. A tiny bell has a high pitch. A big drum has a low pitch.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">How high or low a sound is. A tiny bell has a high pitch. A big drum has a low pitch.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">echo<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;echo. A sound that bounces off a wall and comes back to you.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A sound that bounces off a wall and comes back to you.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>💡 How We See: Light Travels to Our Eyes</h2>
+<div class="card card">
+<p>Light comes from a <b>light source</b>, like the Sun or a lamp. Light travels in <b>straight lines</b>. It hits things and <b>bounces</b> off. Some of that light goes into our eyes. That is how we <b>see</b>!<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Light comes from a light source , like the Sun or a lamp. Light travels in straight lines . It hits things and bounces off. Some of that light goes into our eyes. That is how we see !&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Is the Moon a light source? It looks bright at night. But the Moon makes no light of its own. Sunlight hits the Moon and bounces off. Then it reaches my eyes. So the Moon is not a light source. It reflects light.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Is the Moon a light source? It looks bright at night. But the Moon makes no light of its own. Sunlight hits the Moon and bounces off. Then it reaches my eyes. So the Moon is not a light source. It reflects light.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Does It Make Its Own Light?</h4><table><tr><th>Thing</th><th>Makes its own light?</th></tr><tr><td>the Sun</td><td>yes</td></tr><tr><td>a lamp</td><td>yes</td></tr><tr><td>a candle flame</td><td>yes</td></tr><tr><td>a firefly</td><td>yes, it glows</td></tr><tr><td>the Moon</td><td>no, it reflects sunlight</td></tr><tr><td>a mirror</td><td>no, it reflects light</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Why can't you read a book in a totally dark closet? The book is there. Your eyes work. But <b>no light</b> hits the book. So no light bounces from the book into your eyes. Now turn on a flashlight. Light bounces off the page and into your eyes. <b>Now you can read!</b><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Why can\'t you read a book in a totally dark closet? The book is there. Your eyes work. But no light hits the book. So no light bounces from the book into your eyes. Now turn on a flashlight. Light bounces off the page and into your eyes. Now you can read!&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="source|sources" data-logic="A light source makes its own light, like the Sun, a lamp, or a firefly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Something that makes its own light is a light ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="The table says the Moon does not make its own light. It reflects light from the Sun.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the light table. Which one is <b>not</b> a light source?</p>
+    <div class="opts">
+      <button class="opt">the Sun</button>
+      <button class="opt">a lamp</button>
+      <button class="opt" data-c="1">the Moon</button>
+      <button class="opt">a firefly</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="Light travels in straight lines. That is why you cannot see around a corner.">
+    <span class="pts">+5</span>
+    <p class="qtext">How does light travel?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">in straight lines</button>
+      <button class="opt">in big circles</button>
+      <button class="opt">around corners</button>
+      <button class="opt">in zigzags</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="eyes|eye" data-logic="Light bounces off objects. When that light enters our eyes, we see the object.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">We see an object when light bounces off it and goes into our ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="The table says a firefly glows. It is the only living thing on the list. A candle flame makes light, but a candle is not alive.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the light table. Which <b>living thing</b> makes its own light?</p>
+    <div class="opts">
+      <button class="opt">the Moon</button>
+      <button class="opt">a mirror</button>
+      <button class="opt">a candle</button>
+      <button class="opt" data-c="1">a firefly</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="We need light to see. With no light, nothing bounces into our eyes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why can't we see anything in a totally dark room?</p>
+    <div class="opts">
+      <button class="opt">Our eyes stop working at night.</button>
+      <button class="opt" data-c="1">No light bounces into our eyes.</button>
+      <button class="opt">Things vanish in the dark.</button>
+      <button class="opt">Dark air is too heavy.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="Sun|the Sun" data-logic="The Sun is a star. It makes its own light and lights up our day.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The biggest light source in our daytime sky is the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="The Moon makes no light. Sunlight bounces off the Moon and comes to our eyes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does the Moon look bright at night?</p>
+    <div class="opts">
+      <button class="opt">It burns like a big fire.</button>
+      <button class="opt" data-c="1">It reflects light from the Sun.</button>
+      <button class="opt">It has its own lamps.</button>
+      <button class="opt">It is a star like the Sun.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="Light travels in straight lines. It goes straight from the flashlight to the wall.">
+    <span class="pts">+5</span>
+    <p class="qtext">You shine a flashlight at a wall. What path does the light take?</p>
+    <div class="opts">
+      <button class="opt">a curvy line to the wall</button>
+      <button class="opt">a circle around the room</button>
+      <button class="opt">It stays in the flashlight.</button>
+      <button class="opt" data-c="1">a straight line to the wall</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🔦 Shadows and Reflections</h2>
+<div class="card card-grass">
+<p>Some things block light. They are <b>opaque</b>, like wood or your body. A dark <b>shadow</b> forms behind them. Clear things, like window glass, let light pass through. A smooth, shiny <b>mirror</b> <b>reflects</b> light. Reflect means to bounce back.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Some things block light. They are opaque , like wood or your body. A dark shadow forms behind them. Clear things, like window glass, let light pass through. A smooth, shiny mirror reflects light. Reflect means to bounce back.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Why does my shadow change during the day? In the morning, the Sun is low in the sky. My body blocks the light at a slant, so my shadow is long. At noon, the Sun is high. My shadow is short. My shadow is always on the side away from the light.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Why does my shadow change during the day? In the morning, the Sun is low in the sky. My body blocks the light at a slant, so my shadow is long. At noon, the Sun is high. My shadow is short. My shadow is always on the side away from the light.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Light Meets an Object</h4><table><tr><th>Object</th><th>What happens to light</th><th>Shadow</th></tr><tr><td>window glass</td><td>almost all passes through</td><td>almost none</td></tr><tr><td>wax paper</td><td>some passes through</td><td>a light, fuzzy shadow</td></tr><tr><td>cardboard</td><td>all is blocked</td><td>a dark shadow</td></tr><tr><td>a mirror</td><td>bounces back (reflects)</td><td>a dark shadow behind it</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Where will the shadow be? A lamp is on the <b>left</b> side of a toy dinosaur. Light travels in straight lines from the left. The dinosaur is opaque, so it blocks the light. The shadow falls on the <b>right</b> side, away from the lamp.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Where will the shadow be? A lamp is on the left side of a toy dinosaur. Light travels in straight lines from the left. The dinosaur is opaque, so it blocks the light. The shadow falls on the right side, away from the lamp.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="opaque" data-logic="Opaque things, like wood and cardboard, block all light. They make dark shadows.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Something that blocks all light is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The table says cardboard blocks all light, so it makes a dark shadow. Glass and wax paper let light through.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Light Meets an Object. Which one makes the <b>darkest</b> shadow?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">cardboard</button>
+      <button class="opt">window glass</button>
+      <button class="opt">wax paper</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="The cup blocks light coming from the right. So the shadow falls on the left, away from the lamp.">
+    <span class="pts">+5</span>
+    <p class="qtext">A lamp is on the <b>right</b> side of a cup. Where is the cup's shadow?</p>
+    <div class="opts">
+      <button class="opt">on the right side</button>
+      <button class="opt">on top of the cup</button>
+      <button class="opt" data-c="1">on the left side</button>
+      <button class="opt">There is no shadow.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="shadow|shadows" data-logic="A shadow forms where an object blocks light.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A dark shape made when an object blocks light is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="The table says a mirror reflects light. Reflect means to bounce back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Light Meets an Object. What does a mirror do to light?</p>
+    <div class="opts">
+      <button class="opt">lets it all through</button>
+      <button class="opt">makes new light</button>
+      <button class="opt">turns it into sound</button>
+      <button class="opt" data-c="1">bounces it back</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="Still water is smooth like a mirror. It bounces light back, so you see your face. That is reflecting.">
+    <span class="pts">+5</span>
+    <p class="qtext">You see your face in a still pond. What is the water doing to the light?</p>
+    <div class="opts">
+      <button class="opt">making new light</button>
+      <button class="opt" data-c="1">reflecting it</button>
+      <button class="opt">blocking all of it</button>
+      <button class="opt">turning it into sound</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="reflects|reflect|reflected" data-logic="Reflect means to bounce back. Mirrors reflect light very well.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A smooth, shiny mirror bounces light back. We say it ____ light:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="The table says some light passes through wax paper. So its shadow is light and fuzzy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Light Meets an Object. What kind of shadow does wax paper make?</p>
+    <div class="opts">
+      <button class="opt">a very dark shadow</button>
+      <button class="opt" data-c="1">a light, fuzzy shadow</button>
+      <button class="opt">no shadow at all</button>
+      <button class="opt">a bright, shiny shadow</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="Light travels in straight lines. The object blocks the light, so the dark shape matches the object.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a shadow have the same shape as the object?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The object blocks light in its own shape.</button>
+      <button class="opt">Shadows copy what they see.</button>
+      <button class="opt">The light paints a picture.</button>
+      <button class="opt">The wall remembers the shape.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🥁 Sound: Things That Vibrate</h2>
+<div class="card card-sky">
+<p>Sound is made when something <b>vibrates</b>. Vibrate means to move back and forth very fast. The vibrations travel through the <b>air</b> to your ears. Inside your ear, your <b>eardrum</b> vibrates too. Then you hear! Fast vibrations make a high <b>pitch</b>. Slow vibrations make a low pitch.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Sound is made when something vibrates . Vibrate means to move back and forth very fast. The vibrations travel through the air to your ears. Inside your ear, your eardrum vibrates too. Then you hear! Fast vibrations make a high pitch . Slow vibrations make a low pitch.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I put my fingers on my throat and hum. I feel a buzz. That buzz is my throat vibrating. Now I stop humming. The buzz stops, and the sound stops too. So sound and vibration go together.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I put my fingers on my throat and hum. I feel a buzz. That buzz is my throat vibrating. Now I stop humming. The buzz stops, and the sound stops too. So sound and vibration go together.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Sound Chart</h4><table><tr><th>Sound maker</th><th>What vibrates</th><th>Pitch</th></tr><tr><td>a big drum</td><td>the drum skin</td><td>low</td></tr><tr><td>a tiny bell</td><td>the metal bell</td><td>high</td></tr><tr><td>a thick guitar string</td><td>the string</td><td>low</td></tr><tr><td>a thin guitar string</td><td>the string</td><td>high</td></tr><tr><td>your voice</td><td>parts inside your throat</td><td>high or low</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>You shout "Hello!" in a big, empty gym. A moment later, you hear "Hello!" again. Why? The sound traveled to the far wall. It <b>bounced back</b> to your ears. A sound that bounces back is an <b>echo</b>. Sound can reflect, just like light!<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;You shout \&quot;Hello!\&quot; in a big, empty gym. A moment later, you hear \&quot;Hello!\&quot; again. Why? The sound traveled to the far wall. It bounced back to your ears. A sound that bounces back is an echo . Sound can reflect, just like light!&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="vibrate|vibrates|vibrating|vibration" data-logic="Vibrate means to move back and forth very fast. Vibrations make sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">To move back and forth very fast is to ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="The chart says the tiny bell has a high pitch. The big drum and thick string are low.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Sound Chart. Which one makes a <b>high</b> pitch?</p>
+    <div class="opts">
+      <button class="opt">a big drum</button>
+      <button class="opt">a thick guitar string</button>
+      <button class="opt" data-c="1">a tiny bell</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="The drum skin vibrates. The vibrations travel through the air to your ears.">
+    <span class="pts">+5</span>
+    <p class="qtext">What carries the sound of a drum to your ears?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the air</button>
+      <button class="opt">the light</button>
+      <button class="opt">a magnet</button>
+      <button class="opt">a shadow</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="echo|echoes" data-logic="An echo is sound that reflects off a wall or cliff and comes back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A sound that bounces off a wall and comes back to you is an ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="The chart says the drum skin vibrates. That makes the sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the Sound Chart. What vibrates when you hit a big drum?</p>
+    <div class="opts">
+      <button class="opt">your eardrum only</button>
+      <button class="opt">the floor</button>
+      <button class="opt">the drumstick's shadow</button>
+      <button class="opt" data-c="1">the drum skin</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="Sound comes from vibration. When the bell stops vibrating, the sound stops.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bell is ringing. You hold it tight with your hand. The sound stops. Why?</p>
+    <div class="opts">
+      <button class="opt">The bell ran out of sound.</button>
+      <button class="opt" data-c="1">Your hand stopped it from vibrating.</button>
+      <button class="opt">Your hand made it too cold.</button>
+      <button class="opt">Light stopped hitting it.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="pitch" data-logic="Pitch is how high or low a sound is. Fast vibrations make a high pitch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How high or low a sound is, is called its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Fast vibrations make a high pitch. Slow vibrations make a low pitch.">
+    <span class="pts">+5</span>
+    <p class="qtext">A guitar string vibrates very fast. What kind of sound does it make?</p>
+    <div class="opts">
+      <button class="opt">a low-pitched sound</button>
+      <button class="opt" data-c="1">a high-pitched sound</button>
+      <button class="opt">no sound at all</button>
+      <button class="opt">a sound only dogs hear</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="Sound vibrations make the eardrum vibrate. Then you hear the sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which part of your ear vibrates when sound arrives?</p>
+    <div class="opts">
+      <button class="opt">the earlobe</button>
+      <button class="opt">the skin behind your ear</button>
+      <button class="opt">the ear hair</button>
+      <button class="opt" data-c="1">the eardrum</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>📏 Lab: The Shadow Test</h2>
+<p>A student stood a toy 4 inches tall in front of a wall. She shined a flashlight at it. Then she moved the flashlight closer and measured the shadow on the wall each time.</p>
+<div class="sourcebox"><h4>Shadow Test Data Table</h4><div><p>Same toy. Same wall. Same flashlight. The toy stayed 12 inches from the wall. Only the <b>distance</b> from the flashlight to the toy changed.</p><table><tr><th>Flashlight distance from toy</th><th>Shadow height on wall</th></tr><tr><td>24 inches</td><td>6 inches</td></tr><tr><td>12 inches</td><td>8 inches</td></tr><tr><td>6 inches</td><td>12 inches</td></tr><tr><td>3 inches</td><td>20 inches</td></tr></table></div><div class="src">Sample numbers made for this lesson. They follow the real pattern you will see if you try this shadow test at home.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Same toy. Same wall. Same flashlight. The toy stayed 12 inches from the wall. Only the distance from the flashlight to the toy changed. At 24 inches away, the shadow was 6 inches tall. At 12 inches, the shadow was 8 inches. At 6 inches, the shadow was 12 inches. At 3 inches, the shadow was 20 inches tall.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Light Scientist</h4><p>A light scientist looks for a pattern. First I check what changed: only the flashlight's distance. Then I read the shadow heights from far to close. Do they go up or down? Last, I ask: was this a fair test?</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Find the 24 inches row. The shadow height there is 6 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">When the flashlight was 24 inches away, how tall was the shadow?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">6 inches</button>
+      <button class="opt">8 inches</button>
+      <button class="opt">11 inches</button>
+      <button class="opt">20 inches</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="3|three|3 inches" data-logic="The tallest shadow was 20 inches. That happened when the flashlight was only 3 inches away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">At which distance was the shadow the <b>tallest</b>? ____ inches</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="As the flashlight moved from 24 to 3 inches away, the shadow grew from 6 to 20 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">As the flashlight moved closer, what happened to the shadow?</p>
+    <div class="opts">
+      <button class="opt">Closer light makes a smaller shadow.</button>
+      <button class="opt">The shadow never changes.</button>
+      <button class="opt" data-c="1">Closer light makes a bigger shadow.</button>
+      <button class="opt">Farther light makes a bigger shadow.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="lab1_s1" data-pts="5" data-ans="6|six|6 inches" data-logic="At 6 inches the shadow was 12 inches. At 24 inches it was 6 inches. 12 minus 6 is 6.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How much taller was the shadow at 6 inches than at 24 inches? ____ inches</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s1" data-pts="5" data-logic="The source says only the distance changed. She kept the toy, wall, and flashlight the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did the student change on purpose?</p>
+    <div class="opts">
+      <button class="opt">which toy she used</button>
+      <button class="opt">which wall she used</button>
+      <button class="opt">which flashlight she used</button>
+      <button class="opt" data-c="1">how far away the flashlight was</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="Farther light makes a smaller shadow. 30 inches is farther than 24, so the shadow would be less than 6 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Predict: the flashlight moves back to 30 inches. The shadow would most likely be ____.</p>
+    <div class="opts">
+      <button class="opt">taller than 20 inches</button>
+      <button class="opt">exactly 11 inches</button>
+      <button class="opt" data-c="1">shorter than 6 inches</button>
+      <button class="opt">gone completely</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="lab1_s2" data-pts="5" data-ans="8|eight|8 inches" data-logic="Find the 12 inches row. The shadow was 8 inches tall.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How tall was the shadow when the flashlight was 12 inches away? ____ inches</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="In a fair test, you change only one thing. Then you know that one thing caused the change.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did the student keep the same toy and the same wall?</p>
+    <div class="opts">
+      <button class="opt">to finish faster</button>
+      <button class="opt" data-c="1">to make it a fair test</button>
+      <button class="opt">to make the room darker</button>
+      <button class="opt">to make the toy taller</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="She can move the wall and measure the shadow with a ruler. The others are opinions or history facts, not tests.">
+    <span class="pts">+5</span>
+    <p class="qtext">The student wants to keep exploring shadows. Which question can she test and measure?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Does the wall's distance change the shadow?</button>
+      <button class="opt">Which shadow is the prettiest?</button>
+      <button class="opt">Who made the first flashlight?</button>
+      <button class="opt">Is a toy dinosaur better than a car?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🔬 People Who Worked With Light and Sound</h2>
+<p>These people used light and sound to help others. One made light bulbs better. One used a laser to help people see. One made a tiny microphone. One proved how our eyes see.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Lewis Latimer</h4><div class="yrs">1848–1928</div><p>An <b>inventor</b> and expert drafter. His parents had escaped slavery. He taught himself to make careful drawings of machines. He drew the patent drawings for Alexander Graham Bell's <b>telephone</b>. Later he found a better way to make the thin <b>carbon filament</b> inside light bulbs. His bulbs lasted longer. He helped bring electric light to cities like New York and London.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Lewis Latimer. An inventor and expert drafter. His parents had escaped slavery. He taught himself to make careful drawings of machines. He drew the patent drawings for Alexander Graham Bell\'s telephone . Later he found a better way to make the thin carbon filament inside light bulbs. His bulbs lasted longer. He helped bring electric light to cities like New York and London.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Dr. Patricia Bath</h4><div class="yrs">1942–2019</div><p>An <b>eye doctor</b> and inventor from Harlem in New York City. Many people go blind from <b>cataracts</b>. A cataract is when the lens of the eye turns cloudy. She invented the <b>Laserphaco Probe</b>. It uses a laser, a strong beam of light, to remove cataracts. In 1988, she became the first Black woman doctor to get a patent for a medical invention.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Dr. Patricia Bath. An eye doctor and inventor from Harlem in New York City. Many people go blind from cataracts . A cataract is when the lens of the eye turns cloudy. She invented the Laserphaco Probe . It uses a laser, a strong beam of light, to remove cataracts. In 1988, she became the first Black woman doctor to get a patent for a medical invention.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>James West</h4><div class="yrs">born 1931</div><p>An <b>engineer</b> who studied sound. As a boy, he liked to take radios apart. At Bell Labs, he and Gerhard Sessler invented a small, low-cost <b>microphone</b> in 1962. A microphone turns sound vibrations into electric signals. Their kind of microphone has been used in billions of phones, computers, and hearing aids.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;James West. An engineer who studied sound. As a boy, he liked to take radios apart. At Bell Labs, he and Gerhard Sessler invented a small, low-cost microphone in 1962. A microphone turns sound vibrations into electric signals. Their kind of microphone has been used in billions of phones, computers, and hearing aids.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Ibn al-Haytham</h4><div class="yrs">about 965 – about 1040</div><p>A <b>scientist</b> who lived in Basra, in what is now Iraq, and in Cairo, Egypt. Long ago, many people thought eyes sent out beams to see. He tested that idea. He showed that light travels in straight lines <b>into</b> our eyes. He did experiments in a dark room with a tiny hole. He wrote the <b>Book of Optics</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Ibn al-Haytham. A scientist who lived in Basra, in what is now Iraq, and in Cairo, Egypt. Long ago, many people thought eyes sent out beams to see. He tested that idea. He showed that light travels in straight lines into our eyes. He did experiments in a dark room with a tiny hole. He wrote the Book of Optics .&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Her Laserphaco Probe uses a laser, a strong beam of light, to remove cloudy cataracts.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Dr. Patricia Bath's invention use to remove cataracts?</p>
+    <div class="opts">
+      <button class="opt">a magnet</button>
+      <button class="opt">a loud sound</button>
+      <button class="opt" data-c="1">a laser</button>
+      <button class="opt">a mirror</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="Latimer found a better way to make the thin carbon filament inside the bulb.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lewis Latimer made light bulbs last longer. Which part did he improve?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the carbon filament</button>
+      <button class="opt">the glass shape</button>
+      <button class="opt">the on-off switch</button>
+      <button class="opt">the lamp shade</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="He tested the old idea and showed that light travels in straight lines into our eyes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ibn al-Haytham showed that we see because ____.</p>
+    <div class="opts">
+      <button class="opt">our eyes shoot out beams</button>
+      <button class="opt">objects make their own light</button>
+      <button class="opt">sound helps us see</button>
+      <button class="opt" data-c="1">light travels into our eyes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="West and Gerhard Sessler invented a small, low-cost microphone at Bell Labs in 1962.">
+    <span class="pts">+5</span>
+    <p class="qtext">James West helped invent a small ____ used in many phones.</p>
+    <div class="opts">
+      <button class="opt">light bulb</button>
+      <button class="opt" data-c="1">microphone</button>
+      <button class="opt">laser</button>
+      <button class="opt">mirror</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Latimer was an expert drafter. He drew the patent drawings for Bell&#x27;s telephone.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lewis Latimer drew the patent drawings for which invention?</p>
+    <div class="opts">
+      <button class="opt">the Wright brothers' airplane</button>
+      <button class="opt" data-c="1">Alexander Graham Bell's telephone</button>
+      <button class="opt">Thomas Edison's phonograph</button>
+      <button class="opt">George Eastman's camera</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="A cataract makes the lens of the eye cloudy. It can make people blind. Dr. Bath found a way to remove it.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is a cataract?</p>
+    <div class="opts">
+      <button class="opt">when the eardrum stops vibrating</button>
+      <button class="opt">when the eye gets too much sunlight</button>
+      <button class="opt">when a light bulb filament burns out</button>
+      <button class="opt" data-c="1">when the lens of the eye turns cloudy</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="Latimer" data-logic="Lewis Latimer improved the carbon filament, so light bulbs lasted longer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The inventor who made light bulb filaments last longer was Lewis ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="lines|line" data-logic="Light travels in straight lines. That is why shadows have sharp shapes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Light travels in straight ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="vibrate|vibrating|vibrates" data-logic="Humming makes parts in your throat vibrate. The vibrations make the sound.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When you hum, you can feel your throat ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="Bath" data-logic="Dr. Patricia Bath invented the Laserphaco Probe to remove cataracts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The eye doctor who invented a laser tool for cataracts was Dr. Patricia ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="blocks|block|blocked|stops" data-logic="Opaque objects block light. The dark area behind them is the shadow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A shadow forms when an opaque object ____ light:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="microphone|microphones|mic" data-logic="West and Gerhard Sessler invented a small microphone. Their kind of microphone is used in many phones.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">James West helped invent a small ____ that turns sound into electric signals:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="mirror|mirrors" data-logic="Mirrors are smooth and shiny. They reflect light back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A smooth, shiny surface that reflects light very well is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="high" data-logic="Fast vibrations make a high pitch. Thin strings vibrate faster than thick ones.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A thin guitar string vibrates fast. It makes a ____ pitch:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="room" data-logic="He let light in through a tiny hole in a dark room. That helped him study how light travels.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Ibn al-Haytham did light experiments in a dark ____ with a tiny hole:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="A lamp makes its own light. A mirror and the Moon only reflect light.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which one is a light source?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a lamp</button>
+      <button class="opt">a mirror</button>
+      <button class="opt">the Moon</button>
+      <button class="opt">a spoon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="vibrates|vibrate" data-bonus="1" data-logic="All sounds come from vibrations, things moving back and forth very fast.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Sound is made when something ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Big drums vibrate slowly. Slow vibrations make a low pitch.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which makes the lowest pitch?</p>
+    <div class="opts">
+      <button class="opt">a tiny bell</button>
+      <button class="opt">a whistle</button>
+      <button class="opt" data-c="1">a big drum</button>
+      <button class="opt">a thin string</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about light and sound. Use the shadow test numbers as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about light or sound? Write one question, like "Why can't I see my shadow on a cloudy day?"</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, make shadow puppets with a flashlight and a cardboard shape. Move the flashlight closer and farther, and watch the shadow grow and shrink. You can also ask your library for <i>The Doctor with an Eye for Eyes: The Story of Dr. Patricia Bath</i> by Julia Finley Mosca.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Battle: Light and Sound Challenge</h2>
+<p>Think like a light and sound scientist. Use the shadow test, the charts, and what you know about vibrations.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Cardboard is opaque. It blocks all light, so it makes dark, sharp shadows. The others let light through.">
+    <span class="pts">+5</span>
+    <p class="qtext">You want to put on a shadow puppet show. What should you make the puppets from?</p>
+    <div class="opts">
+      <button class="opt">clear plastic wrap</button>
+      <button class="opt">window glass</button>
+      <button class="opt">wax paper</button>
+      <button class="opt" data-c="1">cardboard</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Sound comes from vibration. Plucking makes the rubber band move back and forth.">
+    <span class="pts">+5</span>
+    <p class="qtext">A rubber band on a box makes no sound. What must you do to hear it?</p>
+    <div class="opts">
+      <button class="opt">Shine a light on it.</button>
+      <button class="opt">Hold it very still.</button>
+      <button class="opt" data-c="1">Pluck it so it vibrates.</button>
+      <button class="opt">Put it in the freezer.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="A fair test changes only one thing. With two changes, Maya cannot tell which one made the shadow bigger.">
+    <span class="pts">+5</span>
+    <p class="qtext">Maya moved her flashlight closer <b>and</b> used a bigger toy. Was her shadow test fair?</p>
+    <div class="opts">
+      <button class="opt">Yes, she used a flashlight.</button>
+      <button class="opt" data-c="1">No, she changed two things.</button>
+      <button class="opt">Yes, the shadow got bigger.</button>
+      <button class="opt">No, toys cannot make shadows.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Latimer helped make light bulbs last longer. Bath used laser light to help people see again.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Lewis Latimer and Dr. Patricia Bath both help people?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They used light to help people.</button>
+      <button class="opt">They both built telephones.</button>
+      <button class="opt">They both studied echoes.</button>
+      <button class="opt">They both made microphones.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Sound needs something like air to travel through. With no air, the vibrations cannot reach another person&#x27;s ears.">
+    <span class="pts">+5</span>
+    <p class="qtext">Astronauts on the Moon need radios to talk. The Moon has no air. Why do they need radios?</p>
+    <div class="opts">
+      <button class="opt">Space is too bright to talk.</button>
+      <button class="opt">Helmets are too heavy.</button>
+      <button class="opt" data-c="1">No air carries the sound vibrations.</button>
+      <button class="opt">The Moon is too cold for words.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="Light travels in straight lines. The shadow is always behind the book, away from the lamp. When the book moves right, the shadow moves right too.">
+    <span class="pts">+5</span>
+    <p class="qtext">A book is between a lamp and a wall. You slide the book to the right. Which way does its shadow move?</p>
+    <div class="opts">
+      <button class="opt">to the left</button>
+      <button class="opt" data-c="1">to the right</button>
+      <button class="opt">up to the ceiling</button>
+      <button class="opt">It stays still.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Light comes from the lamp. It bounces off the cat. Then it goes into your eyes. Ibn al-Haytham showed this.">
+    <span class="pts">+5</span>
+    <p class="qtext">You see a cat in a room with a lamp on. Which path does the light take?</p>
+    <div class="opts">
+      <button class="opt">your eyes → cat → lamp</button>
+      <button class="opt">cat → lamp → your eyes</button>
+      <button class="opt">your eyes → lamp → cat</button>
+      <button class="opt" data-c="1">lamp → cat → your eyes</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Those numbers show the shadow grew from 6 to 20 inches as the light moved closer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which evidence from the shadow test shows closer light makes bigger shadows?</p>
+    <div class="opts">
+      <button class="opt">The toy was 4 inches tall.</button>
+      <button class="opt" data-c="1">At 24 inches: 6. At 3 inches: 20.</button>
+      <button class="opt">The wall was the same.</button>
+      <button class="opt">A flashlight was used.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Thin bands vibrate faster than thick ones. Faster vibrations make a higher pitch, like thin guitar strings.">
+    <span class="pts">+5</span>
+    <p class="qtext">You have a thick rubber band and a thin one. Which makes the <b>higher</b> pitch?</p>
+    <div class="opts">
+      <button class="opt">the thick one</button>
+      <button class="opt" data-c="1">the thin one</button>
+      <button class="opt">They sound the same.</button>
+      <button class="opt">Neither makes sound.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Hard walls bounce sound back well. Soft rugs and pillows soak up sound, so less of it bounces back.">
+    <span class="pts">+5</span>
+    <p class="qtext">An empty room has a loud echo. You add rugs and pillows. The echo gets quieter. Why?</p>
+    <div class="opts">
+      <button class="opt">Soft things make sound louder.</button>
+      <button class="opt">Pillows make their own light.</button>
+      <button class="opt">Rugs make the air vibrate faster.</button>
+      <button class="opt" data-c="1">Soft things bounce back less sound.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Good scientists test ideas. Evidence tells us if an idea is true.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ibn al-Haytham tested an old idea instead of just believing it. What does that teach us?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Check ideas with evidence.</button>
+      <button class="opt">Old ideas are always right.</button>
+      <button class="opt">Never ask questions.</button>
+      <button class="opt">Only believe famous people.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="The Sun shines on the Moon, and that light bounces to our eyes. No light is shining on the rock.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does the Moon look bright, but a dark rock at night does not?</p>
+    <div class="opts">
+      <button class="opt">The Moon makes its own light.</button>
+      <button class="opt">The rock is a light source.</button>
+      <button class="opt" data-c="1">Sunlight bounces off the Moon to us.</button>
+      <button class="opt">The Moon is made of mirrors.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Spark Seeker</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-science-w13';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"How do light and sound travel to our eyes and ears?": "../audio/heart/30aa7588d7.mp3", "light source. Something that makes its own light. The Sun, a lamp, and a candle flame are light sources.": "../audio/heart/a3133449ba.mp3", "reflect. To bounce back. A mirror reflects light. A far wall can reflect sound.": "../audio/heart/0aae019afb.mp3", "shadow. A dark shape made when an object blocks light.": "../audio/heart/59bdb77d1b.mp3", "opaque. Blocks all light. Light cannot pass through. Wood and cardboard are opaque.": "../audio/heart/310c383001.mp3", "vibrate. To move back and forth very fast. A guitar string vibrates when you pluck it.": "../audio/heart/09c2e9bfb4.mp3", "pitch. How high or low a sound is. A tiny bell has a high pitch. A big drum has a low pitch.": "../audio/heart/bf0d1577e0.mp3", "echo. A sound that bounces off a wall and comes back to you.": "../audio/heart/3b6e808803.mp3", "Light comes from a light source , like the Sun or a lamp. Light travels in straight lines . It hits things and bounces off. Some of that light goes into our eyes. That is how we see !": "../audio/heart/7ee1394cec.mp3", "Is the Moon a light source? It looks bright at night. But the Moon makes no light of its own. Sunlight hits the Moon and bounces off. Then it reaches my eyes. So the Moon is not a light source. It reflects light.": "../audio/heart/01852def19.mp3", "Why can't you read a book in a totally dark closet? The book is there. Your eyes work. But no light hits the book. So no light bounces from the book into your eyes. Now turn on a flashlight. Light bounces off the page and into your eyes. Now you can read!": "../audio/heart/6996011b4b.mp3", "Some things block light. They are opaque , like wood or your body. A dark shadow forms behind them. Clear things, like window glass, let light pass through. A smooth, shiny mirror reflects light. Reflect means to bounce back.": "../audio/heart/03d2ca396d.mp3", "Why does my shadow change during the day? In the morning, the Sun is low in the sky. My body blocks the light at a slant, so my shadow is long. At noon, the Sun is high. My shadow is short. My shadow is always on the side away from the light.": "../audio/heart/a92ae3c480.mp3", "Where will the shadow be? A lamp is on the left side of a toy dinosaur. Light travels in straight lines from the left. The dinosaur is opaque, so it blocks the light. The shadow falls on the right side, away from the lamp.": "../audio/heart/e1b071e55b.mp3", "Sound is made when something vibrates . Vibrate means to move back and forth very fast. The vibrations travel through the air to your ears. Inside your ear, your eardrum vibrates too. Then you hear! Fast vibrations make a high pitch . Slow vibrations make a low pitch.": "../audio/heart/b81f019b2f.mp3", "I put my fingers on my throat and hum. I feel a buzz. That buzz is my throat vibrating. Now I stop humming. The buzz stops, and the sound stops too. So sound and vibration go together.": "../audio/heart/867c633ad8.mp3", "You shout \"Hello!\" in a big, empty gym. A moment later, you hear \"Hello!\" again. Why? The sound traveled to the far wall. It bounced back to your ears. A sound that bounces back is an echo . Sound can reflect, just like light!": "../audio/heart/5750f8e079.mp3", "Same toy. Same wall. Same flashlight. The toy stayed 12 inches from the wall. Only the distance from the flashlight to the toy changed. At 24 inches away, the shadow was 6 inches tall. At 12 inches, the shadow was 8 inches. At 6 inches, the shadow was 12 inches. At 3 inches, the shadow was 20 inches tall.": "../audio/heart/711e425cb4.mp3", "Lewis Latimer. An inventor and expert drafter. His parents had escaped slavery. He taught himself to make careful drawings of machines. He drew the patent drawings for Alexander Graham Bell's telephone . Later he found a better way to make the thin carbon filament inside light bulbs. His bulbs lasted longer. He helped bring electric light to cities like New York and London.": "../audio/heart/1826e21f50.mp3", "Dr. Patricia Bath. An eye doctor and inventor from Harlem in New York City. Many people go blind from cataracts . A cataract is when the lens of the eye turns cloudy. She invented the Laserphaco Probe . It uses a laser, a strong beam of light, to remove cataracts. In 1988, she became the first Black woman doctor to get a patent for a medical invention.": "../audio/heart/6f2cd764ae.mp3", "James West. An engineer who studied sound. As a boy, he liked to take radios apart. At Bell Labs, he and Gerhard Sessler invented a small, low-cost microphone in 1962. A microphone turns sound vibrations into electric signals. Their kind of microphone has been used in billions of phones, computers, and hearing aids.": "../audio/heart/939838da07.mp3", "Ibn al-Haytham. A scientist who lived in Basra, in what is now Iraq, and in Cairo, Egypt. Long ago, many people thought eyes sent out beams to see. He tested that idea. He showed that light travels in straight lines into our eyes. He did experiments in a dark room with a tiny hole. He wrote the Book of Optics .": "../audio/heart/9c1078d969.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["light source", "makes its own light"], ["shadow", "dark shape where light is blocked"], ["opaque", "blocks all light"], ["reflect", "bounce back"], ["window glass", "lets light pass through"]], [["vibrate", "move back and forth fast"], ["pitch", "how high or low a sound is"], ["echo", "sound that bounces back"], ["eardrum", "vibrates inside your ear"], ["big drum", "low-pitched sound"]], [["Lewis Latimer", "longer-lasting light bulbs"], ["Patricia Bath", "laser tool for cataracts"], ["James West", "co-invented a tiny microphone"], ["Ibn al-Haytham", "wrote the Book of Optics"], ["the Moon", "reflects sunlight"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Spark Seeker", "Shadow Maker", "Echo Explorer", "Master of Light and Sound"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>

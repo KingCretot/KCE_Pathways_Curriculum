@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 12 Science: Pushes, Pulls and Motion | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 12</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 3: Market Days &bull; Week 12 &bull; Science</span>
+  <h1>Pushes, Pulls and Motion</h1>
+  <h2>How forces start, stop, and turn things, and how magnets pull without touching</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>What makes a still ball start rolling, speed up, slow down, or change direction?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;What makes a still ball start rolling, speed up, slow down, or change direction?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 3 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with solids, liquids, and gases</li><li>Find out how pushes and pulls make things move</li><li>See how forces change speed and direction</li><li>Test which things a magnet attracts</li><li>Read toy car data, meet Isaac Newton and Ellen Ochoa, then the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Warm-Up</h2>
+<p>Let's review last week: solids, liquids, gases, and how heating and cooling change matter.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="A solid keeps its own shape. The block stays a block in any box.">
+    <span class="pts">+5</span>
+    <p class="qtext">A wooden block stays the same shape in any box. What state of matter is it?</p>
+    <div class="opts">
+      <button class="opt">liquid</button>
+      <button class="opt">gas</button>
+      <button class="opt" data-c="1">solid</button>
+      <button class="opt">vapor</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Warm air heated the snow. The solid snow melted into liquid water.">
+    <span class="pts">+5</span>
+    <p class="qtext">A snowman melts on a warm day. What made it change?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">heating</button>
+      <button class="opt">cooling</button>
+      <button class="opt">the wind</button>
+      <button class="opt">a magnet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Water freezes at 32°F. It melts at that same temperature when ice warms up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Water turns into ice at what temperature?</p>
+    <div class="opts">
+      <button class="opt">100°F</button>
+      <button class="opt">212°F</button>
+      <button class="opt">72°F</button>
+      <button class="opt" data-c="1">32°F</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s0" data-pts="5" data-logic="Alice Ball was a chemist. She changed chaulmoogra oil so doctors could give it as a shot.">
+    <span class="pts">+5</span>
+    <p class="qtext">Alice Ball was a ____ who changed oil into medicine.</p>
+    <div class="opts">
+      <button class="opt">pilot</button>
+      <button class="opt" data-c="1">chemist</button>
+      <button class="opt">farmer</button>
+      <button class="opt">mapmaker</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="A liquid takes the shape of its container. The lemonade takes the shape of the cup.">
+    <span class="pts">+5</span>
+    <p class="qtext">Lemonade fills a pitcher. Then you pour it into a cup. Why does it change shape?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is a liquid.</button>
+      <button class="opt">It is a solid.</button>
+      <button class="opt">It froze.</button>
+      <button class="opt">It boiled.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Water vapor in warm air touches the cold window. It cools into drops. That is condensation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Water drops form on a cold window on a winter morning. What is this?</p>
+    <div class="opts">
+      <button class="opt">melting</button>
+      <button class="opt">boiling</button>
+      <button class="opt" data-c="1">condensation</button>
+      <button class="opt">freezing</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="The sunny windowsill was the warmest place. Its cube melted first, in 25 minutes.">
+    <span class="pts">+5</span>
+    <p class="qtext">In the ice cube race, which place melted the cube fastest?</p>
+    <div class="opts">
+      <button class="opt">the freezer</button>
+      <button class="opt">the refrigerator</button>
+      <button class="opt">the kitchen counter</button>
+      <button class="opt" data-c="1">the sunny windowsill</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s1" data-pts="5" data-logic="Burnt toast can never turn back into bread. The other changes can go back.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which change can <b>not</b> be undone?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">burning toast</button>
+      <button class="opt">melting butter</button>
+      <button class="opt">freezing juice</button>
+      <button class="opt">melting snow</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="A gas spreads out to fill all the space it is in.">
+    <span class="pts">+5</span>
+    <p class="qtext">A gas in a room does what?</p>
+    <div class="opts">
+      <button class="opt">sits in a neat pile</button>
+      <button class="opt" data-c="1">spreads out everywhere</button>
+      <button class="opt">keeps a cube shape</button>
+      <button class="opt">sinks like water</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s2" data-pts="5" data-logic="Jones invented a cooling machine for trucks so food and medicine would not spoil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Frederick McKinley Jones invented a machine that kept trucks ____.</p>
+    <div class="opts">
+      <button class="opt">fast</button>
+      <button class="opt" data-c="1">cold</button>
+      <button class="opt">clean</button>
+      <button class="opt">quiet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="When liquid water heats up, it turns into water vapor, a gas.">
+    <span class="pts">+5</span>
+    <p class="qtext">Heat turns liquid water into a gas. What is that gas called?</p>
+    <div class="opts">
+      <button class="opt">humus</button>
+      <button class="opt">solid ice</button>
+      <button class="opt" data-c="1">water vapor</button>
+      <button class="opt">sea salt</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w4_s2" data-pts="5" data-logic="Cold air cooled the pond below 32°F. The liquid water froze into solid ice.">
+    <span class="pts">+5</span>
+    <p class="qtext">A pond turns to ice in winter. What changed the pond?</p>
+    <div class="opts">
+      <button class="opt">heating</button>
+      <button class="opt">the Sun</button>
+      <button class="opt">wind</button>
+      <button class="opt" data-c="1">cooling</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before you go on, grab your <b>Pre/Post sheet</b> and a pencil. Do <b>Page 1 (Pre)</b> now: answer what you already know about pushes, pulls, and magnets. It is OK to guess!</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>This video explains forces. A force is a push or a pull. Forces make things start, stop, and change direction.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Push and Pull for Kids | Forces in Science</b> &mdash; Homeschool Pop</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/ZLDUrPaLQWE?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Push and Pull for Kids | Forces in Science" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Count the pushes and pulls you see. For each one, ask: did it make something start, stop, speed up, or change direction?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">force<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;force. A push or a pull. Forces can make things start, stop, speed up, slow down, or turn.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A push or a pull. Forces can make things start, stop, speed up, slow down, or turn.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">push<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;push. A force that moves something away from you. You push a door to open it.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A force that moves something away from you. You push a door to open it.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">pull<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;pull. A force that moves something toward you. You pull a wagon behind you.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A force that moves something toward you. You pull a wagon behind you.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">speed<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;speed. How fast something moves. A race car has more speed than a turtle.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">How fast something moves. A race car has more speed than a turtle.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">direction<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;direction. The way something moves: up, down, left, right, toward, or away.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The way something moves: up, down, left, right, toward, or away.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">magnet<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;magnet. An object that pulls on iron and steel, even without touching them.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An object that pulls on iron and steel, even without touching them.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">attract<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;attract. To pull toward. A magnet attracts a steel paper clip.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To pull toward. A magnet attracts a steel paper clip.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🛒 Pushes and Pulls Are Forces</h2>
+<div class="card card">
+<p>A <b>force</b> is a <b>push</b> or a <b>pull</b>. A push moves something <b>away</b> from you. A pull moves something <b>toward</b> you. Forces make still things <b>start moving</b>. Forces also make moving things <b>stop</b>. <b>Gravity</b> is a pull, too. It pulls things down toward Earth.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A force is a push or a pull . A push moves something away from you. A pull moves something toward you. Forces make still things start moving . Forces also make moving things stop . Gravity is a pull, too. It pulls things down toward Earth.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>A ball sits still on the grass. Will it ever roll by itself? No. Something must push or pull it. I kick it, and it rolls away. My kick was a push, a force. Then my friend stops it with her foot. Her foot was a force, too.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A ball sits still on the grass. Will it ever roll by itself? No. Something must push or pull it. I kick it, and it rolls away. My kick was a push, a force. Then my friend stops it with her foot. Her foot was a force, too.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Push or Pull?</h4><table><tr><th>Action</th><th>Force</th><th>What the force did</th></tr><tr><td>Kicking a ball</td><td>push</td><td>started it moving</td></tr><tr><td>Opening a drawer</td><td>pull</td><td>moved it toward you</td></tr><tr><td>Catching a ball</td><td>push</td><td>stopped it</td></tr><tr><td>An apple falling from a tree</td><td>pull (gravity)</td><td>moved it down to the ground</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Maya rides in a wagon. Her brother holds the handle and walks forward. Is he pushing or pulling? The wagon moves <b>toward</b> him, behind him. So it is a <b>pull</b>. Now he goes behind the wagon and moves it forward with his hands. The wagon moves <b>away</b> from him. That is a <b>push</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Maya rides in a wagon. Her brother holds the handle and walks forward. Is he pushing or pulling? The wagon moves toward him, behind him. So it is a pull . Now he goes behind the wagon and moves it forward with his hands. The wagon moves away from him. That is a push .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="force|forces" data-logic="A force is a push or a pull. Forces make things move, stop, or turn.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A push or a pull is called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="The table says catching a ball is a push that stops it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Push or Pull? What does catching a ball do?</p>
+    <div class="opts">
+      <button class="opt">starts it moving</button>
+      <button class="opt">pulls it up</button>
+      <button class="opt" data-c="1">stops it</button>
+      <button class="opt">makes it faster</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s0" data-pts="5" data-logic="The drawer moves toward you. A force that moves something toward you is a pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">You open a drawer. What kind of force is that?</p>
+    <div class="opts">
+      <button class="opt">a push</button>
+      <button class="opt" data-c="1">a pull</button>
+      <button class="opt">a magnet</button>
+      <button class="opt">no force</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t11_s1" data-pts="5" data-ans="push|pushes" data-logic="A push moves something away from you, like pushing a door open.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A force that moves something away from you is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s1" data-pts="5" data-logic="A still object stays still until a force acts on it. A push or a pull starts it moving.">
+    <span class="pts">+5</span>
+    <p class="qtext">A ball sits still on the grass. What will make it move?</p>
+    <div class="opts">
+      <button class="opt">waiting a long time</button>
+      <button class="opt" data-c="1">a push or a pull</button>
+      <button class="opt">looking at it</button>
+      <button class="opt">nothing can</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s1" data-pts="5" data-logic="The table says gravity is a pull that moved the apple down to the ground.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Push or Pull? Which force made the apple fall?</p>
+    <div class="opts">
+      <button class="opt">a kick</button>
+      <button class="opt">a magnet</button>
+      <button class="opt">the wind</button>
+      <button class="opt" data-c="1">gravity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t11_s2" data-pts="5" data-ans="gravity" data-logic="Gravity pulls things down toward Earth. That is why a dropped ball falls.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The pull that makes things fall down toward Earth is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s2" data-pts="5" data-logic="The wagon follows behind you, moving toward you. That is a pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">You walk in front of a wagon and hold its handle. Are you pushing or pulling?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">pulling</button>
+      <button class="opt">pushing</button>
+      <button class="opt">both at once</button>
+      <button class="opt">neither</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t13_s2" data-pts="5" data-logic="A kick moves the ball away from you. That is a push.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which of these is a <b>push</b>?</p>
+    <div class="opts">
+      <button class="opt">opening a drawer</button>
+      <button class="opt">pulling a wagon</button>
+      <button class="opt">tugging a rope</button>
+      <button class="opt" data-c="1">kicking a ball</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>⚽ Forces Change Speed and Direction</h2>
+<div class="card card-grass">
+<p>Forces can change how fast something moves. That is its <b>speed</b>. A <b>bigger</b> push makes a ball go <b>faster</b> and <b>farther</b>. Forces can also change the way something moves. That is its <b>direction</b>. Rubbing on the ground, called <b>friction</b>, slowly stops a rolling ball.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Forces can change how fast something moves. That is its speed . A bigger push makes a ball go faster and farther . Forces can also change the way something moves. That is its direction . Rubbing on the ground, called friction , slowly stops a rolling ball.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>I roll a ball gently. It goes slow and stops soon. I roll it hard. It goes fast and far. So a bigger push gives more speed. Then my friend kicks it from the side. It turns! So a push from the side changes its direction.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;I roll a ball gently. It goes slow and stops soon. I roll it hard. It goes fast and far. So a bigger push gives more speed. Then my friend kicks it from the side. It turns! So a push from the side changes its direction.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Forces in a Soccer Game</h4><table><tr><th>What happens</th><th>What the force changes</th></tr><tr><td>A soft tap on the ball</td><td>slow speed, short trip</td></tr><tr><td>A hard kick</td><td>fast speed, long trip</td></tr><tr><td>A kick from the side</td><td>direction (the ball turns)</td></tr><tr><td>Grass rubbing on the ball</td><td>slows it down (friction)</td></tr></table><p>Rolling on smooth floor has less friction than rolling on thick grass or carpet.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>A hockey puck slides toward the goal. A player taps it from the side. What changes? The puck now goes a new way. Its <b>direction</b> changed. Next, a player hits it very hard. It shoots across the ice. Its <b>speed</b> changed. One force can change speed, direction, or both.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A hockey puck slides toward the goal. A player taps it from the side. What changes? The puck now goes a new way. Its direction changed. Next, a player hits it very hard. It shoots across the ice. Its speed changed. One force can change speed, direction, or both.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="speed" data-logic="Speed tells how fast something moves. A bigger push gives more speed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How fast something moves is its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="The table says a kick from the side changes the ball&#x27;s direction. It turns.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Forces in a Soccer Game. A player kicks the ball from the side. What changes?</p>
+    <div class="opts">
+      <button class="opt">its color</button>
+      <button class="opt" data-c="1">its direction</button>
+      <button class="opt">its size</button>
+      <button class="opt">nothing</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s0" data-pts="5" data-logic="A bigger push gives more speed. The ball rolled hard goes faster and farther.">
+    <span class="pts">+5</span>
+    <p class="qtext">You roll one ball gently and one ball hard. Which goes <b>farther</b>?</p>
+    <div class="opts">
+      <button class="opt">the gentle one</button>
+      <button class="opt">They go the same.</button>
+      <button class="opt" data-c="1">the hard one</button>
+      <button class="opt">Neither one moves.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t21_s1" data-pts="5" data-ans="direction|directions" data-logic="Direction is the way something moves: up, down, left, right, toward, or away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The way something moves, like left or right, is its ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s1" data-pts="5" data-logic="Grass rubbing on the ball is friction. Friction slows the ball until it stops.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a rolling ball on grass slowly stop?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Grass rubs on it.</button>
+      <button class="opt">The ball gets tired.</button>
+      <button class="opt">The Sun pulls it.</button>
+      <button class="opt">It runs out of air.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s1" data-pts="5" data-logic="The table says a soft tap gives slow speed and a short trip.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Forces in a Soccer Game. A soft tap gives the ball ____.</p>
+    <div class="opts">
+      <button class="opt">fast speed, long trip</button>
+      <button class="opt">a new color</button>
+      <button class="opt" data-c="1">slow speed, short trip</button>
+      <button class="opt">no motion at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="friction" data-logic="Friction is rubbing between two things. It slows down a rolling ball.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Rubbing that slows a moving thing down is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="A hard hit in the same direction makes the puck go faster. Its speed changes.">
+    <span class="pts">+5</span>
+    <p class="qtext">A hockey player hits a moving puck very hard in the same direction. What changes most?</p>
+    <div class="opts">
+      <button class="opt">its direction</button>
+      <button class="opt">its shape</button>
+      <button class="opt">its color</button>
+      <button class="opt" data-c="1">its speed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t23_s2" data-pts="5" data-logic="A smooth floor has the least friction. So the car rolls farthest there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Where would a toy car roll <b>farthest</b> with the same push?</p>
+    <div class="opts">
+      <button class="opt">on thick carpet</button>
+      <button class="opt" data-c="1">on a smooth floor</button>
+      <button class="opt">on grass</button>
+      <button class="opt">in sand</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🧲 Magnets Pull Without Touching</h2>
+<div class="card card-sky">
+<p>A <b>magnet</b> can push or pull without touching! Magnets <b>attract</b>, or pull on, things made of <b>iron</b> and <b>steel</b>. They do not pull on wood, plastic, paper, or most other metals. Every magnet has a <b>north</b> end and a <b>south</b> end. A north end and a south end pull together. Two north ends <b>push apart</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A magnet can push or pull without touching! Magnets attract , or pull on, things made of iron and steel . They do not pull on wood, plastic, paper, or most other metals. Every magnet has a north end and a south end. A north end and a south end pull together. Two north ends push apart .&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Will a magnet pick up a soda can? It is metal, so I guess yes. But I test it, and nothing happens! Soda cans are made of aluminum, not iron or steel. So not every metal sticks to a magnet. Testing beats guessing.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Will a magnet pick up a soda can? It is metal, so I guess yes. But I test it, and nothing happens! Soda cans are made of aluminum, not iron or steel. So not every metal sticks to a magnet. Testing beats guessing.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Magnet Test Table</h4><table><tr><th>Object</th><th>Made of</th><th>Does the magnet attract it?</th></tr><tr><td>Paper clip</td><td>steel</td><td>yes</td></tr><tr><td>Iron nail</td><td>iron</td><td>yes</td></tr><tr><td>Soda can</td><td>aluminum</td><td>no</td></tr><tr><td>Penny</td><td>zinc and copper</td><td>no</td></tr><tr><td>Crayon</td><td>wax</td><td>no</td></tr></table><p><b>Poles:</b> north + south = pull together (attract). north + north or south + south = push apart (repel).</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Let's Try One Together</h4><p>Put a paper clip on top of a sheet of paper. Hold a magnet under the paper. Move the magnet. The clip moves too! The magnet's pull went <b>through</b> the paper. The magnet never touched the clip. Now try two magnets with the north ends facing. They <b>push apart</b>. Turn one around. They <b>snap together</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Put a paper clip on top of a sheet of paper. Hold a magnet under the paper. Move the magnet. The clip moves too! The magnet\'s pull went through the paper. The magnet never touched the clip. Now try two magnets with the north ends facing. They push apart . Turn one around. They snap together .&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t31_s0" data-pts="5" data-ans="magnet|magnets" data-logic="A magnet pulls on iron and steel. Its force works without touching.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An object that pulls on iron and steel without touching is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s0" data-pts="5" data-logic="The table says the steel paper clip is attracted. Steel has iron in it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Magnet Test Table. Which object does the magnet attract?</p>
+    <div class="opts">
+      <button class="opt">a soda can</button>
+      <button class="opt">a penny</button>
+      <button class="opt">a crayon</button>
+      <button class="opt" data-c="1">a paper clip</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s0" data-pts="5" data-logic="Opposite ends, north and south, attract. They pull together.">
+    <span class="pts">+5</span>
+    <p class="qtext">A north end of a magnet faces a south end of another. What happens?</p>
+    <div class="opts">
+      <button class="opt">They push apart.</button>
+      <button class="opt" data-c="1">They pull together.</button>
+      <button class="opt">Nothing happens.</button>
+      <button class="opt">They melt.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t31_s1" data-pts="5" data-ans="attracts|attract|attracted" data-logic="Attract means pull toward. A magnet attracts iron and steel.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When a magnet pulls something toward it, we say it ____ it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s1" data-pts="5" data-logic="The table says soda cans are aluminum. Magnets do not pull on aluminum.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use Magnet Test Table. Why is a soda can <b>not</b> attracted?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is made of aluminum.</button>
+      <button class="opt">It is too heavy.</button>
+      <button class="opt">It is made of wax.</button>
+      <button class="opt">It is too shiny.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s1" data-pts="5" data-logic="The magnet never touched the clip. Its pull went right through the paper.">
+    <span class="pts">+5</span>
+    <p class="qtext">A magnet under a sheet of paper moves a clip on top. What does this show?</p>
+    <div class="opts">
+      <button class="opt">Paper is magnetic.</button>
+      <button class="opt">The clip is aluminum.</button>
+      <button class="opt" data-c="1">Magnets pull through paper.</button>
+      <button class="opt">Magnets need to touch.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="steel" data-logic="Magnets attract iron and steel. Steel is mostly iron.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Things made of iron or ____ are attracted to magnets:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Same ends, like north and north, push apart. That is called repel.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two magnets have their north ends facing. What happens?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They push apart.</button>
+      <button class="opt">They pull together.</button>
+      <button class="opt">They stick forever.</button>
+      <button class="opt">They turn to south.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t33_s2" data-pts="5" data-logic="A soda can is metal, but a magnet does not attract it. So not all metals stick.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "All metals stick to magnets." What is the best evidence that this is wrong?</p>
+    <div class="opts">
+      <button class="opt">Crayons do not stick.</button>
+      <button class="opt">Paper clips stick.</button>
+      <button class="opt">Nails stick.</button>
+      <button class="opt" data-c="1">Soda cans do not stick.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🏎️ Lab: The Toy Car Launch Test</h2>
+<p>A class used a rubber-band launcher to push the same toy car. They pulled the band back 1, 2, or 3 notches. A bigger pull-back gives a bigger push. They measured how far the car rolled.</p>
+<div class="sourcebox"><h4>Toy Car Launch Test</h4><div><p>Same toy car. Same launcher. The class changed the <b>push</b> (notches) or the <b>floor</b>.</p><table><tr><th>Trial</th><th>Push</th><th>Floor</th><th>How far the car rolled</th></tr><tr><td>A</td><td>1 notch</td><td>smooth tile</td><td>30 inches</td></tr><tr><td>B</td><td>2 notches</td><td>smooth tile</td><td>60 inches</td></tr><tr><td>C</td><td>3 notches</td><td>smooth tile</td><td>90 inches</td></tr><tr><td>D</td><td>3 notches</td><td>carpet</td><td>40 inches</td></tr></table></div><div class="src">Practice data made by KCE for this lesson. Real cars and floors give different numbers, but the pattern is real. You can try it at home with a parent!</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Same toy car. Same launcher. The class changed the push, in notches, or the floor. Trial A: 1 notch on smooth tile, rolled 30 inches. Trial B: 2 notches on smooth tile, rolled 60 inches. Trial C: 3 notches on smooth tile, rolled 90 inches. Trial D: 3 notches on carpet, rolled 40 inches.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Scientist</h4><p>A scientist looks for what changed and what stayed the same. First I compare rows on the same floor. That shows what a bigger push does. Then I compare the same push on two floors. That shows what the floor does.</p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Trial C rolled 90 inches. That is the biggest number in the table.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which trial made the car roll <b>farthest</b>?</p>
+    <div class="opts">
+      <button class="opt">Trial A</button>
+      <button class="opt">Trial B</button>
+      <button class="opt" data-c="1">Trial C</button>
+      <button class="opt">Trial D</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="60|sixty|60 inches" data-logic="The table says Trial B, 2 notches on tile, rolled 60 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many inches did the car roll in Trial B? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="On the same tile floor, 1, 2, then 3 notches rolled 30, 60, then 90 inches. A bigger push went farther.">
+    <span class="pts">+5</span>
+    <p class="qtext">Look at Trials A, B, and C. What pattern do you see?</p>
+    <div class="opts">
+      <button class="opt">Bigger push, shorter roll.</button>
+      <button class="opt" data-c="1">Bigger push, farther roll.</button>
+      <button class="opt">The push did not matter.</button>
+      <button class="opt">Tile stops the car.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="Trials C and D have the same push, 3 notches. Only the floor is different. That is a fair comparison.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which two trials show what the <b>floor</b> does?</p>
+    <div class="opts">
+      <button class="opt">Trials A and B</button>
+      <button class="opt">Trials A and C</button>
+      <button class="opt">Trials B and C</button>
+      <button class="opt" data-c="1">Trials C and D</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="50|fifty|50 inches" data-logic="Tile with 3 notches was 90 inches. Carpet with 3 notches was 40 inches. 90 minus 40 is 50.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many <b>more</b> inches did the car roll on tile than on carpet with 3 notches? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="Carpet rubs on the wheels more than smooth tile. That friction slows the car sooner.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did the car roll less on carpet?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Carpet makes more friction.</button>
+      <button class="opt">Carpet pushes the car back.</button>
+      <button class="opt">Carpet is a magnet.</button>
+      <button class="opt">The car got lighter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="lab1_s2" data-pts="5" data-ans="30|thirty|30 inches" data-logic="30 to 60 to 90 inches. Each extra notch added about 30 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Each extra notch made the car roll about ____ more inches on tile:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s2" data-pts="5" data-logic="Keeping the car the same means only the push or floor changes. That makes a fair test.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did the class use the <b>same toy car</b> every time?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">to make the test fair</button>
+      <button class="opt">because cars are magnets</button>
+      <button class="opt">to make it roll on carpet</button>
+      <button class="opt">to change the speed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="That question can be tested fairly and measured with a ruler. The others are opinions.">
+    <span class="pts">+5</span>
+    <p class="qtext">What could the class test <b>next</b>?</p>
+    <div class="opts">
+      <button class="opt">Which car color is the best?</button>
+      <button class="opt" data-c="1">Does the car roll farther on grass?</button>
+      <button class="opt">Who likes toy cars most?</button>
+      <button class="opt">Is tile prettier than carpet?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🚀 People Who Explained and Used Forces</h2>
+<p>These people explained how things move, used forces in space, found a way to use magnets, and made machines run smoothly.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Isaac Newton</h4><div class="yrs">1643–1727</div><p>An <b>English scientist</b> who wrote rules about <b>motion</b>. One rule says a still thing <b>stays still</b>, and a moving thing <b>keeps moving</b>, until a force acts on it. He also explained <b>gravity</b>. The same pull that makes an apple fall keeps the Moon going around Earth. He shared his ideas in a famous book in 1687.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Isaac Newton. An English scientist who wrote rules about motion . One rule says a still thing stays still , and a moving thing keeps moving , until a force acts on it. He also explained gravity . The same pull that makes an apple fall keeps the Moon going around Earth. He shared his ideas in a famous book in 1687.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Ellen Ochoa</h4><div class="yrs">born 1958</div><p>An <b>engineer and astronaut</b> from California. In 1993, she became the <b>first Hispanic woman</b> to go to space. She flew in space four times. She used the space shuttle's long <b>robot arm</b> to let go of and then catch a science satellite. In space, things float, so a tiny push sends them drifting! Later she led NASA's Johnson Space Center in Houston.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Ellen Ochoa. An engineer and astronaut from California. In 1993, she became the first Hispanic woman to go to space. She flew in space four times. She used the space shuttle\'s long robot arm to let go of and then catch a science satellite. In space, things float, so a tiny push sends them drifting! Later she led NASA\'s Johnson Space Center in Houston.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Shen Kuo</h4><div class="yrs">1031–1095</div><p>A <b>scientist in China</b> about 1,000 years ago. He wrote about a <b>magnet needle</b> that points north and south. That is a <b>compass</b>! Later, sailors used compasses like this to find their way. He also noticed the needle did not point <b>exactly</b> north.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Shen Kuo. A scientist in China about 1,000 years ago. He wrote about a magnet needle that points north and south. That is a compass ! Later, sailors used compasses like this to find their way. He also noticed the needle did not point exactly north.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Elijah McCoy</h4><div class="yrs">about 1844–1929</div><p>An <b>inventor</b> born in Canada. His parents had escaped slavery in Kentucky. As a teen, he trained as an engineer in Scotland. Later he worked on trains in Michigan. Moving train parts rubbed and got hot. In 1872, he invented an <b>oil cup</b> that oiled the engine while the train kept moving. Less rubbing meant less <b>friction</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Elijah McCoy. An inventor born in Canada. His parents had escaped slavery in Kentucky. As a teen, he trained as an engineer in Scotland. Later he worked on trains in Michigan. Moving train parts rubbed and got hot. In 1872, he invented an oil cup that oiled the engine while the train kept moving. Less rubbing meant less friction .&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Newton&#x27;s rule says a still object stays still until a push or pull acts on it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Isaac Newton said a still thing stays still until ____.</p>
+    <div class="opts">
+      <button class="opt">night comes</button>
+      <button class="opt" data-c="1">a force acts on it</button>
+      <button class="opt">it gets cold</button>
+      <button class="opt">it melts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s0" data-pts="5" data-logic="Ellen Ochoa flew on the space shuttle in 1993. She was the first Hispanic woman in space.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1993, Ellen Ochoa became the first Hispanic woman to ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">go to space</button>
+      <button class="opt">build a compass</button>
+      <button class="opt">invent an oil cup</button>
+      <button class="opt">explain gravity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="A magnet needle that points north and south is a compass. Later, sailors used compasses to find their way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Shen Kuo wrote about a magnet needle. What do we call it today?</p>
+    <div class="opts">
+      <button class="opt">a ruler</button>
+      <button class="opt">a thermometer</button>
+      <button class="opt" data-c="1">a compass</button>
+      <button class="opt">a telescope</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="The oil cup oiled moving parts while the engine ran. Oil means less rubbing, less friction.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Elijah McCoy's oil cup do for train engines?</p>
+    <div class="opts">
+      <button class="opt">made them magnetic</button>
+      <button class="opt">made them colder</button>
+      <button class="opt">made them heavier</button>
+      <button class="opt" data-c="1">cut down friction</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Newton explained that gravity pulls the apple down and also keeps the Moon in its path around Earth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Newton said the pull that makes an apple fall also ____.</p>
+    <div class="opts">
+      <button class="opt">melts snow</button>
+      <button class="opt" data-c="1">keeps the Moon circling Earth</button>
+      <button class="opt">makes magnets work</button>
+      <button class="opt">slows cars on carpet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s2" data-pts="5" data-logic="Ochoa used the space shuttle&#x27;s long robot arm to release and later catch a science satellite.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Ellen Ochoa use to let go of and catch a satellite?</p>
+    <div class="opts">
+      <button class="opt">a magnet</button>
+      <button class="opt">a rope</button>
+      <button class="opt" data-c="1">a robot arm</button>
+      <button class="opt">a net</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="Newton" data-logic="Isaac Newton wrote rules about how things move and explained gravity.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The English scientist who wrote rules about motion was Isaac ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="pull|pulling" data-logic="The rope moves toward you. A force that moves something toward you is a pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">You tug a rope toward you. That force is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="repel|repels|repelling" data-logic="Same ends of magnets repel, or push apart.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two north ends of magnets push apart. Push apart is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="Ochoa" data-logic="Ellen Ochoa flew on the space shuttle in 1993, the first Hispanic woman in space.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The first Hispanic woman in space was Ellen ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="steel" data-logic="Magnets attract iron and steel. They do not attract aluminum, wood, or plastic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A magnet attracts things made of iron and ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="friction" data-logic="Grass rubs on the ball. That rubbing, friction, slows it down.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A ball slows down on grass because of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="compass|compasses" data-logic="A compass uses a magnet needle to show north and south.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A magnet needle that points north and south is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="gravity" data-logic="Gravity pulls things down toward Earth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The pull that makes a dropped cup fall is ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="McCoy|Mc Coy" data-logic="Elijah McCoy invented an oil cup in 1872 that oiled engines while they ran.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The inventor of an oil cup for train engines was Elijah ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="The door moves away from you. That is a push.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Opening a door away from you is a ____.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">push</button>
+      <button class="opt">pull</button>
+      <button class="opt">magnet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-ans="speed" data-bonus="1" data-logic="Speed is how fast something moves. A race car moves much faster than a turtle.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A race car has more ____ than a turtle:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Magnets attract iron and steel. The iron nail is the only one made of iron.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which one will a magnet attract?</p>
+    <div class="opts">
+      <button class="opt">a crayon</button>
+      <button class="opt">a penny</button>
+      <button class="opt" data-c="1">an iron nail</button>
+      <button class="opt">a soda can</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned about pushes, pulls, and magnets. Use the toy car data as evidence!</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about forces or magnets? Write one question, like "Why does a compass point north?"</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, go on a magnet hunt. Use a fridge magnet to test 10 things in your kitchen. Make a list: attracted or not. You can also ask your library for <i>Forces Make Things Move</i> by Kimberly Brubaker Bradley.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>👑 Boss Battle: Boss Battle: Master of Motion</h2>
+<p>Think like a scientist. Use forces, friction, magnets, and the toy car data.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="The ball was moving one way and now moves the other way. Your kick changed its direction.">
+    <span class="pts">+5</span>
+    <p class="qtext">A soccer ball rolls toward you. You kick it back the other way. What did your kick change?</p>
+    <div class="opts">
+      <button class="opt">only its color</button>
+      <button class="opt" data-c="1">its direction</button>
+      <button class="opt">its size</button>
+      <button class="opt">nothing</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="Grass is rough like carpet. More friction means the car rolls less far than on smooth tile.">
+    <span class="pts">+5</span>
+    <p class="qtext">Use the toy car data. A 3-notch push on grass would most likely roll ____.</p>
+    <div class="opts">
+      <button class="opt">more than 90 inches</button>
+      <button class="opt">exactly 90 inches</button>
+      <button class="opt" data-c="1">less than on tile</button>
+      <button class="opt">backward</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="The magnet moved the clip from under the paper without touching it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says, "A magnet must touch things to move them." Which is the best evidence against this?</p>
+    <div class="opts">
+      <button class="opt">Magnets are heavy.</button>
+      <button class="opt">Paper clips are steel.</button>
+      <button class="opt">A soda can is aluminum.</button>
+      <button class="opt" data-c="1">A clip moved through paper.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="In space, there is almost nothing to slow it down. A tiny push makes it keep drifting.">
+    <span class="pts">+5</span>
+    <p class="qtext">In space, Ellen Ochoa gives a tool a tiny push. What happens?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It drifts away and keeps going.</button>
+      <button class="opt">It falls to the floor.</button>
+      <button class="opt">It stays still.</button>
+      <button class="opt">It sticks to her hand.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="McCoy&#x27;s oil cup cut friction in train engines. Oil on a bike chain lets the parts slide past each other more easily.">
+    <span class="pts">+5</span>
+    <p class="qtext">A bike chain squeaks and is hard to pedal. What would Elijah McCoy most likely do?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Add oil to cut the friction.</button>
+      <button class="opt">Add a magnet to the chain.</button>
+      <button class="opt">Make the chain much heavier.</button>
+      <button class="opt">Paint the chain a new color.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="A bigger push gives more speed. Smooth tile has less friction. So a big push on tile goes farthest.">
+    <span class="pts">+5</span>
+    <p class="qtext">You want a toy car to roll the <b>farthest</b>. Which is best?</p>
+    <div class="opts">
+      <button class="opt">a big push on carpet</button>
+      <button class="opt">a small push on tile</button>
+      <button class="opt">a small push on carpet</button>
+      <button class="opt" data-c="1">a big push on tile</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="A force is a push or a pull. A color is not a push or a pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is <b>not</b> a force?</p>
+    <div class="opts">
+      <button class="opt">a kick</button>
+      <button class="opt">gravity</button>
+      <button class="opt" data-c="1">a color</button>
+      <button class="opt">a magnet's pull</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="A compass needle is a magnet. Earth acts like a giant magnet and pulls the needle into line.">
+    <span class="pts">+5</span>
+    <p class="qtext">Shen Kuo's compass needle swings to point north and south. What makes it turn?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Earth's magnetic pull</button>
+      <button class="opt">the wind</button>
+      <button class="opt">gravity from the Moon</button>
+      <button class="opt">friction</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="They push apart because the same ends face. Turn one around so north faces south. Then they attract.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two magnets push apart. What should you do to make them pull together?</p>
+    <div class="opts">
+      <button class="opt">push harder</button>
+      <button class="opt" data-c="1">turn one around</button>
+      <button class="opt">paint them</button>
+      <button class="opt">put them on carpet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="The grass rubs on the ball. Friction is the force that slows and stops it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Newton said a moving thing keeps moving until a force acts on it. Why does a rolling ball stop on grass?</p>
+    <div class="opts">
+      <button class="opt">The ball is tired.</button>
+      <button class="opt">Gravity pushes it up.</button>
+      <button class="opt" data-c="1">Friction from the grass.</button>
+      <button class="opt">It is a magnet.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="You can test it fairly: same push, same floor, change only the weight. Then measure the distance.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which question could you test with the toy car launcher?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Do heavier cars roll farther?</button>
+      <button class="opt">Which car is the coolest?</button>
+      <button class="opt">Who invented cars?</button>
+      <button class="opt">Are red cars better?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Gravity pulls things down toward Earth, the same pull Newton explained.">
+    <span class="pts">+5</span>
+    <p class="qtext">A ball drops from your hand. Which force pulls it down?</p>
+    <div class="opts">
+      <button class="opt">a magnet</button>
+      <button class="opt">friction</button>
+      <button class="opt">a push from the air</button>
+      <button class="opt" data-c="1">gravity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Rolling Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 3;
+const TOTAL_SLIDES = 16;
+const FINAL_INDEX = 15;
+const MODULE_ID = 'grade3-science-w12';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 135;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {"What makes a still ball start rolling, speed up, slow down, or change direction?": "../audio/heart/1ae0d7f976.mp3", "force. A push or a pull. Forces can make things start, stop, speed up, slow down, or turn.": "../audio/heart/9c5206339a.mp3", "push. A force that moves something away from you. You push a door to open it.": "../audio/heart/75a6d7a482.mp3", "pull. A force that moves something toward you. You pull a wagon behind you.": "../audio/heart/5638b6ecf5.mp3", "speed. How fast something moves. A race car has more speed than a turtle.": "../audio/heart/f35d8ffd9c.mp3", "direction. The way something moves: up, down, left, right, toward, or away.": "../audio/heart/944a6be2bd.mp3", "magnet. An object that pulls on iron and steel, even without touching them.": "../audio/heart/e75b9251a5.mp3", "attract. To pull toward. A magnet attracts a steel paper clip.": "../audio/heart/9cfa14cc1d.mp3", "A force is a push or a pull . A push moves something away from you. A pull moves something toward you. Forces make still things start moving . Forces also make moving things stop . Gravity is a pull, too. It pulls things down toward Earth.": "../audio/heart/1185b946e9.mp3", "A ball sits still on the grass. Will it ever roll by itself? No. Something must push or pull it. I kick it, and it rolls away. My kick was a push, a force. Then my friend stops it with her foot. Her foot was a force, too.": "../audio/heart/743d13619d.mp3", "Maya rides in a wagon. Her brother holds the handle and walks forward. Is he pushing or pulling? The wagon moves toward him, behind him. So it is a pull . Now he goes behind the wagon and moves it forward with his hands. The wagon moves away from him. That is a push .": "../audio/heart/2f83273793.mp3", "Forces can change how fast something moves. That is its speed . A bigger push makes a ball go faster and farther . Forces can also change the way something moves. That is its direction . Rubbing on the ground, called friction , slowly stops a rolling ball.": "../audio/heart/5071580df8.mp3", "I roll a ball gently. It goes slow and stops soon. I roll it hard. It goes fast and far. So a bigger push gives more speed. Then my friend kicks it from the side. It turns! So a push from the side changes its direction.": "../audio/heart/2fad9f27ff.mp3", "A hockey puck slides toward the goal. A player taps it from the side. What changes? The puck now goes a new way. Its direction changed. Next, a player hits it very hard. It shoots across the ice. Its speed changed. One force can change speed, direction, or both.": "../audio/heart/3fbc665d5d.mp3", "A magnet can push or pull without touching! Magnets attract , or pull on, things made of iron and steel . They do not pull on wood, plastic, paper, or most other metals. Every magnet has a north end and a south end. A north end and a south end pull together. Two north ends push apart .": "../audio/heart/9e1d4d1bf6.mp3", "Will a magnet pick up a soda can? It is metal, so I guess yes. But I test it, and nothing happens! Soda cans are made of aluminum, not iron or steel. So not every metal sticks to a magnet. Testing beats guessing.": "../audio/heart/cf0be5593a.mp3", "Put a paper clip on top of a sheet of paper. Hold a magnet under the paper. Move the magnet. The clip moves too! The magnet's pull went through the paper. The magnet never touched the clip. Now try two magnets with the north ends facing. They push apart . Turn one around. They snap together .": "../audio/heart/86955c9ee9.mp3", "Same toy car. Same launcher. The class changed the push, in notches, or the floor. Trial A: 1 notch on smooth tile, rolled 30 inches. Trial B: 2 notches on smooth tile, rolled 60 inches. Trial C: 3 notches on smooth tile, rolled 90 inches. Trial D: 3 notches on carpet, rolled 40 inches.": "../audio/heart/696f6134ff.mp3", "Isaac Newton. An English scientist who wrote rules about motion . One rule says a still thing stays still , and a moving thing keeps moving , until a force acts on it. He also explained gravity . The same pull that makes an apple fall keeps the Moon going around Earth. He shared his ideas in a famous book in 1687.": "../audio/heart/039d142205.mp3", "Ellen Ochoa. An engineer and astronaut from California. In 1993, she became the first Hispanic woman to go to space. She flew in space four times. She used the space shuttle's long robot arm to let go of and then catch a science satellite. In space, things float, so a tiny push sends them drifting! Later she led NASA's Johnson Space Center in Houston.": "../audio/heart/fe3fc84302.mp3", "Shen Kuo. A scientist in China about 1,000 years ago. He wrote about a magnet needle that points north and south. That is a compass ! Later, sailors used compasses like this to find their way. He also noticed the needle did not point exactly north.": "../audio/heart/9a4bb90824.mp3", "Elijah McCoy. An inventor born in Canada. His parents had escaped slavery in Kentucky. As a teen, he trained as an engineer in Scotland. Later he worked on trains in Michigan. Moving train parts rubbed and got hot. In 1872, he invented an oil cup that oiled the engine while the train kept moving. Less rubbing meant less friction .": "../audio/heart/491984fd78.mp3"};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["force", "a push or a pull"], ["push", "moves something away"], ["pull", "moves something toward you"], ["speed", "how fast something moves"], ["direction", "the way something moves"]], [["magnet", "pulls iron without touching"], ["attract", "pull together"], ["repel", "push apart"], ["friction", "rubbing that slows things"], ["gravity", "pulls things down to Earth"]], [["Isaac Newton", "wrote rules about motion"], ["Ellen Ochoa", "first Hispanic woman in space"], ["Shen Kuo", "wrote about a compass needle"], ["Elijah McCoy", "oil cup for train engines"], ["robot arm", "caught a satellite in space"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Rolling Rookie", "Push Pro", "Force Finder", "Master of Motion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+</body>
+</html>
