@@ -1397,8 +1397,9 @@ function checkFill(fid){
   const val = inp.value.trim();
   if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
   const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
-  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase());
-  if (accepted.indexOf(val.toLowerCase()) !== -1){
+  const kceNum = s=>(/^-?\d*\.?\d+$/.test(s)?String(parseFloat(s)):s);
+  const accepted = String(box.dataset.ans).split('|').map(s=>kceNum(s.trim().toLowerCase()));
+  if (accepted.indexOf(kceNum(val.toLowerCase())) !== -1){
     state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
     if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
     else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }

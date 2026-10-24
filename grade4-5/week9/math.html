@@ -927,8 +927,8 @@ function checkFill(fid){
   const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
   const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
   const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
-  const cleanVal = val.replace(/[,$\s]/g,'').toLowerCase();
-  const accepted = String(box.dataset.ans).split('|').map(s=>s.trim().replace(/[,$\s]/g,'').toLowerCase());
+  const kceNum = s=>(/^-?\d*\.?\d+$/.test(s)?String(parseFloat(s)):s); const cleanVal = kceNum(val.replace(/[,$\s]/g,'').toLowerCase());
+  const accepted = String(box.dataset.ans).split('|').map(s=>kceNum(s.trim().replace(/[,$\s]/g,'').toLowerCase()));
   if(accepted.indexOf(cleanVal)!==-1){
     state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
     if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }

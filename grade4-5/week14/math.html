@@ -1417,7 +1417,7 @@ function checkFill(fid){
   const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
   const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
   const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
-  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return s;}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return (/^-?\d*\.?\d+$/.test(s)?String(parseFloat(s)):s);}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
   const cleanVal = norm(val); // keeps inner spaces, so "1 8/3" can never collapse into "18/3"
   const accepted = String(box.dataset.ans).split('|').map(norm);
   if(accepted.indexOf(cleanVal)!==-1){
