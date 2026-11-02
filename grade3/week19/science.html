@@ -1670,7 +1670,7 @@ function checkFill(fid){
   const val = inp.value.trim();
   if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
   const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
-  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/(?<!\d)\.|\.(?!\d)|[,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
   const accepted = String(box.dataset.ans).split('|').map(nz);
   if (accepted.indexOf(nz(val)) !== -1){
     state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
