@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 20 Science Checkpoint: Unit 4 | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 20</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 4: Shapes and Space &bull; Week 20 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 4</h1>
+  <h2>Waves and light, energy resources, Earth&rsquo;s four spheres, rock layers and fossils. Show what you know and connect the big ideas.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 2 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Measure a wave&rsquo;s <b>amplitude</b> and <b>wavelength</b>, and explain <b>reflection</b>, <b>refraction</b> and how we see</li><li>Sort <b>renewable</b> and <b>nonrenewable</b> resources, weigh <b>trade-offs</b> and read the EIA electricity data</li><li>Trace how Earth&rsquo;s <b>four spheres</b> interact and read the USGS water data</li><li>Use <b>superposition</b> to order rock layers and read <b>fossils</b> as clues to past environments</li><li>Connect all four weeks in the Boss Battle</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 16–19 and mark what you are still unsure of. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G4-5W20.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G4-5W20.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🌊 Week 16: Waves, Light and How We See, Part 1</h2>
+<p>Remember the parts of a wave and why a wave carries energy, not matter. Measure carefully: amplitude from the rest line, wavelength from crest to crest.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c01_s0" data-pts="5" data-ans="4|4 squares|four" data-logic="The wavelength is crest to crest: 12 minus 5 is 7 squares. The amplitude is rest line to crest: 3 squares. 7 minus 3 is 4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A wave drawn on graph paper has its crest 3 squares above the rest line. Its crests sit at squares 5 and 12. How many squares LONGER is the wavelength than the amplitude? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s0" data-pts="5" data-logic="A wave moves energy through the water. The water, and anything floating on it, mostly moves up and down and ends up near where it started.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "A wave rolled under a beach ball in the lake and carried the ball all the way to shore, so waves carry the water along with them." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A wave carries energy, not water; a floating ball mostly bobs up and down</button>
+      <button class="opt">Waves carry rocks along, but never water</button>
+      <button class="opt">Waves only travel through empty space</button>
+      <button class="opt">Nothing is wrong with the idea</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c01_s1" data-pts="5" data-ans="7|7 squares|seven" data-logic="Amplitude is measured from the rest line up to the crest: 7 squares. Trough to crest (14 squares) is twice the amplitude.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A rope wave's crest rises 7 squares above the rest line and its trough drops 7 squares below it. What is its amplitude, in squares? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s1" data-pts="5" data-logic="Hitting harder makes bigger vibrations. A wave with a bigger amplitude carries more energy, and for sound that means louder.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A drummer hits the same drum softly, then very hard. Why is the second sound louder?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The hard hit makes waves with a bigger amplitude, so they carry more energy</button>
+      <button class="opt">The hard hit makes the drum give off light</button>
+      <button class="opt">The hard hit makes the sound waves carry air to your ears</button>
+      <button class="opt">The hard hit makes the waves need no matter to travel</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c01_s2" data-pts="5" data-ans="6|6 squares|six" data-logic="Trough to crest is twice the amplitude, so 12 divided by 2 is 6 squares, measured from the rest line to the crest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: On a wave drawing, the distance from the bottom of a trough straight up to the top of a crest is 12 squares. The rest line is exactly in the middle. What is the amplitude, in squares? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s2" data-pts="5" data-logic="Sound, water and rope waves need matter to travel through. Light does not, which is also how sunlight crosses space to reach Earth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? An astronaut floating in empty space outside her ship sees a light flashing on another ship, but she hears no sound from it.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Light can cross empty space, but sound needs matter to travel through</button>
+      <button class="opt">Sound can cross empty space, but light cannot</button>
+      <button class="opt">Light and sound both need air to travel</button>
+      <button class="opt">Her helmet blocks all light waves</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🔦 Week 16: Waves, Light and How We See, Part 2</h2>
+<p>Remember how light reflects into your eyes, how it bends in refraction, and how patterns like Morse code send messages.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c03_s0" data-pts="5" data-ans="40|40 degrees|40°|forty" data-logic="The law of reflection says the reflected angle equals the incoming angle, both measured from the normal: 40 degrees.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A narrow flashlight beam hits a flat mirror at 40 degrees from the normal. By the law of reflection, at what angle from the normal does it reflect? Type the number of degrees:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s0" data-pts="5" data-logic="This is refraction. Pull the ruler out and it is still straight: the ruler did not change, the path of the light did.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A ruler standing in a fish tank looks broken right at the water line.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Light bends as it passes from the water into the air, so the underwater part looks out of place</button>
+      <button class="opt">The water really bends the ruler</button>
+      <button class="opt">The ruler absorbs all the light below the water</button>
+      <button class="opt">Light bounces off the ruler and stays inside the tank</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c03_s1" data-pts="5" data-ans="heat|h e a t" data-logic="· · · · is H, · is E, · – is A and – is T, so the message spells HEAT.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Use this Morse code key: H = · · · ·, E = ·, A = · –, T = –. Decode the message · · · · then · then · – then –. Type the word:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s1" data-pts="5" data-logic="The Sun is a light source. The Moon only reflects sunlight, the same way a book reflects lamplight into your eyes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "I can see the Moon at night because the Moon makes its own light, just like the Sun." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Moon is not a light source; sunlight reflects off it and into your eyes</button>
+      <button class="opt">The Moon makes light only on cloudy nights</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      <button class="opt">We see the Moon because our eyes send out rays</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c03_s2" data-pts="5" data-ans="2|2 degrees|2°|two" data-logic="The law of reflection predicts 25 degrees. 27 minus 25 is 2 degrees, a small measuring error like the ones in the class lab.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: In a mirror lab, a beam hits the mirror at 25 degrees from the normal. A student measures the reflected beam at 27 degrees. By the law of reflection, how many degrees off was the measurement? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s2" data-pts="5" data-logic="White sunlight is a mix of colors. The color you see is the color of light an object reflects into your eyes.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A backpack looks blue to you in sunlight.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It reflects mostly blue light and absorbs most of the other colors</button>
+      <button class="opt">It absorbs all of the blue light</button>
+      <button class="opt">It makes its own blue light</button>
+      <button class="opt">It reflects every color the same amount</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>⚡ Week 17: Energy Resources, Part 1</h2>
+<p>Remember which resources are renewable or nonrenewable, how power plants make electricity, and the trade-offs of each source.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c05_s0" data-pts="5" data-ans="renewable|renewables" data-logic="Renewable resources are naturally replaced in a short time. Fossil fuels and uranium are nonrenewable.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Sunlight, wind and moving water are naturally replaced in a short time, so they will not run out. They are ____ resources:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s0" data-pts="5" data-logic="Nuclear plants split uranium atoms (fission) to release heat. Uranium is a metal mined from the ground, not the remains of ancient living things.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: A poster says, "Nuclear power plants burn uranium the way coal plants burn coal, so uranium is a fossil fuel." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Uranium atoms are split in fission; uranium is nonrenewable but not a fossil fuel</button>
+      <button class="opt">Uranium is a renewable resource</button>
+      <button class="opt">Nuclear plants do not use any heat</button>
+      <button class="opt">Nothing is wrong with the poster</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c05_s1" data-pts="5" data-ans="fission" data-logic="Fission means splitting. The heat from fission boils water into steam that spins a turbine.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A nuclear power plant makes heat by splitting atoms of uranium. This splitting is called nuclear ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s1" data-pts="5" data-logic="Hydropower depends on moving water. When a drought lowers the river, less water spins the turbines, so less electricity is made.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? After a long, dry summer, a river's hydropower dam makes less electricity.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Less moving water flows through to spin the turbines</button>
+      <button class="opt">The dam switched itself to burning coal</button>
+      <button class="opt">Drought makes water flow faster</button>
+      <button class="opt">Hydropower only works at night</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c05_s2" data-pts="5" data-ans="turbine|turbines" data-logic="Steam, wind or water spins a turbine, and the turbine turns a generator that makes electricity.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In many power plants, steam pushes on a machine with blades and spins it, and the spinning turns a generator. That machine is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s2" data-pts="5" data-logic="Running day or night is a benefit, but burning fossil fuels releases carbon dioxide, a greenhouse gas, and can pollute the air. No source has a perfect score.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Coal power plants are better than every other source in every way, because they can run day and night." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Every source has trade-offs; burning coal releases carbon dioxide and can pollute the air</button>
+      <button class="opt">Coal plants cannot run at night</button>
+      <button class="opt">Coal is a renewable resource</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>📊 Week 17: Energy Resources, Part 2</h2>
+<p>EIA data for 2025 (utility-scale power plants): natural gas about 41%, nuclear about 18%, coal about 17%, wind about 11%, solar about 7%, hydropower about 6%, biomass about 1%, geothermal less than 1%. All fossil fuels about 58%; all renewables about 24%. Use these numbers as evidence.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c07_s0" data-pts="5" data-ans="34|34%|34 percent|34 percentage points" data-logic="41 plus 17 is 58, the fossil fuel share. 58 minus 24 is 34 percentage points.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the EIA 2025 data. Add natural gas (41) and coal (17). How many percentage points more is that total than all renewables (24)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c08_s0" data-pts="5" data-ans="conservation" data-logic="Conservation means using less energy. Efficiency means using better technology to do the same job with less energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A family hangs wet clothes on a line to dry in the sun instead of running the electric dryer. Using less energy by changing what you do is energy ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c08_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c07_s1" data-pts="5" data-ans="1|1%|1 percent|1 percentage point|one" data-logic="6 plus 11 is 17. 18 minus 17 is 1 percentage point.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the EIA 2025 data. Add hydropower (6) and wind (11). How many percentage points LESS is that total than nuclear (18)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c08_s1" data-pts="5" data-ans="efficiency|efficient" data-logic="Same job, better technology, less energy: that is efficiency. Turning the lights off would be conservation.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A school replaces old light bulbs with LED bulbs that give the same light but use less energy. Better technology doing the same job with less energy is energy ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c08_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c07_s2" data-pts="5" data-ans="18|18%|18 percent|18 percentage points" data-logic="58 plus 24 is 82. 100 minus 82 is 18, which matches nuclear at about 18%.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the EIA 2025 data. Add all fossil fuels (58) and all renewables (24). What percent is left over for other sources, mostly nuclear? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c08_s2" data-pts="5" data-logic="Changing what you do to use less energy is conservation. Efficiency is using technology that does the same job with less energy, like an LED bulb.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Turning off the TV when no one is watching is an example of energy efficiency."</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is conservation: you use less energy by changing what you do</button>
+      <button class="opt">It is fission: you split the TV signal</button>
+      <button class="opt">It is a fossil fuel: TVs burn coal</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🌍 Week 18: Earth&rsquo;s Systems, Part 1</h2>
+<p>Remember the geosphere, hydrosphere, atmosphere and biosphere, and how they interact in a volcano, a hurricane and a forest.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c09_s0" data-pts="5" data-ans="hydrosphere|the hydrosphere" data-logic="The hydrosphere is all of Earth&#x27;s water: oceans, rivers, lakes, ice, groundwater and water vapor in the air.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The water stored underground in a Florida aquifer belongs to which of Earth's four spheres? Type the sphere:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s0" data-pts="5" data-logic="A hurricane forms only over ocean water of at least about 80 degrees Fahrenheit. The hydrosphere powers the storm in the atmosphere.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Where does a hurricane get the energy that powers it?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Heat and water vapor rise from warm ocean water, at least about 80 degrees Fahrenheit, into the atmosphere</button>
+      <button class="opt">Cold air sinks onto a frozen ocean</button>
+      <button class="opt">Sand blows up from the beach into the clouds</button>
+      <button class="opt">Volcanic ash falls into the sea</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c09_s1" data-pts="5" data-ans="transpiration" data-logic="Transpiration moves water from the biosphere (plants) into the atmosphere.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A sunflower's leaves give off water vapor into the air through tiny openings. This process is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s1" data-pts="5" data-logic="The wind (atmosphere) shaped the dune, but the dune itself is made of grains of rock, so it is part of the geosphere.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "A sand dune is part of the atmosphere, because the wind piled it up." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sand is grains of rock, so the dune is geosphere; the wind only moved it</button>
+      <button class="opt">Sand dunes are alive, so they are biosphere</button>
+      <button class="opt">Sand dunes are made of water vapor</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c09_s2" data-pts="5" data-ans="1|1%|1 percent|one" data-logic="78 plus 21 is 99. 100 minus 99 is about 1 percent left for argon, carbon dioxide and other gases.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: The atmosphere is about 78 percent nitrogen and about 21 percent oxygen. About what percent is left for argon, carbon dioxide and the other gases? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s2" data-pts="5" data-logic="The pelican and fish are living (biosphere), the pelican flies through air (atmosphere), and it dives into the Gulf water (hydrosphere).">
+    <span class="pts">+5</span>
+    <p class="qtext">A pelican flies through the air, dives into the Gulf and catches a fish. Which spheres are interacting?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Biosphere, atmosphere and hydrosphere</button>
+      <button class="opt">Geosphere only</button>
+      <button class="opt">Atmosphere only</button>
+      <button class="opt">Geosphere and biosphere only</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>💧 Week 18: Earth&rsquo;s Systems, Part 2</h2>
+<p>USGS water data: about 97.5% of Earth&rsquo;s water is salty and about 2.5% is fresh. Of the FRESH water, about 69% is ice, about 30% is groundwater and about 1% is in lakes, rivers, swamps, soil, air and living things. Always ask: percent of WHAT?</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c11_s0" data-pts="5" data-ans="25|25 cups|twenty-five|twenty five" data-logic="2.5 percent means 2.5 out of every 100. 1,000 cups is 10 groups of 100, so 2.5 times 10 is 25 cups.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Imagine all of Earth's water filled 1,000 cups. About 2.5 percent of it is fresh water. About how many of the 1,000 cups would be fresh? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c12_s0" data-pts="5" data-logic="About 69 percent of fresh water is ice and about 30 percent is groundwater. Lakes, rivers and the rest hold only about 1 percent.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Most of Earth's fresh water is in lakes and rivers." What does the USGS data say instead?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Most fresh water is frozen in ice caps, glaciers and permanent snow (about 69%)</button>
+      <button class="opt">Most fresh water is in the oceans</button>
+      <button class="opt">Most fresh water is in the air</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c11_s1" data-pts="5" data-ans="39|39%|39 percent|39 percentage points" data-logic="69 minus 30 is 39 percentage points. Ice holds the largest share of fresh water, and groundwater is second.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Of Earth's FRESH water, about 69 percent is ice and about 30 percent is groundwater. How many percentage points more is ice than groundwater? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c12_s1" data-pts="5" data-logic="The problem shows up in the water, but it starts on land. Using fertilizer only as directed and planting native plants by the shore fix the cause.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A lake near a neighborhood keeps turning green with algae after heavy rains.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Rain washes extra lawn fertilizer into the lake, and the extra nutrients feed the algae</button>
+      <button class="opt">The rain turns the lake water salty</button>
+      <button class="opt">Algae fall from the clouds during storms</button>
+      <button class="opt">Fish make the algae grow by eating the plants</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c11_s2" data-pts="5" data-ans="2.5|2.5%|2.5 percent|2 1/2|2½|two and a half|2 and a half" data-logic="100 minus 97.5 is 2.5. Only about 2.5 percent of Earth&#x27;s water is fresh.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">About 97.5 percent of all Earth's water is salt water. About what percent of Earth's water is fresh? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c12_s2" data-pts="5" data-logic="Earthquake waves showed up where scientists did not expect them. Lehmann explained it with a solid inner core inside the liquid outer core.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? How did Inge Lehmann learn in 1936 that Earth has a solid inner core, without ever digging?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">She studied records of earthquake waves that traveled through Earth</button>
+      <button class="opt">She drilled a hole down to the core</button>
+      <button class="opt">She looked at the core with a telescope</button>
+      <button class="opt">She measured the temperature of lava</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🐚 Week 19: Rock Layers and Fossils, Part 1</h2>
+<p>Remember the law of superposition and the kinds of fossils. In undisturbed layers, the oldest layer is on the bottom.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c13_s0" data-pts="5" data-ans="z|layer z" data-logic="By the law of superposition, in undisturbed layers the bottom layer formed first. Z is on the bottom, so it is the oldest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A cliff has undisturbed layers. From the top down they are: W limestone, X shale, Y sandstone, Z mudstone. Which layer is the OLDEST? Type its letter:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="Fossil corals and seashells mean a sea was once there. Later, the land rose or the water went away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: A hiker finds fossil corals in rock near a mountaintop and says, "Corals once lived on top of this dry mountain." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Corals live in the sea, so the rock formed under a sea and the land changed later</button>
+      <button class="opt">Corals can live on dry mountains</button>
+      <button class="opt">Corals are trace fossils, so they tell us nothing</button>
+      <button class="opt">Nothing is wrong with the idea</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c13_s1" data-pts="5" data-ans="cast" data-logic="A mold is the hollow print. A cast forms when minerals fill the mold.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A clam shell leaves a hollow print in rock, called a mold. Later, minerals fill the mold and harden into a stone copy of the shell. That stone copy is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s1" data-pts="5" data-logic="Sand, mud and shells settle in layers and gently bury plants and animals. Melted rock and great heat and pressure usually destroy remains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why are MOST fossils found in sedimentary rock?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sediment can bury remains gently, while the heat and pressure that form other rocks usually destroy them</button>
+      <button class="opt">Sedimentary rock is the only rock that is old</button>
+      <button class="opt">Animals only lived on sedimentary rock</button>
+      <button class="opt">Fossils grow inside sedimentary rock like crystals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c13_s2" data-pts="5" data-ans="3|three" data-logic="Lower layers are older. R, S and T are all below Q, so 3 layers are older than Q.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A cliff has five undisturbed layers. From the top down they are P, Q, R, S and T. How many layers are OLDER than layer Q? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c14_s2" data-pts="5" data-ans="trace" data-logic="Trace fossils show what an animal did: footprints, tracks, burrows and nests. Bones, teeth and shells are body fossils.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A fossil worm burrow shows what the animal did, not the animal's body. It is a ____ fossil:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c14_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🏜️ Week 19: Rock Layers and Fossils, Part 2</h2>
+<p>Grand Canyon data (top to bottom, National Park Service): Kaibab 270 million years (sea), Coconino 275 (desert dunes), Hermit 280 (rivers), Supai 315 to 285, Redwall 340 (sea), Bright Angel 515 (sea, trilobites), Vishnu basement 1,840 to 1,680 (no fossils).</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c15_s0" data-pts="5" data-ans="240|240 million|two hundred forty" data-logic="515 minus 275 is 240 million years. The Bright Angel Shale is lower in the canyon, so it is older.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many million years older is the Bright Angel Shale (515) than the Coconino Sandstone (275)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c16_s0" data-pts="5" data-logic="Rock color can change from place to place. The same short-lived index fossil means the layers formed at about the same time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which conclusion is correct? A layer in one cliff is gray and a layer in a cliff 30 miles away is tan, but both hold the same kind of short-lived ammonite.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The two layers formed at about the same time</button>
+      <button class="opt">The layers must be different ages because their colors differ</button>
+      <button class="opt">The ammonite crawled from one cliff to the other</button>
+      <button class="opt">The two cliffs were once one single rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c15_s1" data-pts="5" data-ans="60|60 million|sixty" data-logic="340 minus 280 is 60 million years. The Redwall is lower in the canyon, so it is older, just as superposition predicts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">How many million years older is the Redwall Limestone (340) than the Hermit Formation (280)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c16_s1" data-pts="5" data-logic="The age of the rocks is not the age of the canyon. The rocks formed first, and the river carved them much later.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "The Grand Canyon is 1,840 million years old, because the rock at its bottom is that old." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The rocks are that old, but the Colorado River carved the canyon in the last 5 to 6 million years</button>
+      <button class="opt">The bottom rock is the youngest layer</button>
+      <button class="opt">The canyon is only 100 years old</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c15_s2" data-pts="5" data-ans="Coconino|Coconino Sandstone" data-logic="The Coconino Sandstone formed from desert sand dunes. Animals walked across it, but their bodies were not preserved there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Which Grand Canyon layer formed from desert sand dunes and holds tracks but no body fossils? Type its first word:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c16_s2" data-pts="5" data-logic="Smith noticed each layer held its own fossils in a set order. That pattern let him make the first geologic map of a whole country in 1815.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why could William Smith use fossils to match rock layers across a whole country?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Fossils appear in the same order from bottom to top, even in places far apart</button>
+      <button class="opt">Every layer holds exactly the same fossils</button>
+      <button class="opt">Fossils move up into newer layers over time</button>
+      <button class="opt">Fossils are only found in one place</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned across all of Unit 4, connect two weeks with evidence, and try the Challenge.</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G4-5W20.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G4-5W20.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>Which Unit 4 idea still puzzles you? Write one question about it that a scientist could answer by measuring or observing.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore the U.S. Geological Survey Water Science School or the Energy Kids website of the U.S. Energy Information Administration (eia.gov/kids), or look at the fossil pages of the Florida Museum of Natural History website together. Then find one rock, a shell or a puddle near home and name every sphere it touches.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>👑 Boss Battle: Unit 4 Earth and Energy Showdown</h2>
+<p>These questions connect all four weeks: waves and light, energy resources, Earth&rsquo;s four spheres, and the rock layers that record Earth&rsquo;s history. Reason with evidence before you answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="By the law of superposition, lower undisturbed layers formed first. The plants were buried, then more sediment piled on top.">
+    <span class="pts">+5</span>
+    <p class="qtext">Coal (Week 17) formed from swamp plants buried under layers of sediment. In an undisturbed cliff, a coal layer sits BELOW a sandstone layer (Week 19). Which statement is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The coal layer is older than the sandstone above it</button>
+      <button class="opt">The coal layer is younger than the sandstone</button>
+      <button class="opt">Both layers formed on the same day</button>
+      <button class="opt">Coal always forms on top of other layers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s0" data-pts="5" data-ans="matter|any matter" data-logic="Sound and water waves need matter to travel through. Light does not, so sunlight reaches Earth and solar panels.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A solar panel (Week 17) uses sunlight that crossed empty space to reach Earth (Week 16). Light can cross space because, unlike sound, it does not need ____ to travel through:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="5" data-ans="hydrosphere|the hydrosphere" data-logic="Living sharks belong to the biosphere and ocean water to the hydrosphere. Their teeth ended up as fossils in rock, the geosphere.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Fossil shark teeth from the Peace River near Arcadia (Week 19) show the sea once covered the area. In Week 18 terms, the sharks were part of the biosphere, and the sea they swam in was part of the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="One event can touch every sphere: ash from the geosphere, lake water from the hydrosphere, animals from the biosphere, then fossils in new rock.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? In ancient lakes, volcanic ash buried animals and preserved them as fossils, as in Xu Xing's finds. Which chain of spheres fits?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Geosphere ash fell into the hydrosphere and buried biosphere animals, which became fossils in the geosphere</button>
+      <button class="opt">Atmosphere animals became hydrosphere rock</button>
+      <button class="opt">The biosphere made the volcano erupt</button>
+      <button class="opt">Only the hydrosphere was involved</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="5" data-ans="atmosphere|the atmosphere" data-logic="Carbon dioxide is a greenhouse gas that traps heat in the atmosphere, the layer of gases around Earth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Burning fossil fuels (Week 17) releases carbon dioxide gas. It goes into the layer of gases around Earth, which is called the ____ (Week 18):</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Refraction (Week 16): light from the bottom bends as it leaves the water, so the bottom looks closer to the surface than it really is.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A lifeguard spots a fossil shark tooth lying on the bottom of a clear spring. Where is the tooth really?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Deeper than it looks, because light bends as it leaves the water</button>
+      <button class="opt">Shallower than it looks, because light bounces off the sky</button>
+      <button class="opt">Exactly where it looks, because water does not affect light</button>
+      <button class="opt">Floating at the surface, because fossils are light</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Unit 4 Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. You just finished the Unit 4 Science Checkpoint. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 14;
+const FINAL_INDEX = 13;
+const MODULE_ID = 'grade4-5-science-checkpoint4';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["crest", "highest point of a wave"], ["refraction", "light bending into a new material"], ["renewable", "replaced by nature in a short time"], ["hydrosphere", "all of Earth's water"], ["superposition", "oldest undisturbed layer on the bottom"]], [["amplitude", "rest line up to the crest"], ["fission", "splitting uranium atoms"], ["transpiration", "leaves giving off water vapor"], ["trace fossil", "a footprint or a burrow"], ["index fossil", "widespread and short-lived"]], [["Ibn al-Haytham", "light from objects enters the eye"], ["Mária Telkes", "solar still for drinking water"], ["Inge Lehmann", "Earth's solid inner core"], ["Gladys West", "Earth-shape model for GPS"], ["Nicolaus Steno", "tongue stones were shark teeth"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/(?<!\d)\.|\.(?!\d)|[,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Unit 4 Rookie", "Sphere Spotter", "Layer Reader", "Unit 4 Science Champion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Unit 4 Science Mastered!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered the Unit 4 Science Checkpoint!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. From waves and light to energy, Earth\u2019s spheres and fossils, you read the evidence like a real scientist. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
+<script src="../../gate.js"></script>
+<script src="../../cert.js" data-band="g45" data-unit="4" data-subject="Science"></script><div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g45"></script>
+</body>
+</html>

@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 20 Science Checkpoint | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 20</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 4: Parts and Pieces &bull; Week 20 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 4</h1>
+  <h2>Show what you know about plants, traits, magnets and fossils 🔬</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>. You get up to 2 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Tell the job of each plant part, and how pollen and seeds travel</li><li>Sort traits: inherited, learned, or shaped by the environment</li><li>Use magnet poles and static electricity to solve puzzles</li><li>Read fossils and rock layers like a paleontologist</li><li>Face the two-part Unit 4 Boss Battle and finish the unit!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 16&ndash;19 and what you are unsure about. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G3W20.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G3W20.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🌱 Week 16: Plants: Roots, Stems, Leaves, Flowers and Seeds, Part 1</h2>
+<p>Every plant part has a job. Leaves make food, flowers make seeds, and seeds travel. Show what you remember!</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="a1_s0" data-pts="5" data-ans="minerals|mineral" data-logic="Roots soak up water and tiny bits of minerals from the soil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Roots hold a plant in the ground. They also soak up water and ____ from the soil:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s0" data-pts="5" data-logic="A plant does not eat soil. Its leaves make food from light, water and carbon dioxide, and it builds most of its body from water and air.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Theo asks, "How did a tiny pine seed grow into a giant tree?"</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It built its body mostly from water and carbon dioxide from the air.</button>
+      <button class="opt">It ate the soil around its roots.</button>
+      <button class="opt">It got its body from pollen.</button>
+      <button class="opt">It got its body from rocks.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="a1_s1" data-pts="5" data-ans="oxygen" data-logic="In photosynthesis, leaves take in carbon dioxide and give off oxygen.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A leaf takes in carbon dioxide and gives off a gas we breathe, called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s1" data-pts="5" data-logic="A tree trunk is a big, woody stem. It holds the tree up, and its tubes carry water up to the leaves.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Omar says, "A tree trunk is a kind of root." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A tree trunk is a big, woody stem.</button>
+      <button class="opt">Trees do not have trunks.</button>
+      <button class="opt">A tree trunk is a kind of leaf.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="a1_s2" data-pts="5" data-ans="water" data-logic="The tubes in the stem carry water up from the roots. They also carry food from the leaves to the rest of the plant.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Tiny tubes inside a stem carry ____ up from the roots to the leaves:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a2_s2" data-pts="5" data-logic="The bee visits flowers to get nectar, its food. Pollen sticks to its fuzzy body and rubs off on the next flower. The help is an accident.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why does a bee carry pollen from flower to flower?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Pollen sticks to its fuzzy body while it gets food.</button>
+      <button class="opt">It wants to help the plants on purpose.</button>
+      <button class="opt">The wind tells the bee where to go.</button>
+      <button class="opt">The flowers pay the bee with seeds.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🌱 Week 16: Plants: Roots, Stems, Leaves, Flowers and Seeds, Part 2</h2>
+<p>Use the Seed Travel Test: dandelion 96 inches, maple 40 inches, bean 4 inches, acorn 2 inches.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="a3_s0" data-pts="5" data-ans="34|thirty-four|thirty four|34 inches" data-logic="Step 1: 4 + 2 = 6 inches. Step 2: 40 - 6 = 34 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Add the bean (4 inches) and the acorn (2 inches). How many more inches did the maple seed (40 inches) travel than both of them together? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s0" data-pts="5" data-logic="Bright colors, a sweet smell and nectar invite animals like bees and butterflies. They carry pollen from flower to flower.">
+    <span class="pts">+5</span>
+    <p class="qtext">Priya's flowers are bright purple and full of sweet nectar. Who are they most likely inviting?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">bees and butterflies</button>
+      <button class="opt">the wind</button>
+      <button class="opt">squirrels that bury acorns</button>
+      <button class="opt">raindrops</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="a3_s1" data-pts="5" data-ans="90|ninety|90 inches" data-logic="Step 1: 4 + 2 = 6 inches. Step 2: 96 - 6 = 90 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Add the bean (4 inches) and the acorn (2 inches). How many more inches did the dandelion seed (96 inches) travel than both of them together? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s1" data-pts="5" data-logic="Coconuts can float on the ocean to new beaches. Dandelions and maples ride the wind, and burrs hook onto fur.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which seed would most likely travel by floating on the ocean to a new beach?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a coconut</button>
+      <button class="opt">a dandelion seed</button>
+      <button class="opt">a burr</button>
+      <button class="opt">a maple seed</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="a3_s2" data-pts="5" data-ans="16|sixteen|16 inches" data-logic="Step 1: 40 + 40 = 80 inches. Step 2: 96 - 80 = 16 inches.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Two maple seeds landed 40 inches away each. Add them. How many more inches did one dandelion seed (96 inches) travel than both maple seeds together? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="a3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="a4_s2" data-pts="5" data-logic="He copied the burr&#x27;s tiny hooks and invented Velcro, a hook-and-loop fastener. He got a patent in 1955.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1941, George de Mestral saw tiny hooks on a burdock burr under his microscope. What did he invent?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Velcro, a hook-and-loop fastener</button>
+      <button class="opt">a zipper</button>
+      <button class="opt">a kind of glue</button>
+      <button class="opt">a magnet catch</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🧬 Week 17: Traits: Inherited or Learned?, Part 1</h2>
+<p>Some traits come from parents. Some are learned. Some are shaped by the environment.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b1_s0" data-pts="5" data-ans="inherited|inherit" data-logic="Nobody taught the puppy to have floppy ears. It got them from its parents, so they are an inherited trait.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A puppy is born with floppy ears, just like its mother. Floppy ears are an ____ trait:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A parrot learns words by hearing them again and again. That is a learned behavior.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Lena says, "My parrot was born knowing how to say hello." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Saying hello is learned, not inherited.</button>
+      <button class="opt">Parrots cannot learn anything.</button>
+      <button class="opt">Parrots do not have parents.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="5" data-ans="corn|maize" data-logic="They saved seeds from the plants with the best traits. Over thousands of years, teosinte became corn, also called maize.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Long ago, farmers in Mexico saved seeds from a wild grass called teosinte. Over thousands of years, it became ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="An instinct is a behavior an animal is born knowing. Hatchlings crawl toward the brightest direction, the sky over the ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">A baby sea turtle hatches on a dark Florida beach. Nobody shows it the way, but it crawls to the ocean. What is this?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">an instinct</button>
+      <button class="opt">a learned behavior</button>
+      <button class="opt">a trick</button>
+      <button class="opt">variation</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="5" data-ans="beaks|beak" data-logic="Mostly big, hard seeds were left. Finches with bigger, stronger beaks could crack them, so more of them survived.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Peter and Rosemary Grant studied finches. In the 1977 drought, finches with bigger, stronger ____ survived better:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Learned behaviors are not inherited. Each puppy has to learn the trick for itself.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A dog learns to shake hands. Will her puppies be born knowing how?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">No. Learned behaviors are not passed to offspring.</button>
+      <button class="opt">Yes. Tricks are inherited.</button>
+      <button class="opt">Only the puppies that look like her.</button>
+      <button class="opt">Yes, if she learned it before they were born.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🧬 Week 17: Traits: Inherited or Learned?, Part 2</h2>
+<p>Use the Bird Hide-and-Seek data: brown paper: 12 green, 3 brown picked. Green paper: 4 green, 11 brown picked.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b3_s0" data-pts="5" data-ans="30|thirty|30 dots" data-logic="Step 1: 12 + 3 = 15 and 4 + 11 = 15. Step 2: 15 + 15 = 30 dots.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Add the dots picked on brown paper (12 + 3). Add the dots picked on green paper (4 + 11). How many dots were picked in both rounds? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="A flamingo&#x27;s pink color comes from its food, which is part of its environment. It takes several years.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Flamingo chicks hatch white-gray. Why are grown flamingos pink?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Pigments in the algae and tiny shrimp they eat slowly turn them pink.</button>
+      <button class="opt">Their parents paint them pink.</button>
+      <button class="opt">They learn how to be pink.</button>
+      <button class="opt">The sunlight turns them pink.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b3_s1" data-pts="5" data-ans="25|twenty-five|twenty five|25 dots" data-logic="Step 1: 20 + 20 = 40 dots, and 4 + 11 = 15 picked. Step 2: 40 - 15 = 25 dots were not picked.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! There were 20 green and 20 brown dots. On green paper, the bird picked 4 green and 11 brown. How many dots in all were NOT picked? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="The moths did not choose. Some were already dark. Birds saw them less on sooty bark, so more dark moths lived and had offspring.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Peppered moths near the factories decided to turn dark so they could hide." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Some moths were already dark. They survived better on sooty trees and had young.</button>
+      <button class="opt">Peppered moths are never dark.</button>
+      <button class="opt">Soot made all the moths light.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b3_s2" data-pts="5" data-ans="1|one|1 inch" data-logic="Step 1: 5 + 2 = 7 inches. Step 2: 8 - 7 = 1 inch shorter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Bean Plant C grew 5 inches. Plant D grew 8 inches. If Plant C grows 2 more inches, how many inches shorter than Plant D will it be? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Traits come from parents, but the environment helps decide how they turn out. Shade and little water can keep a tall kind of sunflower short.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Gus says, "My sunflower in the shade stayed short, so its seeds came from a short kind of sunflower." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It may have inherited tall traits. Too little light and water kept it short.</button>
+      <button class="opt">Sunflowers do not have seeds.</button>
+      <button class="opt">Shade always makes plants taller.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🧲 Week 18: Magnets and Static Electricity, Part 1</h2>
+<p>Poles attract and repel. Magnets pull iron, nickel and cobalt. Static charge pulls without touching.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c1_s0" data-pts="5" data-ans="south|south pole" data-logic="Every magnet has two poles: a north pole and a south pole. The pull is strongest there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Every bar magnet has a north pole and a ____ pole:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s0" data-pts="5" data-logic="Iron, nickel and cobalt are magnetic. Copper, gold and plastic are not.">
+    <span class="pts">+5</span>
+    <p class="qtext">June tests four things with a magnet. Which one does the magnet pull?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a nickel strip</button>
+      <button class="opt">a copper wire</button>
+      <button class="opt">a gold ring</button>
+      <button class="opt">a plastic cup</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c1_s1" data-pts="5" data-ans="terrella|terrela|terella|terela" data-logic="Gilbert called his ball-shaped magnet a terrella. In 1600 he wrote that Earth itself is a giant magnet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">William Gilbert made a ball-shaped magnet. He called it a ____, which means "little Earth":</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s1" data-pts="5" data-logic="A penny made since 1982 is mostly zinc with a thin coat of copper. Neither metal is magnetic.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Dev says, "This penny is metal, so a magnet will pull it." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Being metal is not enough. A penny is zinc and copper, which are not magnetic.</button>
+      <button class="opt">Pennies are made of plastic.</button>
+      <button class="opt">Magnets pull every coin.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c1_s2" data-pts="5" data-ans="balloon|balloons" data-logic="Electrons move from your hair onto the balloon. Now they have opposite charges, so they attract.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When you rub a balloon on your hair, tiny bits called electrons move from your hair onto the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c2_s2" data-pts="5" data-logic="Earth acts like a giant magnet. The compass needle is a tiny magnet, so it lines up with Earth and points north.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why does a compass needle point north?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The needle is a tiny magnet that lines up with Earth's magnetism.</button>
+      <button class="opt">The north wind pushes the needle.</button>
+      <button class="opt">One end of the needle is heavier.</button>
+      <button class="opt">The Sun pulls on the needle.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🧲 Week 18: Magnets and Static Electricity, Part 2</h2>
+<p>Think about distance, poles and static charge. Remember: the pull gets weaker farther away.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c3_s0" data-pts="5" data-ans="4|four|4 clips" data-logic="Step 1: 9 - 3 = 6 clips. Step 2: 6 - 2 = 4 clips. More cards means more distance, so fewer clips.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! A magnet lifts 9 clips. You add a card and it lifts 3 fewer. You add another card and it lifts 2 fewer than that. How many clips does it lift now? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c4_s0" data-pts="5" data-logic="Rubbing gives the balloon a static charge. Static electricity can pull light things, like bits of paper, without touching.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A rubbed balloon makes tiny bits of paper jump up to it.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The balloon has a static charge that pulls without touching.</button>
+      <button class="opt">The balloon turned into a magnet.</button>
+      <button class="opt">The paper is made of iron.</button>
+      <button class="opt">Wind from the balloon lifts the paper.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c3_s1" data-pts="5" data-ans="6|six|6 north poles" data-logic="Step 1: each magnet breaks into 2 new magnets, so 3 x 2 = 6 magnets. Step 2: each new magnet has its own north pole, so there are 6 north poles.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! You snap 3 bar magnets in half. Each piece becomes a new magnet. How many north poles are there now? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c4_s1" data-pts="5" data-logic="At first, like poles faced each other and repelled. After the flip, a north faced a south. Opposite poles attract.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Two magnets push apart. Theo flips one around, and now they snap together. Why?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Flipping put opposite poles face to face, and opposite poles attract.</button>
+      <button class="opt">Flipping made the magnets stronger.</button>
+      <button class="opt">Flipping turned both ends into north poles.</button>
+      <button class="opt">Flipping made the magnets lighter.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c3_s2" data-pts="5" data-ans="8|eight|8 parts" data-logic="Step 1: each door needs 1 + 1 = 2 parts. Step 2: 4 doors x 2 parts = 8 parts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! A kitchen has 4 cabinet doors. Each door needs 1 magnet and 1 steel plate. How many parts are needed in all? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c4_s2" data-pts="5" data-logic="Magnetism works through paper, plastic, water and cardboard. The pull only gets weaker as the magnet moves farther away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Ana says, "Cardboard blocks a magnet's pull." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The pull goes right through cardboard. Only more distance makes it weaker.</button>
+      <button class="opt">Cardboard is made of iron.</button>
+      <button class="opt">Magnets cannot pull anything.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🦴 Week 19: Fossils: Clues to Earth Long Ago, Part 1</h2>
+<p>Fossils form in layers of mud and sand. Body fossils, trace fossils and imprints are clues to long ago.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="d1_s0" data-pts="5" data-ans="trace|trace fossil" data-logic="A trace fossil shows what a living thing did, like a footprint, a track or a burrow.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A fossil burrow shows where an animal dug its home. A burrow is a ____ fossil:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s0" data-pts="5" data-logic="First mud and sand bury it. Over a long time the layers press into rock. Last, wind and water wear the rock away so people can find it.">
+    <span class="pts">+5</span>
+    <p class="qtext">A clam dies on the sea floor. Which order shows how it becomes a fossil we can find?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">mud covers it, layers press into rock, the rock wears away</button>
+      <button class="opt">the rock wears away, mud covers it, layers press into rock</button>
+      <button class="opt">layers press into rock, the rock wears away, mud covers it</button>
+      <button class="opt">the rock wears away, layers press into rock, mud covers it</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="d1_s1" data-pts="5" data-ans="amber" data-logic="Sticky tree sap trapped the insect and hardened into amber.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">An insect saved inside hard, golden tree sap is a body fossil. The hard sap is called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s1" data-pts="5" data-logic="Most living things never become fossils. Mud and sand must cover them quickly, and their soft parts usually rot away.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Malik says, "Every animal that dies becomes a fossil." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Most living things never become fossils. They need a quick burial.</button>
+      <button class="opt">Animals never become fossils.</button>
+      <button class="opt">Only plants become fossils.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="d1_s2" data-pts="5" data-ans="forests|forest|trees|tree" data-logic="Fossil trees in Antarctica show it was once warmer, with forests.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Fossil tree trunks are found in icy Antarctica. Long ago, Antarctica was warmer and had ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d2_s2" data-pts="5" data-logic="Bones are part of the living thing itself, so they are body fossils.">
+    <span class="pts">+5</span>
+    <p class="qtext">In 1990, Sue Hendrickson spotted big Tyrannosaurus rex bones in a South Dakota cliff. What kind of fossil are bones?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">body fossils</button>
+      <button class="opt">trace fossils</button>
+      <button class="opt">amber</button>
+      <button class="opt">burrows</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🦴 Week 19: Fossils: Clues to Earth Long Ago, Part 2</h2>
+<p>Use the Hillside Fossil Dig: top: 14 leaf imprints, 1 beetle. Middle: 22 clam shells, 6 fish. Bottom: 9 reef coral pieces, 15 seashells.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="d3_s0" data-pts="5" data-ans="4|four|4 fossils" data-logic="Step 1: middle 22 + 6 = 28, bottom 9 + 15 = 24. Step 2: 28 - 24 = 4 more fossils.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Add the fossils in the middle layer. Add the fossils in the bottom layer. How many more fossils were in the middle layer? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d4_s0" data-pts="5" data-logic="Sharks live in the sea. Fossil shark teeth show the sea once covered Florida for a very long time.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Many fossil shark teeth are found along Florida's Peace River.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Long ago, the sea covered Florida.</button>
+      <button class="opt">Shark teeth grow in the riverbank.</button>
+      <button class="opt">Florida was always dry land.</button>
+      <button class="opt">The teeth fell from the sky.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="d3_s1" data-pts="5" data-ans="9|nine|9 fossils" data-logic="Step 1: 14 + 1 = 15 fossils. Step 2: 15 - 6 = 9 more.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Add the fossils in the top layer (14 + 1). How many more is that than the 6 fish in the middle layer? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d4_s1" data-pts="5" data-logic="Famous scientists used her finds, but many did not give her credit. The Geological Society of London did not let women join until 1908.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why did Mary Anning not get much credit in her time?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Many scientists did not credit her, and the Geological Society did not let women join.</button>
+      <button class="opt">She never found any fossils.</button>
+      <button class="opt">She kept all her fossils a secret.</button>
+      <button class="opt">She lived far from the sea.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="d3_s2" data-pts="5" data-ans="18|eighteen|18 fossils" data-logic="Step 1: 22 + 6 = 28 fossils. Step 2: 28 - 10 = 18 fossils left.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! A paleontologist finds 22 clam shells and 6 fish in the middle layer. She gives 10 clam shells to a museum. How many fossils does she have left? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="d3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="d4_s2" data-pts="5" data-logic="New layers pile on top of old ones. So in most places the bottom layer is the oldest.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Rosa says, "In this hill, the top layer formed first." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">In most places, the bottom layer formed first.</button>
+      <button class="opt">Hills do not have layers.</button>
+      <button class="opt">All the layers formed on the same day.</button>
+      <button class="opt">Nothing is wrong.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: show what you learned across all of Unit 4. Use data from our labs as evidence!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G3W20.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G3W20.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about plants, traits, magnets or fossils? Maybe: Why are most leaves green? How do scientists know how old a fossil is? Write one question on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, be a scientist for one day. Go on a seed hunt and look for seeds with wings, fluff or hooks. Find one inherited trait and one learned behavior in a pet or a book. Do a Magnet Hunt with a big fridge magnet. Press a shell into play dough to make an imprint. Wash your hands after! You can also ask your library for <i>Fossils Tell of Long Ago</i> by Aliki.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>👑 Boss Battle, Part 1: The Unit 4 Science Challenge</h2>
+<p>These mix all four weeks. Think like Janaki Ammal, Gregor Mendel, William Gilbert and Mary Anning!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e1_s0" data-pts="5" data-ans="paleontologist|palaeontologist|paleontologists|paleontolgist|paleontoligist|paleontologest|a paleontologist" data-logic="A paleontologist studies fossils to learn about life long ago.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Mary Anning, Sue Hendrickson and Xu Xing all worked with fossils. A scientist who studies fossils is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="5" data-logic="A magnet and a rubbed balloon can both pull without touching. A push from your hand or a kick must touch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair are BOTH forces that pull without touching?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">magnetism and static electricity</button>
+      <button class="opt">a push from your hand and magnetism</button>
+      <button class="opt">a push from your hand and a kick</button>
+      <button class="opt">a kick and static electricity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e1_s1" data-pts="5" data-ans="variation|variations" data-logic="Variation means differences among living things of the same kind, even brothers and sisters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two kittens have the same parents. One is gray and one is orange. Differences like this are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="5" data-logic="Corn makes lots of light pollen, and the wind blows it from plant to plant.">
+    <span class="pts">+5</span>
+    <p class="qtext">Corn flowers have no bright petals and no sweet smell. What carries corn pollen from plant to plant?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the wind</button>
+      <button class="opt">a magnet</button>
+      <button class="opt">bats at night</button>
+      <button class="opt">squirrels</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e1_s2" data-pts="5" data-ans="kernels|kernel" data-logic="McClintock studied colored corn kernels. She found that some genes can move to new places.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Barbara McClintock studied the spots and streaks of color on corn ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="5" data-logic="A footprint shows what an animal did, so it is a trace fossil. Bees carry pollen on their fuzzy bodies.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pair is sorted correctly?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a footprint: trace fossil; a bee: pollen mover</button>
+      <button class="opt">a footprint: body fossil; a bee: pollen mover</button>
+      <button class="opt">a footprint: trace fossil; a bee: magnet</button>
+      <button class="opt">a shark tooth: trace fossil; the wind: magnet</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>👑 Boss Battle, Part 2: Final Round</h2>
+<p>Two more to beat the boss and finish Unit 4!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e3_s0" data-pts="5" data-ans="hooks|hook" data-logic="George de Mestral saw tiny hooks on a burr under his microscope and copied them to make Velcro.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Velcro copies the tiny ____ on a burr that grab onto fur and cloth:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s0" data-pts="5" data-ans="lake|lakes|water" data-logic="Fish need water. At Fossil Butte, scientists say a large lake was there about 52 million years ago.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Fish fossils are found in a dry part of Wyoming. They show that a large ____ was once there:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e3_s1" data-pts="5" data-ans="magnet|magnets" data-logic="The compass needle is a tiny magnet. It lines up with Earth, which acts like a giant magnet.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A compass needle points north because the needle is a tiny ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s1" data-pts="5" data-ans="dioxide" data-logic="Leaves use the energy of sunlight to turn water and carbon dioxide into sugar, the plant&#x27;s food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Leaves make the plant's food from sunlight, water and a gas from the air called carbon ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e3_s2" data-pts="5" data-ans="birds|bird" data-logic="Xu Xing&#x27;s feathered dinosaur fossils helped show that birds came from dinosaurs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Many of Xu Xing's dinosaur fossils show feathers. They helped show that ____ came from dinosaurs:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="e4_s2" data-pts="5" data-ans="repel|repels|push apart|push away" data-logic="The same charges repel, and like magnet poles repel. Repel means push apart.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two rubbed balloons push apart. Two north poles push apart. Both of them ____ each other:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="e4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Seed Spotter</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. You finished Unit 4 Science. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 15;
+const FINAL_INDEX = 14;
+const MODULE_ID = 'grade3-science-checkpoint4';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 110;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["pollination", "moving pollen so a flower can make seeds"], ["instinct", "a behavior an animal is born knowing"], ["repel", "push apart"], ["sediment", "mud and sand that settle in layers"], ["offspring", "the young of a plant or animal"]], [["Janaki Ammal", "helped sugarcane grow well in India"], ["Gregor Mendel", "tracked traits in pea plants"], ["Chester Carlson", "made copies with light and static electricity"], ["Mary Anning", "dug out an ichthyosaur in England"], ["Masato Sagawa", "invented the neodymium magnet"]], [["a seed with a fluffy parachute", "the wind carries it far"], ["dark moths on sooty bark", "birds see them less"], ["a magnet moves farther away", "its pull gets weaker"], ["fish fossils on dry land", "water was once there"], ["a plant in a dark closet", "it cannot make enough food"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Seed Spotter", "Trait Tracker", "Force Finder", "Unit 4 Master Scientist"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Unit 4 Science Complete!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. You finished <b>Unit 4: Parts and Pieces</b> in Science! You learned the job of every plant part, sorted inherited and learned traits, tested magnets and static electricity, and read fossils like a paleontologist. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
+<script src="../../gate.js"></script>
+<script src="../../cert.js" data-band="g3" data-unit="4" data-subject="Science"></script><div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g23"></script>
+</body>
+</html>
