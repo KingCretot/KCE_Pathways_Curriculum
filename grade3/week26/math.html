@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 26: The Bike Repair Shop in Portland (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#06142a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;box-shadow:0 4px 0 #06142a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#C9A84C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#3D8A30;color:#fff;padding:2px 8px;border-radius:10px}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+
+.tricolor{position:fixed;left:0;right:0;height:4px;z-index:101;background:linear-gradient(90deg,#0047BA 0 33.33%,#C9A84C 33.33% 66.66%,#DB2F30 66.66% 100%)}
+.qspeak-btn{position:static;display:inline-flex;vertical-align:middle;width:28px;height:28px;min-width:28px;border-radius:50%;border:2px solid var(--sky);background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;align-items:center;justify-content:center;transition:transform .15s,background .15s;margin-right:6px}
+.qspeak-btn:hover{background:var(--sky);transform:scale(1.08)}
+.qspeak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back .speak-back{background:rgba(10,31,61,.12);color:var(--navy)}
+.flip{height:150px}
+.fig{margin:10px 0}
+.fillwide{width:100%;max-width:560px;text-align:left;font-size:1.1rem}
+.fixme{display:inline-block;background:#FFF1E0;border:2px dashed #F28C28;border-radius:10px;padding:2px 10px;font-family:'Courier New',monospace;font-weight:800}
+.qtext{padding-right:34px}
+ul.facts{list-style:none;margin-left:0}
+ul.facts li{margin:8px 0}
+.pictureit{font-size:1.02rem}
+.congrats{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:3px solid var(--gold);border-radius:18px;padding:16px;margin:12px 0;text-align:left;display:none}
+.congrats h3{color:var(--navy)}
+@media(max-width:560px){.wrap{padding:200px 16px 40px}.slide{padding:20px 16px}}
+</style>
+<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#128690; KCE Pathways &mdash; Grade 3 &mdash; Week 26</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" style="top:0"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 6: Building Together &bull; Week 26 &bull; Math</span>
+  <h1>Week 26: The Bike Repair Shop in Portland</h1>
+  <h2>Multiplying by Multiples of 10 &amp; Using Properties &#128690;&#10006;&#65039;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Welcome to a bicycle repair shop in Portland, Oregon! Ms. Castellanos fixes flat tires, squeaky chains, and wobbly wheels, and she needs helpers who are quick with multiplication. Today you\'ll multiply by multiples of 10, like 4 times 30 and 6 times 80, and you\'ll use the commutative, associative, and distributive properties to make multiplying easier. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!', this)">&#128266;</button> Welcome to a bicycle repair shop in Portland, Oregon! Ms. Castellanos fixes flat tires, squeaky chains, and wobbly wheels, and she needs helpers who are quick with multiplication. Today you'll multiply by multiples of 10, like 4 &times; 30 and 6 &times; 80, and you'll use the commutative, associative, and distributive properties to make multiplying easier. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a Unit 5 review of two-step problems and rounding</li><li>Picture It: a bicycle repair shop in Portland, Oregon</li><li>Learn 6 vocabulary words</li><li>Pencil Break: the Pre side of your sheet</li><li>Multiply by multiples of 10 using tens</li><li>Switch and group factors with the commutative and associative properties</li><li>Break apart factors with the distributive property</li><li>Pick a smart strategy for two-step problems</li><li>Show what you know: Repair Challenge, Match-Up, Fix the Sentence, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to KingCretot Experience &mdash; no need for anyone to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Warm-Up: Unit 5 Review</h2>
+<span class="setnotice" id="setNotice" style="display:none"></span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Before we open the shop doors, let\'s warm up with a skill from Unit 5: two-step problems. Find the hidden question first. When an equation has times or divided by and also plus or minus, do the times or divided by part first. Round to check that your answer is reasonable.', this)">&#128266;</button> Before we open the shop doors, let's warm up with a skill from Unit 5: <b>two-step problems</b>. Find the hidden question first. When an equation has &times; or &divide; and also + or &minus;, do the &times; or &divide; part first. Round to check that your answer is reasonable.</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="58||58 bells||58 bike bells" data-logic="Step 1: 3 &times; 9 = 27 bells sold. Step 2: 85 &minus; 27 = 58 bells left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Castellanos had 85 bike bells. She sold 3 boxes with 9 bells in each box. How many bells does she have left?', this)">&#128266;</button> Two steps! Ms. Castellanos had 85 bike bells. She sold 3 boxes with 9 bells in each box. How many bells does she have left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s0" data-pts="5" data-logic="When an equation has &times; and +, do the &times; part first. 4 &times; 5 = 20, and 6 + 20 = 26.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct for 6 plus 4 times 5?', this)">&#128266;</button> Which explanation is correct for 6 + 4 &times; 5?</p>
+  <div class="opts"><button class="opt" data-c="1">Multiply first: 4 &times; 5 = 20. Then 6 + 20 = 26.</button><button class="opt">Add first: 6 + 4 = 10. Then 10 &times; 5 = 50.</button><button class="opt">Work from right to left: 5 &times; 4 = 20, and 20 &minus; 6 = 14.</button><button class="opt">Add all three numbers: 6 + 4 + 5 = 15.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="600" data-logic="389 rounds to 400, and 207 rounds to 200. 400 + 200 = 600. The exact sum, 596, is close to 600.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cassius estimates 389 plus 207 by rounding each number to the nearest hundred. What is his estimate?', this)">&#128266;</button> Cassius estimates 389 + 207 by rounding each number to the nearest hundred. What is his estimate?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Do the &times; part before the &minus; part. 3 &times; 6 = 18, and 30 &minus; 18 = 12.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Celeste solved 30 minus 3 times 6 equals n and got n equals 162. What went wrong?', this)">&#128266;</button> Find the mistake. Celeste solved 30 &minus; 3 &times; 6 = n and got n = 162. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">She subtracted first. Multiply first: 3 &times; 6 = 18. Then 30 &minus; 18 = 12, so n = 12.</button><button class="opt">Nothing is wrong. n = 162.</button><button class="opt">She should add: 30 + 3 + 6 = 39.</button><button class="opt">She should divide: 30 &divide; 3 = 10, so n = 10.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="27||27 patches||27 tire patches" data-logic="Step 1: 7 &times; 6 = 42 patches. Step 2: 42 &minus; 15 = 27 patches left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Cayden has 7 boxes of tire patches with 6 patches in each box. He uses 15 patches. How many patches are left?', this)">&#128266;</button> Two steps! Cayden has 7 boxes of tire patches with 6 patches in each box. He uses 15 patches. How many patches are left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="6||n = 6||n=6" data-logic="Step 1: 8 &times; 3 = 24. Step 2: 24 + n = 30, so n = 30 &minus; 24 = 6.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Solve the equation: 8 times 3 plus n equals 30. What is n?', this)">&#128266;</button> Solve the equation: 8 &times; 3 + n = 30. What is n?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#128690; Picture It: The Bike Repair Shop in Portland</h2>
+<div class="fig"><svg class="art" viewBox="0 0 640 280" role="img" aria-label="A bicycle repair shop on a street in Portland, Oregon, with a snowy mountain and a bridge over a river behind it, two bikes parked out front, and three children with a wrench, a tire, and a pump" style="width:100%;max-width:660px;height:auto;display:block;margin:12px auto"><defs><linearGradient id="pdxsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD3F5"/><stop offset="1" stop-color="#EAF6FF"/></linearGradient></defs><rect x="0" y="0" width="640" height="280" rx="16" fill="url(#pdxsky)"/><path d="M330 120 L430 30 L530 120 Z" fill="#8FA3BF"/><path d="M405 52 L430 30 L455 52 L442 58 L430 50 L418 58 Z" fill="#FFFFFF"/><rect x="0" y="118" width="640" height="26" fill="#4FA3D9"/><rect x="300" y="96" width="340" height="6" fill="#C9A84C"/><line x1="310" y1="102" x2="310" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="350" y1="102" x2="350" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="390" y1="102" x2="390" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="430" y1="102" x2="430" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="470" y1="102" x2="470" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="510" y1="102" x2="510" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="550" y1="102" x2="550" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="590" y1="102" x2="590" y2="122" stroke="#C9A84C" stroke-width="4"/><line x1="630" y1="102" x2="630" y2="122" stroke="#C9A84C" stroke-width="4"/><path d="M300 96 Q470 50 640 96" fill="none" stroke="#C9A84C" stroke-width="3"/><rect x="0" y="144" width="640" height="136" fill="#D9D4C7"/><rect x="0" y="252" width="640" height="28" fill="#6E7280"/><rect x="30" y="70" width="250" height="160" fill="#2E6B5E" stroke="#0A1F3D" stroke-width="3"/><rect x="44" y="84" width="222" height="28" rx="4" fill="#FFF6E1" stroke="#C9A84C" stroke-width="3"/><text x="155.0" y="104.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">BIKE REPAIR SHOP</text><rect x="50" y="124" width="100" height="70" fill="#CFE8FF" stroke="#0A1F3D" stroke-width="3"/><rect x="170" y="124" width="58" height="106" fill="#8B5A2B" stroke="#0A1F3D" stroke-width="3"/><circle cx="218" cy="180" r="4" fill="#FFD25E"/><path d="M30 70 L60 50 L250 50 L280 70 Z" fill="#DB2F30" stroke="#0A1F3D" stroke-width="2"/><circle cx="52" cy="172" r="14" fill="none" stroke="#0A1F3D" stroke-width="4"/><circle cx="108" cy="172" r="14" fill="none" stroke="#0A1F3D" stroke-width="4"/><line x1="38.0" y1="172.0" x2="66.0" y2="172.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="94.0" y1="172.0" x2="122.0" y2="172.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="39.9" y1="165.0" x2="64.1" y2="179.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="95.9" y1="165.0" x2="120.1" y2="179.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="45.0" y1="159.9" x2="59.0" y2="184.1" stroke="#7A8AA6" stroke-width="1.5"/><line x1="101.0" y1="159.9" x2="115.0" y2="184.1" stroke="#7A8AA6" stroke-width="1.5"/><line x1="52.0" y1="158.0" x2="52.0" y2="186.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="108.0" y1="158.0" x2="108.0" y2="186.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="59.0" y1="159.9" x2="45.0" y2="184.1" stroke="#7A8AA6" stroke-width="1.5"/><line x1="115.0" y1="159.9" x2="101.0" y2="184.1" stroke="#7A8AA6" stroke-width="1.5"/><line x1="64.1" y1="165.0" x2="39.9" y2="179.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="120.1" y1="165.0" x2="95.9" y2="179.0" stroke="#7A8AA6" stroke-width="1.5"/><path d="M52 172 L80 172 L94 153 L69 153 Z M94 153 L108 172" fill="none" stroke="#DB2F30" stroke-width="5" stroke-linejoin="round"/><line x1="69" y1="153" x2="80" y2="172" stroke="#DB2F30" stroke-width="5"/><rect x="65" y="146" width="9" height="5" rx="2" fill="#0A1F3D"/><line x1="94" y1="153" x2="96" y2="147" stroke="#0A1F3D" stroke-width="4"/><circle cx="314" cy="222" r="18" fill="none" stroke="#0A1F3D" stroke-width="4"/><circle cx="386" cy="222" r="18" fill="none" stroke="#0A1F3D" stroke-width="4"/><line x1="296.0" y1="222.0" x2="332.0" y2="222.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="368.0" y1="222.0" x2="404.0" y2="222.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="298.4" y1="213.0" x2="329.6" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="370.4" y1="213.0" x2="401.6" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="305.0" y1="206.4" x2="323.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="377.0" y1="206.4" x2="395.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="314.0" y1="204.0" x2="314.0" y2="240.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="386.0" y1="204.0" x2="386.0" y2="240.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="323.0" y1="206.4" x2="305.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="395.0" y1="206.4" x2="377.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="329.6" y1="213.0" x2="298.4" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="401.6" y1="213.0" x2="370.4" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><path d="M314 222 L350 222 L368 197 L336 197 Z M368 197 L386 222" fill="none" stroke="#0047BA" stroke-width="5" stroke-linejoin="round"/><line x1="336" y1="197" x2="350" y2="222" stroke="#0047BA" stroke-width="5"/><rect x="331" y="190" width="12" height="5" rx="2" fill="#0A1F3D"/><line x1="368" y1="197" x2="371" y2="190" stroke="#0A1F3D" stroke-width="4"/><circle cx="484" cy="222" r="18" fill="none" stroke="#0A1F3D" stroke-width="4"/><circle cx="556" cy="222" r="18" fill="none" stroke="#0A1F3D" stroke-width="4"/><line x1="466.0" y1="222.0" x2="502.0" y2="222.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="538.0" y1="222.0" x2="574.0" y2="222.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="468.4" y1="213.0" x2="499.6" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="540.4" y1="213.0" x2="571.6" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="475.0" y1="206.4" x2="493.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="547.0" y1="206.4" x2="565.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="484.0" y1="204.0" x2="484.0" y2="240.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="556.0" y1="204.0" x2="556.0" y2="240.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="493.0" y1="206.4" x2="475.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="565.0" y1="206.4" x2="547.0" y2="237.6" stroke="#7A8AA6" stroke-width="1.5"/><line x1="499.6" y1="213.0" x2="468.4" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><line x1="571.6" y1="213.0" x2="540.4" y2="231.0" stroke="#7A8AA6" stroke-width="1.5"/><path d="M484 222 L520 222 L538 197 L506 197 Z M538 197 L556 222" fill="none" stroke="#F28C28" stroke-width="5" stroke-linejoin="round"/><line x1="506" y1="197" x2="520" y2="222" stroke="#F28C28" stroke-width="5"/><rect x="501" y="190" width="12" height="5" rx="2" fill="#0A1F3D"/><line x1="538" y1="197" x2="541" y2="190" stroke="#0A1F3D" stroke-width="4"/><g><circle cx="268" cy="196" r="11" fill="#8D5524"/><path d="M257 192 Q268 178 279 192 Z" fill="#2A1A0E"/><rect x="258" y="207" width="20" height="30" rx="6" fill="#86D464"/><rect x="260" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="270" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="284" y="208" width="5" height="24" rx="2" fill="#9AA9C2" stroke="#0A1F3D" stroke-width="1" transform="rotate(30 286 220)"/></g><g><circle cx="445" cy="196" r="11" fill="#F1C27D"/><path d="M434 192 Q445 178 456 192 Z" fill="#7A4A1E"/><rect x="435" y="207" width="20" height="30" rx="6" fill="#7A3FA0"/><rect x="437" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="447" y="237" width="6" height="14" fill="#0A1F3D"/><circle cx="423" cy="222" r="11" fill="none" stroke="#0A1F3D" stroke-width="5"/></g><g><circle cx="612" cy="196" r="11" fill="#C68642"/><path d="M601 192 Q612 178 623 192 Z" fill="#0A1F3D"/><rect x="602" y="207" width="20" height="30" rx="6" fill="#F28C28"/><rect x="604" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="614" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="588" y="206" width="6" height="30" fill="#DB2F30" stroke="#0A1F3D" stroke-width="1"/><rect x="584" y="202" width="14" height="5" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('It\'s a rainy-then-sunny Saturday in Portland, Oregon. Bikes are lined up outside a small repair shop near the river. Ms. Castellanos rolls up the garage door and hangs her tools on the wall. Her helpers, Cassius, Celeste, and Cayden, are ready to fix tires, chains, and brakes.', this)">&#128266;</button> It's a rainy-then-sunny Saturday in Portland, Oregon. Bikes are lined up outside a small repair shop near the river. Ms. Castellanos rolls up the garage door and hangs her tools on the wall. Her helpers, Cassius, Celeste, and Cayden, are ready to fix tires, chains, and brakes.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A repair shop runs on numbers! Spokes and patches come in boxes of 10, 20, or more. The helpers will multiply by multiples of 10 and use properties to make the math faster.', this)">&#128266;</button> A repair shop runs on numbers! Spokes and patches come in boxes of 10, 20, or more. The helpers will multiply by <b>multiples of 10</b> and use <b>properties</b> to make the math faster.</p></div><div class="card card-gold"><h3>&#127753; Portland Facts</h3><ul class="tips facts"><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The Willamette River runs through Portland, Oregon, and splits the city into an east side and a west side.', this)">&#128266;</button> The Willamette River runs through Portland, Oregon, and splits the city into an east side and a west side.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Portland has 12 crossings over the Willamette River, so people call it Bridgetown.', this)">&#128266;</button> Portland has 12 crossings over the Willamette River, so people call it Bridgetown.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The Hawthorne Bridge in Portland opened in 1910, so it is more than 100 years old.', this)">&#128266;</button> The Hawthorne Bridge in Portland opened in 1910, so it is more than 100 years old.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Tilikum Crossing opened in 2015. It is the only Portland bridge closed to private cars. People cross it on foot, on bikes, and on buses, streetcars, and trains.', this)">&#128266;</button> Tilikum Crossing opened in 2015. It is the only Portland bridge closed to private cars. People cross it on foot, on bikes, and on buses, streetcars, and trains.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('On a clear day, people in Portland can see Mount Hood, a tall, snowy volcano to the east.', this)">&#128266;</button> On a clear day, people in Portland can see Mount Hood, a tall, snowy volcano to the east.</li></ul></div><div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Today you will multiply a one-digit number by a multiple of 10, like 4 times 30, and use the commutative, associative, and distributive properties to multiply in smart ways.', this)">&#128266;</button> Today you will multiply a one-digit number by a <b>multiple of 10</b>, like 4 &times; 30, and use the <b>commutative</b>, <b>associative</b>, and <b>distributive</b> properties to multiply in smart ways.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Flip each card to learn this week\'s vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.', this)">&#128266;</button> Flip each card to learn this week's vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.</p>
+<div class="flipgrid">
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">multiple of 10<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('multiple of 10', this)">&#128266;</button></div><div class="flip-face flip-back">A number you say when you count by tens, like 10, 20, 30, or 80.<br><i>&ldquo;Spokes and patches come in boxes of 10, 20, or more.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A number you say when you count by tens, like 10, 20, 30, or 80. From the lesson: Spokes and patches come in boxes of 10, 20, or more.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">factor<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('factor', this)">&#128266;</button></div><div class="flip-face flip-back">A number you multiply. In 6 &times; 80 = 480, the factors are 6 and 80.<br><i>&ldquo;The factors can switch places, and the product stays the same.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A number you multiply. In 6 times 80 equals 480, the factors are 6 and 80. From the lesson: The factors can switch places, and the product stays the same.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">product<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('product', this)">&#128266;</button></div><div class="flip-face flip-back">The answer to a multiplication problem.<br><i>&ldquo;Celeste groups the factors to find the product: 2 &times; 4 = 8, and 8 &times; 30 = 240.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('The answer to a multiplication problem. From the lesson: Celeste groups the factors to find the product: 2 times 4 equals 8, and 8 times 30 equals 240.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">commutative property<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('commutative property', this)">&#128266;</button></div><div class="flip-face flip-back">You can switch the order of two factors, and the product stays the same.<br><i>&ldquo;By the commutative property, 3 &times; 40 = 40 &times; 3.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('You can switch the order of two factors, and the product stays the same. From the lesson: By the commutative property, 3 times 40 equals 40 times 3.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">associative property<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('associative property', this)">&#128266;</button></div><div class="flip-face flip-back">You can change how three factors are grouped, and the product stays the same.<br><i>&ldquo;By the associative property, (2 &times; 4) &times; 30 = 2 &times; (4 &times; 30).&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('You can change how three factors are grouped, and the product stays the same. From the lesson: By the associative property, (2 times 4) times 30 equals 2 times (4 times 30).', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">distributive property<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('distributive property', this)">&#128266;</button></div><div class="flip-face flip-back">You can break one factor into parts, multiply each part, and add the products.<br><i>&ldquo;Cayden uses the distributive property: 4 &times; 18 = 4 &times; 10 + 4 &times; 8.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('You can break one factor into parts, multiply each part, and add the products. From the lesson: Cayden uses the distributive property: 4 times 18 equals 4 times 10 plus 4 times 8.', this)">&#128266;</button></div></div></div>
+</div>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Here is a memory trick: commute means to travel back and forth, so the commutative property lets factors switch places. Associate means to group with friends, so the associative property changes the groups.', this)">&#128266;</button> Here is a memory trick: <b>commute</b> means to travel back and forth, so the commutative property lets factors switch places. <b>Associate</b> means to group with friends, so the associative property changes the groups.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#9999;&#65039; Pencil Break: Pre-Lesson Warm-Up</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Before you start: print your Pre/Post sheet (2 pages) and do Page 1 (Pre) now. Keep Page 2 for the end.</p><a href="../prepost/KCE_Math_PrePost_G3W26.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W26.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.', this)">&#128266;</button> Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Do the PRE side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today\'s lesson is for!', this)">&#128266;</button> Do the <b>PRE</b> side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today's lesson is for!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a wrench, and a bicycle wheel" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><circle cx="80" cy="76" r="48" fill="none" stroke="#0A1F3D" stroke-width="7"/><circle cx="80" cy="76" r="6" fill="#0A1F3D"/><line x1="36.0" y1="76.0" x2="124.0" y2="76.0" stroke="#7A8AA6" stroke-width="2"/><line x1="39.3" y1="59.2" x2="120.7" y2="92.8" stroke="#7A8AA6" stroke-width="2"/><line x1="48.9" y1="44.9" x2="111.1" y2="107.1" stroke="#7A8AA6" stroke-width="2"/><line x1="63.2" y1="35.3" x2="96.8" y2="116.7" stroke="#7A8AA6" stroke-width="2"/><line x1="80.0" y1="32.0" x2="80.0" y2="120.0" stroke="#7A8AA6" stroke-width="2"/><line x1="96.8" y1="35.3" x2="63.2" y2="116.7" stroke="#7A8AA6" stroke-width="2"/><line x1="111.1" y1="44.9" x2="48.9" y2="107.1" stroke="#7A8AA6" stroke-width="2"/><line x1="120.7" y1="59.2" x2="39.3" y2="92.8" stroke="#7A8AA6" stroke-width="2"/><g transform="rotate(-35 440 76)"><rect x="430" y="30" width="18" height="90" rx="6" fill="#9AA9C2" stroke="#0A1F3D" stroke-width="3"/><circle cx="439" cy="28" r="17" fill="#9AA9C2" stroke="#0A1F3D" stroke-width="3"/><rect x="432" y="8" width="14" height="18" fill="#FFFFFF"/></g><g transform="translate(190,62) rotate(-10)"><rect x="0" y="0" width="150" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M150 0 L176 8 L150 16 Z" fill="#F2D3A0"/><path d="M168 5 L176 8 L168 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When you finish the Pre side, put your pencil down and tap Next to start learning.', this)">&#128266;</button> When you finish the Pre side, put your pencil down and tap <b>Next</b> to start learning.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#128287; Multiplying by Multiples of 10</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Ms. Castellanos orders 4 boxes of spokes. Each box holds 30 spokes. How many spokes is that? 30 is 3 tens, so 4 times 30 is 4 groups of 3 tens. That is 12 tens, and 12 tens equals 120. So 4 times 30 equals 120 spokes.', this)">&#128266;</button> Ms. Castellanos orders 4 boxes of spokes. Each box holds 30 spokes. How many spokes is that? 30 is 3 tens, so 4 &times; 30 is 4 groups of 3 tens. That is 12 tens, and 12 tens = 120. So 4 &times; 30 = 120 spokes.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('I use a fact I already know, then think in tens. 4 times 3 equals 12, so 4 times 3 tens equals 12 tens. 12 tens is 120. The fact tells me how many tens, and the tens tell me the size of the product.', this)">&#128266;</button> I use a fact I already know, then think in tens. 4 &times; 3 = 12, so 4 &times; 3 tens = 12 tens. 12 tens is 120. The fact tells me how many tens, and the tens tell me the size of the product.</p></div><div class="fig"><svg class="art" viewBox="0 0 398 170" role="img" aria-label="4 groups of base-ten rods with 3 tens in each group, 12 tens in all" style="width:100%;max-width:398px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="398" height="170" rx="14" fill="#F8FAFF"/><rect x="24" y="14" width="74" height="116" rx="10" fill="#FFF6E1" stroke="#C9A84C" stroke-width="2"/><rect x="34" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="34" y1="32" x2="48" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="42" x2="48" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="52" x2="48" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="62" x2="48" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="72" x2="48" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="82" x2="48" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="92" x2="48" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="102" x2="48" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="34" y1="112" x2="48" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="54" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="54" y1="32" x2="68" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="42" x2="68" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="52" x2="68" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="62" x2="68" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="72" x2="68" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="82" x2="68" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="92" x2="68" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="102" x2="68" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="54" y1="112" x2="68" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="74" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="74" y1="32" x2="88" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="42" x2="88" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="52" x2="88" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="62" x2="88" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="72" x2="88" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="82" x2="88" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="92" x2="88" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="102" x2="88" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="74" y1="112" x2="88" y2="112" stroke="#0A1F3D" stroke-width="1"/><text x="61.0" y="154.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">3 tens</text><rect x="116" y="14" width="74" height="116" rx="10" fill="#FFF6E1" stroke="#C9A84C" stroke-width="2"/><rect x="126" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="126" y1="32" x2="140" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="42" x2="140" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="52" x2="140" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="62" x2="140" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="72" x2="140" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="82" x2="140" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="92" x2="140" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="102" x2="140" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="126" y1="112" x2="140" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="146" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="146" y1="32" x2="160" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="42" x2="160" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="52" x2="160" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="62" x2="160" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="72" x2="160" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="82" x2="160" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="92" x2="160" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="102" x2="160" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="146" y1="112" x2="160" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="166" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="166" y1="32" x2="180" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="42" x2="180" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="52" x2="180" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="62" x2="180" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="72" x2="180" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="82" x2="180" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="92" x2="180" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="102" x2="180" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="166" y1="112" x2="180" y2="112" stroke="#0A1F3D" stroke-width="1"/><text x="153.0" y="154.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">3 tens</text><rect x="208" y="14" width="74" height="116" rx="10" fill="#FFF6E1" stroke="#C9A84C" stroke-width="2"/><rect x="218" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="218" y1="32" x2="232" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="42" x2="232" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="52" x2="232" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="62" x2="232" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="72" x2="232" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="82" x2="232" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="92" x2="232" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="102" x2="232" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="218" y1="112" x2="232" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="238" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="238" y1="32" x2="252" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="42" x2="252" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="52" x2="252" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="62" x2="252" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="72" x2="252" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="82" x2="252" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="92" x2="252" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="102" x2="252" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="238" y1="112" x2="252" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="258" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="258" y1="32" x2="272" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="42" x2="272" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="52" x2="272" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="62" x2="272" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="72" x2="272" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="82" x2="272" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="92" x2="272" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="102" x2="272" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="258" y1="112" x2="272" y2="112" stroke="#0A1F3D" stroke-width="1"/><text x="245.0" y="154.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">3 tens</text><rect x="300" y="14" width="74" height="116" rx="10" fill="#FFF6E1" stroke="#C9A84C" stroke-width="2"/><rect x="310" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="310" y1="32" x2="324" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="42" x2="324" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="52" x2="324" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="62" x2="324" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="72" x2="324" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="82" x2="324" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="92" x2="324" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="102" x2="324" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="310" y1="112" x2="324" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="330" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="330" y1="32" x2="344" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="42" x2="344" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="52" x2="344" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="62" x2="344" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="72" x2="344" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="82" x2="344" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="92" x2="344" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="102" x2="344" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="330" y1="112" x2="344" y2="112" stroke="#0A1F3D" stroke-width="1"/><rect x="350" y="22" width="14" height="100" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="350" y1="32" x2="364" y2="32" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="42" x2="364" y2="42" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="52" x2="364" y2="52" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="62" x2="364" y2="62" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="72" x2="364" y2="72" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="82" x2="364" y2="82" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="92" x2="364" y2="92" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="102" x2="364" y2="102" stroke="#0A1F3D" stroke-width="1"/><line x1="350" y1="112" x2="364" y2="112" stroke="#0A1F3D" stroke-width="1"/><text x="337.0" y="154.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">3 tens</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('4 times 30 equals 4 times 3 tens. equals 12 tens. equals 120', this)">&#128266;</button> 4 &times; 30 = 4 &times; 3 tens<br>= 12 tens<br>= 120</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cayden needs 6 packs of 80 cable ties. 6 times 8 equals 48, so 6 times 8 tens equals 48 tens. 48 tens equals 480. So 6 times 80 equals 480 cable ties.', this)">&#128266;</button> Cayden needs 6 packs of 80 cable ties. 6 &times; 8 = 48, so 6 &times; 8 tens = 48 tens. 48 tens = 480. So 6 &times; 80 = 480 cable ties.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="a1_s0" data-pts="5" data-ans="280||280 spokes||280 bike spokes" data-logic="7 &times; 40 = 7 &times; 4 tens = 28 tens = 280 spokes.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A box holds 40 bike spokes. Celeste opens 7 boxes. How many spokes does she have?', this)">&#128266;</button> A box holds 40 bike spokes. Celeste opens 7 boxes. How many spokes does she have?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="a1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="a2_s0" data-pts="5" data-ans="400" data-logic="5 &times; 8 = 40, so 5 &times; 8 tens = 40 tens = 400. Watch out: 40 tens is 400, not 40.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 5 times 80? Think: 5 times 8 tens.', this)">&#128266;</button> What is 5 &times; 80? Think: 5 &times; 8 tens.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="a2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="a1_s1" data-pts="5" data-ans="240||240 inner tubes||240 tubes" data-logic="8 &times; 30 = 8 &times; 3 tens = 24 tens = 240 inner tubes.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cayden stacks 8 packs of inner tubes. Each pack has 30 inner tubes. How many inner tubes is that?', this)">&#128266;</button> Cayden stacks 8 packs of inner tubes. Each pack has 30 inner tubes. How many inner tubes is that?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="a1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="a2_s1" data-pts="5" data-logic="6 &times; 50 means 6 groups of 5 tens. That is 30 tens, and 30 tens = 300.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Celeste says 6 times 50 equals 3,000. What went wrong?', this)">&#128266;</button> Find the mistake. Celeste says 6 &times; 50 = 3,000. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">6 &times; 5 tens = 30 tens, and 30 tens is 300. She wrote one zero too many.</button><button class="opt">Nothing is wrong. 6 &times; 50 = 3,000.</button><button class="opt">6 &times; 50 should be 56, because you put the 6 next to the 50.</button><button class="opt">6 &times; 50 should be 30, because 6 &times; 5 = 30.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="a1_s2" data-pts="5" data-ans="180||180 pumps" data-logic="9 &times; 20 = 9 &times; 2 tens = 18 tens = 180 pumps.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cassius pumps up 9 tires. Each tire needs 20 pumps of air. How many pumps does he do in all?', this)">&#128266;</button> Cassius pumps up 9 tires. Each tire needs 20 pumps of air. How many pumps does he do in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="a1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="a2_s2" data-pts="5" data-ans="70" data-logic="3 &times; 7 = 21, so 3 &times; 7 tens = 21 tens = 210. The missing factor is 70.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing factor: 3 times ___ equals 210.', this)">&#128266;</button> Find the missing factor: 3 &times; ___ = 210.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="a2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128260; Switch and Group: Commutative and Associative Properties</h2>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste carries 2 crates of bolts to the workbench. Each crate holds 4 boxes, and each box holds 30 bolts. That is 2 times 4 times 30. Celeste groups the factors to find the product: 2 times 4 equals 8, and 8 times 30 equals 240. Cassius groups them another way: 4 times 30 equals 120, and 2 times 120 equals 240. Same product!', this)">&#128266;</button> Celeste carries 2 crates of bolts to the workbench. Each crate holds 4 boxes, and each box holds 30 bolts. That is 2 &times; 4 &times; 30. Celeste groups the factors to find the product: 2 &times; 4 = 8, and 8 &times; 30 = 240. Cassius groups them another way: 4 &times; 30 = 120, and 2 &times; 120 = 240. Same product!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The commutative property says I can switch two factors: 3 times 40 equals 40 times 3. The associative property says I can change the grouping of three factors: (2 times 4) times 30 equals 2 times (4 times 30). The parentheses show which part I multiply first. I pick the grouping that is easiest for me.', this)">&#128266;</button> The commutative property says I can switch two factors: 3 &times; 40 = 40 &times; 3. The associative property says I can change the grouping of three factors: (2 &times; 4) &times; 30 = 2 &times; (4 &times; 30). The parentheses show which part I multiply first. I pick the grouping that is easiest for me.</p></div><div class="fig"><svg class="art" viewBox="0 0 520 170" role="img" aria-label="Two crates. Each crate holds 4 boxes, and each box holds 30 bolts." style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="170" rx="14" fill="#FFF8EE"/><rect x="30" y="16" width="210" height="118" rx="10" fill="#C98B4F" stroke="#0A1F3D" stroke-width="3"/><rect x="42" y="26" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="86.0" y="55.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="140" y="26" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="184.0" y="55.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="42" y="78" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="86.0" y="107.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="140" y="78" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="184.0" y="107.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><text x="135.0" y="156.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">crate 1</text><rect x="280" y="16" width="210" height="118" rx="10" fill="#C98B4F" stroke="#0A1F3D" stroke-width="3"/><rect x="292" y="26" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="336.0" y="55.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="390" y="26" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="434.0" y="55.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="292" y="78" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="336.0" y="107.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><rect x="390" y="78" width="88" height="44" rx="6" fill="#FFF6E1" stroke="#0A1F3D" stroke-width="2"/><text x="434.0" y="107.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">30</text><text x="385.0" y="156.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">crate 2</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('(2 times 4) times 30 equals 8 times 30 equals 240. 2 times (4 times 30) equals 2 times 120 equals 240', this)">&#128266;</button> (2 &times; 4) &times; 30 = 8 &times; 30 = 240<br>2 &times; (4 &times; 30) = 2 &times; 120 = 240</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Why does 6 times 80 equals 480 work? 80 equals 8 times 10, so 6 times 80 equals 6 times (8 times 10). Regroup: (6 times 8) times 10 equals 48 times 10 equals 480.', this)">&#128266;</button> Why does 6 &times; 80 = 480 work? 80 = 8 &times; 10, so 6 &times; 80 = 6 &times; (8 &times; 10). Regroup: (6 &times; 8) &times; 10 = 48 &times; 10 = 480.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-q="m1_s0" data-pts="5" data-logic="The two factors switched places, and the product stays the same. That is the commutative property.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which property does this show? 5 times 70 equals 70 times 5', this)">&#128266;</button> Which property does this show? 5 &times; 70 = 70 &times; 5</p>
+  <div class="opts"><button class="opt" data-c="1">The commutative property</button><button class="opt">The associative property</button><button class="opt">The distributive property</button><button class="opt">It is not true, because the order matters.</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="m2_s0" data-pts="5" data-ans="300||300 bolts" data-logic="Group the first two factors: (2 &times; 3) &times; 50 = 6 &times; 50 = 30 tens = 300 bolts.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cayden packs 2 crates. Each crate has 3 boxes, and each box holds 50 bolts. How many bolts in all? Hint: 2 times 3 times 50.', this)">&#128266;</button> Cayden packs 2 crates. Each crate has 3 boxes, and each box holds 50 bolts. How many bolts in all? Hint: 2 &times; 3 &times; 50.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="m2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="m1_s1" data-pts="5" data-ans="240" data-logic="(3 &times; 2) &times; 40 = 6 &times; 40 = 240. Or 3 &times; (2 &times; 40) = 3 &times; 80 = 240. Same product!">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste knows (3 times 2) times 40 equals 3 times (2 times 40). What is the product?', this)">&#128266;</button> Celeste knows (3 &times; 2) &times; 40 = 3 &times; (2 &times; 40). What is the product?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="m1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="m2_s1" data-pts="5" data-logic="Write 30 as 3 &times; 10 and regroup with the associative property: (7 &times; 3) &times; 10 = 21 &times; 10 = 210.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Why does 7 times 30 equals 210?', this)">&#128266;</button> Which explanation is correct? Why does 7 &times; 30 = 210?</p>
+  <div class="opts"><button class="opt" data-c="1">30 = 3 &times; 10, so 7 &times; 30 = (7 &times; 3) &times; 10 = 21 &times; 10 = 210.</button><button class="opt">Add a zero to each number: 70 + 30 = 100, and 100 + 110 = 210.</button><button class="opt">7 + 30 = 37, and 37 rounds to 210.</button><button class="opt">Because 7 &times; 3 = 210.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="m1_s2" data-pts="5" data-ans="60" data-logic="Switch and group: 5 &times; 2 = 10, then 10 &times; 6 = 60.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Multiplying 5 times 2 first makes 5 times 6 times 2 easier. What is the product?', this)">&#128266;</button> Multiplying 5 &times; 2 first makes 5 &times; 6 &times; 2 easier. What is the product?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="m1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="m2_s2" data-pts="5" data-logic="Every sign is &times;, so keep multiplying: 4 &times; 3 = 12, and 12 &times; 20 = 240.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Cassius wrote 4 times 3 times 20: &quot;4 times 3 equals 12, and 12 plus 20 equals 32.&quot; What went wrong?', this)">&#128266;</button> Find the mistake. Cassius wrote 4 &times; 3 &times; 20: "4 &times; 3 = 12, and 12 + 20 = 32." What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">He added instead of multiplying. 12 &times; 20 = 240, or 4 &times; (3 &times; 20) = 4 &times; 60 = 240.</button><button class="opt">Nothing is wrong. The product is 32.</button><button class="opt">He should start with 3 + 20 = 23.</button><button class="opt">He should subtract: 20 &minus; 12 = 8.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9986;&#65039; Break It Apart: The Distributive Property</h2>
+<div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cayden is fixing 4 bikes, and each bike needs 18 new spokes. That is 4 times 18. Cayden uses the distributive property: 4 times 18 equals 4 times 10 plus 4 times 8. 4 times 10 equals 40 and 4 times 8 equals 32. 40 plus 32 equals 72 spokes.', this)">&#128266;</button> Cayden is fixing 4 bikes, and each bike needs 18 new spokes. That is 4 &times; 18. Cayden uses the distributive property: 4 &times; 18 = 4 &times; 10 + 4 &times; 8. 4 &times; 10 = 40 and 4 &times; 8 = 32. 40 + 32 = 72 spokes.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When a factor is too big for a fact I know, I break it into a 10 and the ones that are left. 18 equals 10 plus 8. I multiply 4 by each part, then add the two products. I must multiply both parts, not just one!', this)">&#128266;</button> When a factor is too big for a fact I know, I break it into a 10 and the ones that are left. 18 = 10 + 8. I multiply 4 by each part, then add the two products. I must multiply both parts, not just one!</p></div><div class="fig"><svg class="art" viewBox="0 0 430 166" role="img" aria-label="A rectangle 4 rows tall split into a part 10 columns wide, which is 4 times 10 equals 40, and a part 8 columns wide, which is 4 times 8 equals 32" style="width:100%;max-width:430px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="430" height="166" rx="14" fill="#F8FAFF"/><rect x="30" y="34" width="200" height="80" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3"/><line x1="50" y1="34" x2="50" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="70" y1="34" x2="70" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="90" y1="34" x2="90" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="110" y1="34" x2="110" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="130" y1="34" x2="130" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="150" y1="34" x2="150" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="170" y1="34" x2="170" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="190" y1="34" x2="190" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="210" y1="34" x2="210" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="54" x2="230" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="74" x2="230" y2="74" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="94" x2="230" y2="94" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><text x="130.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">10</text><text x="130.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">4 &#215; 10 = 40</text><rect x="240" y="34" width="160" height="80" fill="#86D464" stroke="#0A1F3D" stroke-width="3"/><line x1="260" y1="34" x2="260" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="280" y1="34" x2="280" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="300" y1="34" x2="300" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="320" y1="34" x2="320" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="340" y1="34" x2="340" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="360" y1="34" x2="360" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="380" y1="34" x2="380" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="240" y1="54" x2="400" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="240" y1="74" x2="400" y2="74" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="240" y1="94" x2="400" y2="94" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><text x="320.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">8</text><text x="320.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">4 &#215; 8 = 32</text><text x="16.0" y="80.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">4</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('4 times 18 equals 4 times (10 plus 8). equals 4 times 10 plus 4 times 8. equals 40 plus 32 equals 72', this)">&#128266;</button> 4 &times; 18 = 4 &times; (10 + 8)<br>= 4 &times; 10 + 4 &times; 8<br>= 40 + 32 = 72</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste forgot 8 times 7. She breaks the 7 into 5 plus 2: 8 times 5 equals 40 and 8 times 2 equals 16. 40 plus 16 equals 56, so 8 times 7 equals 56.', this)">&#128266;</button> Celeste forgot 8 &times; 7. She breaks the 7 into 5 + 2: 8 &times; 5 = 40 and 8 &times; 2 = 16. 40 + 16 = 56, so 8 &times; 7 = 56.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="d1_s0" data-pts="5" data-ans="84" data-logic="6 &times; 10 = 60 and 6 &times; 4 = 24. 60 + 24 = 84.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste breaks apart 6 times 14 into 6 times 10 plus 6 times 4. What is 6 times 14?', this)">&#128266;</button> Celeste breaks apart 6 &times; 14 into 6 &times; 10 + 6 &times; 4. What is 6 &times; 14?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="d1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="d2_s0" data-pts="5" data-logic="Both parts have 7 rows, so multiply 7 by each part: 7 &times; 5 = 35 and 7 &times; 3 = 21. 35 + 21 = 56 = 7 &times; 8.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A rectangle is 7 rows tall. It is split into a part 5 columns wide and a part 3 columns wide. Which equation matches?', this)">&#128266;</button> A rectangle is 7 rows tall. It is split into a part 5 columns wide and a part 3 columns wide. Which equation matches?</p>
+<div class="fig"><svg class="art" viewBox="0 0 230 198" role="img" aria-label="A rectangle 7 rows tall split into a part 5 columns wide and a part 3 columns wide" style="width:100%;max-width:230px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="230" height="198" rx="14" fill="#F8FAFF"/><rect x="30" y="34" width="100" height="140" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3"/><line x1="50" y1="34" x2="50" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="70" y1="34" x2="70" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="90" y1="34" x2="90" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="110" y1="34" x2="110" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="54" x2="130" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="74" x2="130" y2="74" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="94" x2="130" y2="94" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="114" x2="130" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="134" x2="130" y2="134" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="30" y1="154" x2="130" y2="154" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><text x="80.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">5</text><rect x="140" y="34" width="60" height="140" fill="#86D464" stroke="#0A1F3D" stroke-width="3"/><line x1="160" y1="34" x2="160" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="180" y1="34" x2="180" y2="174" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="54" x2="200" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="74" x2="200" y2="74" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="94" x2="200" y2="94" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="114" x2="200" y2="114" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="134" x2="200" y2="134" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><line x1="140" y1="154" x2="200" y2="154" stroke="#0A1F3D" stroke-width="1" opacity=".45"/><text x="170.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">3</text><text x="16.0" y="110.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">7</text></svg></div>  <div class="opts"><button class="opt" data-c="1">7 &times; (5 + 3) = 7 &times; 5 + 7 &times; 3</button><button class="opt">7 &times; (5 + 3) = 7 &times; 5 + 3</button><button class="opt">7 &times; (5 + 3) = 7 + 5 + 3</button><button class="opt">7 &times; (5 + 3) = 7 &times; 5 &times; 3</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="d1_s1" data-pts="5" data-ans="51" data-logic="3 &times; 10 = 30 and 3 &times; 7 = 21. 30 + 21 = 51.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Use the break-apart trick: 3 times 17 equals 3 times 10 plus 3 times 7. What is 3 times 17?', this)">&#128266;</button> Use the break-apart trick: 3 &times; 17 = 3 &times; 10 + 3 &times; 7. What is 3 &times; 17?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="d1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="d2_s1" data-pts="5" data-logic="Both parts get multiplied: 5 &times; 10 = 50 and 5 &times; 6 = 30. 50 + 30 = 80.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Cayden says 5 times 16 equals 5 times 10 plus 6 equals 56. What went wrong?', this)">&#128266;</button> Find the mistake. Cayden says 5 &times; 16 = 5 &times; 10 + 6 = 56. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">He forgot to multiply the 6 by 5. 5 &times; 10 + 5 &times; 6 = 50 + 30 = 80.</button><button class="opt">Nothing is wrong. 5 &times; 16 = 56.</button><button class="opt">He should add 5 + 16 = 21.</button><button class="opt">He should break 16 into 1 and 6, so 5 &times; 16 = 5 + 30 = 35.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="d1_s2" data-pts="5" data-ans="96" data-logic="8 &times; 10 = 80 and 8 &times; 2 = 16. 80 + 16 = 96.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cassius breaks apart 8 times 12 into 8 times 10 plus 8 times 2. What is 8 times 12?', this)">&#128266;</button> Cassius breaks apart 8 &times; 12 into 8 &times; 10 + 8 &times; 2. What is 8 &times; 12?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="d1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="d2_s2" data-pts="5" data-ans="2" data-logic="7 = 5 + 2, so 9 &times; 7 = 9 &times; 5 + 9 &times; 2 = 45 + 18 = 63.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing number: 9 times 7 equals 9 times 5 plus 9 times ___', this)">&#128266;</button> Find the missing number: 9 &times; 7 = 9 &times; 5 + 9 &times; ___</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="d2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#129504; Smart Strategies for Two-Step Problems</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Ms. Castellanos orders 5 boxes of 40 long spokes and 5 boxes of 20 short spokes. How many spokes in all? One way: 5 times 40 equals 200 and 5 times 20 equals 100, and 200 plus 100 equals 300. A faster way: each pair of boxes holds 40 plus 20 equals 60 spokes, so 5 times 60 equals 300.', this)">&#128266;</button> Ms. Castellanos orders 5 boxes of 40 long spokes and 5 boxes of 20 short spokes. How many spokes in all? One way: 5 &times; 40 = 200 and 5 &times; 20 = 100, and 200 + 100 = 300. A faster way: each pair of boxes holds 40 + 20 = 60 spokes, so 5 &times; 60 = 300.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The distributive property works backward too! 5 times 40 plus 5 times 20 equals 5 times (40 plus 20). When two products share a factor, I can add the other factors first. Then I find the product with my tens trick.', this)">&#128266;</button> The distributive property works backward too! 5 &times; 40 + 5 &times; 20 = 5 &times; (40 + 20). When two products share a factor, I can add the other factors first. Then I find the product with my tens trick.</p></div><div class="fig"><svg class="art" viewBox="0 0 520 170" role="img" aria-label="Five stacks. Each stack has a box of 40 spokes on top of a box of 20 spokes, so each stack is 60 spokes." style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="170" rx="14" fill="#F8FAFF"/><rect x="30" y="18" width="76" height="64" rx="6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="68.0" y="56.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">40</text><rect x="30" y="82" width="76" height="34" rx="6" fill="#86D464" stroke="#0A1F3D" stroke-width="2"/><text x="68.0" y="105.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">20</text><text x="68.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#DB2F30">60</text><rect x="126" y="18" width="76" height="64" rx="6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="164.0" y="56.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">40</text><rect x="126" y="82" width="76" height="34" rx="6" fill="#86D464" stroke="#0A1F3D" stroke-width="2"/><text x="164.0" y="105.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">20</text><text x="164.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#DB2F30">60</text><rect x="222" y="18" width="76" height="64" rx="6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="260.0" y="56.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">40</text><rect x="222" y="82" width="76" height="34" rx="6" fill="#86D464" stroke="#0A1F3D" stroke-width="2"/><text x="260.0" y="105.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">20</text><text x="260.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#DB2F30">60</text><rect x="318" y="18" width="76" height="64" rx="6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="356.0" y="56.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">40</text><rect x="318" y="82" width="76" height="34" rx="6" fill="#86D464" stroke="#0A1F3D" stroke-width="2"/><text x="356.0" y="105.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">20</text><text x="356.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#DB2F30">60</text><rect x="414" y="18" width="76" height="64" rx="6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="452.0" y="56.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="18" fill="#0A1F3D">40</text><rect x="414" y="82" width="76" height="34" rx="6" fill="#86D464" stroke="#0A1F3D" stroke-width="2"/><text x="452.0" y="105.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">20</text><text x="452.0" y="140.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#DB2F30">60</text><text x="260.0" y="162.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">5 &#215; 60 = 300</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('5 times 40 plus 5 times 20. equals 5 times (40 plus 20). equals 5 times 60 equals 300', this)">&#128266;</button> 5 &times; 40 + 5 &times; 20<br>= 5 &times; (40 + 20)<br>= 5 &times; 60 = 300</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste sells 3 water bottles for 10 dollars each and 3 bike bells for 20 dollars each. 3 times 10 plus 3 times 20 equals 3 times 30 equals 90 dollars. Check: 30 dollars plus 60 dollars equals 90 dollars.', this)">&#128266;</button> Celeste sells 3 water bottles for $10 each and 3 bike bells for $20 each. 3 &times; 10 + 3 &times; 20 = 3 &times; 30 = $90. Check: $30 + $60 = $90.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="e1_s0" data-pts="5" data-ans="160||$160||160 dollars||$160.00||$ 160" data-logic="Step 1: 4 &times; $30 = $120 and 2 &times; $20 = $40. Step 2: $120 + $40 = $160.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Cayden sells 4 bike helmets for 30 dollars each and 2 bike lights for 20 dollars each. How many dollars is that in all?', this)">&#128266;</button> Two steps! Cayden sells 4 bike helmets for $30 each and 2 bike lights for $20 each. How many dollars is that in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="e2_s0" data-pts="5" data-ans="90" data-logic="Both products have 3 groups, so put the groups together: 40 + 50 = 90. 3 &times; 90 = 270, and 120 + 150 = 270.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing number: 3 times 40 plus 3 times 50 equals 3 times ___', this)">&#128266;</button> Find the missing number: 3 &times; 40 + 3 &times; 50 = 3 &times; ___</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="e2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="e1_s1" data-pts="5" data-ans="330||$330||330 dollars||$330.00||$ 330" data-logic="Step 1: 7 &times; $40 = $280. Step 2: $280 + $50 = $330.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A tune-up costs 40 dollars. On Saturday the shop does 7 tune-ups. Customers also pay 50 dollars in all for new bells. How many dollars does the shop get?', this)">&#128266;</button> Two steps! A tune-up costs $40. On Saturday the shop does 7 tune-ups. Customers also pay $50 in all for new bells. How many dollars does the shop get?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="e2_s1" data-pts="5" data-logic="2 &times; 50 = 100 is easy, and 9 groups of 100 is 900. The product is 900 no matter how you group the factors.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which is the easiest correct way to find 2 times 9 times 50?', this)">&#128266;</button> Which is the easiest correct way to find 2 &times; 9 &times; 50?</p>
+  <div class="opts"><button class="opt" data-c="1">Switch and group: 2 &times; 50 = 100, then 100 &times; 9 = 900.</button><button class="opt">2 &times; 9 = 18, then 18 + 50 = 68.</button><button class="opt">9 &times; 50 = 45, then 2 &times; 45 = 90.</button><button class="opt">2 + 9 + 50 = 61.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="e1_s2" data-pts="5" data-ans="80||80 spokes" data-logic="Step 1: 6 &times; 70 = 42 tens = 420 spokes used. Step 2: 500 &minus; 420 = 80 spokes left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Castellanos had 500 spokes. She used 6 boxes with 70 spokes in each box. How many spokes are left?', this)">&#128266;</button> Two steps! Ms. Castellanos had 500 spokes. She used 6 boxes with 70 spokes in each box. How many spokes are left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="e2_s2" data-pts="5" data-ans="300" data-logic="8 groups of 30 plus 2 groups of 30 is 10 groups of 30. 10 &times; 30 = 300. Check: 240 + 60 = 300.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cassius sees 8 times 30 plus 2 times 30. He says it is the same as 10 times 30. What is the total?', this)">&#128266;</button> Cassius sees 8 &times; 30 + 2 &times; 30. He says it is the same as 10 &times; 30. What is the total?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="e2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#127942; Repair Challenge: Multiply with Tens</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The repair line is full! Each job takes more than one step. Think in tens, switch or group factors, or break a factor apart. Pick the strategy that makes the math easiest for you.', this)">&#128266;</button> The repair line is full! Each job takes <b>more than one step</b>. Think in tens, switch or group factors, or break a factor apart. Pick the strategy that makes the math easiest for you.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="c1_s0" data-pts="5" data-ans="150||150 reflectors" data-logic="Step 1: 4 &times; 60 = 24 tens = 240 reflectors. Step 2: 240 &minus; 90 = 150 reflectors left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Celeste orders 4 boxes of reflectors with 60 reflectors in each box. She puts 90 reflectors on bikes. How many reflectors are left?', this)">&#128266;</button> Two steps! Celeste orders 4 boxes of reflectors with 60 reflectors in each box. She puts 90 reflectors on bikes. How many reflectors are left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s0" data-pts="5" data-ans="76" data-logic="4 &times; 19 = 4 &times; 10 + 4 &times; 9 = 40 + 36 = 76.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Use the break-apart trick to find 4 times 19.', this)">&#128266;</button> Use the break-apart trick to find 4 &times; 19.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="c1_s1" data-pts="5" data-ans="160||160 minutes" data-logic="Step 1: 3 + 5 = 8 bikes. Step 2: 8 &times; 20 = 160 minutes. Or 60 + 100 = 160.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cayden test-rides each repaired bike for 20 minutes. He test-rides 3 bikes on Friday and 5 bikes on Saturday. How many minutes does he ride in all?', this)">&#128266;</button> Cayden test-rides each repaired bike for 20 minutes. He test-rides 3 bikes on Friday and 5 bikes on Saturday. How many minutes does he ride in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s1" data-pts="5" data-ans="91" data-logic="7 &times; 13 = 7 &times; 10 + 7 &times; 3 = 70 + 21 = 91.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Use the break-apart trick to find 7 times 13.', this)">&#128266;</button> Use the break-apart trick to find 7 &times; 13.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="c1_s2" data-pts="5" data-ans="160||160 bottles||160 water bottles" data-logic="Step 1: 3 + 4 = 7 cases. Step 2: 7 &times; 30 = 210 bottles. Step 3: 210 &minus; 50 = 160 bottles left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Water bottles come in cases of 30. The shop gets 3 cases in the morning and 4 cases in the afternoon. Then it sells 50 bottles. How many bottles are left?', this)">&#128266;</button> Water bottles come in cases of 30. The shop gets 3 cases in the morning and 4 cases in the afternoon. Then it sells 50 bottles. How many bottles are left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s2" data-pts="5" data-ans="30" data-logic="6 &times; 40 = 240. Which number times 8 makes 240? 8 &times; 3 tens = 24 tens = 240, so the missing number is 30.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing number: 6 times 40 equals 8 times ___', this)">&#128266;</button> Find the missing number: 6 &times; 40 = 8 &times; ___</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#11088; Bonus Practice: The Parts Wall</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+<div class="qbox" data-fq="bp1" data-pts="5" data-bonus="1" data-ans="450" data-logic="5 &times; 9 = 45, so 5 &times; 9 tens = 45 tens = 450.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 5 times 90?', this)">&#128266;</button> What is 5 &times; 90?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bp1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="70" data-logic="2 &times; 5 = 10, and 10 &times; 7 = 70.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 2 times 7 times 5? Try multiplying 2 times 5 first.', this)">&#128266;</button> What is 2 &times; 7 &times; 5? Try multiplying 2 &times; 5 first.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#129513; Match-Up Round</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Tap an item on the left, then its match on the right. First-try matches earn 2 points each, 10 points in all.', this)">&#128266;</button> Tap an item on the left, then its match on the right. First-try matches earn <b>2 points each</b>, 10 points in all.</p>
+<div class="matchgrid"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9997;&#65039; Fix the Sentence</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste wrote some notes for the shop\'s job board, but her hands were covered in bike grease! Type each sentence the right way. Remember: start with a capital letter, give names of people and places capital letters too, end with a period or question mark, and put commas between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.', this)">&#128266;</button> Celeste wrote some notes for the shop&#8217;s job board, but her hands were covered in bike grease! Type each sentence the right way. Remember: start with a <b>capital letter</b>, give names of people and places capital letters too, end with a <b>period</b> or <b>question mark</b>, and put <b>commas</b> between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="fs1_s0" data-pts="5" data-exact="1" data-ans="Portland is in Oregon." data-logic="Portland is the name of a city and Oregon is the name of a state, so both get capital letters. End the telling sentence with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: portland is in oregon', this)">&#128266;</button> Fix the sentence: <span class="fixme">portland is in oregon</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s0" data-pts="5" data-exact="1" data-ans="We fixed tires, chains, and brakes.||We fixed tires, chains and brakes." data-logic="Start with a capital W, put commas between the things in the list, and end with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: we fixed tires chains and brakes', this)">&#128266;</button> Fix the sentence: <span class="fixme">we fixed tires chains and brakes</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="fs1_s1" data-pts="5" data-exact="1" data-ans="How many spokes are in the box?" data-logic="Start with a capital H. This sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: how many spokes are in the box', this)">&#128266;</button> Fix the sentence: <span class="fixme">how many spokes are in the box</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s1" data-pts="5" data-exact="1" data-ans="Cassius, Celeste, and Cayden oiled the chains.||Cassius, Celeste and Cayden oiled the chains." data-logic="Each name gets a capital letter, commas go between the names in the list, and the sentence ends with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: cassius celeste and cayden oiled the chains', this)">&#128266;</button> Fix the sentence: <span class="fixme">cassius celeste and cayden oiled the chains</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="fs1_s2" data-pts="5" data-exact="1" data-ans="Did Ms. Castellanos ride across Tilikum Crossing?" data-logic="Start with a capital D. Ms. Castellanos is a name, and Tilikum Crossing is the name of a bridge, so they get capital letters. The sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: did ms. castellanos ride across tilikum crossing', this)">&#128266;</button> Fix the sentence: <span class="fixme">did ms. castellanos ride across tilikum crossing</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s2" data-pts="5" data-exact="1" data-ans="The bikes are ready for their riders." data-logic="Start with a capital T and end with a period. Bikes means more than one, so use are, not is.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: the bikes is ready for their riders', this)">&#128266;</button> Fix the sentence: <span class="fixme">the bikes is ready for their riders</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Quick facts for bonus XP! Go fast, but stay correct.', this)">&#128266;</button> Quick facts for bonus XP! Go fast, but stay correct.</p>
+<div class="practicewrap">
+<div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="8 &times; 6 = 48, so 8 &times; 6 tens = 48 tens = 480.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 8 times 60?', this)">&#128266;</button> What is 8 &times; 60?</p>
+  <div class="opts"><button class="opt" data-c="1">480</button><button class="opt">4,800</button><button class="opt">48</button><button class="opt">540</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="350" data-logic="7 &times; 5 = 35, so 7 &times; 5 tens = 35 tens = 350.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 7 times 50?', this)">&#128266;</button> What is 7 &times; 50?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="sp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="card card-sky" style="margin-top:18px"><h3>&#9000;&#65039; Keyboard Corral</h3><p style="margin-bottom:10px"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter, comma, and period.', this)">&#128266;</button> Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter, comma, and period.</p><div class="qbox" data-exact="1" data-fq="kc1" data-pts="10" data-bonus="1" data-ans="Factors can switch places, and the product stays the same." data-logic="Match the sentence exactly, including the capital letter at the start, the comma, and the period at the end."><span class="pts">+10 XP</span><p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Type this sentence: Factors can switch places, and the product stays the same.', this)">&#128266;</button> Type this sentence:</p><div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">Factors can switch places, and the product stays the same.</div><div class="fillrow"><input class="fillin fillwide" id="kc1input" inputmode="text" aria-label="typed sentence"><button class="btn btn-pri" data-check="kc1">Check</button></div><p class="feedback"></p></div></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>&#128081; Boss Battle, Part 1: The Saturday Rush</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The Saturday rush is here, and bikes are lined up out the door. Show everything you learned today!', this)">&#128266;</button> The Saturday rush is here, and bikes are lined up out the door. Show everything you learned today!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb1_s0" data-pts="5" data-ans="150||$150||150 dollars||$150.00||$ 150" data-logic="Step 1: 6 &times; $30 = $180. Step 2: $180 &minus; $30 = $150. Or think: 5 locks are kept, and 5 &times; $30 = $150.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Castellanos sells 6 bike locks for 30 dollars each. Then a customer returns 1 lock and gets the money back. How many dollars does she keep?', this)">&#128266;</button> Two steps! Ms. Castellanos sells 6 bike locks for $30 each. Then a customer returns 1 lock and gets the money back. How many dollars does she keep?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s0" data-pts="5" data-logic="5 &times; 60 is 5 groups of 6 tens, which is 30 tens. 30 tens = 300.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Celeste says 5 times 60 equals 300. Cayden says 5 times 60 equals 3,000.', this)">&#128266;</button> Which explanation is correct? Celeste says 5 &times; 60 = 300. Cayden says 5 &times; 60 = 3,000.</p>
+  <div class="opts"><button class="opt" data-c="1">Celeste is right. 5 &times; 6 tens = 30 tens, and 30 tens = 300.</button><button class="opt">Cayden is right, because 5 &times; 6 = 30 and you add two zeros.</button><button class="opt">They are both wrong. 5 &times; 60 = 65.</button><button class="opt">They are both right, because 300 and 3,000 are close.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb1_s1" data-pts="5" data-ans="160||160 bells" data-logic="Group the factors: (2 &times; 4) &times; 20 = 8 &times; 20 = 160 bells.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The shop has 2 shelves. Each shelf has 4 boxes, and each box holds 20 bells. How many bells are there?', this)">&#128266;</button> The shop has 2 shelves. Each shelf has 4 boxes, and each box holds 20 bells. How many bells are there?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb2_s1" data-pts="5" data-ans="102" data-logic="6 &times; 17 = 6 &times; 10 + 6 &times; 7 = 60 + 42 = 102.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Use the break-apart trick to find 6 times 17.', this)">&#128266;</button> Use the break-apart trick to find 6 &times; 17.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb1_s2" data-pts="5" data-ans="350||$350||350 dollars||$350.00||$ 350" data-logic="Step 1: 4 + 3 = 7 tune-ups. Step 2: 7 &times; $50 = $350. Or $200 + $150 = $350.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A tune-up costs 50 dollars. The shop does 4 tune-ups in the morning and 3 in the afternoon. How many dollars is that?', this)">&#128266;</button> Two steps! A tune-up costs $50. The shop does 4 tune-ups in the morning and 3 in the afternoon. How many dollars is that?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s2" data-pts="5" data-logic="The parentheses say to multiply 4 &times; 20 = 80 first. Then 3 &times; 80 = 240. Or (3 &times; 4) &times; 20 = 12 &times; 20 = 240.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Cayden says 3 times (4 times 20) equals 3 times 4 plus 20 equals 32. What went wrong?', this)">&#128266;</button> Find the mistake. Cayden says 3 &times; (4 &times; 20) = 3 &times; 4 + 20 = 32. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">Every sign is &times;. 4 &times; 20 = 80, and 3 &times; 80 = 240.</button><button class="opt">Nothing is wrong. The product is 32.</button><button class="opt">He should add everything: 3 + 4 + 20 = 27.</button><button class="opt">He should do 3 &times; 4 = 12 and stop there.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-go="15">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>&#128081; Boss Battle, Part 2: Closing Time</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two more jobs before Ms. Castellanos pulls down the garage door. You can do it!', this)">&#128266;</button> Two more jobs before Ms. Castellanos pulls down the garage door. You can do it!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb3_s0" data-pts="5" data-ans="10" data-logic="80 = 8 &times; 10, so 7 &times; 80 = 7 &times; 8 &times; 10 = 56 &times; 10 = 560.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing number: 7 times 80 equals 7 times 8 times ___', this)">&#128266;</button> Find the missing number: 7 &times; 80 = 7 &times; 8 &times; ___</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s0" data-pts="5" data-ans="126" data-logic="Multiply both parts: 9 &times; 10 = 90 and 9 &times; 4 = 36. 90 + 36 = 126.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Cassius says 9 times 14 equals 9 times 10 plus 4 equals 94. Type the correct product.', this)">&#128266;</button> Find the mistake. Cassius says 9 &times; 14 = 9 &times; 10 + 4 = 94. Type the correct product.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb3_s1" data-pts="5" data-ans="5" data-logic="5 &times; 9 = 45, so 5 &times; 9 tens = 45 tens = 450. The missing factor is 5.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the missing factor: ___ times 90 equals 450.', this)">&#128266;</button> Find the missing factor: ___ &times; 90 = 450.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s1" data-pts="5" data-ans="320" data-logic="4 &times; 80 = 32 tens = 320. Check: 200 + 120 = 320.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Celeste writes 4 times 50 plus 4 times 30 equals 4 times 80. What is the total?', this)">&#128266;</button> Celeste writes 4 &times; 50 + 4 &times; 30 = 4 &times; 80. What is the total?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb3_s2" data-pts="5" data-ans="100||100 reflectors" data-logic="Step 1: 5 &times; 60 = 30 tens = 300 reflectors used. Step 2: 400 &minus; 300 = 100 left.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! The shop had 400 reflectors. It used 5 packs with 60 reflectors in each pack. How many reflectors are left?', this)">&#128266;</button> Two steps! The shop had 400 reflectors. It used 5 packs with 60 reflectors in each pack. How many reflectors are left?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s2" data-pts="5" data-ans="320" data-logic="8 &times; 4 = 32, so 8 &times; 4 tens = 32 tens. 32 tens = 320, not 32.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Celeste says 8 times 40 equals 32. Type the correct product.', this)">&#128266;</button> Find the mistake. Celeste says 8 &times; 40 = 32. Type the correct product.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="14">&larr; Back</button>
+<button class="btn btn-go" data-go="16">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<h2>&#9999;&#65039; Pencil Break: Post-Lesson Activity</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Page 2 (Post) is on your Pre/Post sheet. Did not print it yet? Use these buttons.</p><a href="../prepost/KCE_Math_PrePost_G3W26.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W26.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Wheel-y great work! Before you see your score, step away from the screen one more time.', this)">&#128266;</button> Wheel-y great work! Before you see your score, step away from the screen one more time.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Turn your printed sheet over and do the POST side. Remember: think in tens, switch or group factors to make the math easier, and break a factor into a 10 and some ones. If you finish early, try the star challenge!', this)">&#128266;</button> Turn your printed sheet over and do the <b>POST</b> side. Remember: think in tens, switch or group factors to make the math easier, and break a factor into a 10 and some ones. If you finish early, try the star challenge!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a wrench, and a bicycle wheel" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><circle cx="80" cy="76" r="48" fill="none" stroke="#0A1F3D" stroke-width="7"/><circle cx="80" cy="76" r="6" fill="#0A1F3D"/><line x1="36.0" y1="76.0" x2="124.0" y2="76.0" stroke="#7A8AA6" stroke-width="2"/><line x1="39.3" y1="59.2" x2="120.7" y2="92.8" stroke="#7A8AA6" stroke-width="2"/><line x1="48.9" y1="44.9" x2="111.1" y2="107.1" stroke="#7A8AA6" stroke-width="2"/><line x1="63.2" y1="35.3" x2="96.8" y2="116.7" stroke="#7A8AA6" stroke-width="2"/><line x1="80.0" y1="32.0" x2="80.0" y2="120.0" stroke="#7A8AA6" stroke-width="2"/><line x1="96.8" y1="35.3" x2="63.2" y2="116.7" stroke="#7A8AA6" stroke-width="2"/><line x1="111.1" y1="44.9" x2="48.9" y2="107.1" stroke="#7A8AA6" stroke-width="2"/><line x1="120.7" y1="59.2" x2="39.3" y2="92.8" stroke="#7A8AA6" stroke-width="2"/><g transform="rotate(-35 440 76)"><rect x="430" y="30" width="18" height="90" rx="6" fill="#9AA9C2" stroke="#0A1F3D" stroke-width="3"/><circle cx="439" cy="28" r="17" fill="#9AA9C2" stroke="#0A1F3D" stroke-width="3"/><rect x="432" y="8" width="14" height="18" fill="#FFFFFF"/></g><g transform="translate(190,62) rotate(-10)"><rect x="0" y="0" width="150" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M150 0 L176 8 L150 16 Z" fill="#F2D3A0"/><path d="M168 5 L176 8 L168 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When your Post side is done, tap See My Score.', this)">&#128266;</button> When your Post side is done, tap <b>See My Score</b>.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="15">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="17">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Repair Day Complete!</h1>
+    <h2 id="finalTitle">Rising Repair Helper! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="congrats" id="congratsCard">
+      <h3 id="congratsHeading"></h3>
+      <p id="congratsBody"></p>
+    </div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Great work today!</h3>
+      <p id="finalMessageBody"></p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#E3C77A)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 6: Building Together &mdash; Week 26</p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Next stop: Week 27, where you will design a new playground using area and perimeter!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 18;
+const FINAL_INDEX = 17;
+const MODULE_ID = 'grade3-math-w26';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS = 10;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting to KingCretot Experience (Formspree). */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    let name = 'Unnamed Student';
+    try{ name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student'; }catch(e){}
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '✅ Your results were sent to KingCretot Experience automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '⚠️ Your results could not be sent automatically. Please let your parent or teacher know your score.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    try{
+      if (full) localStorage.setItem('kcePathwaysStudentName', full);
+      if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+      if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+    }catch(e){}
+  };
+  try{
+    if (firstField){ firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || ''; }
+    if (lastField){ lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || ''; }
+  }catch(e){}
+  if (firstField) firstField.addEventListener('blur', saveFullName);
+  if (lastField) lastField.addEventListener('blur', saveFullName);
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(n){ const count = n || 34; const colors = ['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#F28C28','#86D464']; for(let i=0;i<count;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1800, delay:Math.random()*400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function bigConfetti(){ confetti(160); setTimeout(()=>confetti(140), 700); setTimeout(()=>confetti(140), 1500); setTimeout(()=>confetti(120), 2400); }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded free Kokoro voice (Heart); browser voice only as a backup */
+var KCE_CLIPS = {};
+var _kceAud = null;
+function _kceBackup(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.classList.remove('speaking'); return; }
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean); u.rate = 0.88; u.lang = 'en-US';
+  u.onend = u.onerror = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  window.speechSynthesis.speak(u);
+}
+function speakText(text, btn){
+  if (_kceAud) { try { _kceAud.pause(); } catch(e){} _kceAud = null; }
+  if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch(e){} }
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  if (btn) btn.classList.add('speaking');
+  const f = KCE_CLIPS[text];
+  if (!f) { _kceBackup(text, btn); return; }
+  const a = new Audio(f); _kceAud = a; let done = false;
+  const end = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  a.onended = end;
+  a.onerror = ()=>{ if (!done) { done = true; _kceBackup(text, btn); } };
+  const p = a.play(); if (p && p.catch) p.catch(()=>{ if (!done) { done = true; _kceBackup(text, btn); } });
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const active = document.querySelector('.slide.on'); const d = active ? active.querySelector('.dots') : null; if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["commutative property", "3 &times; 40 = 40 &times; 3"], ["associative property", "(2 &times; 5) &times; 6 = 2 &times; (5 &times; 6)"], ["distributive property", "4 &times; 12 = 4 &times; 10 + 4 &times; 2"], ["multiple of 10", "a number like 30, 60, or 90"], ["product", "the answer to a multiplication problem"]], [["3 &times; 70", "210"], ["8 &times; 50", "400"], ["6 &times; 60", "360"], ["9 &times; 30", "270"], ["5 &times; 20", "100"]], [["6 &times; 15", "6 &times; 10 + 6 &times; 5"], ["4 &times; 16", "4 &times; 10 + 4 &times; 6"], ["3 &times; 19", "3 &times; 10 + 3 &times; 9"], ["8 &times; 13", "8 &times; 10 + 8 &times; 3"], ["5 &times; 17", "5 &times; 10 + 5 &times; 7"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'inline-block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) — here we go!'; } }
+}
+/* Every question set must be worth exactly 100 Pathway Points. */
+function setTotal(idx){ let t = MATCH_POINTS; document.querySelectorAll('.qset[data-set="' + idx + '"] .qbox').forEach(b=>{ if (b.dataset.bonus !== '1') t += (+b.dataset.pts || 0); }); return t; }
+function verifySetTotals(){ const out = [0,1,2].map(setTotal); out.forEach((t,i)=>{ if (t !== 100) console.warn('Question set ' + (i+1) + ' totals ' + t + ' points, expected 100.'); }); return out; }
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  if (e.target.closest('.qspeak-btn')) return;
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+/* Straighten curly quotes and squeeze extra spaces before checking. */
+function normalizeAnswer(s){ return String(s).replace(/[‘’‚′]/g, "'").replace(/[“”„″]/g, '"').replace(/\s+/g, ' ').trim(); }
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const exact = box.dataset.exact === '1';
+  const raw = normalizeAnswer(inp.value);
+  if (raw === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('||').map(s=>normalizeAnswer(s));
+  const stripDot = s=>s.replace(/\.$/, '');
+  const ok = exact ? accepted.indexOf(raw) !== -1 : accepted.map(s=>stripDot(s).toLowerCase()).indexOf(stripDot(raw).toLowerCase()) !== -1;
+  if (ok){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +' + (box.dataset.pts || 5) + ' XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?(+box.dataset.pts||5):8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('||')[0];
+      const lead = exact ? 'The corrected sentence is: <b>' + escapeHtml(correctAnswer) + '</b>' : 'The correct answer is: ' + escapeHtml(correctAnswer) + '.';
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. ' + lead + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      const hint = exact ? ' Check the capital letter, the commas, and the end mark.' : ' Check your work and try again.';
+      fb.textContent = '❌ Not yet —' + hint + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const score = displayScore();
+  document.getElementById('finalScore').textContent = score;
+  const rec = saveModuleResult(score);
+  reportProgress(score, rec);
+  const passed = score >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Repair Helper! ⭐';
+  if (score >= 90) tierTitle = 'Master Mechanic! 🚲👑';
+  else if (score >= 75) tierTitle = 'Shop Manager! 🌟';
+  else if (score >= 50) tierTitle = 'Tune-Up Pro! ✨';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+  const congrats = document.getElementById('congratsCard');
+  const cHead = document.getElementById('congratsHeading');
+  const cBody = document.getElementById('congratsBody');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🚲 Repair Shop Hero!';
+    cHead.innerHTML = '&#127881; Repair shop hero! You kept every bike rolling!';
+    cBody.innerHTML = 'You helped Ms. Castellanos, Cassius, Celeste, and Cayden run the bike repair shop in Portland! You multiplied by <b>multiples of 10</b> by thinking in tens, like 4 &times; 30 = 12 tens = 120. You used the <b>commutative property</b> to switch factors, the <b>associative property</b> to group them, like (2 &times; 4) &times; 30 = 240, and the <b>distributive property</b> to break them apart, like 4 &times; 18 = 40 + 32 = 72. You even fixed Celeste&#8217;s job board with capital letters, commas, and end marks!';
+    congrats.style.display = 'block';
+    msgHeading.innerHTML = '&#127942; You’ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Your results go to KingCretot Experience. Finish the <b>Post-Lesson Challenge</b> on your printed sheet if you have not already, and keep it in your Portfolio Passport.';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson →';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    congrats.style.display = 'none';
+    msgHeading.innerHTML = '&#128690; Every mechanic gets better with practice.';
+    msgBody.innerHTML = 'You scored ' + score + '/100. Your results go to KingCretot Experience. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100, and you are on your way! Look back at how to multiply by a multiple of 10 by thinking in tens, how to switch and group factors, and how to break a factor into a 10 and some ones, then press Try Again. Next time you will get a <b>fresh set of questions</b>, so every try is a new repair day. Don&#8217;t forget to finish the <b>Post-Lesson Challenge</b> on your printed sheet.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare();
+  if (passed){ bigConfetti(); } else { setTimeout(()=>confetti(), 250); }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); verifySetTotals(); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>if(!window.kcePrintPdf){window.kcePrintPdf=function(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}}</script><script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g23"></script>
+</body>
+</html>

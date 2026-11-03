@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 27: Designing a Playground in Chattanooga (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#06142a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;box-shadow:0 4px 0 #06142a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#C9A84C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#3D8A30;color:#fff;padding:2px 8px;border-radius:10px}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+
+.tricolor{position:fixed;left:0;right:0;height:4px;z-index:101;background:linear-gradient(90deg,#0047BA 0 33.33%,#C9A84C 33.33% 66.66%,#DB2F30 66.66% 100%)}
+.qspeak-btn{position:static;display:inline-flex;vertical-align:middle;width:28px;height:28px;min-width:28px;border-radius:50%;border:2px solid var(--sky);background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;align-items:center;justify-content:center;transition:transform .15s,background .15s;margin-right:6px}
+.qspeak-btn:hover{background:var(--sky);transform:scale(1.08)}
+.qspeak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back .speak-back{background:rgba(10,31,61,.12);color:var(--navy)}
+.flip{height:150px}
+.fig{margin:10px 0}
+.fillwide{width:100%;max-width:560px;text-align:left;font-size:1.1rem}
+.fixme{display:inline-block;background:#FFF1E0;border:2px dashed #F28C28;border-radius:10px;padding:2px 10px;font-family:'Courier New',monospace;font-weight:800}
+.qtext{padding-right:34px}
+ul.facts{list-style:none;margin-left:0}
+ul.facts li{margin:8px 0}
+.pictureit{font-size:1.02rem}
+.congrats{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:3px solid var(--gold);border-radius:18px;padding:16px;margin:12px 0;text-align:left;display:none}
+.congrats h3{color:var(--navy)}
+@media(max-width:560px){.wrap{padding:200px 16px 40px}.slide{padding:20px 16px}}
+</style>
+<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#127968; KCE Pathways &mdash; Grade 3 &mdash; Week 27</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" style="top:0"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 6: Building Together &bull; Week 27 &bull; Math</span>
+  <h1>Week 27: Designing a Playground in Chattanooga</h1>
+  <h2>Area &amp; Perimeter Design Challenge &#127968;&#128208;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Welcome to Chattanooga, Tennessee! The city is building a new community playground near the Tennessee River, and designer Mr. Conrad needs a team of young planners. Today you\'ll find rectangles with the same perimeter but different areas, rectangles with the same area but different perimeters, and the area of combined rectangles using the distributive property. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!', this)">&#128266;</button> Welcome to Chattanooga, Tennessee! The city is building a new community playground near the Tennessee River, and designer Mr. Conrad needs a team of young planners. Today you'll find rectangles with the same perimeter but different areas, rectangles with the same area but different perimeters, and the area of combined rectangles using the distributive property. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review of multiplying by multiples of 10 and the properties</li><li>Picture It: a new playground in Chattanooga, Tennessee</li><li>Learn 6 vocabulary words</li><li>Pencil Break: the Pre side of your sheet</li><li>Find rectangles with the same perimeter and different areas</li><li>Find rectangles with the same area and different perimeters</li><li>Find the area of combined rectangles with the distributive property</li><li>Solve design challenges with L-shaped figures</li><li>Show what you know: Planner Challenge, Match-Up, Fix the Sentence, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to KingCretot Experience &mdash; no need for anyone to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Warm-Up: Week 26 Review</h2>
+<span class="setnotice" id="setNotice" style="display:none"></span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Before we start planning, let\'s warm up with last week\'s skills: multiplying by multiples of 10, like 6 times 80 equals 48 tens equals 480, and using the commutative, associative, and distributive properties.', this)">&#128266;</button> Before we start planning, let's warm up with last week's skills: multiplying by <b>multiples of 10</b>, like 6 &times; 80 = 48 tens = 480, and using the <b>commutative</b>, <b>associative</b>, and <b>distributive</b> properties.</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="240||$240||240 dollars||$240.00||$ 240" data-logic="6 &times; 40 = 6 &times; 4 tens = 24 tens = 240. So it costs $240.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Each new swing seat costs 40 dollars. The playground buys 6 swing seats. How many dollars is that?', this)">&#128266;</button> Each new swing seat costs $40. The playground buys 6 swing seats. How many dollars is that?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s0" data-pts="5" data-logic="The same three factors are grouped in a different way, and the product stays 300. That is the associative property.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which property does this show? 3 times (2 times 50) equals (3 times 2) times 50', this)">&#128266;</button> Which property does this show? 3 &times; (2 &times; 50) = (3 &times; 2) &times; 50</p>
+  <div class="opts"><button class="opt" data-c="1">The associative property</button><button class="opt">The commutative property</button><button class="opt">The distributive property</button><button class="opt">It is not true, because the grouping changes the product.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="560||560 bricks" data-logic="8 &times; 70 = 8 &times; 7 tens = 56 tens = 560 bricks.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The path will have 8 rows of bricks with 70 bricks in each row. How many bricks is that?', this)">&#128266;</button> The path will have 8 rows of bricks with 70 bricks in each row. How many bricks is that?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s1" data-pts="5" data-logic="40 is 4 tens. 5 &times; 4 tens = 20 tens, and 20 tens = 200.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Chidi says 5 times 40 equals 20. What went wrong?', this)">&#128266;</button> Find the mistake. Chidi says 5 &times; 40 = 20. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">5 &times; 4 tens = 20 tens, and 20 tens is 200. He forgot that he was multiplying tens.</button><button class="opt">Nothing is wrong. 5 &times; 40 = 20.</button><button class="opt">5 &times; 40 should be 45, because 5 + 40 = 45.</button><button class="opt">5 &times; 40 should be 2,000, because you add two zeros.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="112" data-logic="7 &times; 10 = 70 and 7 &times; 6 = 42. 70 + 42 = 112.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Use the break-apart trick: 7 times 16 equals 7 times 10 plus 7 times 6. What is 7 times 16?', this)">&#128266;</button> Use the break-apart trick: 7 &times; 16 = 7 &times; 10 + 7 &times; 6. What is 7 &times; 16?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s2" data-pts="5" data-logic="By the commutative property, the factors can switch places: 9 &times; 30 = 30 &times; 9 = 270.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which is equal to 9 times 30?', this)">&#128266;</button> Which is equal to 9 &times; 30?</p>
+  <div class="opts"><button class="opt" data-c="1">30 &times; 9</button><button class="opt">9 + 30</button><button class="opt">9 &times; 3</button><button class="opt">93</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#127968; Picture It: Designing a Playground in Chattanooga</h2>
+<div class="fig"><svg class="art" viewBox="0 0 640 280" role="img" aria-label="A riverfront in Chattanooga, Tennessee, with a mountain behind it, a long blue walking bridge over the river, and a grassy lot marked with stakes and string where three children and a designer plan a new playground" style="width:100%;max-width:660px;height:auto;display:block;margin:12px auto"><defs><linearGradient id="chasky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8DBFF"/><stop offset="1" stop-color="#FFF3DD"/></linearGradient></defs><rect x="0" y="0" width="640" height="280" rx="16" fill="url(#chasky)"/><circle cx="570" cy="44" r="22" fill="#FFD25E"/><path d="M0 110 L90 60 L200 46 L260 70 L330 96 L0 96 Z" fill="#6E9A6B"/><path d="M0 110 L640 110 L640 96 L0 96 Z" fill="#6E9A6B"/><rect x="0" y="110" width="640" height="34" fill="#4FA3D9"/><rect x="40" y="96" width="560" height="6" fill="#2F5FB3"/><path d="M40 96 Q80 70 120 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="40" y1="102" x2="40" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M120 96 Q160 70 200 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="120" y1="102" x2="120" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M200 96 Q240 70 280 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="200" y1="102" x2="200" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M280 96 Q320 70 360 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="280" y1="102" x2="280" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M360 96 Q400 70 440 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="360" y1="102" x2="360" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M440 96 Q480 70 520 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="440" y1="102" x2="440" y2="128" stroke="#2F5FB3" stroke-width="5"/><path d="M520 96 Q560 70 600 96" fill="none" stroke="#2F5FB3" stroke-width="4"/><line x1="520" y1="102" x2="520" y2="128" stroke="#2F5FB3" stroke-width="5"/><line x1="600" y1="102" x2="600" y2="128" stroke="#2F5FB3" stroke-width="5"/><rect x="0" y="144" width="640" height="136" fill="#8CCB5E"/><rect x="200" y="170" width="250" height="84" fill="#B5E08F" stroke="#F28C28" stroke-width="3" stroke-dasharray="8 6"/><rect x="197" y="158" width="6" height="16" fill="#8B5A2B"/><rect x="447" y="158" width="6" height="16" fill="#8B5A2B"/><rect x="447" y="242" width="6" height="16" fill="#8B5A2B"/><rect x="197" y="242" width="6" height="16" fill="#8B5A2B"/><rect x="240" y="186" width="60" height="40" fill="#F6E0A8" stroke="#0A1F3D" stroke-width="2"/><text x="270.0" y="211.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">sand</text><rect x="330" y="186" width="90" height="50" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2"/><text x="375.0" y="216.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">splash pad</text><rect x="466" y="150" width="140" height="22" rx="4" fill="#FFF6E1" stroke="#C9A84C" stroke-width="3"/><text x="536.0" y="166.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">NEW PLAYGROUND</text><g><circle cx="90" cy="186" r="11" fill="#8D5524"/><path d="M79 182 Q90 168 101 182 Z" fill="#2A1A0E"/><rect x="80" y="197" width="20" height="40" rx="6" fill="#0047BA"/><rect x="82" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="92" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="104" y="198" width="22" height="28" rx="2" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="1.5"/></g><g><circle cx="150" cy="196" r="11" fill="#F1C27D"/><path d="M139 192 Q150 178 161 192 Z" fill="#B5651D"/><rect x="140" y="207" width="20" height="30" rx="6" fill="#DB2F30"/><rect x="142" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="152" y="237" width="6" height="14" fill="#0A1F3D"/></g><g><circle cx="510" cy="196" r="11" fill="#C68642"/><path d="M499 192 Q510 178 521 192 Z" fill="#0A1F3D"/><rect x="500" y="207" width="20" height="30" rx="6" fill="#86D464"/><rect x="502" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="512" y="237" width="6" height="14" fill="#0A1F3D"/></g><g><circle cx="570" cy="196" r="11" fill="#5C3A1E"/><path d="M559 192 Q570 178 581 192 Z" fill="#1A1A1A"/><rect x="560" y="207" width="20" height="30" rx="6" fill="#7A3FA0"/><rect x="562" y="237" width="6" height="14" fill="#0A1F3D"/><rect x="572" y="237" width="6" height="14" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('It\'s a bright morning on a grassy lot near the Tennessee River in Chattanooga. Orange string and wooden stakes mark where a new community playground will go. Designer Mr. Conrad unrolls his plans on a picnic table. His young planners, Chloe, Chidi, Colton, and Cora, grab their measuring tapes.', this)">&#128266;</button> It's a bright morning on a grassy lot near the Tennessee River in Chattanooga. Orange string and wooden stakes mark where a new community playground will go. Designer Mr. Conrad unrolls his plans on a picnic table. His young planners, Chloe, Chidi, Colton, and Cora, grab their measuring tapes.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Every part of the playground needs two numbers. A fence or border goes around the edge, so the planners need the perimeter. Rubber mats, sand, and tiles cover the inside, so they need the area.', this)">&#128266;</button> Every part of the playground needs two numbers. A fence or border goes <b>around</b> the edge, so the planners need the <b>perimeter</b>. Rubber mats, sand, and tiles <b>cover</b> the inside, so they need the <b>area</b>.</p></div><div class="card card-gold"><h3>&#127753; Chattanooga Facts</h3><ul class="tips facts"><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Chattanooga is a city in southeast Tennessee. The Tennessee River curves right through it, and Lookout Mountain rises above the city.', this)">&#128266;</button> Chattanooga is a city in southeast Tennessee. The Tennessee River curves right through it, and Lookout Mountain rises above the city.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The Walnut Street Bridge crosses the Tennessee River. It opened in 1891 and is 2,376 feet long, which is almost half a mile.', this)">&#128266;</button> The Walnut Street Bridge crosses the Tennessee River. It opened in 1891 and is 2,376 feet long, which is almost half a mile.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cars stopped using the Walnut Street Bridge in 1978. It reopened in 1993 as a bridge for people on foot, and it is one of the longest walking bridges in the world.', this)">&#128266;</button> Cars stopped using the Walnut Street Bridge in 1978. It reopened in 1993 as a bridge for people on foot, and it is one of the longest walking bridges in the world.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The bridge connects downtown Chattanooga to the North Shore, where Coolidge Park sits beside the river.', this)">&#128266;</button> The bridge connects downtown Chattanooga to the North Shore, where Coolidge Park sits beside the river.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Coolidge Park has a restored carousel built in 1894, with 52 hand-carved wooden animals, and a fountain kids can play in from May through September.', this)">&#128266;</button> Coolidge Park has a restored carousel built in 1894, with 52 hand-carved wooden animals, and a fountain kids can play in from May through September.</li></ul></div><div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Today you will compare rectangles with the same perimeter and with the same area, find the area of combined rectangles, and solve design challenges with L-shaped figures.', this)">&#128266;</button> Today you will compare rectangles with the <b>same perimeter</b> and with the <b>same area</b>, find the area of <b>combined rectangles</b>, and solve design challenges with L-shaped figures.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Flip each card to learn this week\'s vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.', this)">&#128266;</button> Flip each card to learn this week's vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.</p>
+<div class="flipgrid">
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">perimeter<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('perimeter', this)">&#128266;</button></div><div class="flip-face flip-back">The distance around a shape. Add the lengths of all its sides. It is measured in feet.<br><i>&ldquo;A fence or border goes around the edge, so the planners need the perimeter.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('The distance around a shape. Add the lengths of all its sides. It is measured in feet. From the lesson: A fence or border goes around the edge, so the planners need the perimeter.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">area<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('area', this)">&#128266;</button></div><div class="flip-face flip-back">The number of square units that cover a shape. It is measured in square feet.<br><i>&ldquo;Rubber mats, sand, and tiles cover the inside, so they need the area.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('The number of square units that cover a shape. It is measured in square feet. From the lesson: Rubber mats, sand, and tiles cover the inside, so they need the area.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">square foot<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('square foot', this)">&#128266;</button></div><div class="flip-face flip-back">A square that is 1 foot long on each side. It is a unit for measuring area.<br><i>&ldquo;Their areas are 11, 20, 27, 32, 35, and 36 square feet.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A square that is 1 foot long on each side. It is a unit for measuring area. From the lesson: Their areas are 11, 20, 27, 32, 35, and 36 square feet.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">dimensions<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('dimensions', this)">&#128266;</button></div><div class="flip-face flip-back">The length and the width of a rectangle.<br><i>&ldquo;The rectangle with dimensions 6 feet by 6 feet holds the most sand.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('The length and the width of a rectangle. From the lesson: The rectangle with dimensions 6 feet by 6 feet holds the most sand.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rectilinear figure<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('rectilinear figure', this)">&#128266;</button></div><div class="flip-face flip-back">A shape whose sides are all straight and meet at right angles, like an L shape made of rectangles.<br><i>&ldquo;The climbing area is a rectilinear figure shaped like the letter L.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A shape whose sides are all straight and meet at right angles, like an L shape made of rectangles. From the lesson: The climbing area is a rectilinear figure shaped like the letter L.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">distributive property<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('distributive property', this)">&#128266;</button></div><div class="flip-face flip-back">You can split a rectangle into two smaller rectangles, find each area, and add them.<br><i>&ldquo;By the distributive property, 7 &times; 13 = 7 &times; 8 + 7 &times; 5.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('You can split a rectangle into two smaller rectangles, find each area, and add them. From the lesson: By the distributive property, 7 times 13 equals 7 times 8 plus 7 times 5.', this)">&#128266;</button></div></div></div>
+</div>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Here is a memory trick: the word perimeter has rim in it, and a rim goes around the edge. Area is the space you would cover with a rug, so it is counted in square units.', this)">&#128266;</button> Here is a memory trick: the word <b>perimeter</b> has <b>rim</b> in it, and a rim goes around the edge. <b>Area</b> is the space you would cover with a rug, so it is counted in <b>square</b> units.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#9999;&#65039; Pencil Break: Pre-Lesson Warm-Up</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Before you start: print your Pre/Post sheet (2 pages) and do Page 1 (Pre) now. Keep Page 2 for the end.</p><a href="../prepost/KCE_Math_PrePost_G3W27.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W27.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.', this)">&#128266;</button> Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Do the PRE side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today\'s lesson is for!', this)">&#128266;</button> Do the <b>PRE</b> side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today's lesson is for!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a measuring tape, and a small plan of a playground on grid paper" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><rect x="30" y="30" width="110" height="90" fill="#EAF6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="40" y1="30" x2="40" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="50" y1="30" x2="50" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="60" y1="30" x2="60" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="70" y1="30" x2="70" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="80" y1="30" x2="80" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="90" y1="30" x2="90" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="100" y1="30" x2="100" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="110" y1="30" x2="110" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="120" y1="30" x2="120" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="130" y1="30" x2="130" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="40" x2="140" y2="40" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="50" x2="140" y2="50" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="60" x2="140" y2="60" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="70" x2="140" y2="70" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="80" x2="140" y2="80" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="90" x2="140" y2="90" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="100" x2="140" y2="100" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="110" x2="140" y2="110" stroke="#9AA9C2" stroke-width="1"/><path d="M50 50 L100 50 L100 80 L120 80 L120 100 L50 100 Z" fill="#86D464" fill-opacity=".7" stroke="#0A1F3D" stroke-width="2"/><circle cx="440" cy="76" r="40" fill="#FFD25E" stroke="#0A1F3D" stroke-width="3"/><circle cx="440" cy="76" r="12" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="440" y="104" width="60" height="12" fill="#FFE38A" stroke="#0A1F3D" stroke-width="2"/><g transform="translate(190,62) rotate(-10)"><rect x="0" y="0" width="150" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M150 0 L176 8 L150 16 Z" fill="#F2D3A0"/><path d="M168 5 L176 8 L168 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When you finish the Pre side, put your pencil down and tap Next to start learning.', this)">&#128266;</button> When you finish the Pre side, put your pencil down and tap <b>Next</b> to start learning.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#128260; Same Perimeter, Different Areas</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Mr. Conrad has 24 feet of rubber border for a sandbox. Chloe lists every rectangle with whole-number sides that uses all 24 feet. The length plus the width must be half of 24, which is 12: 1 by 11, 2 by 10, 3 by 9, 4 by 8, 5 by 7, and 6 by 6. Their areas are 11, 20, 27, 32, 35, and 36 square feet.', this)">&#128266;</button> Mr. Conrad has 24 feet of rubber border for a sandbox. Chloe lists every rectangle with whole-number sides that uses all 24 feet. The length plus the width must be half of 24, which is 12: 1 by 11, 2 by 10, 3 by 9, 4 by 8, 5 by 7, and 6 by 6. Their areas are 11, 20, 27, 32, 35, and 36 square feet.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Same border, very different sandboxes! I list the rectangles in order so I do not skip one. As the rectangle gets closer to a square, the area grows. The rectangle with dimensions 6 feet by 6 feet holds the most sand.', this)">&#128266;</button> Same border, very different sandboxes! I list the rectangles in order so I do not skip one. As the rectangle gets closer to a square, the area grows. The rectangle with dimensions 6 feet by 6 feet holds the most sand.</p></div><div class="fig"><svg class="art" viewBox="0 0 480 232" role="img" aria-label="Three rectangles that each have a perimeter of 24 feet: 2 by 10 with area 20 square feet, 4 by 8 with area 32 square feet, and 6 by 6 with area 36 square feet" style="width:100%;max-width:480px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="480" height="232" rx="14" fill="#F8FAFF"/><rect x="60" y="26" width="28" height="140" fill="#F6E0A8" stroke="#0A1F3D" stroke-width="2.5"/><line x1="74" y1="26" x2="74" y2="166" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="40" x2="88" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="54" x2="88" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="68" x2="88" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="82" x2="88" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="96" x2="88" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="110" x2="88" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="124" x2="88" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="138" x2="88" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="152" x2="88" y2="152" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="74.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">2 by 10</text><text x="74.0" y="186.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">24 feet around</text><text x="74.0" y="204.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#DB2F30">20 square feet</text><rect x="184" y="26" width="56" height="112" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2.5"/><line x1="198" y1="26" x2="198" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="212" y1="26" x2="212" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="226" y1="26" x2="226" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="40" x2="240" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="54" x2="240" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="68" x2="240" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="82" x2="240" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="96" x2="240" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="110" x2="240" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="124" x2="240" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="212.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 by 8</text><text x="212.0" y="186.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">24 feet around</text><text x="212.0" y="204.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#DB2F30">32 square feet</text><rect x="336" y="26" width="84" height="84" fill="#86D464" stroke="#0A1F3D" stroke-width="2.5"/><line x1="350" y1="26" x2="350" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="364" y1="26" x2="364" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="378" y1="26" x2="378" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="392" y1="26" x2="392" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="406" y1="26" x2="406" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="336" y1="40" x2="420" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="336" y1="54" x2="420" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="336" y1="68" x2="420" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="336" y1="82" x2="420" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="336" y1="96" x2="420" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="378.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">6 by 6</text><text x="378.0" y="186.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">24 feet around</text><text x="378.0" y="204.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#DB2F30">36 square feet</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Perimeter 24 feet: 12 equals length plus width. 2 times 10 equals 20 square feet. 4 times 8 equals 32 square feet. 6 times 6 equals 36 square feet', this)">&#128266;</button> Perimeter 24 feet: 12 = length + width<br>2 &times; 10 = 20 square feet<br>4 &times; 8 = 32 square feet<br>6 &times; 6 = 36 square feet</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cora has 16 feet of rope. Half of 16 is 8, so the rectangles are 1 by 7, 2 by 6, 3 by 5, and 4 by 4. The areas are 7, 12, 15, and 16 square feet, so 4 by 4 covers the most.', this)">&#128266;</button> Cora has 16 feet of rope. Half of 16 is 8, so the rectangles are 1 by 7, 2 by 6, 3 by 5, and 4 by 4. The areas are 7, 12, 15, and 16 square feet, so 4 by 4 covers the most.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="p1_s0" data-pts="5" data-ans="33||33 square feet||33 sq ft||33 sq. ft.||33 square foot||33 square ft" data-logic="Area = 3 &times; 11 = 33 square feet. (Check the perimeter: 3 + 11 + 3 + 11 = 28 feet.)">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A garden bed is 3 feet wide and 11 feet long. Its perimeter is 28 feet. What is its area, in square feet?', this)">&#128266;</button> A garden bed is 3 feet wide and 11 feet long. Its perimeter is 28 feet. What is its area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="p1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="p2_s0" data-pts="5" data-logic="7 &times; 7 = 49, 4 &times; 10 = 40, 2 &times; 12 = 24, and 1 &times; 13 = 13 square feet. The square holds the most.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Each rectangle below has a perimeter of 28 feet. Which one has the greatest area?', this)">&#128266;</button> Each rectangle below has a perimeter of 28 feet. Which one has the greatest area?</p>
+  <div class="opts"><button class="opt" data-c="1">7 feet by 7 feet</button><button class="opt">4 feet by 10 feet</button><button class="opt">2 feet by 12 feet</button><button class="opt">1 foot by 13 feet</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="p1_s1" data-pts="5" data-ans="14||14 square feet||14 sq ft||14 sq. ft.||14 square foot||14 square ft" data-logic="Step 1: The two widths are 2 + 2 = 4 feet. 18 &minus; 4 = 14 feet for the two lengths, so each length is 7 feet. Step 2: Area = 2 &times; 7 = 14 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A rectangular stage has a perimeter of 18 feet. It is 2 feet wide. What is its area, in square feet?', this)">&#128266;</button> Two steps! A rectangular stage has a perimeter of 18 feet. It is 2 feet wide. What is its area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="p1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="p2_s1" data-pts="5" data-ans="3||3 rectangles" data-logic="Half the perimeter is 6 feet, so the length plus the width is 6: 1 by 5, 2 by 4, and 3 by 3. That is 3 rectangles.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many different rectangles with whole-number sides have a perimeter of 12 feet? (A square counts as a rectangle.)', this)">&#128266;</button> How many different rectangles with whole-number sides have a perimeter of 12 feet? (A square counts as a rectangle.)</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="p2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="p1_s2" data-pts="5" data-ans="18||18 square feet||18 sq ft||18 sq. ft.||18 square foot||18 square ft" data-logic="6 &times; 9 = 54 and 3 &times; 12 = 36 square feet. 54 &minus; 36 = 18 more square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A 3 by 12 rectangle and a 6 by 9 rectangle both have a perimeter of 30 feet. How many more square feet does the 6 by 9 rectangle cover?', this)">&#128266;</button> A 3 by 12 rectangle and a 6 by 9 rectangle both have a perimeter of 30 feet. How many more square feet does the 6 by 9 rectangle cover?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="p1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="p2_s2" data-pts="5" data-logic="2 + 8 + 2 + 8 = 20 and 4 + 6 + 4 + 6 = 20. Both perimeters are 20 feet, but the areas are 16 and 24 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which pair of rectangles has the same perimeter?', this)">&#128266;</button> Which pair of rectangles has the same perimeter?</p>
+  <div class="opts"><button class="opt" data-c="1">2 by 8 and 4 by 6</button><button class="opt">2 by 8 and 4 by 4</button><button class="opt">3 by 5 and 5 by 5</button><button class="opt">1 by 9 and 3 by 3</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128207; Same Area, Different Perimeters</h2>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Chidi has 24 square tiles of rubber safety mat. Each tile is 1 foot on each side, so any mat he makes covers 24 square feet. He finds every rectangle: 1 by 24, 2 by 12, 3 by 8, and 4 by 6. Their perimeters are 50, 28, 22, and 20 feet.', this)">&#128266;</button> Chidi has 24 square tiles of rubber safety mat. Each tile is 1 foot on each side, so any mat he makes covers 24 square feet. He finds every rectangle: 1 by 24, 2 by 12, 3 by 8, and 4 by 6. Their perimeters are 50, 28, 22, and 20 feet.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('To find every rectangle with an area of 24, I look for factor pairs: two numbers that multiply to 24. Same area, but the border changes a lot! A long, skinny mat needs the most border. The mat closest to a square needs the least.', this)">&#128266;</button> To find every rectangle with an area of 24, I look for factor pairs: two numbers that multiply to 24. Same area, but the border changes a lot! A long, skinny mat needs the most border. The mat closest to a square needs the least.</p></div><div class="fig"><svg class="art" viewBox="0 0 438 260" role="img" aria-label="Three rectangles that each cover 24 square feet: 2 by 12 with perimeter 28 feet, 3 by 8 with perimeter 22 feet, and 4 by 6 with perimeter 20 feet" style="width:100%;max-width:438px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="438" height="260" rx="14" fill="#F8FAFF"/><rect x="60" y="26" width="28" height="168" fill="#F6E0A8" stroke="#0A1F3D" stroke-width="2.5"/><line x1="74" y1="26" x2="74" y2="194" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="40" x2="88" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="54" x2="88" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="68" x2="88" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="82" x2="88" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="96" x2="88" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="110" x2="88" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="124" x2="88" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="138" x2="88" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="152" x2="88" y2="152" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="166" x2="88" y2="166" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="60" y1="180" x2="88" y2="180" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="74.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">2 by 12</text><text x="74.0" y="214.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">28 feet around</text><rect x="184" y="26" width="42" height="112" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="2.5"/><line x1="198" y1="26" x2="198" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="212" y1="26" x2="212" y2="138" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="40" x2="226" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="54" x2="226" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="68" x2="226" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="82" x2="226" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="96" x2="226" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="110" x2="226" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="184" y1="124" x2="226" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="205.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 by 8</text><text x="205.0" y="214.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">22 feet around</text><rect x="322" y="26" width="56" height="84" fill="#86D464" stroke="#0A1F3D" stroke-width="2.5"/><line x1="336" y1="26" x2="336" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="350" y1="26" x2="350" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="364" y1="26" x2="364" y2="110" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="322" y1="40" x2="378" y2="40" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="322" y1="54" x2="378" y2="54" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="322" y1="68" x2="378" y2="68" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="322" y1="82" x2="378" y2="82" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><line x1="322" y1="96" x2="378" y2="96" stroke="#0A1F3D" stroke-width="1" opacity=".35"/><text x="350.0" y="18.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 by 6</text><text x="350.0" y="214.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">20 feet around</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Area 24 square feet: factor pairs of 24. 2 by 12: perimeter 28 feet. 3 by 8: perimeter 22 feet. 4 by 6: perimeter 20 feet', this)">&#128266;</button> Area 24 square feet: factor pairs of 24<br>2 by 12: perimeter 28 feet<br>3 by 8: perimeter 22 feet<br>4 by 6: perimeter 20 feet</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Colton needs a mat that covers 10 square feet. 1 times 10 equals 10 and 2 times 5 equals 10. The perimeters are 1 plus 10 plus 1 plus 10 equals 22 feet and 2 plus 5 plus 2 plus 5 equals 14 feet, so the 2 by 5 mat needs less border.', this)">&#128266;</button> Colton needs a mat that covers 10 square feet. 1 &times; 10 = 10 and 2 &times; 5 = 10. The perimeters are 1 + 10 + 1 + 10 = 22 feet and 2 + 5 + 2 + 5 = 14 feet, so the 2 by 5 mat needs less border.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="q1_s0" data-pts="5" data-ans="26||26 feet||26 ft||26 ft." data-logic="Step 1: 4 &times; 9 = 36, so it is 9 feet long. Step 2: 4 + 9 + 4 + 9 = 26 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! The splash pad has an area of 36 square feet and is 4 feet wide. What is its perimeter, in feet?', this)">&#128266;</button> Two steps! The splash pad has an area of 36 square feet and is 4 feet wide. What is its perimeter, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="q1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="q2_s0" data-pts="5" data-logic="The perimeters are 16 feet for the 4 by 4, 20 feet for the 2 by 8, and 34 feet for the 1 by 16. The square needs the least.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Each rectangle below has an area of 16 square feet. Which one needs the least border around it?', this)">&#128266;</button> Each rectangle below has an area of 16 square feet. Which one needs the least border around it?</p>
+  <div class="opts"><button class="opt" data-c="1">4 feet by 4 feet</button><button class="opt">2 feet by 8 feet</button><button class="opt">1 foot by 16 feet</button><button class="opt">They all need the same border.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="q1_s1" data-pts="5" data-ans="22||22 feet||22 ft||22 ft." data-logic="2 + 9 + 2 + 9 = 22 feet. (The 3 by 6 sandbox has a perimeter of only 18 feet.)">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A 3 by 6 sandbox and a 2 by 9 sandbox both cover 18 square feet. What is the perimeter of the 2 by 9 sandbox, in feet?', this)">&#128266;</button> A 3 by 6 sandbox and a 2 by 9 sandbox both cover 18 square feet. What is the perimeter of the 2 by 9 sandbox, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="q1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="q2_s1" data-pts="5" data-logic="Same area does not mean same perimeter. 3 + 4 + 3 + 4 = 14, 2 + 6 + 2 + 6 = 16, and 1 + 12 + 1 + 12 = 26.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Chloe says every rectangle with an area of 12 square feet has a perimeter of 14 feet. What went wrong?', this)">&#128266;</button> Find the mistake. Chloe says every rectangle with an area of 12 square feet has a perimeter of 14 feet. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">Only the 3 by 4 rectangle has a perimeter of 14 feet. The 2 by 6 has 16 feet and the 1 by 12 has 26 feet.</button><button class="opt">Nothing is wrong. Same area always means same perimeter.</button><button class="opt">They all have a perimeter of 12 feet, the same as the area.</button><button class="opt">They all have a perimeter of 24 feet, because 12 + 12 = 24.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="q1_s2" data-pts="5" data-ans="18||18 feet||18 ft||18 ft." data-logic="The rectangles are 1 by 20 (42 feet), 2 by 10 (24 feet), and 4 by 5 (18 feet). The smallest perimeter is 18 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Think of every rectangle with whole-number sides and an area of 20 square feet. What is the smallest perimeter one of them can have, in feet?', this)">&#128266;</button> Think of every rectangle with whole-number sides and an area of 20 square feet. What is the smallest perimeter one of them can have, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="q1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="q2_s2" data-pts="5" data-ans="24||24 feet||24 ft||24 ft." data-logic="1 + 20 + 1 + 20 = 42 feet and 4 + 5 + 4 + 5 = 18 feet. 42 &minus; 18 = 24 more feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A 1 by 20 rectangle and a 4 by 5 rectangle both cover 20 square feet. How many more feet of border does the 1 by 20 rectangle need?', this)">&#128266;</button> A 1 by 20 rectangle and a 4 by 5 rectangle both cover 20 square feet. How many more feet of border does the 1 by 20 rectangle need?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="q2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#9986;&#65039; Combined Rectangles and the Distributive Property</h2>
+<div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The climbing area is 7 feet wide. Part of it is 8 feet long for the rope net, and the rest is 5 feet long for the climbing wall. Cora finds the area of each part: 7 times 8 equals 56 and 7 times 5 equals 35. 56 plus 35 equals 91 square feet. The whole rectangle is 7 by 13, and 7 times 13 equals 91 too!', this)">&#128266;</button> The climbing area is 7 feet wide. Part of it is 8 feet long for the rope net, and the rest is 5 feet long for the climbing wall. Cora finds the area of each part: 7 &times; 8 = 56 and 7 &times; 5 = 35. 56 + 35 = 91 square feet. The whole rectangle is 7 by 13, and 7 &times; 13 = 91 too!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Splitting a rectangle into two smaller rectangles is the distributive property in a picture. By the distributive property, 7 times 13 equals 7 times 8 plus 7 times 5. For a shape like an L, I split it into rectangles and add, or I find a big rectangle and subtract the missing corner.', this)">&#128266;</button> Splitting a rectangle into two smaller rectangles is the distributive property in a picture. By the distributive property, 7 &times; 13 = 7 &times; 8 + 7 &times; 5. For a shape like an L, I split it into rectangles and add, or I find a big rectangle and subtract the missing corner.</p></div><div class="fig"><svg class="art" viewBox="0 0 356 212" role="img" aria-label="A rectangle 7 feet tall split into a part 8 feet long, 7 times 8 equals 56, and a part 5 feet long, 7 times 5 equals 35" style="width:100%;max-width:356px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="356" height="212" rx="14" fill="#F8FAFF"/><rect x="56" y="34" width="144" height="126" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3"/><line x1="74" y1="34" x2="74" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="92" y1="34" x2="92" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="110" y1="34" x2="110" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="128" y1="34" x2="128" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="146" y1="34" x2="146" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="164" y1="34" x2="164" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="182" y1="34" x2="182" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="52" x2="200" y2="52" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="70" x2="200" y2="70" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="88" x2="200" y2="88" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="106" x2="200" y2="106" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="124" x2="200" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="56" y1="142" x2="200" y2="142" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><text x="128.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">8 feet</text><text x="128.0" y="186.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">7 &#215; 8 = 56</text><rect x="210" y="34" width="90" height="126" fill="#86D464" stroke="#0A1F3D" stroke-width="3"/><line x1="228" y1="34" x2="228" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="246" y1="34" x2="246" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="264" y1="34" x2="264" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="282" y1="34" x2="282" y2="160" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="52" x2="300" y2="52" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="70" x2="300" y2="70" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="88" x2="300" y2="88" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="106" x2="300" y2="106" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="124" x2="300" y2="124" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><line x1="210" y1="142" x2="300" y2="142" stroke="#0A1F3D" stroke-width="1" opacity=".4"/><text x="255.0" y="24.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">5 feet</text><text x="255.0" y="186.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">7 &#215; 5 = 35</text><text x="50.0" y="103.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">7 feet</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('7 times 13 equals 7 times (8 plus 5). equals 7 times 8 plus 7 times 5. equals 56 plus 35 equals 91 square feet', this)">&#128266;</button> 7 &times; 13 = 7 &times; (8 + 5)<br>= 7 &times; 8 + 7 &times; 5<br>= 56 + 35 = 91 square feet</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Chloe needs the area of a 6 by 12 picnic patio. She splits 12 into 10 plus 2: 6 times 10 equals 60 and 6 times 2 equals 12. 60 plus 12 equals 72 square feet.', this)">&#128266;</button> Chloe needs the area of a 6 by 12 picnic patio. She splits 12 into 10 + 2: 6 &times; 10 = 60 and 6 &times; 2 = 12. 60 + 12 = 72 square feet.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="r1_s0" data-pts="5" data-ans="36||36 square feet||36 sq ft||36 sq. ft.||36 square foot||36 square ft" data-logic="4 &times; 6 = 24 and 4 &times; 3 = 12. 24 + 12 = 36 square feet. That is the same as 4 &times; 9 = 36.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A rubber mat is made of two parts side by side: one part is 4 feet by 6 feet and the other is 4 feet by 3 feet. What is the total area, in square feet?', this)">&#128266;</button> A rubber mat is made of two parts side by side: one part is 4 feet by 6 feet and the other is 4 feet by 3 feet. What is the total area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="r2_s0" data-pts="5" data-logic="Both parts are 5 feet tall, so multiply 5 by each part and add: 50 + 10 = 60 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A 5 by 12 rectangle is split into a 5 by 10 part and a 5 by 2 part. Which equation finds its area?', this)">&#128266;</button> A 5 by 12 rectangle is split into a 5 by 10 part and a 5 by 2 part. Which equation finds its area?</p>
+  <div class="opts"><button class="opt" data-c="1">5 &times; 12 = 5 &times; 10 + 5 &times; 2</button><button class="opt">5 &times; 12 = 5 &times; 10 + 2</button><button class="opt">5 &times; 12 = 5 + 10 + 2</button><button class="opt">5 &times; 12 = 5 &times; 10 &times; 2</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="r1_s1" data-pts="5" data-ans="52||52 square feet||52 sq ft||52 sq. ft.||52 square foot||52 square ft" data-logic="8 &times; 5 = 40 and 3 &times; 4 = 12. 40 + 12 = 52 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The climbing area is a rectilinear figure. It is made of an 8 by 5 rectangle joined to a 3 by 4 rectangle. What is its total area, in square feet?', this)">&#128266;</button> The climbing area is a rectilinear figure. It is made of an 8 by 5 rectangle joined to a 3 by 4 rectangle. What is its total area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="r2_s1" data-pts="5" data-logic="Both smaller rectangles are 6 feet tall. 6 &times; 7 = 42 and 6 &times; 2 = 12. 42 + 12 = 54 = 6 &times; 9.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Colton finds the area of a 6 by 9 rectangle by splitting 9 into 7 plus 2. He writes 6 times 7 plus 2 equals 44. What went wrong?', this)">&#128266;</button> Find the mistake. Colton finds the area of a 6 by 9 rectangle by splitting 9 into 7 + 2. He writes 6 &times; 7 + 2 = 44. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">He forgot to multiply the 2 by 6. 6 &times; 7 + 6 &times; 2 = 42 + 12 = 54 square feet.</button><button class="opt">Nothing is wrong. The area is 44 square feet.</button><button class="opt">He should add the sides: 6 + 7 + 2 = 15.</button><button class="opt">He should find 6 &times; 7 &times; 2 = 84.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="r1_s2" data-pts="5" data-ans="126||126 square feet||126 sq ft||126 sq. ft.||126 square foot||126 square ft" data-logic="9 &times; 10 = 90 and 9 &times; 4 = 36. 90 + 36 = 126 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A path is 9 feet wide and 14 feet long. Split 14 into 10 plus 4. What is the area of the path, in square feet?', this)">&#128266;</button> A path is 9 feet wide and 14 feet long. Split 14 into 10 + 4. What is the area of the path, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="r2_s2" data-pts="5" data-ans="48||48 square feet||48 sq ft||48 sq. ft.||48 square foot||48 square ft" data-logic="Whole rectangle: 10 &times; 6 = 60. Corner: 4 &times; 3 = 12. 60 &minus; 12 = 48 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A garden starts as a 10 by 6 rectangle, but a 4 by 3 corner is cut out for a bench. What is the area of the garden that is left, in square feet?', this)">&#128266;</button> A garden starts as a 10 by 6 rectangle, but a 4 by 3 corner is cut out for a bench. What is the area of the garden that is left, in square feet?</p>
+<div class="fig"><svg class="art" viewBox="0 0 348 196" role="img" aria-label="An L-shaped garden. It is a 10 by 6 rectangle with a 4 by 3 corner cut out at the top right, shown with a dashed line" style="width:100%;max-width:348px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="348" height="196" rx="14" fill="#F8FAFF"/><rect x="184" y="30" width="80" height="60" fill="none" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><polygon points="64.0,30.0 184.0,30.0 184.0,90.0 264.0,90.0 264.0,150.0 64.0,150.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="124.0" y="22.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">6 feet</text><text x="192.0" y="65.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 feet</text><text x="224.0" y="110.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 feet</text><text x="272.0" y="125.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 feet</text><text x="164.0" y="172.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">10 feet</text><text x="56.0" y="95.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">6 feet</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="r2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#127959;&#65039; Design Challenge: L-Shaped Figures</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The climbing area is a rectilinear figure shaped like the letter L. It fits inside a 10 by 8 rectangle with a 4 by 3 corner missing. Colton walks around it: 6 plus 3 plus 4 plus 5 plus 10 plus 8 equals 36 feet of border. For the area, he takes the big rectangle and subtracts the corner: 80 minus 12 equals 68 square feet.', this)">&#128266;</button> The climbing area is a rectilinear figure shaped like the letter L. It fits inside a 10 by 8 rectangle with a 4 by 3 corner missing. Colton walks around it: 6 + 3 + 4 + 5 + 10 + 8 = 36 feet of border. For the area, he takes the big rectangle and subtracts the corner: 80 &minus; 12 = 68 square feet.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('To find a missing side, I compare opposite directions. The top pieces must add up to the bottom: 6 plus 4 equals 10. The right-side pieces must add up to the left side: 3 plus 5 equals 8. Then I can find the perimeter by adding all six sides, and the area by splitting or subtracting.', this)">&#128266;</button> To find a missing side, I compare opposite directions. The top pieces must add up to the bottom: 6 + 4 = 10. The right-side pieces must add up to the left side: 3 + 5 = 8. Then I can find the perimeter by adding all six sides, and the area by splitting or subtracting.</p></div><div class="fig"><svg class="art" viewBox="0 0 348 236" role="img" aria-label="An L-shaped climbing area. The top is 6 feet, the step down is 3 feet, the step across is 4 feet, the right side is 5 feet, the bottom is 10 feet, and the left side is 8 feet" style="width:100%;max-width:348px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="348" height="236" rx="14" fill="#F8FAFF"/><rect x="184" y="30" width="80" height="60" fill="none" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><polygon points="64.0,30.0 184.0,30.0 184.0,90.0 264.0,90.0 264.0,190.0 64.0,190.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="124.0" y="22.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">6 feet</text><text x="192.0" y="65.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 feet</text><text x="224.0" y="110.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 feet</text><text x="272.0" y="145.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">5 feet</text><text x="164.0" y="212.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">10 feet</text><text x="56.0" y="115.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">8 feet</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Perimeter: 6 plus 3 plus 4 plus 5 plus 10 plus 8 equals 36 feet. Area: 10 times 8 minus 4 times 3. equals 80 minus 12 equals 68 square feet', this)">&#128266;</button> Perimeter: 6 + 3 + 4 + 5 + 10 + 8 = 36 feet<br>Area: 10 &times; 8 &minus; 4 &times; 3<br>= 80 &minus; 12 = 68 square feet</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Split it another way: a 6 by 8 rectangle on the left, 6 times 8 equals 48, and a 4 by 5 rectangle on the right, 4 times 5 equals 20. 48 plus 20 equals 68 square feet. Same area!', this)">&#128266;</button> Split it another way: a 6 by 8 rectangle on the left, 6 &times; 8 = 48, and a 4 by 5 rectangle on the right, 4 &times; 5 = 20. 48 + 20 = 68 square feet. Same area!</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="s1_s0" data-pts="5" data-ans="26||26 feet||26 ft||26 ft." data-logic="Add all six sides: 4 + 2 + 3 + 4 + 7 + 6 = 26 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Look at the L-shaped sandbox. What is its perimeter, in feet?', this)">&#128266;</button> Look at the L-shaped sandbox. What is its perimeter, in feet?</p>
+<div class="fig"><svg class="art" viewBox="0 0 302 208" role="img" aria-label="An L-shaped sandbox. The top is 4 feet, the step down is 2 feet, the step across is 3 feet, the right side is 4 feet, the bottom is 7 feet, and the left side is 6 feet" style="width:100%;max-width:302px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="302" height="208" rx="14" fill="#F8FAFF"/><polygon points="64.0,30.0 152.0,30.0 152.0,74.0 218.0,74.0 218.0,162.0 64.0,162.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="108.0" y="22.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 feet</text><text x="160.0" y="57.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">2 feet</text><text x="185.0" y="94.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 feet</text><text x="226.0" y="123.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 feet</text><text x="141.0" y="184.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">7 feet</text><text x="56.0" y="101.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">6 feet</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="s1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="s2_s0" data-pts="5" data-ans="36||36 square feet||36 sq ft||36 sq. ft.||36 square foot||36 square ft" data-logic="Big rectangle: 7 &times; 6 = 42. Missing corner: 3 &times; 2 = 6. 42 &minus; 6 = 36 square feet. Or split it: 4 &times; 6 + 3 &times; 4 = 24 + 12 = 36.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the area of the same L-shaped sandbox, in square feet? (Its sides are 4, 2, 3, 4, 7, and 6 feet.)', this)">&#128266;</button> What is the area of the same L-shaped sandbox, in square feet? (Its sides are 4, 2, 3, 4, 7, and 6 feet.)</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="s2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-q="s1_s1" data-pts="5" data-logic="7 by 8, 5 by 10, and 3 by 12 all use 30 feet, with areas of 56, 50, and 36 square feet. 8 by 8 needs 32 feet of fence, which is too much.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Mr. Conrad has exactly 30 feet of fence for a rectangular toddler play yard with whole-number sides. Which design uses all 30 feet and has the greatest area?', this)">&#128266;</button> Mr. Conrad has exactly 30 feet of fence for a rectangular toddler play yard with whole-number sides. Which design uses all 30 feet and has the greatest area?</p>
+  <div class="opts"><button class="opt" data-c="1">7 feet by 8 feet</button><button class="opt">5 feet by 10 feet</button><button class="opt">3 feet by 12 feet</button><button class="opt">8 feet by 8 feet</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="s2_s1" data-pts="5" data-ans="4||4 feet||4 ft||4 ft." data-logic="The left side is 7 feet. The right side plus the step down must also make 7 feet: 7 &minus; 3 = 4 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('An L-shaped bench area has a bottom of 9 feet and a left side of 7 feet. The top is 5 feet, the step down is 3 feet, and the step across is 4 feet. How long is the right side, in feet?', this)">&#128266;</button> An L-shaped bench area has a bottom of 9 feet and a left side of 7 feet. The top is 5 feet, the step down is 3 feet, and the step across is 4 feet. How long is the right side, in feet?</p>
+<div class="fig"><svg class="art" viewBox="0 0 328 216" role="img" aria-label="An L-shaped bench area. The top is 5 feet, the step down is 3 feet, the step across is 4 feet, the right side is unknown, the bottom is 9 feet, and the left side is 7 feet" style="width:100%;max-width:328px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="328" height="216" rx="14" fill="#F8FAFF"/><polygon points="64.0,30.0 164.0,30.0 164.0,90.0 244.0,90.0 244.0,170.0 64.0,170.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="114.0" y="22.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">5 feet</text><text x="172.0" y="65.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">3 feet</text><text x="204.0" y="110.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">4 feet</text><text x="252.0" y="135.0" text-anchor="start" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#DB2F30">?</text><text x="154.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">9 feet</text><text x="56.0" y="105.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="14" fill="#0A1F3D">7 feet</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="s2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="s1_s2" data-pts="5" data-ans="22||22 feet||22 ft||22 ft." data-logic="The rectangles are 1 by 30 (62 feet), 2 by 15 (34 feet), 3 by 10 (26 feet), and 5 by 6 (22 feet). The least border is 22 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A rectangular garden must cover 30 square feet and have whole-number sides. The planners want to use the least border. What perimeter will it have, in feet?', this)">&#128266;</button> A rectangular garden must cover 30 square feet and have whole-number sides. The planners want to use the least border. What perimeter will it have, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="s1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="s2_s2" data-pts="5" data-logic="A 10 by 8 rectangle has a perimeter of 36 feet. Cut out a 4 by 3 corner and the sides are 6, 3, 4, 5, 10, and 8. That adds up to 36 feet too, but the area drops from 80 to 68 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Cora cuts a small rectangle out of one corner of a rectangular mat.', this)">&#128266;</button> Which explanation is correct? Cora cuts a small rectangle out of one corner of a rectangular mat.</p>
+  <div class="opts"><button class="opt" data-c="1">The area gets smaller, but the perimeter stays the same, because the two new edges are just as long as the two edges that were cut away.</button><button class="opt">The area and the perimeter both get smaller.</button><button class="opt">The area stays the same, but the perimeter gets bigger.</button><button class="opt">Nothing changes, because it is still the same mat.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#127942; Planner Challenge: Area and Perimeter</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The planners have a long list of jobs, and each one takes more than one step. First ask: is this job around the edge or covering the inside? Then decide whether you need to multiply, add, subtract, or divide.', this)">&#128266;</button> The planners have a long list of jobs, and each one takes <b>more than one step</b>. First ask: is this job <b>around</b> the edge or <b>covering</b> the inside? Then decide whether you need to multiply, add, subtract, or divide.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="c1_s0" data-pts="5" data-ans="14||14 bags" data-logic="Step 1: 8 &times; 7 = 56 square feet. Step 2: 56 &divide; 4 = 14 bags.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! The swing area is 8 feet by 7 feet. One bag of rubber mulch covers 4 square feet. How many bags are needed?', this)">&#128266;</button> Two steps! The swing area is 8 feet by 7 feet. One bag of rubber mulch covers 4 square feet. How many bags are needed?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s0" data-pts="5" data-ans="38||38 feet||38 ft||38 ft." data-logic="Step 1: 12 + 9 + 12 + 9 = 42 feet. Step 2: 42 &minus; 4 = 38 feet of fence.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A fence will go around a 12 by 9 play area, but a 4-foot gate needs no fence. How many feet of fence are needed?', this)">&#128266;</button> Two steps! A fence will go around a 12 by 9 play area, but a 4-foot gate needs no fence. How many feet of fence are needed?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="c1_s1" data-pts="5" data-ans="54||54 square feet||54 sq ft||54 sq. ft.||54 square foot||54 square ft" data-logic="10 &times; 6 = 60 and 2 &times; 3 = 6. 60 &minus; 6 = 54 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The splash pad is 10 feet by 6 feet. A 2 by 3 drain area in one corner will not get tiles. How many square feet will get tiles?', this)">&#128266;</button> The splash pad is 10 feet by 6 feet. A 2 by 3 drain area in one corner will not get tiles. How many square feet will get tiles?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s1" data-pts="5" data-ans="64||64 square feet||64 sq ft||64 sq. ft.||64 square foot||64 square ft" data-logic="Step 1: A square has 4 equal sides, and 32 &divide; 4 = 8 feet. Step 2: 8 &times; 8 = 64 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A square stage has a perimeter of 32 feet. What is its area, in square feet?', this)">&#128266;</button> Two steps! A square stage has a perimeter of 32 feet. What is its area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="c1_s2" data-pts="5" data-ans="84||84 square feet||84 sq ft||84 sq. ft.||84 square foot||84 square ft" data-logic="7 &times; 12 = 7 &times; 10 + 7 &times; 2 = 70 + 14 = 84 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The garden is 7 feet wide and 12 feet long. Use the distributive property to find its area, in square feet.', this)">&#128266;</button> The garden is 7 feet wide and 12 feet long. Use the distributive property to find its area, in square feet.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s2" data-pts="5" data-ans="26||26 feet||26 ft||26 ft." data-logic="Step 1: 6 &times; 7 = 42, so it is 7 feet long. Step 2: 6 + 7 + 6 + 7 = 26 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A rectangle covers 42 square feet and is 6 feet wide. What is its perimeter, in feet?', this)">&#128266;</button> Two steps! A rectangle covers 42 square feet and is 6 feet wide. What is its perimeter, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#11088; Bonus Practice: The Picnic Patio</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+<div class="qbox" data-fq="bp1" data-pts="5" data-bonus="1" data-ans="20||20 feet||20 ft||20 ft." data-logic="5 + 5 + 5 + 5 = 20 feet, or 4 &times; 5 = 20.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the perimeter of a square with 5-foot sides, in feet?', this)">&#128266;</button> What is the perimeter of a square with 5-foot sides, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bp1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="27||27 square feet||27 sq ft||27 sq. ft.||27 square foot||27 square ft" data-logic="3 &times; 9 = 27 square feet.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the area of a 3 by 9 rectangle, in square feet?', this)">&#128266;</button> What is the area of a 3 by 9 rectangle, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#129513; Match-Up Round</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Tap an item on the left, then its match on the right. First-try matches earn 2 points each, 10 points in all.', this)">&#128266;</button> Tap an item on the left, then its match on the right. First-try matches earn <b>2 points each</b>, 10 points in all.</p>
+<div class="matchgrid"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9997;&#65039; Fix the Sentence</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cora wrote labels for the playground plans, but the wind blew her papers into the mud! Type each sentence the right way. Remember: start with a capital letter, give names of people and places capital letters too, end with a period or question mark, and put commas between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.', this)">&#128266;</button> Cora wrote labels for the playground plans, but the wind blew her papers into the mud! Type each sentence the right way. Remember: start with a <b>capital letter</b>, give names of people and places capital letters too, end with a <b>period</b> or <b>question mark</b>, and put <b>commas</b> between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="fs1_s0" data-pts="5" data-exact="1" data-ans="Chattanooga is on the Tennessee River." data-logic="Chattanooga is the name of a city and Tennessee River is the name of a river, so they get capital letters. End the telling sentence with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: chattanooga is on the tennessee river', this)">&#128266;</button> Fix the sentence: <span class="fixme">chattanooga is on the tennessee river</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s0" data-pts="5" data-exact="1" data-ans="The playground will have swings, slides, and a sandbox.||The playground will have swings, slides and a sandbox." data-logic="Start with a capital T, put commas between the things in the list, and end with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: the playground will have swings slides and a sandbox', this)">&#128266;</button> Fix the sentence: <span class="fixme">the playground will have swings slides and a sandbox</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="fs1_s1" data-pts="5" data-exact="1" data-ans="How long is the fence?" data-logic="Start with a capital H. This sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: how long is the fence', this)">&#128266;</button> Fix the sentence: <span class="fixme">how long is the fence</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s1" data-pts="5" data-exact="1" data-ans="Chloe, Chidi, and Cora measured the sandbox.||Chloe, Chidi and Cora measured the sandbox." data-logic="Each name gets a capital letter, commas go between the names in the list, and the sentence ends with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: chloe chidi and cora measured the sandbox', this)">&#128266;</button> Fix the sentence: <span class="fixme">chloe chidi and cora measured the sandbox</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="fs1_s2" data-pts="5" data-exact="1" data-ans="Did Mr. Conrad walk across the Walnut Street Bridge?" data-logic="Start with a capital D. Mr. Conrad is a name, and Walnut Street Bridge is the name of a bridge, so they get capital letters. The sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: did mr. conrad walk across the walnut street bridge', this)">&#128266;</button> Fix the sentence: <span class="fixme">did mr. conrad walk across the walnut street bridge</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s2" data-pts="5" data-exact="1" data-ans="The swings are next to the slide." data-logic="Start with a capital T and end with a period. Swings means more than one, so use are, not is.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: the swings is next to the slide', this)">&#128266;</button> Fix the sentence: <span class="fixme">the swings is next to the slide</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Quick facts for bonus XP! Go fast, but stay correct.', this)">&#128266;</button> Quick facts for bonus XP! Go fast, but stay correct.</p>
+<div class="practicewrap">
+<div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="6 &times; 7 = 42 square feet. 26 feet is its perimeter.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the area of a 6 by 7 rectangle?', this)">&#128266;</button> What is the area of a 6 by 7 rectangle?</p>
+  <div class="opts"><button class="opt" data-c="1">42 square feet</button><button class="opt">26 square feet</button><button class="opt">13 square feet</button><button class="opt">48 square feet</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="20||20 feet||20 ft||20 ft." data-logic="6 + 4 + 6 + 4 = 20 feet.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the perimeter of a 6 by 4 rectangle, in feet?', this)">&#128266;</button> What is the perimeter of a 6 by 4 rectangle, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="sp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="card card-sky" style="margin-top:18px"><h3>&#9000;&#65039; Keyboard Corral</h3><p style="margin-bottom:10px"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter, comma, and period.', this)">&#128266;</button> Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter, comma, and period.</p><div class="qbox" data-exact="1" data-fq="kc1" data-pts="10" data-bonus="1" data-ans="Perimeter goes around the edge, and area covers the inside." data-logic="Match the sentence exactly, including the capital letter at the start, the comma, and the period at the end."><span class="pts">+10 XP</span><p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Type this sentence: Perimeter goes around the edge, and area covers the inside.', this)">&#128266;</button> Type this sentence:</p><div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">Perimeter goes around the edge, and area covers the inside.</div><div class="fillrow"><input class="fillin fillwide" id="kc1input" inputmode="text" aria-label="typed sentence"><button class="btn btn-pri" data-check="kc1">Check</button></div><p class="feedback"></p></div></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>&#128081; Boss Battle, Part 1: Building Day</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The building crew has arrived, and Mr. Conrad needs final numbers fast. Show everything you learned today!', this)">&#128266;</button> The building crew has arrived, and Mr. Conrad needs final numbers fast. Show everything you learned today!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb1_s0" data-pts="5" data-ans="40||40 square feet||40 sq ft||40 sq. ft.||40 square foot||40 square ft" data-logic="Step 1: 26 &minus; 5 &minus; 5 = 16 feet for the two lengths, so each length is 8 feet. Step 2: 5 &times; 8 = 40 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A rectangular reading nook has a perimeter of 26 feet and is 5 feet wide. What is its area, in square feet?', this)">&#128266;</button> Two steps! A rectangular reading nook has a perimeter of 26 feet and is 5 feet wide. What is its area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s0" data-pts="5" data-logic="The perimeters are 20, 22, 28, and 50 feet. The 4 by 6 mat is closest to a square, so it needs the least border.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The planners need a rectangular mat that covers 24 square feet and has whole-number sides. Which one needs the least border?', this)">&#128266;</button> The planners need a rectangular mat that covers 24 square feet and has whole-number sides. Which one needs the least border?</p>
+  <div class="opts"><button class="opt" data-c="1">4 feet by 6 feet</button><button class="opt">3 feet by 8 feet</button><button class="opt">2 feet by 12 feet</button><button class="opt">1 foot by 24 feet</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb1_s1" data-pts="5" data-ans="26||26 square feet||26 sq ft||26 sq. ft.||26 square foot||26 square ft" data-logic="5 &times; 4 = 20 and 3 &times; 2 = 6. 20 + 6 = 26 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The garden is a rectilinear figure made of a 5 by 4 rectangle joined to a 3 by 2 rectangle. What is its total area, in square feet?', this)">&#128266;</button> The garden is a rectilinear figure made of a 5 by 4 rectangle joined to a 3 by 2 rectangle. What is its total area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb2_s1" data-pts="5" data-ans="105||105 square feet||105 sq ft||105 sq. ft.||105 square foot||105 square ft" data-logic="7 &times; 10 = 70 and 7 &times; 5 = 35. 70 + 35 = 105 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Cora writes 7 times 15 equals 7 times 10 plus 7 times 5 to find the area of a 7 by 15 path. What is the area, in square feet?', this)">&#128266;</button> Cora writes 7 &times; 15 = 7 &times; 10 + 7 &times; 5 to find the area of a 7 by 15 path. What is the area, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb1_s2" data-pts="5" data-ans="30||30 square feet||30 sq ft||30 sq. ft.||30 square foot||30 square ft" data-logic="Length + width = 11: 1 by 10 (10), 2 by 9 (18), 3 by 8 (24), 4 by 7 (28), and 5 by 6 (30). The greatest area is 30 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Colton has 22 feet of rope to outline a rectangle with whole-number sides. What is the greatest area he can outline, in square feet?', this)">&#128266;</button> Colton has 22 feet of rope to outline a rectangle with whole-number sides. What is the greatest area he can outline, in square feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s2" data-pts="5" data-logic="Area means the square feet that cover the inside, so multiply: 4 &times; 6 = 24. Adding the sides gives the perimeter.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Chidi says a 4 by 6 rectangle has an area of 20 square feet. What went wrong?', this)">&#128266;</button> Find the mistake. Chidi says a 4 by 6 rectangle has an area of 20 square feet. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">He found the perimeter, 4 + 6 + 4 + 6 = 20 feet. The area is 4 &times; 6 = 24 square feet.</button><button class="opt">Nothing is wrong. The area is 20 square feet.</button><button class="opt">The area is 10 square feet, because 4 + 6 = 10.</button><button class="opt">The area is 46 square feet.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-go="15">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>&#128081; Boss Battle, Part 2: Ribbon Cutting</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The ribbon cutting is tomorrow! Check the last measurements so the playground is ready. You can do it!', this)">&#128266;</button> The ribbon cutting is tomorrow! Check the last measurements so the playground is ready. You can do it!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb3_s0" data-pts="5" data-ans="9||9 feet||9 ft||9 ft." data-logic="7 &times; 9 = 63, so the sandbox is 9 feet long.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A rectangular sandbox covers 63 square feet and is 7 feet wide. How long is it, in feet?', this)">&#128266;</button> A rectangular sandbox covers 63 square feet and is 7 feet wide. How long is it, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s0" data-pts="5" data-ans="22||22 feet||22 ft||22 ft." data-logic="She added only two sides. All four sides: 8 + 3 + 8 + 3 = 22 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Chloe says the perimeter of an 8 by 3 rectangle is 11 feet. Type the correct perimeter, in feet.', this)">&#128266;</button> Find the mistake. Chloe says the perimeter of an 8 by 3 rectangle is 11 feet. Type the correct perimeter, in feet.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb3_s1" data-pts="5" data-ans="28||28 feet||28 ft||28 ft." data-logic="Step 1: 7 &times; 7 = 49, so each side is 7 feet. Step 2: 4 &times; 7 = 28 feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A square sandbox covers 49 square feet. What is its perimeter, in feet?', this)">&#128266;</button> Two steps! A square sandbox covers 49 square feet. What is its perimeter, in feet?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s1" data-pts="5" data-ans="56||56 square feet||56 sq ft||56 sq. ft.||56 square foot||56 square ft" data-logic="He added the corner instead of subtracting it. 10 &times; 6 = 60, and 60 &minus; 4 = 56 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Colton says a 10 by 6 rectangle with a 2 by 2 corner cut out covers 64 square feet. Type the correct area, in square feet.', this)">&#128266;</button> Find the mistake. Colton says a 10 by 6 rectangle with a 2 by 2 corner cut out covers 64 square feet. Type the correct area, in square feet.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb3_s2" data-pts="5" data-ans="2||2 feet||2 ft||2 ft." data-logic="4 + 9 + 4 + 9 = 26 feet and 6 + 6 + 6 + 6 = 24 feet. 26 &minus; 24 = 2 more feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A 4 by 9 rectangle and a 6 by 6 square both cover 36 square feet. How many more feet of border does the 4 by 9 rectangle need?', this)">&#128266;</button> A 4 by 9 rectangle and a 6 by 6 square both cover 36 square feet. How many more feet of border does the 4 by 9 rectangle need?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s2" data-pts="5" data-ans="96||96 square feet||96 sq ft||96 sq. ft.||96 square foot||96 square ft" data-logic="Multiply both parts by 8: 8 &times; 10 = 80 and 8 &times; 2 = 16. 80 + 16 = 96 square feet.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Cora says the area of an 8 by 12 deck is 8 times 10 plus 2 equals 82 square feet. Type the correct area, in square feet.', this)">&#128266;</button> Find the mistake. Cora says the area of an 8 by 12 deck is 8 &times; 10 + 2 = 82 square feet. Type the correct area, in square feet.</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="14">&larr; Back</button>
+<button class="btn btn-go" data-go="16">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<h2>&#9999;&#65039; Pencil Break: Post-Lesson Activity</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Page 2 (Post) is on your Pre/Post sheet. Did not print it yet? Use these buttons.</p><a href="../prepost/KCE_Math_PrePost_G3W27.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W27.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Terrific planning! Before you see your score, step away from the screen one more time.', this)">&#128266;</button> Terrific planning! Before you see your score, step away from the screen one more time.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Turn your printed sheet over and do the POST side. Remember: perimeter goes around and is measured in feet, area covers the inside and is measured in square feet, and you can split a rectilinear figure into rectangles. If you finish early, try the star challenge!', this)">&#128266;</button> Turn your printed sheet over and do the <b>POST</b> side. Remember: perimeter goes around and is measured in feet, area covers the inside and is measured in square feet, and you can split a rectilinear figure into rectangles. If you finish early, try the star challenge!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a measuring tape, and a small plan of a playground on grid paper" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><rect x="30" y="30" width="110" height="90" fill="#EAF6FF" stroke="#0A1F3D" stroke-width="2"/><line x1="40" y1="30" x2="40" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="50" y1="30" x2="50" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="60" y1="30" x2="60" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="70" y1="30" x2="70" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="80" y1="30" x2="80" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="90" y1="30" x2="90" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="100" y1="30" x2="100" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="110" y1="30" x2="110" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="120" y1="30" x2="120" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="130" y1="30" x2="130" y2="120" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="40" x2="140" y2="40" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="50" x2="140" y2="50" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="60" x2="140" y2="60" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="70" x2="140" y2="70" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="80" x2="140" y2="80" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="90" x2="140" y2="90" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="100" x2="140" y2="100" stroke="#9AA9C2" stroke-width="1"/><line x1="30" y1="110" x2="140" y2="110" stroke="#9AA9C2" stroke-width="1"/><path d="M50 50 L100 50 L100 80 L120 80 L120 100 L50 100 Z" fill="#86D464" fill-opacity=".7" stroke="#0A1F3D" stroke-width="2"/><circle cx="440" cy="76" r="40" fill="#FFD25E" stroke="#0A1F3D" stroke-width="3"/><circle cx="440" cy="76" r="12" fill="#FFFFFF" stroke="#0A1F3D" stroke-width="2"/><rect x="440" y="104" width="60" height="12" fill="#FFE38A" stroke="#0A1F3D" stroke-width="2"/><g transform="translate(190,62) rotate(-10)"><rect x="0" y="0" width="150" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M150 0 L176 8 L150 16 Z" fill="#F2D3A0"/><path d="M168 5 L176 8 L168 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When your Post side is done, tap See My Score.', this)">&#128266;</button> When your Post side is done, tap <b>See My Score</b>.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="15">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="17">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Design Day Complete!</h1>
+    <h2 id="finalTitle">Rising Planner! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="congrats" id="congratsCard">
+      <h3 id="congratsHeading"></h3>
+      <p id="congratsBody"></p>
+    </div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Great work today!</h3>
+      <p id="finalMessageBody"></p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#E3C77A)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 6: Building Together &mdash; Week 27</p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Next stop: Week 28, where you will explore fractions greater than one at a pie bakery!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 18;
+const FINAL_INDEX = 17;
+const MODULE_ID = 'grade3-math-w27';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS = 10;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting to KingCretot Experience (Formspree). */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    let name = 'Unnamed Student';
+    try{ name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student'; }catch(e){}
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '✅ Your results were sent to KingCretot Experience automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '⚠️ Your results could not be sent automatically. Please let your parent or teacher know your score.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    try{
+      if (full) localStorage.setItem('kcePathwaysStudentName', full);
+      if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+      if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+    }catch(e){}
+  };
+  try{
+    if (firstField){ firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || ''; }
+    if (lastField){ lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || ''; }
+  }catch(e){}
+  if (firstField) firstField.addEventListener('blur', saveFullName);
+  if (lastField) lastField.addEventListener('blur', saveFullName);
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(n){ const count = n || 34; const colors = ['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#F28C28','#86D464']; for(let i=0;i<count;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1800, delay:Math.random()*400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function bigConfetti(){ confetti(160); setTimeout(()=>confetti(140), 700); setTimeout(()=>confetti(140), 1500); setTimeout(()=>confetti(120), 2400); }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded free Kokoro voice (Heart); browser voice only as a backup */
+var KCE_CLIPS = {};
+var _kceAud = null;
+function _kceBackup(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.classList.remove('speaking'); return; }
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean); u.rate = 0.88; u.lang = 'en-US';
+  u.onend = u.onerror = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  window.speechSynthesis.speak(u);
+}
+function speakText(text, btn){
+  if (_kceAud) { try { _kceAud.pause(); } catch(e){} _kceAud = null; }
+  if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch(e){} }
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  if (btn) btn.classList.add('speaking');
+  const f = KCE_CLIPS[text];
+  if (!f) { _kceBackup(text, btn); return; }
+  const a = new Audio(f); _kceAud = a; let done = false;
+  const end = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  a.onended = end;
+  a.onerror = ()=>{ if (!done) { done = true; _kceBackup(text, btn); } };
+  const p = a.play(); if (p && p.catch) p.catch(()=>{ if (!done) { done = true; _kceBackup(text, btn); } });
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const active = document.querySelector('.slide.on'); const d = active ? active.querySelector('.dots') : null; if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["perimeter", "the distance around a shape"], ["area", "the square units that cover a shape"], ["square foot", "a square 1 foot long on each side"], ["dimensions", "the length and width of a rectangle"], ["rectilinear figure", "an L shape made of rectangles"]], [["3 by 9 rectangle", "perimeter 24 feet"], ["5 by 5 square", "perimeter 20 feet"], ["2 by 7 rectangle", "perimeter 18 feet"], ["1 by 15 rectangle", "perimeter 32 feet"], ["4 by 10 rectangle", "perimeter 28 feet"]], [["3 by 8 rectangle", "24 square feet"], ["6 by 6 square", "36 square feet"], ["5 by 7 rectangle", "35 square feet"], ["2 by 9 rectangle", "18 square feet"], ["4 by 4 square", "16 square feet"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'inline-block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) — here we go!'; } }
+}
+/* Every question set must be worth exactly 100 Pathway Points. */
+function setTotal(idx){ let t = MATCH_POINTS; document.querySelectorAll('.qset[data-set="' + idx + '"] .qbox').forEach(b=>{ if (b.dataset.bonus !== '1') t += (+b.dataset.pts || 0); }); return t; }
+function verifySetTotals(){ const out = [0,1,2].map(setTotal); out.forEach((t,i)=>{ if (t !== 100) console.warn('Question set ' + (i+1) + ' totals ' + t + ' points, expected 100.'); }); return out; }
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  if (e.target.closest('.qspeak-btn')) return;
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+/* Straighten curly quotes and squeeze extra spaces before checking. */
+function normalizeAnswer(s){ return String(s).replace(/[‘’‚′]/g, "'").replace(/[“”„″]/g, '"').replace(/\s+/g, ' ').trim(); }
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const exact = box.dataset.exact === '1';
+  const raw = normalizeAnswer(inp.value);
+  if (raw === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('||').map(s=>normalizeAnswer(s));
+  const stripDot = s=>s.replace(/\.$/, '');
+  const ok = exact ? accepted.indexOf(raw) !== -1 : accepted.map(s=>stripDot(s).toLowerCase()).indexOf(stripDot(raw).toLowerCase()) !== -1;
+  if (ok){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +' + (box.dataset.pts || 5) + ' XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?(+box.dataset.pts||5):8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('||')[0];
+      const lead = exact ? 'The corrected sentence is: <b>' + escapeHtml(correctAnswer) + '</b>' : 'The correct answer is: ' + escapeHtml(correctAnswer) + '.';
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. ' + lead + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      const hint = exact ? ' Check the capital letter, the commas, and the end mark.' : ' Check your work and try again.';
+      fb.textContent = '❌ Not yet —' + hint + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const score = displayScore();
+  document.getElementById('finalScore').textContent = score;
+  const rec = saveModuleResult(score);
+  reportProgress(score, rec);
+  const passed = score >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Planner! ⭐';
+  if (score >= 90) tierTitle = 'Master Playground Designer! 🛝👑';
+  else if (score >= 75) tierTitle = 'Lead Planner! 🌟';
+  else if (score >= 50) tierTitle = 'Shape Measurer! ✨';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+  const congrats = document.getElementById('congratsCard');
+  const cHead = document.getElementById('congratsHeading');
+  const cBody = document.getElementById('congratsBody');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🛝 Playground Hero!';
+    cHead.innerHTML = '&#127881; Playground hero! You measured every part of the new playground!';
+    cBody.innerHTML = 'You helped Mr. Conrad, Chloe, Chidi, Colton, and Cora design a new playground in Chattanooga! You found rectangles with the <b>same perimeter</b> but different areas, like a 6 by 6 sandbox that holds more than a 2 by 10, and rectangles with the <b>same area</b> but different perimeters. You used the <b>distributive property</b> to find the area of combined rectangles, like 7 &times; 13 = 56 + 35 = 91 square feet, and you found the perimeter and area of L-shaped <b>rectilinear figures</b>. You even fixed Cora&#8217;s plan labels with capital letters, commas, and end marks!';
+    congrats.style.display = 'block';
+    msgHeading.innerHTML = '&#127942; You’ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Your results go to KingCretot Experience. Finish the <b>Post-Lesson Challenge</b> on your printed sheet if you have not already, and keep it in your Portfolio Passport.';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson →';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    congrats.style.display = 'none';
+    msgHeading.innerHTML = '&#128208; Every designer gets better with practice.';
+    msgBody.innerHTML = 'You scored ' + score + '/100. Your results go to KingCretot Experience. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100, and you are on your way! Look back at how to list every rectangle for a perimeter or an area, how to split a figure into rectangles, and how to add all the sides of an L shape, then press Try Again. Next time you will get a <b>fresh set of questions</b>, so every try is a new design day. Don&#8217;t forget to finish the <b>Post-Lesson Challenge</b> on your printed sheet.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare();
+  if (passed){ bigConfetti(); } else { setTimeout(()=>confetti(), 250); }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); verifySetTotals(); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>if(!window.kcePrintPdf){window.kcePrintPdf=function(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}}</script><script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g23"></script>
+</body>
+</html>

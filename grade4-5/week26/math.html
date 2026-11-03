@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 26: The Motor City Robot Rally (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+.ctable{border-collapse:collapse;margin:10px auto;min-width:220px;font-weight:800;text-align:center;background:#FFFDF7}
+.ctable th{background:var(--navy);color:#fff;padding:6px 18px;font-family:'Fredoka One',cursive;font-weight:400}
+.ctable td{border:2px solid #F0E6C8;padding:5px 18px;color:var(--navy)}
+.qtext .ctable{margin:10px 0 0}
+</style>
+<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🤖 KCE Pathways — Grade 4-5 — Week 26</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 6: Voices of Change &bull; Week 26 &bull; Math</span>
+  <h1>The Motor City Robot Rally</h1>
+  <h2>Numerical Expressions and Order of Operations 🤖</h2>
+  <div class="box box-story">
+    <div class="icon">🤖</div>
+    <h4>Meet Kavya</h4>
+    <p>Kavya is 10 and lives in Detroit, Michigan. This weekend her robotics team is competing at a robot rally downtown, and every move a robot makes earns or loses points. Coach Kasimir helps the team plan, Kavya&rsquo;s teammate Kendrick drives the robot, and Ms. Kalinda, the head judge, keeps the official score. Kavya&rsquo;s little brother Kamau tags along with a notebook full of questions. Every score in the rally is a numerical expression, and today Kavya learns to write expressions, read them, and evaluate them in the right order.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with a Unit 5 skill: classifying figures and finding perimeter</li>
+      <li>Use the order of operations to evaluate expressions</li>
+      <li>Write numerical expressions from words, with parentheses where they belong</li>
+      <li>Work with brackets and braces, from the inside out</li>
+      <li>Compare expressions without computing them</li>
+      <li>Solve multi-step scoring problems, spot mistakes, and fix sentences</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 6: Voices of Change &mdash; Week 26</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+<div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up, Part 1: Classifying Figures Review</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>You Already Know This</h4>
+  <p>In Unit 5 you classified two-dimensional figures at a bridge design studio in Pittsburgh, and the Unit 5 Checkpoint asked you to name figures and find their perimeters. Remember: a rhombus and a square have 4 equal sides, opposite sides of a parallelogram are equal, an equilateral triangle has 3 equal sides, and a regular polygon has as many lines of symmetry as it has sides. Notice that a perimeter like 4 &times; 7 is already a small numerical expression. That is where today&rsquo;s lesson begins.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_s0" data-pts="2" data-ans="28|28 inches|28 inch|28 in" data-logic="All 4 sides of a rhombus are equal: 4 × 7 = 28 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): the robot&rsquo;s base plate is a rhombus. One side is 7 inches long. What is its perimeter?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="2" data-logic="Four right angles make it a rectangle, and four equal sides make it a rhombus. A shape that is both is a square, the most exact name.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a tile on the competition field has 4 right angles and 4 equal sides. What is its BEST name?</div>
+    <div class="opts"><button class="opt" data-c="1">Square</button><button class="opt">Rectangle that is not a square</button><button class="opt">Rhombus with no right angles</button><button class="opt">Trapezoid</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r1_s1" data-pts="2" data-ans="30|30 inches|30 inch|30 in" data-logic="Add all three sides: 11 + 11 + 8 = 30 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a bumper is shaped like an isosceles triangle with two sides of 11 inches and a third side of 8 inches. What is its perimeter?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="2" data-logic="A rectangle, a rhombus, and a square are all parallelograms with 2 pairs of parallel sides. A trapezoid that is not a parallelogram has exactly 1 pair.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): which figure has EXACTLY one pair of parallel sides?</div>
+    <div class="opts"><button class="opt" data-c="1">A trapezoid that is not a parallelogram</button><button class="opt">A rectangle</button><button class="opt">A rhombus</button><button class="opt">A square</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r1_s2" data-pts="2" data-ans="60|60 inches|60 inch|60 in" data-logic="Opposite sides are equal: 2 × 18 + 2 × 12 = 36 + 24 = 60 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): the robot&rsquo;s frame is a rectangle 18 inches long and 12 inches wide. What is its perimeter?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="2" data-logic="95° is more than 90°, so it is an obtuse triangle. One obtuse angle decides the name.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a triangle has angles of 95&deg;, 45&deg;, and 40&deg;. How is it classified by its angles?</div>
+    <div class="opts"><button class="opt" data-c="1">Obtuse</button><button class="opt">Acute</button><button class="opt">Right</button><button class="opt">Equilateral</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<h2>🔁 Warm-Up, Part 2: Classifying Figures Review</h2>
+<p>Two more warm-up problems. Show your work on scrap paper, then type your answers.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r3_s0" data-pts="2" data-ans="13|13 centimeters|13 centimeter|13 cm" data-logic="The 3 sides are equal: 39 ÷ 3 = 13 centimeters.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a warning sign is an equilateral triangle with a perimeter of 39 centimeters. How long is each side?</div>
+    <div class="fillrow"><span class="eq">Centimeters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s0" data-pts="2" data-ans="2|2 lines|2 line|two" data-logic="Only the two folds across the middle make matching halves. The diagonals are not lines of symmetry.">
+    <span class="pts">+2</span>
+    <div class="qtext">Symmetry (Week 24): how many lines of symmetry does a rectangle that is not a square have?</div>
+    <div class="fillrow"><span class="eq">Lines:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r3_s1" data-pts="2" data-ans="9|9 millimeters|9 millimeter|9 mm" data-logic="A regular hexagon has 6 equal sides: 54 ÷ 6 = 9 millimeters.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a gear guard is a regular hexagon with a perimeter of 54 millimeters. How long is each side?</div>
+    <div class="fillrow"><span class="eq">Millimeters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s1" data-pts="2" data-ans="4|4 pairs|4 pair|four" data-logic="A rectangle has 4 right angles, and each right angle is one pair of perpendicular sides: 4 pairs.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): how many pairs of perpendicular sides does a rectangle have?</div>
+    <div class="fillrow"><span class="eq">Pairs:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r3_s2" data-pts="2" data-ans="16|16 centimeters|16 centimeter|16 cm" data-logic="A square has 4 equal sides: 64 ÷ 4 = 16 centimeters.">
+    <span class="pts">+2</span>
+    <div class="qtext">Figures (Week 24): a square sticker for the robot has a perimeter of 64 centimeters. How long is each side?</div>
+    <div class="fillrow"><span class="eq">Centimeters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s2" data-pts="2" data-ans="5|5 lines|5 line|five" data-logic="A regular polygon has as many lines of symmetry as it has sides. A pentagon has 5 sides, so it has 5 lines.">
+    <span class="pts">+2</span>
+    <div class="qtext">Symmetry (Week 24): how many lines of symmetry does a regular pentagon have?</div>
+    <div class="fillrow"><span class="eq">Lines:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Before you start: print your Pre/Post sheet (2 pages) and do Page 1 (Pre) now. Keep Page 2 for the end.</p><a href="../prepost/KCE_Math_PrePost_G4-5W26.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G4-5W26.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🚗 Why Robot Teams Need Expressions</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<svg viewBox="0 0 520 280" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A rally scoreboard: a cone on the top shelf is 5 points each, a cube in the bin is 3 points each, parking on the platform is 10 points, and bumping the wall is a 4-point penalty"><rect x="0" y="0" width="520" height="280" rx="14" fill="#FFF8E8"/><text x="260" y="34" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">Rally Scoreboard</text><rect x="30" y="52" width="460" height="46" rx="10" fill="#E6EEFF" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="82" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0A1F3D">Cone on the top shelf</text><text x="470" y="82" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0047BA">5 points each</text><rect x="30" y="106" width="460" height="46" rx="10" fill="#FFF1C9" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="136" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0A1F3D">Cube in the bin</text><text x="470" y="136" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#8A5A00">3 points each</text><rect x="30" y="160" width="460" height="46" rx="10" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="190" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0A1F3D">Park on the platform</text><text x="470" y="190" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#2E7D32">10 points</text><rect x="30" y="214" width="460" height="46" rx="10" fill="#FFE9E9" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="244" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0A1F3D">Bump the wall (penalty)</text><text x="470" y="244" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#DB2F30">lose 4 points</text></svg>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: Robots in the Motor City</h4>
+  <p>Detroit is nicknamed the &ldquo;Motor City&rdquo; because it grew into a world center for building cars in the early 1900s. Today the city is also a home for young engineers. In 2018 and 2019, Detroit hosted the FIRST Championship, a giant student robotics competition, at its convention center on the Detroit River, which was then called Cobo Center and is now called Huntington Place. FIRST stands for &ldquo;For Inspiration and Recognition of Science and Technology.&rdquo; At a robot competition, judges add up points for every task a robot finishes and take away points for penalties. A judge&rsquo;s score sheet is really a numerical expression: numbers joined by operation symbols like +, &minus;, &times;, and &divide;.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Kavya&rsquo;s Day at the Rally</h4>
+  <ul class="tips">
+    <li>Check Ms. Kalinda&rsquo;s scores with the <b>order of operations</b></li>
+    <li>Turn Coach Kasimir&rsquo;s plans into <b>expressions with parentheses</b></li>
+    <li>Work through <b>brackets and braces</b> from the inside out</li>
+    <li>Compare scores <b>without computing</b> them</li>
+  </ul>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>🖼️ Picture It: The Order of Operations</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>One Expression, One Value</h4>
+  <p>A numerical expression is a group of numbers and operation symbols that names one value, such as 10 + 4 &times; 5. To evaluate an expression means to find its value. Everyone must get the same value, so mathematicians agree on the order of operations: the rules that tell which step comes first.</p>
+</div>
+<svg viewBox="0 0 520 250" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="The order of operations in three steps: first grouping symbols such as parentheses, brackets, and braces; second, multiply and divide from left to right; third, add and subtract from left to right"><rect x="0" y="0" width="520" height="250" rx="14" fill="#FFF8E8"/><text x="260" y="30" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="20" fill="#0A1F3D">The Order of Operations</text><rect x="30" y="46" width="460" height="54" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="80" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="18" fill="#0A1F3D">1. Grouping symbols first</text><text x="470" y="80" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="18" fill="#8A5A00">( )  [ ]  { }</text><rect x="30" y="112" width="460" height="54" rx="10" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="146" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="18" fill="#0A1F3D">2. Multiply and divide</text><text x="470" y="146" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0047BA">left to right</text><rect x="30" y="178" width="460" height="54" rx="10" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><text x="50" y="212" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="18" fill="#0A1F3D">3. Add and subtract</text><text x="470" y="212" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#2E7D32">left to right</text></svg>
+<div class="decwork">
+  10 + 4 &times; 5 = 10 + 20 = 30
+  <div class="steps">
+  <b>Kavya&rsquo;s robot</b> parks for 10 points and places 4 cones worth 5 points each. The score is 10 + 4 &times; 5. Multiply first: 4 &times; 5 = 20. Then add: 10 + 20 = <b>30 points</b>. Working straight left to right would give 14 &times; 5 = 70, which is wrong.<br>
+  <b>Multiply and divide are partners:</b> do them in order from left to right. 24 &divide; 4 &times; 2 = 6 &times; 2 = <b>12</b>, not 24 &divide; 8 = 3.<br>
+  <b>Add and subtract are partners, too:</b> 20 &minus; 6 + 4 = 14 + 4 = <b>18</b>, not 20 &minus; 10 = 10.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn, Part 1: Evaluating Expressions</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="l1_s0" data-pts="4" data-ans="42" data-logic="Multiply first: 6 × 4 = 24. Then add: 18 + 24 = 42.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate the expression: 18 + 6 &times; 4</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s0" data-pts="4" data-logic="Divide and multiply from left to right: 36 ÷ 6 = 6, then 6 × 2 = 12. (3 comes from multiplying first, which skips the left-to-right rule.)">
+    <span class="pts">+4</span>
+    <div class="qtext">What is the value of 36 &divide; 6 &times; 2?</div>
+    <div class="opts"><button class="opt" data-c="1">12</button><button class="opt">3</button><button class="opt">24</button><button class="opt">72</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="l1_s1" data-pts="4" data-ans="10" data-logic="Multiply first: 8 × 5 = 40. Then subtract: 50 − 40 = 10.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate the expression: 50 &minus; 8 &times; 5</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s1" data-pts="4" data-logic="Divide from left to right: 48 ÷ 4 = 12, then 12 ÷ 2 = 6. (24 comes from doing 4 ÷ 2 first.)">
+    <span class="pts">+4</span>
+    <div class="qtext">What is the value of 48 &divide; 4 &divide; 2?</div>
+    <div class="opts"><button class="opt" data-c="1">6</button><button class="opt">24</button><button class="opt">96</button><button class="opt">12</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="l1_s2" data-pts="4" data-ans="51" data-logic="Parentheses first: 14 + 6 = 20. Multiply: 20 × 3 = 60. Subtract: 60 − 9 = 51.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate the expression: (14 + 6) &times; 3 &minus; 9</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s2" data-pts="4" data-logic="Add and subtract from left to right: 30 − 12 = 18, then 18 + 8 = 26. (10 comes from adding 12 + 8 first.)">
+    <span class="pts">+4</span>
+    <div class="qtext">What is the value of 30 &minus; 12 + 8?</div>
+    <div class="opts"><button class="opt" data-c="1">26</button><button class="opt">10</button><button class="opt">50</button><button class="opt">34</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>✍️ Your Turn, Part 2: Evaluating Expressions</h2>
+<p>One more problem. Write the expression on scrap paper first, then evaluate it.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="l3_s0" data-pts="4" data-ans="32|32 points|32 point|32 pts" data-logic="Multiply first: 5 × 4 = 20. Then left to right: 20 − 3 = 17, and 17 + 15 = 32 points.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Kavya&rsquo;s robot drops 5 cubes worth 4 points each, loses 3 points for a penalty, and then earns a 15-point parking bonus. Ms. Kalinda writes 5 &times; 4 &minus; 3 + 15. What is the score?</div>
+    <div class="fillrow"><span class="eq">Points:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="l3_s1" data-pts="4" data-ans="31|31 points|31 point|31 pts" data-logic="Do both multiplications first: 7 × 3 = 21 and 2 × 5 = 10. Then add: 21 + 10 = 31 points.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Kendrick&rsquo;s robot places 7 cones worth 3 points each and 2 cubes worth 5 points each. Ms. Kalinda writes 7 &times; 3 + 2 &times; 5. What is the score?</div>
+    <div class="fillrow"><span class="eq">Points:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="l3_s2" data-pts="4" data-ans="87|87 points|87 point|87 pts" data-logic="Multiply and divide first: 3 × 24 = 72 and 60 ÷ 4 = 15. Then add: 72 + 15 = 87 points.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Kavya&rsquo;s team scores 24 points in each of 3 rounds. Then a 60-point bonus is shared equally by 4 teams. Ms. Kalinda writes 3 &times; 24 + 60 &divide; 4 for the team&rsquo;s total. What is it?</div>
+    <div class="fillrow"><span class="eq">Points:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>📝 Writing Expressions from Words</h2>
+<div class="box box-story">
+  <div class="icon">🧰</div>
+  <h4>Coach Kasimir&rsquo;s Plans</h4>
+  <p>Coach Kasimir never says &ldquo;20.&rdquo; He says things like &ldquo;add 3 and 7, then multiply by 2.&rdquo; Parentheses tell the reader to do that step first, so the expression is 2 &times; (3 + 7). Kavya&rsquo;s job is to turn his words into symbols.</p>
+</div>
+<div class="pricelist">
+  <div class="prow"><span class="pname">add 3 and 7, then multiply by 2</span><span class="pprice">2 &times; (3 + 7)</span></div>
+  <div class="prow"><span class="pname">subtract 5 from 40, then divide by 7</span><span class="pprice">(40 &minus; 5) &divide; 7</span></div>
+  <div class="prow"><span class="pname">multiply 6 by 4, then add 9</span><span class="pprice">6 &times; 4 + 9</span></div>
+  <div class="prow"><span class="pname">three times as large as 18 + 932</span><span class="pprice">3 &times; (18 + 932)</span></div>
+  <div class="prow"><span class="pname">half of the difference of 90 and 30</span><span class="pprice">(90 &minus; 30) &divide; 2</span></div>
+</div>
+<div class="box box-think">
+  <div class="icon">💡</div>
+  <h4>Word Clues</h4>
+  <p>The sum is the answer to an addition, the difference is the answer to a subtraction, the product is the answer to a multiplication, and the quotient is the answer to a division. Watch the order in &ldquo;subtract 5 from 40&rdquo;: you start with 40, so write 40 &minus; 5. And &ldquo;three times as large as 18 + 932&rdquo; does not need to be computed at all. It means the whole sum is multiplied by 3, so the parentheses go around 18 + 932.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>✍️ Your Turn, Part 1: Writing Expressions</h2>
+<span class="setnotice" id="setNotice7" style="display:none"></span>
+<p>Type expressions with numbers and symbols. Use x or * for times and / for divide if your keyboard has no &times; or &divide;.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="k1_s0" data-pts="4" data-ans="4×(12+9)|4x(12+9)|4*(12+9)|(12+9)×4|(12+9)x4|(12+9)*4|4×(9+12)|4x(9+12)|4*(9+12)|(9+12)×4|(9+12)x4|(9+12)*4" data-logic="The words say to add first, so 12 + 9 goes inside parentheses, then the sum is multiplied by 4: 4 × (12 + 9).">
+    <span class="pts">+4</span>
+    <div class="qtext">Write an expression for: add 12 and 9, then multiply by 4. (Do not evaluate it.)</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="k1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s0" data-pts="4" data-logic="The whole sum, 18 + 932, is made three times as large, so parentheses must hold the sum: 3 × (18 + 932). In 3 × 18 + 932, only the 18 is tripled.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which expression means &ldquo;three times as large as 18 + 932&rdquo;?</div>
+    <div class="opts"><button class="opt" data-c="1">3 &times; (18 + 932)</button><button class="opt">3 &times; 18 + 932</button><button class="opt">18 + 932 + 3</button><button class="opt">(18 + 932) &divide; 3</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="k1_s1" data-pts="4" data-ans="(50−6)÷4|(50-6)÷4|(50−6)/4|(50-6)/4" data-logic="Subtract 6 from 50 means start with 50: 50 − 6. That step comes first, so it goes in parentheses: (50 − 6) ÷ 4.">
+    <span class="pts">+4</span>
+    <div class="qtext">Write an expression for: subtract 6 from 50, then divide by 4. (Do not evaluate it.)</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="k1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s1" data-pts="4" data-logic="The parentheses make 603 + 74 one sum, and dividing by 2 takes half of it.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which words describe (603 + 74) &divide; 2?</div>
+    <div class="opts"><button class="opt" data-c="1">Half of the sum of 603 and 74</button><button class="opt">603 plus half of 74</button><button class="opt">Twice the sum of 603 and 74</button><button class="opt">The sum of 603, 74, and 2</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="k1_s2" data-pts="4" data-ans="7×(15+25)|7x(15+25)|7*(15+25)|(15+25)×7|(15+25)x7|(15+25)*7|7×(25+15)|7x(25+15)|7*(25+15)|(25+15)×7|(25+15)x7|(25+15)*7" data-logic="The sum of 15 and 25 is one group, so it goes in parentheses, and 7 multiplies the whole group: 7 × (15 + 25).">
+    <span class="pts">+4</span>
+    <div class="qtext">Write an expression for: multiply 7 by the sum of 15 and 25. (Do not evaluate it.)</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="k1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s2" data-pts="4" data-logic="Subtract 9 from 45 means 45 − 9, and &quot;then&quot; means it happens first, so it goes in parentheses before multiplying by 6.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which expression means &ldquo;subtract 9 from 45, then multiply by 6&rdquo;?</div>
+    <div class="opts"><button class="opt" data-c="1">(45 &minus; 9) &times; 6</button><button class="opt">45 &minus; 9 &times; 6</button><button class="opt">(9 &minus; 45) &times; 6</button><button class="opt">45 &minus; (9 &times; 6)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>✍️ Your Turn, Part 2: Writing Expressions</h2>
+<p>One more problem. Write the expression first, then evaluate it.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="k3_s0" data-pts="4" data-ans="8" data-logic="The expression is (16 + 8) ÷ 3. Parentheses first: 16 + 8 = 24. Then 24 ÷ 3 = 8.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Kamau reads from his notebook, &ldquo;Add 16 and 8, then divide by 3.&rdquo; Write the expression and evaluate it. What is the value?</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="k3_s1" data-pts="4" data-ans="80|80 parts|80 part" data-logic="One kit has 12 + 8 parts, so 4 kits have 4 × (12 + 8) = 4 × 20 = 80 parts.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Coach Kasimir buys 4 repair kits. Each kit has 12 bolts and 8 nuts. Write an expression for the total number of parts and evaluate it.</div>
+    <div class="fillrow"><span class="eq">Parts:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="k3_s2" data-pts="4" data-ans="15" data-logic="The expression is (100 − 25) ÷ 5. Parentheses first: 100 − 25 = 75. Then 75 ÷ 5 = 15.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Ms. Kalinda says, &ldquo;Subtract 25 from 100, then divide by 5.&rdquo; Write the expression and evaluate it. What is the value?</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>🧱 Brackets, Braces, and Moving Parentheses</h2>
+<div class="box box-story">
+  <div class="icon">🔧</div>
+  <h4>Expressions Inside Expressions</h4>
+  <p>Sometimes a group sits inside another group. Brackets [ ] and braces { } are grouping symbols that work like bigger parentheses. Work from the inside out: parentheses first, then brackets, then braces.</p>
+</div>
+<div class="decwork">
+  2 &times; [5 + (9 &minus; 3)]
+  <div class="steps">
+  <b>Inside the parentheses:</b> 9 &minus; 3 = 6, so the expression becomes 2 &times; [5 + 6].<br>
+  <b>Inside the brackets:</b> 5 + 6 = 11, so it becomes 2 &times; 11.<br>
+  <b>Last step:</b> 2 &times; 11 = <b>22</b>.
+  </div>
+</div>
+<div class="decwork">
+  Same numbers, different values
+  <div class="steps">
+  <b>No parentheses:</b> 6 + 4 &times; 5 = 6 + 20 = <b>26</b>.<br>
+  <b>With parentheses:</b> (6 + 4) &times; 5 = 10 &times; 5 = <b>50</b>.<br>
+  <b>Puzzle:</b> where do parentheses go so that 24 &minus; 4 &times; 3 = 60? Try (24 &minus; 4) &times; 3 = 20 &times; 3 = 60. It works! Moving the parentheses changes which step comes first, and that changes the value.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>✍️ Your Turn, Part 1: Grouping Symbols</h2>
+<span class="setnotice" id="setNotice9" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e1_s0" data-pts="4" data-ans="30" data-logic="Parentheses: 4 + 6 = 10. Brackets: 20 − 10 = 10. Then 3 × 10 = 30.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate from the inside out: 3 &times; [20 &minus; (4 + 6)]</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="4" data-logic="(8 + 2) × 5 = 10 × 5 = 50. Every other choice still multiplies 2 × 5 first and gives 18.">
+    <span class="pts">+4</span>
+    <div class="qtext">Where do the parentheses go so that 8 + 2 &times; 5 = 50?</div>
+    <div class="opts"><button class="opt" data-c="1">(8 + 2) &times; 5</button><button class="opt">8 + (2 &times; 5)</button><button class="opt">(8) + 2 &times; 5</button><button class="opt">8 + 2 &times; (5)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e1_s1" data-pts="4" data-ans="9" data-logic="Parentheses: 7 + 5 = 12. Brackets: 12 × 3 = 36. Then 36 ÷ 4 = 9.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate from the inside out: [(7 + 5) &times; 3] &divide; 4</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="4" data-logic="36 ÷ (6 − 2) = 36 ÷ 4 = 9. The other choices all divide 36 ÷ 6 first and give 4.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which placement of parentheses makes 36 &divide; 6 &minus; 2 equal 9?</div>
+    <div class="opts"><button class="opt" data-c="1">36 &divide; (6 &minus; 2)</button><button class="opt">(36 &divide; 6) &minus; 2</button><button class="opt">(36) &divide; 6 &minus; 2</button><button class="opt">36 &divide; 6 &minus; (2)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e1_s2" data-pts="4" data-ans="4" data-logic="Parentheses: 3 + 5 = 8. Brackets: 2 × 8 = 16. Braces: 40 − 16 = 24. Then 24 ÷ 6 = 4.">
+    <span class="pts">+4</span>
+    <div class="qtext">Evaluate from the inside out: {40 &minus; [2 &times; (3 + 5)]} &divide; 6</div>
+    <div class="fillrow"><span class="eq">Value:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="4" data-logic="(5 + 3) × 4 = 32. The others: 5 + 3 × 4 = 17, 5 × 3 + 4 = 19, and 5 + (3 × 4) = 17.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which expression has the GREATEST value?</div>
+    <div class="opts"><button class="opt" data-c="1">(5 + 3) &times; 4</button><button class="opt">5 + 3 &times; 4</button><button class="opt">5 &times; 3 + 4</button><button class="opt">5 + (3 &times; 4)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>✍️ Your Turn, Part 2: Grouping Symbols</h2>
+<p>One more puzzle. Add ONE pair of parentheses, then type the whole left side. Keep the numbers in the same order.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e3_s0" data-pts="4" data-ans="(4+6)×3−1|(4+6)×3-1|(4+6)x3−1|(4+6)x3-1|(4+6)*3−1|(4+6)*3-1" data-logic="Try (4 + 6) × 3 − 1: 10 × 3 = 30, and 30 − 1 = 29. Other placements give 16 or 21.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: add one pair of parentheses so that 4 + 6 &times; 3 &minus; 1 = 29. Test your choice, then type the left side.</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="e3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e3_s1" data-pts="4" data-ans="(30−10)÷5+3|(30-10)÷5+3|(30−10)/5+3|(30-10)/5+3" data-logic="Try (30 − 10) ÷ 5 + 3: 20 ÷ 5 = 4, and 4 + 3 = 7. Without parentheses the value is 30 − 2 + 3 = 31.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: add one pair of parentheses so that 30 &minus; 10 &divide; 5 + 3 = 7. Test your choice, then type the left side.</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="e3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e3_s2" data-pts="4" data-ans="2×(9+3)×4|2x(9+3)x4|2*(9+3)*4" data-logic="Try 2 × (9 + 3) × 4: 9 + 3 = 12, then 2 × 12 = 24, and 24 × 4 = 96. Other placements give 30, 42, or 84.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: add one pair of parentheses so that 2 &times; 9 + 3 &times; 4 = 96. Test your choice, then type the left side.</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="e3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today&rsquo;s words. Each card shows the sentence from today&rsquo;s lesson where the word appeared.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">numerical expression</div><div class="flip-face flip-back">Numbers and operation symbols that name one value. &ldquo;A numerical expression is a group of numbers and operation symbols that names one value, such as 10 + 4 &times; 5.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">evaluate</div><div class="flip-face flip-back">To find the value of an expression. &ldquo;To evaluate an expression means to find its value.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">order of operations</div><div class="flip-face flip-back">The agreed rules for which step comes first. &ldquo;Everyone must get the same value, so mathematicians agree on the order of operations: the rules that tell which step comes first.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">parentheses</div><div class="flip-face flip-back">The symbols ( ) that group a step to do first. &ldquo;Parentheses tell the reader to do that step first, so the expression is 2 &times; (3 + 7).&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">brackets and braces</div><div class="flip-face flip-back">Bigger grouping symbols: [ ] and { }. &ldquo;Brackets [ ] and braces { } are grouping symbols that work like bigger parentheses.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">sum</div><div class="flip-face flip-back">The answer to an addition. &ldquo;The sum is the answer to an addition, the difference is the answer to a subtraction, the product is the answer to a multiplication, and the quotient is the answer to a division.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">product</div><div class="flip-face flip-back">The answer to a multiplication. &ldquo;The sum is the answer to an addition, the difference is the answer to a subtraction, the product is the answer to a multiplication, and the quotient is the answer to a division.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quotient</div><div class="flip-face flip-back">The answer to a division. &ldquo;The sum is the answer to an addition, the difference is the answer to a subtraction, the product is the answer to a multiplication, and the quotient is the answer to a division.&rdquo;</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice11" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="3" data-logic="Evaluating means finding the value. 6 + 2 × 3 = 6 + 6 = 12. Writing, copying, or reading an expression does not find its value.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;To evaluate an expression means to find its value.&rdquo; Which sentence shows someone evaluating?</div>
+    <div class="opts"><button class="opt" data-c="1">Kendrick works out that 6 + 2 &times; 3 equals 12</button><button class="opt">Kavya writes 6 + 2 &times; 3 on the whiteboard</button><button class="opt">Kamau copies the expression into his notebook</button><button class="opt">Coach Kasimir reads the expression out loud</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="3" data-ans="product|the product|a product" data-logic="The answer to a multiplication is the product.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: in 7 &times; 8 = 56, the number 56 is the ___. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="3" data-logic="Work from the inside out: the parentheses (2 + 3) sit inside the brackets, so they come first.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;Brackets [ ] and braces { } are grouping symbols that work like bigger parentheses.&rdquo; In 4 &times; [10 &minus; (2 + 3)], which step comes FIRST?</div>
+    <div class="opts"><button class="opt" data-c="1">2 + 3</button><button class="opt">4 &times; 10</button><button class="opt">10 &minus; 2</button><button class="opt">4 &times; 3</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="3" data-ans="quotient|the quotient|a quotient" data-logic="The answer to a division is the quotient.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: in 45 &divide; 9 = 5, the number 5 is the ___. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="3" data-logic="9 × (4 + 1) has numbers joined by operation symbols, and it names one value, 45.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;A numerical expression is a group of numbers and operation symbols that names one value.&rdquo; Which of these is a numerical expression?</div>
+    <div class="opts"><button class="opt" data-c="1">9 &times; (4 + 1)</button><button class="opt">the robot</button><button class="opt">+ &times; &minus;</button><button class="opt">Detroit, Michigan</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="3" data-ans="sum|the sum|a sum" data-logic="The answer to an addition is the sum.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: in 26 + 14 = 40, the number 40 is the ___. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>⚖️ Comparing Without Computing</h2>
+<div class="box box-story">
+  <div class="icon">🏆</div>
+  <h4>Ms. Kalinda&rsquo;s Shortcut</h4>
+  <p>Ms. Kalinda doesn&rsquo;t always compute. She reads the structure of an expression. In 4 &times; (387 + 29), the parentheses hold one group, and that whole group is multiplied by 4. So 4 &times; (387 + 29) is four times as large as 387 + 29, and nobody has to add!</p>
+</div>
+<div class="pricelist">
+  <div class="prow"><span class="pname">5 &times; (63 + 19)</span><span class="pprice">5 times as large as 63 + 19</span></div>
+  <div class="prow"><span class="pname">(906 &minus; 14) &divide; 2</span><span class="pprice">half as large as 906 &minus; 14</span></div>
+  <div class="prow"><span class="pname">6 &times; (450 + 25) vs. 3 &times; (450 + 25)</span><span class="pprice">the first is twice as large</span></div>
+  <div class="prow"><span class="pname">10 &times; (78 &minus; 6) vs. 10 &times; 78 &minus; 6</span><span class="pprice">not the same: only the first multiplies the whole difference</span></div>
+</div>
+<div class="box box-think">
+  <div class="icon">💡</div>
+  <h4>Look for the Same Group</h4>
+  <p>When two expressions share the same group in parentheses, compare only the numbers that multiply or divide the group. If the parentheses are gone, the group is broken apart, and the comparison changes.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<h2>✍️ Your Turn: Comparing Without Computing</h2>
+<span class="setnotice" id="setNotice13" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t1_s0" data-pts="3" data-ans="7|7 times|seven" data-logic="The whole sum 2,418 + 365 is multiplied by 7, so the expression is 7 times as large.">
+    <span class="pts">+3</span>
+    <div class="qtext">Without computing: 7 &times; (2,418 + 365) is how many times as large as 2,418 + 365?</div>
+    <div class="fillrow"><span class="eq">Times as large:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s0" data-pts="3" data-logic="Only 2 × (615 − 48) doubles the whole difference. 2 × 615 − 48 doubles just the 615.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which expression is TWICE as large as 615 &minus; 48?</div>
+    <div class="opts"><button class="opt" data-c="1">2 &times; (615 &minus; 48)</button><button class="opt">2 &times; 615 &minus; 48</button><button class="opt">(615 &minus; 48) &divide; 2</button><button class="opt">615 &minus; 48 + 2</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t1_s1" data-pts="3" data-ans="3|3 times|three" data-logic="Both multiply the same group, 814 − 76. 9 is 3 times as large as 3, so the first expression is 3 times as large.">
+    <span class="pts">+3</span>
+    <div class="qtext">Without computing: 9 &times; (814 &minus; 76) is how many times as large as 3 &times; (814 &minus; 76)?</div>
+    <div class="fillrow"><span class="eq">Times as large:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s1" data-pts="3" data-logic="(12 + 38) × 6 = 50 × 6 = 300. 12 + 38 × 6 = 12 + 228 = 240. So the first is greater.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which statement correctly compares (12 + 38) &times; 6 and 12 + 38 &times; 6?</div>
+    <div class="opts"><button class="opt" data-c="1">The first is greater: 300 compared with 240</button><button class="opt">They are equal because they use the same numbers</button><button class="opt">The second is greater: 300 compared with 240</button><button class="opt">The first is greater: 300 compared with 50</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t1_s2" data-pts="3" data-ans="4|4 times|four" data-logic="Both multiply the same group, 93 + 47. 8 ÷ 2 = 4, so the first expression is 4 times as large.">
+    <span class="pts">+3</span>
+    <div class="qtext">Without computing: 8 &times; (93 + 47) is how many times as large as 2 &times; (93 + 47)?</div>
+    <div class="fillrow"><span class="eq">Times as large:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s2" data-pts="3" data-logic="In 3 × 147 + 59, only 147 is tripled; the 59 is added once. The other three all triple the whole sum.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which expression is NOT three times as large as 147 + 59?</div>
+    <div class="opts"><button class="opt" data-c="1">3 &times; 147 + 59</button><button class="opt">3 &times; (147 + 59)</button><button class="opt">(147 + 59) &times; 3</button><button class="opt">(147 + 59) + (147 + 59) + (147 + 59)</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-go="18">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+<h2>🏁 Real World: The Qualifying Rounds</h2>
+<span class="setnotice" id="setNotice14" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🤖</div>
+  <h4>The Situation</h4>
+  <p>In the first qualifying round, a cone on the top shelf is worth 5 points and a cone on the low shelf is worth 2 points. Kavya&rsquo;s robot places 6 top cones and 9 low cones. Then it bumps a wall and loses 10 points.</p>
+</div>
+  <div class="qbox" data-fq="w1_s0" data-pts="4" data-ans="38|38 points|38 point|38 pts" data-logic="Multiply first: 6 × 5 = 30 and 9 × 2 = 18. Then left to right: 30 + 18 = 48, and 48 − 10 = 38 points.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: what is the robot&rsquo;s score? (6 &times; 5 + 9 &times; 2 &minus; 10)</div>
+    <div class="fillrow"><span class="eq">Points:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🤖</div>
+  <h4>The Situation</h4>
+  <p>Kendrick&rsquo;s team scores 45 points in each of 3 qualifying matches. After the last match, Ms. Kalinda adds one 12-point teamwork bonus to the team&rsquo;s total.</p>
+</div>
+  <div class="qbox" data-q="w1_s1" data-pts="4" data-logic="The bonus is added only once, after the 3 matches: 3 × 45 + 12 = 135 + 12 = 147. 3 × (45 + 12) would give the bonus 3 times.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: which expression and value give the team&rsquo;s final total?</div>
+    <div class="opts"><button class="opt" data-c="1">3 &times; 45 + 12 = 147</button><button class="opt">3 &times; (45 + 12) = 171</button><button class="opt">45 + 3 &times; 12 = 81</button><button class="opt">3 &times; 45 + 12 = 171</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🛒</div>
+  <h4>The Situation</h4>
+  <p>Coach Kasimir has $250 to spend on parts. He buys 4 motors that cost $38 each and 2 sensors that cost $24 each.</p>
+</div>
+  <div class="qbox" data-fq="w1_s2" data-pts="4" data-ans="50|50 dollars|50.00|50 dollar" data-logic="Inside the parentheses: 4 × 38 = 152 and 2 × 24 = 48, so 152 + 48 = 200. Then 250 − 200 = $50.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how much money does he have left? (250 &minus; (4 &times; 38 + 2 &times; 24))</div>
+    <div class="fillrow"><span class="eq">Dollars:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="17">&larr; Back</button><button class="btn btn-go" data-go="19">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 19 -->
+<div class="slide" data-slide="19">
+<h2>🔧 Real World: Pit Stop Planning</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🏅</div>
+  <h4>The Situation</h4>
+  <p>Ms. Kalinda shares 96 bonus points equally among 4 teams. Then Kavya&rsquo;s team earns 3 more points for a clean match with no penalties.</p>
+</div>
+  <div class="qbox" data-q="w2_s0" data-pts="4" data-logic="Share first, then add: 96 ÷ 4 = 24, and 24 + 3 = 27. 96 ÷ (4 + 3) and (96 + 3) ÷ 4 do not equal 27, and 96 ÷ 4 × 3 triples the share instead of adding 3.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: which expression gives the bonus points Kavya&rsquo;s team ends with, and what is its value?</div>
+    <div class="opts"><button class="opt" data-c="1">96 &divide; 4 + 3 = 27</button><button class="opt">96 &divide; (4 + 3) = 27</button><button class="opt">(96 + 3) &divide; 4 = 27</button><button class="opt">96 &divide; 4 &times; 3 = 72</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🛞</div>
+  <h4>The Situation</h4>
+  <p>On the practice track, one lap has 2 straight sides of 14 feet and 2 curved ends of 9 feet. Kendrick drives the robot around the track 3 times.</p>
+</div>
+  <div class="qbox" data-fq="w2_s1" data-pts="4" data-ans="138|138 feet|138 foot|138 ft" data-logic="One lap: 2 × 14 + 2 × 9 = 28 + 18 = 46 feet. Three laps: 3 × 46 = 138 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many feet does the robot travel? (3 &times; (2 &times; 14 + 2 &times; 9))</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">📓</div>
+  <h4>The Situation</h4>
+  <p>Kamau wants to write &ldquo;add 7 and 5, then multiply by 8.&rdquo; In his notebook he writes 7 + 5 &times; 8.</p>
+</div>
+  <div class="qbox" data-q="w2_s2" data-pts="4" data-logic="Without parentheses, multiply first: 7 + 40 = 47. The words say add first, so (7 + 5) × 8 = 12 × 8 = 96.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: what value does Kamau&rsquo;s expression give, and what value should it give?</div>
+    <div class="opts"><button class="opt" data-c="1">His gives 47; (7 + 5) &times; 8 gives 96</button><button class="opt">His gives 96; that is correct</button><button class="opt">His gives 47; (7 + 5) &times; 8 gives 60</button><button class="opt">His gives 60; (7 + 5) &times; 8 gives 96</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="18">&larr; Back</button><button class="btn btn-go" data-go="20">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 20 -->
+<div class="slide" data-slide="20">
+<h2>🕵️ Think It Through: Explain and Find the Mistake</h2>
+<span class="setnotice" id="setNotice16" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">💭</div>
+  <h4>Be the Judge</h4>
+  <p>Getting an answer is only half the job. Can you tell WHY an answer is right, and spot exactly where someone else went wrong?</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="x1_s0" data-pts="5" data-logic="Multiplication comes before subtraction, so 2 × 5 = 10 first, and 20 − 10 = 10.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct for 20 &minus; 2 &times; 5?</div>
+    <div class="opts"><button class="opt" data-c="1">Multiply first: 2 &times; 5 = 10, then 20 &minus; 10 = 10</button><button class="opt">Work left to right: 20 &minus; 2 = 18, then 18 &times; 5 = 90</button><button class="opt">Subtract first because subtraction comes first in the expression</button><button class="opt">Add all the numbers: 20 + 2 + 5 = 27</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="5" data-logic="Multiplication does not come before division. They are partners, done in order from left to right: 48 ÷ 6 = 8, and 8 × 2 = 16.">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Kendrick evaluates 48 &divide; 6 &times; 2 like this: 6 &times; 2 = 12, so 48 &divide; 12 = 4. What should he fix?</div>
+    <div class="opts"><button class="opt" data-c="1">Multiply and divide from left to right: 48 &divide; 6 = 8, then 8 &times; 2 = 16</button><button class="opt">Nothing. The answer 4 is correct</button><button class="opt">He should add first: 48 + 6 + 2 = 56</button><button class="opt">He should always multiply before dividing</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="x1_s1" data-pts="5" data-logic="Parentheses change the order. 5 × (8 + 2) = 50, and 5 × 8 + 2 = 40 + 2 = 42.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct? Does 5 &times; (8 + 2) have the same value as 5 &times; 8 + 2?</div>
+    <div class="opts"><button class="opt" data-c="1">No. The parentheses mean add first: 5 &times; 10 = 50, but 5 &times; 8 + 2 = 42</button><button class="opt">Yes, because they use the same numbers</button><button class="opt">Yes, both equal 50</button><button class="opt">No. Both equal 42, but they look different</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="5" data-logic="Without parentheses, only 26 is multiplied by 4. The words mean the whole sum is four times as large, so write 4 × (26 + 9).">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Kavya writes &ldquo;four times as large as 26 + 9&rdquo; as 4 &times; 26 + 9. What should she fix?</div>
+    <div class="opts"><button class="opt" data-c="1">Add parentheses: 4 &times; (26 + 9), so the whole sum is multiplied</button><button class="opt">Nothing. 4 &times; 26 + 9 is correct</button><button class="opt">Change it to 4 + 26 + 9</button><button class="opt">Change it to (4 &times; 26) + 9</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="x1_s2" data-pts="5" data-logic="Work from the inside out. The parentheses sit inside the brackets: 10 − 4 = 6, then 3 + 6 = 9, then 2 × 9 = 18.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct for 2 &times; [3 + (10 &minus; 4)]?</div>
+    <div class="opts"><button class="opt" data-c="1">Parentheses first: 10 &minus; 4 = 6; then brackets: 3 + 6 = 9; then 2 &times; 9 = 18</button><button class="opt">Left to right: 2 &times; 3 = 6, then 6 + 10 = 16, then 16 &minus; 4 = 12</button><button class="opt">Brackets first: 2 &times; 3 = 6, then 6 + 6 = 12</button><button class="opt">Ignore the grouping symbols: 2 + 3 + 10 + 4 = 19</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="5" data-logic="Addition does not come before subtraction. They are partners, done from left to right: 30 − 10 = 20, and 20 + 5 = 25.">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Kamau says 30 &minus; 10 + 5 = 15, because you always add before you subtract. What should he fix?</div>
+    <div class="opts"><button class="opt" data-c="1">Add and subtract from left to right: 30 &minus; 10 = 20, then 20 + 5 = 25</button><button class="opt">Nothing. 15 is correct</button><button class="opt">Always subtract first, so the answer is 15</button><button class="opt">Multiply first: 30 &times; 10 + 5 = 305</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="19">&larr; Back</button><button class="btn btn-go" data-go="21">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 21 -->
+<div class="slide" data-slide="21">
+<h2>✏️ Fix the Sentence, Part 1</h2>
+<span class="setnotice" id="setNotice17" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Math Writers Use Correct Writing, Too</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Keep the same words in the same order; fix only the capital letters, punctuation, or the one wrong word. Edit the sentence in the box, then press Check. Watch for quotation marks, capital letters for names of places, their vs. they&rsquo;re, to vs. too, commas in a series, commas around a phrase that describes someone, a comma after an opening word, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s1_s0" data-pts="2" data-ans="Kavya asked, &quot;Do we multiply first?&quot;" data-logic="Capitalize the name Kavya, put quotation marks around her exact words, capitalize the first word of the quote, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">kavya asked, do we multiply first</p>
+    <div class="fillrow"><input class="fillin fixin" value="kavya asked, do we multiply first" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s0" data-pts="2" data-ans="The rally is at Huntington Place in Detroit, Michigan." data-logic="Names of buildings, cities, and states are proper nouns, so capitalize Huntington Place, Detroit, and Michigan.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The rally is at huntington place in detroit, michigan.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The rally is at huntington place in detroit, michigan." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s1_s1" data-pts="2" data-ans="Coach Kasimir said, &quot;Check the parentheses first.&quot;||Coach Kasimir said, &quot;Check the parentheses first!&quot;" data-logic="Capitalize Coach Kasimir, a title used with a name. Put quotation marks around his exact words, capitalize the first word of the quote, and put the end mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">coach kasimir said, check the parentheses first</p>
+    <div class="fillrow"><input class="fillin fixin" value="coach kasimir said, check the parentheses first" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s1" data-pts="2" data-ans="The teams checked their scores twice." data-logic="Their shows ownership: the scores belong to the teams. They&#x27;re means they are.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The teams checked they&#x27;re scores twice.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The teams checked they&#x27;re scores twice." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s1_s2" data-pts="2" data-ans="Kendrick shouted, &quot;Our robot scored again!&quot;||Kendrick shouted, &quot;Our robot scored again.&quot;" data-logic="Capitalize the name Kendrick, put quotation marks around his exact words, capitalize the first word of the quote, and put the end mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">kendrick shouted, our robot scored again</p>
+    <div class="fillrow"><input class="fillin fixin" value="kendrick shouted, our robot scored again" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s2" data-pts="2" data-ans="Kamau wants to build a robot too." data-logic="Too means also: Kamau wants to build a robot, also. The first to (to build) is correct.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Kamau wants to build a robot to.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Kamau wants to build a robot to." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="20">&larr; Back</button><button class="btn btn-go" data-go="22">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 22 -->
+<div class="slide" data-slide="22">
+<h2>✏️ Fix the Sentence, Part 2</h2>
+<p>Two more sentences to fix. Keep the same words in the same order, and fix only the capital letters, punctuation, or the one grammar mistake.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s3_s0" data-pts="2" data-ans="The robot needs motors, sensors, and wheels.||The robot needs motors, sensors and wheels." data-logic="Use commas to separate the items in a series: motors, sensors, and wheels.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The robot needs motors sensors and wheels.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The robot needs motors sensors and wheels." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s0" data-pts="2" data-ans="Each of the robots has four wheels." data-logic="Capitalize the first word. The subject is each (one robot at a time), so use has, not have. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">each of the robots have four wheels</p>
+    <div class="fillrow"><input class="fillin fixin" value="each of the robots have four wheels" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s3_s1" data-pts="2" data-ans="Ms. Kalinda, the head judge, added the points." data-logic="The head judge describes Ms. Kalinda. Put a comma before and after a phrase like this that renames the person.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Ms. Kalinda the head judge added the points.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Ms. Kalinda the head judge added the points." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s1" data-pts="2" data-ans="The wheels on the robot are loose." data-logic="Capitalize the first word. The subject is wheels (plural), not robot, so use are, not is. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the wheels on the robot is loose</p>
+    <div class="fillrow"><input class="fillin fixin" value="the wheels on the robot is loose" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s3_s2" data-pts="2" data-ans="No, we do not add before we multiply." data-logic="Put a comma after an opening word like Yes, No, or Well.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">No we do not add before we multiply.</p>
+    <div class="fillrow"><input class="fillin fixin" value="No we do not add before we multiply." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s2" data-pts="2" data-ans="The points from each round are added together." data-logic="Capitalize the first word. The subject is points (plural), not round, so use are, not is. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the points from each round is added together</p>
+    <div class="fillrow"><input class="fillin fixin" value="the points from each round is added together" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="21">&larr; Back</button><button class="btn btn-go" data-go="23">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 23 -->
+<div class="slide" data-slide="23">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a clue on the left, then its match on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="22">&larr; Back</button><button class="btn btn-go" data-go="24">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 24 -->
+<div class="slide" data-slide="24">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick order-of-operations questions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="11" data-logic="4 × 2 = 8, then 3 + 8 = 11.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">3 + 4 &times; 2 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="14" data-logic="3 + 4 = 7, then 7 × 2 = 14.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">(3 + 4) &times; 2 =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="4" data-logic="2 + 3 = 5, then 20 ÷ 5 = 4.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">20 &divide; (2 + 3) =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="23">&larr; Back</button><button class="btn btn-go" data-go="25">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 25 -->
+<div class="slide" data-slide="25">
+<h2>🌇 Looking Back</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🏆</div>
+  <h4>The Trophy Table</h4>
+  <p>The last match is about to start, and Kavya&rsquo;s team rolls the robot to the field. Before the Boss Battle, think about what you practiced today.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <div class="qtext">Which skill from today do you feel MOST confident about?</div>
+    <div class="opts"><button class="opt" data-c="1">Using the order of operations</button><button class="opt" data-c="1">Writing expressions from words</button><button class="opt" data-c="1">Brackets, braces, and moving parentheses</button><button class="opt" data-c="1">Comparing expressions without computing</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <div class="qtext">Which skill do you want to practice MORE?</div>
+    <div class="opts"><button class="opt" data-c="1">Using the order of operations</button><button class="opt" data-c="1">Writing expressions from words</button><button class="opt" data-c="1">Brackets, braces, and moving parentheses</button><button class="opt" data-c="1">Comparing expressions without computing</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="24">&larr; Back</button><button class="btn btn-go" data-go="26">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 26 -->
+<div class="slide" data-slide="26">
+<h2>🚨 Boss Battle: The Championship Match</h2>
+<span class="setnotice" id="setNotice21" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🤖</div>
+  <h4>Kavya and Kendrick in the Final</h4>
+  <p>In the final match, two robots play together as partners. Kavya&rsquo;s robot places 8 cones worth 3 points each and 4 cubes worth 5 points each. The partner robot scores exactly the same. Then Ms. Kalinda adds one 15-point bonus to the partners&rsquo; total.</p>
+</div>
+  <div class="qbox" data-q="b1_s0" data-pts="4" data-logic="One robot scores 8 × 3 + 4 × 5. Two robots score twice that, so it goes in parentheses times 2. The bonus is added once, outside the parentheses.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which expression gives the partners&rsquo; total score?</div>
+    <div class="opts"><button class="opt" data-c="1">2 &times; (8 &times; 3 + 4 &times; 5) + 15</button><button class="opt">2 &times; 8 &times; 3 + 4 &times; 5 + 15</button><button class="opt">8 &times; 3 + 4 &times; 5 + 15</button><button class="opt">2 &times; (8 &times; 3 + 4 &times; 5 + 15)</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s0" data-pts="4" data-ans="103|103 points|103 point|103 pts" data-logic="One robot: 8 × 3 + 4 × 5 = 24 + 20 = 44. Two robots: 2 × 44 = 88. Add the bonus: 88 + 15 = 103 points.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: what is the partners&rsquo; total score?</div>
+    <div class="fillrow"><span class="eq">Points:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🧰</div>
+  <h4>Coach Kasimir Restocks the Pit</h4>
+  <p>Before the final, Coach Kasimir orders 3 parts kits. Each kit has 12 bolts and 4 motor mounts. He also orders 10 extra bolts. His order form says 3 &times; (12 + 4) + 10.</p>
+</div>
+  <div class="qbox" data-q="b1_s1" data-pts="4" data-logic="The parentheses hold one kit, 12 + 4. The 3 multiplies that kit. The 10 extra bolts are added once at the end.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which words match 3 &times; (12 + 4) + 10?</div>
+    <div class="opts"><button class="opt" data-c="1">Three times the number of parts in one kit, plus 10 extra bolts</button><button class="opt">Three times the number of bolts, plus 4 mounts and 10 bolts</button><button class="opt">The parts in one kit, plus 3 times 10 bolts</button><button class="opt">Three times the parts in one kit plus 10 bolts, all multiplied by 3 again</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s1" data-pts="4" data-ans="58|58 parts|58 part" data-logic="One kit: 12 + 4 = 16 parts. Three kits: 3 × 16 = 48. Add the extra bolts: 48 + 10 = 58 parts.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many parts does Coach Kasimir order in all?</div>
+    <div class="fillrow"><span class="eq">Parts:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🏁</div>
+  <h4>Kendrick Tests the Drive Routine</h4>
+  <p>In its routine, the robot drives forward 120 inches and then backs up 35 inches. It repeats this routine 4 times. The finish line is 360 inches from the start.</p>
+</div>
+  <div class="qbox" data-q="b1_s2" data-pts="4" data-logic="Each routine moves the robot 120 − 35 inches forward. Four routines: 4 × (120 − 35). In 4 × 120 − 35, the robot would back up only once.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which expression shows how far from the start the robot ends?</div>
+    <div class="opts"><button class="opt" data-c="1">4 &times; (120 &minus; 35)</button><button class="opt">4 &times; 120 &minus; 35</button><button class="opt">120 &minus; 35 &times; 4</button><button class="opt">4 &times; 120 &minus; 4 + 35</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s2" data-pts="4" data-ans="20|20 inches|20 inch|20 in" data-logic="One routine: 120 − 35 = 85 inches. Four routines: 4 × 85 = 340 inches. Still to go: 360 − 340 = 20 inches.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many more inches must the robot go to reach the finish line?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="25">&larr; Back</button><button class="btn btn-go" data-go="27">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 27 -->
+<div class="slide" data-slide="27">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Page 2 (Post) is on your Pre/Post sheet. Did not print it yet? Use these buttons.</p><a href="../prepost/KCE_Math_PrePost_G4-5W26.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G4-5W26.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="26">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 28 -->
+<div class="slide" data-slide="28">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Rally Day Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🤖</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Great job finishing your Post-Lesson Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 6: Voices of Change &mdash; Week 26 complete</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+var KCE_CLIPS = {};
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 29;
+const FINAL_INDEX = 28;
+const MODULE_ID = 'grade4-5-week26-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["6 + 4 × 2", "14"], ["(6 + 4) × 2", "20"], ["18 − 6 ÷ 3", "16"], ["(18 − 6) ÷ 3", "4"], ["2 × [1 + (5 − 1)]", "10"]], [["add 5 and 3, then multiply by 2", "(5 + 3) × 2"], ["multiply 5 by 3, then add 2", "5 × 3 + 2"], ["subtract 3 from 5, then multiply by 2", "(5 − 3) × 2"], ["half of the sum of 5 and 3", "(5 + 3) ÷ 2"], ["add 5 to the product of 3 and 2", "5 + 3 × 2"]], [["the answer to an addition", "sum"], ["the answer to a multiplication", "product"], ["the answer to a division", "quotient"], ["the answer to a subtraction", "difference"], ["to find the value of an expression", "evaluate"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return (/^-?\d*\.?\d+$/.test(s)?String(parseFloat(s)):s);}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const cleanVal = norm(val); // keeps inner spaces, so "1 8/3" can never collapse into "18/3"
+  const accepted = String(box.dataset.ans).split('|').map(norm);
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='Detroit Robot Rally Master!';
+    document.getElementById('finalMessageHeading').textContent='🏆 Your scores passed every check at the Detroit robot rally!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. You worked like a real competition judge: you used the order of operations to check Ms. Kalinda’s score sheets, turned Coach Kasimir’s plans into expressions with parentheses, worked through brackets and braces from the inside out, and compared expressions without computing them. Your results go to KingCretot Experience. Tell your parent or teacher, and make sure you finish your Post-Lesson Challenge sheet!';
+    playFanfare(); confetti(160); setTimeout(()=>confetti(140),500); setTimeout(()=>confetti(140),1100); setTimeout(()=>confetti(120),1800);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work at the Robot Rally!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Every try makes you stronger with expressions. Remember: grouping symbols first, then multiply and divide from left to right, then add and subtract from left to right. When words say “then,” the first step goes in parentheses. Look back at the teaching slides, then hit Play Again: you will get a fresh set of questions next time, and Kavya and Kendrick will be waiting at the rally. Your results go to KingCretot Experience. Don’t forget to finish your Post-Lesson Challenge sheet.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>if(!window.kcePrintPdf){window.kcePrintPdf=function(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}}</script><script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g45"></script>
+</body>
+</html>
