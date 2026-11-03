@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 26 Science: Gravity: Why Things Fall | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+@media (max-width:600px){table.stack,table.stack tbody,table.stack tr,table.stack td{display:block!important;width:100%}table.stack tr:first-child{display:none!important}table.stack tr{border-top:2px solid #E7DCC0;padding:6px 0}table.stack td{border:0!important;padding:2px 6px!important}table.stack td::before{content:attr(data-label) ': ';font-weight:800;color:#0A1F3D}}
+.final-score #reportStatus{font-size:1rem;line-height:1.4;text-shadow:none;font-family:'Nunito','Comic Sans MS',sans-serif;overflow-wrap:anywhere}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 26</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 6: Voices of Change &bull; Week 26 &bull; Science</span>
+  <h1>Gravity: Why Things Fall</h1>
+  <h2>Why does a dropped apple fall down in Ohio and also in Australia? Today you will find out where "down" really points, how weight is different from mass, and why falling things keep speeding up.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>What is gravity, why does it pull objects toward Earth's center, and how can we measure its pull with data?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;What is gravity, why does it pull objects toward Earth\'s center, and how can we measure its pull with data?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 2 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with Week 24: Earth's moving plates</li><li>Discover why "down" always points toward Earth's center</li><li>Tell mass from weight, and figure out weights on other worlds</li><li>Use data to see how falling objects speed up</li><li>Read real NASA gravity data in a Data Lab</li><li>Meet Émilie du Châtelet, Henry Cavendish, Gladys West and Nergis Mavalvala</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Quick Review, Part 1: What We Learned Before</h2>
+<p>Let's warm up with a Unit 5 skill from Week 24 and the Unit 5 Checkpoint: <b>Earth's moving plates</b>. Remember how a denser ocean plate sinks at a subduction zone? Today you will meet the force that pulls it down: gravity.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Japan is on the Ring of Fire, a belt of plate boundaries around the Pacific Ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: Japan has many earthquakes and volcanoes. Using Week 24, which explanation fits best?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It sits on the Ring of Fire, where plates meet</button>
+      <button class="opt">It sits in the middle of a plate, far from any edge</button>
+      <button class="opt">It sits on the Mid-Atlantic Ridge</button>
+      <button class="opt">Earthquakes happen evenly everywhere on Earth</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="transform" data-logic="At a transform boundary, like the San Andreas fault, plates slide past each other.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: Two plates grind sideways past each other, and no crust is made or destroyed. This is a <i>__</i> boundary:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w1_s1" data-pts="5" data-logic="Continental rock is too light to sink, so the crust crumples upward into mountains.">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: Which landform forms where two continents collide?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Tall mountains, like the Himalayas</button>
+      <button class="opt">A mid-ocean ridge</button>
+      <button class="opt">A rift valley in Iceland</button>
+      <button class="opt">A hot spot island chain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s1" data-pts="5" data-ans="spot" data-logic="Hawaii is near the middle of the Pacific Plate, above a hot spot.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: Hawaii's volcanoes sit far from any plate boundary, above a hot <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="Earthquakes cluster along the edges of plates.">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: Where do most of the world's strong earthquakes happen?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Along plate boundaries, such as the Ring of Fire</button>
+      <button class="opt">In the middle of plates, like Florida</button>
+      <button class="opt">Only near the North and South Poles</button>
+      <button class="opt">Only in deserts</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="Tharp" data-logic="Marie Tharp spotted the rift valley where the seafloor spreads apart.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: The mapmaker whose 1952 discovery of a rift valley along the Mid-Atlantic Ridge helped explain moving continents was Marie <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#128257; Quick Review, Part 2: What We Learned Before</h2>
+<p>Two more from Week 24. Use the plate boundaries and the numbers you practiced.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="Gravity pulls the denser plate downward. That is today&#x27;s topic!">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: At a subduction zone, a denser ocean plate sinks under a lighter plate. Which force pulls the sinking plate down into the mantle?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gravity</button>
+      <button class="opt">Magnetism</button>
+      <button class="opt">Sound</button>
+      <button class="opt">Sunlight</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="0.6|0.60|0.6 m|0.6 meters|0.6 meter" data-logic="Step 1: 5 times 12 is 60 centimeters. Step 2: 60 divided by 100 is 0.6 meters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: Two-step: The Pacific Plate moves about 5 centimeters a year along the San Andreas fault. How far does it move in 12 years? Give your answer in METERS (100 centimeters = 1 meter). Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="One whole-number step means about 32 times more energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: Each whole-number step in magnitude means about 32 times more energy. About how much more energy does a magnitude 6 earthquake release than a magnitude 5?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">About 32 times</button>
+      <button class="opt">2 times</button>
+      <button class="opt">10 times</button>
+      <button class="opt">About 1,000 times</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="200|200 mm|200 millimeters" data-logic="Step 1: 2.5 times 8 is 20 centimeters. Step 2: 20 times 10 is 200 millimeters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: Two-step: The Mid-Atlantic Ridge spreads about 2.5 centimeters a year. How far does it spread in 8 years? Give your answer in MILLIMETERS (1 centimeter = 10 millimeters). Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Week 24 explained that the hot mantle rock is solid but flows very slowly.">
+    <span class="pts">+5</span>
+    <p class="qtext">Review: Find the mistake: "Earth's plates float on an ocean of liquid lava." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The mantle rock under the plates is solid, but it can flow very slowly</button>
+      <button class="opt">The plates float on air</button>
+      <button class="opt">Earth has no plates</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="1000|1,000|1000 times|one thousand" data-logic="Step 1: 9 minus 6 is 3 steps. Step 2: 10 times 10 times 10 is 1,000 times.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Review: Two-step: Each whole-number step in magnitude means 10 times more ground motion on a seismogram. How many times more ground motion does a magnitude 9 earthquake make than a magnitude 6? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about why things fall and what weight means. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_PrePost_G4-5W26.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_PrePost_G4-5W26.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<span class="badge" style="display:inline-block;margin-bottom:6px">&#128216; Today's lesson starts here</span>
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>In this Crash Course Kids video, made for fifth graders, host Sabrina Cruz takes on a puzzle: why don't people and things on the "bottom" of Earth fall off into space? (Watch for the penguins!) It is a great warm-up for today's lesson on gravity.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Down to Earth: Crash Course Kids #4.2</b> &mdash; Crash Course Kids</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/BlPtF_NqIQI?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Down to Earth: Crash Course Kids #4.2" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for (1) which direction Earth's gravity pulls things, and (2) why people on the other side of the world do not fall off. Then think back to Week 24: what force do you think pulls a sinking ocean plate down?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word, what it means and how the lesson uses it.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">gravity<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;gravity. The pulling force between all objects that have mass. In the lesson: Earth\'s gravity pulls every object toward Earth\'s center.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The pulling force between all objects that have mass. <i>In the lesson: "Earth's gravity pulls every object toward Earth's center."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">tides<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;tides. The slow rise and fall of the sea, caused mostly by the Moon\'s pull. In the lesson: It tugs on the oceans and helps cause tides, the slow rise and fall of the sea.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The slow rise and fall of the sea, caused mostly by the Moon's pull. <i>In the lesson: "It tugs on the oceans and helps cause tides, the slow rise and fall of the sea."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">mass<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;mass. The amount of matter in an object, measured in grams and kilograms. In the lesson: Your mass is the same everywhere: on Earth, on the Moon or floating in space.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The amount of matter in an object, measured in grams and kilograms. <i>In the lesson: "Your mass is the same everywhere: on Earth, on the Moon or floating in space."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">weight<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;weight. The pull of gravity on an object\'s mass. In the lesson: Weight is the pull of gravity on an object\'s mass, so it changes when gravity changes.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The pull of gravity on an object's mass. <i>In the lesson: "Weight is the pull of gravity on an object's mass, so it changes when gravity changes."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">newton<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;newton. The unit scientists use to measure force, including weight. In the lesson: Scientists measure weight, a force, in newtons.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The unit scientists use to measure force, including weight. <i>In the lesson: "Scientists measure weight, a force, in newtons."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">free fall<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;free fall. Falling with only gravity acting on an object. In the lesson: Astronauts float because they and the station are in free fall, falling around Earth together.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Falling with only gravity acting on an object. <i>In the lesson: "Astronauts float because they and the station are in free fall, falling around Earth together."</i></div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">acceleration<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;acceleration. A change in how fast something is moving. In the lesson: When something changes speed, scientists call it acceleration.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A change in how fast something is moving. <i>In the lesson: "When something changes speed, scientists call it acceleration."</i></div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🌍 Gravity Pulls Toward the Center</h2>
+<div class="card card-sky">
+<p>Gravity is a pull between all objects that have mass. NASA explains that anything with mass has gravity, objects with more mass have more gravity, and gravity gets weaker with distance. Earth has an enormous amount of mass, so its pull is strong enough to hold you on the ground, keep the oceans in their basins and hold down the atmosphere, the air you need to breathe. Earth's <b>gravity</b> pulls every object toward Earth's center. That means "down" is not one single direction for the whole planet. In Cleveland, Ohio, down points toward the center of Earth, and in Sydney, Australia, down points toward the center too, so nobody falls off the "bottom" of the world. Gravity pulls both ways: you pull on Earth just as hard as Earth pulls on you, but Earth has so much more mass that your pull does not noticeably move it. The Moon's gravity reaches all the way to Earth. It tugs on the oceans and helps cause <b>tides</b>, the slow rise and fall of the sea. The National Oceanic and Atmospheric Administration (NOAA) explains that many coastal places get two high tides and two low tides every 24 hours and 50 minutes. The Sun is about 27 million times more massive than the Moon, but it is about 390 times farther away, so its tide-making pull is only about half as strong as the Moon's. Distance matters! When the Sun, Moon and Earth line up at new moon and full moon, their pulls work together and make extra-large tides called spring tides.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Gravity is a pull between all objects that have mass. NASA explains that anything with mass has gravity, objects with more mass have more gravity, and gravity gets weaker with distance. Earth has an enormous amount of mass, so its pull is strong enough to hold you on the ground, keep the oceans in their basins and hold down the atmosphere, the air you need to breathe. Earth\'s gravity pulls every object toward Earth\'s center. That means \&quot;down\&quot; is not one single direction for the whole planet. In Cleveland, Ohio, down points toward the center of Earth, and in Sydney, Australia, down points toward the center too, so nobody falls off the \&quot;bottom\&quot; of the world. Gravity pulls both ways: you pull on Earth just as hard as Earth pulls on you, but Earth has so much more mass that your pull does not noticeably move it. The Moon\'s gravity reaches all the way to Earth. It tugs on the oceans and helps cause tides, the slow rise and fall of the sea. The National Oceanic and Atmospheric Administration (NOAA) explains that many coastal places get two high tides and two low tides every 24 hours and 50 minutes. The Sun is about 27 million times more massive than the Moon, but it is about 390 times farther away, so its tide-making pull is only about half as strong as the Moon\'s. Distance matters! When the Sun, Moon and Earth line up at new moon and full moon, their pulls work together and make extra-large tides called spring tides.&quot;, this)">&#128266;</button></p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Padma lives in Cleveland, Ohio. She video-calls her cousin Pablo in Sydney, Australia, and jokes, "You must be hanging upside down!" Here is how I reason about it. Gravity pulls toward Earth's center. If I draw Earth as a circle, put Padma near the top and Pablo near the bottom, and draw each person's "down" arrow, both arrows point to the middle of the circle. Each cousin is pulled toward the ground under his or her own feet. Neither one is upside down, because "down" means toward the center wherever you stand. I also check mass: Earth has far more mass than either cousin, so Earth's pull on each of them is far stronger than the pull between the two cousins.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Padma lives in Cleveland, Ohio. She video-calls her cousin Pablo in Sydney, Australia, and jokes, \&quot;You must be hanging upside down!\&quot; Here is how I reason about it. Gravity pulls toward Earth\'s center. If I draw Earth as a circle, put Padma near the top and Pablo near the bottom, and draw each person\'s \&quot;down\&quot; arrow, both arrows point to the middle of the circle. Each cousin is pulled toward the ground under his or her own feet. Neither one is upside down, because \&quot;down\&quot; means toward the center wherever you stand. I also check mass: Earth has far more mass than either cousin, so Earth\'s pull on each of them is far stronger than the pull between the two cousins.&quot;, this)">&#128266;</button></p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Gravity at Work</h4><table class="stack"><tr><th>Where</th><th>What gravity does</th><th>Why it matters</th></tr><tr><td data-label="Where">You and the ground</td><td data-label="What gravity does">Pulls you toward Earth's center</td><td data-label="Why it matters">You stay on the ground, and dropped things fall</td></tr><tr><td data-label="Where">The air around Earth</td><td data-label="What gravity does">Holds down the atmosphere</td><td data-label="Why it matters">You have air to breathe</td></tr><tr><td data-label="Where">The Moon and the oceans</td><td data-label="What gravity does">The Moon's pull helps cause tides</td><td data-label="Why it matters">Many coasts get two high and two low tides every 24 hours and 50 minutes</td></tr><tr><td data-label="Where">The Sun, Moon and Earth in a line</td><td data-label="What gravity does">Their pulls work together</td><td data-label="Why it matters">Extra-large spring tides at new moon and full moon</td></tr></table></div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together: Mass AND Distance</h4><p>Let's use NOAA's numbers about the Sun and the Moon. If only mass mattered, the Sun, about 27 million times more massive than the Moon, would make tides millions of times bigger. But the Sun is about 390 times farther away, and distance weakens its tide-making pull a lot. So the Sun's pull on the tides ends up about half of the Moon's. The lesson: always think about BOTH mass and distance. Try It at Home: draw a big circle for Earth on paper. Draw four small stick people standing at different places around the edge, with their feet on the circle. Draw a "down" arrow from each person's feet. Where do all the arrows point? Show a grown-up and explain why nobody falls off.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s use NOAA\'s numbers about the Sun and the Moon. If only mass mattered, the Sun, about 27 million times more massive than the Moon, would make tides millions of times bigger. But the Sun is about 390 times farther away, and distance weakens its tide-making pull a lot. So the Sun\'s pull on the tides ends up about half of the Moon\'s. The lesson: always think about BOTH mass and distance. Try It at Home: draw a big circle for Earth on paper. Draw four small stick people standing at different places around the edge, with their feet on the circle. Draw a \&quot;down\&quot; arrow from each person\'s feet. Where do all the arrows point? Show a grown-up and explain why nobody falls off.&quot;, this)">&#128266;</button></p></div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>✍️ Your Turn, Part 1: Gravity Pulls Toward the Center</h2>
+<span class="yourturn-label">💪 YOUR TURN</span>
+<p>Use the card, the Picture It box and Let's Try Together you just read. Go back if you need to.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t11_s0" data-pts="5" data-logic="Earth&#x27;s gravity pulls every object toward Earth&#x27;s center.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which way does Earth's gravity pull a dropped ball, wherever you are on Earth?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Toward Earth's center</button>
+      <button class="opt">Toward the North Pole</button>
+      <button class="opt">Toward the Sun</button>
+      <button class="opt">Always toward the United States</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s0" data-pts="5" data-ans="mass" data-logic="More mass means a stronger pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">NASA explains that objects with more <i>__</i> have more gravity:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="Down means toward Earth&#x27;s center, wherever you stand.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why doesn't Pablo in Sydney, Australia, fall off the "bottom" of Earth?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gravity pulls him toward Earth's center, which is "down" for him</button>
+      <button class="opt">The ground in Australia is sticky</button>
+      <button class="opt">Gravity works only in the Southern Hemisphere</button>
+      <button class="opt">The air holds him up</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="tide|tides" data-logic="The Moon&#x27;s gravity tugs on the oceans.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The slow rise and fall of the sea, caused mostly by the Moon's pull, is called the <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t11_s2" data-pts="5" data-logic="Gravity pulls both ways, but Earth&#x27;s huge mass means your pull barely affects it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? You pull on Earth with gravity too, so why doesn't Earth move toward you?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Earth has so much more mass that your pull does not noticeably move it</button>
+      <button class="opt">You have no gravity at all</button>
+      <button class="opt">Gravity only pulls down, never up</button>
+      <button class="opt">Earth is too far away from you</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s2" data-pts="5" data-ans="atmosphere|air" data-logic="Without gravity, our air would drift away into space.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Earth's gravity holds down the <i>__</i>, the air we need to breathe:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>✍️ Your Turn, Part 2: Gravity Pulls Toward the Center</h2>
+<p>One more! Think it through before you answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t13_s0" data-pts="5" data-ans="12|twelve|12 tides" data-logic="Step 1: 2 high plus 2 low is 4 tides each tidal day. Step 2: 4 times 3 is 12 tides.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Many coasts get 2 high tides and 2 low tides every 24 hours and 50 minutes. How many tides in all, high plus low, happen in 3 of those tidal days? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t13_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t13_s1" data-pts="5" data-ans="distance" data-logic="That is why the faraway Sun has a smaller pull on the tides than the nearby Moon.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Gravity gets weaker with <i>__</i>, so the closer two objects are, the stronger their pull:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t13_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t13_s2" data-pts="5" data-ans="15|15 units" data-logic="Step 1: half of 10 is 5 units for the Sun. Step 2: 10 plus 5 is 15 units, which is why spring tides are extra large.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: The Sun's tide-making pull is about half of the Moon's. If the Moon's pull on the tides is 10 units, what is the TOTAL pull when the Sun and Moon line up at a new moon? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t13_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>⚖️ Mass Versus Weight</h2>
+<div class="card card-gold">
+<p><b>Mass</b> is the amount of matter in an object, measured in grams and kilograms. Your mass is the same everywhere: on Earth, on the Moon or floating in space. <b>Weight</b> is different. Weight is the pull of gravity on an object's mass, so it changes when gravity changes. A NASA guide puts it simply: the mass of an object does not depend on the location, but the weight does. Scientists measure weight, a force, in <b>newtons</b>. On Earth's surface, gravity pulls on each kilogram with about 9.8 newtons, so you find an object's weight by multiplying its mass in kilograms by 9.8. A pan balance compares masses, so it gives the same answer on the Moon as on Earth. A spring scale measures the pull of gravity, so it would read less on the Moon. NASA lists the Moon's surface gravity at about 0.166 of Earth's, or about one-sixth, and Mars at about 0.38. A student who weighs 100 pounds on Earth would weigh only about 17 pounds on the Moon, but would have exactly the same mass. Even on Earth, weight changes a tiny bit. Earth bulges at the equator, so a person who weighs 200 pounds at the North Pole would weigh one or two pounds less at the equator. What about astronauts? The International Space Station orbits between 200 and 250 miles up, where NASA says Earth's gravity is still about 90 percent as strong as on the ground. Astronauts float because they and the station are in <b>free fall</b>, falling around Earth together. NASA calls this floating condition microgravity.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Mass is the amount of matter in an object, measured in grams and kilograms. Your mass is the same everywhere: on Earth, on the Moon or floating in space. Weight is different. Weight is the pull of gravity on an object\'s mass, so it changes when gravity changes. A NASA guide puts it simply: the mass of an object does not depend on the location, but the weight does. Scientists measure weight, a force, in newtons. On Earth\'s surface, gravity pulls on each kilogram with about 9.8 newtons, so you find an object\'s weight by multiplying its mass in kilograms by 9.8. A pan balance compares masses, so it gives the same answer on the Moon as on Earth. A spring scale measures the pull of gravity, so it would read less on the Moon. NASA lists the Moon\'s surface gravity at about 0.166 of Earth\'s, or about one-sixth, and Mars at about 0.38. A student who weighs 100 pounds on Earth would weigh only about 17 pounds on the Moon, but would have exactly the same mass. Even on Earth, weight changes a tiny bit. Earth bulges at the equator, so a person who weighs 200 pounds at the North Pole would weigh one or two pounds less at the equator. What about astronauts? The International Space Station orbits between 200 and 250 miles up, where NASA says Earth\'s gravity is still about 90 percent as strong as on the ground. Astronauts float because they and the station are in free fall, falling around Earth together. NASA calls this floating condition microgravity.&quot;, this)">&#128266;</button></p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Pablo says, "Astronauts float because there is no gravity in space." Let me check that with numbers. NASA says the space station orbits 200 to 250 miles up, and gravity there is about 90 percent of what it is on the ground. NASA even gives an example: a person who weighs 100 pounds on the ground would weigh about 90 pounds at the top of a ladder that tall. So gravity is definitely there! The real reason astronauts float is free fall. The station and everyone inside are falling toward Earth, but they are also moving forward so fast that they keep falling around Earth instead of hitting it. Everything falls together, so nothing presses down on the floor.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Pablo says, \&quot;Astronauts float because there is no gravity in space.\&quot; Let me check that with numbers. NASA says the space station orbits 200 to 250 miles up, and gravity there is about 90 percent of what it is on the ground. NASA even gives an example: a person who weighs 100 pounds on the ground would weigh about 90 pounds at the top of a ladder that tall. So gravity is definitely there! The real reason astronauts float is free fall. The station and everyone inside are falling toward Earth, but they are also moving forward so fast that they keep falling around Earth instead of hitting it. Everything falls together, so nothing presses down on the floor.&quot;, this)">&#128266;</button></p></div>
+<div class="pictureit"><h4>&#129513; Picture It: One Student, Many Worlds</h4><table class="stack"><tr><th>Place</th><th>Gravity compared with Earth</th><th>Mass of the student</th><th>Weight (newtons)</th></tr><tr><td data-label="Place">Earth</td><td data-label="Gravity compared with Earth">1</td><td data-label="Mass of the student">40 kilograms</td><td data-label="Weight (newtons)">40 × 9.8 = 392</td></tr><tr><td data-label="Place">The Moon</td><td data-label="Gravity compared with Earth">about 0.166</td><td data-label="Mass of the student">40 kilograms</td><td data-label="Weight (newtons)">40 × 1.6 = 64</td></tr><tr><td data-label="Place">Mars</td><td data-label="Gravity compared with Earth">about 0.38</td><td data-label="Mass of the student">40 kilograms</td><td data-label="Weight (newtons)">40 × 3.7 = 148</td></tr><tr><td data-label="Place">Jupiter (at its cloud level)</td><td data-label="Gravity compared with Earth">about 2.36</td><td data-label="Mass of the student">40 kilograms</td><td data-label="Weight (newtons)">40 × 23.1 = 924</td></tr></table><p>The mass never changes. Only the weight does. Gravity values are from NASA's Planetary Fact Sheet.</p></div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together: Weigh It on Mars</h4><p>Let's weigh Padma's backpack on two worlds. Its mass is 5 kilograms. On Earth, gravity pulls each kilogram with about 9.8 newtons, so 5 times 9.8 is 49 newtons. On Mars, gravity pulls each kilogram with only about 3.7 newtons, so 5 times 3.7 is 18.5 newtons. And its mass on Mars? Still 5 kilograms! Try It at Home: hang a small zip-top bag of rice from a rubber band taped to the edge of a table, and use a ruler to measure how far the band stretches. Then add a second bag with the same amount of rice. The stretch grows because gravity pulls harder on more mass. That is how a spring scale works.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s weigh Padma\'s backpack on two worlds. Its mass is 5 kilograms. On Earth, gravity pulls each kilogram with about 9.8 newtons, so 5 times 9.8 is 49 newtons. On Mars, gravity pulls each kilogram with only about 3.7 newtons, so 5 times 3.7 is 18.5 newtons. And its mass on Mars? Still 5 kilograms! Try It at Home: hang a small zip-top bag of rice from a rubber band taped to the edge of a table, and use a ruler to measure how far the band stretches. Then add a second bag with the same amount of rice. The stretch grows because gravity pulls harder on more mass. That is how a spring scale works.&quot;, this)">&#128266;</button></p></div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>✍️ Your Turn, Part 1: Mass Versus Weight</h2>
+<span class="yourturn-label">💪 YOUR TURN</span>
+<p>Use the card, the Picture It box and Let's Try Together you just read. Go back if you need to.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t21_s0" data-pts="5" data-logic="Mass stays the same everywhere; weight changes with gravity.">
+    <span class="pts">+5</span>
+    <p class="qtext">What is the difference between mass and weight?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Mass is the amount of matter; weight is the pull of gravity on that matter</button>
+      <button class="opt">They are exactly the same thing</button>
+      <button class="opt">Weight is the amount of matter; mass is a force</button>
+      <button class="opt">Mass changes on the Moon, but weight does not</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s0" data-pts="5" data-ans="mass|masses" data-logic="Gravity pulls equally on both pans, so the comparison does not change.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A pan balance compares <i>__</i>, so it gives the same reading on the Moon as on Earth:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t21_s1" data-pts="5" data-logic="A spring scale measures the pull of gravity, which is about one-sixth as strong on the Moon.">
+    <span class="pts">+5</span>
+    <p class="qtext">A spring scale reads 49 newtons for a bag on Earth. What would the same scale read for the same bag on the Moon?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Much less, because the Moon's gravity is weaker</button>
+      <button class="opt">Exactly the same</button>
+      <button class="opt">Much more</button>
+      <button class="opt">Zero, because there is no gravity on the Moon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s1" data-pts="5" data-ans="sixth|6th" data-logic="NASA lists the Moon&#x27;s gravity at about 0.166 of Earth&#x27;s.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Moon's surface gravity is about one-<i>__</i> of Earth's:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t21_s2" data-pts="5" data-logic="NASA says gravity at the station is about 90 percent as strong; free fall makes astronauts float.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Astronauts float on the space station because there is no gravity in space." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gravity there is about 90 percent as strong as on the ground; they float because they are in free fall</button>
+      <button class="opt">There is more gravity in space than on Earth</button>
+      <button class="opt">Astronauts are held up by strings</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s2" data-pts="5" data-ans="fall" data-logic="Everything falls together, so things float.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Astronauts and their space station falling around Earth together are in free <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>✍️ Your Turn, Part 2: Mass Versus Weight</h2>
+<p>One more! Think it through before you answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t23_s0" data-pts="5" data-ans="58.8|58.8 newtons|58.8 N" data-logic="Step 1: 2 times 3 is 6 kilograms. Step 2: 6 times 9.8 is 58.8 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A bag holds 2 rocks, and each rock has a mass of 3 kilograms. Gravity on Earth pulls each kilogram with about 9.8 newtons. How many newtons does the bag of rocks weigh? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t23_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t23_s1" data-pts="5" data-ans="75|75 pounds" data-logic="Step 1: 90 divided by 6 is 15 pounds on the Moon. Step 2: 90 minus 15 is 75 pounds lighter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A student weighs 90 pounds on Earth. On the Moon, the student would weigh about one-sixth as much. How many pounds LIGHTER would the student be on the Moon? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t23_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t23_s2" data-pts="5" data-ans="61|61 newtons|61 N" data-logic="Step 1: 10 times 9.8 is 98 newtons on Earth, and 10 times 3.7 is 37 newtons on Mars. Step 2: 98 minus 37 is 61 newtons less.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Gravity on Mars pulls each kilogram with about 3.7 newtons, and on Earth about 9.8 newtons. A rover part has a mass of 10 kilograms. How many newtons LESS does it weigh on Mars than on Earth? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t23_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>🪂 Falling Faster and Faster</h2>
+<div class="card card-grass">
+<p>Drop a ball and it does not fall at one steady speed. It speeds up the whole way down. When something changes speed, scientists call it <b>acceleration</b>. NASA explains that on Earth's surface, gravity's acceleration is 9.8 meters per second squared. In plain words: with no air to slow it, a falling object gains about 9.8 meters per second of speed for every second it falls. After 1 second it moves about 9.8 meters per second, after 2 seconds about 19.6, and after 3 seconds about 29.4. Because it keeps speeding up, it covers more distance each second than the second before: about 4.9 meters in the first second, 19.6 meters in total after 2 seconds and 44.1 meters in total after 3 seconds. NASA also explains that in a vacuum, a space with no air, all objects fall with the same acceleration, whatever their size, shape or weight. In air, wide or fast objects get pushed back by the air, which is why parachutes work. Engineers at NASA's Glenn Research Center in Cleveland, Ohio, use this physics. In the Zero Gravity Research Facility, working since 1966, experiments fall 432 feet (132 meters) inside a giant steel vacuum chamber. The fall lasts 5.18 seconds, and during that time the experiment is in microgravity, just like on the space station. At the bottom, the experiment is moving about 113 miles per hour, and it is stopped in a cart filled with tiny foam plastic beads. A shorter tower at Glenn gives 2.2 seconds of free fall in a 79-foot drop.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Drop a ball and it does not fall at one steady speed. It speeds up the whole way down. When something changes speed, scientists call it acceleration. NASA explains that on Earth\'s surface, gravity\'s acceleration is 9.8 meters per second squared. In plain words: with no air to slow it, a falling object gains about 9.8 meters per second of speed for every second it falls. After 1 second it moves about 9.8 meters per second, after 2 seconds about 19.6, and after 3 seconds about 29.4. Because it keeps speeding up, it covers more distance each second than the second before: about 4.9 meters in the first second, 19.6 meters in total after 2 seconds and 44.1 meters in total after 3 seconds. NASA also explains that in a vacuum, a space with no air, all objects fall with the same acceleration, whatever their size, shape or weight. In air, wide or fast objects get pushed back by the air, which is why parachutes work. Engineers at NASA\'s Glenn Research Center in Cleveland, Ohio, use this physics. In the Zero Gravity Research Facility, working since 1966, experiments fall 432 feet (132 meters) inside a giant steel vacuum chamber. The fall lasts 5.18 seconds, and during that time the experiment is in microgravity, just like on the space station. At the bottom, the experiment is moving about 113 miles per hour, and it is stopped in a cart filled with tiny foam plastic beads. A shorter tower at Glenn gives 2.2 seconds of free fall in a 79-foot drop.&quot;, this)">&#128266;</button></p>
+<div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Pablo watches a video of a ball dropped from a tall tower and wonders why it seems to zoom faster near the end. Here is how I reason with numbers. Gravity adds about 9.8 meters per second of speed every second. So the ball is not falling at one speed; its speed keeps climbing: 9.8, then 19.6, then 29.4 meters per second. Faster motion means more distance each second. The first second covers about 4.9 meters, and by the end of 2 seconds the total is 19.6 meters: four times as far in twice the time! A real ball also meets air pushing back, so it falls a little slower than these perfect numbers, especially if it is light and wide.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Pablo watches a video of a ball dropped from a tall tower and wonders why it seems to zoom faster near the end. Here is how I reason with numbers. Gravity adds about 9.8 meters per second of speed every second. So the ball is not falling at one speed; its speed keeps climbing: 9.8, then 19.6, then 29.4 meters per second. Faster motion means more distance each second. The first second covers about 4.9 meters, and by the end of 2 seconds the total is 19.6 meters: four times as far in twice the time! A real ball also meets air pushing back, so it falls a little slower than these perfect numbers, especially if it is light and wide.&quot;, this)">&#128266;</button></p></div>
+<div class="pictureit"><h4>&#129513; Picture It: Free Fall With No Air</h4><table class="stack"><tr><th>Time falling</th><th>Speed</th><th>Total distance fallen</th></tr><tr><td data-label="Time falling">1 second</td><td data-label="Speed">about 9.8 meters per second</td><td data-label="Total distance fallen">about 4.9 meters</td></tr><tr><td data-label="Time falling">2 seconds</td><td data-label="Speed">about 19.6 meters per second</td><td data-label="Total distance fallen">about 19.6 meters</td></tr><tr><td data-label="Time falling">3 seconds</td><td data-label="Speed">about 29.4 meters per second</td><td data-label="Total distance fallen">about 44.1 meters</td></tr><tr><td data-label="Time falling">5.18 seconds (NASA's Zero Gravity Research Facility)</td><td data-label="Speed">about 113 miles per hour</td><td data-label="Total distance fallen">432 feet (132 meters)</td></tr></table><p>The first three rows are for a fall with no air. Real objects in air fall a little slower.</p></div>
+<div class="guidedbox"><h4>&#129309; Let's Try Together: Find the Pattern</h4><p>Look at the speed column: 9.8, 19.6, 29.4. Each second adds 9.8, so the speed grows by the same amount every second. Now look at the distance column: 4.9, 19.6, 44.1. Divide each one by 4.9 and you get 1, 4 and 9. Those are 1 times 1, 2 times 2 and 3 times 3! So after 4 seconds, the total should be 4.9 times 16, which is 78.4 meters. Try It at Home, with a grown-up: stand on the floor, not on furniture. Fill one small plastic bottle with water and screw the cap on tight. Leave a second bottle of the same size empty, with its cap on. Hold them side by side at the same height and let go together over a towel. Do they land together? Try it three times and record what you see.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Look at the speed column: 9.8, 19.6, 29.4. Each second adds 9.8, so the speed grows by the same amount every second. Now look at the distance column: 4.9, 19.6, 44.1. Divide each one by 4.9 and you get 1, 4 and 9. Those are 1 times 1, 2 times 2 and 3 times 3! So after 4 seconds, the total should be 4.9 times 16, which is 78.4 meters. Try It at Home, with a grown-up: stand on the floor, not on furniture. Fill one small plastic bottle with water and screw the cap on tight. Leave a second bottle of the same size empty, with its cap on. Hold them side by side at the same height and let go together over a towel. Do they land together? Try it three times and record what you see.&quot;, this)">&#128266;</button></p></div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>✍️ Your Turn, Part 1: Falling Faster and Faster</h2>
+<span class="yourturn-label">💪 YOUR TURN</span>
+<p>Use the card, the Picture It box and Let's Try Together you just read. Go back if you need to.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t31_s0" data-pts="5" data-logic="Gravity&#x27;s acceleration on Earth is 9.8 meters per second squared.">
+    <span class="pts">+5</span>
+    <p class="qtext">With no air, what happens to the speed of a dropped ball as it falls?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It increases by about 9.8 meters per second every second</button>
+      <button class="opt">It stays the same the whole way down</button>
+      <button class="opt">It slows down</button>
+      <button class="opt">It doubles every second</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s0" data-pts="5" data-ans="acceleration" data-logic="Falling objects accelerate because gravity keeps pulling.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A change in speed is called <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t31_s1" data-pts="5" data-logic="Air pushes back on wide objects, slowing the fall.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does a parachute slow a skydiver?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Its wide shape makes the air push back hard</button>
+      <button class="opt">It turns gravity off</button>
+      <button class="opt">It makes the skydiver heavier</button>
+      <button class="opt">It pulls the skydiver toward the Sun</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s1" data-pts="5" data-ans="5.18|5.18 seconds" data-logic="The experiments fall 432 feet in 5.18 seconds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">NASA's Zero Gravity Research Facility gives experiments how many seconds of free fall? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t31_s2" data-pts="5" data-logic="NASA explains that in a vacuum, all objects fall with the same acceleration.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? In NASA's vacuum chamber, a heavy steel ball and a light plastic ball are dropped together. What happens?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They land together, because with no air all objects fall with the same acceleration</button>
+      <button class="opt">The heavy ball lands first</button>
+      <button class="opt">The light ball lands first</button>
+      <button class="opt">Neither ball falls without air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s2" data-pts="5" data-ans="beads|bead" data-logic="The beads slow the experiment safely.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Experiments at the bottom of NASA's 432-foot drop are stopped in a cart filled with tiny foam plastic <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>✍️ Your Turn, Part 2: Falling Faster and Faster</h2>
+<p>One more! Think it through before you answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t33_s0" data-pts="5" data-ans="29.4|29.4 meters per second" data-logic="Step 1: after 4 seconds it moves 4 times 9.8, or 39.2 meters per second. Step 2: 39.2 minus 9.8 is 29.4.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: With no air, how many meters per second FASTER is an object moving after 4 seconds of falling than after 1 second? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t33_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t33_s1" data-pts="5" data-ans="122.5|122.5 meters" data-logic="Step 1: 5 times 5 is 25. Step 2: 25 times 4.9 is 122.5 meters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: With no air, an object falls about 4.9 meters in the first second, and the total distance follows the pattern 1, 4, 9, 16... times 4.9. How many meters does it fall in total after 5 seconds? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t33_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t33_s2" data-pts="5" data-ans="58.8|58.8 meters per second" data-logic="Step 1: 3 times 9.8 is 29.4. Step 2: twice the time is 6 seconds, and 6 times 9.8 is 58.8 meters per second.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Starting from rest with no air, a falling object gains about 9.8 meters per second each second. How fast is it moving after 3 seconds? Then how fast after twice that time? Type the speed after 6 seconds:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t33_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-go="15">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>📈 Data Lab: Gravity Across the Solar System</h2>
+<p>NASA measures the gravity of planets and moons. The table lists how many newtons of pull gravity puts on each kilogram, which is the same number as the speed a falling object gains each second. Read these real values from NASA's Planetary Fact Sheet.</p>
+<div class="sourcebox"><h4>Data Table: Mass and Gravity of Six Worlds</h4><div><table class="stack"><tr><th>World</th><th>Mass compared with Earth</th><th>Gravity (newtons on each kilogram)</th><th>Gravity compared with Earth</th></tr><tr><td data-label="World">Earth</td><td data-label="Mass compared with Earth">1</td><td data-label="Gravity (newtons on each kilogram)">9.8</td><td data-label="Gravity compared with Earth">1</td></tr><tr><td data-label="World">The Moon</td><td data-label="Mass compared with Earth">0.0123</td><td data-label="Gravity (newtons on each kilogram)">1.6</td><td data-label="Gravity compared with Earth">0.166</td></tr><tr><td data-label="World">Mercury</td><td data-label="Mass compared with Earth">0.0553</td><td data-label="Gravity (newtons on each kilogram)">3.7</td><td data-label="Gravity compared with Earth">0.378</td></tr><tr><td data-label="World">Mars</td><td data-label="Mass compared with Earth">0.107</td><td data-label="Gravity (newtons on each kilogram)">3.7</td><td data-label="Gravity compared with Earth">0.377</td></tr><tr><td data-label="World">Saturn*</td><td data-label="Mass compared with Earth">95.2</td><td data-label="Gravity (newtons on each kilogram)">9.0</td><td data-label="Gravity compared with Earth">0.916</td></tr><tr><td data-label="World">Jupiter*</td><td data-label="Mass compared with Earth">317.8</td><td data-label="Gravity (newtons on each kilogram)">23.1</td><td data-label="Gravity compared with Earth">2.36</td></tr></table></div><div class="src">Source: NASA Goddard Space Flight Center, Planetary Fact Sheet (nssdc.gsfc.nasa.gov). *Saturn and Jupiter have no solid surface, so NASA gives their gravity at a level in their clouds where the air pressure is about the same as at sea level on Earth.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Data table: mass and gravity of six worlds. Earth: mass 1, gravity 9.8 newtons on each kilogram. The Moon: mass 0.0123 of Earth\'s, gravity 1.6, which is 0.166 of Earth\'s. Mercury: mass 0.0553, gravity 3.7, or 0.378 of Earth\'s. Mars: mass 0.107, gravity 3.7, or 0.377 of Earth\'s. Saturn: mass 95.2 times Earth\'s, gravity 9.0 at its cloud level, or 0.916 of Earth\'s. Jupiter: mass 317.8 times Earth\'s, gravity 23.1 at its cloud level, or 2.36 times Earth\'s.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Planetary Scientist</h4><p>A planetary scientist spots two surprises in this table. Mercury and Mars have almost the same gravity, 3.7, even though Mars has about twice Mercury's mass. And Saturn has about 95 times Earth's mass, yet its gravity at the cloud level is a little weaker than Earth's. Mass is not the whole story! Distance matters too. Mars and Saturn are much wider, so their surfaces or cloud levels are farther from their centers, and gravity weakens with distance.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;A planetary scientist spots two surprises in this table. Mercury and Mars have almost the same gravity, 3.7, even though Mars has about twice Mercury\'s mass. And Saturn has about 95 times Earth\'s mass, yet its gravity at the cloud level is a little weaker than Earth\'s. Mass is not the whole story! Distance matters too. Mars and Saturn are much wider, so their surfaces or cloud levels are farther from their centers, and gravity weakens with distance.&quot;, this)">&#128266;</button></p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab1_s0" data-pts="5" data-logic="Jupiter&#x27;s gravity at its cloud level is 23.1 newtons on each kilogram.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which world in the table has the strongest gravity?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Jupiter</button>
+      <button class="opt">Saturn</button>
+      <button class="opt">Earth</button>
+      <button class="opt">Mars</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s0" data-pts="5" data-ans="48|48 newtons|48 N" data-logic="30 times 1.6 is 48 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A 30-kilogram student stands on the Moon, where gravity pulls 1.6 newtons on each kilogram. What does the student weigh there, in newtons? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="The table says 2.36, about 2.4 times. Jupiter has about 318 times Earth&#x27;s mass, but it is so wide that its cloud level is far from its center.">
+    <span class="pts">+5</span>
+    <p class="qtext">About how many times stronger is Jupiter's gravity than Earth's, at Jupiter's cloud level?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">About 2.4 times</button>
+      <button class="opt">About 318 times</button>
+      <button class="opt">About 10 times</button>
+      <button class="opt">About the same</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="122|122 newtons|122 N" data-logic="Step 1: 20 times 9.8 is 196 newtons, and 20 times 3.7 is 74 newtons. Step 2: 196 minus 74 is 122 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A 20-kilogram robot weighs how many newtons MORE on Earth (9.8) than on Mars (3.7)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="Mercury and Mars both have gravity of 3.7.">
+    <span class="pts">+5</span>
+    <p class="qtext">On which two worlds in the table would a backpack weigh almost exactly the same?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Mercury and Mars</button>
+      <button class="opt">Earth and Jupiter</button>
+      <button class="opt">The Moon and Saturn</button>
+      <button class="opt">Earth and the Moon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="490|490 newtons|490 N" data-logic="Step 1: 80 divided by 1.6 is 50 kilograms. Step 2: 50 times 9.8 is 490 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: An astronaut weighs 80 newtons on the Moon, where gravity pulls 1.6 newtons on each kilogram. First find her mass. Then find what she weighs on Earth (9.8). Type her Earth weight in newtons:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="14">&larr; Back</button>
+<button class="btn btn-go" data-go="16">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<h2>📈 Data Lab: Gravity Across the Solar System, Part 2</h2>
+<div class="reminder"><b>Remember the data:</b> Earth 9.8. Moon 1.6 (0.166 of Earth's). Mercury 3.7. Mars 3.7 (about 0.38). Saturn 9.0, with about 95 times Earth's mass. Jupiter 23.1 (2.36 times Earth's). Weight in newtons = mass in kilograms × gravity.</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="lab3_s0" data-pts="5" data-logic="Both mass and distance from the center matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mercury and Mars both have gravity of 3.7, but Mars has about twice the mass. Which explanation is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Mars is wider, so its surface is farther from its center, and gravity weakens with distance</button>
+      <button class="opt">Mars has no gravity at all</button>
+      <button class="opt">Mercury is made of feathers</button>
+      <button class="opt">Gravity has nothing to do with mass</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab3_s1" data-pts="5" data-logic="Distance from the center matters as well as mass.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Saturn has about 95 times Earth's mass, so its gravity must be about 95 times stronger." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">NASA lists Saturn's gravity at 9.0, a little less than Earth's 9.8, because its cloud level is very far from its center</button>
+      <button class="opt">Saturn has no mass</button>
+      <button class="opt">Saturn's gravity really is 95 times stronger</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab3_s2" data-pts="5" data-logic="120 times 0.166 is about 19.9, so about 20 pounds.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Moon's gravity is 0.166 of Earth's. Which is the BEST estimate of what a student who weighs 120 pounds on Earth would weigh on the Moon?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">About 20 pounds</button>
+      <button class="opt">About 120 pounds</button>
+      <button class="opt">About 60 pounds</button>
+      <button class="opt">About 720 pounds</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="15">&larr; Back</button>
+<button class="btn btn-go" data-go="17">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="17">
+<h2>🧑‍🔬 Scientists Who Measured the Pull</h2>
+<p>People from many countries and backgrounds helped us understand, measure and use gravity.</p>
+<div class="peoplegrid"><div class="pcard"><h4>Émilie du Châtelet</h4><div class="yrs">1706–1749</div><p>Émilie du Châtelet was born in Paris, France. In experiments with lead balls dropped into soft clay, she showed that balls hitting the clay at twice the speed sank in four times as deep, evidence about the energy of moving objects. Her greatest work was translating Isaac Newton's famous book about motion and gravity, the Principia, into French. She added her own notes, examples and explanations to make Newton's hard writing clearer. She finished it just before she died in 1749, and it was published ten years later. For many years it was the only translation of the Principia into French.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Émilie du Châtelet. Émilie du Châtelet was born in Paris, France. In experiments with lead balls dropped into soft clay, she showed that balls hitting the clay at twice the speed sank in four times as deep, evidence about the energy of moving objects. Her greatest work was translating Isaac Newton\'s famous book about motion and gravity, the Principia, into French. She added her own notes, examples and explanations to make Newton\'s hard writing clearer. She finished it just before she died in 1749, and it was published ten years later. For many years it was the only translation of the Principia into French.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Henry Cavendish</h4><div class="yrs">1731–1810</div><p>Henry Cavendish was an English scientist who was extremely shy. He used a torsion balance, a rod with small lead balls on its ends hanging from a thin wire, given to him by his friend, the geologist John Michell. Big lead balls placed nearby pulled on the small balls and twisted the wire a tiny bit. That twist showed gravity pulling between ordinary objects! He watched the experiment through a window with a telescope. In June 1798 he reported that Earth's average density is 5.48 times the density of water. People often describe his work as "weighing the world."<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Henry Cavendish. Henry Cavendish was an English scientist who was extremely shy. He used a torsion balance, a rod with small lead balls on its ends hanging from a thin wire, given to him by his friend, the geologist John Michell. Big lead balls placed nearby pulled on the small balls and twisted the wire a tiny bit. That twist showed gravity pulling between ordinary objects! He watched the experiment through a window with a telescope. In June 1798 he reported that Earth\'s average density is 5.48 times the density of water. People often describe his work as \&quot;weighing the world.\&quot;&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Gladys West</h4><div class="yrs">1930–2026</div><p>Gladys West was an African American mathematician born in rural Dinwiddie County, Virginia. After earning a mathematics degree from Virginia State College, she began work in 1956 at the Naval Proving Ground in Dahlgren, Virginia, and stayed more than 40 years. She programmed early computers, including an IBM 7030 "Stretch," to process satellite data about Earth's exact shape, using math that accounts for gravity, tides and other forces that distort the planet's shape. She also managed a project for Seasat, one of the first satellites that could study the oceans from space. Her work helped make the Global Positioning System (GPS) accurate. She entered the Air Force Space and Missile Pioneers Hall of Fame in 2018 and died in January 2026 at age 95.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Gladys West. Gladys West was an African American mathematician born in rural Dinwiddie County, Virginia. After earning a mathematics degree from Virginia State College, she began work in 1956 at the Naval Proving Ground in Dahlgren, Virginia, and stayed more than 40 years. She programmed early computers, including an IBM 7030 \&quot;Stretch,\&quot; to process satellite data about Earth\'s exact shape, using math that accounts for gravity, tides and other forces that distort the planet\'s shape. She also managed a project for Seasat, one of the first satellites that could study the oceans from space. Her work helped make the Global Positioning System (GPS) accurate. She entered the Air Force Space and Missile Pioneers Hall of Fame in 2018 and died in January 2026 at age 95.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Nergis Mavalvala</h4><div class="yrs">LIGO physicist</div><p>Nergis Mavalvala was born in Lahore, Pakistan, and grew up in Karachi. She studied physics and astronomy at Wellesley College in Massachusetts, then earned her doctorate at the Massachusetts Institute of Technology (MIT), where she helped build an early test version of a gravitational-wave detector. Gravitational waves are tiny ripples in space made by huge events far away. She joined the Laser Interferometer Gravitational-Wave Observatory (LIGO), with twin detectors in Livingston, Louisiana, and Hanford, Washington. On September 14, 2015, both detectors caught waves from two black holes merging about 1.3 billion years ago, confirming a prediction of Albert Einstein's 1915 theory of gravity. She won a MacArthur Fellowship in 2010 and became dean of MIT's School of Science in 2020.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Nergis Mavalvala. Nergis Mavalvala was born in Lahore, Pakistan, and grew up in Karachi. She studied physics and astronomy at Wellesley College in Massachusetts, then earned her doctorate at the Massachusetts Institute of Technology (MIT), where she helped build an early test version of a gravitational-wave detector. Gravitational waves are tiny ripples in space made by huge events far away. She joined the Laser Interferometer Gravitational-Wave Observatory (LIGO), with twin detectors in Livingston, Louisiana, and Hanford, Washington. On September 14, 2015, both detectors caught waves from two black holes merging about 1.3 billion years ago, confirming a prediction of Albert Einstein\'s 1915 theory of gravity. She won a MacArthur Fellowship in 2010 and became dean of MIT\'s School of Science in 2020.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="His torsion balance let him work out Earth&#x27;s density.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Henry Cavendish's 1798 experiment measure?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Earth's average density, 5.48 times that of water</button>
+      <button class="opt">The speed of light</button>
+      <button class="opt">The height of the tides</button>
+      <button class="opt">The distance to the Moon</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s0" data-pts="5" data-ans="Principia" data-logic="She added her own notes and examples.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Émilie du Châtelet translated Isaac Newton's book about motion and gravity, the <i>__</i>, into French:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp1_s1" data-pts="5" data-logic="Even ordinary objects pull on each other with gravity.">
+    <span class="pts">+5</span>
+    <p class="qtext">In Cavendish's experiment, what twisted the wire of the torsion balance?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The gravity pull between the big and small lead balls</button>
+      <button class="opt">Wind from an open window</button>
+      <button class="opt">Magnets hidden in the room</button>
+      <button class="opt">Electricity from a battery</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s1" data-pts="5" data-ans="waves|wave" data-logic="The ripples came from two black holes merging.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 2015, LIGO detected tiny ripples in space called gravitational <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="Both LIGO detectors caught the waves at almost the same moment.">
+    <span class="pts">+5</span>
+    <p class="qtext">What made the gravitational waves LIGO detected on September 14, 2015?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Two black holes merging about 1.3 billion years ago</button>
+      <button class="opt">An earthquake in Louisiana</button>
+      <button class="opt">The Moon's tides</button>
+      <button class="opt">A rocket launch in Washington</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="1956" data-logic="She worked there more than 40 years.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Gladys West began work at the Naval Proving Ground in Dahlgren, Virginia, in the year <i>__</i>. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="16">&larr; Back</button>
+<button class="btn btn-go" data-go="18">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="18">
+<h2>🧑‍🔬 Scientists Who Measured the Pull, Part 2</h2>
+<p>One more! Use the people cards on the last slide. Go back if you need to.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp3_s0" data-pts="5" data-logic="Knowing Earth&#x27;s exact shape helps GPS find positions accurately.">
+    <span class="pts">+5</span>
+    <p class="qtext">How did Gladys West's work help the Global Positioning System?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Her computer model of Earth's exact shape, which accounts for gravity, helped make positions accurate</button>
+      <button class="opt">She invented the first telephone</button>
+      <button class="opt">She built rockets for the Moon landing</button>
+      <button class="opt">She discovered gravity</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="pp3_s1" data-pts="5" data-logic="Twice the speed gave four times the depth.">
+    <span class="pts">+5</span>
+    <p class="qtext">Du Châtelet dropped lead balls into clay. How deep did balls hitting at twice the speed sink?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Four times as deep</button>
+      <button class="opt">Twice as deep</button>
+      <button class="opt">The same depth</button>
+      <button class="opt">Half as deep</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp3_s2" data-pts="5" data-logic="Her notes made Newton&#x27;s hard writing clearer.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct about why du Châtelet's translation mattered?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">For many years it was the only French translation, so French readers could study Newton's ideas about motion and gravity</button>
+      <button class="opt">It proved Newton was wrong about everything</button>
+      <button class="opt">It was a book about tides only</button>
+      <button class="opt">It was never published</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="17">&larr; Back</button>
+<button class="btn btn-go" data-go="19">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="19">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="18">&larr; Back</button>
+<button class="btn btn-go" data-go="20">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="20">
+<h2>&#8996;&#65039; Type-It Corral, Part 1</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="gravity" data-logic="Earth&#x27;s gravity pulls everything toward its center.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The force that pulls objects toward Earth's center is <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="scale" data-logic="A spring scale stretches more when gravity pulls harder.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A tool with a spring that measures weight is a spring <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="mass" data-logic="Mass is measured in grams and kilograms.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The amount of matter in an object is its <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="newtons|newton" data-logic="On Earth, gravity pulls each kilogram with about 9.8 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Scientists measure weight in units called <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="tides|tide" data-logic="Spring tides happen at new moon and full moon.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When the Sun, Moon and Earth line up, they make extra-large spring <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="9.8" data-logic="Gravity&#x27;s acceleration on Earth is 9.8 meters per second squared.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">With no air, a falling object gains about how many meters per second of speed every second? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="19">&larr; Back</button>
+<button class="btn btn-go" data-go="21">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="21">
+<h2>&#8996;&#65039; Type-It Corral, Part 2</h2>
+<p>One more from memory. Spelling counts, so check your letters!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty3_s0" data-pts="5" data-ans="microgravity|micro-gravity|micro gravity" data-logic="Micro means very small: gravity only seems tiny.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">NASA calls the floating condition astronauts feel in orbit <i>__</i>:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty3_s1" data-pts="5" data-ans="chamber|chambers" data-logic="Pumping out the air lets the experiment fall freely.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">NASA drops experiments inside a giant steel vacuum <i>__</i> so no air slows them:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty3_s2" data-pts="5" data-ans="equator" data-logic="A 200-pound person at the North Pole would weigh one or two pounds less at the equator.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Earth bulges at the <i>__</i>, so you weigh a tiny bit less there than at the North Pole:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty3_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="20">&larr; Back</button>
+<button class="btn btn-go" data-go="22">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="22">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Down means toward Earth&#x27;s center.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Earth's gravity pulls objects toward...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Earth's center</button>
+      <button class="opt">The Sun</button>
+      <button class="opt">The sky</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp2" data-pts="5" data-bonus="1" data-logic="Mass stays the same; only weight changes.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">On the Moon, your mass would...</p>
+    <div class="opts">
+      <button class="opt">Get smaller</button>
+      <button class="opt" data-c="1">Stay the same</button>
+      <button class="opt">Get bigger</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="All objects fall with the same acceleration in a vacuum.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">With no air, a heavy ball and a light ball dropped together...</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Land together</button>
+      <button class="opt">Heavy one lands first</button>
+      <button class="opt">Light one lands first</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="21">&larr; Back</button>
+<button class="btn btn-go" data-go="23">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="23">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: figure out weights on other worlds, use the free-fall pattern, explain mass versus weight, and finish the Challenge.</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_PrePost_G4-5W26.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_PrePost_G4-5W26.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder about gravity? Write one question a physicist or planetary scientist could answer with evidence.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, read NASA Space Place's page "What Is Gravity?" (spaceplace.nasa.gov) together. Then, with a grown-up's help, time how long a soft ball takes to fall from the top of a table to the floor. Do it five times and find the average. Is it less than half a second?</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="22">&larr; Back</button>
+<button class="btn btn-go" data-go="24">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="24">
+<h2>👑 Boss Battle, Part 1: Master Physicist Challenge</h2>
+<p>These are the hardest questions. Use the pull toward the center, mass and weight, the free-fall pattern and the NASA data to reason like a physicist.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Down means toward Earth&#x27;s center everywhere.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student in Florida and a student in Argentina each drop a pencil at the same moment. Which statement is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Both pencils fall toward Earth's center, so each falls "down" to the ground under that student</button>
+      <button class="opt">The pencil in Argentina falls up</button>
+      <button class="opt">Only the pencil in Florida falls</button>
+      <button class="opt">Both pencils fall toward the North Pole</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A spring scale measures weight; a pan balance compares mass.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct about weighing a 10-kilogram box on Mars with a spring scale and with a pan balance?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The spring scale reads less than on Earth, but the pan balance still matches 10 kilograms</button>
+      <button class="opt">Both read less than on Earth</button>
+      <button class="opt">Both read the same as on Earth</button>
+      <button class="opt">The pan balance reads less, but the spring scale is the same</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="Removing the air removes the push that would slow the fall.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why does NASA pump the air out of the Zero Gravity Research Facility before a drop?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">With no air pushing back, the experiment falls freely and is in microgravity</button>
+      <button class="opt">To make gravity stronger</button>
+      <button class="opt">To make the experiment heavier</button>
+      <button class="opt">So the experiment floats upward</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="NASA uses this exact example: about 90 pounds at the top.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "If you could climb a ladder all the way to the space station, you would weigh nothing at the top." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gravity there is about 90 percent as strong, so a 100-pound person would weigh about 90 pounds</button>
+      <button class="opt">You would weigh more at the top</button>
+      <button class="opt">There is no gravity anywhere in space</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="That is why only the spring scale would read differently on the Moon.">
+    <span class="pts">+5</span>
+    <p class="qtext">Pablo says a spring scale and a pan balance measure the same thing. Which explanation is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A spring scale measures weight, the pull of gravity; a pan balance compares mass</button>
+      <button class="opt">Both measure mass only</button>
+      <button class="opt">Both measure weight only</button>
+      <button class="opt">Neither measures anything about gravity or matter</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Small objects have gravity too; it is just very weak.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Only huge objects like planets have gravity." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">All objects with mass have gravity; Cavendish measured the pull between lead balls</button>
+      <button class="opt">Only small objects have gravity</button>
+      <button class="opt">Nothing has gravity except the Sun</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="23">&larr; Back</button>
+<button class="btn btn-go" data-go="25">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="25">
+<h2>👑 Boss Battle, Part 2: Master Physicist Challenge</h2>
+<p>Keep going! Reason with the evidence like a scientist.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="Distance weakens the Sun&#x27;s tide-making pull.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "The Sun is millions of times more massive than the Moon, so the Sun controls Earth's tides much more than the Moon does." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The Sun is about 390 times farther away, so its tide-making pull is only about half of the Moon's</button>
+      <button class="opt">The Sun has no gravity</button>
+      <button class="opt">The Moon is more massive than the Sun</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Gravity pulls toward the center, gives weight and causes acceleration, and data lets us measure it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which answer BEST responds to the Big Question?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gravity is a pull between all masses; Earth's pull points toward its center, gives objects weight and makes falling objects speed up, and we can measure it with scales, clocks and data</button>
+      <button class="opt">Gravity exists only on Earth</button>
+      <button class="opt">Gravity is the same thing as air pressure</button>
+      <button class="opt">Gravity pushes objects up into space</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="Same size and shape means the air affects them about equally, and gravity accelerates both the same.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Two balls of the same size, one empty plastic and one filled with sand, are dropped together from a short height.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They land at nearly the same time, because gravity gives all objects the same acceleration and the air has only a small effect here</button>
+      <button class="opt">The sand-filled ball takes half as long</button>
+      <button class="opt">The empty ball floats upward</button>
+      <button class="opt">The empty ball always lands far ahead</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="9.0 is closest to Earth&#x27;s 9.8.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which world from the Data Lab has gravity closest to Earth's?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Saturn, at its cloud level (9.0)</button>
+      <button class="opt">Mars (3.7)</button>
+      <button class="opt">Jupiter (23.1)</button>
+      <button class="opt">The Moon (1.6)</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="Gladys West modeled Earth&#x27;s shape; Cavendish measured Earth&#x27;s density; Mavalvala works on gravitational waves; du Châtelet translated the Principia.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which pairing is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Gladys West: Earth's shape for GPS</button>
+      <button class="opt">Henry Cavendish: gravitational waves</button>
+      <button class="opt">Nergis Mavalvala: translated the Principia</button>
+      <button class="opt">Émilie du Châtelet: the Seasat satellite</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="Because speed keeps growing, each extra stretch of the drop is covered faster.">
+    <span class="pts">+5</span>
+    <p class="qtext">NASA Glenn's 79-foot tower gives 2.2 seconds of free fall, and its 432-foot facility gives 5.18 seconds. Which explanation is correct?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The drop is more than 5 times as tall but lasts only a bit more than 2 times as long, because the falling object keeps speeding up</button>
+      <button class="opt">A drop that is 5 times as tall always lasts exactly 5 times as long</button>
+      <button class="opt">The taller drop is slower</button>
+      <button class="opt">Fall time does not depend on height at all</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="24">&larr; Back</button>
+<button class="btn btn-go" data-go="26">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="26">
+<h2>👑 Boss Battle, Part 3: Master Physicist Challenge</h2>
+<p>One last question. Reason like a scientist, then see your score!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="b5_s0" data-pts="5" data-ans="72|72 newtons|72 N" data-logic="Step 1: 441 divided by 9.8 is 45 kilograms. Step 2: 45 times 1.6 is 72 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A student weighs 441 newtons on Earth, where gravity pulls 9.8 newtons on each kilogram. First find the student's mass. Then find the student's weight on the Moon (1.6). Type the Moon weight in newtons:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b5_s1" data-pts="5" data-ans="24.5|24.5 meters" data-logic="Step 1: use the totals after 3 seconds (44.1) and after 2 seconds (19.6). Step 2: 44.1 minus 19.6 is 24.5 meters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: With no air, an object's total fall is 4.9 meters after 1 second, 19.6 after 2 and 44.1 after 3. How many meters does it fall DURING the 3rd second alone? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b5_s2" data-pts="5" data-ans="9800|9,800|9800 newtons|9,800 newtons" data-logic="Step 1: 3,700 divided by 3.7 is 1,000 kilograms. Step 2: 1,000 times 9.8 is 9,800 newtons.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Gravity on Mars pulls about 3.7 newtons on each kilogram. A rover weighs 3,700 newtons on Mars. First find its mass in kilograms. Then find its weight on Earth (9.8). Type the Earth weight in newtons:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b5_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="25">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="27">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Drop Tester</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! Gravity is pulling on you right now, toward the center of Earth. You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 28;
+const FINAL_INDEX = 27;
+const MODULE_ID = 'grade4-5-week26-science';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 145;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["mass", "amount of matter"], ["weight", "pull of gravity on mass"], ["newton", "unit of force"], ["free fall", "falling with only gravity acting"], ["microgravity", "floating condition in orbit"]], [["the Moon", "about one-sixth of Earth's gravity"], ["Mars", "about 0.38 of Earth's gravity"], ["Jupiter", "2.36 times Earth's gravity"], ["tides", "rise and fall of the sea"], ["space station", "about 90 percent of surface gravity"]], [["Émilie du Châtelet", "translated the Principia"], ["Henry Cavendish", "\"weighing the world,\" 1798"], ["Gladys West", "Earth's shape for GPS"], ["Nergis Mavalvala", "gravitational waves"], ["Zero Gravity Research Facility", "5.18 seconds of free fall"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/\.(?!\d)|[,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Drop Tester", "Mass Measurer", "Gravity Tracker", "Master Physicist"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = "🎉 Outstanding Work, Physicist!";
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. You used NASA data, the free-fall pattern and the difference between mass and weight to explain why things fall. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark! Next week: <b>Earth\u2019s Water by the Numbers</b>, where you will find out how much of Earth\u2019s water is salty, fresh, frozen and underground, and graph it like a scientist.';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g45"></script>
+</body>
+</html>
