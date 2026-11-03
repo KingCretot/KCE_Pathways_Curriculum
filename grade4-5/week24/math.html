@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4-5 — Week 24: The Bridge Design Studio (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --tri-blue:#0047BA; --tri-red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C; --purple:#8E63CE; --rose:#E8608F;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#061428);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.3rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30;animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;box-shadow:0 4px 0 #061428}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.05rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.35rem;color:var(--navy)}
+.fillin{width:130px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.15rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1C3A66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.84rem;border:3px solid var(--gold)}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.center{text-align:center}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.box{position:relative;border-radius:16px;padding:18px 18px 16px 54px;margin:16px 0}
+.box .icon{position:absolute;left:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff}
+.box h4{margin:0 0 6px 0;font-size:1rem;font-family:'Fredoka One',cursive}
+.box p{margin:0}
+.box-think{background:#F0F2FF;border:2px solid #C7CDF7}
+.box-think .icon{background:#6E7EE8;color:#fff}
+.box-think h4{color:#3A46B0}
+.box-vocab{background:#FFF6E1;border:2px solid #F5D98A;border-radius:4px 16px 16px 16px}
+.box-vocab .icon{background:var(--gold);color:var(--navy)}
+.box-vocab h4{color:#8A5A00}
+.box-vocab .vocabword{font-family:'Fredoka One',cursive;color:var(--navy);font-size:1.1rem}
+.box-guided{background:#EFFAE6;border:2px dashed var(--grass)}
+.box-guided .icon{background:var(--grass);color:#fff}
+.box-guided h4{color:#2E7D32}
+.box-real{background:#EAF6FF;border:3px solid var(--sky)}
+.box-real .icon{background:var(--sky);color:var(--navy)}
+.box-real h4{color:#1B5A8C;text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.box-story{background:linear-gradient(135deg,#FFF0F5,#FFE4EE);border:2px solid var(--rose)}
+.box-story .icon{background:var(--rose);color:#fff}
+.box-story h4{color:#B23A63}
+.box-alert{background:#FFF0EA;border:3px solid var(--pumpkin)}
+.box-alert .icon{background:var(--pumpkin);color:#fff}
+.box-alert h4{color:#B0511C}
+.nonfiction-tag{display:inline-block;background:var(--purple);color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pencilbreak{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:4px dashed var(--gold);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+.pencilbreak .bigicon{font-size:4rem;margin-bottom:10px}
+.pencilbreak h2{color:var(--navy);margin-bottom:14px}
+.pencilbreak p{font-size:1.05rem;margin:10px 0}
+.pencilbreak .stopword{font-family:'Bangers',cursive;font-size:2.2rem;color:var(--rose);letter-spacing:2px;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.passport{text-align:center;background:#FFF6E1;border:2px solid #FFE0A0;border-radius:16px;padding:14px}
+.pricelist{background:#FFFDF7;border:3px solid #F0E6C8;border-radius:16px;padding:16px 20px;margin:14px 0}
+.pricelist .prow{display:flex;justify-content:space-between;border-bottom:1px dashed #E0D6B8;padding:7px 0;font-weight:800}
+.pricelist .prow:last-child{border-bottom:none}
+.pricelist .pname{color:var(--navy)}
+.pricelist .pprice{color:var(--pumpkin);font-family:'Fredoka One',cursive}
+.decwork{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);text-align:center;margin:14px 0;line-height:1.7}
+.decwork .steps{font-size:1rem;text-align:left;background:#F8FAFF;border-radius:12px;padding:14px;margin-top:10px;font-family:'Nunito',sans-serif;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.05rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.speedtrail{background:linear-gradient(135deg,#FFF0EA,#FFE4D6);border:3px solid var(--pumpkin);border-radius:18px;padding:18px;text-align:center;margin:10px 0}
+.timerbig{font-family:'Bangers',cursive;font-size:3rem;color:var(--pumpkin)}
+.besttime{font-weight:800;color:var(--navy);margin-top:6px}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+
+.tricolor{position:fixed;left:0;right:0;z-index:101;height:5px;background:linear-gradient(90deg,var(--tri-blue) 0 33.33%,var(--gold) 33.33% 66.66%,var(--tri-red) 66.66% 100%)}
+.arrays{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:14px 0}
+.arr{text-align:center}
+.arr svg{max-width:100%;height:auto}
+.arrlbl{font-family:'Fredoka One',cursive;color:var(--navy);margin-bottom:4px}
+.calgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+@media(max-width:560px){.calgrid{grid-template-columns:repeat(6,1fr)}}
+.cal{border:2px solid #E2E8F0;border-radius:10px;padding:6px 2px;text-align:center;min-height:54px;background:#F8FAFF;font-size:.85rem}
+.cal b{display:block;color:var(--navy)}
+.cal-t{background:#E6EEFF;border-color:var(--tri-blue)}
+.cal-v{background:#FFE9E9;border-color:var(--tri-red)}
+.cal-both{background:#FFF1C9;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.45)}
+.callegend{display:flex;gap:10px;flex-wrap:wrap;font-weight:800;font-size:.85rem}
+.callegend span{padding:4px 12px;border-radius:999px;border:2px solid}
+.fixorig{font-family:'Courier New',monospace;background:#FFF0EA;border:2px dashed var(--pumpkin);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-weight:700}
+.fixin{width:100%;flex:1 1 320px;text-align:left;font-size:1.02rem}
+.pricelist .prow{gap:12px}
+.pricelist .pprice{text-align:right}
+@media(max-width:560px){.pricelist .prow{flex-direction:column}.pricelist .pprice{text-align:left}}
+.ctable{border-collapse:collapse;margin:10px auto;min-width:220px;font-weight:800;text-align:center;background:#FFFDF7}
+.ctable th{background:var(--navy);color:#fff;padding:6px 18px;font-family:'Fredoka One',cursive;font-weight:400}
+.ctable td{border:2px solid #F0E6C8;padding:5px 18px;color:var(--navy)}
+.qtext .ctable{margin:10px 0 0}
+</style>
+<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="hud-title">🌉 KCE Pathways — Grade 4-5 — Week 24</span></div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span><span class="xpbar"><span class="xpfill" id="xpFill"></span></span></div>
+    <div class="stat">🪙 <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" id="tricolor"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">✗</div>
+<div class="wrap">
+
+<!-- SLIDE 0 -->
+<div class="slide on" data-slide="0">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <span class="badge">KCE Pathways &bull; Unit 5: Charting the Course &bull; Week 24 &bull; Math</span>
+  <h1>The Bridge Design Studio</h1>
+  <h2>Classifying Two-Dimensional Figures 🌉</h2>
+  <div class="box box-story">
+    <div class="icon">🌉</div>
+    <h4>Meet Ximena</h4>
+    <p>Ximena is 10 and lives in Pittsburgh, Pennsylvania, a city famous for its bridges. Her Aunt Winnie is a structural engineer at a bridge design studio downtown, and this week Ximena is spending her afternoons there. Ms. Whitaker, the lead engineer, checks every drawing for the right shapes, and Mr. Wojcik cuts steel plates for the scale models. Ximena&rsquo;s little brother Xander and her friend Wren drop by with questions of their own. Every bridge drawing is made of flat shapes, and today Ximena learns to sort them by their sides, their angles, and their symmetry.</p>
+  </div>
+  <div class="box box-guided">
+    <div class="icon">🏆</div>
+    <h4>How Pathway Points Work</h4>
+    <p>Worth <b>100 Pathway Points</b>, plus bonus XP rounds. You get 2 tries per question before we reveal the answer and explain why. Points only count on your first try. Each time you replay, you get a fresh set of questions.</p>
+  </div>
+  <div class="box box-real">
+    <div class="icon">🗺️</div>
+    <h4>Today's Quest</h4>
+    <ul class="tips">
+      <li>Warm up with last week&rsquo;s skill: line plots with fractions</li>
+      <li>Classify triangles by their sides and by their angles</li>
+      <li>Climb the quadrilateral family tree: trapezoids, parallelograms, rectangles, rhombuses, and squares</li>
+      <li>Find parallel and perpendicular sides inside figures</li>
+      <li>Find lines of symmetry</li>
+      <li>Solve multi-step design problems, spot mistakes, and fix sentences</li>
+    </ul>
+  </div>
+  <div class="passport">
+    <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+    <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 5: Charting the Course &mdash; Week 24</p>
+  </div>
+  <div class="box box-vocab" id="nameCaptureCard">
+    <div class="icon">👤</div>
+    <h4>Before You Start</h4>
+    <p style="margin-bottom:10px">What's your name? This lets your Pathway Points go to KingCretot Experience and your parent or teacher.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <input class="fillin" id="studentFirstNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="First name">
+      <input class="fillin" id="studentLastNameField" style="flex:1;min-width:200px;font-size:1rem;padding:12px 14px" placeholder="Last name">
+    </div>
+  </div>
+<div class="nav"><span></span><button class="btn btn-go" data-go="1">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 1 -->
+<div class="slide" data-slide="1">
+<h2>🔁 Warm-Up, Part 1: Line Plots with Fractions Review</h2>
+<span class="setnotice" id="setNotice1" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>You Already Know This</h4>
+  <p>Last week you read and made line plots at the tide pools of Cannon Beach, Oregon. Remember: each X is one piece of data, equivalent fractions like 1/2 and 4/8 share one stack, you rename with a common denominator before you add or subtract, and the fair share is the total divided by the number of X&rsquo;s. Today you trade number lines for shapes, but careful measuring still matters.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r1_s0" data-pts="2" data-ans="2 1/8|2 1/8 inches|2 1/8 inch|2 1/8 in|2 2/16|2 2/16 inches|2 2/16 inch|2 2/16 in|17/8|17/8 inches|17/8 inch|17/8 in|2-1/8|2-1/8 inches|2-1/8 inch|2-1/8 in|2 and 1/8|2 and 1/8 inches|2 and 1/8 inch|2 and 1/8 in|2.125|2.125 inches|2.125 inch|2.125 in" data-logic="3 × 3/8 = 9/8. 2 × 1/2 = 1 = 8/8. 9/8 + 8/8 = 17/8 = 2 1/8 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): a line plot of bolt lengths shows 3 X&rsquo;s above 3/8 inch and 2 X&rsquo;s above 1/2 inch. What is the total length of those 5 bolts?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s0" data-pts="2" data-logic="4/8 and 1/2 are equivalent fractions, so they are the same point on the number line.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): where does the X for 4/8 inch go on a line plot?</div>
+    <div class="opts"><button class="opt" data-c="1">In the same stack as 1/2 inch</button><button class="opt">In the same stack as 1/4 inch</button><button class="opt">Between 1/2 and 5/8</button><button class="opt">Above the number 4</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r1_s1" data-pts="2" data-ans="3 1/4|3 1/4 inches|3 1/4 inch|3 1/4 in|3 2/8|3 2/8 inches|3 2/8 inch|3 2/8 in|3 4/16|3 4/16 inches|3 4/16 inch|3 4/16 in|13/4|13/4 inches|13/4 inch|13/4 in|3-1/4|3-1/4 inches|3-1/4 inch|3-1/4 in|3 and 1/4|3 and 1/4 inches|3 and 1/4 inch|3 and 1/4 in|3.25|3.25 inches|3.25 inch|3.25 in" data-logic="4 × 5/8 = 20/8. 3/4 = 6/8. 20/8 + 6/8 = 26/8 = 3 2/8 = 3 1/4 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): a line plot of washer widths shows 4 X&rsquo;s above 5/8 inch and 1 X above 3/4 inch. What is the total width of those 5 washers?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s1" data-pts="2" data-logic="3/8 is in eighths, so the number line needs eighths. Eighths also land on 1/4, 1/2, and 3/4.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): the data are 1/4, 3/8, 1/2, and 3/4 inch. Which tick marks does the number line need?</div>
+    <div class="opts"><button class="opt" data-c="1">Eighths</button><button class="opt">Halves</button><button class="opt">Fourths</button><button class="opt">Wholes</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r1_s2" data-pts="2" data-ans="4 1/4|4 1/4 inches|4 1/4 inch|4 1/4 in|4 2/8|4 2/8 inches|4 2/8 inch|4 2/8 in|4 4/16|4 4/16 inches|4 4/16 inch|4 4/16 in|17/4|17/4 inches|17/4 inch|17/4 in|4-1/4|4-1/4 inches|4-1/4 inch|4-1/4 in|4 and 1/4|4 and 1/4 inches|4 and 1/4 inch|4 and 1/4 in|4.25|4.25 inches|4.25 inch|4.25 in" data-logic="2 × 1 1/4 = 2 2/4 = 2 1/2. 2 × 7/8 = 14/8 = 1 3/4. 2 1/2 + 1 3/4 = 2 2/4 + 1 3/4 = 3 5/4 = 4 1/4 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): a line plot of rivet lengths shows 2 X&rsquo;s above 1 1/4 inches and 2 X&rsquo;s above 7/8 inch. What is the total length of those 4 rivets?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="r2_s2" data-pts="2" data-logic="Fair share = total ÷ number of jars = 3 ÷ 4 = 3/4 cup.">
+    <span class="pts">+2</span>
+    <div class="qtext">Fair share (Week 23): 4 jars hold a total of 3 cups of water. If the water were shared equally, how much would each jar hold?</div>
+    <div class="opts"><button class="opt" data-c="1">3/4 cup</button><button class="opt">1 1/3 cups</button><button class="opt">3 cups</button><button class="opt">1/4 cup</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="0">&larr; Back</button><button class="btn btn-go" data-go="2">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 2 -->
+<div class="slide" data-slide="2">
+<h2>🔁 Warm-Up, Part 2: Line Plots with Fractions Review</h2>
+<p>Two more warm-up problems. Show your work on scrap paper, then type your answers.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="r3_s0" data-pts="2" data-ans="7/8|7/8 inches|7/8 inch|7/8 in|14/16|14/16 inches|14/16 inch|14/16 in|0.875|0.875 inches|0.875 inch|0.875 in" data-logic="Rename: 1 5/8 = 13/8 and 3/4 = 6/8. 13/8 − 6/8 = 7/8 inch.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): on a line plot, the longest bolt is 1 5/8 inches and the shortest is 3/4 inch. What is the difference?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s0" data-pts="2" data-ans="1/2|1/2 cups|1/2 cup|1/2 c|2/4|2/4 cups|2/4 cup|2/4 c|4/8|4/8 cups|4/8 cup|4/8 c|8/16|8/16 cups|8/16 cup|8/16 c|0.5|0.5 cups|0.5 cup|0.5 c" data-logic="Total: 1/4 + 1/2 + 3/4 + 1/2 = 2 cups. Share among 4: 2 ÷ 4 = 2/4 = 1/2 cup.">
+    <span class="pts">+2</span>
+    <div class="qtext">Fair share (Week 23): four cups hold 1/4, 1/2, 3/4, and 1/2 cup of paint. If the paint were shared equally, how much would each cup hold?</div>
+    <div class="fillrow"><span class="eq">Cups:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="r3_s1" data-pts="2" data-ans="1 5/8|1 5/8 inches|1 5/8 inch|1 5/8 in|1 10/16|1 10/16 inches|1 10/16 inch|1 10/16 in|13/8|13/8 inches|13/8 inch|13/8 in|1-5/8|1-5/8 inches|1-5/8 inch|1-5/8 in|1 and 5/8|1 and 5/8 inches|1 and 5/8 inch|1 and 5/8 in|1.625|1.625 inches|1.625 inch|1.625 in" data-logic="Rename 2 as 1 8/8. 1 8/8 − 3/8 = 1 5/8 inches.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): a cable is 2 inches long and a wire is 3/8 inch long. How much longer is the cable?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s1" data-pts="2" data-ans="3/4|3/4 cups|3/4 cup|3/4 c|6/8|6/8 cups|6/8 cup|6/8 c|12/16|12/16 cups|12/16 cup|12/16 c|0.75|0.75 cups|0.75 cup|0.75 c" data-logic="Total in fourths: 1 + 2 + 3 + 4 + 5 = 15/4 cups. Share among 5: 15/4 ÷ 5 = 3/4 cup.">
+    <span class="pts">+2</span>
+    <div class="qtext">Fair share (Week 23): five cups hold 1/4, 1/2, 3/4, 1, and 1 1/4 cups of paint. If the paint were shared equally, how much would each cup hold?</div>
+    <div class="fillrow"><span class="eq">Cups:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="r3_s2" data-pts="2" data-ans="5/8|5/8 inches|5/8 inch|5/8 in|10/16|10/16 inches|10/16 inch|10/16 in|0.625|0.625 inches|0.625 inch|0.625 in" data-logic="Rename 1 1/4 as 10/8. 10/8 − 5/8 = 5/8 inch.">
+    <span class="pts">+2</span>
+    <div class="qtext">Line plots (Week 23): the longest washer on a line plot is 1 1/4 inches and the shortest is 5/8 inch. What is the difference?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="r4_s2" data-pts="2" data-ans="7/8|7/8 cups|7/8 cup|7/8 c|14/16|14/16 cups|14/16 cup|14/16 c|0.875|0.875 cups|0.875 cup|0.875 c" data-logic="Total in eighths: 3 + 5 + 8 + 12 = 28/8 = 3 1/2 cups. Share among 4: 28/8 ÷ 4 = 7/8 cup.">
+    <span class="pts">+2</span>
+    <div class="qtext">Fair share (Week 23): four cups hold 3/8, 5/8, 1, and 1 1/2 cups of paint. If the paint were shared equally, how much would each cup hold?</div>
+    <div class="fillrow"><span class="eq">Cups:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="r4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="1">&larr; Back</button><button class="btn btn-go" data-go="3">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 3 -->
+<div class="slide" data-slide="3">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>Time for a Pencil Break!</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Before you start: print your Pre/Post sheet (2 pages) and do Page 1 (Pre) now. Keep Page 2 for the end.</p><a href="../prepost/KCE_Math_PrePost_G4-5W24.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G4-5W24.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+  <p>Before you go any further, grab your <b>Pre-Lesson Warm-Up sheet</b> and a pencil.</p>
+  <p>Complete it fully &mdash; no screen, just paper &mdash; then come back here to continue.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="2">&larr; Back</button><button class="btn btn-go" data-go="4">I finished my Warm-Up &mdash; Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 4 -->
+<div class="slide" data-slide="4">
+<h2>🌉 Why Bridge Designers Sort Shapes</h2>
+<div class="nonfiction-tag">Nonfiction Connection</div>
+<svg viewBox="0 0 520 220" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A gold truss bridge over a river. Its top and bottom beams are parallel, and slanted beams between them form a row of triangles"><rect x="0" y="0" width="520" height="220" rx="14" fill="#FFF8E8"/><rect x="0" y="150" width="520" height="70" fill="#7CC6FF"/><rect x="40" y="140" width="440" height="10" fill="#0A1F3D"/><rect x="40" y="60" width="18" height="160" fill="#9AA5B1" stroke="#0A1F3D"/><rect x="462" y="60" width="18" height="160" fill="#9AA5B1" stroke="#0A1F3D"/><line x1="60" y1="70" x2="460" y2="70" stroke="#C9A84C" stroke-width="5"/><line x1="60" y1="140" x2="460" y2="140" stroke="#C9A84C" stroke-width="5"/><line x1="60" y1="140" x2="110.0" y2="70" stroke="#C9A84C" stroke-width="4"/><line x1="135" y1="70" x2="160" y2="140" stroke="#C9A84C" stroke-width="4"/><line x1="160" y1="140" x2="210.0" y2="70" stroke="#C9A84C" stroke-width="4"/><line x1="235" y1="70" x2="260" y2="140" stroke="#C9A84C" stroke-width="4"/><line x1="260" y1="140" x2="310.0" y2="70" stroke="#C9A84C" stroke-width="4"/><line x1="335" y1="70" x2="360" y2="140" stroke="#C9A84C" stroke-width="4"/><line x1="360" y1="140" x2="410.0" y2="70" stroke="#C9A84C" stroke-width="4"/><line x1="435" y1="70" x2="460" y2="140" stroke="#C9A84C" stroke-width="4"/><text x="260" y="40" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#0A1F3D">A truss is built from triangles</text><text x="260" y="190" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#fff">River</text></svg>
+<div class="box box-real">
+  <div class="icon">📖</div>
+  <h4>Real Talk: The City of Bridges</h4>
+  <p>Pittsburgh sits where the Allegheny River and the Monongahela River meet to form the Ohio River, so the city needs a lot of bridges. It is often called the &ldquo;City of Bridges&rdquo; because it has 446 of them. Three bright yellow-gold bridges across the Allegheny, built from 1924 to 1928, are known as the Three Sisters. Today they are named for three famous Pittsburghers: baseball star Roberto Clemente, artist Andy Warhol, and scientist and writer Rachel Carson. Many bridges, like the Smithfield Street Bridge over the Monongahela, use a <b>truss</b>, a frame of beams joined in triangles. A triangle keeps its shape when it is pushed, so trusses are strong. Engineers draw every beam and plate as a flat, two-dimensional figure first, and they check the sides, the angles, and the symmetry before anything is built.</p>
+</div>
+<div class="box box-story">
+  <div class="icon">📋</div>
+  <h4>Ximena&rsquo;s Week at the Studio</h4>
+  <ul class="tips">
+    <li>Sort the triangles in Aunt Winnie&rsquo;s truss drawings by <b>sides</b> and by <b>angles</b></li>
+    <li>Use the <b>quadrilateral family tree</b> to name Ms. Whitaker&rsquo;s panels</li>
+    <li>Find <b>parallel</b> and <b>perpendicular</b> sides in the bridge parts</li>
+    <li>Find <b>lines of symmetry</b> in Mr. Wojcik&rsquo;s steel plates</li>
+  </ul>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="3">&larr; Back</button><button class="btn btn-go" data-go="5">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 5 -->
+<div class="slide" data-slide="5">
+<h2>🖼️ Picture It: Sorting Triangles Two Ways</h2>
+<div class="box box-think">
+  <div class="icon">👁</div>
+  <h4>Sides First, Then Angles</h4>
+  <p>Every triangle gets two names: one for its sides and one for its angles. Matching red tick marks show sides of equal length, and a small square shows a right angle. A triangle whose sides are all different lengths is a scalene triangle.</p>
+</div>
+<svg viewBox="0 0 520 300" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="Six triangles. By sides: equilateral with three equal sides, isosceles with two equal sides, scalene with no equal sides. By angles: acute with three acute angles, right with one right angle, obtuse with one obtuse angle"><rect x="0" y="0" width="520" height="300" rx="14" fill="#FFF8E8"/><polygon points="30.0,125.0 130.0,125.0 80.0,38.4" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><line x1="80.0" y1="118.0" x2="80.0" y2="132.0" stroke="#DB2F30" stroke-width="2.5"/><line x1="98.9" y1="85.2" x2="111.1" y2="78.2" stroke="#DB2F30" stroke-width="2.5"/><line x1="61.1" y1="85.2" x2="48.9" y2="78.2" stroke="#DB2F30" stroke-width="2.5"/><text x="80.0" y="147" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Equilateral</text><polygon points="200.0,125.0 280.0,125.0 240.0,35.0" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><line x1="253.6" y1="82.8" x2="266.4" y2="77.2" stroke="#DB2F30" stroke-width="2.5"/><line x1="226.4" y1="82.8" x2="213.6" y2="77.2" stroke="#DB2F30" stroke-width="2.5"/><text x="240.0" y="147" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Isosceles</text><polygon points="350.0,125.0 500.0,125.0 390.0,50.0" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="425.0" y="147" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Scalene</text><polygon points="30.0,265.0 140.0,265.0 100.0,185.0" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><text x="85.0" y="287" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Acute</text><polygon points="200.0,265.0 310.0,265.0 200.0,185.0" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><polyline points="212.0,265.0 212.0,253.0 200.0,253.0" fill="none" stroke="#DB2F30" stroke-width="2"/><text x="255.0" y="287" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Right</text><polygon points="350.0,265.0 500.0,265.0 380.0,215.0" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><text x="425.0" y="287" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Obtuse</text><text x="20" y="20" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#8A5A00">BY SIDES</text><text x="20" y="170" text-anchor="start" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#1B5A8C">BY ANGLES</text></svg>
+<div class="pricelist">
+  <div class="prow"><span class="pname">Equilateral triangle</span><span class="pprice">3 equal sides</span></div>
+  <div class="prow"><span class="pname">Isosceles triangle</span><span class="pprice">at least 2 equal sides</span></div>
+  <div class="prow"><span class="pname">Scalene triangle</span><span class="pprice">no equal sides</span></div>
+  <div class="prow"><span class="pname">Acute triangle</span><span class="pprice">3 acute angles (each less than 90&deg;)</span></div>
+  <div class="prow"><span class="pname">Right triangle</span><span class="pprice">1 right angle (exactly 90&deg;)</span></div>
+  <div class="prow"><span class="pname">Obtuse triangle</span><span class="pprice">1 obtuse angle (more than 90&deg;)</span></div>
+</div>
+<div class="decwork">
+  Two names for one triangle
+  <div class="steps">
+  <b>Example:</b> a corner brace has sides of 3 feet, 3 feet, and about 4 1/4 feet, and one 90&deg; angle. Two sides are equal, so it is <b>isosceles</b>. It has a right angle, so it is <b>right</b>. Its full name is a <b>right isosceles triangle</b>.<br>
+  <b>Good to know:</b> an isosceles triangle has at least two equal sides, so an equilateral triangle is a special isosceles triangle. All three angles of an equilateral triangle are 60&deg;, so it is always acute.<br>
+  <b>Look at the biggest angle:</b> a triangle can have only one right angle or one obtuse angle. If one angle is obtuse, it is an obtuse triangle, even though its other two angles are acute.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="4">&larr; Back</button><button class="btn btn-go" data-go="6">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 6 -->
+<div class="slide" data-slide="6">
+<h2>✍️ Your Turn, Part 1: Classifying Triangles</h2>
+<span class="setnotice" id="setNotice5" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="l1_s0" data-pts="4" data-ans="equilateral|a equilateral|an equilateral|equilaterals|equilateral triangle|a equilateral triangle|an equilateral triangle|equilateral triangles" data-logic="All three sides are equal, so the triangle is equilateral.">
+    <span class="pts">+4</span>
+    <div class="qtext">Aunt Winnie&rsquo;s truss drawing has a triangle with sides of 9 feet, 9 feet, and 9 feet. Classify it by its sides. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="l1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s0" data-pts="4" data-logic="It has one 90° angle, so it is right. It has two equal sides, so it is isosceles.">
+    <span class="pts">+4</span>
+    <div class="qtext">A gusset plate is a triangle with angles of 90&deg;, 45&deg;, and 45&deg;, and two sides that are each 6 inches long. What is its full name?</div>
+    <div class="opts"><button class="opt" data-c="1">Right isosceles triangle</button><button class="opt">Acute isosceles triangle</button><button class="opt">Right scalene triangle</button><button class="opt">Obtuse equilateral triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="l1_s1" data-pts="4" data-ans="scalene|a scalene|an scalene|scalenes|scalene triangle|a scalene triangle|an scalene triangle|scalene triangles" data-logic="No two sides are the same length, so the triangle is scalene.">
+    <span class="pts">+4</span>
+    <div class="qtext">Aunt Winnie&rsquo;s truss drawing has a triangle with sides of 5 feet, 7 feet, and 10 feet. Classify it by its sides. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="l1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s1" data-pts="4" data-logic="The 120° angle is more than 90°, so it is obtuse. It has two equal sides, so it is isosceles. Two acute angles do not make it acute: one obtuse angle decides.">
+    <span class="pts">+4</span>
+    <div class="qtext">A roof brace is a triangle with angles of 30&deg;, 30&deg;, and 120&deg;, and two equal sides. What is its full name?</div>
+    <div class="opts"><button class="opt" data-c="1">Obtuse isosceles triangle</button><button class="opt">Acute isosceles triangle</button><button class="opt">Obtuse scalene triangle</button><button class="opt">Right isosceles triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="l1_s2" data-pts="4" data-ans="acute|a acute|an acute|acutes|acute triangle|a acute triangle|an acute triangle|acute triangles" data-logic="All three angles are less than 90°, so the triangle is acute.">
+    <span class="pts">+4</span>
+    <div class="qtext">Aunt Winnie&rsquo;s truss drawing has a triangle with angles of 50&deg;, 60&deg;, and 70&deg;. Classify it by its angles. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="l1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="l2_s2" data-pts="4" data-logic="It has one 90° angle, so it is right. No sides are equal, so it is scalene.">
+    <span class="pts">+4</span>
+    <div class="qtext">A support plate is a triangle with angles of 90&deg;, 35&deg;, and 55&deg;, and no equal sides. What is its full name?</div>
+    <div class="opts"><button class="opt" data-c="1">Right scalene triangle</button><button class="opt">Right isosceles triangle</button><button class="opt">Acute scalene triangle</button><button class="opt">Obtuse scalene triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="5">&larr; Back</button><button class="btn btn-go" data-go="7">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 7 -->
+<div class="slide" data-slide="7">
+<h2>✍️ Your Turn, Part 2: Classifying Triangles</h2>
+<p>One more problem. Work it out on scrap paper, then check your answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="l3_s0" data-pts="4" data-ans="9|9 feet|9 foot|9 ft" data-logic="The two equal sides together: 26 − 8 = 18 feet. Each one: 18 ÷ 2 = 9 feet. Check: 9 + 9 + 8 = 26.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: an isosceles triangle brace has a perimeter of 26 feet. Its third side, the one that is not equal to the others, is 8 feet. How long is each of the two equal sides?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="l3_s1" data-pts="4" data-ans="45|45 feet|45 foot|45 ft" data-logic="One equilateral triangle: 3 + 3 + 3 = 9 feet. Five triangles: 5 × 9 = 45 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Mr. Wojcik builds 5 separate equilateral triangles for a model truss. Each side is 3 feet long. How many feet of steel bar does he use in all?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="l3_s2" data-pts="4" data-ans="10|10 feet|10 foot|10 ft" data-logic="The two known sides: 8 + 12 = 20 feet. Third side: 30 − 20 = 10 feet. All three sides are different, so it really is scalene.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: a scalene triangle panel has a perimeter of 30 feet. One side is 8 feet and another is 12 feet. How long is the third side?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="l3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="6">&larr; Back</button><button class="btn btn-go" data-go="8">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 8 -->
+<div class="slide" data-slide="8">
+<h2>🌳 The Quadrilateral Family Tree</h2>
+<div class="box box-story">
+  <div class="icon">📐</div>
+  <h4>Ms. Whitaker&rsquo;s Panel Check</h4>
+  <p>Ms. Whitaker says, &ldquo;A square is a rectangle, a rhombus, and a parallelogram all at once.&rdquo; A quadrilateral is any closed figure with four straight sides. The family tree shows how the four-sided shapes are related.</p>
+</div>
+<svg viewBox="0 0 520 320" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="Quadrilateral family tree. Quadrilateral branches to trapezoid and kite. Trapezoid leads to parallelogram. Parallelogram branches to rectangle and rhombus. Rectangle and rhombus both lead to square"><rect x="0" y="0" width="520" height="320" rx="14" fill="#FFF8E8"/><line x1="260" y1="44" x2="160" y2="81" stroke="#0A1F3D" stroke-width="2"/><line x1="260" y1="44" x2="420" y2="81" stroke="#0A1F3D" stroke-width="2"/><line x1="160" y1="109" x2="160" y2="146" stroke="#0A1F3D" stroke-width="2"/><line x1="160" y1="174" x2="80" y2="211" stroke="#0A1F3D" stroke-width="2"/><line x1="160" y1="174" x2="240" y2="211" stroke="#0A1F3D" stroke-width="2"/><line x1="80" y1="239" x2="160" y2="276" stroke="#0A1F3D" stroke-width="2"/><line x1="240" y1="239" x2="160" y2="276" stroke="#0A1F3D" stroke-width="2"/><rect x="198" y="16" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="260" y="35" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Quadrilateral</text><rect x="98" y="81" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="160" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Trapezoid</text><rect x="358" y="81" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="420" y="100" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Kite</text><rect x="98" y="146" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="160" y="165" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Parallelogram</text><rect x="18" y="211" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="80" y="230" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Rectangle</text><rect x="178" y="211" width="124" height="28" rx="10" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><text x="240" y="230" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Rhombus</text><rect x="98" y="276" width="124" height="28" rx="10" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><text x="160" y="295" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Square</text><text x="420" y="170" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#1B5A8C">Each shape is a</text><text x="420" y="188" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#1B5A8C">special kind of the</text><text x="420" y="206" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#1B5A8C">shape above it.</text></svg>
+<div class="pricelist">
+  <div class="prow"><span class="pname">Trapezoid</span><span class="pprice">at least 1 pair of parallel sides</span></div>
+  <div class="prow"><span class="pname">Parallelogram</span><span class="pprice">2 pairs of parallel sides; opposite sides are equal</span></div>
+  <div class="prow"><span class="pname">Rectangle</span><span class="pprice">a parallelogram with 4 right angles</span></div>
+  <div class="prow"><span class="pname">Rhombus</span><span class="pprice">a parallelogram with 4 equal sides</span></div>
+  <div class="prow"><span class="pname">Square</span><span class="pprice">4 right angles AND 4 equal sides</span></div>
+  <div class="prow"><span class="pname">Kite</span><span class="pprice">2 pairs of equal sides that are next to each other</span></div>
+</div>
+<div class="box box-think">
+  <div class="icon">💡</div>
+  <h4>Going Down the Tree</h4>
+  <p>Every shape keeps all the features of the shapes above it. So every square is a rectangle, but not every rectangle is a square. A rhombus is a parallelogram with four equal sides, and it becomes a square only when it also has four right angles. (Some books say a trapezoid has exactly one pair of parallel sides. In KCE Pathways we use &ldquo;at least one pair,&rdquo; which is why the parallelogram sits under the trapezoid.)</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="7">&larr; Back</button><button class="btn btn-go" data-go="9">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 9 -->
+<div class="slide" data-slide="9">
+<h2>✍️ Your Turn, Part 1: The Family Tree</h2>
+<span class="setnotice" id="setNotice7" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="k1_s0" data-pts="4" data-ans="rectangle|a rectangle|an rectangle|rectangles" data-logic="Two pairs of parallel sides make a parallelogram. Four right angles make it a rectangle. The sides are not all equal, so it is not a square.">
+    <span class="pts">+4</span>
+    <div class="qtext">Riddle: I have 4 sides, 2 pairs of parallel sides, and 4 right angles, but my sides are not all the same length. What am I? (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="k1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s0" data-pts="4" data-logic="A square has 4 right angles, so it is always a rectangle. The other shapes only sometimes have the extra features they would need.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which statement is ALWAYS true?</div>
+    <div class="opts"><button class="opt" data-c="1">Every square is a rectangle</button><button class="opt">Every rectangle is a square</button><button class="opt">Every parallelogram is a rectangle</button><button class="opt">Every rhombus is a square</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="k1_s1" data-pts="4" data-ans="rhombus|a rhombus|an rhombus|rhombuss|rhombi|a rhombi" data-logic="A parallelogram with 4 equal sides is a rhombus. With no right angles, it cannot be a square.">
+    <span class="pts">+4</span>
+    <div class="qtext">Riddle: I have 4 equal sides and 2 pairs of parallel sides, but I have no right angles. What am I? (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="k1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s1" data-pts="4" data-logic="A square has 4 right angles (so it is a rectangle) and 4 equal sides (so it is a rhombus).">
+    <span class="pts">+4</span>
+    <div class="qtext">A square is ALWAYS which of these?</div>
+    <div class="opts"><button class="opt" data-c="1">A rectangle and a rhombus</button><button class="opt">A rectangle, but never a rhombus</button><button class="opt">A rhombus, but never a rectangle</button><button class="opt">Neither a rectangle nor a rhombus</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="k1_s2" data-pts="4" data-ans="trapezoid|a trapezoid|an trapezoid|trapezoids" data-logic="A quadrilateral with at least one pair of parallel sides is a trapezoid. With only one pair, it cannot be a parallelogram.">
+    <span class="pts">+4</span>
+    <div class="qtext">Riddle: I have 4 sides and exactly 1 pair of parallel sides. What am I? (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="k1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="k2_s2" data-pts="4" data-logic="Every rhombus has 4 equal sides. It is a square only if its angles are all right angles too.">
+    <span class="pts">+4</span>
+    <div class="qtext">Always, sometimes, or never: a rhombus is a square.</div>
+    <div class="opts"><button class="opt" data-c="1">Sometimes, only when it has 4 right angles</button><button class="opt">Always</button><button class="opt">Never</button><button class="opt">Sometimes, only when it has 1 pair of parallel sides</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="8">&larr; Back</button><button class="btn btn-go" data-go="10">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 10 -->
+<div class="slide" data-slide="10">
+<h2>✍️ Your Turn, Part 2: The Family Tree</h2>
+<p>One more problem. Remember: opposite sides of a parallelogram are equal.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="k3_s0" data-pts="4" data-ans="28|28 feet|28 foot|28 ft" data-logic="Opposite sides are equal, so the sides are 9, 5, 9, and 5. 2 × 9 + 2 × 5 = 18 + 10 = 28 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: a parallelogram-shaped deck panel has one side that is 9 feet long and a side next to it that is 5 feet long. What is its perimeter?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="k3_s1" data-pts="4" data-ans="8|8 meters|8 meter|8 m" data-logic="The two 12-meter sides use 2 × 12 = 24 meters. The other two sides share 40 − 24 = 16 meters, so each is 16 ÷ 2 = 8 meters.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: a rectangle-shaped sign has a perimeter of 40 meters. One side is 12 meters long. How long is a side next to it?</div>
+    <div class="fillrow"><span class="eq">Meters:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="k3_s2" data-pts="4" data-ans="6|6 feet|6 foot|6 ft" data-logic="The two 11-foot sides use 2 × 11 = 22 feet. The other two sides share 34 − 22 = 12 feet, so each is 12 ÷ 2 = 6 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: a parallelogram-shaped steel plate has a perimeter of 34 feet. One side is 11 feet long. How long is a side next to it?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="k3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="9">&larr; Back</button><button class="btn btn-go" data-go="11">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 11 -->
+<div class="slide" data-slide="11">
+<h2>📏 Parallel and Perpendicular Sides</h2>
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>Checking Aunt Winnie&rsquo;s Panels</h4>
+  <p>In Week 18 you learned that parallel lines never meet and perpendicular lines meet at right angles. Bridge designers look for them inside every shape. Two sides that meet at a right angle are perpendicular sides.</p>
+</div>
+<svg viewBox="0 0 520 220" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="A rectangle with 2 pairs of parallel sides and 4 right angles, a right trapezoid with 1 pair of parallel sides and 2 right angles, and a right triangle with no parallel sides and 1 pair of perpendicular sides"><rect x="0" y="0" width="520" height="220" rx="14" fill="#FFF8E8"/><polygon points="30.0,60.0 150.0,60.0 150.0,140.0 30.0,140.0" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><polyline points="86.0,66.0 96.0,60.0 86.0,54.0" fill="none" stroke="#0047BA" stroke-width="2.5"/><polyline points="86.0,146.0 96.0,140.0 86.0,134.0" fill="none" stroke="#0047BA" stroke-width="2.5"/><polyline points="30.0,71.0 41.0,71.0 41.0,60.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="139.0,60.0 139.0,71.0 150.0,71.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="150.0,129.0 139.0,129.0 139.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="41.0,140.0 41.0,129.0 30.0,129.0" fill="none" stroke="#DB2F30" stroke-width="2"/><text x="90" y="168" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Rectangle</text><text x="90" y="186" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">2 pairs parallel</text><text x="90" y="202" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">4 right angles</text><polygon points="190.0,60.0 290.0,60.0 340.0,140.0 190.0,140.0" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><polyline points="236.0,66.0 246.0,60.0 236.0,54.0" fill="none" stroke="#0047BA" stroke-width="2.5"/><polyline points="261.0,146.0 271.0,140.0 261.0,134.0" fill="none" stroke="#0047BA" stroke-width="2.5"/><polyline points="190.0,71.0 201.0,71.0 201.0,60.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="190.0,129.0 201.0,129.0 201.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><text x="265" y="168" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Right trapezoid</text><text x="265" y="186" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">1 pair parallel</text><text x="265" y="202" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">2 right angles</text><polygon points="380.0,60.0 380.0,140.0 490.0,140.0" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><polyline points="380.0,129.0 391.0,129.0 391.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><text x="435" y="168" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#0A1F3D">Right triangle</text><text x="435" y="186" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">no parallel sides</text><text x="435" y="202" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="12" fill="#0A1F3D">1 pair perpendicular</text><text x="260" y="30" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Blue arrows = parallel sides. Red squares = right angles.</text></svg>
+<div class="decwork">
+  Count the pairs
+  <div class="steps">
+  <b>Rectangle and square:</b> 2 pairs of parallel sides and 4 right angles, so 4 pairs of perpendicular sides (one pair at each corner).<br>
+  <b>Rhombus or parallelogram with no right angles:</b> 2 pairs of parallel sides, but 0 perpendicular sides.<br>
+  <b>Right trapezoid:</b> 1 pair of parallel sides and 2 right angles. In a trapezoid, right angles come in twos, because the side that meets one parallel side at 90&deg; meets the other parallel side at 90&deg; too.<br>
+  <b>Triangles:</b> a triangle never has parallel sides, because any two of its sides meet. A right triangle has exactly 1 pair of perpendicular sides.<br>
+  <b>Regular hexagon:</b> its 6 equal sides make 3 pairs of parallel sides, each side facing the side across from it.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="10">&larr; Back</button><button class="btn btn-go" data-go="12">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 12 -->
+<div class="slide" data-slide="12">
+<h2>✍️ Your Turn, Part 1: Parallel and Perpendicular Sides</h2>
+<span class="setnotice" id="setNotice9" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e1_s0" data-pts="4" data-ans="4|4 pairs|4 pair" data-logic="A square has 4 right angles. At each corner, two sides meet at 90°, so there are 4 pairs of perpendicular sides.">
+    <span class="pts">+4</span>
+    <div class="qtext">A square window in the bridge tower has how many pairs of perpendicular sides?</div>
+    <div class="fillrow"><span class="eq">Pairs:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s0" data-pts="4" data-logic="A right trapezoid has exactly 2 right angles. A rectangle always has 4, a triangle can have at most 1, and a parallelogram that is not a rectangle has none.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which shape can have EXACTLY two right angles?</div>
+    <div class="opts"><button class="opt" data-c="1">A trapezoid</button><button class="opt">A rectangle</button><button class="opt">A triangle</button><button class="opt">A parallelogram that is not a rectangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e1_s1" data-pts="4" data-ans="0|0 pairs|0 pair|none|zero|no pairs" data-logic="Any two sides of a triangle meet at a corner, so they can never be parallel. The answer is 0.">
+    <span class="pts">+4</span>
+    <div class="qtext">How many pairs of parallel sides does a triangle have?</div>
+    <div class="fillrow"><span class="eq">Pairs:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s1" data-pts="4" data-logic="A rhombus is a parallelogram, so it has 2 pairs of parallel sides. If it is not a square, none of its angles are right angles.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which shape has 2 pairs of parallel sides but NO right angles?</div>
+    <div class="opts"><button class="opt" data-c="1">A rhombus that is not a square</button><button class="opt">A rectangle</button><button class="opt">A square</button><button class="opt">A right trapezoid</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e1_s2" data-pts="4" data-ans="3|3 pairs|3 pair" data-logic="A regular hexagon has 6 sides, and each side is parallel to the side across from it. 6 sides make 3 pairs.">
+    <span class="pts">+4</span>
+    <div class="qtext">A bolt head is shaped like a regular hexagon. How many pairs of parallel sides does it have?</div>
+    <div class="fillrow"><span class="eq">Pairs:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="e2_s2" data-pts="4" data-logic="Perpendicular sides meet at a right angle, and only a right triangle has a right angle.">
+    <span class="pts">+4</span>
+    <div class="qtext">Which triangle has a pair of perpendicular sides?</div>
+    <div class="opts"><button class="opt" data-c="1">A right triangle</button><button class="opt">An acute triangle</button><button class="opt">An obtuse triangle</button><button class="opt">An equilateral triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="11">&larr; Back</button><button class="btn btn-go" data-go="13">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 13 -->
+<div class="slide" data-slide="13">
+<h2>✍️ Your Turn, Part 2: Parallel and Perpendicular Sides</h2>
+<p>One more problem. Sketch the shapes on scrap paper first.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="e3_s0" data-pts="4" data-ans="right trapezoid|a right trapezoid|an right trapezoid|right trapezoids" data-logic="One pair of parallel sides makes it a trapezoid. Two right angles make it a right trapezoid.">
+    <span class="pts">+4</span>
+    <div class="qtext">Ximena&rsquo;s sketch shows a four-sided panel with exactly 1 pair of parallel sides and exactly 2 right angles. What is the best name for the shape? (one or two words)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="e3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="e3_s1" data-pts="4" data-ans="3|3 pairs|3 pair" data-logic="A right trapezoid has 2 right angles, so 2 pairs of perpendicular sides. A right triangle has 1. 2 + 1 = 3 pairs.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many pairs of perpendicular sides does a right trapezoid have, plus the number in a right triangle?</div>
+    <div class="fillrow"><span class="eq">Pairs:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="e3_s2" data-pts="4" data-ans="9|9 right angles|9 angles" data-logic="Each square has 4 right angles: 2 × 4 = 8. The right triangle has 1. 8 + 1 = 9 right angles.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Mr. Wojcik cuts 2 square plates and 1 right triangle plate. How many right angles do the 3 plates have in all?</div>
+    <div class="fillrow"><span class="eq">Right angles:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="e3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="12">&larr; Back</button><button class="btn btn-go" data-go="14">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 14 -->
+<div class="slide" data-slide="14">
+<h2>🌟 Vocabulary Round-Up</h2>
+<p>Flip each card to review today&rsquo;s words. Each card shows the sentence from today&rsquo;s lesson where the word appeared.</p>
+<div class="flipgrid">
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">equilateral triangle</div><div class="flip-face flip-back">A triangle with 3 equal sides. &ldquo;All three angles of an equilateral triangle are 60&deg;, so it is always acute.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">isosceles triangle</div><div class="flip-face flip-back">A triangle with at least 2 equal sides. &ldquo;An isosceles triangle has at least two equal sides, so an equilateral triangle is a special isosceles triangle.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">scalene triangle</div><div class="flip-face flip-back">A triangle with no equal sides. &ldquo;A triangle whose sides are all different lengths is a scalene triangle.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quadrilateral</div><div class="flip-face flip-back">A closed figure with 4 straight sides. &ldquo;A quadrilateral is any closed figure with four straight sides.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">parallelogram</div><div class="flip-face flip-back">A quadrilateral with 2 pairs of parallel sides. &ldquo;A square is a rectangle, a rhombus, and a parallelogram all at once.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rhombus</div><div class="flip-face flip-back">A parallelogram with 4 equal sides. &ldquo;A rhombus is a parallelogram with four equal sides, and it becomes a square only when it also has four right angles.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">perpendicular sides</div><div class="flip-face flip-back">Sides that meet at a right angle. &ldquo;Two sides that meet at a right angle are perpendicular sides.&rdquo;</div></div></div>
+  <div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">line of symmetry</div><div class="flip-face flip-back">A fold line that makes two matching halves. &ldquo;A line of symmetry splits a figure into two halves that match exactly when you fold along the line.&rdquo;</div></div></div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="13">&larr; Back</button><button class="btn btn-go" data-go="15">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 15 -->
+<div class="slide" data-slide="15">
+<h2>✍️ Your Turn: Using the Words</h2>
+<span class="setnotice" id="setNotice11" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="v1_s0" data-pts="3" data-logic="7, 7, and 4 has two equal sides, so it is isosceles. The others have no equal sides, so they are scalene.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;An isosceles triangle has at least two equal sides, so an equilateral triangle is a special isosceles triangle.&rdquo; Which triangle is isosceles?</div>
+    <div class="opts"><button class="opt" data-c="1">Sides of 7, 7, and 4 inches</button><button class="opt">Sides of 5, 6, and 7 inches</button><button class="opt">Sides of 3, 8, and 9 inches</button><button class="opt">Sides of 2, 4, and 5 inches</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s0" data-pts="3" data-ans="quadrilateral|a quadrilateral|an quadrilateral|quadrilaterals" data-logic="Quad means four and lateral means side: a quadrilateral has four sides.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: &ldquo;A ___ is any closed figure with four straight sides.&rdquo; (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="v1_s1" data-pts="3" data-logic="Folding a rectangle across the middle makes the two halves match. Folding a non-square rectangle on a diagonal leaves the corners sticking out.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;A line of symmetry splits a figure into two halves that match exactly when you fold along the line.&rdquo; Which fold is a line of symmetry for a rectangle that is not a square?</div>
+    <div class="opts"><button class="opt" data-c="1">A fold straight across the middle, from the midpoint of one side to the midpoint of the opposite side</button><button class="opt">A fold along a diagonal, from corner to corner</button><button class="opt">A fold along one of its sides</button><button class="opt">Any fold that goes through a corner</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s1" data-pts="3" data-ans="rhombus|a rhombus|an rhombus|rhombuss|rhombi" data-logic="A rhombus has four equal sides and two pairs of parallel sides.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: &ldquo;A ___ is a parallelogram with four equal sides.&rdquo; (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="v1_s2" data-pts="3" data-logic="Perpendicular sides need a right angle. A rhombus with no right angles has none. The other three shapes each have at least one right angle.">
+    <span class="pts">+3</span>
+    <div class="qtext">From the lesson: &ldquo;Two sides that meet at a right angle are perpendicular sides.&rdquo; Which shape has NO perpendicular sides?</div>
+    <div class="opts"><button class="opt" data-c="1">A rhombus with no right angles</button><button class="opt">A rectangle</button><button class="opt">A right triangle</button><button class="opt">A right trapezoid</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="v2_s2" data-pts="3" data-ans="scalene|a scalene|an scalene|scalenes" data-logic="Scalene means no two sides are the same length.">
+    <span class="pts">+3</span>
+    <div class="qtext">Type your answer: a triangle with no equal sides is a ___ triangle. (one word)</div>
+    <div class="fillrow"><input class="fillin" style="width:220px" placeholder="?"><button class="btn btn-pri" data-check="v2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="14">&larr; Back</button><button class="btn btn-go" data-go="16">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 16 -->
+<div class="slide" data-slide="16">
+<h2>🪞 Lines of Symmetry</h2>
+<div class="box box-story">
+  <div class="icon">🪞</div>
+  <h4>Mr. Wojcik&rsquo;s Steel Plates</h4>
+  <p>Many bridges are designed to look the same on both sides of a center line, so the parts often come in matching pairs. A line of symmetry splits a figure into two halves that match exactly when you fold along the line.</p>
+</div>
+<svg viewBox="0 0 520 305" width="100%" style="max-width:520px;display:block;margin:10px auto" role="img" aria-label="Lines of symmetry drawn as dashed red lines: square 4, rectangle 2, equilateral triangle 3, isosceles triangle 1, regular hexagon 6, rhombus 2, isosceles trapezoid 1, and a slanted parallelogram 0"><rect x="0" y="0" width="520" height="305" rx="14" fill="#FFF8E8"/><polygon points="30.0,40.0 110.0,40.0 110.0,120.0 30.0,120.0" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><line x1="70.0" y1="30.0" x2="70.0" y2="130.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="20.0" y1="80.0" x2="120.0" y2="80.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="25.0" y1="35.0" x2="115.0" y2="125.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="115.0" y1="35.0" x2="25.0" y2="125.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="70" y="150" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Square: 4</text><polygon points="150.0,55.0 270.0,55.0 270.0,105.0 150.0,105.0" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><line x1="210.0" y1="45.0" x2="210.0" y2="115.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="140.0" y1="80.0" x2="280.0" y2="80.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="210" y="150" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Rectangle: 2</text><polygon points="310.0,120.0 400.0,120.0 355.0,42.0" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><line x1="355.0" y1="32.0" x2="355.0" y2="128.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="310.0" y1="120.0" x2="377.5" y2="81.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="400.0" y1="120.0" x2="332.5" y2="81.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="355" y="150" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Equilateral: 3</text><polygon points="430.0,120.0 500.0,120.0 465.0,40.0" fill="#FFD2B8" stroke="#0A1F3D" stroke-width="2"/><line x1="465.0" y1="30.0" x2="465.0" y2="128.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="465" y="150" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Isosceles: 1</text><polygon points="112.0,220.0 91.0,256.4 49.0,256.4 28.0,220.0 49.0,183.6 91.0,183.6" fill="#CFEAFF" stroke="#0A1F3D" stroke-width="2"/><line x1="120.0" y1="220.0" x2="20.0" y2="220.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="113.3" y1="245.0" x2="26.7" y2="195.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="95.0" y1="263.3" x2="45.0" y2="176.7" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="70.0" y1="270.0" x2="70.0" y2="170.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="45.0" y1="263.3" x2="95.0" y2="176.7" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="26.7" y1="245.0" x2="113.3" y2="195.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="70" y="290" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Regular hexagon: 6</text><polygon points="210.0,180.0 255.0,220.0 210.0,260.0 165.0,220.0" fill="#FFE9B0" stroke="#0A1F3D" stroke-width="2"/><line x1="210.0" y1="170.0" x2="210.0" y2="270.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><line x1="155.0" y1="220.0" x2="265.0" y2="220.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="210" y="290" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#0A1F3D">Rhombus: 2</text><polygon points="325.0,190.0 385.0,190.0 405.0,250.0 305.0,250.0" fill="#E5F7DC" stroke="#0A1F3D" stroke-width="2"/><line x1="355.0" y1="180.0" x2="355.0" y2="260.0" stroke="#DB2F30" stroke-width="2" stroke-dasharray="6 4"/><text x="355" y="290" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#0A1F3D">Isosceles trapezoid: 1</text><polygon points="440.0,190.0 505.0,190.0 485.0,250.0 420.0,250.0" fill="#FFD2B8" stroke="#0A1F3D" stroke-width="2"/><text x="462" y="290" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#0A1F3D">Parallelogram: 0</text></svg>
+<div class="decwork">
+  Fold it in your mind
+  <div class="steps">
+  <b>Test every possible fold:</b> straight across the middle, straight up and down, and corner to corner. Count only the folds where the halves match exactly.<br>
+  <b>Squares vs. rectangles:</b> a square has 4 lines of symmetry, but a rectangle that is not a square has only 2. Its diagonals are NOT lines of symmetry.<br>
+  <b>Triangles:</b> equilateral has 3, isosceles (with only two equal sides) has 1, and scalene has 0.<br>
+  <b>Slanted shapes:</b> a parallelogram with no right angles and unequal sides has 0 lines of symmetry, but a rhombus has 2, along its diagonals.<br>
+  <b>Regular shapes:</b> a regular polygon has as many lines of symmetry as it has sides. A regular hexagon has 6.
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="15">&larr; Back</button><button class="btn btn-go" data-go="17">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 17 -->
+<div class="slide" data-slide="17">
+<h2>✍️ Your Turn: Lines of Symmetry</h2>
+<span class="setnotice" id="setNotice13" style="display:none"></span>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t1_s0" data-pts="3" data-ans="4|4 lines|4 line" data-logic="A square matches when folded up and down, side to side, and along both diagonals: 4 lines of symmetry.">
+    <span class="pts">+3</span>
+    <div class="qtext">A square steel plate has how many lines of symmetry?</div>
+    <div class="fillrow"><span class="eq">Lines:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s0" data-pts="3" data-logic="An isosceles triangle with only two equal sides folds onto itself only along the line down its middle. A rectangle has 2, a scalene triangle has 0, and an equilateral triangle has 3.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which shape has EXACTLY one line of symmetry?</div>
+    <div class="opts"><button class="opt" data-c="1">An isosceles triangle with only two equal sides</button><button class="opt">A rectangle that is not a square</button><button class="opt">A scalene triangle</button><button class="opt">An equilateral triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t1_s1" data-pts="3" data-ans="3|3 lines|3 line" data-logic="Each line goes from one corner to the middle of the side across from it. Three corners make 3 lines of symmetry.">
+    <span class="pts">+3</span>
+    <div class="qtext">An equilateral triangle gusset plate has how many lines of symmetry?</div>
+    <div class="fillrow"><span class="eq">Lines:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s1" data-pts="3" data-logic="A slanted parallelogram with unequal sides never matches itself when folded. A rectangle and a rhombus each have 2, and an isosceles trapezoid has 1.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which shape has NO lines of symmetry?</div>
+    <div class="opts"><button class="opt" data-c="1">A parallelogram with no right angles and two different side lengths</button><button class="opt">A rectangle</button><button class="opt">An isosceles trapezoid</button><button class="opt">A rhombus</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t1_s2" data-pts="3" data-ans="6|6 lines|6 line" data-logic="A regular hexagon has 6 equal sides and 6 lines of symmetry: 3 through opposite corners and 3 through the middles of opposite sides.">
+    <span class="pts">+3</span>
+    <div class="qtext">A bolt head shaped like a regular hexagon has how many lines of symmetry?</div>
+    <div class="fillrow"><span class="eq">Lines:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="t1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t2_s2" data-pts="3" data-logic="A rectangle that is not a square folds evenly only across the middle both ways: 2 lines. A square has 4, an isosceles trapezoid has 1, and a scalene triangle has 0.">
+    <span class="pts">+3</span>
+    <div class="qtext">Which shape has EXACTLY two lines of symmetry?</div>
+    <div class="opts"><button class="opt" data-c="1">A rectangle that is not a square</button><button class="opt">A square</button><button class="opt">An isosceles trapezoid</button><button class="opt">A scalene triangle</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="16">&larr; Back</button><button class="btn btn-go" data-go="18">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 18 -->
+<div class="slide" data-slide="18">
+<h2>🏗️ Real World: Measuring the Truss</h2>
+<span class="setnotice" id="setNotice14" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>Aunt Winnie&rsquo;s footbridge truss is a row of equilateral triangles. Each triangle has a perimeter of 18 feet. The bottom beam of the truss is made of 4 triangle sides in a row.</p>
+</div>
+  <div class="qbox" data-fq="w1_s0" data-pts="4" data-ans="24|24 feet|24 foot|24 ft" data-logic="Each side of an equilateral triangle: 18 ÷ 3 = 6 feet. Four sides in a row: 4 × 6 = 24 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how long is the bottom beam?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>Ms. Whitaker draws a side panel shaped like a trapezoid with exactly one pair of parallel sides. The top is 30 meters, the bottom is 50 meters, and each slanted side is 25 meters.</p>
+</div>
+  <div class="qbox" data-q="w1_s1" data-pts="4" data-logic="Equal slanted sides make an isosceles trapezoid. Perimeter: 30 + 50 + 25 + 25 = 130 meters. (105 counts a slanted side only once.)">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: the two slanted sides are equal, so what kind of trapezoid is it, and what is its perimeter?</div>
+    <div class="opts"><button class="opt" data-c="1">An isosceles trapezoid with a perimeter of 130 meters</button><button class="opt">An isosceles trapezoid with a perimeter of 105 meters</button><button class="opt">A right trapezoid with a perimeter of 130 meters</button><button class="opt">A parallelogram with a perimeter of 80 meters</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">🏗️</div>
+  <h4>The Situation</h4>
+  <p>A lookout deck on the bridge is a rectangle 40 feet long and 12 feet wide. A railing goes along both long sides and one short side. The other short side is open to the walkway.</p>
+</div>
+  <div class="qbox" data-fq="w1_s2" data-pts="4" data-ans="92|92 feet|92 foot|92 ft" data-logic="Opposite sides of a rectangle are equal, so the long sides are 40 feet each. Railing: 40 + 40 + 12 = 92 feet. (The perimeter, 104 feet, would include the open side.)">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many feet of railing are needed?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="17">&larr; Back</button><button class="btn btn-go" data-go="19">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 19 -->
+<div class="slide" data-slide="19">
+<h2>✂️ Real World: Cutting Steel Plates</h2>
+<span class="setnotice" id="setNotice15" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🗼</div>
+  <h4>The Situation</h4>
+  <p>The front of a bridge tower is drawn as a rectangle with an isosceles triangle on top. The base of the triangle sits exactly on the top side of the rectangle, and the two shapes are centered.</p>
+</div>
+  <div class="qbox" data-q="w2_s0" data-pts="4" data-logic="The rectangle has 2 lines of symmetry and the isosceles triangle has 1, but the WHOLE shape matches only when folded down the center, through the top of the triangle. A fold across the middle would put the triangle on top of nothing.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how many lines of symmetry does the whole tower shape have?</div>
+    <div class="opts"><button class="opt" data-c="1">1</button><button class="opt">0</button><button class="opt">2</button><button class="opt">3</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">✂️</div>
+  <h4>The Situation</h4>
+  <p>Mr. Wojcik cuts a square steel plate in half along one diagonal, from one corner to the opposite corner.</p>
+</div>
+  <div class="qbox" data-fq="w2_s1" data-pts="4" data-ans="right isosceles|right isosceles triangle|right isosceles triangles|isosceles right|isosceles right triangle|isosceles right triangles|a right isosceles triangle|an isosceles right triangle" data-logic="Each piece keeps one corner of the square, which is a right angle, so it is right. Its two short sides are sides of the square, which are equal, so it is isosceles.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: give the full name of each piece, by its angles and by its sides. (two words, like &ldquo;acute scalene&rdquo;)</div>
+    <div class="fillrow"><input class="fillin" style="width:260px" placeholder="?"><button class="btn btn-pri" data-check="w2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">✂️</div>
+  <h4>The Situation</h4>
+  <p>Mr. Wojcik cuts a rectangle-shaped plate that is 8 inches long and 3 inches wide along one diagonal.</p>
+</div>
+  <div class="qbox" data-q="w2_s2" data-pts="4" data-logic="Each piece keeps one right angle from the rectangle, so it is right. Its sides are 8 inches, 3 inches, and the diagonal, which is longer than both, so no sides are equal: scalene.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: what is the full name of each of the two pieces?</div>
+    <div class="opts"><button class="opt" data-c="1">Right scalene triangles</button><button class="opt">Right isosceles triangles</button><button class="opt">Acute scalene triangles</button><button class="opt">Obtuse isosceles triangles</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="18">&larr; Back</button><button class="btn btn-go" data-go="20">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 20 -->
+<div class="slide" data-slide="20">
+<h2>🕵️ Think It Through: Explain and Find the Mistake</h2>
+<span class="setnotice" id="setNotice16" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">💭</div>
+  <h4>Be the Checker</h4>
+  <p>Getting an answer is only half the job. Can you tell WHY an answer is right, and spot exactly where someone else went wrong?</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="x1_s0" data-pts="5" data-logic="A rhombus is a parallelogram with 4 equal sides. A square has both features, so it is a rhombus. A shape can belong to more than one group.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct? Is every square a rhombus?</div>
+    <div class="opts"><button class="opt" data-c="1">Yes, because a square has 4 equal sides and 2 pairs of parallel sides</button><button class="opt">No, because a rhombus can never have right angles</button><button class="opt">No, because a square is a rectangle instead</button><button class="opt">Yes, because every quadrilateral is a rhombus</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s0" data-pts="5" data-logic="A triangle is named for its largest angle when that angle is right or obtuse. 100° is more than 90°, so this is an obtuse (isosceles) triangle.">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Wren says a triangle with angles of 100&deg;, 40&deg;, and 40&deg; is an acute triangle, because two of its angles are acute. What should she fix?</div>
+    <div class="opts"><button class="opt" data-c="1">One obtuse angle makes it an obtuse triangle</button><button class="opt">Nothing. It is an acute triangle</button><button class="opt">It is a right triangle, because 100° is close to 90°</button><button class="opt">It is an equilateral triangle, because two angles match</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="x1_s1" data-pts="5" data-logic="Two lines that are both perpendicular to the same line are parallel, and parallel lines never meet. So a triangle can have at most one right angle.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct? Can a triangle have two right angles?</div>
+    <div class="opts"><button class="opt" data-c="1">No. The two sides that meet the bottom side at right angles would be parallel, so they could never meet to close the triangle</button><button class="opt">Yes. A right isosceles triangle has two right angles</button><button class="opt">Yes, if all three sides are equal</button><button class="opt">No, because a triangle can never have any right angle</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s1" data-pts="5" data-logic="Fold a long, thin rectangle on a diagonal and the corners stick out past each other. Only the two folds across the middle work, so it has 2 lines of symmetry.">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Xander says a rectangle that is 6 inches long and 2 inches wide has 4 lines of symmetry, including both diagonals. What should he fix?</div>
+    <div class="opts"><button class="opt" data-c="1">It has only 2 lines of symmetry; folding on a diagonal does not make the halves match</button><button class="opt">Nothing. It has 4 lines of symmetry</button><button class="opt">It has 0 lines of symmetry</button><button class="opt">It has only 1 line of symmetry</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="x1_s2" data-pts="5" data-logic="A parallelogram is any quadrilateral with 2 pairs of parallel sides. A rectangle has them, so it is a parallelogram. Its sides do not have to be equal.">
+    <span class="pts">+5</span>
+    <div class="qtext">Which explanation is correct? Is every rectangle a parallelogram?</div>
+    <div class="opts"><button class="opt" data-c="1">Yes, because a rectangle has 2 pairs of parallel sides</button><button class="opt">No, because a parallelogram must have slanted sides</button><button class="opt">No, because a rectangle has right angles</button><button class="opt">Yes, because a rectangle has 4 equal sides</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="x2_s2" data-pts="5" data-logic="A right trapezoid has one side that meets both parallel sides at 90°, which makes 2 right angles. Right angles in a trapezoid come in twos.">
+    <span class="pts">+5</span>
+    <div class="qtext">Find the mistake: Wren says a trapezoid can never have a right angle. What should she fix?</div>
+    <div class="opts"><button class="opt" data-c="1">A right trapezoid has 2 right angles, so a trapezoid can have right angles</button><button class="opt">Nothing. A trapezoid never has a right angle</button><button class="opt">A trapezoid always has 4 right angles</button><button class="opt">A trapezoid can have exactly 1 right angle, but never 2</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="19">&larr; Back</button><button class="btn btn-go" data-go="21">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 21 -->
+<div class="slide" data-slide="21">
+<h2>✏️ Fix the Sentence, Part 1</h2>
+<span class="setnotice" id="setNotice17" style="display:none"></span>
+<div class="box box-think">
+  <div class="icon">📝</div>
+  <h4>Math Writers Use Correct Writing, Too</h4>
+  <p>Each sentence has mistakes in capitalization, punctuation, or grammar. Keep the same words in the same order; fix only the capital letters, punctuation, or the one wrong word. Edit the sentence in the box, then press Check. Watch for quotation marks, capital letters for names of places, their vs. they&rsquo;re, to vs. too, commas in a series, commas around a phrase that describes someone, a comma after an opening word, and verbs that match their subjects.</p>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s1_s0" data-pts="2" data-ans="Ximena asked, &quot;Is a square also a rectangle?&quot;" data-logic="Capitalize the name Ximena, put quotation marks around her exact words, capitalize the first word of the quote, and put the question mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">ximena asked, is a square also a rectangle</p>
+    <div class="fillrow"><input class="fillin fixin" value="ximena asked, is a square also a rectangle" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s0" data-pts="2" data-ans="The bridge crosses the Allegheny River in Pittsburgh." data-logic="The names of rivers and cities are proper nouns, so capitalize Allegheny River and Pittsburgh.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The bridge crosses the allegheny river in pittsburgh.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The bridge crosses the allegheny river in pittsburgh." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s1_s1" data-pts="2" data-ans="Ms. Whitaker said, &quot;Check every angle twice.&quot;" data-logic="Capitalize Ms. and the name Whitaker, put quotation marks around her exact words, capitalize the first word of the quote, and put the period inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">ms. whitaker said, check every angle twice</p>
+    <div class="fillrow"><input class="fillin fixin" value="ms. whitaker said, check every angle twice" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s1" data-pts="2" data-ans="The engineers checked their drawings for mistakes." data-logic="Their shows ownership: the drawings belong to the engineers. They&#x27;re means they are.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The engineers checked they&#x27;re drawings for mistakes.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The engineers checked they&#x27;re drawings for mistakes." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s1_s2" data-pts="2" data-ans="Xander said, &quot;That bridge looks like a giant triangle.&quot;||Xander said, &quot;That bridge looks like a giant triangle!&quot;" data-logic="Capitalize the name Xander, put quotation marks around his exact words, capitalize the first word of the quote, and put the end mark inside the closing quotation mark.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">xander said, that bridge looks like a giant triangle</p>
+    <div class="fillrow"><input class="fillin fixin" value="xander said, that bridge looks like a giant triangle" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s1_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s2_s2" data-pts="2" data-ans="A square is a rhombus too." data-logic="Too means also: a square is a rhombus, also. To is used for direction, as in to the bridge.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">A square is a rhombus to.</p>
+    <div class="fillrow"><input class="fillin fixin" value="A square is a rhombus to." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="20">&larr; Back</button><button class="btn btn-go" data-go="22">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 22 -->
+<div class="slide" data-slide="22">
+<h2>✏️ Fix the Sentence, Part 2</h2>
+<p>Two more sentences to fix. Keep the same words in the same order, and fix only the capital letters, punctuation, or the one grammar mistake.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-sq="s3_s0" data-pts="2" data-ans="The truss uses triangles, rectangles, and trapezoids.||The truss uses triangles, rectangles and trapezoids." data-logic="Use commas to separate the items in a series: triangles, rectangles, and trapezoids.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">The truss uses triangles rectangles and trapezoids.</p>
+    <div class="fillrow"><input class="fillin fixin" value="The truss uses triangles rectangles and trapezoids." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s0" data-pts="2" data-ans="Each of the triangles has three sides." data-logic="Capitalize the first word. The subject is each (one triangle at a time), so use has, not have. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">each of the triangles have three sides</p>
+    <div class="fillrow"><input class="fillin fixin" value="each of the triangles have three sides" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-sq="s3_s1" data-pts="2" data-ans="Mr. Wojcik, a steel worker, cut the plates." data-logic="A steel worker describes Mr. Wojcik. Put a comma before and after a phrase like this that renames the person.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Mr. Wojcik a steel worker cut the plates.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Mr. Wojcik a steel worker cut the plates." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s1" data-pts="2" data-ans="The sides of a rhombus are all the same length." data-logic="Capitalize the first word. The subject is sides (plural), not rhombus, so use are, not is. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the sides of a rhombus is all the same length</p>
+    <div class="fillrow"><input class="fillin fixin" value="the sides of a rhombus is all the same length" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-sq="s3_s2" data-pts="2" data-ans="Yes, the square is also a parallelogram." data-logic="Put a comma after an opening word like Yes, No, or Well.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">Yes the square is also a parallelogram.</p>
+    <div class="fillrow"><input class="fillin fixin" value="Yes the square is also a parallelogram." autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s3_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-sq="s4_s2" data-pts="2" data-ans="The beams on the side of the bridge are parallel." data-logic="Capitalize the first word. The subject is beams (plural), not side or bridge, so use are, not is. End with a period.">
+    <span class="pts">+2</span>
+    <p class="qtext">Fix this sentence:</p>
+    <p class="fixorig">the beams on the side of the bridge is parallel</p>
+    <div class="fillrow"><input class="fillin fixin" value="the beams on the side of the bridge is parallel" autocomplete="off" spellcheck="false"><button class="btn btn-pri" data-fix="s4_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="21">&larr; Back</button><button class="btn btn-go" data-go="23">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 23 -->
+<div class="slide" data-slide="23">
+<h2>🧩 Match-Up Round</h2>
+<p>Tap a clue on the left, then the figure it describes on the right. First-try matches earn 2 points each, 10 points in all.</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+<div class="nav"><button class="btn btn-back" data-go="22">&larr; Back</button><button class="btn btn-go" data-go="24">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 24 -->
+<div class="slide" data-slide="24">
+<h2>🏁 Speed Trail</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="speedtrail">
+  <p style="font-weight:800;color:var(--navy);margin-bottom:8px">Answer 3 quick shape questions as fast as you can. Try to beat your OWN best time!</p>
+  <div class="timerbig" id="trailTimer">0.0s</div>
+  <p class="besttime" id="trailBest">Your best time: not set yet</p>
+  <button class="btn btn-go" id="trailStart" style="margin-top:12px">Start the Trail! 🏁</button>
+</div>
+<div class="qset" data-set="0" id="trailQset" style="display:none">
+  <div class="qbox" data-fq="tt1" data-pts="4" data-bonus="1" data-ans="4|4 lines" data-logic="A square has 4 lines of symmetry.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Lines of symmetry in a square =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt2" data-pts="4" data-bonus="1" data-ans="2|2 pairs" data-logic="A rectangle has 2 pairs of parallel sides.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Pairs of parallel sides in a rectangle =</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="tt2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="tt3" data-pts="4" data-bonus="1" data-ans="equilateral|a equilateral|an equilateral|equilaterals|equilateral triangle|a equilateral triangle|an equilateral triangle|equilateral triangles" data-logic="Three equal sides make an equilateral triangle.">
+    <span class="pts">+4 XP</span>
+    <div class="fillrow"><span class="eq">Sides 4, 4, 4: this triangle is</span><input class="fillin" style="width:200px" placeholder="?"><button class="btn btn-pri" data-check="tt3">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="23">&larr; Back</button><button class="btn btn-go" data-go="25">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 25 -->
+<div class="slide" data-slide="25">
+<h2>🌇 Looking Back</h2>
+<span class="badge" style="background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff">Bonus &bull; builds XP, not Pathway Points</span>
+<div class="box box-story">
+  <div class="icon">🌉</div>
+  <h4>Lights On Over the Rivers</h4>
+  <p>The sun is setting behind the bridges, and Aunt Winnie rolls up the drawings. Before the Boss Battle, think about what you practiced today.</p>
+</div>
+<div class="qset" data-set="0" id="reflectQset">
+  <div class="qbox" data-q="ref1" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <div class="qtext">Which skill from today do you feel MOST confident about?</div>
+    <div class="opts"><button class="opt" data-c="1">Classifying triangles by sides and angles</button><button class="opt" data-c="1">The quadrilateral family tree</button><button class="opt" data-c="1">Parallel and perpendicular sides</button><button class="opt" data-c="1">Lines of symmetry</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="ref2" data-pts="5" data-bonus="1" data-logic="Any choice is a good answer here.">
+    <span class="pts">+5 XP</span>
+    <div class="qtext">Which skill do you want to practice MORE?</div>
+    <div class="opts"><button class="opt" data-c="1">Classifying triangles by sides and angles</button><button class="opt" data-c="1">The quadrilateral family tree</button><button class="opt" data-c="1">Parallel and perpendicular sides</button><button class="opt" data-c="1">Lines of symmetry</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="24">&larr; Back</button><button class="btn btn-go" data-go="26">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 26 -->
+<div class="slide" data-slide="26">
+<h2>🚨 Boss Battle: The Footbridge Design</h2>
+<span class="setnotice" id="setNotice21" style="display:none"></span>
+<div class="qset" data-set="0">
+<div class="box box-story">
+  <div class="icon">🌉</div>
+  <h4>Ximena and Aunt Winnie Finish the Design</h4>
+  <p>Ximena designs a railing panel shaped like an isosceles trapezoid with exactly one pair of parallel sides. The top is 10 feet, the bottom is 16 feet, and each slanted side is 5 feet. The footbridge needs 3 of these panels.</p>
+</div>
+  <div class="qbox" data-q="b1_s0" data-pts="4" data-logic="An isosceles trapezoid matches only when folded down the middle, through the centers of the top and bottom. A fold across the middle would put the 10-foot top on the 16-foot bottom.">
+    <span class="pts">+4</span>
+    <div class="qtext">How many lines of symmetry does one panel have?</div>
+    <div class="opts"><button class="opt" data-c="1">1</button><button class="opt">0</button><button class="opt">2</button><button class="opt">4</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s0" data-pts="4" data-ans="108|108 feet|108 foot|108 ft" data-logic="One panel: 10 + 16 + 5 + 5 = 36 feet. Three panels: 3 × 36 = 108 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: what is the total perimeter of all 3 panels?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s0">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="box box-story">
+  <div class="icon">🌉</div>
+  <h4>Ximena and Ms. Whitaker Finish the Design</h4>
+  <p>The new truss is a row of equilateral triangles. Each triangle has a perimeter of 27 feet. The bottom beam is made of 5 triangle sides in a row.</p>
+</div>
+  <div class="qbox" data-q="b1_s1" data-pts="4" data-logic="All three angles of an equilateral triangle are 60°, and 60° is less than 90°, so every equilateral triangle is acute.">
+    <span class="pts">+4</span>
+    <div class="qtext">How should the triangles be classified by their angles?</div>
+    <div class="opts"><button class="opt" data-c="1">Acute, because every angle of an equilateral triangle is 60°</button><button class="opt">Right, because trusses need right angles</button><button class="opt">Obtuse, because the triangles point up and down</button><button class="opt">It is impossible to tell without a protractor</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s1" data-pts="4" data-ans="45|45 feet|45 foot|45 ft" data-logic="Each side: 27 ÷ 3 = 9 feet. Five sides in a row: 5 × 9 = 45 feet.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: how long is the bottom beam?</div>
+    <div class="fillrow"><span class="eq">Feet:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s1">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="box box-story">
+  <div class="icon">✂️</div>
+  <h4>Ximena and Mr. Wojcik Finish the Design</h4>
+  <p>Mr. Wojcik cuts a square steel plate with 20-inch sides along BOTH diagonals, making 4 triangles that meet in the center. The diagonals of a square are equal, cross at a right angle, and cut each other in half. He will make 6 square plates in all.</p>
+</div>
+  <div class="qbox" data-q="b1_s2" data-pts="4" data-logic="The diagonals cross at a right angle, so each triangle has a right angle in the center. The diagonals cut each other in half, so the two sides that meet at the center are equal: right isosceles.">
+    <span class="pts">+4</span>
+    <div class="qtext">What is the full name of each of the 4 small triangles?</div>
+    <div class="opts"><button class="opt" data-c="1">Right isosceles triangles</button><button class="opt">Acute equilateral triangles</button><button class="opt">Obtuse isosceles triangles</button><button class="opt">Right scalene triangles</button></div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s2" data-pts="4" data-ans="480|480 inches|480 inch|480 in" data-logic="One square: 4 × 20 = 80 inches of edge. Six squares: 6 × 80 = 480 inches.">
+    <span class="pts">+4</span>
+    <div class="qtext">Two steps: Mr. Wojcik sands the outside edges of all 6 square plates before he cuts them. How many inches of edge does he sand?</div>
+    <div class="fillrow"><span class="eq">Inches:</span><input class="fillin" placeholder="?"><button class="btn btn-pri" data-check="b2_s2">Check</button></div>
+    <p class="feedback"></p>
+  </div>
+</div>
+
+<div class="nav"><button class="btn btn-back" data-go="25">&larr; Back</button><button class="btn btn-go" data-go="27">Next &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 27 -->
+<div class="slide" data-slide="27">
+<div class="pencilbreak">
+  <div class="bigicon">✏️📝</div>
+  <div class="stopword">STOP</div>
+  <h2>One More Pencil Break!</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Page 2 (Post) is on your Pre/Post sheet. Did not print it yet? Use these buttons.</p><a href="../prepost/KCE_Math_PrePost_G4-5W24.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G4-5W24.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+  <p>Before you see your final score, put the screen down and grab your <b>Post-Lesson Challenge sheet</b>.</p>
+  <p>Complete it fully with pencil and paper, then come back to finish.</p>
+</div>
+<div class="nav"><button class="btn btn-back" data-go="26">&larr; Back</button><button class="btn btn-go" data-finish>I finished my Challenge &mdash; See My Score &rarr;</button></div>
+<div class="dots"></div>
+</div>
+
+
+<!-- SLIDE 28 -->
+<div class="slide" data-slide="28">
+<div class="kc-logo kc-logo-large">
+    <span class="kc-logo-box">KC</span>
+    <span class="kc-logo-text"><span class="kc-logo-name">KingCretot</span><span class="kc-logo-tagline">Educate. Empower. Excel.</span></span>
+  </div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Design Day Complete!</h1>
+    <h2 id="finalTitle">Rising Trailblazer! ⭐</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="box box-story" style="text-align:left">
+      <div class="icon">🌉</div>
+      <h4 id="finalMessageHeading">📣 Tell your teacher or parent your score!</h4>
+      <p id="finalMessageBody">Great job finishing your Post-Lesson Challenge sheet too!</p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="passport">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#F2C465)">📘 Portfolio Passport</span>
+      <p style="margin-top:6px;font-weight:800;color:var(--navy)">Unit 5: Charting the Course &mdash; Week 24 complete</p>
+    </div>
+    <div class="nav" style="justify-content:center"><button class="btn btn-pri" data-replay>Play Again 🔄</button></div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 29;
+const FINAL_INDEX = 28;
+const MODULE_ID = 'grade4-5-week24-math';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100; // every question set totals exactly 100 (verified by verifySetTotals)
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+const PROGRESS_KEY = 'kce_pathways_progress';
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+function reportProgress(score, rec){
+  try{
+    const name=(localStorage.getItem('kcePathwaysStudentName')||'').trim() || 'Unnamed Student';
+    const payload={ student:name, module:MODULE_ID, score:score, mastered:score>=MASTERY_THRESHOLD, attempts: rec&&rec.attempts?rec.attempts:1, timestamp:new Date().toISOString() };
+    fetch('https://formspree.io/f/'+PATHWAYS_FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='✅ Sent to KingCretot Experience automatically.';})
+      .catch(()=>{const el=document.getElementById('reportStatus');if(el)el.textContent='⚠️ Could not send automatically — tell your parent or teacher your score.';});
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const f=document.getElementById('studentFirstNameField'), l=document.getElementById('studentLastNameField');
+  const save=()=>{ const full=((f&&f.value.trim())||'')+' '+((l&&l.value.trim())||''); if(full.trim()) localStorage.setItem('kcePathwaysStudentName', full.trim()); if(f&&f.value.trim())localStorage.setItem('kcePathwaysStudentFirstName',f.value.trim()); if(l&&l.value.trim())localStorage.setItem('kcePathwaysStudentLastName',l.value.trim()); };
+  if(f){ f.value = localStorage.getItem('kcePathwaysStudentFirstName')||''; f.addEventListener('blur', save); }
+  if(l){ l.value = localStorage.getItem('kcePathwaysStudentLastName')||''; l.addEventListener('blur', save); }
+  buildDots(0); updateHud(); applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); loadBestTrailTime(); verifySetTotals();
+});
+
+let actx=null;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; } } return actx; }
+function tone(freq,dur,type,when,vol){ const ctx=ac(); if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine'; o.frequency.value=freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime+(when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(when||0)+dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime+(when||0)); o.stop(ctx.currentTime+(when||0)+dur+.05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function addScore(p){ state.score+=p; updateHud(); }
+function addXP(x){ state.xp+=x; updateHud(); }
+function addCoins(c){ state.coins+=c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent=displayScore(); document.getElementById('hudXP').textContent=state.xp; document.getElementById('hudCoins').textContent=state.coins; document.getElementById('xpFill').style.width=Math.min(100,state.xp/3)+'%'; }
+function levelup(msg){ const l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+function confetti(){ const colors=['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#86D464']; const n=arguments.length?arguments[0]:28; for(let i=0;i<n;i++){ const b=document.createElement('div'); b.className='confetti-bit'; const sz=6+Math.random()*8; b.style.cssText='left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall=b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400,easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish=()=>b.remove(); } }
+function flashX(){ const x=document.getElementById('bigX'); x.style.display='flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish=()=>{x.style.display='none';}; }
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids=Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide=n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide===n)); buildDots(n); window.scrollTo({top:0,behavior:'smooth'}); }
+function buildDots(cur){ const s=document.querySelector('.slide[data-slide="'+cur+'"]'); const d=s?s.querySelector('.nav ~ .dots'):null; if(!d)return; d.innerHTML=''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot=document.createElement('span'); dot.className='dot'+(i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+function getAttemptSetIndex(){ const rec=getModuleResult(); if(!rec || rec.passed) return 0; return (rec.attempts||0)%3; }
+function applyQuestionSet(idx){ document.querySelectorAll('.qset').forEach(el=>{ if(el.id==='trailQset'||el.id==='reflectQset') return; el.style.display = (+el.dataset.set===idx)?'':'none'; }); MATCH_PAIRS = MATCH_PAIRS_SETS[idx]||MATCH_PAIRS_SETS[0]; if(idx>0){ document.querySelectorAll('[id^="setNotice"]').forEach(n=>{ n.style.display='inline-block'; n.textContent='🔄 Fresh numbers for this attempt (Set '+(idx+1)+' of 3)'; }); } }
+const CURRENT_SET = getAttemptSetIndex();
+
+const MATCH_PAIRS_SETS = [[["4 equal sides, 4 right angles", "square"], ["exactly 1 pair of parallel sides", "trapezoid"], ["3 equal sides", "equilateral triangle"], ["one 90° angle", "right triangle"], ["4 equal sides, no right angles", "rhombus"]], [["4 right angles, sides not all equal", "rectangle"], ["no equal sides", "scalene triangle"], ["2 pairs of parallel sides, no right angles, sides not all equal", "parallelogram"], ["one angle greater than 90°", "obtuse triangle"], ["exactly 2 equal sides", "isosceles triangle"]], [["6 lines of symmetry", "regular hexagon"], ["4 lines of symmetry", "square"], ["3 lines of symmetry", "equilateral triangle"], ["exactly 2 lines of symmetry and 4 right angles", "rectangle"], ["3 sides, no lines of symmetry", "scalene triangle"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function buildMatch(){
+  const left=document.getElementById('mLeft'), right=document.getElementById('mRight'); if(!left||!right) return;
+  left.innerHTML=''; right.innerHTML='';
+  const facts = MATCH_PAIRS.map((p,i)=>({t:p[0],k:i}));
+  const prods = MATCH_PAIRS.map((p,i)=>({t:p[1],k:i}));
+  const order = shuffle([0,1,2,3,4]);
+  shuffle(facts);
+  facts.forEach(f=>{ const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=f.k; b.dataset.side='L'; b.textContent=f.t; left.appendChild(b); });
+  order.forEach(idx=>{ const p=prods[idx]; const b=document.createElement('button'); b.className='mitem'; b.dataset.mk=p.k; b.dataset.side='R'; b.textContent=p.t; right.appendChild(b); });
+}
+function handleMatch(el){
+  if(el.classList.contains('done')) return;
+  if(el.dataset.side==='L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel=el; return; }
+  if(!mSel) return;
+  const key='match-'+mSel.dataset.mk; const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  if(el.dataset.mk===mSel.dataset.mk){
+    el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel=null;
+    state.matchDone++; document.getElementById('matchScore').textContent='Matches: '+state.matchDone+' / 5';
+    if(firstTry) addScore(2); addXP(6); addCoins(2); playRight(); confetti();
+    if(state.matchDone===5){ setTimeout(playFanfare,300); levelup('Match-Up cleared! 🧩'); }
+  } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); playWrong(); flashX(); }
+}
+
+const TRAIL_KEY='kce_pathways_speedtrail_'+MODULE_ID;
+let trailStartTime=null, trailRunning=false, trailInterval=null, trailAnswered=0;
+function loadBestTrailTime(){ const best=localStorage.getItem(TRAIL_KEY); const el=document.getElementById('trailBest'); if(el) el.textContent = best ? ('Your best time: '+parseFloat(best).toFixed(1)+'s') : 'Your best time: not set yet'; }
+function startTrail(){
+  if(trailRunning) return;
+  trailRunning=true; trailAnswered=0; trailStartTime=Date.now();
+  document.getElementById('trailQset').style.display='';
+  document.getElementById('trailStart').style.display='none';
+  trailInterval=setInterval(()=>{ const el=document.getElementById('trailTimer'); if(el) el.textContent=((Date.now()-trailStartTime)/1000).toFixed(1)+'s'; },100);
+}
+function trailQuestionAnswered(){
+  trailAnswered++;
+  if(trailAnswered>=3 && trailRunning){
+    trailRunning=false; clearInterval(trailInterval);
+    const finalTime=(Date.now()-trailStartTime)/1000;
+    const best=localStorage.getItem(TRAIL_KEY);
+    if(!best || finalTime < parseFloat(best)){ localStorage.setItem(TRAIL_KEY, String(finalTime)); levelup('New best time! 🏁 '+finalTime.toFixed(1)+'s'); }
+    loadBestTrailTime();
+  }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ const btn=document.getElementById('trailStart'); if(btn) btn.addEventListener('click', startTrail); });
+
+document.addEventListener('click', e=>{
+  const nav=e.target.closest('[data-go]'); if(nav){ go(+nav.dataset.go); return; }
+  const fin=e.target.closest('[data-finish]'); if(fin){ showFinal(); return; }
+  const rep=e.target.closest('[data-replay]'); if(rep){ location.reload(); return; }
+  const flip=e.target.closest('[data-flip]'); if(flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m=e.target.closest('.mitem'); if(m){ handleMatch(m); return; }
+  const chk=e.target.closest('[data-check]'); if(chk){ checkFill(chk.dataset.check); return; }
+  const fx=e.target.closest('[data-fix]'); if(fx){ checkSentence(fx.dataset.fix); return; }
+  const opt=e.target.closest('.opt'); if(!opt) return;
+  const box=opt.closest('.qbox'); if(!box || !box.dataset.q) return;
+  const qid=box.dataset.q; if(state.answered[qid]) return;
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const firstTry=!state.attempted[qid]; state.attempted[qid]=true;
+  const fb=box.querySelector('.feedback'); const correct=opt.dataset.c==='1';
+  if(correct){
+    state.answered[qid]=true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+    if(bonus){ fb.textContent='🌟 Great practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Correct on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You found it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid]=(state.wrongCount[qid]||0)+1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'),450);
+    if(!bonus && state.wrongCount[qid]>=MAX_ATTEMPTS){
+      state.answered[qid]=true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled=true; if(b.dataset.c==='1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML='📚 The correct answer is highlighted above.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — think it through and try again.'; fb.className='feedback show bad'; }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box=document.querySelector('[data-fq="'+fid+'"]'); if(!box||state.answered['fill-'+fid]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback');
+  const bonus=box.dataset.bonus==='1'; const pts=bonus?0:(+box.dataset.pts||10);
+  const val=inp.value.trim(); if(val===''){ fb.textContent='Type your answer first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
+  const norm=x=>{let s=String(x).trim().toLowerCase().replace(/\.$/,'').replace(/(\d),(?=\d{3}(\D|$))/g,'$1').replace(/\$/g,'').replace(/\s*\/\s*/g,'/').replace(/\s+/g,' ');s=s.replace(/(\d) (?=\d)/g,'$1\u0001').replace(/ /g,'').replace(/\u0001/g,' ');return (/^-?\d*\.?\d+$/.test(s)?String(parseFloat(s)):s);}; /* keep only digit-space-digit gaps, so "2 7/8" never collapses into "27/8" */
+  const cleanVal = norm(val); // keeps inner spaces, so "1 8/3" can never collapse into "18/3"
+  const accepted = String(box.dataset.ans).split('|').map(norm);
+  if(accepted.indexOf(cleanVal)!==-1){
+    state.answered['fill-'+fid]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
+    else if(firstTry){ addScore(pts); fb.textContent='🎉 Right on the first try! +'+pts+' Pathway Points!'; }
+    else { fb.textContent='✅ You got it!'; }
+    fb.className='feedback show ok'; addXP(bonus?4:8); addCoins(2); playRight(); confetti();
+    if(box.closest('#trailQset')) trailQuestionAnswered();
+  } else {
+    state.wrongCount['fill-'+fid]=(state.wrongCount['fill-'+fid]||0)+1;
+    inp.classList.add('bad');
+    if(!bonus && state.wrongCount['fill-'+fid]>=MAX_ATTEMPTS){
+      state.answered['fill-'+fid]=true; inp.disabled=true; box.classList.add('locked');
+      const correctAnswer=String(box.dataset.ans).split('|')[0];
+      fb.innerHTML='📚 The correct answer is: '+correctAnswer+'.'+(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you\u2019ve got this next time!';
+      fb.className='feedback show bad';
+      if(box.closest('#trailQset')) trailQuestionAnswered();
+    } else { fb.textContent='❌ Not yet — check your work and try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+const MATCH_POINTS = 10;
+function setTotal(idx){ let t=MATCH_POINTS; document.querySelectorAll('.qset[data-set="'+idx+'"]').forEach(qs=>{ if(qs.id==='trailQset'||qs.id==='reflectQset') return; qs.querySelectorAll('.qbox').forEach(b=>{ if(b.dataset.bonus!=='1') t+=(+b.dataset.pts||0); }); }); return t; }
+function verifySetTotals(){ [0,1,2].forEach(i=>{ const t=setTotal(i); if(t!==MAX_RAW_SCORE) console.error('Question set '+(i+1)+' totals '+t+' points, expected '+MAX_RAW_SCORE); }); }
+function normSentence(s){ return String(s).replace(/[“”„‟″«»]/g,'"').replace(/[‘’‚‛′]/g,"'").replace(/\s+/g,' ').trim(); }
+function checkSentence(fid){
+  const box=document.querySelector('[data-sq="'+fid+'"]'); const key='fix-'+fid; if(!box||state.answered[key]) return;
+  const inp=box.querySelector('.fillin'); const fb=box.querySelector('.feedback'); const pts=+box.dataset.pts||2;
+  const val=normSentence(inp.value); if(val===''){ fb.textContent='Type the corrected sentence first!'; fb.className='feedback show bad'; return; }
+  const firstTry=!state.attempted[key]; state.attempted[key]=true;
+  const accepted=String(box.dataset.ans).split('||').map(normSentence);
+  if(accepted.indexOf(val)!==-1){
+    state.answered[key]=true; inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
+    if(firstTry){ addScore(pts); fb.textContent='🎉 Perfect sentence on the first try! +'+pts+' Pathway Points!'; } else { fb.textContent='✅ You fixed it!'; }
+    fb.className='feedback show ok'; addXP(8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[key]=(state.wrongCount[key]||0)+1; inp.classList.add('bad');
+    if(state.wrongCount[key]>=MAX_ATTEMPTS){
+      state.answered[key]=true; inp.disabled=true; box.classList.add('locked');
+      const right=document.createElement('b'); right.textContent=String(box.dataset.ans).split('||')[0];
+      fb.innerHTML='📚 The corrected sentence is: '; fb.appendChild(right);
+      fb.insertAdjacentHTML('beforeend',(box.dataset.logic?' <br><b>Why:</b> '+box.dataset.logic:'')+' No points this time — you’ve got this next time!');
+      fb.className='feedback show bad';
+    } else { fb.textContent='❌ Not yet — check capital letters, punctuation, and word choice, then try again.'; fb.className='feedback show bad'; setTimeout(()=>{inp.classList.remove('bad');},1200); }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const sc=displayScore();
+  document.getElementById('finalScore').textContent=sc;
+  const rec=saveModuleResult(sc);
+  reportProgress(sc, rec);
+  const passed = sc>=MASTERY_THRESHOLD;
+  let tierTitle='Rising Trailblazer! ⭐';
+  if(sc>=90) tierTitle='Summit Champion! 🏔️👑';
+  else if(sc>=75) tierTitle='Checkpoint Master! 🌟';
+  else if(sc>=50) tierTitle='Trail Explorer! ✨';
+  document.getElementById('finalTitle').textContent=tierTitle;
+  if(passed){
+    document.getElementById('finalBadge').textContent='Mastered! 🏅';
+    document.getElementById('finalHeadline').textContent='Pittsburgh Bridge Design Master!';
+    document.getElementById('finalMessageHeading').textContent='🎉 Your footbridge design passed every check in Pittsburgh!';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. You sorted shapes like a real bridge engineer: you named Aunt Winnie’s truss triangles by their sides and angles, climbed the quadrilateral family tree with Ms. Whitaker, found parallel and perpendicular sides in the bridge panels, and counted the lines of symmetry in Mr. Wojcik’s steel plates. Your results go to KingCretot Experience. Tell your parent or teacher, and make sure you finish your Post-Lesson Challenge sheet!';
+    playFanfare(); confetti(160); setTimeout(()=>confetti(140),500); setTimeout(()=>confetti(140),1100); setTimeout(()=>confetti(120),1800);
+  } else {
+    document.getElementById('finalHeadline').textContent='Good Work at the Design Studio!';
+    document.getElementById('finalMessageHeading').textContent='🌱 You are getting closer every time.';
+    document.getElementById('finalMessageBody').textContent='You scored '+sc+'/100. Mastery is '+MASTERY_THRESHOLD+'+. Every try makes you stronger with shapes. Remember: name a triangle by its sides AND its angles, every shape on the family tree keeps the features of the shapes above it, right angles mean perpendicular sides, and a line of symmetry makes two halves that match exactly. Look back at the teaching slides, then hit Play Again: you will get a fresh set of questions next time, and Ximena and Aunt Winnie will be waiting at the design studio. Your results go to KingCretot Experience. Don’t forget to finish your Post-Lesson Challenge sheet.';
+    playFanfare(); setTimeout(()=>confetti(),250);
+  }
+}
+</script>
+<script>
+(function(){ function place(){ var h=document.querySelector('.hud'), t=document.getElementById('tricolor'); if(h&&t) t.style.top=h.offsetHeight+'px'; } window.addEventListener('resize',place); document.addEventListener('DOMContentLoaded',place); })();
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>if(!window.kcePrintPdf){window.kcePrintPdf=function(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}}</script><script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g45"></script>
+</body>
+</html>

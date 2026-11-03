@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 23: The Tile Workshop in Santa Fe (Math) | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(10,31,61,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#06142a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;box-shadow:0 4px 0 #06142a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#1d3a66);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#C9A84C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}50%{box-shadow:0 0 0 9px rgba(201,168,76,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#0A1F3D;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #C9A84C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#3D8A30;color:#fff;padding:2px 8px;border-radius:10px}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+
+
+.tricolor{position:fixed;left:0;right:0;height:4px;z-index:101;background:linear-gradient(90deg,#0047BA 0 33.33%,#C9A84C 33.33% 66.66%,#DB2F30 66.66% 100%)}
+.qspeak-btn{position:static;display:inline-flex;vertical-align:middle;width:28px;height:28px;min-width:28px;border-radius:50%;border:2px solid var(--sky);background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;align-items:center;justify-content:center;transition:transform .15s,background .15s;margin-right:6px}
+.qspeak-btn:hover{background:var(--sky);transform:scale(1.08)}
+.qspeak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back .speak-back{background:rgba(10,31,61,.12);color:var(--navy)}
+.flip{height:150px}
+.fig{margin:10px 0}
+.fillwide{width:100%;max-width:560px;text-align:left;font-size:1.1rem}
+.fixme{display:inline-block;background:#FFF1E0;border:2px dashed #F28C28;border-radius:10px;padding:2px 10px;font-family:'Courier New',monospace;font-weight:800}
+.qtext{padding-right:34px}
+ul.facts{list-style:none;margin-left:0}
+ul.facts li{margin:8px 0}
+.pictureit{font-size:1.02rem}
+.congrats{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);border:3px solid var(--gold);border-radius:18px;padding:16px;margin:12px 0;text-align:left;display:none}
+.congrats h3{color:var(--navy)}
+@media(max-width:560px){.wrap{padding:200px 16px 40px}.slide{padding:20px 16px}}
+</style>
+<style id="kce-flipfix">.flip{height:auto!important;min-height:128px;display:grid}.flip-inner{display:grid;height:auto!important;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}</style></head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+<span class="hud-title">&#129521; KCE Pathways &mdash; Grade 3 &mdash; Week 23</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="tricolor" style="top:0"></div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 5: Data and Design &bull; Week 23 &bull; Math</span>
+  <h1>Week 23: The Tile Workshop in Santa Fe</h1>
+  <h2>Quadrilaterals &amp; Equal Parts &#129521;&#128311;</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>&#127942; How Pathway Points Work</h3>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Welcome to an adobe tile workshop in Santa Fe, New Mexico! Tile maker Ms. Fresquez is getting ready for a big order of clay tiles, and she needs helpers who know their shapes. Today you\'ll sort quadrilaterals by their sides and angles, learn about rhombuses, rectangles, and squares, and split tiles into equal parts named by unit fractions. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!', this)">&#128266;</button> Welcome to an adobe tile workshop in Santa Fe, New Mexico! Tile maker Ms. Fresquez is getting ready for a big order of clay tiles, and she needs helpers who know their shapes. Today you'll sort quadrilaterals by their sides and angles, learn about rhombuses, rectangles, and squares, and split tiles into equal parts named by unit fractions. Worth 100 Pathway Points, plus bonus practice rounds. You get up to 2 tries on each question, and up to 3 attempts to master the whole lesson, each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#127955; Today's Quest</h3>
+<ul class="tips"><li>Warm up with a review of measuring to the half and quarter inch and line plots</li><li>Picture It: a tile workshop in Santa Fe, New Mexico</li><li>Learn 6 vocabulary words</li><li>Pencil Break: the Pre side of your sheet</li><li>Find quadrilaterals by counting sides and angles</li><li>Sort rhombuses, rectangles, and squares, including shapes that belong to more than one group</li><li>Split shapes into equal areas and name each part with a unit fraction</li><li>Show what you know: Tile Challenge, Match-Up, Fix the Sentence, Speed Arena &amp; the Boss Battle!</li></ul>
+</div>
+  <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to KingCretot Experience &mdash; no need for anyone to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#127937; Warm-Up: Measuring and Line Plots Review</h2>
+<span class="setnotice" id="setNotice" style="display:none"></span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Before we get our hands in the clay, let\'s warm up with last week\'s skill: measuring length to the nearest half inch and quarter inch, and reading a line plot. On a ruler, each inch is split into 4 equal parts, so each small mark is one quarter inch. On a line plot, each X stands for one thing that was measured.', this)">&#128266;</button> Before we get our hands in the clay, let's warm up with last week's skill: <b>measuring length</b> to the nearest half inch and quarter inch, and reading a <b>line plot</b>. On a ruler, each inch is split into 4 equal parts, so each small mark is one quarter inch. On a line plot, each X stands for one thing that was measured.</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="w1_s0" data-pts="5" data-ans="3 3/4||3 3/4 inches||3 3/4 in||3 and 3/4||3 and 3/4 inches||3 and 3/4 in||3-3/4||3-3/4 inches||3-3/4 in||3 three fourths||3 three fourths inches||3 three fourths in||3 and three fourths||3 and three fourths inches||3 and three fourths in||3 and 3 fourths||3 and 3 fourths inches||3 and 3 fourths in||3.75||3.75 inches||3.75 in||3¾||3¾ inches||3¾ in||3 ¾||3 ¾ inches||3 ¾ in" data-logic="The strip ends 3 quarter-inch marks past the 3. That is 3 3/4 inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa measures a wooden strip for a tile frame. How long is the strip, to the nearest quarter inch? Type it like 2 and 1 half.', this)">&#128266;</button> Felipa measures a wooden strip for a tile frame. How long is the strip, to the nearest quarter inch? Type it like 2 1/2.</p>
+<div class="fig"><svg class="art" viewBox="0 0 380 150" role="img" aria-label="A ruler marked in quarter inches. A wooden strip starts at 0 and ends three quarter-inch marks past 3." style="width:100%;max-width:420px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="380" height="150" rx="14" fill="#F8FAFF"/><rect x="30" y="22" width="300.0" height="30" rx="4" fill="#C98B4F" stroke="#5A3A1A" stroke-width="2"/><rect x="16" y="62" width="348" height="56" rx="6" fill="#FFE38A" stroke="#C9A84C" stroke-width="2"/><line x1="30.0" y1="62" x2="30.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="30.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">0</text><line x1="50.0" y1="62" x2="50.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="70.0" y1="62" x2="70.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="90.0" y1="62" x2="90.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="110.0" y1="62" x2="110.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="110.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">1</text><line x1="130.0" y1="62" x2="130.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="150.0" y1="62" x2="150.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="170.0" y1="62" x2="170.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="190.0" y1="62" x2="190.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="190.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">2</text><line x1="210.0" y1="62" x2="210.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="230.0" y1="62" x2="230.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="250.0" y1="62" x2="250.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="270.0" y1="62" x2="270.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="270.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">3</text><line x1="290.0" y1="62" x2="290.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="310.0" y1="62" x2="310.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="330.0" y1="62" x2="330.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="350.0" y1="62" x2="350.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="350.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">4</text><line x1="330.0" y1="18" x2="330.0" y2="66" stroke="#DB2F30" stroke-width="2" stroke-dasharray="4 3"/><text x="362.0" y="140.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">inches</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="w1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s0" data-pts="5" data-logic="Halfway between 5 and 6 is 5 1/2. The paintbrush has gone past 5 but has not reached 6.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? The end of a paintbrush lines up with the mark exactly halfway between 5 and 6 on a ruler.', this)">&#128266;</button> Which explanation is correct? The end of a paintbrush lines up with the mark exactly halfway between 5 and 6 on a ruler.</p>
+  <div class="opts"><button class="opt" data-c="1">It is 5 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches long, because the mark halfway between 5 and 6 is 5 and one half.</button><button class="opt">It is 6 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches long, because the end is close to the 6.</button><button class="opt">It is 5 <span class="frac"><span class="top">1</span><span class="bot">4</span></span> inches long, because every mark is a quarter inch.</button><button class="opt">It is 6 inches long, because we always round up.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="7||7 chips||7 tile chips" data-logic="Count the X marks to the right of 1 1/4: 4 at 1 1/2, 2 at 1 3/4, and 1 at 2. 4 + 2 + 1 = 7 chips.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa measured some broken tile chips and made this line plot. How many chips are longer than 1 and 1 fourth inches?', this)">&#128266;</button> Felipa measured some broken tile chips and made this line plot. How many chips are <b>longer</b> than 1 <span class="frac"><span class="top">1</span><span class="bot">4</span></span> inches?</p>
+<div class="fig"><svg class="art" viewBox="0 0 404 214" role="img" aria-label="Line plot of tile chip lengths in inches: 1 has 2 X marks, 1 and 1 fourth has 1, 1 and 1 half has 4, 1 and 3 fourths has 2, and 2 has 1." style="width:100%;max-width:440px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="404" height="214" rx="14" fill="#F8FAFF"/><line x1="30" y1="164" x2="374" y2="164" stroke="#0A1F3D" stroke-width="3"/><line x1="50" y1="156" x2="50" y2="172" stroke="#0A1F3D" stroke-width="3"/><text x="50.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">1</text><text x="50.0" y="148.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="50.0" y="122.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><line x1="126" y1="156" x2="126" y2="172" stroke="#0A1F3D" stroke-width="3"/><text x="126.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">1 1/4</text><text x="126.0" y="148.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><line x1="202" y1="156" x2="202" y2="172" stroke="#0A1F3D" stroke-width="3"/><text x="202.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">1 1/2</text><text x="202.0" y="148.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="202.0" y="122.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="202.0" y="96.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="202.0" y="70.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><line x1="278" y1="156" x2="278" y2="172" stroke="#0A1F3D" stroke-width="3"/><text x="278.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">1 3/4</text><text x="278.0" y="148.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="278.0" y="122.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><line x1="354" y1="156" x2="354" y2="172" stroke="#0A1F3D" stroke-width="3"/><text x="354.0" y="192.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">2</text><text x="354.0" y="148.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="26" fill="#DB2F30">&#215;</text><text x="202.0" y="208.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">Length of tile chips (inches)</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="w1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s1" data-pts="5" data-logic="Each small mark is one quarter inch. One mark past 2 is 2 and 1 fourth inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. The end of a nail is 1 small quarter-inch mark past the 2 on a ruler. Emilio says the nail is 2 and 3 fourths inches long. What went wrong?', this)">&#128266;</button> Find the mistake. The end of a nail is 1 small quarter-inch mark past the 2 on a ruler. Emilio says the nail is 2 <span class="frac"><span class="top">3</span><span class="bot">4</span></span> inches long. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">One quarter-inch mark past 2 is 2 <span class="frac"><span class="top">1</span><span class="bot">4</span></span> inches, not 2 <span class="frac"><span class="top">3</span><span class="bot">4</span></span>.</button><button class="opt">Nothing is wrong. One mark past 2 is 2 <span class="frac"><span class="top">3</span><span class="bot">4</span></span>.</button><button class="opt">The nail is 3 inches long, because you count the next whole number.</button><button class="opt">The nail is 2 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches, because every mark is a half inch.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="w1_s2" data-pts="5" data-ans="1 1/4||1 1/4 inches||1 1/4 in||1 and 1/4||1 and 1/4 inches||1 and 1/4 in||1-1/4||1-1/4 inches||1-1/4 in||1 a fourth||1 a fourth inches||1 a fourth in||1 and a fourth||1 and a fourth inches||1 and a fourth in||1 and 1 fourth||1 and 1 fourth inches||1 and 1 fourth in||1.25||1.25 inches||1.25 in||1¼||1¼ inches||1¼ in||1 ¼||1 ¼ inches||1 ¼ in" data-logic="The strip ends 1 quarter-inch mark past the 1. That is 1 1/4 inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Estrella measures a strip of trim for a tile. How long is it, to the nearest quarter inch? Type it like 2 and 1 half.', this)">&#128266;</button> Estrella measures a strip of trim for a tile. How long is it, to the nearest quarter inch? Type it like 2 1/2.</p>
+<div class="fig"><svg class="art" viewBox="0 0 380 150" role="img" aria-label="A ruler marked in quarter inches. A strip of trim starts at 0 and ends one quarter-inch mark past 1." style="width:100%;max-width:420px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="380" height="150" rx="14" fill="#F8FAFF"/><rect x="30" y="22" width="100.0" height="30" rx="4" fill="#C98B4F" stroke="#5A3A1A" stroke-width="2"/><rect x="16" y="62" width="348" height="56" rx="6" fill="#FFE38A" stroke="#C9A84C" stroke-width="2"/><line x1="30.0" y1="62" x2="30.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="30.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">0</text><line x1="50.0" y1="62" x2="50.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="70.0" y1="62" x2="70.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="90.0" y1="62" x2="90.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="110.0" y1="62" x2="110.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="110.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">1</text><line x1="130.0" y1="62" x2="130.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="150.0" y1="62" x2="150.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="170.0" y1="62" x2="170.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="190.0" y1="62" x2="190.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="190.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">2</text><line x1="210.0" y1="62" x2="210.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="230.0" y1="62" x2="230.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="250.0" y1="62" x2="250.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="270.0" y1="62" x2="270.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="270.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">3</text><line x1="290.0" y1="62" x2="290.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="310.0" y1="62" x2="310.0" y2="82" stroke="#0A1F3D" stroke-width="2"/><line x1="330.0" y1="62" x2="330.0" y2="74" stroke="#0A1F3D" stroke-width="2"/><line x1="350.0" y1="62" x2="350.0" y2="92" stroke="#0A1F3D" stroke-width="2"/><text x="350.0" y="112.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="16" fill="#0A1F3D">4</text><line x1="130.0" y1="18" x2="130.0" y2="66" stroke="#DB2F30" stroke-width="2" stroke-dasharray="4 3"/><text x="362.0" y="140.0" text-anchor="end" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">inches</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="w1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="w2_s2" data-pts="5" data-logic="On a line plot, each X stands for one measured object. 3 X marks above 2 1/2 means 3 tiles measured 2 1/2 inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? On a line plot of tile lengths, there are 3 X marks above 2 and 1 half. What do they tell you?', this)">&#128266;</button> Which explanation is correct? On a line plot of tile lengths, there are 3 X marks above 2 <span class="frac"><span class="top">1</span><span class="bot">2</span></span>. What do they tell you?</p>
+  <div class="opts"><button class="opt" data-c="1">3 tiles were each measured as 2 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches long.</button><button class="opt">One tile is 3 inches long.</button><button class="opt">The tiles are 2 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches long in all, added together.</button><button class="opt">3 tiles are longer than 2 <span class="frac"><span class="top">1</span><span class="bot">2</span></span> inches.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#129521; Picture It: The Tile Workshop in Santa Fe</h2>
+<div class="fig"><svg class="art" viewBox="0 0 640 280" role="img" aria-label="A tile workshop in an adobe building in Santa Fe, with the Sangre de Cristo Mountains behind it, wooden roof beams poking out of the walls, a turquoise door, a wall panel of square, rectangle, and rhombus tiles, and three children carrying tiles" style="width:100%;max-width:660px;height:auto;display:block;margin:12px auto"><defs><linearGradient id="sfsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CC6FF"/><stop offset="1" stop-color="#E9F6FF"/></linearGradient></defs><rect x="0" y="0" width="640" height="280" rx="16" fill="url(#sfsky)"/><circle cx="560" cy="48" r="24" fill="#FFD25E"/><path d="M0 150 L70 104 L130 126 L210 78 L280 112 L350 70 L420 108 L500 84 L570 116 L640 96 L640 280 L0 280 Z" fill="#7D6A9E"/><path d="M0 214 Q200 200 330 210 T640 206 L640 280 L0 280 Z" fill="#D9B98C"/><path d="M150 112 Q152 104 160 104 L470 104 Q478 104 480 112 L482 226 L148 226 Z" fill="#C98B5E" stroke="#8A5A36" stroke-width="3"/><rect x="162" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="202" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="242" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="282" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="322" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="362" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="402" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><rect x="442" y="112" width="26" height="9" rx="3" fill="#7A4E2A"/><path d="M196 226 L196 168 Q216 146 236 168 L236 226 Z" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3"/><circle cx="228" cy="198" r="3" fill="#0A1F3D"/><rect x="280" y="136" width="170" height="76" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><polygon points="299.0,142.0 312.0,156.0 299.0,170.0 286.0,156.0" fill="#0047BA" stroke="#0A1F3D" stroke-width="2" stroke-linejoin="round"/><rect x="317" y="140" width="29" height="31" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="2"/><rect x="350" y="146" width="29" height="18" fill="#DB2F30" stroke="#0A1F3D" stroke-width="2"/><polygon points="398.0,142.0 411.0,156.0 398.0,170.0 385.0,156.0" fill="#C9A84C" stroke="#0A1F3D" stroke-width="2" stroke-linejoin="round"/><rect x="416" y="140" width="29" height="31" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="284" y="175" width="29" height="31" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="2"/><rect x="317" y="181" width="29" height="18" fill="#DB2F30" stroke="#0A1F3D" stroke-width="2"/><polygon points="365.0,177.0 378.0,191.0 365.0,205.0 352.0,191.0" fill="#C9A84C" stroke="#0A1F3D" stroke-width="2" stroke-linejoin="round"/><rect x="383" y="175" width="29" height="31" fill="#0047BA" stroke="#0A1F3D" stroke-width="2"/><rect x="416" y="181" width="29" height="18" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="2"/><rect x="306" y="80" width="118" height="22" rx="4" fill="#FFF6E1" stroke="#C9A84C" stroke-width="3"/><text x="365.0" y="96.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="12" fill="#0A1F3D">TILE WORKSHOP</text><g><circle cx="110" cy="208" r="11" fill="#8D5524"/><path d="M99 204 Q110 190 121 204 Z" fill="#2A1A0E"/><rect x="100" y="219" width="20" height="30" rx="6" fill="#DB2F30"/><rect x="102" y="249" width="6" height="14" fill="#0A1F3D"/><rect x="112" y="249" width="6" height="14" fill="#0A1F3D"/><rect x="122" y="222" width="18" height="18" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="2"/></g><g><circle cx="530" cy="208" r="11" fill="#C68642"/><path d="M519 204 Q530 190 541 204 Z" fill="#0A1F3D"/><rect x="520" y="219" width="20" height="30" rx="6" fill="#0047BA"/><rect x="522" y="249" width="6" height="14" fill="#0A1F3D"/><rect x="532" y="249" width="6" height="14" fill="#0A1F3D"/><polygon points="552.0,220.0 562.0,232.0 552.0,244.0 542.0,232.0" fill="#C9A84C" stroke="#0A1F3D" stroke-width="2" stroke-linejoin="round"/></g><g><circle cx="590" cy="208" r="11" fill="#F1C27D"/><path d="M579 204 Q590 190 601 204 Z" fill="#7A4E2A"/><rect x="580" y="219" width="20" height="30" rx="6" fill="#3D8A30"/><rect x="582" y="249" width="6" height="14" fill="#0A1F3D"/><rect x="592" y="249" width="6" height="14" fill="#0A1F3D"/><rect x="554" y="226" width="24" height="13" fill="#DB2F30" stroke="#0A1F3D" stroke-width="2"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('It\'s a sunny morning in Santa Fe, New Mexico. In an old adobe building, Ms. Fresquez runs a tile workshop. She shapes wet clay into tiles, lets them dry, then paints them turquoise, gold, red, and blue. Today her helpers, Emilio, Estrella, and Felipa, are getting a big order of tiles ready for a new courtyard.', this)">&#128266;</button> It's a sunny morning in Santa Fe, New Mexico. In an old adobe building, Ms. Fresquez runs a tile workshop. She shapes wet clay into tiles, lets them dry, then paints them turquoise, gold, red, and blue. Today her helpers, Emilio, Estrella, and Felipa, are getting a big order of tiles ready for a new courtyard.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Every tile has a shape. The helpers will count sides and angles, sort tiles into groups, and cut tiles into equal parts. Tile makers have to know their shapes!', this)">&#128266;</button> Every tile has a shape. The helpers will count <b>sides</b> and <b>angles</b>, sort tiles into groups, and cut tiles into <b>equal parts</b>. Tile makers have to know their shapes!</p></div><div class="card card-gold"><h3>&#127964;&#65039; Santa Fe Facts</h3><ul class="tips facts"><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Santa Fe is the capital of New Mexico. It became a capital city around 1610, which makes it the oldest state capital city in the United States. Pueblo peoples lived in this area for hundreds of years before that.', this)">&#128266;</button> Santa Fe is the capital of New Mexico. It became a capital city around 1610, which makes it the oldest state capital city in the United States. Pueblo peoples lived in this area for hundreds of years before that.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Santa Fe sits about 7,000 feet above sea level, so it is the highest state capital in the United States.', this)">&#128266;</button> Santa Fe sits about 7,000 feet above sea level, so it is the highest state capital in the United States.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Many buildings in Santa Fe are made of adobe. Adobe bricks are made from earth, water, and straw, then dried in the sun.', this)">&#128266;</button> Many buildings in Santa Fe are made of adobe. Adobe bricks are made from earth, water, and straw, then dried in the sun.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The round wooden beams that poke out of many adobe walls are called vigas. They hold up the roof.', this)">&#128266;</button> The round wooden beams that poke out of many adobe walls are called vigas. They hold up the roof.</li><li><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Painted clay tiles decorate many Santa Fe homes, doorways, and fountains. Tile makers use shapes like squares, rectangles, and rhombuses to make patterns.', this)">&#128266;</button> Painted clay tiles decorate many Santa Fe homes, doorways, and fountains. Tile makers use shapes like squares, rectangles, and rhombuses to make patterns.</li></ul></div><div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Today you will find quadrilaterals, sort rhombuses, rectangles, and squares by their sides and angles, and split shapes into parts with equal area, naming each part with a unit fraction.', this)">&#128266;</button> Today you will find <b>quadrilaterals</b>, sort <b>rhombuses</b>, <b>rectangles</b>, and <b>squares</b> by their sides and angles, and split shapes into parts with equal area, naming each part with a <b>unit fraction</b>.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#127775; Word Wrangler</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Flip each card to learn this week\'s vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.', this)">&#128266;</button> Flip each card to learn this week's vocabulary! Each card shows a sentence from the lesson. Tap the speaker to hear the word or the meaning.</p>
+<div class="flipgrid">
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">quadrilateral<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('quadrilateral', this)">&#128266;</button></div><div class="flip-face flip-back">A flat, closed shape with 4 straight sides and 4 angles.<br><i>&ldquo;A quadrilateral is a flat shape with 4 straight sides and 4 angles.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A flat, closed shape with 4 straight sides and 4 angles. From the lesson: A quadrilateral is a flat shape with 4 straight sides and 4 angles.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">attribute<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('attribute', this)">&#128266;</button></div><div class="flip-face flip-back">A feature of a shape, like how many sides it has or what its corners look like.<br><i>&ldquo;An attribute is a feature of a shape, like how many sides it has or what its corners look like.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A feature of a shape, like how many sides it has or what its corners look like. From the lesson: An attribute is a feature of a shape, like how many sides it has or what its corners look like.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">right angle<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('right angle', this)">&#128266;</button></div><div class="flip-face flip-back">A square corner, like the corner of a sheet of paper.<br><i>&ldquo;A right angle is a square corner, like the corner of a sheet of paper.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A square corner, like the corner of a sheet of paper. From the lesson: A right angle is a square corner, like the corner of a sheet of paper.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rhombus<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('rhombus', this)">&#128266;</button></div><div class="flip-face flip-back">A quadrilateral with 4 sides that are all the same length.<br><i>&ldquo;A rhombus has 4 sides that are all the same length.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A quadrilateral with 4 sides that are all the same length. From the lesson: A rhombus has 4 sides that are all the same length.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">rectangle<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('rectangle', this)">&#128266;</button></div><div class="flip-face flip-back">A quadrilateral with 4 right angles.<br><i>&ldquo;A rectangle has 4 right angles.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A quadrilateral with 4 right angles. From the lesson: A rectangle has 4 right angles.', this)">&#128266;</button></div></div></div>
+<div class="flip" data-flip><div class="flip-inner"><div class="flip-face flip-front">unit fraction<button class="speak-btn" type="button" title="Hear this word" onclick="event.stopPropagation(); speakText('unit fraction', this)">&#128266;</button></div><div class="flip-face flip-back">A fraction with 1 on top, like 1/4. It names one of the equal parts of a whole.<br><i>&ldquo;Each part is a unit fraction of the whole tile.&rdquo;</i><button class="speak-btn speak-back" type="button" title="Hear the meaning" onclick="event.stopPropagation(); speakText('A fraction with 1 on top, like 1 fourth. It names one of the equal parts of a whole. From the lesson: Each part is a unit fraction of the whole tile.', this)">&#128266;</button></div></div></div>
+</div>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Here is a memory trick: a rectangle is all about its right angles, and a rhombus is all about its equal sides. A square has both, so it is a rectangle and a rhombus at the same time!', this)">&#128266;</button> Here is a memory trick: a <b>rectangle</b> is all about its <b>right angles</b>, and a <b>rhombus</b> is all about its <b>equal sides</b>. A <b>square</b> has both, so it is a rectangle and a rhombus at the same time!</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>&#9999;&#65039; Pencil Break: Pre-Lesson Warm-Up</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Before you start: print your Pre/Post sheet (2 pages) and do Page 1 (Pre) now. Keep Page 2 for the end.</p><a href="../prepost/KCE_Math_PrePost_G3W23.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W23.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.', this)">&#128266;</button> Time to step away from the screen for a few minutes! Grab your pencil and your printed sheet.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Do the PRE side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today\'s lesson is for!', this)">&#128266;</button> Do the <b>PRE</b> side of your sheet now. Try your best. It is okay if some problems feel new, because that is what today's lesson is for!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a square tile, a rhombus tile, and a rectangle tile" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><rect x="30" y="38" width="70" height="70" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3"/><polygon points="150.0,30.0 190.0,73.0 150.0,116.0 110.0,73.0" fill="#C9A84C" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><rect x="380" y="50" width="110" height="56" fill="#DB2F30" stroke="#0A1F3D" stroke-width="3"/><g transform="translate(205,62) rotate(-10)"><rect x="0" y="0" width="140" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M140 0 L166 8 L140 16 Z" fill="#F2D3A0"/><path d="M158 5 L166 8 L158 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When you finish the Pre side, put your pencil down and tap Next to start learning.', this)">&#128266;</button> When you finish the Pre side, put your pencil down and tap <b>Next</b> to start learning.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>&#128311; Meet the Quadrilaterals</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Ms. Fresquez lays out clay tiles on her worktable. Every one of these tiles is a quadrilateral, she says. A quadrilateral is a flat shape with 4 straight sides and 4 angles. Emilio counts the sides of a kite-shaped tile: 1, 2, 3, 4. He counts its corners, or angles: 4. It is a quadrilateral!', this)">&#128266;</button> Ms. Fresquez lays out clay tiles on her worktable. &ldquo;Every one of these tiles is a quadrilateral,&rdquo; she says. A quadrilateral is a flat shape with 4 straight sides and 4 angles. Emilio counts the sides of a kite-shaped tile: 1, 2, 3, 4. He counts its corners, or angles: 4. It is a quadrilateral!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('To tell if a shape is a quadrilateral, I check its attributes. An attribute is a feature of a shape, like how many sides it has or what its corners look like. I count the straight sides. I need exactly 4, and the shape must be closed, with no gaps and no curved sides. A triangle has 3 sides and a hexagon has 6, so they are not quadrilaterals.', this)">&#128266;</button> To tell if a shape is a quadrilateral, I check its attributes. An attribute is a feature of a shape, like how many sides it has or what its corners look like. I count the straight sides. I need exactly 4, and the shape must be closed, with no gaps and no curved sides. A triangle has 3 sides and a hexagon has 6, so they are not quadrilaterals.</p></div><div class="fig"><svg class="art" viewBox="0 0 460 160" role="img" aria-label="Four tiles: a tile with 4 sides, another tile with 4 sides, a triangle with 3 sides, and a hexagon with 6 sides" style="width:100%;max-width:460px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="460" height="160" rx="14" fill="#F8FAFF"/><polygon points="43.0,40.0 87.0,40.0 109.0,100.0 21.0,100.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="65.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">4 sides</text><polygon points="175.0,26.0 203.0,56.0 175.0,114.0 147.0,56.0" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="175.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">4 sides</text><polygon points="285.0,28.0 327.0,106.0 243.0,106.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="285.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">3 sides</text><polygon points="437.0,70.0 416.0,106.4 374.0,106.4 353.0,70.0 374.0,33.6 416.0,33.6" fill="#F5A3A3" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="395.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">6 sides</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('4 straight sides then quadrilateral. 3 sides then triangle, not a quadrilateral. 6 sides then hexagon, not a quadrilateral', this)">&#128266;</button> 4 straight sides &rarr; quadrilateral<br>3 sides &rarr; triangle, not a quadrilateral<br>6 sides &rarr; hexagon, not a quadrilateral</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Estrella holds up a tile shaped like a slice of pie. It has 2 straight sides and 1 curved side. Is it a quadrilateral? No. It does not have 4 straight sides.', this)">&#128266;</button> Estrella holds up a tile shaped like a slice of pie. It has 2 straight sides and 1 curved side. Is it a quadrilateral? No. It does not have 4 straight sides.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="t1_s0" data-pts="5" data-ans="3||3 tiles||3 quadrilaterals" data-logic="Tiles A, C, and E each have 4 straight sides. Tile B has 3 sides and tile D has 5 sides. That is 3 quadrilaterals.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many of these tiles are quadrilaterals?', this)">&#128266;</button> How many of these tiles are quadrilaterals?</p>
+<div class="fig"><svg class="art" viewBox="0 0 570 160" role="img" aria-label="Five tiles labeled A to E: A is a square, B is a triangle, C has 4 sides with a short top and long bottom, D has 5 sides, and E has 4 sides of different lengths" style="width:100%;max-width:570px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="570" height="160" rx="14" fill="#F8FAFF"/><polygon points="29.0,34.0 101.0,34.0 101.0,106.0 29.0,106.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="65.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">A</text><polygon points="175.0,28.0 217.0,106.0 133.0,106.0" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="175.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">B</text><polygon points="263.0,40.0 307.0,40.0 329.0,100.0 241.0,100.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="285.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">C</text><polygon points="395.0,26.0 436.8,56.4 420.9,105.6 369.1,105.6 353.2,56.4" fill="#F5A3A3" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="395.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">D</text><polygon points="465.0,48.0 531.0,30.0 547.0,100.0 475.0,108.0" fill="#C9B6F2" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="505.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">E</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="t1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="t2_s0" data-pts="5" data-logic="Every side of a quadrilateral must be a straight line. A shape with a curved side is not a quadrilateral.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Felipa finds a tile with 3 straight sides and 1 curved side. She says it is a quadrilateral because it has 4 sides. What went wrong?', this)">&#128266;</button> Find the mistake. Felipa finds a tile with 3 straight sides and 1 curved side. She says it is a quadrilateral because it has 4 sides. What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">A quadrilateral needs 4 <b>straight</b> sides. A curved side does not count, so this tile is not a quadrilateral.</button><button class="opt">Nothing is wrong. Any shape with 4 sides is a quadrilateral.</button><button class="opt">It is a triangle, because it has 3 straight sides.</button><button class="opt">It is a rectangle, because it has 4 sides.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="t1_s1" data-pts="5" data-ans="2||2 tiles||2 quadrilaterals" data-logic="Tiles A and C each have 4 straight sides. B has 6 sides, D has 3 sides, and E has 5 sides. That is 2 quadrilaterals.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many of these tiles are quadrilaterals?', this)">&#128266;</button> How many of these tiles are quadrilaterals?</p>
+<div class="fig"><svg class="art" viewBox="0 0 570 160" role="img" aria-label="Five tiles labeled A to E: A is a diamond shape with 4 sides, B has 6 sides, C is a rectangle, D is a triangle, and E has 5 sides" style="width:100%;max-width:570px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="570" height="160" rx="14" fill="#F8FAFF"/><polygon points="65.0,26.0 95.0,70.0 65.0,114.0 35.0,70.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="65.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">A</text><polygon points="217.0,70.0 196.0,106.4 154.0,106.4 133.0,70.0 154.0,33.6 196.0,33.6" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="175.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">B</text><polygon points="241.0,44.0 329.0,44.0 329.0,96.0 241.0,96.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="285.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">C</text><polygon points="395.0,28.0 437.0,106.0 353.0,106.0" fill="#F5A3A3" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="395.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">D</text><polygon points="505.0,26.0 546.8,56.4 530.9,105.6 479.1,105.6 463.2,56.4" fill="#C9B6F2" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="505.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">E</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="t1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="t2_s1" data-pts="5" data-ans="29||29 sides" data-logic="Step 1: 3 triangles &times; 3 sides = 9 sides, and 5 quadrilaterals &times; 4 sides = 20 sides. Step 2: 9 + 20 = 29 sides.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Fresquez puts 3 triangle tiles and 5 quadrilateral tiles on a tray. How many sides do all the tiles have in all?', this)">&#128266;</button> Two steps! Ms. Fresquez puts 3 triangle tiles and 5 quadrilateral tiles on a tray. How many sides do all the tiles have in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="t2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="t1_s2" data-pts="5" data-ans="3||3 tiles||3 quadrilaterals" data-logic="Tiles A, B, and E each have 4 straight sides. C has 3 sides and D has 6 sides. That is 3 quadrilaterals.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many of these tiles are quadrilaterals?', this)">&#128266;</button> How many of these tiles are quadrilaterals?</p>
+<div class="fig"><svg class="art" viewBox="0 0 570 160" role="img" aria-label="Five tiles labeled A to E: A has 4 sides with a short top and long bottom, B is a kite shape with 4 sides, C is a triangle, D has 6 sides, and E is a square" style="width:100%;max-width:570px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="570" height="160" rx="14" fill="#F8FAFF"/><polygon points="43.0,40.0 87.0,40.0 109.0,100.0 21.0,100.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="65.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">A</text><polygon points="175.0,26.0 203.0,56.0 175.0,114.0 147.0,56.0" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="175.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">B</text><polygon points="285.0,28.0 327.0,106.0 243.0,106.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="285.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">C</text><polygon points="437.0,70.0 416.0,106.4 374.0,106.4 353.0,70.0 374.0,33.6 416.0,33.6" fill="#F5A3A3" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="395.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">D</text><polygon points="469.0,34.0 541.0,34.0 541.0,106.0 469.0,106.0" fill="#C9B6F2" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="505.0" y="146.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="20" fill="#0A1F3D">E</text></svg></div>  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="t1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="t2_s2" data-pts="5" data-logic="Quadrilaterals have exactly 4 straight sides and 4 angles. A triangle has 3 of each.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Why is a triangle not a quadrilateral?', this)">&#128266;</button> Which explanation is correct? Why is a triangle <b>not</b> a quadrilateral?</p>
+  <div class="opts"><button class="opt" data-c="1">A triangle has only 3 sides and 3 angles. A quadrilateral must have 4 sides and 4 angles.</button><button class="opt">A triangle is too small to be a quadrilateral.</button><button class="opt">A triangle has no angles at all.</button><button class="opt">A triangle has curved sides.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>&#128207; Rectangles, Rhombuses, and Squares</h2>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Ms. Fresquez sorts tiles into groups. A rectangle has 4 right angles. A right angle is a square corner, like the corner of a sheet of paper. A rhombus has 4 sides that are all the same length. Then Estrella picks up a square tile. Where does this one go? A square has 4 right angles and 4 equal sides, so it belongs in both groups!', this)">&#128266;</button> Ms. Fresquez sorts tiles into groups. A rectangle has 4 right angles. A right angle is a square corner, like the corner of a sheet of paper. A rhombus has 4 sides that are all the same length. Then Estrella picks up a square tile. &ldquo;Where does this one go?&rdquo; A square has 4 right angles and 4 equal sides, so it belongs in both groups!</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('I check two attributes. Are all 4 angles right angles? Then it is a rectangle. In a rectangle, the sides across from each other are the same length. Are all 4 sides the same length? Then it is a rhombus. If both are true, it is a square. So every square is also a rectangle and also a rhombus. But not every rectangle is a square.', this)">&#128266;</button> I check two attributes. Are all 4 angles right angles? Then it is a rectangle. In a rectangle, the sides across from each other are the same length. Are all 4 sides the same length? Then it is a rhombus. If both are true, it is a square. So every square is also a rectangle and also a rhombus. But not every rectangle is a square.</p></div><div class="fig"><svg class="art" viewBox="0 0 560 200" role="img" aria-label="Three tiles: a rectangle with a right angle mark in each corner, a rhombus with a tick mark on each of its 4 equal sides, and a square with both right angle marks and tick marks" style="width:100%;max-width:560px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="560" height="200" rx="14" fill="#F8FAFF"/><polygon points="30.0,50.0 190.0,50.0 190.0,140.0 30.0,140.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="30.0,62.0 42.0,62.0 42.0,50.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="178.0,50.0 178.0,62.0 190.0,62.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="190.0,128.0 178.0,128.0 178.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="42.0,140.0 42.0,128.0 30.0,128.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polygon points="300.0,40.0 350.0,95.0 300.0,150.0 250.0,95.0" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><line x1="330.9" y1="62.1" x2="319.1" y2="72.9" stroke="#0047BA" stroke-width="3"/><line x1="330.9" y1="127.9" x2="319.1" y2="117.1" stroke="#0047BA" stroke-width="3"/><line x1="269.1" y1="127.9" x2="280.9" y2="117.1" stroke="#0047BA" stroke-width="3"/><line x1="269.1" y1="62.1" x2="280.9" y2="72.9" stroke="#0047BA" stroke-width="3"/><polygon points="400.0,50.0 490.0,50.0 490.0,140.0 400.0,140.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="400.0,62.0 412.0,62.0 412.0,50.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="478.0,50.0 478.0,62.0 490.0,62.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="490.0,128.0 478.0,128.0 478.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="412.0,140.0 412.0,128.0 400.0,128.0" fill="none" stroke="#DB2F30" stroke-width="2"/><line x1="445.0" y1="42.0" x2="445.0" y2="58.0" stroke="#0047BA" stroke-width="3"/><line x1="498.0" y1="95.0" x2="482.0" y2="95.0" stroke="#0047BA" stroke-width="3"/><line x1="445.0" y1="148.0" x2="445.0" y2="132.0" stroke="#0047BA" stroke-width="3"/><line x1="392.0" y1="95.0" x2="408.0" y2="95.0" stroke="#0047BA" stroke-width="3"/><text x="110.0" y="180.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">rectangle</text><text x="300.0" y="180.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">rhombus</text><text x="445.0" y="180.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="17" fill="#0A1F3D">square</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('4 right angles then rectangle. 4 equal sides then rhombus. 4 right angles AND 4 equal sides then square', this)">&#128266;</button> 4 right angles &rarr; rectangle<br>4 equal sides &rarr; rhombus<br>4 right angles AND 4 equal sides &rarr; square</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Emilio measures a tile. Its sides are 4 inches, 4 inches, 4 inches, and 4 inches, but its corners are not square corners. All 4 sides are equal, so it is a rhombus. It has no right angles, so it is not a rectangle and not a square.', this)">&#128266;</button> Emilio measures a tile. Its sides are 4 inches, 4 inches, 4 inches, and 4 inches, but its corners are not square corners. All 4 sides are equal, so it is a rhombus. It has no right angles, so it is not a rectangle and not a square.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="r1_s0" data-pts="5" data-ans="rhombus||a rhombus||an rhombus||it is a rhombus||it's a rhombus||it is an rhombus" data-logic="All 4 sides are the same length, so it is a rhombus. The corners are not square corners, so it is not a rectangle or a square.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the best name for this tile: rectangle, rhombus, or square? The tick marks show sides that are the same length.', this)">&#128266;</button> What is the best name for this tile: rectangle, rhombus, or square? The tick marks show sides that are the same length.</p>
+<div class="fig"><svg class="art" viewBox="0 0 300 200" role="img" aria-label="A tall diamond-shaped tile with a tick mark on each of its 4 sides and no square corners" style="width:100%;max-width:300px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="300" height="200" rx="14" fill="#F8FAFF"/><polygon points="150.0,20.0 215.0,100.0 150.0,180.0 85.0,100.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><line x1="188.7" y1="55.0" x2="176.3" y2="65.0" stroke="#0047BA" stroke-width="3"/><line x1="188.7" y1="145.0" x2="176.3" y2="135.0" stroke="#0047BA" stroke-width="3"/><line x1="111.3" y1="145.0" x2="123.7" y2="135.0" stroke="#0047BA" stroke-width="3"/><line x1="111.3" y1="55.0" x2="123.7" y2="65.0" stroke="#0047BA" stroke-width="3"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="r1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="r2_s0" data-pts="5" data-ans="rectangle||a rectangle||an rectangle||it is a rectangle||it's a rectangle||it is an rectangle" data-logic="It has 4 right angles, so it is a rectangle. Its sides are not all the same length, so it is not a rhombus or a square.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A tile has 4 right angles. Its sides are 6 inches, 3 inches, 6 inches, and 3 inches long. Is it a rectangle, a rhombus, or a square?', this)">&#128266;</button> A tile has 4 right angles. Its sides are 6 inches, 3 inches, 6 inches, and 3 inches long. Is it a rectangle, a rhombus, or a square?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="r2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="r1_s1" data-pts="5" data-ans="square||a square||an square||it is a square||it's a square||it is an square" data-logic="A shape with 4 right angles and 4 equal sides is a square. (It is also a rectangle and a rhombus, but square is the most exact name.)">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('This tile has 4 right angles and 4 equal sides. Type the most exact name for it.', this)">&#128266;</button> This tile has 4 right angles and 4 equal sides. Type the most exact name for it.</p>
+<div class="fig"><svg class="art" viewBox="0 0 300 200" role="img" aria-label="A square tile with a right angle mark in every corner and a tick mark on every side" style="width:100%;max-width:300px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="300" height="200" rx="14" fill="#F8FAFF"/><polygon points="95.0,45.0 205.0,45.0 205.0,155.0 95.0,155.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="95.0,57.0 107.0,57.0 107.0,45.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="193.0,45.0 193.0,57.0 205.0,57.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="205.0,143.0 193.0,143.0 193.0,155.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="107.0,155.0 107.0,143.0 95.0,143.0" fill="none" stroke="#DB2F30" stroke-width="2"/><line x1="150.0" y1="37.0" x2="150.0" y2="53.0" stroke="#0047BA" stroke-width="3"/><line x1="213.0" y1="100.0" x2="197.0" y2="100.0" stroke="#0047BA" stroke-width="3"/><line x1="150.0" y1="163.0" x2="150.0" y2="147.0" stroke="#0047BA" stroke-width="3"/><line x1="87.0" y1="100.0" x2="103.0" y2="100.0" stroke="#0047BA" stroke-width="3"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="r1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="r2_s1" data-pts="5" data-logic="The rule for a rectangle is 4 right angles. Side lengths can be different or all the same, so a square counts.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Emilio says, A square cannot be a rectangle, because a rectangle has 2 long sides and 2 short sides. What went wrong?', this)">&#128266;</button> Find the mistake. Emilio says, &ldquo;A square cannot be a rectangle, because a rectangle has 2 long sides and 2 short sides.&rdquo; What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">A rectangle only needs 4 right angles. A square has 4 right angles, so a square is a special kind of rectangle.</button><button class="opt">Nothing is wrong. Rectangles must have 2 long sides and 2 short sides.</button><button class="opt">A square is a triangle, not a rectangle.</button><button class="opt">A square has no right angles, so it cannot be a rectangle.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="r1_s2" data-pts="5" data-ans="rectangle||a rectangle||an rectangle||it is a rectangle||it's a rectangle||it is an rectangle" data-logic="It has 4 right angles, so it is a rectangle. Its long sides and short sides are different lengths, so it is not a square or a rhombus.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is the best name for this tile: rectangle, rhombus, or square?', this)">&#128266;</button> What is the best name for this tile: rectangle, rhombus, or square?</p>
+<div class="fig"><svg class="art" viewBox="0 0 300 200" role="img" aria-label="A long tile with a right angle mark in every corner. The top and bottom sides are much longer than the left and right sides." style="width:100%;max-width:300px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="300" height="200" rx="14" fill="#F8FAFF"/><polygon points="40.0,60.0 260.0,60.0 260.0,140.0 40.0,140.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="40.0,72.0 52.0,72.0 52.0,60.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="248.0,60.0 248.0,72.0 260.0,72.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="260.0,128.0 248.0,128.0 248.0,140.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="52.0,140.0 52.0,128.0 40.0,128.0" fill="none" stroke="#DB2F30" stroke-width="2"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="r1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="r2_s2" data-pts="5" data-logic="Some rhombuses have square corners and some do not. Only the ones with 4 right angles are squares.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Is every rhombus a square?', this)">&#128266;</button> Which explanation is correct? Is every rhombus a square?</p>
+  <div class="opts"><button class="opt" data-c="1">No. A rhombus has 4 equal sides, but it is only a square if it also has 4 right angles.</button><button class="opt">Yes. Every shape with 4 sides is a square.</button><button class="opt">Yes. A rhombus and a square are always the same shape.</button><button class="opt">No. A rhombus has 3 sides.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>&#129513; Shapes in More Than One Group</h2>
+<div class="card card-grass"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa draws two circles on the workshop chalkboard. One circle says 4 right angles. The other says 4 equal sides. Rectangles go in the first circle, and rhombuses go in the second. Squares go where the circles overlap, because they belong to both groups. Then Felipa finds a tile with 4 sides of different lengths and no right angles. It goes outside both circles.', this)">&#128266;</button> Felipa draws two circles on the workshop chalkboard. One circle says &ldquo;4 right angles.&rdquo; The other says &ldquo;4 equal sides.&rdquo; Rectangles go in the first circle, and rhombuses go in the second. Squares go where the circles overlap, because they belong to both groups. Then Felipa finds a tile with 4 sides of different lengths and no right angles. It goes outside both circles.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When I sort, I check every attribute. A shape can belong to more than one group. Squares, rectangles, and rhombuses are all quadrilaterals. But some quadrilaterals are none of these three. They still have 4 straight sides, so they are still quadrilaterals.', this)">&#128266;</button> When I sort, I check every attribute. A shape can belong to more than one group. Squares, rectangles, and rhombuses are all quadrilaterals. But some quadrilaterals are none of these three. They still have 4 straight sides, so they are still quadrilaterals.</p></div><div class="fig"><svg class="art" viewBox="0 0 560 250" role="img" aria-label="A sorting diagram with two overlapping circles. The left circle says 4 right angles and holds a rectangle. The right circle says 4 equal sides and holds a rhombus. A square sits where the circles overlap. A quadrilateral with 4 different sides sits outside both circles." style="width:100%;max-width:560px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="560" height="250" rx="14" fill="#FFFDF5"/><circle cx="215" cy="125" r="100" fill="#FFE9C7" fill-opacity=".75" stroke="#E07B3C" stroke-width="3"/><circle cx="345" cy="125" r="100" fill="#DCEEFF" fill-opacity=".75" stroke="#0047BA" stroke-width="3"/><text x="170.0" y="20.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#E07B3C">4 right angles</text><text x="390.0" y="20.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0047BA">4 equal sides</text><polygon points="130.0,105.0 195.0,105.0 195.0,145.0 130.0,145.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="130.0,113.0 138.0,113.0 138.0,105.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="187.0,105.0 187.0,113.0 195.0,113.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="195.0,137.0 187.0,137.0 187.0,145.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="138.0,145.0 138.0,137.0 130.0,137.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polygon points="395.0,85.0 425.0,125.0 395.0,165.0 365.0,125.0" fill="#7CC6FF" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><line x1="416.4" y1="100.2" x2="403.6" y2="109.8" stroke="#0047BA" stroke-width="3"/><line x1="416.4" y1="149.8" x2="403.6" y2="140.2" stroke="#0047BA" stroke-width="3"/><line x1="373.6" y1="149.8" x2="386.4" y2="140.2" stroke="#0047BA" stroke-width="3"/><line x1="373.6" y1="100.2" x2="386.4" y2="109.8" stroke="#0047BA" stroke-width="3"/><polygon points="258.0,103.0 302.0,103.0 302.0,147.0 258.0,147.0" fill="#86D464" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="258.0,111.0 266.0,111.0 266.0,103.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="294.0,103.0 294.0,111.0 302.0,111.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="302.0,139.0 294.0,139.0 294.0,147.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="266.0,147.0 266.0,139.0 258.0,139.0" fill="none" stroke="#DB2F30" stroke-width="2"/><polygon points="478.0,200.0 530.0,186.0 545.0,236.0 490.0,240.0" fill="#C9B6F2" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="500.0" y="178.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="13" fill="#0A1F3D">neither</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Left circle: 4 right angles (rectangles). Right circle: 4 equal sides (rhombuses). Overlap: both (squares). Outside: other quadrilaterals', this)">&#128266;</button> Left circle: 4 right angles (rectangles)<br>Right circle: 4 equal sides (rhombuses)<br>Overlap: both (squares)<br>Outside: other quadrilaterals</div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A tile has sides of 5, 2, 5, and 2 inches, and no right angles. It does not have 4 right angles, so it is not a rectangle. It does not have 4 equal sides, so it is not a rhombus. It is a quadrilateral that goes outside both circles.', this)">&#128266;</button> A tile has sides of 5, 2, 5, and 2 inches, and no right angles. It does not have 4 right angles, so it is not a rectangle. It does not have 4 equal sides, so it is not a rhombus. It is a quadrilateral that goes outside both circles.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="g1_s0" data-pts="5" data-ans="3||3 names" data-logic="A square has 4 sides (quadrilateral), 4 right angles (rectangle), and 4 equal sides (rhombus). It is not a triangle. That is 3 names.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many of these names fit a square: quadrilateral, rectangle, rhombus, triangle?', this)">&#128266;</button> How many of these names fit a square: quadrilateral, rectangle, rhombus, triangle?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="g1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="g2_s0" data-pts="5" data-logic="The tile with sides 3, 5, 4, and 6 inches has no right angles and no equal sides, so it fits neither circle. It is still a quadrilateral.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Look at the sorting circles. Which tile belongs outside both circles?', this)">&#128266;</button> Look at the sorting circles. Which tile belongs <b>outside</b> both circles?</p>
+  <div class="opts"><button class="opt" data-c="1">A tile with sides of 3, 5, 4, and 6 inches and no right angles</button><button class="opt">A tile with sides of 2, 7, 2, and 7 inches and 4 right angles</button><button class="opt">A tile with 4 sides of 5 inches each and no right angles</button><button class="opt">A tile with 4 sides of 5 inches each and 4 right angles</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="g1_s1" data-pts="5" data-ans="10||10 tiles" data-logic="Squares have 4 equal sides too. 6 squares + 4 other rhombuses = 10 tiles with 4 equal sides.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Think carefully! Ms. Fresquez has 6 square tiles and 4 rhombus tiles that are not squares. How many of these tiles have 4 equal sides?', this)">&#128266;</button> Think carefully! Ms. Fresquez has 6 square tiles and 4 rhombus tiles that are not squares. How many of these tiles have 4 equal sides?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="g1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="g2_s1" data-pts="5" data-logic="Rectangles, rhombuses, and squares are just some of the quadrilaterals. Many quadrilaterals fit none of those groups.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Estrella says, This tile has 4 straight sides, but it is not a rectangle, a rhombus, or a square, so it is not a quadrilateral. What went wrong?', this)">&#128266;</button> Find the mistake. Estrella says, &ldquo;This tile has 4 straight sides, but it is not a rectangle, a rhombus, or a square, so it is not a quadrilateral.&rdquo; What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">Any closed shape with 4 straight sides is a quadrilateral, even if it is not a rectangle, a rhombus, or a square.</button><button class="opt">Nothing is wrong. Only rectangles, rhombuses, and squares are quadrilaterals.</button><button class="opt">It is a triangle, because it is not a square.</button><button class="opt">It is a hexagon, because its sides are different.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="g1_s2" data-pts="5" data-ans="8||8 tiles" data-logic="Squares have 4 right angles too. 5 rectangles + 3 squares = 8 tiles with 4 right angles.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Think carefully! Ms. Fresquez has 5 rectangle tiles that are not squares and 3 square tiles. How many of these tiles have 4 right angles?', this)">&#128266;</button> Think carefully! Ms. Fresquez has 5 rectangle tiles that are not squares and 3 square tiles. How many of these tiles have 4 right angles?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="g1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="g2_s2" data-pts="5" data-logic="A square always has 4 equal sides, so it is always a rhombus. The other statements are only true some of the time.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which statement is true?', this)">&#128266;</button> Which statement is true?</p>
+  <div class="opts"><button class="opt" data-c="1">Every square is a rhombus.</button><button class="opt">Every rhombus is a square.</button><button class="opt">Every rectangle is a square.</button><button class="opt">Every quadrilateral is a rectangle.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>&#127856; Equal Parts and Unit Fractions</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Before a big square tile dries, Ms. Fresquez cuts it into 4 equal parts. Each part has the same area, which means each part covers the same amount of space. Each part is a unit fraction of the whole tile: 1 fourth. Emilio paints one part turquoise.', this)">&#128266;</button> Before a big square tile dries, Ms. Fresquez cuts it into 4 equal parts. Each part has the same area, which means each part covers the same amount of space. Each part is a unit fraction of the whole tile: <span class="frac"><span class="top">1</span><span class="bot">4</span></span>. Emilio paints one part turquoise.</p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When a shape is split into equal parts, each part is a unit fraction of the whole. A unit fraction has a 1 on top. The bottom number tells how many equal parts make the whole. 4 equal parts means each part is 1 fourth. 6 equal parts means each part is 1 sixth. The parts must have equal area, but they do not have to be the same shape. A square can be split into 4 small squares, 4 strips, or 4 triangles, and each part is still 1 fourth.', this)">&#128266;</button> When a shape is split into equal parts, each part is a unit fraction of the whole. A unit fraction has a 1 on top. The bottom number tells how many equal parts make the whole. 4 equal parts means each part is <span class="frac"><span class="top">1</span><span class="bot">4</span></span>. 6 equal parts means each part is <span class="frac"><span class="top">1</span><span class="bot">6</span></span>. The parts must have equal area, but they do not have to be the same shape. A square can be split into 4 small squares, 4 strips, or 4 triangles, and each part is still <span class="frac"><span class="top">1</span><span class="bot">4</span></span>.</p></div><div class="fig"><svg class="art" viewBox="0 0 560 210" role="img" aria-label="Three same-size square tiles, each split into 4 equal parts in a different way: 4 small squares, 4 long strips, and 4 triangles. One part of each tile is shaded." style="width:100%;max-width:560px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="560" height="210" rx="14" fill="#FFFFFF"/><polygon points="30.0,20.0 100.0,20.0 100.0,90.0 30.0,90.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="100.0,20.0 170.0,20.0 170.0,90.0 100.0,90.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="100.0,90.0 170.0,90.0 170.0,160.0 100.0,160.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="30.0,90.0 100.0,90.0 100.0,160.0 30.0,160.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="210.0,20.0 245.0,20.0 245.0,160.0 210.0,160.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="245.0,20.0 280.0,20.0 280.0,160.0 245.0,160.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="280.0,20.0 315.0,20.0 315.0,160.0 280.0,160.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="315.0,20.0 350.0,20.0 350.0,160.0 315.0,160.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="390.0,20.0 530.0,20.0 460.0,90.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="530.0,20.0 530.0,160.0 460.0,90.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="530.0,160.0 390.0,160.0 460.0,90.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="390.0,160.0 390.0,20.0 460.0,90.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><text x="100.0" y="196.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">each part = 1/4</text><text x="280.0" y="196.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">each part = 1/4</text><text x="460.0" y="196.0" text-anchor="middle" font-family="Fredoka One,Nunito,sans-serif" font-size="15" fill="#0A1F3D">each part = 1/4</text></svg></div><div class="pictureit"><h4>&#129513; Picture It</h4><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('2 equal parts then each is 1 half. 4 equal parts then each is 1 fourth. 6 equal parts then each is 1 sixth. 8 equal parts then each is 1 eighth', this)">&#128266;</button> 2 equal parts &rarr; each is <span class="frac"><span class="top">1</span><span class="bot">2</span></span><br>4 equal parts &rarr; each is <span class="frac"><span class="top">1</span><span class="bot">4</span></span><br>6 equal parts &rarr; each is <span class="frac"><span class="top">1</span><span class="bot">6</span></span><br>8 equal parts &rarr; each is <span class="frac"><span class="top">1</span><span class="bot">8</span></span></div><div class="guidedbox"><h4>&#129309; Let's Try Together</h4><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa splits a rectangle tile into 3 equal strips. What fraction of the area is each strip? There are 3 equal parts, so each strip is 1 third of the area.', this)">&#128266;</button> Felipa splits a rectangle tile into 3 equal strips. What fraction of the area is each strip? There are 3 equal parts, so each strip is <span class="frac"><span class="top">1</span><span class="bot">3</span></span> of the area.</p></div><span class="yourturn-label">&#128170; YOUR TURN</span></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="e1_s0" data-pts="5" data-ans="1/6||1 / 6||1 sixth||one sixth||one-sixth||a sixth" data-logic="The tile is split into 6 equal parts and 1 part is shaded, so the shaded part is 1/6 of the area.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Emilio split this tile into equal parts. What fraction of the tile\'s area is shaded?', this)">&#128266;</button> Emilio split this tile into equal parts. What fraction of the tile&#8217;s area is shaded?</p>
+<div class="fig"><svg class="art" viewBox="0 0 360 180" role="img" aria-label="A rectangle tile split into 6 equal strips with 1 strip shaded" style="width:100%;max-width:360px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="360" height="180" rx="14" fill="#F8FAFF"/><rect x="20.0" y="20" width="53.3" height="140" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3"/><rect x="73.3" y="20" width="53.3" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="126.7" y="20" width="53.3" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="180.0" y="20" width="53.3" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="233.3" y="20" width="53.3" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="286.7" y="20" width="53.3" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="e2_s0" data-pts="5" data-logic="A fraction like 1/4 only works when all the parts have the same area. These parts are different sizes.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Emilio cut this tile into 4 parts. He says each part is 1 fourth of the tile. What went wrong?', this)">&#128266;</button> Find the mistake. Emilio cut this tile into 4 parts. He says each part is <span class="frac"><span class="top">1</span><span class="bot">4</span></span> of the tile. What went wrong?</p>
+<div class="fig"><svg class="art" viewBox="0 0 360 180" role="img" aria-label="A rectangle tile cut into 4 strips of very different widths" style="width:100%;max-width:360px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="360" height="180" rx="14" fill="#F8FAFF"/><rect x="20.0" y="20" width="40.0" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="60.0" y="20" width="120.0" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="180.0" y="20" width="60.0" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="240.0" y="20" width="100.0" height="140" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/></svg></div>  <div class="opts"><button class="opt" data-c="1">The 4 parts are not the same size, so they are not fourths. Fourths must have equal areas.</button><button class="opt">Nothing is wrong. Any 4 parts are fourths.</button><button class="opt">Each part is <span class="frac"><span class="top">1</span><span class="bot">3</span></span>, because there are 3 lines.</button><button class="opt">Each part is <span class="frac"><span class="top">1</span><span class="bot">2</span></span>, because the tile is a rectangle.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="e1_s1" data-pts="5" data-ans="1/8||1 / 8||1 eighth||one eighth||one-eighth||a eighth" data-logic="The square is split into 8 equal triangles and 1 is shaded, so the shaded part is 1/8 of the area.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What fraction of this square tile\'s area is shaded?', this)">&#128266;</button> What fraction of this square tile&#8217;s area is shaded?</p>
+<div class="fig"><svg class="art" viewBox="0 0 190 190" role="img" aria-label="A square tile split into 8 equal triangles by lines from corner to corner and side to side, with 1 triangle shaded" style="width:100%;max-width:220px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="190" height="190" rx="14" fill="#F8FAFF"/><polygon points="20.0,20.0 95.0,20.0 95.0,95.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="95.0,20.0 170.0,20.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="170.0,20.0 170.0,95.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="170.0,95.0 170.0,170.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="170.0,170.0 95.0,170.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="95.0,170.0 20.0,170.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="20.0,170.0 20.0,95.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="20.0,95.0 20.0,20.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="e2_s1" data-pts="5" data-ans="1/8||1 / 8||1 eighth||one eighth||one-eighth||a eighth" data-logic="Step 1: 4 equal parts. Step 2: each part split in half makes 4 &times; 2 = 8 equal parts. Each small part is 1/8 of the tile.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Estrella splits a square tile into 4 equal parts. Then she splits each part in half. What fraction of the whole tile is one small part?', this)">&#128266;</button> Two steps! Estrella splits a square tile into 4 equal parts. Then she splits each part in half. What fraction of the whole tile is one small part?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="e1_s2" data-pts="5" data-ans="1/3||1 / 3||1 third||one third||one-third||a third" data-logic="The tile is split into 3 equal parts and 1 part is shaded, so the shaded part is 1/3 of the area.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What fraction of this tile\'s area is shaded?', this)">&#128266;</button> What fraction of this tile&#8217;s area is shaded?</p>
+<div class="fig"><svg class="art" viewBox="0 0 360 180" role="img" aria-label="A rectangle tile split into 3 equal strips going across, with the middle strip shaded" style="width:100%;max-width:360px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="360" height="180" rx="14" fill="#F8FAFF"/><rect x="20" y="20.0" width="320" height="46.7" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/><rect x="20" y="66.7" width="320" height="46.7" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3"/><rect x="20" y="113.3" width="320" height="46.7" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="e1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="e2_s2" data-pts="5" data-logic="Equal parts of the same whole have the same area. Each piece is 1/4 of a same-size square, so the areas match.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? One square tile is cut into 4 equal triangles. A same-size square tile is cut into 4 equal strips. Does one triangle cover the same area as one strip?', this)">&#128266;</button> Which explanation is correct? One square tile is cut into 4 equal triangles. A same-size square tile is cut into 4 equal strips. Does one triangle cover the same area as one strip?</p>
+  <div class="opts"><button class="opt" data-c="1">Yes. Each one is <span class="frac"><span class="top">1</span><span class="bot">4</span></span> of the same-size square, so they cover the same area even though their shapes are different.</button><button class="opt">No. Triangles are always smaller than strips.</button><button class="opt">No. The strip is bigger because it is longer.</button><button class="opt">Yes, but only because both tiles are blue.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>&#127942; Tile Challenge: Two-Step Problems</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A big tile order means problems with more than one step! Read carefully, decide what to find first, then use that answer to finish. Remember the attributes of each shape.', this)">&#128266;</button> A big tile order means problems with <b>more than one step</b>! Read carefully, decide what to find first, then use that answer to finish. Remember the attributes of each shape.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="c1_s0" data-pts="5" data-ans="28||28 right angles||28 angles" data-logic="Step 1: 3 + 4 = 7 tiles. Step 2: 7 tiles &times; 4 right angles = 28 right angles.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Square tiles and rectangle tiles each have 4 right angles. Felipa packs 3 square tiles and 4 rectangle tiles in a box. How many right angles are in the box in all?', this)">&#128266;</button> Two steps! Square tiles and rectangle tiles each have 4 right angles. Felipa packs 3 square tiles and 4 rectangle tiles in a box. How many right angles are in the box in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s0" data-pts="5" data-ans="12||12 inches||12 in" data-logic="Step 1: A rhombus has 4 equal sides, so every side is 3 inches. Step 2: 3 + 3 + 3 + 3 = 12 inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A rhombus tile has one side that is 3 inches long. Ms. Fresquez glues ribbon along all 4 edges. How many inches of ribbon does she need?', this)">&#128266;</button> Two steps! A rhombus tile has one side that is 3 inches long. Ms. Fresquez glues ribbon along all 4 edges. How many inches of ribbon does she need?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="c1_s1" data-pts="5" data-ans="5/8||5 / 8||5 eighths||five eighths||five-eighths" data-logic="Step 1: 8 &minus; 3 = 5 parts are not painted. Step 2: each part is 1/8, so 5 parts is 5/8 of the tile.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Emilio splits a square tile into 8 equal parts. He paints 3 parts red. What fraction of the tile is not painted?', this)">&#128266;</button> Two steps! Emilio splits a square tile into 8 equal parts. He paints 3 parts red. What fraction of the tile is <b>not</b> painted?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="c1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s1" data-pts="5" data-ans="16||16 inches||16 in" data-logic="Step 1: In a rectangle, sides across from each other match: 6, 2, 6, and 2 inches. Step 2: 6 + 2 + 6 + 2 = 16 inches.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A rectangle tile is 6 inches long and 2 inches wide. Felipa adds the lengths of all 4 sides to know how much trim to buy. How many inches of trim?', this)">&#128266;</button> Two steps! A rectangle tile is 6 inches long and 2 inches wide. Felipa adds the lengths of all 4 sides to know how much trim to buy. How many inches of trim?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="c1_s2" data-pts="5" data-ans="22||22 sides" data-logic="Step 1: 4 rhombuses &times; 4 sides = 16 sides, and 2 triangles &times; 3 sides = 6 sides. Step 2: 16 + 6 = 22 sides.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Fresquez has 4 rhombus tiles and 2 triangle tiles. How many sides do the tiles have in all?', this)">&#128266;</button> Two steps! Ms. Fresquez has 4 rhombus tiles and 2 triangle tiles. How many sides do the tiles have in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="c2_s2" data-pts="5" data-ans="11||11 squares||11 tiles||11 square tiles" data-logic="Step 1: 3 rows &times; 5 tiles = 15 tiles. Step 2: 15 &minus; 4 = 11 squares.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A tray holds 3 rows of tiles with 5 tiles in each row. 4 of the tiles are rhombuses and the rest are squares. How many tiles are squares?', this)">&#128266;</button> Two steps! A tray holds 3 rows of tiles with 5 tiles in each row. 4 of the tiles are rhombuses and the rest are squares. How many tiles are squares?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="c2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#11088; Bonus Practice: The Drying Rack</h2>
+<span class="bonuspill">Bonus Practice &bull; builds XP, not Pathway Points</span>
+<div class="practicewrap">
+<div class="qbox" data-fq="bp1" data-pts="5" data-bonus="1" data-ans="4||4 right angles||4 angles" data-logic="A rectangle has 4 right angles, one in each corner.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many right angles does a rectangle have?', this)">&#128266;</button> How many right angles does a rectangle have?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bp1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bp2" data-pts="5" data-bonus="1" data-ans="1/2||1 / 2||1 half||one half||one-half||a half" data-logic="The tile is cut into 2 equal triangles and 1 is shaded, so the shaded part is 1/2.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('This square tile is cut corner to corner. What fraction of the tile is shaded?', this)">&#128266;</button> This square tile is cut corner to corner. What fraction of the tile is shaded?</p>
+<div class="fig"><svg class="art" viewBox="0 0 190 190" role="img" aria-label="A square tile cut from corner to corner into 2 equal triangles, with 1 triangle shaded" style="width:100%;max-width:220px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="190" height="190" rx="14" fill="#F8FAFF"/><polygon points="20.0,20.0 170.0,20.0 170.0,170.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="20.0,20.0 170.0,170.0 20.0,170.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#129513; Match-Up Round</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Tap an item on the left, then its match on the right. First-try matches earn 2 points each, 10 points in all.', this)">&#128266;</button> Tap an item on the left, then its match on the right. First-try matches earn <b>2 points each</b>, 10 points in all.</p>
+<div class="matchgrid"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#9997;&#65039; Fix the Sentence</h2>
+<div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa wrote some sentences for the workshop sign, but her hands were covered in clay! Type each sentence the right way. Remember: start with a capital letter, give names of people and places capital letters too, end with a period or question mark, and put commas between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.', this)">&#128266;</button> Felipa wrote some sentences for the workshop sign, but her hands were covered in clay! Type each sentence the right way. Remember: start with a <b>capital letter</b>, give names of people and places capital letters too, end with a <b>period</b> or <b>question mark</b>, and put <b>commas</b> between things in a list. Keep the same words in the same order; fix only the capital letters, punctuation, or the one grammar mistake.</p></div>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="fs1_s0" data-pts="5" data-exact="1" data-ans="The tiles came from Santa Fe." data-logic="Start with a capital T. Santa Fe is the name of a city, so both words get capital letters. End the telling sentence with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: the tiles came from santa fe', this)">&#128266;</button> Fix the sentence: <span class="fixme">the tiles came from santa fe</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s0" data-pts="5" data-exact="1" data-ans="We cut squares, rectangles, and rhombuses.||We cut squares, rectangles and rhombuses." data-logic="Start with a capital W, put commas between the things in the list, and end with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: we cut squares rectangles and rhombuses', this)">&#128266;</button> Fix the sentence: <span class="fixme">we cut squares rectangles and rhombuses</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="fs1_s1" data-pts="5" data-exact="1" data-ans="Is every square a rectangle?" data-logic="Start with a capital I. This sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: is every square a rectangle', this)">&#128266;</button> Fix the sentence: <span class="fixme">is every square a rectangle</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s1" data-pts="5" data-exact="1" data-ans="Emilio, Estrella, and Felipa painted the tiles.||Emilio, Estrella and Felipa painted the tiles." data-logic="Each name gets a capital letter, commas go between the names in the list, and the sentence ends with a period.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: emilio estrella and felipa painted the tiles', this)">&#128266;</button> Fix the sentence: <span class="fixme">emilio estrella and felipa painted the tiles</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="fs1_s2" data-pts="5" data-exact="1" data-ans="How many right angles does a square have?" data-logic="Start with a capital H. The sentence asks something, so it ends with a question mark.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: how many right angles does a square have', this)">&#128266;</button> Fix the sentence: <span class="fixme">how many right angles does a square have</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="fs2_s2" data-pts="5" data-exact="1" data-ans="A rhombus has four equal sides." data-logic="Start with a capital A and end with a period. One rhombus means use has, not have.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Fix the sentence: a rhombus have four equal sides', this)">&#128266;</button> Fix the sentence: <span class="fixme">a rhombus have four equal sides</span></p>
+  <div class="fillrow"><input class="fillin fillwide" inputmode="text" autocomplete="off" spellcheck="false" aria-label="corrected sentence"><button class="btn btn-pri" data-check="fs2_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Quick facts for bonus XP! Go fast, but stay correct.', this)">&#128266;</button> Quick facts for bonus XP! Go fast, but stay correct.</p>
+<div class="practicewrap">
+<div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Quad means four. Every quadrilateral has 4 sides.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('How many sides does every quadrilateral have?', this)">&#128266;</button> How many sides does every quadrilateral have?</p>
+  <div class="opts"><button class="opt" data-c="1">4 sides</button><button class="opt">3 sides</button><button class="opt">5 sides</button><button class="opt">6 sides</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="1/2||1 / 2||1 half||one half||one-half||a half" data-logic="2 equal parts means each part is 1/2.">
+  <span class="pts">+5 XP</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('A tile is cut into 2 equal parts. What fraction of the tile is each part?', this)">&#128266;</button> A tile is cut into 2 equal parts. What fraction of the tile is each part?</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="sp2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="card card-sky" style="margin-top:18px"><h3>&#9000;&#65039; Keyboard Corral</h3><p style="margin-bottom:10px"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter and period.', this)">&#128266;</button> Bonus XP for typing skill! Type this whole sentence exactly. Watch your capital letter and period.</p><div class="qbox" data-exact="1" data-fq="kc1" data-pts="10" data-bonus="1" data-ans="A square is a rectangle and a rhombus." data-logic="Match the sentence exactly, including the capital letter at the start and the period at the end."><span class="pts">+10 XP</span><p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Type this sentence: A square is a rectangle and a rhombus.', this)">&#128266;</button> Type this sentence:</p><div class="card" style="background:#fff;padding:10px 14px;margin:6px 0;font-weight:800;color:var(--navy)">A square is a rectangle and a rhombus.</div><div class="fillrow"><input class="fillin fillwide" id="kc1input" inputmode="text" aria-label="typed sentence"><button class="btn btn-pri" data-check="kc1">Check</button></div><p class="feedback"></p></div></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>&#128081; Boss Battle, Part 1: The Courtyard Order</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('The courtyard tiles are almost ready, and Ms. Fresquez has one last list of jobs. Show everything you learned today!', this)">&#128266;</button> The courtyard tiles are almost ready, and Ms. Fresquez has one last list of jobs. Show everything you learned today!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb1_s0" data-pts="5" data-ans="square||a square||an square||it is a square||it's a square||it is an square" data-logic="It has 4 right angles and 4 equal sides, so the most exact name is square.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Ms. Fresquez\'s newest tile has 4 right angles and 4 sides that are each 7 inches long. Type the most exact name for it.', this)">&#128266;</button> Ms. Fresquez&#8217;s newest tile has 4 right angles and 4 sides that are each 7 inches long. Type the most exact name for it.</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s0" data-pts="5" data-logic="A rhombus must have 4 sides of the same length. 8 inches and 3 inches are different lengths.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which explanation is correct? Felipa says a rectangle that is 8 inches long and 3 inches wide is also a rhombus.', this)">&#128266;</button> Which explanation is correct? Felipa says a rectangle that is 8 inches long and 3 inches wide is also a rhombus.</p>
+  <div class="opts"><button class="opt" data-c="1">Felipa is wrong. A rhombus needs 4 equal sides, and this rectangle&#8217;s sides are 8, 3, 8, and 3 inches.</button><button class="opt">Felipa is right. Every rectangle is a rhombus.</button><button class="opt">Felipa is right, because it has 4 right angles.</button><button class="opt">Felipa is wrong, because a rectangle has 3 sides.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb1_s1" data-pts="5" data-ans="7||7 tiles||7 quadrilaterals" data-logic="Squares and rhombuses both have 4 sides. 4 + 3 = 7 quadrilaterals. (The other 9 &minus; 7 = 2 tiles are triangles.)">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Estrella sorts 9 tiles. 4 are squares, 3 are rhombuses that are not squares, and the rest are triangles. How many of the tiles are quadrilaterals?', this)">&#128266;</button> Two steps! Estrella sorts 9 tiles. 4 are squares, 3 are rhombuses that are not squares, and the rest are triangles. How many of the tiles are quadrilaterals?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s1" data-pts="5" data-logic="Equal sides make a rhombus. A rhombus only has right angles when it is also a square.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Emilio says, Any tile with 4 equal sides must have 4 right angles. What went wrong?', this)">&#128266;</button> Find the mistake. Emilio says, &ldquo;Any tile with 4 equal sides must have 4 right angles.&rdquo; What went wrong?</p>
+  <div class="opts"><button class="opt" data-c="1">A rhombus can have 4 equal sides with no square corners at all, like a diamond shape.</button><button class="opt">Nothing is wrong. Equal sides always make right angles.</button><button class="opt">A tile with 4 equal sides is a triangle.</button><button class="opt">A tile with 4 equal sides has 8 right angles.</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb1_s2" data-pts="5" data-ans="6||6 parts||6 equal parts" data-logic="A unit fraction of 1/6 means the whole is split into 6 equal parts.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Felipa cuts a tile into equal parts. Each part is 1 sixth of the tile\'s area. How many parts are there?', this)">&#128266;</button> Felipa cuts a tile into equal parts. Each part is <span class="frac"><span class="top">1</span><span class="bot">6</span></span> of the tile&#8217;s area. How many parts are there?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb1_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-q="bb2_s2" data-pts="5" data-logic="Only a square has 4 right angles and 4 equal sides at the same time.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Which shape belongs in both groups: 4 right angles and 4 equal sides?', this)">&#128266;</button> Which shape belongs in <b>both</b> groups: &ldquo;4 right angles&rdquo; and &ldquo;4 equal sides&rdquo;?</p>
+  <div class="opts"><button class="opt" data-c="1">A square</button><button class="opt">A rhombus with no square corners</button><button class="opt">A rectangle that is 9 inches long and 2 inches wide</button><button class="opt">A triangle</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-go="15">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>&#128081; Boss Battle, Part 2: The Last Tiles</h2>
+<p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two more jobs before the tiles go into the kiln. You can do it!', this)">&#128266;</button> Two more jobs before the tiles go into the kiln. You can do it!</p>
+<div class="qset" data-set="0">
+<div class="qbox" data-fq="bb3_s0" data-pts="5" data-ans="1/4||1 / 4||1 fourth||one fourth||one-fourth||a fourth" data-logic="Lines from corner to corner split the square into 4 equal triangles. One is shaded, so it is 1/4 of the area.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What fraction of this square tile\'s area is the shaded triangle?', this)">&#128266;</button> What fraction of this square tile&#8217;s area is the shaded triangle?</p>
+<div class="fig"><svg class="art" viewBox="0 0 190 190" role="img" aria-label="A square tile split corner to corner into 4 equal triangles, with the bottom triangle shaded" style="width:100%;max-width:220px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="190" height="190" rx="14" fill="#F8FAFF"/><polygon points="20.0,20.0 170.0,20.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="170.0,20.0 170.0,170.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="170.0,170.0 20.0,170.0 95.0,95.0" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polygon points="20.0,170.0 20.0,20.0 95.0,95.0" fill="#FFF8EE" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s0" data-pts="5" data-ans="1/8||1 / 8||1 eighth||one eighth||one-eighth||a eighth" data-logic="The whole tile has 8 equal parts, so the bottom number is 8. 1 painted part is 1/8 of the tile.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Emilio cuts a square tile into 8 equal parts and paints 1 part. He says 1 seventh of the tile is painted, because 7 parts are left. Type the fraction that is painted.', this)">&#128266;</button> Find the mistake. Emilio cuts a square tile into 8 equal parts and paints 1 part. He says <span class="frac"><span class="top">1</span><span class="bot">7</span></span> of the tile is painted, because 7 parts are left. Type the fraction that is painted.</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s0">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+<div class="qbox" data-fq="bb3_s1" data-pts="5" data-ans="16||16 right angles||16 angles" data-logic="Step 1: 4 squares &times; 4 right angles = 16. Step 2: the 3 rhombuses have 0 right angles, so 16 + 0 = 16 right angles.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! A tray has 4 square tiles and 3 rhombus tiles that have no square corners. How many right angles are on the tray?', this)">&#128266;</button> Two steps! A tray has 4 square tiles and 3 rhombus tiles that have no square corners. How many right angles are on the tray?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s1" data-pts="5" data-ans="1/6||1 / 6||1 sixth||one sixth||one-sixth||a sixth" data-logic="Count the parts, not the cuts. 5 cuts make 6 equal parts, so each part is 1/6.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Felipa makes 5 straight cuts across a long tile and gets 6 equal parts. She says each part is 1 fifth, because she made 5 cuts. Type the correct fraction for one part.', this)">&#128266;</button> Find the mistake. Felipa makes 5 straight cuts across a long tile and gets 6 equal parts. She says each part is <span class="frac"><span class="top">1</span><span class="bot">5</span></span>, because she made 5 cuts. Type the correct fraction for one part.</p>
+  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s1">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+<div class="qbox" data-fq="bb3_s2" data-pts="5" data-ans="30||30 angles" data-logic="Step 1: 6 rectangles &times; 4 angles = 24, and 2 triangles &times; 3 angles = 6. Step 2: 24 + 6 = 30 angles.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Two steps! Ms. Fresquez makes 6 rectangle tiles and 2 triangle tiles. How many angles do the tiles have in all?', this)">&#128266;</button> Two steps! Ms. Fresquez makes 6 rectangle tiles and 2 triangle tiles. How many angles do the tiles have in all?</p>
+  <div class="fillrow"><input class="fillin" inputmode="numeric" aria-label="answer"><button class="btn btn-pri" data-check="bb3_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+<div class="qbox" data-fq="bb4_s2" data-pts="5" data-ans="square||a square||an square||it is a square||it's a square||it is an square" data-logic="Turning a shape does not change its attributes. It still has 4 equal sides and 4 right angles, so it is a square.">
+  <span class="pts">+5</span>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Find the mistake. Emilio says this tile is not a square because it is tipped on its corner. The marks show 4 equal sides and 4 right angles. Type the most exact name for the tile.', this)">&#128266;</button> Find the mistake. Emilio says this tile is not a square because it is tipped on its corner. The marks show 4 equal sides and 4 right angles. Type the most exact name for the tile.</p>
+<div class="fig"><svg class="art" viewBox="0 0 300 200" role="img" aria-label="A tile tipped on its corner like a diamond, with a tick mark on each of its 4 sides and a right angle mark in each corner" style="width:100%;max-width:300px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="300" height="200" rx="14" fill="#F8FAFF"/><polygon points="150.0,20.0 230.0,100.0 150.0,180.0 70.0,100.0" fill="#F6C27A" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><polyline points="141.5,28.5 150.0,37.0 158.5,28.5" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="221.5,91.5 213.0,100.0 221.5,108.5" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="158.5,171.5 150.0,163.0 141.5,171.5" fill="none" stroke="#DB2F30" stroke-width="2"/><polyline points="78.5,108.5 87.0,100.0 78.5,91.5" fill="none" stroke="#DB2F30" stroke-width="2"/><line x1="195.7" y1="54.3" x2="184.3" y2="65.7" stroke="#0047BA" stroke-width="3"/><line x1="195.7" y1="145.7" x2="184.3" y2="134.3" stroke="#0047BA" stroke-width="3"/><line x1="104.3" y1="145.7" x2="115.7" y2="134.3" stroke="#0047BA" stroke-width="3"/><line x1="104.3" y1="54.3" x2="115.7" y2="65.7" stroke="#0047BA" stroke-width="3"/></svg></div>  <div class="fillrow"><input class="fillin" inputmode="text" style="width:170px" aria-label="answer"><button class="btn btn-pri" data-check="bb4_s2">Check</button></div>
+  <p class="feedback"></p>
+</div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="14">&larr; Back</button>
+<button class="btn btn-go" data-go="16">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<h2>&#9999;&#65039; Pencil Break: Post-Lesson Activity</h2><div class="kce-sheet" style="background:#FFF8E6;border:2px solid #C9A84C;border-radius:14px;padding:12px 14px;margin:12px 0;text-align:center"><p style="margin:0 0 8px;font-weight:700;color:#0A1F3D">Page 2 (Post) is on your Pre/Post sheet. Did not print it yet? Use these buttons.</p><a href="../prepost/KCE_Math_PrePost_G3W23.pdf" target="_blank" rel="noopener" style="display:inline-block;margin:4px;background:#0A1F3D;color:#fff;text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px">&#128196; Open my Pre/Post sheet</a><button type="button" onclick="kcePrintPdf('../prepost/KCE_Math_PrePost_G3W23.pdf')" style="margin:4px;background:#C9A84C;color:#0A1F3D;border:none;cursor:pointer;font:800 15px Arial,sans-serif;padding:11px 18px;border-radius:999px">&#128424;&#65039; Print it</button></div>
+<div class="card card-gold"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Terrific tile work! Before you see your score, step away from the screen one more time.', this)">&#128266;</button> Terrific tile work! Before you see your score, step away from the screen one more time.</p><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Turn your printed sheet over and do the POST side. Remember: a quadrilateral has 4 straight sides, a rectangle has 4 right angles, a rhombus has 4 equal sides, and a square has both. Equal parts must have equal area. If you finish early, try the star challenge!', this)">&#128266;</button> Turn your printed sheet over and do the <b>POST</b> side. Remember: a quadrilateral has 4 straight sides, a rectangle has 4 right angles, a rhombus has 4 equal sides, and a square has both. Equal parts must have equal area. If you finish early, try the star challenge!</p></div><div class="fig"><svg class="art" viewBox="0 0 520 150" role="img" aria-label="A pencil, a square tile, a rhombus tile, and a rectangle tile" style="width:100%;max-width:520px;height:auto;display:block;margin:12px auto"><rect x="0" y="0" width="520" height="150" rx="14" fill="#FFFFFF"/><rect x="30" y="38" width="70" height="70" fill="#2BB3B1" stroke="#0A1F3D" stroke-width="3"/><polygon points="150.0,30.0 190.0,73.0 150.0,116.0 110.0,73.0" fill="#C9A84C" stroke="#0A1F3D" stroke-width="3" stroke-linejoin="round"/><rect x="380" y="50" width="110" height="56" fill="#DB2F30" stroke="#0A1F3D" stroke-width="3"/><g transform="translate(205,62) rotate(-10)"><rect x="0" y="0" width="140" height="16" rx="3" fill="#C9A84C"/><rect x="0" y="0" width="18" height="16" fill="#F5A3A3"/><path d="M140 0 L166 8 L140 16 Z" fill="#F2D3A0"/><path d="M158 5 L166 8 L158 11 Z" fill="#0A1F3D"/></g></svg></div><div class="card card-sky"><p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('When your Post side is done, tap See My Score.', this)">&#128266;</button> When your Post side is done, tap <b>See My Score</b>.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="15">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score &#127942;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="17">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Tile Day Complete!</h1>
+    <h2 id="finalTitle">Rising Tile Helper! &#11088;</h2>
+    <div class="final-score"><span id="finalScore">0</span>/100</div>
+    <div class="congrats" id="congratsCard">
+      <h3 id="congratsHeading"></h3>
+      <p id="congratsBody"></p>
+    </div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Great work today!</h3>
+      <p id="finalMessageBody"></p>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>
+    </div>
+    <div class="card" style="text-align:center;background:#FFF6E1;border-color:#FFE0A0">
+      <span class="badge" style="background:linear-gradient(135deg,var(--gold),#E3C77A)">&#128220; Portfolio Passport</span>
+      <p style="margin-top:8px;font-weight:800;color:var(--navy)">Unit 5: Data and Design &mdash; Week 23</p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Next stop: Week 24, where you will solve two-step word problems with adding, subtracting, multiplying, and dividing, use a letter for the unknown number, and check your answers by rounding!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 18;
+const FINAL_INDEX = 17;
+const MODULE_ID = 'grade3-math-w23';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+const MATCH_POINTS = 10;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting to KingCretot Experience (Formspree). */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    let name = 'Unnamed Student';
+    try{ name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student'; }catch(e){}
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '✅ Your results were sent to KingCretot Experience automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '⚠️ Your results could not be sent automatically. Please let your parent or teacher know your score.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    try{
+      if (full) localStorage.setItem('kcePathwaysStudentName', full);
+      if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+      if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+    }catch(e){}
+  };
+  try{
+    if (firstField){ firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || ''; }
+    if (lastField){ lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || ''; }
+  }catch(e){}
+  if (firstField) firstField.addEventListener('blur', saveFullName);
+  if (lastField) lastField.addEventListener('blur', saveFullName);
+});
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(n){ const count = n || 34; const colors = ['#C9A84C','#0A1F3D','#0047BA','#DB2F30','#F28C28','#86D464']; for(let i=0;i<count;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1800, delay:Math.random()*400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function bigConfetti(){ confetti(160); setTimeout(()=>confetti(140), 700); setTimeout(()=>confetti(140), 1500); setTimeout(()=>confetti(120), 2400); }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded free Kokoro voice (Heart); browser voice only as a backup */
+var KCE_CLIPS = {};
+var _kceAud = null;
+function _kceBackup(text, btn){
+  if (!('speechSynthesis' in window)) { if (btn) btn.classList.remove('speaking'); return; }
+  const clean = text.replace(/<[^>]+>/g, ' ').replace(/&[a-zA-Z#0-9]+;/g, ' ');
+  const u = new SpeechSynthesisUtterance(clean); u.rate = 0.88; u.lang = 'en-US';
+  u.onend = u.onerror = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  window.speechSynthesis.speak(u);
+}
+function speakText(text, btn){
+  if (_kceAud) { try { _kceAud.pause(); } catch(e){} _kceAud = null; }
+  if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch(e){} }
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  if (btn) btn.classList.add('speaking');
+  const f = KCE_CLIPS[text];
+  if (!f) { _kceBackup(text, btn); return; }
+  const a = new Audio(f); _kceAud = a; let done = false;
+  const end = ()=>{ if (btn) btn.classList.remove('speaking'); };
+  a.onended = end;
+  a.onerror = ()=>{ if (!done) { done = true; _kceBackup(text, btn); } };
+  const p = a.play(); if (p && p.catch) p.catch(()=>{ if (!done) { done = true; _kceBackup(text, btn); } });
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const active = document.querySelector('.slide.on'); const d = active ? active.querySelector('.dots') : null; if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["quadrilateral", "a flat shape with 4 straight sides"], ["rhombus", "4 sides that are all the same length"], ["rectangle", "4 right angles"], ["square", "4 equal sides and 4 right angles"], ["right angle", "a square corner"]], [["2 equal parts", "each part is 1/2"], ["3 equal parts", "each part is 1/3"], ["4 equal parts", "each part is 1/4"], ["6 equal parts", "each part is 1/6"], ["8 equal parts", "each part is 1/8"]], [["Sides on a triangle", "3"], ["Right angles on a square", "4"], ["Sides on a hexagon", "6"], ["Sides on a pentagon", "5"], ["Right angles on a rhombus with no square corners", "0"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'inline-block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) — here we go!'; } }
+}
+/* Every question set must be worth exactly 100 Pathway Points. */
+function setTotal(idx){ let t = MATCH_POINTS; document.querySelectorAll('.qset[data-set="' + idx + '"] .qbox').forEach(b=>{ if (b.dataset.bonus !== '1') t += (+b.dataset.pts || 0); }); return t; }
+function verifySetTotals(){ const out = [0,1,2].map(setTotal); out.forEach((t,i)=>{ if (t !== 100) console.warn('Question set ' + (i+1) + ' totals ' + t + ' points, expected 100.'); }); return out; }
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  if (e.target.closest('.qspeak-btn')) return;
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+/* Straighten curly quotes and squeeze extra spaces before checking. */
+function normalizeAnswer(s){ return String(s).replace(/[‘’‚′]/g, "'").replace(/[“”„″]/g, '"').replace(/\s+/g, ' ').trim(); }
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const exact = box.dataset.exact === '1';
+  const raw = normalizeAnswer(inp.value);
+  if (raw === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const accepted = String(box.dataset.ans).split('||').map(s=>normalizeAnswer(s));
+  const stripDot = s=>s.replace(/\.$/, '');
+  const ok = exact ? accepted.indexOf(raw) !== -1 : accepted.map(s=>stripDot(s).toLowerCase()).indexOf(stripDot(raw).toLowerCase()) !== -1;
+  if (ok){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +' + (box.dataset.pts || 5) + ' XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?(+box.dataset.pts||5):8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('||')[0];
+      const lead = exact ? 'The corrected sentence is: <b>' + escapeHtml(correctAnswer) + '</b>' : 'The correct answer is: ' + escapeHtml(correctAnswer) + '.';
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. ' + lead + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you’ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      const hint = exact ? ' Check the capital letter, the commas, and the end mark.' : ' Check your work and try again.';
+      fb.textContent = '❌ Not yet —' + hint + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  const score = displayScore();
+  document.getElementById('finalScore').textContent = score;
+  const rec = saveModuleResult(score);
+  reportProgress(score, rec);
+  const passed = score >= MASTERY_THRESHOLD;
+  let tierTitle = 'Rising Tile Helper! ⭐';
+  if (score >= 90) tierTitle = 'Master Tile Maker! 🧱👑';
+  else if (score >= 75) tierTitle = 'Shape Sorter! 🌟';
+  else if (score >= 50) tierTitle = 'Pattern Explorer! ✨';
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+  const congrats = document.getElementById('congratsCard');
+  const cHead = document.getElementById('congratsHeading');
+  const cBody = document.getElementById('congratsBody');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🧱 Tile Hero!';
+    cHead.innerHTML = '&#127881; Tile hero! You sorted and split every tile in the order!';
+    cBody.innerHTML = 'You helped Ms. Fresquez, Emilio, Estrella, and Felipa finish the courtyard order in Santa Fe! You found <b>quadrilaterals</b> by counting 4 straight sides and 4 angles. You sorted <b>rectangles</b> by their 4 right angles and <b>rhombuses</b> by their 4 equal sides, and you showed that a <b>square</b> belongs to both groups. You split tiles into parts with <b>equal area</b> and named each part with a <b>unit fraction</b>, like 1/4 or 1/6, and you cracked two-step tile problems. You even fixed Felipa&#8217;s workshop sign with capital letters, commas, and end marks!';
+    congrats.style.display = 'block';
+    msgHeading.innerHTML = '&#127942; You’ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + score + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Your results go to KingCretot Experience. Finish the <b>Post-Lesson Challenge</b> on your printed sheet if you have not already, and keep it in your Portfolio Passport.';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson →';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    congrats.style.display = 'none';
+    msgHeading.innerHTML = '&#129521; Every tile maker gets better with practice.';
+    msgBody.innerHTML = 'You scored ' + score + '/100. Your results go to KingCretot Experience. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100, and you are on your way! Look back at how to spot a quadrilateral, how rectangles, rhombuses, and squares are alike and different, and how to name equal parts with unit fractions, then press Try Again. Next time you will get a <b>fresh set of questions</b>, so every try is a new day at the workshop. Don&#8217;t forget to finish the <b>Post-Lesson Challenge</b> on your printed sheet.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare();
+  if (passed){ bigConfetti(); } else { setTimeout(()=>confetti(), 250); }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); verifySetTotals(); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+
+</script>
+<script>/* keep slide content clear of the fixed header on every screen size */
+(function(){function pad(){var h=document.querySelector('.hud'),w=document.querySelector('.wrap');if(h&&w){w.style.paddingTop=(h.offsetHeight+18)+'px';}}
+window.addEventListener('load',pad);window.addEventListener('resize',pad);if(document.readyState!=='loading')pad();else document.addEventListener('DOMContentLoaded',pad);})();</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script>if(!window.kcePrintPdf){window.kcePrintPdf=function(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}}</script><script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g23"></script>
+</body>
+</html>
