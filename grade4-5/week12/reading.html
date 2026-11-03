@@ -1088,7 +1088,7 @@ function checkFill(fid){
   const firstTry=!state.attempted['fill-'+fid]; state.attempted['fill-'+fid]=true;
   let matched;
   if(exact){ matched = String(box.dataset.ans).split('||').some(a=>normSentence(val)===normSentence(a)); }
-  else { const cleanVal=val.toLowerCase().replace(/\.$/,''); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z]|$)').test(cleanVal)); }
+  else { const cleanVal=val.toLowerCase().replace(/\.$/,''); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z0-9])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z0-9]|$)').test(cleanVal)); }
   if(matched){
     state.answered['fill-'+fid]=true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
     if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
@@ -1150,7 +1150,7 @@ function checkNotebook(){
   const add=(cls,txt)=>{ const li=document.createElement('li'); li.className=cls; li.textContent=txt; list.appendChild(li); };
   if(!t){ add('todo','✏️ Type your paragraph first!'); return; }
   const n=wnSentences(t).length; const low=t.toLowerCase();
-  const found=WN_TRANSITIONS.filter(w=>new RegExp('(^|[^a-z])'+w+'([^a-z]|$)').test(low));
+  const found=WN_TRANSITIONS.filter(w=>new RegExp('(^|[^a-z])'+w+'([^a-z0-9]|$)').test(low));
   const okLen=n>=4&&n<=6, okTr=found.length>=2, okCap=/^[A-Z"“]/.test(t)&&/[.!?]["”]?$/.test(t);
   add(okLen?'ok':'todo', okLen?('✅ '+n+' sentences (goal: 4 to 6)'):('🔧 '+n+' complete sentence'+(n===1?'':'s')+' so far (goal: 4 to 6)'));
   add(okTr?'ok':'todo', okTr?('✅ Transition words: '+found.join(', ')):('🔧 Transition words found: '+(found.length?found.join(', '):'none yet')+' (goal: at least 2)'));

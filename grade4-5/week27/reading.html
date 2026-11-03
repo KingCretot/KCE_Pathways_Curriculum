@@ -1156,7 +1156,7 @@ function checkFill(fid){
   let matched, problems=[];
   if(para){ problems=paraCheck(box, val); matched = problems.length===0; }
   else if(exact){ matched = String(box.dataset.ans).split('||').some(a=>normSentence(val)===normSentence(a)); }
-  else { const cleanVal=val.toLowerCase(); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z]|$)').test(cleanVal)); }
+  else { const cleanVal=val.toLowerCase(); matched = String(box.dataset.ans).split('|').map(s=>s.trim().toLowerCase()).some(a=>a && new RegExp('(^|[^a-z0-9])'+a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z0-9]|$)').test(cleanVal)); }
   if(matched){
     state.answered['fill-'+fid]=true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled=true; box.classList.add('ok');
     if(bonus){ fb.textContent='🌟 Nice practice! +'+(box.dataset.pts||5)+' XP'; }
