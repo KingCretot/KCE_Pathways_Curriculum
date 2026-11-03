@@ -654,10 +654,10 @@ ul.facts li{margin:8px 0}
 <span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
 <p><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('Quick facts for bonus XP! Go fast, but stay correct.', this)">&#128266;</button> Quick facts for bonus XP! Go fast, but stay correct.</p>
 <div class="practicewrap">
-<div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Count by 5s: 5, 10. That is 2 wholes, so 10/5 = 2.">
+<div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Count by 6s: 6, 12. That is 2 wholes, so 12/6 = 2.">
   <span class="pts">+5 XP</span>
-  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 10 fifths?', this)">&#128266;</button> What is <span class="frac"><span class="top">10</span><span class="bot">5</span></span>?</p>
-  <div class="opts"><button class="opt" data-c="1">2</button><button class="opt">5</button><button class="opt">10</button><button class="opt"><span class="frac"><span class="top">1</span><span class="bot">2</span></span></button></div>
+  <p class="qtext"><button class="speak-btn qspeak-btn" type="button" title="Hear this read aloud" onclick="speakText('What is 12 sixths?', this)">&#128266;</button> What is <span class="frac"><span class="top">12</span><span class="bot">6</span></span>?</p>
+  <div class="opts"><button class="opt" data-c="1">2</button><button class="opt">6</button><button class="opt">12</button><button class="opt"><span class="frac"><span class="top">1</span><span class="bot">2</span></span></button></div>
   <p class="feedback"></p>
 </div>
 <div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="=||equal||equals||equal to||is equal to" data-logic="Count by 3s: 3, 6, 9. That is 3 wholes, so 9/3 = 3.">
@@ -936,7 +936,7 @@ function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ 
 function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
 function buildDots(cur){ const active = document.querySelector('.slide.on'); const d = active ? active.querySelector('.dots') : null; if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
 
-const MATCH_PAIRS_SETS = [[["numerator", "the top number of a fraction"], ["denominator", "how many equal parts make 1 whole"], ["whole number", "0, 1, 2, 3, and so on"], ["fraction greater than 1", "numerator bigger than denominator"], ["equivalent", "names the same amount"]], [["8/4", "2"], ["9/3", "3"], ["5/5", "1"], ["12/2", "6"], ["4/1", "4"]], [["7/4", "1 whole and 3/4 more"], ["5/2", "2 wholes and 1/2 more"], ["10/3", "3 wholes and 1/3 more"], ["9/8", "1 whole and 1/8 more"], ["13/6", "2 wholes and 1/6 more"]]];
+const MATCH_PAIRS_SETS = [[["numerator", "the top number of a fraction"], ["denominator", "how many equal parts make 1 whole"], ["whole number", "0, 1, 2, 3, and so on"], ["fraction greater than 1", "numerator bigger than denominator"], ["equivalent", "names the same amount"]], [["8/4", "2"], ["9/3", "3"], ["8/8", "1"], ["12/2", "6"], ["4/1", "4"]], [["7/4", "1 whole and 3/4 more"], ["5/2", "2 wholes and 1/2 more"], ["10/3", "3 wholes and 1/3 more"], ["9/8", "1 whole and 1/8 more"], ["13/6", "2 wholes and 1/6 more"]]];
 let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
 let mSel = null;
 function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
