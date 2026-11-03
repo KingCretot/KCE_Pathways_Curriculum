@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades 4&ndash;5 &mdash; Week 25 Science Checkpoint: Unit 5 | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grades 4&ndash;5 &mdash; Week 25</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 5: Charting the Course &bull; Week 25 &bull; Science Checkpoint</span>
+  <h1>Science Checkpoint: Unit 5</h1>
+  <h2>Physical and chemical changes, senses and signals, decomposers and the cycle of matter, and Earth&rsquo;s moving plates. Show what you know and connect the big ideas.</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 2 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Judge the clues for a <b>chemical change</b> and account for every gram with <b>conservation of mass</b></li><li>Trace the <b>message pathway</b> from <b>stimulus</b> to <b>receptors</b>, nerves, brain and muscles, and read the ruler-drop chart</li><li>Follow matter through <b>decomposers</b> and the <b>cycle of matter</b>, fix a compost pile and read the EPA waste data</li><li>Name <b>plate boundaries</b>, compare earthquake <b>magnitudes</b> and read the USGS earthquake data</li><li>Connect all four weeks in the Boss Battle</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you remember from Weeks 21–24 and mark what you are still unsure of. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G4-5W25.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G4-5W25.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>🧪 Week 21: Physical and Chemical Changes, Part 1</h2>
+<p>Remember: a clue is not proof. A chemical change makes a new substance with new properties. Atoms rearrange, so mass is conserved; if the scale changes, look for matter that moved in or out.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c01_s0" data-pts="5" data-ans="49.6|49.6 g|49.6 grams" data-logic="30 minutes is three groups of 10 minutes, and 3 times 0.8 is 2.4 grams of gases that left the open dish. 52.0 minus 2.4 is 49.6 grams.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A candle in an open dish loses 0.8 grams every 10 minutes. It starts at 52.0 grams. How many grams will it weigh after 30 minutes? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s0" data-pts="5" data-logic="Bubbles are only a clue. In boiling, heat turns liquid water into water vapor. No new substance forms, so it is a physical change.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: Ozias says, "The pot of water on the stove is full of bubbles, so a chemical change is happening." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The bubbles are water vapor, which is still water, so boiling is a physical change</button>
+      <button class="opt">Bubbles can only form in cold water</button>
+      <button class="opt">Boiling destroys the water, so it is neither kind of change</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c01_s1" data-pts="5" data-ans="55.3|55.3 g|55.3 grams" data-logic="Step 1: add the reactants, 34.5 plus 20.8 is 55.3 grams. Step 2: nothing got in or out of the sealed jar, so the products also weigh 55.3 grams.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: In a sealed jar, 34.5 grams of one clear liquid and 20.8 grams of another clear liquid are mixed, and a cloudy white solid forms. Not counting the jar, what is the total mass of the products? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s1" data-pts="5" data-logic="Mixing paint makes a new color, but the red and white paint are still there, just mixed. The real test is whether a new substance with new properties formed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Anwen stirs red paint into white paint and gets pink paint.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is a physical change: a new color is only a clue, and no new substance formed</button>
+      <button class="opt">It is a chemical change, because any new color proves a new substance</button>
+      <button class="opt">It is a chemical change, because a precipitate formed</button>
+      <button class="opt">The paint atoms were destroyed and new ones were made</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c01_s2" data-pts="5" data-ans="0.6|0.6 g|0.6 grams" data-logic="Step 1: 4.5 plus 3.7 is 8.2 grams before burning. Step 2: 8.8 minus 8.2 is 0.6 grams. Oxygen atoms from the air joined the iron atoms and stayed on the scale.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A grown-up burns two pieces of steel wool, 4.5 grams and 3.7 grams, together in an open fireproof dish. Afterward the steel wool weighs 8.8 grams in all. How many grams of oxygen joined from the air? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c01_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c02_s2" data-pts="5" data-logic="Gases have mass even though you cannot see them. The candle lost mass because its products drifted away from the scale, not because matter was destroyed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "My candle got lighter as it burned, so burning destroyed some of its matter." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">No matter was destroyed: the wax joined with oxygen and became carbon dioxide and water vapor, gases that left the open dish</button>
+      <button class="opt">Candles never get lighter when they burn</button>
+      <button class="opt">The wax turned into light, which has no matter</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>🗽 Week 21: Physical and Chemical Changes, Part 2</h2>
+<p>Remember the chemical changes all around us, from the Statue of Liberty&rsquo;s patina and rust to glow sticks and digestion, and the scientists who followed the atoms.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c03_s0" data-pts="5" data-ans="patina" data-logic="A patina is a new substance, so forming it is a chemical change. The Statue of Liberty turned green the same way.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A copper roof slowly turns blue-green as the copper reacts with oxygen, water, carbon dioxide and other substances in the air. That new layer, which sticks tightly and protects the copper, is called a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c04_s0" data-pts="5" data-ans="chemistry" data-logic="She earned her doctoral degree in chemistry from Columbia University and studied how a digestive substance breaks down corn starch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1947, Marie Maynard Daly became the first Black woman in the United States to earn a doctoral degree in which science? Type the subject:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c04_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c03_s1" data-pts="5" data-ans="mass" data-logic="Nothing could get into or out of the sealed container, so the total mass did not change. That is conservation of mass.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1756, Mikhail Lomonosov heated metal inside a sealed glass container, and the total weight stayed the same. That was early evidence for conservation of ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s1" data-pts="5" data-logic="Snapping a glow stick lets two liquids mix. Light given off by a reaction is a clue of a chemical change.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "A glow stick glows because a tiny battery inside heats it up, so glowing is a physical change." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Two liquids inside the glow stick mix and react, and that chemical reaction gives off light</button>
+      <button class="opt">Glow sticks give off heat but never light</button>
+      <button class="opt">Glow sticks glow because they are painted green</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c03_s2" data-pts="5" data-ans="glaucoma" data-logic="Physostigmine is still used to treat glaucoma. Julian also used chemical reactions to turn soybean substances into medicines.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1935, Percy Julian and Josef Pikl made physostigmine in the lab. It is a medicine still used to treat which eye disease? Type its name:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c03_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c04_s2" data-pts="5" data-logic="Both are chemical changes with substances from the air. Whether a change helps or harms depends on the properties of the new substance that forms.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? An old iron gate keeps rusting year after year, but a copper roof stays strong under its green layer.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Rust does not protect the iron, so fresh iron underneath keeps reacting; the patina sticks tightly and shields the copper</button>
+      <button class="opt">Rust protects iron better than patina protects copper</button>
+      <button class="opt">Rust and patina are both physical changes, so neither one matters</button>
+      <button class="opt">The copper roof is not touching any air</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<h2>🧠 Week 22: Senses and Signals, Part 1</h2>
+<p>Remember the message pathway: stimulus, receptors, nerves, brain and muscles. A reflex takes a shortcut through the spinal cord.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c05_s0" data-pts="5" data-ans="receptors|receptor" data-logic="Receptors turn a stimulus into a signal. Nose and tongue receptors detect chemicals.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Liesel smells smoke and runs to tell a grown-up. The smell of smoke is the stimulus. The special cells in her nose that detect it and start a signal are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s0" data-pts="5" data-logic="In the message pathway, the brain processes the signal and compares it with what it remembers. Past experience changes the response.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A dog that has learned its name runs over when it hears it, but a new puppy just keeps playing. Why the difference?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The trained dog's brain compares the sound with its memories and uses past experience to decide how to respond</button>
+      <button class="opt">The new puppy has no ears</button>
+      <button class="opt">Sound cannot reach a puppy's receptors</button>
+      <button class="opt">The trained dog's leg muscles hear the name by themselves</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c05_s1" data-pts="5" data-ans="reflex|reflexes" data-logic="A reflex takes a shortcut: the signal goes to the spinal cord and straight back out to the muscles.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Ozias steps on a sharp pebble and jerks his foot up before he even feels the pain. A fast, automatic response that does not wait for the brain to decide is a ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s1" data-pts="5" data-logic="Seeing starts with light reaching receptors in the eyes. The signals travel along nerves, and the brain makes sense of them.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "You see a ball because your eyes send out light that touches the ball." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Light from the ball enters your eyes, receptors turn it into signals, and nerves carry them to your brain</button>
+      <button class="opt">Eyes do not have any receptors</button>
+      <button class="opt">You see with your nose, not your eyes</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c05_s2" data-pts="5" data-ans="brain|the brain" data-logic="The brain decides, then sends signals along nerves to the muscles that carry out the response.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In the message pathway, which organ processes the signals, compares them with what it remembers and decides what to do? Type it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c05_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c06_s2" data-pts="5" data-logic="A stimulus is something in the environment that an animal can sense. The flick of the tongue is the response, carried out by muscles.">
+    <span class="pts">+5</span>
+    <p class="qtext">A frog sees a fly and flicks out its tongue to catch it. Which part is the STIMULUS?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The fly, seen when light from it reaches the frog's eyes</button>
+      <button class="opt">The frog's tongue muscles</button>
+      <button class="opt">The frog's brain</button>
+      <button class="opt">The flick of the frog's tongue</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🦇 Week 22: Senses and Signals, Part 2</h2>
+<p>Ruler-drop chart (Scientific American): 5 centimeters = 0.10 seconds, 10 centimeters = 0.14 seconds, 15 centimeters = 0.17 seconds, 20 centimeters = 0.20 seconds, 25.5 centimeters = 0.23 seconds, 30.5 centimeters = 0.25 seconds. A shorter catch distance means a faster reaction. Then remember the super senses and the structures inside and outside the body.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c07_s0" data-pts="5" data-ans="0.08|0.08 seconds|0.08 s" data-logic="Step 1: 30.5 centimeters is 0.25 seconds and 15 centimeters is 0.17 seconds. Step 2: 0.25 minus 0.17 is 0.08 seconds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the chart. Anwen catches the ruler at 30.5 centimeters on her first try and at 15 centimeters on her last try. How many seconds faster was her last try? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c08_s0" data-pts="5" data-logic="Sharks and rays sense weak electric signals made by other animals. Each animal&#x27;s receptors match a stimulus that is easy to sense in its environment.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A shark finds a crab buried in the sand, even though it cannot see the crab.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Jelly-filled pores on its head sense the weak electric signals that the crab's body makes</button>
+      <button class="opt">It sends out calls and listens for echoes, like a bat</button>
+      <button class="opt">Pits between its eyes sense the crab's heat</button>
+      <button class="opt">It smells the crab with 22 fleshy fingers on its nose</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c07_s1" data-pts="5" data-ans="0.10|0.1|0.10 seconds|0.1 seconds|0.10 s|0.1 s" data-logic="Step 1: 5 centimeters is 0.10 seconds and 20 centimeters is 0.20 seconds. Step 2: 0.20 minus 0.10 is 0.10 seconds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the chart. Ozias catches the ruler at 5 centimeters with his writing hand and at 20 centimeters with his other hand. How many seconds slower was his other hand? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c08_s1" data-pts="5" data-logic="A sound reaches the owl&#x27;s two ears at slightly different times, so its brain can pinpoint the mouse without any light.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "A barn owl needs bright moonlight to catch a mouse." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A barn owl can find a mouse in total darkness by sound, using its lopsided ears and its brain</button>
+      <button class="opt">Barn owls hunt only in the daytime</button>
+      <button class="opt">Barn owls find mice by sensing their heat with pits</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c07_s2" data-pts="5" data-ans="0.51|0.51 seconds|0.51 s" data-logic="Step 1: the chart gives 0.20, 0.17 and 0.14 seconds. Step 2: 0.20 plus 0.17 plus 0.14 is 0.51 seconds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the chart. Liesel catches the ruler at 20, 15 and 10 centimeters on three tries. What is her TOTAL reaction time for all three tries, in seconds? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c07_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c08_s2" data-pts="5" data-logic="Gills sit inside, under a flap on each side of the head. Taking in oxygen is their job, just as lungs do for us.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct about a fish's gills?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They are internal structures, under a flap, that take in oxygen from water</button>
+      <button class="opt">They are external structures that catch and tear food</button>
+      <button class="opt">They pump blood to every part of the body</button>
+      <button class="opt">They sense weak electric signals from other animals</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🍄 Week 23: Decomposers and the Cycle of Matter, Part 1</h2>
+<p>Remember the decomposer team: fungi, bacteria and detritivores. Matter cycles from air, water and soil to plants, animals, decomposers and back; energy flows through and leaves as heat.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c09_s0" data-pts="5" data-ans="93|93 g|93 grams" data-logic="Compare the start with the end of the year: 150 minus 57 is 93 grams. The 96-gram reading is only the halfway point. The matter moved into the air, the soil and the decomposers.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A scientist leaves a mesh bag with 150 grams of dead leaves on the forest floor. After 6 months, 96 grams are left. After 6 more months, 57 grams are left. How many grams did the decomposers break down in the whole year? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s0" data-pts="5" data-logic="Fungi are decomposers. The mushroom is only the fruiting body; most of the fungus is a web of hyphae.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Why is a mushroom NOT a plant?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">A fungus cannot make its own food from sunlight; its hyphae digest dead matter with enzymes and soak up the food</button>
+      <button class="opt">Mushrooms are animals that chase insects</button>
+      <button class="opt">Mushrooms make their food from sunlight faster than plants</button>
+      <button class="opt">Mushrooms are made of rock</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c09_s1" data-pts="5" data-ans="hyphae|hypha|hyphe" data-logic="Hyphae give off enzymes that break dead material down outside the fungus, then soak up the food.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The tiny white threads that make up most of a fungus, running all through a rotting log, are called ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s1" data-pts="5" data-logic="Plants take in carbon dioxide and water and use energy from the Sun to build sugar. The soil supplies nutrients, not most of the mass.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Most of a tree's mass comes from soil that its roots eat." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Most of a tree's mass comes from carbon dioxide from the air and water, not from the soil</button>
+      <button class="opt">Trees have no mass</button>
+      <button class="opt">Most of a tree's mass comes from sunlight turning into wood</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c09_s2" data-pts="5" data-ans="carbon dioxide|co2|carbon-dioxide" data-logic="Decomposers give off carbon dioxide as they use dead matter and wastes for food. Then a plant can take it in again. That is the cycle of matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A bit of carbon goes from the air into an oak leaf, then into a caterpillar that eats the leaf. Bacteria break down the caterpillar's droppings and use them for food. As part of which gas does the carbon go back into the air? Type the gas:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c09_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c10_s2" data-pts="5" data-logic="Millipedes are detritivores. Smaller pieces have more surface, so the whole decomposer team works faster together.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Ozias finds a millipede chewing the soft wood of a fallen log. How does the millipede help?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It shreds the wood into smaller pieces, which gives fungi and bacteria more surface to work on</button>
+      <button class="opt">It makes sunlight for the fungi</button>
+      <button class="opt">It turns the wood into new matter from nothing</button>
+      <button class="opt">It stops the log from ever breaking down</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🪱 Week 23: Decomposers and the Cycle of Matter, Part 2</h2>
+<p>EPA data, what Americans threw away in 2018 (percent of all waste, by weight): paper and paperboard 23.1%, food 21.6%, plastics 12.2%, yard trimmings 12.1%, all other materials 31.0%. Food and yard trimmings break down well in a compost pile; plastic does not. Remember the compost recipe too: browns, greens, water and air.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c11_s0" data-pts="5" data-ans="23|23.0|23%|23.0%|23 percent|23 percentage points" data-logic="Step 1: 23.1 plus 12.1 is 35.2. Step 2: 35.2 minus 12.2 is 23.0 percentage points.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the EPA 2018 data. Add paper and paperboard (23.1) and yard trimmings (12.1). How many percentage points more is that total than plastics (12.2)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s0" data-pts="5" data-ans="nitrogen" data-logic="Greens provide nitrogen and water provides moisture, so the decomposers can grow and the pile heats up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Anwen's compost pile is dry and stays cool. She adds water and greens, such as grass clippings. Browns give the decomposers carbon. Greens give them ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c11_s1" data-pts="5" data-ans="67.4|67.4 pounds|67.4 lb" data-logic="Step 1: 21.6 percent plus 12.1 percent is 33.7 percent. Step 2: 33.7 percent of 200 pounds is 2 times 33.7, which is 67.4 pounds.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the EPA 2018 data. A school's trash matches the table, and it throws away 200 pounds in a week. How many pounds are food and yard trimmings that could be composted? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s1" data-pts="5" data-ans="oxygen|o2|air" data-logic="Aerobic bacteria do most of the breaking down, and they need oxygen. Turning the pile with a garden fork lets air in.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Find the mistake: Liesel says, "Seal the compost lid tight so no air gets in, and the bad smell will stop." A bad smell usually means the aerobic bacteria need MORE of which gas? Type it:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c11_s2" data-pts="5" data-ans="12|12 degrees|twelve" data-logic="Step 1: 144 minus 72 is 72 degrees. Step 2: 72 divided by 6 days is 12 degrees per day. Busy decomposers give off heat.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: A compost thermometer reads 72 degrees Fahrenheit on Day 1 and 144 degrees on Day 7. On average, how many degrees did the pile warm up each day over those 6 days? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c11_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c12_s2" data-pts="5" data-ans="pests|pest" data-logic="The EPA keeps these out of backyard piles. Fruit and vegetable scraps, coffee grounds and dry leaves are fine.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Meat, fish, dairy products and oils should stay out of a backyard compost pile, because they can cause odors and attract animals and ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🗺️ Week 24: Earth&rsquo;s Moving Plates, Part 1</h2>
+<p>Remember the belts on the map and the boundaries: plates pull apart at divergent boundaries, push together at convergent boundaries and slide past each other at transform boundaries.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c13_s0" data-pts="5" data-ans="5|5 m|5 meters|five" data-logic="Step 1: 2.5 times 200 is 500 centimeters. Step 2: 500 divided by 100 is 5 meters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: The Mid-Atlantic Ridge spreads about 2.5 centimeters a year. How many METERS does it spread in 200 years? (100 centimeters = 1 meter.) Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s0" data-pts="5" data-logic="The North American and Eurasian Plates are moving apart under Iceland. That is a divergent boundary.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? The country of Iceland is slowly splitting apart.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It sits on the Mid-Atlantic Ridge, a divergent boundary where plates pull apart and magma rises to make new crust</button>
+      <button class="opt">It sits on a transform boundary where plates slide past each other</button>
+      <button class="opt">It sits where two continents collide and crumple</button>
+      <button class="opt">It sits in the middle of a plate, far from any boundary</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c13_s1" data-pts="5" data-ans="180|180 cm|180 centimeters" data-logic="Step 1: 2026 minus 1990 is 36 years. Step 2: 36 times 5 is 180 centimeters.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Along the San Andreas fault, the Pacific Plate grinds past the North American Plate at about 5 centimeters a year. Suppose a fence was built straight across the fault in 1990. About how many centimeters apart have its two halves moved by 2026? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s1" data-pts="5" data-logic="Wegener used the puzzle-piece coasts and fossils such as Mesosaurus. The missing piece was an explanation of how continents could move.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "Scientists rejected Alfred Wegener's idea because he had no evidence at all." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">He had evidence, like fitting coastlines and matching fossils; scientists rejected the idea because he could not explain what force moved the continents</button>
+      <button class="opt">Wegener never shared his idea with anyone</button>
+      <button class="opt">Scientists accepted his idea right away in 1912</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c13_s2" data-pts="5" data-ans="Himalayas|Himalaya|Himalayan mountains|Himalaya mountains" data-logic="That is a convergent boundary with a collision. Neither plate sinks, so the highest mountains on land rose up.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When two continents collide, their rock is too light to sink, so the crust crumples and is pushed up. India colliding with Asia pushed up the mountains called the ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c13_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c14_s2" data-pts="5" data-logic="Subduction at a convergent boundary makes the Cascade Range. Florida sits in the middle of the North American Plate.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? Washington State has big volcanoes like Mount St. Helens, but Florida has none.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Off Washington's coast, an ocean plate sinks under the North American Plate and makes magma; Florida is far from any plate boundary</button>
+      <button class="opt">Florida is too hot for volcanoes to form</button>
+      <button class="opt">Washington sits above the same hot spot as Hawaii</button>
+      <button class="opt">Florida sits on the Mid-Atlantic Ridge</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>📈 Week 24: Earth&rsquo;s Moving Plates, Part 2</h2>
+<p>USGS data: Chile 1960, magnitude 9.5. Alaska 1964, magnitude 9.2. Mount St. Helens 1980, magnitude 5.1. Bolivia 1994, magnitude 8.2, about 630 kilometers deep. Each whole-number step up in magnitude means 10 times more ground motion on a seismogram and about 32 times more energy. Remember how engineers and scientists reduce the danger.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="c15_s0" data-pts="5" data-ans="100|100 times|one hundred" data-logic="Magnitude 5 to 7 is two whole steps. Each step is 10 times more ground motion, so 10 times 10 is 100 times.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: How many times more ground motion on a seismogram does a magnitude 7 earthquake make than a magnitude 5 earthquake? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="c16_s0" data-pts="5" data-logic="Nobody can predict earthquakes days ahead. ShakeAlert gives a few seconds, enough to Drop, Cover and Hold On.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct about how ShakeAlert can warn people before strong shaking arrives?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Sensors detect an earthquake that has already started, and the warning message travels much faster than the earthquake waves</button>
+      <button class="opt">It predicts earthquakes days before they happen</button>
+      <button class="opt">It stops the earthquake waves before they reach a city</button>
+      <button class="opt">It slows the plates down</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="c15_s1" data-pts="5" data-ans="32|32 times|about 32|thirty-two|thirty two" data-logic="Step 1: 9.2 minus 8.2 is 1.0, one whole step. Step 2: one step means about 32 times more energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Use the data. The Alaska earthquake (9.2) was how many whole steps of magnitude above the Bolivia earthquake (8.2)? Use that to find about how many times MORE ENERGY the Alaska earthquake released. Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c16_s1" data-pts="5" data-ans="50|50 units|fifty" data-logic="Step 1: two-thirds of 150 is 100 units cut. Step 2: 150 minus 100 is 50 units, which is one-third.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: Base isolators cut the shaking that reaches a building by about two-thirds. If 150 units of shaking hit the ground, about how many units reach the building? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c16_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="c15_s2" data-pts="5" data-ans="1024|1,024|about 1024|about 1,024|1000|1,000|about 1000|about 1,000" data-logic="Step 1: 8.4 minus 6.4 is 2 whole steps. Step 2: 32 times 32 is 1,024, so about 1,000 times more energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: About how many times more energy does a magnitude 8.4 earthquake release than a magnitude 6.4 earthquake? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c15_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="c16_s2" data-pts="5" data-ans="143|one hundred forty-three" data-logic="161 minus 18 is 143 volcanoes. Scientists watch all of them with seismometers, GPS receivers, tiltmeters, gas sensors and cameras.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two-step: In 2018, the U.S. Geological Survey listed 161 volcanoes in the United States that are active or could become active. 18 were rated very high threat. How many were NOT rated very high threat? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="c16_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do Page 2 (Post) now: show what you learned across all of Unit 5, connect two weeks with evidence, and try the Challenge.</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_Science_Checkpoint_PrePost_G4-5W25.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_Science_Checkpoint_PrePost_G4-5W25.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>Which Unit 5 idea still puzzles you? Write one question about it that a scientist could answer with an experiment or with evidence.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, explore the American Chemical Society&rsquo;s Middle School Chemistry lessons, Neuroscience for Kids, the composting page of the U.S. Environmental Protection Agency website or the U.S. Geological Survey Latest Earthquakes map together. Then pick one thing near home, like a rusty nail, a pile of leaves or a compost bin, and explain where its matter is going.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>👑 Boss Battle: Unit 5 Matter, Signals and Moving Plates Showdown</h2>
+<p>These questions connect all four weeks: chemical changes and conservation of mass, senses and signals, decomposers and the cycle of matter, and Earth&rsquo;s moving plates. Reason with evidence before you answer.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="Atoms rearrange but are never made or destroyed. Decomposers move the log&#x27;s matter back into the cycle of matter.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? A fallen log rots away over many years (Week 23). What does Week 21 say happened to its matter?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Mass is conserved: the matter was not destroyed, it moved into the air as carbon dioxide, into the soil as nutrients and into the decomposers' bodies</button>
+      <button class="opt">The matter was destroyed by the fungi</button>
+      <button class="opt">The matter turned into sunlight</button>
+      <button class="opt">The log's atoms vanished one by one</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="b2_s0" data-pts="5" data-ans="846.5|846.5 g|846.5 grams" data-logic="It is a closed system, so the total mass stays 846.5 grams. Matter cycles inside the jar while sunlight brings in energy.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A sealed glass jar holds a small plant, moist soil, decomposers and air. It weighs 846.5 grams. It sits in sunlight for 3 months, and nothing gets in or out (Weeks 21 and 23). How many grams does it weigh then? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="b1_s1" data-pts="5" data-ans="108|108 g|108 grams" data-logic="180 minus 72 is 108 grams. That matter was not destroyed. It moved to new places.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">A mesh bag holds 180 grams of dead leaves. A year later it holds 72 grams (Week 23). How many grams of matter did the decomposers move out of the bag into the air, the soil and their own bodies (Week 21)? Type the number:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="The alarm is the stimulus. Ear receptors start a signal, nerves carry it to the brain, and the brain signals the muscles to Drop, Cover and Hold On.">
+    <span class="pts">+5</span>
+    <p class="qtext">A phone's ShakeAlert alarm sounds (Week 24), and a girl drops under a sturdy table. Which list shows her message pathway in order (Week 22)?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The alarm sound, receptors in her ears, nerves, brain, muscles</button>
+      <button class="opt">Muscles, brain, the alarm sound, ears</button>
+      <button class="opt">Brain, the alarm sound, muscles, receptors</button>
+      <button class="opt">Receptors, muscles, the alarm sound, brain</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="b1_s2" data-pts="5" data-ans="mass" data-logic="Gases have mass even though you cannot see them. That is why matter that leaves as a gas is moved, not destroyed.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Decomposers give off carbon dioxide into the air as they use dead matter for food (Week 23). Carbon dioxide is an invisible gas, but in Week 21 you learned that gases still have ____:</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="b1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Connect Weeks 21 and 23: atoms are never destroyed. The missing matter moved into the air and into new substances.">
+    <span class="pts">+5</span>
+    <p class="qtext">Find the mistake: "My compost pile shrank all summer, so the decomposers destroyed matter." What is wrong?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Matter is conserved: the decomposers gave off carbon dioxide into the air and turned the rest into compost and their own bodies</button>
+      <button class="opt">Compost piles never shrink</button>
+      <button class="opt">Decomposers make brand-new matter from nothing</button>
+      <button class="opt">Nothing is wrong with the sentence</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">Unit 5 Rookie</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. You just finished the Unit 5 Science Checkpoint. Tell your teacher or parent your score, then finish your Post sheet. See you at the next lesson!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 14;
+const FINAL_INDEX = 13;
+const MODULE_ID = 'grade4-5-science-checkpoint5';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 100;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["precipitate", "a solid formed when two liquids mix"], ["receptor", "a cell that detects a stimulus"], ["hyphae", "the tiny threads of a fungus"], ["subduction", "one plate sinks under another"], ["patina", "a blue-green layer on copper"]], [["closed system", "nothing gets in or out"], ["reflex", "a fast response that skips the brain"], ["detritivore", "an animal that shreds dead matter"], ["transform boundary", "plates slide past each other"], ["magnitude", "a number for an earthquake's size"]], [["Mikhail Lomonosov", "a sealed-container test of mass"], ["Santiago Ramón y Cajal", "separate nerve cells called neurons"], ["Selman Waksman", "streptomycin from a soil bacterium"], ["Marie Tharp", "a rift valley on the Mid-Atlantic Ridge"], ["Rita Levi-Montalcini", "nerve growth factor"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/(?<!\d)\.|\.(?!\d)|[,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["Unit 5 Rookie", "Signal Tracer", "Matter Mover", "Unit 5 Science Champion"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Unit 5 Science Mastered!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered the Unit 5 Science Checkpoint!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. From chemical changes and nerve signals to decomposers and moving plates, you followed the evidence like a real scientist. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
+<script src="../../gate.js"></script>
+<script src="../../cert.js" data-band="g45" data-unit="5" data-subject="Science"></script><div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g45"></script>
+</body>
+</html>
