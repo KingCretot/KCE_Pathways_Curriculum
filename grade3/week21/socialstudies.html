@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 &mdash; Week 21 Social Studies: Kids Around the World | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2C5C; --gold:#E0AC3C; --sky:#7CC6FF; --grass:#86D464;
+  --ink:#2A2A35; --ok:#3D8A30; --bad:#D14545; --pumpkin:#E07B3C;
+  --shadow:0 8px 24px rgba(27,44,92,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito','Comic Sans MS',sans-serif;background:linear-gradient(135deg,#FFF8E8 0%,#FFE9D6 50%,#E0F6FF 100%);color:var(--ink);min-height:100vh;font-size:18px;line-height:1.55}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#0f1a3a);color:#fff;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.hud-logo{height:40px;display:block}
+.kc-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kc-logo-large{justify-content:center;margin-bottom:26px}
+.kc-logo-box{background:var(--navy);color:var(--gold);font-family:'Fredoka One',cursive;font-weight:900;font-size:1.1rem;border-radius:8px;padding:6px 11px;line-height:1;border:2px solid var(--gold)}
+.kc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.kc-logo-name{font-family:'Fredoka One',cursive;font-weight:900;font-size:1.05rem;color:var(--navy)}
+.kc-logo-tagline{font-size:.55rem;letter-spacing:1.5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.kc-logo.kc-logo-onhud .kc-logo-name{color:#fff}
+.kc-logo.kc-logo-onhud .kc-logo-tagline{color:var(--gold)}
+.kc-logo-large .kc-logo-box{font-size:1.6rem;padding:12px 18px;border-radius:12px}
+.kc-logo-large .kc-logo-name{font-size:1.7rem}
+.kc-logo-large .kc-logo-tagline{font-size:.75rem;letter-spacing:2px}
+.hud-title{font-family:'Fredoka One',cursive;font-size:1.05rem}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.13);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold);font-family:'Fredoka One',cursive}
+.xpbar{width:120px;height:10px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#FFD86F);transition:width .4s;width:0%}
+.wrap{max-width:880px;margin:0 auto;padding:96px 18px 40px}
+.slide{background:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow);min-height:520px;display:none;animation:pop .35s ease}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+h1{font-family:'Bangers',cursive;font-size:2.4rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+h3{font-family:'Fredoka One',cursive;font-size:1.22rem;color:var(--pumpkin);margin:14px 0 8px}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:900;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#F2C465);color:var(--navy);margin-bottom:8px}
+.btn{padding:13px 26px;border-radius:14px;font-weight:900;border:none;cursor:pointer;font-family:inherit;font-size:1rem;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn-go{background:linear-gradient(135deg,var(--grass),#5DB041);color:#fff;box-shadow:0 4px 0 #3D8A30}
+.btn-back{background:#e5e7eb;color:#374151}
+.btn-pri{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;box-shadow:0 4px 0 #0f1a3a}
+.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:#cbd5e1;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--grass)}
+.card{background:#fffaf0;border:3px solid #FFE9C7;border-radius:18px;padding:16px;margin:12px 0}
+.card-sky{background:#EAF6FF;border-color:#C9E5FB}
+.card-grass{background:#EFFAE6;border-color:#C9EAB4}
+.card-gold{background:#FFF6E1;border-color:#FFE0A0}
+.qbox{background:#fff;border:3px solid #E2E8F0;border-radius:18px;padding:18px;margin:14px 0;transition:border-color .25s}
+.qbox.ok{border-color:var(--grass)}
+.qbox.locked{border-color:#E07B3C;background:#FFF6EE}
+.qbox .pts{float:right;font-weight:900;color:var(--gold);font-size:.85rem}
+.qtext{font-weight:800;font-size:1.08rem;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{padding:13px 16px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:800;font-size:1.02rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--sky);transform:translateY(-2px)}
+.opt.right{background:#E5F7DC;border-color:var(--grass)}
+.opt.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.feedback{margin-top:10px;font-weight:900;display:none}
+.feedback.show{display:block}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.fillrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.fillrow .eq{font-family:'Fredoka One',cursive;font-size:1.45rem;color:var(--navy)}
+.fillin{width:96px;padding:10px;border:3px solid #D9E0EC;border-radius:12px;font-size:1.25rem;font-weight:900;text-align:center;font-family:inherit}
+.fillin.ok{border-color:var(--grass);background:#E5F7DC}
+.fillin.bad{border-color:var(--bad);background:#FBE7E7}
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.flip{perspective:800px;cursor:pointer;height:128px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip{height:auto;min-height:128px;display:grid}.flip-inner{display:grid;min-height:100%}.flip-face{position:relative!important;inset:auto!important;grid-area:1/1;min-height:128px;overflow-wrap:anywhere;hyphens:auto;line-height:1.3;padding:34px 12px 14px!important;box-sizing:border-box}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:800}
+.flip-front{background:linear-gradient(135deg,var(--navy),#314580);color:#fff;font-family:'Fredoka One',cursive;font-size:1.05rem}
+.speak-btn{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+.speak-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.08)}
+.speak-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+@keyframes pulseSpeak{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.readaloud-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);border:2px solid #B9D9F5;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;cursor:pointer;margin-bottom:10px}
+.readaloud-btn:hover{background:#DCEEFF}
+.readaloud-btn.speaking{animation:pulseSpeak .6s ease-in-out infinite}
+.flip-back{background:linear-gradient(135deg,#FFF6E1,#FFE9C7);color:var(--ink);transform:rotateY(180deg);font-size:.86rem;border:3px solid var(--gold)}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mitem{padding:14px;border-radius:13px;border:3px solid #D9E0EC;background:#F8FAFF;font-weight:900;font-size:1.12rem;cursor:pointer;text-align:center;font-family:'Fredoka One',cursive;color:var(--navy);transition:all .15s}
+.mitem.sel{border-color:var(--gold);background:#FFF6E1;transform:scale(1.04)}
+.mitem.done{border-color:var(--grass);background:#E5F7DC;color:var(--ok);cursor:default}
+.mitem.shake{animation:shake .4s}
+.scoreline{font-weight:900;color:var(--navy);margin-top:8px}
+.bigX{position:fixed;inset:0;display:none;align-items:center;justify-content:center;font-size:11rem;color:var(--bad);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.25);font-weight:900}
+.confetti-bit{position:fixed;top:-12px;z-index:300;pointer-events:none;border-radius:3px}
+.final-score{font-family:'Bangers',cursive;font-size:4.6rem;color:var(--gold);text-shadow:2px 3px 0 var(--navy)}
+.quote{font-style:italic;font-weight:700;color:var(--navy);font-size:1.12rem;margin-top:8px}
+.quote-by{font-weight:900;color:var(--pumpkin);margin-top:6px}
+.center{text-align:center}
+.logo-light{height:64px;margin:6px auto 10px;display:block}
+ul.tips{margin:8px 0 0 24px}
+ul.tips li{margin:5px 0}
+.eggrow{font-size:1.7rem;letter-spacing:3px;margin:6px 0}
+table.skip{border-collapse:collapse;margin:10px auto}
+table.skip td{border:3px solid #D9E0EC;border-radius:8px;padding:9px 15px;font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);background:#F8FAFF}
+table.skip td.hl{background:#FFF6E1;border-color:var(--gold)}
+
+
+.slide.on > h2,.slide.on > p,.slide.on > .card,.slide.on > .flipgrid,.slide.on > .qbox,.slide.on > .matchgrid,.slide.on > .practicewrap,.slide.on > .videowrap{animation:slideIn .45s ease both}
+.slide.on > .qbox:nth-of-type(2){animation-delay:.06s}
+.slide.on > .qbox:nth-of-type(3){animation-delay:.12s}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hud .big.bump{animation:bump .45s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.55);color:#E0AC3C}100%{transform:scale(1)}}
+.btn-go{animation:pulseGo 2.2s ease-in-out infinite}
+@keyframes pulseGo{0%,100%{box-shadow:0 0 0 0 rgba(224,172,60,.55)}50%{box-shadow:0 0 0 9px rgba(224,172,60,0)}}
+.levelup{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:#1B2C5C;color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:2px solid #E0AC3C;opacity:0;z-index:60;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.levelup.show{animation:lvl 1.8s ease both}
+@keyframes lvl{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px)}}
+.bonuspill{display:inline-block;background:#eaf6e0;color:#3c6b1f;border:2px solid #86D464;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;margin-bottom:6px}
+.setnotice{display:inline-block;background:#FFF6E1;color:#8A5A00;border:2px solid var(--gold);border-radius:999px;padding:5px 16px;font-weight:800;font-size:.88rem;margin-bottom:10px}
+.practicewrap .qbox .pts{background:#86D464}
+.reminder{background:#eef7ff;border-left:5px solid #7CC6FF;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#23527a}
+.reminder b{color:#1B2C5C}
+.worked{background:#f6fff0;border-left:5px solid #86D464;border-radius:8px;padding:10px 14px;margin:10px 0;font-weight:600;color:#2c6b1f}
+.thinkbox{background:#F0F2FF;border-left:5px solid #6E7EE8;border-radius:8px;padding:14px 16px;margin:12px 0}
+.thinkbox h4{margin:0 0 6px 0;color:#3A46B0;font-size:1rem}
+.guidedbox{background:#FFF6E1;border-left:5px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0}
+.guidedbox h4{margin:0 0 6px 0;color:#8A5A00;font-size:1rem}
+.pictureit{background:#F3EEFF;border:2px dashed #B7A3F0;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:'Courier New',monospace;font-size:.92rem;color:#4B3B8C}
+.pictureit h4{margin:0 0 6px 0;color:#5B3FBE;font-size:.95rem;font-family:'Nunito',sans-serif}
+.yourturn-label{display:inline-block;background:var(--navy);color:#fff;font-weight:900;font-size:.85rem;padding:5px 14px;border-radius:999px;margin:14px 0 8px 0}
+.modelbox{background:#fbf6ea;border:2px dashed #E0AC3C;border-radius:12px;padding:12px 16px;margin:10px 0}
+.frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-weight:800;line-height:1}
+.frac .top{border-bottom:2px solid currentColor;padding:0 4px}
+.frac .bot{padding:0 4px}
+</style>
+<style>
+.bigq{background:#0A1F3D;color:#fff;border-radius:14px;padding:16px 18px;margin:14px 0;border-left:6px solid #C9A84C}
+.bigq h3{color:#C9A84C;margin:0 0 6px 0}.bigq p{margin:0;font-size:1.08rem;font-weight:700}
+.sourcebox{background:#FFFDF6;border:2px solid #E7DCC0;border-left:6px solid #C9A84C;border-radius:10px;padding:14px 16px;margin:12px 0}
+.sourcebox h4{margin:0 0 6px 0;color:#0A1F3D}.sourcebox .src{font-size:.85rem;color:#6b6b6b;margin-top:8px}
+.sourcebox table{border-collapse:collapse;width:100%;margin:6px 0}.sourcebox th{background:#0A1F3D;color:#C9A84C;padding:6px 8px;text-align:left}.sourcebox td{border-top:1px solid #E7DCC0;padding:6px 8px}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.pcard{background:#fff;border:2px solid #E7DCC0;border-top:5px solid #0047BA;border-radius:12px;padding:12px 14px}
+.pcard h4{margin:0;color:#0A1F3D}.pcard .yrs{font-size:.82rem;color:#7a7a7a;margin:2px 0 6px}
+.stillbox{background:#F3F8FF;border:2px dashed #0047BA;border-radius:12px;padding:12px 16px;margin:12px 0}
+.stillbox h4{margin:0 0 4px 0;color:#0047BA}
+.flbadge{display:inline-block;background:#C9A84C;color:#0A1F3D;font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:999px;margin:4px 0 8px}
+.speak-inline{margin-left:6px;vertical-align:middle}
+.sourcebox table,.pictureit table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:480px){.sourcebox,.pictureit{font-size:.88rem}.sourcebox th,.sourcebox td,.pictureit th,.pictureit td{padding:4px 5px}}
+.pictureit{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.5}
+.pictureit table{border-collapse:collapse;width:100%;margin:6px 0}.pictureit th,.pictureit td{border-top:1px solid #D8CCF5;padding:5px 7px;text-align:left}
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="hud-left"><div class="kc-logo kc-logo-onhud">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+<span class="hud-title">🌱 KCE Pathways — Grade 3 &mdash; Week 21</span>
+</div>
+  <div class="hud-right">
+    <div class="stat">🏆 Pathway: <span class="big" id="hudScore">0</span>/100</div>
+    <div class="stat">⭐ XP: <span class="big" id="hudXP">0</span>
+<span class="xpbar"><span class="xpfill" id="xpFill"></span></span>
+</div>
+    <div class="stat">&#129689; <span class="big" id="hudCoins">0</span></div>
+  </div>
+</div>
+<div class="levelup" id="levelup"></div>
+<div class="bigX" id="bigX">&#10007;</div>
+<div class="wrap">
+<div class="slide on" data-slide="0">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+  <span class="badge">KCE Pathways &bull; Unit 5: Data and Design &bull; Week 21 &bull; Social Studies</span>
+  <h1>Kids Around the World</h1>
+  <h2>School, food, homes and celebrations in Japan, Kenya, Mexico and India 🌏</h2>
+  <div class="card card-sky" id="priorCompletionBanner" style="display:none">
+<h3>&#128203; Your Progress on This Lesson</h3>
+<p id="priorCompletionText"></p>
+</div>
+  <div class="bigq"><h3>❓ Today's Big Question</h3><p>How are kids&#x27; lives around the world alike and different, and how can we learn about them fairly?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;How are kids\' lives around the world alike and different, and how can we learn about them fairly?&quot;, this)">&#128266;</button></p></div>
+  <div class="card card-gold">
+<h3>🏆 How Pathway Points Work</h3>
+<p>Worth <b>100 Pathway Points</b>, plus bonus practice rounds for XP. You get up to 2 tries on each question, but only your first try earns points. Up to 3 attempts to master the whole lesson &mdash; each with fresh questions!</p>
+</div>
+  <div class="card card-sky">
+<h3>&#128506;&#65039; Today's Quest</h3>
+<ul class="tips"><li>Warm up with kids at work from Unit 4</li><li>Meet Quinn's four pen pals in Japan, Kenya, Mexico and India</li><li>Compare their school days, food, homes and celebrations with yours</li><li>Learn how to spot a stereotype and tell a fuller story</li><li>Be a Source Detective with a real promise the world made to children</li><li>Then Match-Up, Type-It and the Boss Battle!</li></ul>
+</div>
+    <div class="card" id="nameCaptureCard">
+<h3>&#128100; Before You Start</h3>
+<p style="margin-bottom:10px">What's your name? This lets your Pathway Points go straight to your parent or teacher &mdash; no need for them to check your screen!</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <input class="fillin" id="studentFirstNameField" inputmode="text" aria-label="student first name" placeholder="First name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+  <input class="fillin" id="studentLastNameField" inputmode="text" aria-label="student last name" placeholder="Last name" style="flex:1;min-width:220px;font-size:1.05rem;padding:12px 14px">
+</div>
+</div>
+  <div class="nav">
+<span></span>
+<button class="btn btn-go" data-go="1">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="1">
+<h2>&#128257; Quick Review: What We Learned Before</h2>
+<p>Welcome to Unit 5! First, let's remember Unit 4 and the Week 19 lesson: kids at work long ago in America.</p>
+<p id="setNotice" class="setnotice" style="display:none"></p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w1_s0" data-pts="5" data-logic="Working 12 hours a day in a coal breaker was long, hard work that kept kids out of school. That was child labor.">
+    <span class="pts">+5</span>
+    <p class="qtext">About the year 1900, which of these would have been <b>child labor</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a 10-year-old picking rocks out of coal for 12 hours a day</button>
+      <button class="opt">a 10-year-old watering plants at home</button>
+      <button class="opt">a 10-year-old carrying groceries for a grandparent</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s0" data-pts="5" data-ans="City|New York City|NYC" data-logic="In July 1899, newsies went on strike in New York City.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The newsies went on strike in 1899 in New York ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="w1_s1" data-pts="5" data-ans="100|one hundred|hundred" data-logic="Mother Jones led the March of the Mill Children nearly 100 miles in 1903.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1903, Mother Jones led mill children on a march of nearly ____ miles.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="w2_s1" data-pts="5" data-logic="A primary source is made at the time by someone who was there. Hine was there, with his camera.">
+    <span class="pts">+5</span>
+    <p class="qtext">Why are Lewis Hine's photos <b>primary sources</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">He took them at the time, at the places where kids worked.</button>
+      <button class="opt">They were made 100 years later.</button>
+      <button class="opt">They are in a textbook.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w1_s2" data-pts="5" data-logic="1938 minus 1899 is 39. The law came 39 years after the strike.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps! The newsies went on strike in 1899. The Fair Labor Standards Act became law in 1938. How many years apart are they?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">39 years</button>
+      <button class="opt">49 years</button>
+      <button class="opt">29 years</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w2_s2" data-pts="5" data-ans="fire|factory fire|a fire" data-logic="Frances Perkins saw a terrible factory fire in New York City in 1911. She decided to work for safer jobs.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In 1911, Frances Perkins saw a terrible factory ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="0">&larr; Back</button>
+<button class="btn btn-go" data-go="2">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="2">
+<h2>&#128257; Quick Review, Part 2</h2>
+<p>Two more from Unit 4. Then we will travel from kids long ago in America to kids around the world today!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="w3_s0" data-pts="5" data-logic="César Chávez&#x27;s family moved from farm to farm to find work picking crops.">
+    <span class="pts">+5</span>
+    <p class="qtext">César Chávez went to more than 30 schools. Why did his family keep moving?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">to find farm work picking crops</button>
+      <button class="opt">to visit museums</button>
+      <button class="opt">to sell newspapers in New York</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s0" data-pts="5" data-ans="when|the date|date|year" data-logic="Hine&#x27;s captions told who was in the photo, where it was taken and when.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Lewis Hine's captions told who, where and ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="w3_s1" data-pts="5" data-logic="The newsies went on strike in 1899, the march was in 1903 and the photo of Sadie was taken in 1908.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which came <b>LAST</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Hine's photo of Sadie Pfeifer (1908)</button>
+      <button class="opt">the newsies' strike (1899)</button>
+      <button class="opt">the March of the Mill Children (1903)</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s1" data-pts="5" data-ans="farmworkers|farm workers|farmworker|farm worker" data-logic="César Chávez grew up working in the fields. Later he led farmworkers to fight for fair pay.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">When he grew up, César Chávez led ____ to fight for fair pay.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="w3_s2" data-pts="5" data-logic="Selling lemonade for one afternoon is short, safe and chosen. It does not keep the child out of school.">
+    <span class="pts">+5</span>
+    <p class="qtext">Today, a 12-year-old sells lemonade one afternoon to help a pet shelter. Is that like child labor about 1900?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">No. It is short and safe, and it does not keep her out of school.</button>
+      <button class="opt">Yes. It is just like working in a mill.</button>
+      <button class="opt">Yes. The 1938 law says no one may sell lemonade.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="w4_s2" data-pts="5" data-ans="Labor" data-logic="The Fair Labor Standards Act of 1938 limited child labor. Frances Perkins was Secretary of Labor.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Frances Perkins was the Secretary of ____ who helped pass the 1938 law.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="w4_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="1">&larr; Back</button>
+<button class="btn btn-go" data-go="3">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="3">
+<h2>&#9999;&#65039; Pencil Break: Pre Sheet</h2>
+<div class="card card-gold">
+<p>Before the lesson starts, print your <b>Pre/Post sheet</b> (2 pages) and grab a pencil. Do <b>Page 1 (Pre)</b> now: write what you already know about kids in other countries, and draw one thing from your own day. It is OK to guess!</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_SocialStudies_PrePost_G3W21.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_SocialStudies_PrePost_G3W21.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Keep Page 2 (Post) for the end of the lesson.</p>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="2">&larr; Back</button>
+<button class="btn btn-go" data-go="4">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="4">
+<span class="badge" style="display:inline-block;margin-bottom:6px">&#128216; Today's lesson starts here</span>
+<h2>&#127909; Watch &amp; Learn</h2>
+<p>Great warm-up! Today we visit kids in four countries on three continents. First, watch this tour of the seven continents from <i>Nat Geo Kids</i>.</p>
+<div class="card card-gold" style="text-align:center">
+  <p style="margin:0 0 4px 0;font-weight:900;color:var(--navy);font-size:1.1rem">&#9654;&#65039; START HERE: Watch Today’s Video</p>
+  <p style="margin:0 0 16px 0"><b>Learn About the 7 Continents! | Destination World | 20 Minutes | @natgeokids Compilation</b> &mdash; Nat Geo Kids</p>
+  <div class="kce-yt" style="position:relative;width:100%;max-width:760px;margin:14px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/K-74JQweOQE?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Learn About the 7 Continents! | Destination World | 20 Minutes | @natgeokids Compilation" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+  <div style="text-align:left;max-width:480px;margin:20px auto 0 auto;background:#fff;border-radius:12px;padding:14px 18px">
+    <p style="margin:0 0 6px 0;font-weight:900;color:var(--navy)">While you watch:</p>
+    <p style="margin:0">Listen for three continents: <b>Asia</b> (Japan and India are there), <b>Africa</b> (Kenya is there) and <b>North America</b> (Mexico and the United States are there). Ask: How big is each continent? How many different people might live there?</p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="3">&larr; Back</button>
+<button class="btn btn-go" data-go="5">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="5">
+<h2>🌟 Word Wrangler</h2>
+<p>Tap each card to flip it. Tap the &#128266; to hear the word and what it means.</p>
+<div class="flipgrid">
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">culture<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;culture. The way of life of a group of people: their food, languages, clothes, beliefs and celebrations. Example: Each pen pal\'s culture shows in her or his food, language and celebrations.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">The way of life of a group of people: their food, languages, clothes, beliefs and celebrations. Example: Each pen pal's culture shows in her or his food, language and celebrations.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">tradition<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;tradition. Something people do the same way for many years and pass down to their children. Example: Flying carp streamers on Children\'s Day is a tradition in Japan.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Something people do the same way for many years and pass down to their children. Example: Flying carp streamers on Children's Day is a tradition in Japan.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">celebration<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;celebration. A special time when people come together for something important. Example: Diwali is a five-day celebration of lights.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A special time when people come together for something important. Example: Diwali is a five-day celebration of lights.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">staple food<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;staple food. A food people eat often, as a main part of their meals. Example: Ugali, made from corn flour, is a staple food in Kenya.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">A food people eat often, as a main part of their meals. Example: Ugali, made from corn flour, is a staple food in Kenya.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">uniform<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;uniform. Matching clothes that everyone in a group wears. Example: Faraji wears a school uniform every school day.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">Matching clothes that everyone in a group wears. Example: Faraji wears a school uniform every school day.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">stereotype<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;stereotype. An idea that everyone in a group is the same. It leaves out most of the real story. Example: Thinking that every kid in Kenya lives near lions is a stereotype.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">An idea that everyone in a group is the same. It leaves out most of the real story. Example: Thinking that every kid in Kenya lives near lions is a stereotype.</div>
+</div>
+</div>
+    <div class="flip" data-flip>
+<div class="flip-inner">
+        <div class="flip-face flip-front">compare<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;compare. To tell how things are alike and how they are different. Example: Quinn likes to compare her school day with each pen pal\'s school day.&quot;, this)">&#128266;</button></div>
+        <div class="flip-face flip-back">To tell how things are alike and how they are different. Example: Quinn likes to compare her school day with each pen pal's school day.</div>
+</div>
+</div>
+  </div>
+  <div class="nav">
+<button class="btn btn-back" data-go="4">&larr; Back</button>
+<button class="btn btn-go" data-go="6">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="6">
+<h2>🇯🇵 Quinn's Pen Pals, Stop 1: Fumika in Japan</h2>
+<div class="card ">
+<p>Quinn is a homeschooler in Florida. Her <b>Pen Pal Club</b> trades letters and video calls with four kids: Fumika in Japan, Faraji in Kenya, Fernanda in Mexico and Falguni in India. Each pen pal tells about one family in one city. A whole country has millions of people, so no one kid can speak for everyone.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Quinn is a homeschooler in Florida. Her Pen Pal Club trades letters and video calls with four kids: Fumika in Japan, Faraji in Kenya, Fernanda in Mexico and Falguni in India. Each pen pal tells about one family in one city. A whole country has millions of people, so no one kid can speak for everyone.&quot;, this)">&#128266;</button></p><p>Fumika lives in an apartment in Osaka, a big city in Japan. When her family comes home, they take off their shoes at the door. In Japan, the school year starts in <b>April</b>. At lunch, students take turns serving food to their classmates. After lunch or at the end of the day, students clean their own classrooms and hallways.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Fumika lives in an apartment in Osaka, a big city in Japan. When her family comes home, they take off their shoes at the door. In Japan, the school year starts in April. At lunch, students take turns serving food to their classmates. After lunch or at the end of the day, students clean their own classrooms and hallways.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Why would students clean their own school? Fumika says everyone helps keep the school nice, so everyone takes care of it. That reminds me of chores at home. So cleaning is part of how Fumika's school teaches kids to help their community. That is part of her school's <b>culture</b>.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Why would students clean their own school? Fumika says everyone helps keep the school nice, so everyone takes care of it. That reminds me of chores at home. So cleaning is part of how Fumika\'s school teaches kids to help their community. That is part of her school\'s culture.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Fumika's Year</h4><table><tr><th>When</th><th>What happens</th></tr><tr><td>April</td><td>The new school year begins.</td></tr><tr><td>May 5</td><td>Children's Day, a national holiday. Many families fly cloth carp streamers called koinobori.</td></tr><tr><td>Every school day</td><td>Students serve lunch to classmates, then clean the classroom.</td></tr><tr><td>At home</td><td>Shoes come off at the door.</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Alike or Different?</h4><p>Let's compare. Quinn's family also has a rule at home: wash your hands before dinner. Fumika's family has a rule too: shoes off at the door. The rules are different, but they are alike in one way. Both help keep a home clean. When we compare, we look for what is alike, not only what is different.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s compare. Quinn\'s family also has a rule at home: wash your hands before dinner. Fumika\'s family has a rule too: shoes off at the door. The rules are different, but they are alike in one way. Both help keep a home clean. When we compare, we look for what is alike, not only what is different.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t11_s0" data-pts="5" data-ans="April" data-logic="In Japan, the school year starts in April.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In Japan, the new school year starts in the month of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t11_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t12_s0" data-pts="5" data-logic="Students at Fumika&#x27;s school clean their own classrooms and hallways.">
+    <span class="pts">+5</span>
+    <p class="qtext">What do students at Fumika's school do every day?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">They clean their own classroom.</button>
+      <button class="opt">They go home before lunch.</button>
+      <button class="opt">They never eat lunch at school.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t11_s1" data-pts="5" data-logic="Children&#x27;s Day, on May 5, is a national holiday in Japan.">
+    <span class="pts">+5</span>
+    <p class="qtext">Children's Day in Japan is on ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">May 5</button>
+      <button class="opt">December 25</button>
+      <button class="opt">July 4</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s1" data-pts="5" data-ans="carp|koi|carp streamers|koinobori" data-logic="Koinobori are cloth streamers shaped like carp, a kind of fish.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">On Children's Day, many families fly cloth streamers shaped like a fish called a ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="t11_s2" data-pts="5" data-logic="Japan&#x27;s school year starts in April, not September.">
+    <span class="pts">+5</span>
+    <p class="qtext">A poster says: "In Japan, school starts in September, just like in many American schools." What is the mistake?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">In Japan, the school year starts in April.</button>
+      <button class="opt">Japan has no schools.</button>
+      <button class="opt">School in Japan starts in December.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t12_s2" data-pts="5" data-ans="lunch|food|lunches" data-logic="Students take turns serving food to their classmates at lunch.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">At Fumika's school, students take turns serving ____ to their classmates.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t12_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="5">&larr; Back</button>
+<button class="btn btn-go" data-go="7">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="7">
+<h2>🇰🇪 Stop 2: Faraji in Kenya</h2>
+<div class="card card-sky">
+<p>Faraji lives in Mombasa, Kenya's chief port city, on the Indian Ocean. More than 1.2 million people live in Mombasa County. Faraji wears a school <b>uniform</b> every school day. Kenya's school year starts in January and ends in November, with three terms and breaks in between.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Faraji lives in Mombasa, Kenya\'s chief port city, on the Indian Ocean. More than 1.2 million people live in Mombasa County. Faraji wears a school uniform every school day. Kenya\'s school year starts in January and ends in November, with three terms and breaks in between.&quot;, this)">&#128266;</button></p><p>Kenya's two official languages are Kiswahili and English, and many families also speak other languages at home. Faraji's family often eats <b>ugali</b>, made from corn flour cooked in boiling water, with sukuma wiki, a leafy green. Every December 12, Kenyans celebrate Jamhuri Day. It marks Kenya's independence from Britain in 1963.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Kenya\'s two official languages are Kiswahili and English, and many families also speak other languages at home. Faraji\'s family often eats ugali, made from corn flour cooked in boiling water, with sukuma wiki, a leafy green. Every December 12, Kenyans celebrate Jamhuri Day. It marks Kenya\'s independence from Britain in 1963.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Some people picture Kenya as only lions and safaris. That is a <b>stereotype</b>. It takes one small piece of a country and pretends it is the whole story. Faraji's real day is school, homework, soccer with friends and dinner with his family in a busy city. So I ask: Where did my idea come from, and what am I missing?<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Some people picture Kenya as only lions and safaris. That is a stereotype. It takes one small piece of a country and pretends it is the whole story. Faraji\'s real day is school, homework, soccer with friends and dinner with his family in a busy city. So I ask: Where did my idea come from, and what am I missing?&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Faraji's Kenya</h4><table><tr><th>Topic</th><th>Faraji's answer</th></tr><tr><td>Home</td><td>Mombasa, a port city on the Indian Ocean</td></tr><tr><td>Languages</td><td>Kiswahili and English, plus other languages at home</td></tr><tr><td>School year</td><td>January to November, in three terms</td></tr><tr><td>A staple food</td><td>ugali, made from corn flour</td></tr><tr><td>A celebration</td><td>Jamhuri Day, December 12</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Fact or Stereotype?</h4><p>Let's sort two sentences. "Kiswahili and English are Kenya's official languages." That is a fact we can check in Kenya's constitution. "Everyone in Kenya lives in the countryside." That is a stereotype. Faraji lives in a city of more than a million people. Facts can be checked. Stereotypes leave people out.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s sort two sentences. \&quot;Kiswahili and English are Kenya\'s official languages.\&quot; That is a fact we can check in Kenya\'s constitution. \&quot;Everyone in Kenya lives in the countryside.\&quot; That is a stereotype. Faraji lives in a city of more than a million people. Facts can be checked. Stereotypes leave people out.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t21_s0" data-pts="5" data-ans="Kiswahili|Swahili" data-logic="Kenya&#x27;s constitution says the official languages are Kiswahili and English.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kenya's two official languages are English and ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s0" data-pts="5" data-logic="Ugali is made from corn flour, also called maize flour, cooked in boiling water.">
+    <span class="pts">+5</span>
+    <p class="qtext">Ugali is made from ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">corn flour and water</button>
+      <button class="opt">rice and milk</button>
+      <button class="opt">apples and sugar</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t21_s1" data-pts="5" data-logic="A stereotype says everyone in a group is the same. Kenya has big cities, towns and farms.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which sentence is a <b>stereotype</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Every kid in Kenya lives near lions.</button>
+      <button class="opt">Mombasa is a port city on the Indian Ocean.</button>
+      <button class="opt">Kenya's school year has three terms.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t22_s1" data-pts="5" data-ans="November" data-logic="Kenya&#x27;s school year runs from January to November.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kenya's school year starts in January and ends in ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t22_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t21_s2" data-pts="5" data-ans="63|sixty-three|sixty three" data-logic="2026 minus 1963 is 63.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Kenya became independent in 1963. On Jamhuri Day in 2026, how many years has it been? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t21_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t22_s2" data-pts="5" data-logic="Mombasa is on the coast of the Indian Ocean.">
+    <span class="pts">+5</span>
+    <p class="qtext">Mombasa is a port city on which ocean?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the Indian Ocean</button>
+      <button class="opt">the Atlantic Ocean</button>
+      <button class="opt">the Arctic Ocean</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="6">&larr; Back</button>
+<button class="btn btn-go" data-go="8">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="8">
+<h2>🇲🇽 Stop 3: Fernanda in Mexico</h2>
+<div class="card card-grass">
+<p>Fernanda lives in a house in Oaxaca City, in southern Mexico. Her school year starts in late summer and ends in July. Most people in Mexico speak Spanish, and Mexico also recognizes 68 Indigenous languages. In the state of Oaxaca, many families speak Zapotec or Mixtec. Fernanda's grandmother speaks Zapotec.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Fernanda lives in a house in Oaxaca City, in southern Mexico. Her school year starts in late summer and ends in July. Most people in Mexico speak Spanish, and Mexico also recognizes 68 Indigenous languages. In the state of Oaxaca, many families speak Zapotec or Mixtec. Fernanda\'s grandmother speaks Zapotec.&quot;, this)">&#128266;</button></p><p>People in Mexico first grew corn about 9,000 years ago. Today, corn tortillas are part of many meals. Each year, from the end of October to early November, many families celebrate <b>Día de Muertos</b> (Day of the Dead). They make an ofrenda, an altar with photos, marigold flowers and the favorite foods of loved ones who have died, to remember them.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;People in Mexico first grew corn about 9,000 years ago. Today, corn tortillas are part of many meals. Each year, from the end of October to early November, many families celebrate Día de Muertos (Day of the Dead). They make an ofrenda, an altar with photos, marigold flowers and the favorite foods of loved ones who have died, to remember them.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Is Día de Muertos the same as Halloween? They come at about the same time of year, so some people mix them up. But Día de Muertos is a time for families to remember and honor people they love. In 2008, UNESCO (the United Nations Educational, Scientific and Cultural Organization) listed it as an important world tradition. So the dates are close, but the meaning is different.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Is Día de Muertos the same as Halloween? They come at about the same time of year, so some people mix them up. But Día de Muertos is a time for families to remember and honor people they love. In 2008, UNESCO (the United Nations Educational, Scientific and Cultural Organization) listed it as an important world tradition. So the dates are close, but the meaning is different.&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Fernanda's Oaxaca</h4><table><tr><th>Topic</th><th>Fernanda's answer</th></tr><tr><td>Languages</td><td>Spanish at school; Zapotec with her grandmother</td></tr><tr><td>Food</td><td>corn tortillas, from a crop first grown in Mexico</td></tr><tr><td>Late October to early November</td><td>Día de Muertos: ofrendas with photos, marigolds and favorite foods</td></tr><tr><td>July</td><td>The Guelaguetza festival in Oaxaca City, with dances from Indigenous communities across the state</td></tr></table></div><div class="guidedbox"><h4>&#129309; Let's Try Together: What Does Guelaguetza Mean?</h4><p>The word Guelaguetza comes from the Zapotec language. It is usually explained as sharing gifts and helping each other. At the festival, groups from Indigenous communities across Oaxaca perform their own dances. So one festival shows many cultures, not just one. That is a clue that Mexico has many cultures, too.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;The word Guelaguetza comes from the Zapotec language. It is usually explained as sharing gifts and helping each other. At the festival, groups from Indigenous communities across Oaxaca perform their own dances. So one festival shows many cultures, not just one. That is a clue that Mexico has many cultures, too.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="t31_s0" data-pts="5" data-logic="Families build ofrendas to remember and honor loved ones who have died.">
+    <span class="pts">+5</span>
+    <p class="qtext">Día de Muertos is mostly a time to ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">remember and honor loved ones who have died</button>
+      <button class="opt">dress up and trick-or-treat</button>
+      <button class="opt">start the new school year</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s0" data-pts="5" data-ans="9000|9,000|nine thousand" data-logic="Farmers in Mexico first grew corn about 9,000 years ago.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">People in Mexico first grew corn about ____ years ago.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="t31_s1" data-pts="5" data-logic="The dates are close, but Día de Muertos is about remembering and honoring loved ones.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student says: "Día de Muertos is just the Mexican Halloween." What is the mistake?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is a time to remember loved ones, with a different meaning.</button>
+      <button class="opt">It happens in April.</button>
+      <button class="opt">Nobody in Mexico celebrates it.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="t32_s1" data-pts="5" data-ans="ofrenda|ofrendas|an ofrenda" data-logic="An ofrenda is an altar with photos, flowers and favorite foods.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Families make an altar with photos, marigolds and favorite foods called an ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t32_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t31_s2" data-pts="5" data-ans="68|sixty-eight|sixty eight" data-logic="Besides Spanish, Mexico recognizes 68 Indigenous languages.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Besides Spanish, Mexico recognizes ____ Indigenous languages.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t31_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t32_s2" data-pts="5" data-logic="Guelaguetza is a Zapotec word usually explained as sharing gifts and helping each other.">
+    <span class="pts">+5</span>
+    <p class="qtext">The Zapotec word <i>Guelaguetza</i> is about ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">sharing gifts and helping each other</button>
+      <button class="opt">winning a race</button>
+      <button class="opt">building a new road</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="7">&larr; Back</button>
+<button class="btn btn-go" data-go="9">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="9">
+<h2>🇮🇳 Stop 4: Falguni in India</h2>
+<div class="card card-gold">
+<p>Falguni lives in Ahmedabad, in the state of Gujarat, India. In 2017, Ahmedabad became the first city in India on the World Heritage list of UNESCO, the United Nations Educational, Scientific and Cultural Organization. India has more people than any other country, about 1.43 billion. India's Constitution lists 22 languages. Falguni speaks Gujarati at home and learns Hindi and English at school.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Falguni lives in Ahmedabad, in the state of Gujarat, India. In 2017, Ahmedabad became the first city in India on the World Heritage list of UNESCO, the United Nations Educational, Scientific and Cultural Organization. India has more people than any other country, about 1.43 billion. India\'s Constitution lists 22 languages. Falguni speaks Gujarati at home and learns Hindi and English at school.&quot;, this)">&#128266;</button></p><p>In Gujarat, the new school year starts in June. Government schools across India serve a free hot lunch to children in grades 1 to 8, and the program covers about 118 million children. In the fall, Falguni's family celebrates <b>Diwali</b>, the festival of lights, for five days. They light small clay lamps called diyas and make floor art from colored rice, sand or flower petals. In January, on Uttarayan, the sky over Ahmedabad fills with kites.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;In Gujarat, the new school year starts in June. Government schools across India serve a free hot lunch to children in grades 1 to 8, and the program covers about 118 million children. In the fall, Falguni\'s family celebrates Diwali, the festival of lights, for five days. They light small clay lamps called diyas and make floor art from colored rice, sand or flower petals. In January, on Uttarayan, the sky over Ahmedabad fills with kites.&quot;, this)">&#128266;</button></p><div class="thinkbox"><h4>&#128065; Watch Me Think</h4><p>Does every family in India celebrate Diwali? No. Diwali is a big festival for Hindus, Jains and Sikhs. But India is home to people of many religions, so families celebrate many different holidays. Falguni's best friend's family celebrates Eid. So I should say "Falguni's family celebrates Diwali," not "everyone in India does."<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Does every family in India celebrate Diwali? No. Diwali is a big festival for Hindus, Jains and Sikhs. But India is home to people of many religions, so families celebrate many different holidays. Falguni\'s best friend\'s family celebrates Eid. So I should say \&quot;Falguni\'s family celebrates Diwali,\&quot; not \&quot;everyone in India does.\&quot;&quot;, this)">&#128266;</button></p></div><div class="pictureit"><h4>&#129513; Picture It: Falguni's Gujarat</h4><table><tr><th>When</th><th>What happens</th></tr><tr><td>June</td><td>The new school year starts.</td></tr><tr><td>School lunch</td><td>free hot lunch at government schools</td></tr><tr><td>October or November</td><td>Diwali: diyas, floor art, family visits and feasts</td></tr><tr><td>January</td><td>Uttarayan: kite flying all over Gujarat</td></tr></table></div><div class="pictureit"><h4>&#129513; Picture It: When Does the School Year Start?</h4>
+<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2px;font-size:.72rem;text-align:center;font-weight:800"><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">J</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">F</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">M</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">A</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">M</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">J</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">J</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">A</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">S</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">O</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">N</div><div style="background:#E9E2FF;border-radius:4px;padding:3px 0">D</div></div>
+<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-top:4px">
+<div style="grid-column:1/2;background:#86D464;border-radius:4px;height:12px"></div><div style="grid-column:2/13;font-size:.78rem;padding-left:4px">Kenya: January</div>
+<div style="grid-column:4/5;background:#7CC6FF;border-radius:4px;height:12px"></div><div style="grid-column:5/13;font-size:.78rem;padding-left:4px">Japan: April</div>
+<div style="grid-column:6/7;background:#E0AC3C;border-radius:4px;height:12px"></div><div style="grid-column:7/13;font-size:.78rem;padding-left:4px">Gujarat, India: June</div>
+<div style="grid-column:8/10;background:#E07B3C;border-radius:4px;height:12px"></div><div style="grid-column:10/13;font-size:.78rem;padding-left:4px">Mexico; many United States schools</div>
+</div>
+<p style="margin:6px 0 0">Many schools in the United States and Mexico start in late August or September.</p></div><div class="guidedbox"><h4>&#129309; Let's Try Together: Count the Months</h4><p>Let's compare two pen pals. Fumika's school year starts in April. Falguni's starts in June. April to May is 1 month, and May to June is 1 more. So Falguni starts 2 months after Fumika. Faraji starts in January, so his school year starts first of all.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Let\'s compare two pen pals. Fumika\'s school year starts in April. Falguni\'s starts in June. April to May is 1 month, and May to June is 1 more. So Falguni starts 2 months after Fumika. Faraji starts in January, so his school year starts first of all.&quot;, this)">&#128266;</button></p></div><span class="yourturn-label">💪 YOUR TURN</span>
+</div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="t41_s0" data-pts="5" data-ans="lights|light" data-logic="Diwali means &quot;row of lights.&quot; People light small clay lamps.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Diwali is called the festival of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t41_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t42_s0" data-pts="5" data-logic="On Uttarayan in January, people all over Gujarat fly kites.">
+    <span class="pts">+5</span>
+    <p class="qtext">On Uttarayan, people in Gujarat ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">fly kites</button>
+      <button class="opt">go to the beach</button>
+      <button class="opt">make snowmen</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="t41_s1" data-pts="5" data-ans="2|two" data-logic="April to June is 2 months.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Two steps! Fumika's school year starts in April. Falguni's starts in June. How many months later does Falguni's start? ____</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t41_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t42_s1" data-pts="5" data-logic="India&#x27;s Constitution lists 22 languages.">
+    <span class="pts">+5</span>
+    <p class="qtext">How many languages does India's Constitution list?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">22</button>
+      <button class="opt">2</button>
+      <button class="opt">220</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="t41_s2" data-pts="5" data-ans="diyas|diya|diyas lamps|clay lamps" data-logic="Diyas are small clay lamps filled with oil.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">For Diwali, families light small clay lamps called ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="t41_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="t42_s2" data-pts="5" data-logic="India&#x27;s school lunch program covers about 118 million children in government schools.">
+    <span class="pts">+5</span>
+    <p class="qtext">India's free school lunch program covers about how many children?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">about 118 million</button>
+      <button class="opt">about 118</button>
+      <button class="opt">about 1,180</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="8">&larr; Back</button>
+<button class="btn btn-go" data-go="10">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="10">
+<h2>🕵️ Source Detective: A Promise to the World's Children</h2>
+<p>On November 20, 1989, the United Nations adopted the <b>Convention on the Rights of the Child</b>. It is a written promise about what every child should have. Read two parts of its real words.</p>
+<div class="sourcebox"><h4>Primary Source: Convention on the Rights of the Child (1989)</h4><div><p><b>Source 1: Article 28</b> (part of it)</p><p><i>"States Parties recognize the right of the child to education ... Make primary education compulsory and available free to all;"</i></p><p><b>Word help:</b> <i>States Parties</i> = the countries that agreed to it. <i>compulsory</i> = required. <i>primary education</i> = elementary school.</p><p><b>Source 2: Article 31</b> (paragraph 1)</p><p><i>"States Parties recognize the right of the child to rest and leisure, to engage in play and recreational activities appropriate to the age of the child and to participate freely in cultural life and the arts."</i></p><p><b>Word help:</b> <i>leisure</i> = free time. <i>recreational activities</i> = things you do for fun. <i>cultural life</i> = the music, art, festivals and traditions of a community.</p></div><div class="src">Convention on the Rights of the Child, adopted by the United Nations General Assembly on November 20, 1989, Articles 28 and 31.</div><button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Source 1, Article 28, part of it. States Parties recognize the right of the child to education. Make primary education compulsory and available free to all. Word help: States Parties means the countries that agreed to the Convention. Compulsory means required. Primary education means elementary school. Source 2, Article 31, part 1. States Parties recognize the right of the child to rest and leisure, to engage in play and recreational activities appropriate to the age of the child and to participate freely in cultural life and the arts. Word help: Leisure means free time. Recreational activities means things you do for fun. Cultural life means the music, art, festivals and traditions of a community.&quot;, this)">&#128266;</button></div>
+<div class="thinkbox"><h4>&#128065; Think Like a Historian</h4><p>Who wrote it? Leaders from many countries, working together at the United Nations. Every member country has ratified it, which means agreed to follow it, except one: the United States signed it in 1995 but has not ratified it. A promise on paper is a start. So I also ask: Does every child really get school and play? In Week 19 we learned that laws do not fix everything at once.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Who wrote it? Leaders from many countries, working together at the United Nations. Every member country has ratified it, which means agreed to follow it, except one: the United States signed it in 1995 but has not ratified it. A promise on paper is a start. So I also ask: Does every child really get school and play? In Week 19 we learned that laws do not fix everything at once.&quot;, this)">&#128266;</button></p></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="lab1_s0" data-pts="5" data-ans="free" data-logic="Article 28 says primary education should be compulsory and available free to all.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Article 28 says primary education should be compulsory and available ____ to all.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="lab2_s0" data-pts="5" data-logic="Article 31 is about rest, free time, play and taking part in culture and the arts.">
+    <span class="pts">+5</span>
+    <p class="qtext">Article 31 says children have a right to ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">rest, play and free time</button>
+      <button class="opt">a car</button>
+      <button class="opt">a job in a factory</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="lab1_s1" data-pts="5" data-logic="The United Nations adopted it on November 20, 1989.">
+    <span class="pts">+5</span>
+    <p class="qtext">In what year was the Convention adopted?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">1989</button>
+      <button class="opt">1899</button>
+      <button class="opt">2019</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s1" data-pts="5" data-ans="Nations|United Nations" data-logic="The United Nations is a group of almost every country in the world.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The Convention was adopted by the United ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="lab1_s2" data-pts="5" data-logic="The United States signed it in 1995 but has not ratified it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which country signed the Convention but has not ratified it?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the United States</button>
+      <button class="opt">Kenya</button>
+      <button class="opt">Mexico</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="lab2_s2" data-pts="5" data-ans="arts|art|the arts" data-logic="Article 31 ends: &quot;to participate freely in cultural life and the arts.&quot;">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Article 31 says children may take part in cultural life and the ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="lab2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="9">&larr; Back</button>
+<button class="btn btn-go" data-go="11">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="11">
+<h2>🌟 People Who Made Life Better for Kids</h2>
+<p>Meet four real people, one from each pen pal's country. As you read, ask: What problem did each person see, and what did they do about it?</p>
+<div class="peoplegrid"><div class="pcard"><h4>Tetsuko Kuroyanagi</h4><div class="yrs">born 1933 · Japan</div><p>She grew up in Tokyo. Her first school asked her to leave, so her mother found a new school that gave children more freedom to learn in their own way. In 1981 she wrote a true book about it, <i>Totto-chan: The Little Girl at the Window</i>. It became one of the best-selling books in Japan's history. In 1984 she became a Goodwill Ambassador for UNICEF (the United Nations Children's Fund), the first from Asia, to help children around the world.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Tetsuko Kuroyanagi. She grew up in Tokyo. Her first school asked her to leave, so her mother found a new school that gave children more freedom to learn in their own way. In 1981 she wrote a true book about it, Totto-chan: The Little Girl at the Window. It became one of the best-selling books in Japan\'s history. In 1984 she became a Goodwill Ambassador for UNICEF (the United Nations Children\'s Fund), the first from Asia, to help children around the world.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Wangari Maathai</h4><div class="yrs">1940–2011 · Kenya</div><p>She was born in Nyeri, Kenya. She saw that cutting down trees hurt the land and the families who lived on it. In 1977 she started the <b>Green Belt Movement</b>, and women across Kenya planted millions of trees. In 2004 she became the first African woman to win the Nobel Peace Prize.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Wangari Maathai. She was born in Nyeri, Kenya. She saw that cutting down trees hurt the land and the families who lived on it. In 1977 she started the Green Belt Movement, and women across Kenya planted millions of trees. In 2004 she became the first African woman to win the Nobel Peace Prize.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Xóchitl Guadalupe Cruz López</h4><div class="yrs">Mexico</div><p>She is from the state of Chiapas in southern Mexico. When she was 8 years old, she built a solar water heater from recycled things, like bottles and hoses, so her family could have warm water using the sun. She said some families cannot buy heaters, so they cut trees for firewood. She became the first child to receive a science award for women from the Institute of Nuclear Sciences at the National Autonomous University of Mexico.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Xóchitl Guadalupe Cruz López. She is from the state of Chiapas in southern Mexico. When she was 8 years old, she built a solar water heater from recycled things, like bottles and hoses, so her family could have warm water using the sun. She said some families cannot buy heaters, so they cut trees for firewood. She became the first child to receive a science award for women from the Institute of Nuclear Sciences at the National Autonomous University of Mexico.&quot;, this)">&#128266;</button></p></div><div class="pcard"><h4>Kailash Satyarthi</h4><div class="yrs">born 1954 · India</div><p>He was born in Vidisha, India. He saw children working instead of going to school, just like the kids you met in Week 19. He and his team helped free about 83,000 children from forced work. In 2014 he shared the Nobel Peace Prize with Malala Yousafzai of Pakistan, for standing up for every child's right to go to school.<button class="speak-btn speak-inline" type="button" title="Hear this read aloud" onclick="event.stopPropagation(); speakText(&quot;Kailash Satyarthi. He was born in Vidisha, India. He saw children working instead of going to school, just like the kids you met in Week 19. He and his team helped free about 83,000 children from forced work. In 2014 he shared the Nobel Peace Prize with Malala Yousafzai of Pakistan, for standing up for every child\'s right to go to school.&quot;, this)">&#128266;</button></p></div></div>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="pp1_s0" data-pts="5" data-logic="Tetsuko Kuroyanagi wrote Totto-chan in 1981 and became the first UNICEF Goodwill Ambassador from Asia in 1984.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who wrote <i>Totto-chan</i> and became the first Goodwill Ambassador from Asia for UNICEF, the United Nations Children's Fund?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Tetsuko Kuroyanagi</button>
+      <button class="opt">Wangari Maathai</button>
+      <button class="opt">Xóchitl Guadalupe Cruz López</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s0" data-pts="5" data-ans="2014" data-logic="Kailash Satyarthi shared the Nobel Peace Prize with Malala Yousafzai in 2014.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Kailash Satyarthi won the Nobel Peace Prize in the year ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="pp1_s1" data-pts="5" data-ans="Belt|Green Belt" data-logic="In 1977, Wangari Maathai started the Green Belt Movement to plant trees.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Wangari Maathai started the Green ____ Movement.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="pp2_s1" data-pts="5" data-logic="At age 8, Xóchitl built a solar water heater from recycled things.">
+    <span class="pts">+5</span>
+    <p class="qtext">What did Xóchitl build when she was 8 years old?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a solar water heater</button>
+      <button class="opt">a kite for Uttarayan</button>
+      <button class="opt">a school bus</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="pp1_s2" data-pts="5" data-logic="He helped free about 83,000 children from forced work and worked for every child&#x27;s right to go to school.">
+    <span class="pts">+5</span>
+    <p class="qtext">Kailash Satyarthi worked to ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">free children from forced work so they could go to school</button>
+      <button class="opt">build the tallest building in India</button>
+      <button class="opt">take photos of mills in 1908</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="pp2_s2" data-pts="5" data-ans="Chiapas" data-logic="Xóchitl Guadalupe Cruz López is from the state of Chiapas, in southern Mexico.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Xóchitl Guadalupe Cruz López is from the Mexican state of ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="pp2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="10">&larr; Back</button>
+<button class="btn btn-go" data-go="12">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="12">
+<h2>&#129513; Match-Up Round</h2>
+<p>Tap an item on the left, then its match on the right. First-try matches earn <b>2 points</b> (10 total)!</p>
+<div class="matchgrid">
+<div class="mcol" id="mLeft"></div>
+<div class="mcol" id="mRight"></div>
+</div>
+<p class="scoreline" id="matchScore">Matches: 0 / 5</p>
+  <div class="nav">
+<button class="btn btn-back" data-go="11">&larr; Back</button>
+<button class="btn btn-go" data-go="13">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="13">
+<h2>&#8996;&#65039; Type-It Corral</h2>
+<p>Type each answer from memory, then press Check.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-fq="ty1_s0" data-pts="5" data-ans="corn|maize" data-logic="Corn tortillas are part of many meals in Mexico. Corn was first grown there.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Fernanda's family eats tortillas made from ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s0" data-pts="5" data-ans="terms|term" data-logic="Kenya&#x27;s school year has three terms, with breaks in between.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Faraji's school year is split into three ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s0">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-fq="ty1_s1" data-pts="5" data-ans="shoes|shoe" data-logic="In Fumika&#x27;s home, shoes come off at the door.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">In Fumika's home, people take off their ____ at the door.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s1" data-pts="5" data-ans="5|five" data-logic="Diwali is celebrated for five days.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Diwali is celebrated for ____ days.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s1">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-fq="ty1_s2" data-pts="5" data-ans="Peace" data-logic="In 2004, Wangari Maathai became the first African woman to win the Nobel Peace Prize.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Wangari Maathai was the first African woman to win the Nobel ____ Prize.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty1_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="ty2_s2" data-pts="5" data-ans="Ahmedabad" data-logic="In 2017, Ahmedabad became the first city in India on the UNESCO World Heritage list.">
+    <span class="pts">+5</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">The first city in India on the World Heritage list was ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="ty2_s2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="12">&larr; Back</button>
+<button class="btn btn-go" data-go="14">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="14">
+<h2>&#9889; Speed Arena</h2>
+<span class="bonuspill">Bonus Round &bull; builds XP, not Pathway Points</span>
+<p>Three quick ones for bonus XP &mdash; go fast but stay correct!</p>
+<div class="practicewrap">
+  <div class="qbox" data-q="sp1" data-pts="5" data-bonus="1" data-logic="Japan and India are both in Asia.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which two pen pal countries are in Asia?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Japan and India</button>
+      <button class="opt">Kenya and Mexico</button>
+      <button class="opt">Mexico and Japan</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-fq="sp2" data-pts="5" data-bonus="1" data-ans="Kiswahili|Swahili" data-logic="Kiswahili is Kenya&#x27;s national language and one of its two official languages.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Type your answer:</p>
+    <div class="fillrow">
+      <span class="eq">Faraji speaks English and ____.</span>
+      <input class="fillin" inputmode="text" aria-label="answer">
+      <button class="btn btn-pri" data-check="sp2">Check</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="sp3" data-pts="5" data-bonus="1" data-logic="Marigolds are placed on ofrendas for Día de Muertos.">
+    <span class="pts">+5 XP</span>
+    <p class="qtext">Which flower is used on ofrendas?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">marigolds</button>
+      <button class="opt">tulips</button>
+      <button class="opt">cactus flowers</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="13">&larr; Back</button>
+<button class="btn btn-go" data-go="15">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="15">
+<h2>&#9999;&#65039; Pencil Break: Post Sheet</h2>
+<div class="card card-gold">
+<p>Do <b>Page 2 (Post)</b> now: compare your life with a pen pal's, fix a stereotype, and show what you learned about kids around the world.</p>
+<div class="pp-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px"><a class="btn btn-pri" href="../prepost/KCE_SocialStudies_PrePost_G3W21.pdf" target="_blank" rel="noopener">&#128196; Open my Pre/Post sheet</a><button type="button" class="btn btn-go" onclick="kcePrintPdf('../prepost/KCE_SocialStudies_PrePost_G3W21.pdf')">&#128424;&#65039; Print it</button></div><p style="font-size:.9rem;margin:6px 0 0">Did not print it earlier? Use the buttons above.</p>
+</div>
+<div class="stillbox"><h4>&#10067; Questions I Still Have</h4><p>What do you still wonder? Maybe: What is school like for kids in a small village in Kenya or India? What games do kids play in Japan? What would a pen pal want to know about MY community? Write one question on your sheet.</p></div>
+<div class="stillbox" style="border-color:#C9A84C"><h4 style="color:#8A5A00">&#128269; Research Spark</h4><p>With a parent, read <i>This Is How We Do It: One Day in the Lives of Seven Kids from around the World</i> by Matt Lamothe. It follows real kids from seven countries, including Japan and India. Pick one kid and compare their day with yours, the way Quinn did with her pen pals.</p></div>
+<div class="stillbox" style="border-color:#86D464"><h4 style="color:#3D8A30">&#128197; Coming Up Next</h4><p>Week 22 is <b>City, Suburb and Country</b>. You will compare urban, suburban and rural communities, find out how and why communities grow and change, and read a land-use map.</p></div>
+  <div class="nav">
+<button class="btn btn-back" data-go="14">&larr; Back</button>
+<button class="btn btn-go" data-go="16">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="16">
+<h2>👑 Boss Battle: The Global Citizen</h2>
+<p>This is the hardest round. Compare carefully, spot stereotypes and use your sources. Think like a historian!</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b1_s0" data-pts="5" data-logic="A good comparison tells how two things are alike AND how they are different.">
+    <span class="pts">+5</span>
+    <p class="qtext">Fumika serves lunch to classmates at school. Quinn eats lunch at home with her family. Which sentence <b>compares</b> them best?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Both eat lunch, but Fumika serves classmates at school and Quinn eats at home.</button>
+      <button class="opt">Fumika's lunch is weird.</button>
+      <button class="opt">Quinn eats lunch.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s0" data-pts="5" data-logic="A primary source is made at the time. The Convention&#x27;s own words were written in 1989.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which is a <b>primary source</b> about the promise the world made to children in 1989?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">the Convention's own words, written in 1989</button>
+      <button class="opt">a cartoon about it made last year</button>
+      <button class="opt">a friend's guess about what it says</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b1_s1" data-pts="5" data-logic="A stereotype says everyone in a group is the same. Millions of people in Japan eat many different foods.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which sentence is a <b>stereotype</b>?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Everyone in Japan eats the same food every day.</button>
+      <button class="opt">Children's Day in Japan is on May 5.</button>
+      <button class="opt">Many schools in Japan start in April.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s1" data-pts="5" data-logic="A country has millions of people with different lives. One pen pal tells about one family.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which explanation is correct? One pen pal can't tell us everything about a country because ___.</p>
+    <div class="opts">
+      <button class="opt" data-c="1">a country has millions of people, and their lives are different</button>
+      <button class="opt">pen pals always tell lies</button>
+      <button class="opt">countries are all the same</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b1_s2" data-pts="5" data-logic="Día de Muertos is a time to remember and honor loved ones, not a scary holiday.">
+    <span class="pts">+5</span>
+    <p class="qtext">A student writes: "Día de Muertos is a scary holiday about monsters." What is the mistake?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">It is a time for families to remember and honor loved ones.</button>
+      <button class="opt">It is in the spring.</button>
+      <button class="opt">It is only celebrated in Japan.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b2_s2" data-pts="5" data-logic="Respectful words describe a difference without calling it bad or weird.">
+    <span class="pts">+5</span>
+    <p class="qtext">Quinn first thought, "Taking off shoes at the door is weird." What is a more respectful way to say it?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Fumika's family has a different home tradition than mine.</button>
+      <button class="opt">Fumika is wrong.</button>
+      <button class="opt">Only my way is right.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="15">&larr; Back</button>
+<button class="btn btn-go" data-go="17">Next &rarr;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="17">
+<h2>👑 Boss Battle, Part 2</h2>
+<p>Two more! Read each choice carefully before you tap.</p>
+<div class="qset" data-set="0">
+  <div class="qbox" data-q="b3_s0" data-pts="5" data-logic="India is home to people of many religions, so families celebrate many holidays.">
+    <span class="pts">+5</span>
+    <p class="qtext">A poster says: "Every family in India celebrates only Diwali." What is the mistake?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">India has many religions, so families celebrate many different holidays.</button>
+      <button class="opt">Diwali is in Kenya.</button>
+      <button class="opt">Nobody in India celebrates Diwali.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s0" data-pts="5" data-logic="Kenya starts in January, Japan in April, Gujarat in June. January comes first.">
+    <span class="pts">+5</span>
+    <p class="qtext">Faraji starts school in January, Fumika in April and Falguni in June. Whose school year starts <b>first</b> in the calendar year?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Faraji</button>
+      <button class="opt">Fumika</button>
+      <button class="opt">Falguni</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="1" style="display:none">
+  <div class="qbox" data-q="b3_s1" data-pts="5" data-logic="1989 minus 1963 is 26.">
+    <span class="pts">+5</span>
+    <p class="qtext">Two steps! Kenya became independent in 1963. The Convention on the Rights of the Child was adopted in 1989. How many years apart are they?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">26 years</button>
+      <button class="opt">36 years</button>
+      <button class="opt">16 years</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s1" data-pts="5" data-logic="Week 19 was about child labor. Kailash Satyarthi works to free children from forced work.">
+    <span class="pts">+5</span>
+    <p class="qtext">Whose work connects <b>best</b> to the Week 19 lesson about kids at work?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">Kailash Satyarthi</button>
+      <button class="opt">Tetsuko Kuroyanagi</button>
+      <button class="opt">Xóchitl Guadalupe Cruz López</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+<div class="qset" data-set="2" style="display:none">
+  <div class="qbox" data-q="b3_s2" data-pts="5" data-logic="All four pen pals live in cities. Asking about villages and small towns gives a fuller story.">
+    <span class="pts">+5</span>
+    <p class="qtext">Who is missing? All of Quinn's pen pals live in big cities. What is the <b>best</b> next question for Quinn to ask?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">What is life like for kids in small towns and villages there?</button>
+      <button class="opt">What is my favorite color?</button>
+      <button class="opt">Do cities have buildings?</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+  <div class="qbox" data-q="b4_s2" data-pts="5" data-logic="The United States signed the Convention in 1995 but has not ratified it.">
+    <span class="pts">+5</span>
+    <p class="qtext">Which statement about the Convention is TRUE?</p>
+    <div class="opts">
+      <button class="opt" data-c="1">The United States signed it but has not ratified it.</button>
+      <button class="opt">Only five countries agreed to it.</button>
+      <button class="opt">It was written in 1899.</button>
+      </div>
+    <p class="feedback"></p>
+  </div>
+</div>
+  <div class="nav">
+<button class="btn btn-back" data-go="16">&larr; Back</button>
+<button class="btn btn-go" data-finish>See My Score 🏆</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="slide" data-slide="18">
+  <div class="kc-logo kc-logo-large">
+  <span class="kc-logo-box">KC</span>
+  <span class="kc-logo-text">
+    <span class="kc-logo-name">KingCretot</span>
+    <span class="kc-logo-tagline">Educate. Empower. Excel.</span>
+  </span>
+</div>
+
+  <div class="center">
+    <span class="badge" id="finalBadge">Lesson Complete</span>
+    <h1 id="finalHeadline">Lesson Complete!</h1>
+    <h2 id="finalTitle">New Pen Pal</h2>
+    <div class="final-score"><span id="finalScore">0</span>
+      <p id="reportStatus" style="margin-top:10px;font-weight:800;color:var(--navy)"></p>/100</div>
+    <div class="card card-gold" style="text-align:left">
+      <h3 id="finalMessageHeading">&#128227; Tell your teacher or parent your score!</h3>
+      <p id="finalMessageBody"></p>
+    </div>
+    <p class="quote" id="priorAttemptNote" style="display:none"></p>
+    <div class="nav" style="justify-content:center">
+<button class="btn btn-pri" data-replay>Play Again &#128260;</button>
+<a class="btn btn-go" id="continueLink" href="#" style="display:none">Continue to Next Lesson &rarr;</a>
+</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      <h3>&#9989; All Done for Today?</h3>
+      <p id="allDoneText">Great work! You can safely <b>close this browser tab</b> now. Tell your teacher or parent your score, then finish your Post sheet. Next time: City, Suburb and Country!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+const state = { slide:0, score:0, xp:0, coins:0, answered:{}, attempted:{}, wrongCount:{}, matchDone:0 };
+const MAX_ATTEMPTS = 2;
+const TOTAL_SLIDES = 19;
+const FINAL_INDEX = 18;
+const MODULE_ID = 'grade3-socialstudies-w21';
+const MASTERY_THRESHOLD = 85;
+const MAX_RAW_SCORE = 120;
+function displayScore(){ return Math.min(100, Math.round((state.score / MAX_RAW_SCORE) * 100)); }
+const NEXT_LESSON_URL = '';
+const PROGRESS_KEY = 'kce_pathways_progress';
+
+function loadProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+function saveModuleResult(score){ const all = loadProgress(); const pct = Math.round(score); const prevBest = all[MODULE_ID] ? all[MODULE_ID].score : -1; const best = Math.max(pct, prevBest); all[MODULE_ID] = { score: best, passed: best >= MASTERY_THRESHOLD, lastScore: pct, lastPassed: pct >= MASTERY_THRESHOLD, date: new Date().toISOString(), attempts: (all[MODULE_ID] ? (all[MODULE_ID].attempts||1) + 1 : 1) }; try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(all)); }catch(e){} return all[MODULE_ID]; }
+function getModuleResult(){ const all = loadProgress(); return all[MODULE_ID] || null; }
+
+/* Progress auto-reporting. Formspree forwards it by email AND (via the same
+   Zapier pattern already live for KCE Instructor Training completions) appends
+   a row to a "Pathways Progress Log" Google Sheet, so a parent/teacher never
+   has to check the student's screen. See KCE_Pathways_Progress_Report_Concept.md
+   for the full pipeline and setup steps.
+   TODO before this goes live: replace PATHWAYS_FORMSPREE_ID below with the
+   real Formspree form ID once Jonathan creates it (Formspree dashboard ->
+   New Form -> copy the ID from the endpoint URL). Current value is a
+   placeholder and will fail silently (caught) if left as-is. */
+const PATHWAYS_FORMSPREE_ID = 'mojgzadl';
+function reportProgress(score, rec){
+  try{
+    const name = (localStorage.getItem('kcePathwaysStudentName') || '').trim() || 'Unnamed Student';
+    const payload = {
+      student: name,
+      module: MODULE_ID,
+      score: score,
+      mastered: score >= MASTERY_THRESHOLD,
+      attempts: rec && rec.attempts ? rec.attempts : 1,
+      timestamp: new Date().toISOString()
+    };
+    if (PATHWAYS_FORMSPREE_ID && PATHWAYS_FORMSPREE_ID.indexOf('REPLACE_WITH') === -1){
+      fetch('https://formspree.io/f/' + PATHWAYS_FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u2705 Sent to your parent/teacher automatically.'; })
+        .catch(()=>{ const el = document.getElementById('reportStatus'); if (el) el.textContent = '\u26a0\ufe0f Could not send automatically \u2014 tell your parent or teacher your score just in case.'; });
+    } else {
+      const el = document.getElementById('reportStatus'); if (el) el.textContent = '';
+    }
+  } catch(e){ /* never let reporting break the lesson */ }
+}
+function showPriorCompletionBanner(){ const rec = getModuleResult(); const el = document.getElementById('priorCompletionBanner'); if (!el || !rec) return; const line = document.getElementById('priorCompletionText'); if (rec.passed){ line.innerHTML = '&#9989; You already passed this lesson &mdash; best score <b>' + rec.score + '/100</b>. Play again anytime to sharpen your skills!'; } else { line.innerHTML = '&#128221; You tried this lesson before &mdash; best score so far: <b>' + rec.score + '/100</b>. Score ' + MASTERY_THRESHOLD + '+ to master it!'; } el.style.display = 'block'; }
+
+let actx = null;
+function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx = null; } } return actx; }
+function tone(freq, dur, type, when, vol){ const ctx = ac(); if(!ctx) return; const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type||'sine'; o.frequency.value = freq; g.gain.setValueAtTime(vol||0.18, ctx.currentTime + (when||0)); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (when||0) + dur); o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + (when||0)); o.stop(ctx.currentTime + (when||0) + dur + .05); }
+function playRight(){ tone(523,.14,'sine',0); tone(659,.14,'sine',.12); tone(784,.22,'sine',.24); }
+function playWrong(){ tone(196,.25,'sawtooth',0,.1); tone(147,.3,'sawtooth',.18,.1); }
+function playFanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',i*.16)); }
+function bump(id){ var el=document.getElementById(id); if(!el)return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+function levelup(msg){ var l=document.getElementById('levelup'); if(!l)return; l.textContent=msg; l.classList.remove('show'); void l.offsetWidth; l.classList.add('show'); }
+
+function addScore(p){ state.score += p; updateHud(); bump('hudScore'); }
+function addXP(x){ state.xp += x; updateHud(); }
+function addCoins(c){ state.coins += c; updateHud(); }
+function updateHud(){ document.getElementById('hudScore').textContent = displayScore(); document.getElementById('hudXP').textContent = state.xp; document.getElementById('hudCoins').textContent = state.coins; document.getElementById('xpFill').style.width = Math.min(100, state.xp/3) + '%'; }
+
+function confetti(){ const colors = ['#E0AC3C','#1B2C5C','#86D464','#7CC6FF','#E07B3C','#FF8FB1']; for(let i=0;i<34;i++){ const b = document.createElement('div'); b.className = 'confetti-bit'; const sz = 6 + Math.random()*8; b.style.cssText = 'left:'+(Math.random()*100)+'vw;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';'; document.body.appendChild(b); const fall = b.animate([{transform:'translateY(-10px) rotate(0deg)',opacity:1},{transform:'translateY(105vh) rotate('+(540+Math.random()*360)+'deg)',opacity:.85}],{duration:1700+Math.random()*1400, easing:'cubic-bezier(.2,.6,.4,1)'}); fall.onfinish = ()=>b.remove(); } }
+function flashX(){ const x = document.getElementById('bigX'); x.style.display = 'flex'; x.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1.1)'},{opacity:0,transform:'scale(1)'}],{duration:650}).onfinish = ()=>{ x.style.display='none'; }; }
+
+/* KCE read-aloud: recorded Heart voice (free Kokoro voice); browser voice only if a clip is missing */
+var KCE_CLIPS = {};
+var KCE_AUDIO = null;
+function speakText(text, btn){
+  var clip = KCE_CLIPS[text];
+  if (KCE_AUDIO){ try{ KCE_AUDIO.pause(); }catch(e){} }
+  document.querySelectorAll('.speak-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  if (clip){
+    KCE_AUDIO = new Audio(clip);
+    if (btn){ btn.classList.add('speaking'); KCE_AUDIO.onended = function(){ btn.classList.remove('speaking'); }; KCE_AUDIO.onerror = function(){ btn.classList.remove('speaking'); }; }
+    KCE_AUDIO.play().catch(function(){ if (btn) btn.classList.remove('speaking'); });
+    return;
+  }
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text); u.rate = 0.9;
+  if (btn){ btn.classList.add('speaking'); u.onend = function(){ btn.classList.remove('speaking'); }; }
+  window.speechSynthesis.speak(u);
+}
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function shuffleAllOptions(){ document.querySelectorAll('.opts').forEach(box=>{ const kids = Array.from(box.children); shuffle(kids); kids.forEach(k=>box.appendChild(k)); }); }
+function go(n){ state.slide = n; document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('on', +s.dataset.slide === n)); buildDots(n); window.scrollTo({top:0, behavior:'smooth'}); }
+function buildDots(cur){ const d = document.getElementById('dots'); if(!d) return; d.innerHTML = ''; for(let i=0;i<TOTAL_SLIDES;i++){ const dot = document.createElement('span'); dot.className = 'dot' + (i===cur?' on':(i<cur?' done':'')); d.appendChild(dot); } }
+
+const MATCH_PAIRS_SETS = [[["culture", "a group's way of life"], ["tradition", "a custom passed down for years"], ["stereotype", "an idea that everyone in a group is the same"], ["staple food", "a food eaten often as a main part of meals"], ["uniform", "matching clothes a group wears"]], [["Japan", "Children's Day, May 5"], ["Kenya", "Jamhuri Day, December 12"], ["Mexico", "Día de Muertos ofrendas"], ["India", "Diwali, the festival of lights"], ["Oaxaca City", "the Guelaguetza in July"]], [["Tetsuko Kuroyanagi", "wrote Totto-chan"], ["Wangari Maathai", "started the Green Belt Movement"], ["Xóchitl Guadalupe Cruz López", "built a solar water heater at age 8"], ["Kailash Satyarthi", "freed children from forced work"], ["Convention on the Rights of the Child", "adopted in 1989"]]];
+let MATCH_PAIRS = MATCH_PAIRS_SETS[0];
+let mSel = null;
+function getAttemptSetIndex(){ const rec = getModuleResult(); if (!rec || rec.passed) return 0; return (rec.attempts || 0) % 3; }
+function applyQuestionSet(idx){
+  document.querySelectorAll('.qset').forEach(el=>{ el.style.display = (+el.dataset.set === idx) ? '' : 'none'; });
+  MATCH_PAIRS = MATCH_PAIRS_SETS[idx] || MATCH_PAIRS_SETS[0];
+  if (idx > 0){ const notice = document.getElementById('setNotice'); if (notice){ notice.style.display = 'block'; notice.innerHTML = '&#128260; Fresh set of questions for this attempt (Set ' + (idx+1) + ' of 3) \u2014 here we go!'; } }
+}
+const CURRENT_SET = getAttemptSetIndex();
+
+function buildMatch(){ const left = document.getElementById('mLeft'), right = document.getElementById('mRight'); if(!left||!right) return; left.innerHTML = ''; right.innerHTML = ''; const facts = MATCH_PAIRS.map((p,i)=>({t:p[0], k:i})); const prods = MATCH_PAIRS.map((p,i)=>({t:p[1], k:i})); const order = shuffle([0,1,2,3,4]); shuffle(facts); facts.forEach(f=>{ const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = f.k; b.dataset.side = 'L'; b.innerHTML = f.t; left.appendChild(b); }); order.forEach(idx=>{ const p = prods[idx]; const b = document.createElement('button'); b.className = 'mitem'; b.dataset.mk = p.k; b.dataset.side = 'R'; b.innerHTML = p.t; right.appendChild(b); }); }
+function handleMatch(el){ if (el.classList.contains('done')) return; if (el.dataset.side === 'L'){ document.querySelectorAll('.mitem[data-side="L"]').forEach(m=>m.classList.remove('sel')); el.classList.add('sel'); mSel = el; return; } if (!mSel) return; const key = 'match-' + mSel.dataset.mk; const firstTry = !state.attempted[key]; state.attempted[key] = true; if (el.dataset.mk === mSel.dataset.mk){ el.classList.add('done'); mSel.classList.add('done'); mSel.classList.remove('sel'); mSel = null; state.matchDone++; document.getElementById('matchScore').textContent = 'Matches: ' + state.matchDone + ' / 5'; if (firstTry){ addScore(2); } addXP(8); addCoins(2); playRight(); confetti(); if (state.matchDone === 5){ setTimeout(playFanfare, 350); levelup('Match-Up cleared! 🧩'); } } else { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'), 450); playWrong(); flashX(); } }
+
+document.addEventListener('click', e=>{
+  const nav = e.target.closest('[data-go]'); if (nav){ go(+nav.dataset.go); return; }
+  const fin = e.target.closest('[data-finish]'); if (fin){ showFinal(); return; }
+  const rep = e.target.closest('[data-replay]'); if (rep){ location.reload(); return; }
+  const flip = e.target.closest('[data-flip]'); if (flip){ flip.classList.toggle('flipped'); tone(880,.08,'sine',0,.08); return; }
+  const m = e.target.closest('.mitem'); if (m){ handleMatch(m); return; }
+  const chk = e.target.closest('[data-check]'); if (chk){ checkFill(chk.dataset.check); return; }
+  const opt = e.target.closest('.opt'); if (!opt) return;
+  const box = opt.closest('.qbox'); if (!box || !box.dataset.q) return;
+  const qid = box.dataset.q; if (state.answered[qid]) return;
+  const bonus = box.dataset.bonus === '1';
+  const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const firstTry = !state.attempted[qid]; state.attempted[qid] = true;
+  const fb = box.querySelector('.feedback'); const correct = opt.dataset.c === '1';
+  if (correct){
+    state.answered[qid] = true; opt.classList.add('right'); box.classList.add('ok');
+    box.querySelectorAll('.opt').forEach(b=>b.disabled = true);
+    if (bonus){ fb.textContent = '🌟 Great practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Correct on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You found it! No Pathway Points this time, but great persistence!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:10); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount[qid] = (state.wrongCount[qid] || 0) + 1;
+    opt.classList.add('shake'); setTimeout(()=>opt.classList.remove('shake'), 450);
+    if (!bonus && state.wrongCount[qid] >= MAX_ATTEMPTS){
+      state.answered[qid] = true;
+      box.querySelectorAll('.opt').forEach(b=>{ b.disabled = true; if (b.dataset.c === '1') b.classList.add('right'); });
+      box.classList.add('locked');
+      fb.innerHTML = '📚 That was try #' + state.wrongCount[qid] + '. The correct answer is highlighted above.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount[qid]) + ' try left)';
+      fb.textContent = '❌ Not yet — think it through and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+    }
+    playWrong(); flashX();
+  }
+});
+
+function checkFill(fid){
+  const box = document.querySelector('[data-fq="' + fid + '"]'); if (!box || state.answered['fill-' + fid]) return;
+  const inp = box.querySelector('.fillin'); const fb = box.querySelector('.feedback');
+  const bonus = box.dataset.bonus === '1'; const pts = bonus ? 0 : (+box.dataset.pts || 5);
+  const val = inp.value.trim();
+  if (val === '') { fb.textContent = 'Type your answer first!'; fb.className = 'feedback show bad'; return; }
+  const firstTry = !state.attempted['fill-' + fid]; state.attempted['fill-' + fid] = true;
+  const nz = s=>String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim().replace(/^(a|an|the) /,'');
+  const accepted = String(box.dataset.ans).split('|').map(nz);
+  if (accepted.indexOf(nz(val)) !== -1){
+    state.answered['fill-' + fid] = true; inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true; box.classList.add('ok');
+    if (bonus){ fb.textContent = '🌟 Nice practice! +5 XP'; }
+    else if (firstTry){ addScore(pts); fb.textContent = '🎉 Right on the first try! +' + pts + ' Pathway Points!'; }
+    else { fb.textContent = '✅ You got it! Keep that brain working!'; }
+    fb.className = 'feedback show ok'; addXP(bonus?5:8); addCoins(2); playRight(); confetti();
+  } else {
+    state.wrongCount['fill-' + fid] = (state.wrongCount['fill-' + fid] || 0) + 1;
+    inp.classList.add('bad');
+    if (!bonus && state.wrongCount['fill-' + fid] >= MAX_ATTEMPTS){
+      state.answered['fill-' + fid] = true; inp.disabled = true; box.classList.add('locked');
+      const correctAnswer = String(box.dataset.ans).split('|')[0];
+      fb.innerHTML = '📚 That was try #' + state.wrongCount['fill-' + fid] + '. The correct answer is: ' + correctAnswer + '.' + (box.dataset.logic ? ' <br><b>Why:</b> ' + box.dataset.logic : '') + ' No points this time, but you\u2019ve got this next time!';
+      fb.className = 'feedback show bad';
+    } else {
+      const triesLeft = bonus ? '' : ' (' + (MAX_ATTEMPTS - state.wrongCount['fill-' + fid]) + ' try left)';
+      fb.textContent = '❌ Not yet — check your work and try again.' + triesLeft;
+      fb.className = 'feedback show bad';
+      setTimeout(()=>{ inp.classList.remove('bad'); }, 1200);
+    }
+    playWrong(); flashX();
+  }
+}
+
+function showFinal(){
+  go(FINAL_INDEX);
+  document.getElementById('finalScore').textContent = displayScore();
+  const rec = saveModuleResult(displayScore());
+  reportProgress(displayScore(), rec);
+  const passed = displayScore() >= MASTERY_THRESHOLD;
+  const TIERS = ["New Pen Pal", "Culture Explorer", "World Neighbor", "Master Global Citizen"];
+  let tierTitle = TIERS[0];
+  if (displayScore() >= 90) tierTitle = TIERS[3];
+  else if (displayScore() >= 75) tierTitle = TIERS[2];
+  else if (displayScore() >= 50) tierTitle = TIERS[1];
+  document.getElementById('finalTitle').textContent = tierTitle;
+
+  const headline = document.getElementById('finalHeadline');
+  const badge = document.getElementById('finalBadge');
+  const msgHeading = document.getElementById('finalMessageHeading');
+  const msgBody = document.getElementById('finalMessageBody');
+  const continueLink = document.getElementById('continueLink');
+  const replayBtn = document.querySelector('[data-replay]');
+
+  if (passed){
+    badge.textContent = 'Lesson Mastered';
+    headline.textContent = '🎉 Outstanding Work!';
+    msgHeading.innerHTML = '🏆 You\u2019ve mastered this lesson!';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100 &mdash; that clears the ' + MASTERY_THRESHOLD + '+ mastery mark. Now do <b>Page 2 (Post)</b> of your Pre/Post sheet, then tell your teacher or parent. You compared kids&#39; lives in Japan, Kenya, Mexico and India with your own, spotted stereotypes and read a real promise the world made to children. Pick one question from your Questions I Still Have list and start your Research Spark!';
+    if (NEXT_LESSON_URL && NEXT_LESSON_URL !== '' && NEXT_LESSON_URL.indexOf('__') !== 0){
+      continueLink.href = NEXT_LESSON_URL; continueLink.style.display = 'inline-block'; continueLink.textContent = 'Continue to Next Lesson \u2192';
+    } else {
+      continueLink.style.display = 'none';
+    }
+    if (replayBtn) replayBtn.textContent = 'Play Again for Fun 🔄';
+  } else {
+    badge.textContent = 'Keep Practicing';
+    headline.textContent = '💪 Great Effort Today!';
+    msgHeading.innerHTML = '&#127793; Practice makes progress.';
+    msgBody.innerHTML = 'You scored ' + displayScore() + '/100. Mastering this lesson means reaching ' + MASTERY_THRESHOLD + '/100 &mdash; you\u2019re not there yet, and that is completely okay! Review the lesson, then hit Play Again whenever you\u2019re ready to try again. Every attempt makes you stronger.';
+    continueLink.style.display = 'none';
+    if (replayBtn) replayBtn.textContent = 'Try Again 🔄';
+  }
+  if (rec && rec.attempts > 1){
+    const note = document.getElementById('priorAttemptNote');
+    if (note){ note.style.display = 'block'; note.innerHTML = 'Best score so far: <b>' + rec.score + '/100</b> across ' + rec.attempts + ' tries.'; }
+  }
+
+  playFanfare(); setTimeout(confetti, 250); setTimeout(confetti, 1100); setTimeout(confetti, 1900);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const firstField = document.getElementById('studentFirstNameField');
+  const lastField = document.getElementById('studentLastNameField');
+  const saveFullName = ()=>{
+    const first = (firstField && firstField.value.trim()) || '';
+    const last = (lastField && lastField.value.trim()) || '';
+    const full = (first + ' ' + last).trim();
+    if (full) localStorage.setItem('kcePathwaysStudentName', full);
+    if (first) localStorage.setItem('kcePathwaysStudentFirstName', first);
+    if (last) localStorage.setItem('kcePathwaysStudentLastName', last);
+  };
+  if (firstField){
+    firstField.value = localStorage.getItem('kcePathwaysStudentFirstName') || '';
+    firstField.addEventListener('blur', saveFullName);
+  }
+  if (lastField){
+    lastField.value = localStorage.getItem('kcePathwaysStudentLastName') || '';
+    lastField.addEventListener('blur', saveFullName);
+  }
+});
+document.addEventListener('DOMContentLoaded', ()=>{ applyQuestionSet(CURRENT_SET); shuffleAllOptions(); buildMatch(); updateHud(); buildDots(0); showPriorCompletionBanner(); });
+</script>
+<script>function kcePrintPdf(u){try{var o=document.getElementById("kcePrintFrame");if(o)o.remove();var f=document.createElement("iframe");f.id="kcePrintFrame";f.style.cssText="position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0";f.src=u;f.onload=function(){setTimeout(function(){try{f.contentWindow.focus();f.contentWindow.print();}catch(e){window.open(u,"_blank");}},400);};document.body.appendChild(f);}catch(e){window.open(u,"_blank");}}</script>
+<script src="../../gate.js"></script>
+<div id="kce-legal" style="display:block;clear:both;box-sizing:border-box;width:100%;margin:0;padding:10px 16px;background:#0A1F3D;color:#C9A84C;font:12px/1.4 Arial,sans-serif;text-align:center">&copy; 2026 KingCretot Experience. All rights reserved. Licensed for KCE students only. Do not copy, share or distribute.</div><script>(function(){var e=document.getElementById("kce-legal");if(!e)return;function place(){var r=document.documentElement,b=document.body,t=null,best=0,a=b?b.getElementsByTagName("*"):[];for(var i=0;i<a.length;i++){var x=a[i];if(x===e||e.contains(x))continue;if(x.scrollHeight>x.clientHeight+20&&x.clientHeight>innerHeight*0.5&&x.clientWidth>innerWidth*0.5){var o=getComputedStyle(x).overflowY;if((o==="auto"||o==="scroll")&&x.clientHeight*x.clientWidth>best){best=x.clientHeight*x.clientWidth;t=x}}}if(!t&&b){var bs=getComputedStyle(b),hs=getComputedStyle(r);if(/(hidden|clip)/.test(hs.overflowY)||(/(auto|scroll)/.test(bs.overflowY)&&b.scrollHeight>b.clientHeight+1))t=b;else t=r}if(t&&e.parentNode!==t)t.appendChild(e);var h=0;for(var j=0;j<a.length;j++){var s=getComputedStyle(a[j]);if(s.position==="fixed"&&s.display!=="none"&&s.visibility!=="hidden"&&!e.contains(a[j])){var q=a[j].getBoundingClientRect();if(q.height>0&&q.height<200&&q.bottom>=innerHeight-2&&q.width>innerWidth*0.5)h=Math.max(h,q.height)}}e.style.marginBottom=h?h+"px":"0"}if(document.readyState==="complete")setTimeout(place,50);else addEventListener("load",function(){setTimeout(place,50)})})();</script>
+<script type="module" src="/kce-progress/kce-progress.js" data-course="pathways-g23"></script>
+</body>
+</html>
