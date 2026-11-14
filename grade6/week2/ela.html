@@ -79,8 +79,9 @@ function norm(s){
 }
 function lightNorm(s){ return String(s||'').replace(/[\u201c\u201d]/g,'"').replace(/[\u2018\u2019]/g,"'").replace(/\s+/g,' ').trim().replace(/\s+([,.!?])/g,'$1'); }
 function parseNum(s){
-  s = String(s||'').trim().replace(/^(about|approximately|approx\.?|around|roughly|nearly|≈|~)\s*/i,'').replace(/[$,]/g,'').replace(/\s+/g,' ').replace(/\s*[a-z°%.²³]*[a-z°%][a-z°%.²³\s]*$/i,'').trim();
+  s = String(s||'').trim().replace(/^(about|approximately|approx\.?|around|roughly|nearly|≈|~)\s*/i,'').replace(/[$,]/g,'').replace(/\s+/g,' ').replace(/\s*[a-z°%.²³×µ]*[a-z°%×µ][a-z°%.²³×µ\s]*$/i,'').trim();
   if(!s) return NaN;
+  s = s.replace(/½/g,' 1/2').replace(/¼/g,' 1/4').replace(/¾/g,' 3/4').replace(/\s+/g,' ').trim();
   var m = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);            // mixed number 2 1/2
   if(m){ var w=+m[1]; var f=+m[2]/+m[3]; return w<0? w-f : w+f; }
   m = s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);       // fraction 3/4
@@ -183,8 +184,8 @@ function wire(root){
     var isCP = rec.group==='checkpoint';
     if(isCP){ if(rec.q.t!=='open') state.cpPossible += (rec.q.pts||2); else state.cpOpenPts += (rec.q.pts||4); }
     else if(rec.q.t!=='open') state.possible += (rec.q.pts||2);
-    if(isCP && b) b.textContent = 'Submit answer';
     var b = el.querySelector('.check'), s = el.querySelector('.save');
+    if(isCP && b) b.textContent = 'Submit answer';
     if(s) s.addEventListener('click', function(){
       var v = el.querySelector('textarea').value.trim(), words = v? v.split(/\s+/).length : 0, min = rec.q.min||0;
       var fb = el.querySelector('.fb');

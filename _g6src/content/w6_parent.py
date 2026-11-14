@@ -1,8 +1,8 @@
 GUIDE = {
  "headline": "Week 6: Unit 2 Begins: Rivers, Cells, Fractions and Facts",
- "intro": "Unit 2 opens this week. Your child travels up the Nile to see how a river flowing north through the desert built the kingdom of Kemet, looks into the invisible world of cells, multiplies fractions to scale recipes and split costs, and learns to find the central idea of an informational article.",
+ "intro": "Unit 2 opens this week. Your child travels down the Nile, from its sources in East Africa and Ethiopia to the Mediterranean, to see how a river flowing north through the desert built the kingdom of Kemet, looks into the invisible world of cells, multiplies fractions to scale recipes and split costs, and learns to find the central idea of an informational article.",
  "time": "About 60 minutes of live lessons per subject, plus 30 to 45 minutes of after-class work per subject.",
- "gather": "A baking pan, sand, dark potting soil or coffee grounds, water, a clear cup and a ruler (Social Studies); a clear plastic sheet such as a page protector, a dropper or straw, an onion, salt and a magnifying glass if you have one (Science); measuring cups and spoons, dry rice and a family recipe (Math); a paper plate, paper strips, tape and scissors (ELA).",
+ "gather": "A baking pan, sand, dark potting soil or coffee grounds, water, a clear cup, a ruler, a marker, a towel and optional bean seeds (Social Studies); a clear page protector, a dropper or straw, printed text, salt, sugar, a leaf, a hair, a fabric scrap, an onion, a millimeter ruler and a magnifying glass if you have one (Science); measuring cups and spoons, dry rice, a family recipe and graph paper (Math); a printed copy of the article, two highlighters, a paper plate, paper strips, tape, scissors and a marker (ELA).",
  "heads_up": "The floodplain model and the water-drop magnifier can be a little messy; a towel underneath helps. Unit 1 project feedback comes back this week: if a project scored below 85, your child revises it once using the feedback.",
  "ela": {
   "topic": "Central Idea and Supporting Details",

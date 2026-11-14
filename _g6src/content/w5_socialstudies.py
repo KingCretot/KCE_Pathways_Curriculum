@@ -297,7 +297,7 @@ LESSON = {'unit': 'Unit 1: How We Know the Past',
                                       'model': 'Bronze Head of an Oba. Kingdom of Benin, in present-day Nigeria, 1500s. Cast bronze. Benin artists made heads like this to honor kings and their '
                                                'ancestors. British soldiers took it during the attack on Benin City in 1897. Question: who do you think should decide where it lives today? The '
                                                'original label left out who made it and how the museum got it.'}]}]},
- 'next': 'Unit 2: The Nile Valley and Ancient Africa. You will travel down the Nile to Kemet, Nubia and the Kingdom of Kush.'}
+ 'next': 'Unit 2: The Nile Valley and Ancient Africa. You will travel along the Nile to Kemet, then up the river to Nubia and the Kingdom of Kush.'}
 
 TEACHER = {
  "standards": [

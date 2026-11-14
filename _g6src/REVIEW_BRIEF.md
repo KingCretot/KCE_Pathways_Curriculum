@@ -42,3 +42,10 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - No content before it is taught (percents arrive in Unit 3; rhyme scheme in Unit 3).
 - Printable items need model answers, never "Answers vary".
 - Brand names include software (Zoom, Libby, IBM, Formspree) in student- or parent-facing text.
+
+## Added after Week 6 review
+- "Simplest form" items must be text items with the exact simplest fraction; numeric checks accept any equivalent value.
+- Never let a check accept the misconception (e.g. "north to south"); add "none" lists.
+- Do not score students on content the lesson did not teach (every rubric line must trace to the lesson text).
+- Egypt is never set apart from "the rest of Africa" in wording.
+- Use realistic amounts (a 40-person reunion is not $96).
