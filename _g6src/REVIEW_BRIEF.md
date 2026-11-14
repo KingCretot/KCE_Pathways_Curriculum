@@ -21,7 +21,7 @@ least one keyword appear as a substring of the student's answer).
 - History is true and complete and includes all ethnicities; never Eurocentric; say "Indigenous Peoples" and name the nation. Egypt (Kemet) is taught as an African civilization.
 - Poetry: pre-1929 poems may be printed in full; later poems (e.g., Maya Angelou) must only be linked, never reproduced.
 - American English spelling always. Say "lessons," never "sessions." Brand: KingCretot Experience.
-- Every printed page must fit cleanly (no spillover).
+- There is NO page-count limit. Pages run as long as the content needs. Check only that nothing is cut off or broken across pages badly (a table row or a diagram split mid-way).
 
 ## Report format
 For each file reviewed, list findings as: severity (HIGH = factually wrong, wrong answer key, broken/unfair auto-check,

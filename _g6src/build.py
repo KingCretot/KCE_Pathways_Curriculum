@@ -41,11 +41,7 @@ def pdf_pages(path):
 def write(rel, text, fit=False):
     p = os.path.join(OUT, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w').write(text)
-    if fit and '--nofit' not in sys.argv:
-        for c in ('c1', 'c2', 'c3'):
-            if pdf_pages(p) <= 1: return
-            open(p, 'w').write(text.replace('<body>', f'<body class="{c}">', 1))
-        if pdf_pages(p) > 1: print('WARNING: does not fit one page:', rel)
+    # No page-count limit: pages run as long as the content needs.
 
 
 def answer_text(q):
