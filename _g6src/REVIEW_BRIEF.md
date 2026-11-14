@@ -99,3 +99,6 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - CPALMS: SS.6.W.3.2 = Greek democratic concepts; SS.6.W.3.4 = Persian and Peloponnesian Wars; ELA.6.R.3.4 = "Identify rhetorical appeals in a text."
 - scope.py also sets the math money thread for each week (math_money); follow it.
 - Pet and young-child safety notes for food, bones, balloons and small parts.
+- Engine: parseNum now accepts a leading "+" (e.g., "+145").
+- Name Indigenous nations specifically; say "Indigenous Peoples." Present debated attributions as debated.
+- CPALMS: SS.6.C.1.2 is archived; use SS.6.CG.1.2-1.4 for Rome's influence, rule of law, civic virtue.

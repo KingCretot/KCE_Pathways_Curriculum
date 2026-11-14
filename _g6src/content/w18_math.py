@@ -61,11 +61,11 @@ LESSON = {
   "items": [
    {"t":"text","q":"Which quadrant is (−3, −8) in? Type the Roman numeral.","a":[{"all":[["iii","3"]],"none":["iv"]}],"show":"III","pts":2,"why":"Both coordinates are negative."},
    {"t":"num","q":"How many units apart are (−4, 6) and (5, 6)?","a":9,"unit":"units","pts":2,"why":"|−4| + |5| = 9."},
-   {"t":"text","q":"Reflect (2, −9) across the x-axis. Type the ordered pair.","a":[{"all":[["^2","(2"],["9"]],"none":["-9","-2","not"]}],"show":"(2, 9)","pts":2,"why":"Across the x-axis, y changes sign."},
+   {"t":"text","q":"Reflect (2, −9) across the x-axis. Type the ordered pair.","a":["(2, 9)","(2,9)","2, 9"],"show":"(2, 9)","pts":2,"why":"Across the x-axis, y changes sign."},
    {"t":"open","key":"rc_distance","q":"Last week, to find the distance from −4 to 5 you added 4 + 5. Explain in your own words why you added instead of subtracted.","min":15,"rows":2,"rubric":["The numbers are on opposite sides of zero, so you travel 4 to reach zero, then 5 more"],"model":"−4 and 5 are on opposite sides of zero. You go 4 units to reach zero, then 5 more, so you add 4 + 5 = 9."}]},
  "hook": {
   "title": "The Coldest Morning",
-  "html": "<p>On January 15, 1972, the temperature in Loma, Montana, rose from −54°F to 49°F in 24 hours, the biggest one-day temperature change ever recorded in the United States. How many degrees is that? You can't just subtract 54 from 49.</p><p>Meanwhile, Maya, the 12-year-old sourdough baker from last week, wants to borrow $60 for a stand mixer. How do you keep track of money you owe? Both questions need the same skill: adding and subtracting integers.</p><div class='callout'><b>Big question:</b> What happens when positive and negative quantities combine?</div>"},
+  "html": "<p>From January 14 to 15, 1972, the temperature in Loma, Montana, rose from −54°F to 49°F in 24 hours, the biggest one-day temperature change ever recorded in the United States. How many degrees is that? You can't just subtract 54 from 49.</p><p>Meanwhile, Maya, the 12-year-old sourdough baker from last week, wants to borrow $60 for a stand mixer. How do you keep track of money you owe? Both questions need the same skill: adding and subtracting integers.</p><div class='callout'><b>Big question:</b> What happens when positive and negative quantities combine?</div>"},
  "learn": [
   {"title": "Adding Integers with Counters",
    "visual": CHIPS,
@@ -77,9 +77,9 @@ LESSON = {
     {"t":"open","key":"zeropairwhy","q":"Explain, using zero pairs, why 8 + (−8) = 0. Then give a real-life example.","min":20,"rows":2,"rubric":["Each positive pairs with a negative; all 8 pairs make 0","A real example (earn $8, spend $8; climb 8 feet, descend 8 feet)"],"model":"8 yellow and 8 red counters make 8 zero pairs, and each pair is worth 0, so the sum is 0. If I earn $8 and then spend $8, I'm back where I started."}]},
   {"title": "Adding on a Number Line",
    "visual": JUMP,
-   "html": "<p>On a number line, start at the first number. Adding a positive number moves <b>right</b>; adding a negative number moves <b>left</b>. For 3 + (−7), start at 3 and move 7 to the left: you land on −4.</p><p>You can add several integers in any order. Group the positives and the negatives: 6 + (−4) + 9 + (−8) = (6 + 9) + (−4 + −8) = 15 + (−12) = 3.</p>",
+   "html": "<p>On a number line, start at the first number. Adding a positive number moves <b>right</b>; adding a negative number moves <b>left</b>. For 3 + (−7), start at 3 and move 7 to the left: you land on −4.</p><p>You can add several integers in any order. Group the positives and the negatives: 6 + (−4) + 9 + (−8) = (6 + 9) + ((−4) + (−8)) = 15 + (−12) = 3.</p>",
    "checks": [
-    {"t":"num","q":"A scuba diver is at −30 feet and rises 12 feet. What is the new depth? (Write −30 + 12.)","a":-18,"unit":"feet","pts":2,"why":"Start at −30 and move 12 toward zero."},
+    {"t":"num","q":"A cave diver at Ginnie Springs is at −30 feet and rises 12 feet. What is the diver's new position relative to the surface, as an integer? (Write −30 + 12.)","a":-18,"unit":"feet","pts":2,"why":"Start at −30 and move 12 toward zero."},
     {"t":"num","q":"6 + (−4) + 9 + (−8) + (−5) = ?","a":-2,"pts":2,"why":"Positives 15; negatives −17; 15 + (−17) = −2."},
     {"t":"open","key":"orderproof","q":"Lena says −8 + 5 and 5 + (−8) have different answers because one starts negative. Is she right? Show both on a number line in words.","min":20,"rows":2,"rubric":["Both equal −3 (addition is commutative)","Describes both moves: start at −8 move 5 right; start at 5 move 8 left"],"model":"She's not right. Start at −8 and move 5 right: −3. Start at 5 and move 8 left: −3. Addition works in any order."}]},
   {"title": "Subtracting: Add the Opposite",
@@ -131,7 +131,7 @@ TEACHER = {
  "materials": ["The interactive lesson", "Playing cards or numbered index cards", "Two colors of counters (about 20 each)", "Tape or chalk number line from −20 to 20", "Paper and pencil", "Printable practice page"],
  "flow": [
   [6, "Reconnect", "Run the Week 17 warm-up questions."],
-  [4, "Hook", "Loma, Montana, and Maya's October."],
+  [4, "Hook", "Loma, Montana, and Maya's mixer loan."],
   [12, "Counters", "Model sums with zero pairs; derive the same-sign and different-sign rules."],
   [9, "Number line", "Model sums as moves; group positives and negatives."],
   [13, "Subtraction", "Add the opposite; the debt story; finding change; Kilimanjaro and Lake Assal."],
@@ -150,7 +150,7 @@ PRINT = {
  "items": [
   {"q":"Find each sum: (a) −8 + (−9) (b) −13 + 5 (c) 21 + (−14)","a":"(a) −17 (b) −8 (c) 7","lines":2},
   {"q":"Find each difference: (a) 6 − 14 (b) −7 − 9 (c) −12 − (−20)","a":"(a) −8 (b) −16 (c) 8","lines":2},
-  {"q":"A hiker starts at 125 feet below sea level in Death Valley and climbs to 410 feet above sea level. How many feet did she climb?","a":"410 − (−125) = 535 feet.","lines":2},
+  {"q":"A hiker starts at the shore of the Dead Sea, about 1,410 feet below sea level, and climbs to a lookout 200 feet above sea level. How many feet did she climb?","a":"200 − (−1,410) = 1,610 feet.","lines":2},
   {"q":"A temperature falls from 5°F to −12°F. What is the change?","a":"−12 − 5 = −17 degrees (a drop of 17).","lines":2},
   {"q":"A loan balance is −$85. The borrower pays $30, then borrows $12 more, then pays $40. What is the balance?","a":"−85 + 30 − 12 + 40 = −27; $27 is still owed.","lines":2},
   {"q":"Explain why subtracting a negative number gives a greater result.","a":"Subtracting a negative is adding its opposite (a positive), like canceling a debt.","lines":2}]
