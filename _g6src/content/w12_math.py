@@ -32,7 +32,7 @@ def dnl_pct():
     return s + '</svg>'
 
 RECEIPT = ('<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Store receipt with sales tax">'
-  '<text x="320" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">A receipt in DeSoto County (7.5% sales tax)</text>'
+  '<text x="320" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">A cash-register slip in DeSoto County (7.5% sales tax)</text>'
   '<rect x="180" y="34" width="280" height="216" fill="#fff" stroke="#8a8f99"/>'
   '<text x="320" y="56" text-anchor="middle" font-weight="bold" font-family="Courier New, monospace">PEACE RIVER HARDWARE</text>'
   + ''.join(f'<text x="196" y="{y}" font-family="Courier New, monospace">{a}</text><text x="444" y="{y}" text-anchor="end" font-family="Courier New, monospace">{b}</text>' for y, a, b in [(84, "Paint brush set", "$12.00"), (104, "Garden hose", "$24.00"), (124, "Work gloves", "$4.00")]) +
@@ -92,7 +92,7 @@ LESSON = {
    "checks": [
     {"t":"num","q":"Amara has saved $45, which is 25% of the cost of a bike. How much does the bike cost?","a":180,"unit":"dollars","show":"$180","pts":3,"why":"25% → $45, so 100% → 4 × $45 = $180."},
     {"t":"num","q":"A water tank is 40% full and holds 120 gallons right now. How many gallons does it hold when full?","a":300,"unit":"gallons","pts":3,"why":"40% → 120, 10% → 30, 100% → 300."},
-    {"t":"open","key":"wholecheck","q":"Kenji says, \"If 20 is 50% of a number, the number is 10.\" Explain his mistake and give the correct answer.","min":15,"rows":2,"rubric":["He took 50% of 20 instead of finding the whole","20 is half of the number, so the number is 40"],"model":"He found 50% of 20 instead of finding the whole. If 20 is half of the number, the whole number is 40."}]},
+    {"t":"open","key":"wholecheck","q":"Priya says, \"If 20 is 50% of a number, the number is 10.\" Explain his mistake and give the correct answer.","min":15,"rows":2,"rubric":["He took 50% of 20 instead of finding the whole","20 is half of the number, so the number is 40"],"model":"He found 50% of 20 instead of finding the whole. If 20 is half of the number, the whole number is 40."}]},
   {"title": "Money: Sales Tax",
    "visual": RECEIPT,
    "html": "<p><b>Sales tax</b> is a percent of the price added at the register. Florida's state sales tax is 6%. Most Florida counties add a small county tax (called a discretionary sales surtax). In DeSoto County it is 1.5%, so the total is <b>7.5%</b>. Across Florida, the total ranges from 6% to 8%, depending on the county.</p><p>To find the tax, multiply the subtotal by the rate as a decimal: $40.00 × 0.075 = $3.00. The total is $40.00 + $3.00 = $43.00. A shortcut: multiply by 1.075 to find the total in one step.</p><p>Not everything is taxed. In Florida, most groceries and prescription medicines are exempt. And every August, Florida holds a <b>back-to-school sales tax holiday</b>: school supplies priced at $50 or less, clothing at $100 or less, learning aids at $30 or less and personal computers at $1,500 or less can be bought without sales tax.</p>",
@@ -100,24 +100,24 @@ LESSON = {
     {"t":"num","q":"Find the tax on the $40.00 subtotal at 7.5%.","a":3,"unit":"dollars","show":"$3.00","pts":2,"why":"$40 × 0.075 = $3.00."},
     {"t":"num","q":"A $24 garden hose is bought in a county with 7% total sales tax. What is the total cost?","a":25.68,"unit":"dollars","show":"$25.68","pts":3,"why":"Tax: $24 × 0.07 = $1.68. Total: $24 + $1.68 = $25.68 (or $24 × 1.07)."},
     {"t":"num","q":"In August, a family buys $90 of school supplies (every item under $50) and a $120 pair of shoes in DeSoto County. Only the shoes are taxed, because they cost more than $100. How much sales tax do they pay?","a":9,"unit":"dollars","show":"$9.00","pts":3,"why":"Supplies under $50 each are tax-free in August. The $120 shoes are over the $100 limit: $120 × 0.075 = $9.00."},
-    {"t":"open","key":"taxwhy","q":"Sales tax pays for things like roads, schools and emergency services. Why do you think Florida exempts most groceries from sales tax?","min":20,"rows":2,"rubric":["Food is a basic need; taxing it would hit families with less money hardest","A reasonable explanation"],"model":"Food is a basic need that every family must buy. Taxing groceries would take a bigger share of the money of families who earn less, so exempting them makes the tax fairer."}]}],
+    {"t":"open","key":"taxwhy","q":"Sales tax pays for things like roads, schools and emergency services. Why do you think Florida exempts most groceries from sales tax?","min":20,"rows":2,"rubric":["Gives a reason linked to food being a basic need or to fairness for families","A reasonable explanation"],"model":"Food is a basic need that every family must buy. Taxing groceries would take a bigger share of the money of families who earn less, so exempting them makes the tax fairer."}]}],
  "handson": {
-  "title": "Percent Hunt and Receipt Check",
-  "intro": "Find percents in the real world and check a real receipt's sales tax.",
-  "materials": ["A recent store receipt with sales tax (ask a parent)", "Packages, ads or labels at home (food labels, cleaning products, clothing tags)", "A calculator for checking only", "Paper and pencil", "Optional: 1 cup of dry beans or rice and a 10 by 10 grid drawn on paper"],
+  "title": "Percent Hunt and Tax-Holiday Planner",
+  "intro": "Find percents in the real world, then plan a back-to-school list and see how much Florida's August tax holiday saves.",
+  "materials": ["A store flyer or website with school supplies (with a parent)", "Packages, ads or labels at home (food labels, cleaning products, clothing tags)", "A calculator for checking only", "Paper and pencil", "Optional: 1 cup of dry beans or rice and a 10 by 10 grid drawn on paper"],
   "steps": [
    "Percent hunt: find five percents at home (nutrition labels show % Daily Value; clothing tags show 100% cotton; ads show % off). Write each one, what it is a percent of, and what it means.",
-   "Receipt check: on a real receipt, find the subtotal, the tax and the total. Calculate the tax rate: tax ÷ taxable subtotal × 100.",
-   "Look for items that were not taxed. Can you explain why?",
+   "Tax-holiday planner: with a parent, use a store flyer or website to plan a back-to-school list of about $150. Mark which items would be tax-free in August under Florida's limits, then calculate the tax on the same list in October at 7.5% and how much the holiday saves.",
+   "Which item on your list is taxed even in August, and why?",
    "Optional: shade or cover squares on a 10 by 10 grid with beans to model three of the percents you found."],
   "record": [
-   {"t":"open","key":"hunt","q":"List the five percents you found, what each is a percent of, and what it means in your own words.","min":40,"rows":6,"rubric":["Five real percents","Correct whole identified for each","Clear meaning in own words"],"model":"1. Cereal: 25% Daily Value of iron: one bowl gives a fourth of the iron I need in a day. 2. T-shirt: 60% cotton: 60 of every 100 parts of the fabric are cotton. 3. Phone: 82% battery. 4. Sign: 30% off shoes. 5. Juice: 100% juice: no added water or sugar."},
-   {"t":"open","key":"receipt","q":"Record the receipt's subtotal, tax and total. Show your calculation of the tax rate. Does it match your county's rate? Explain any untaxed items.","min":40,"rows":5,"rubric":["Correct numbers from the receipt","Tax rate calculated and shown","Compared with the county rate","Explains untaxed items (groceries exempt)"],"model":"Taxable subtotal $18.60, tax $1.40, total (with $12.35 of untaxed groceries) $32.35. $1.40 ÷ $18.60 = 0.0753, about 7.5%, which matches DeSoto County. The milk and bread were not taxed because most groceries are exempt in Florida."}]},
+   {"t":"open","key":"hunt","q":"List the five percents you found, what each is a percent of, and what it means in your own words.","min":40,"rows":6,"rubric":["Five real percents","Correct whole identified for each","Clear meaning in own words"],"model":"1. Cereal: 25% Daily Value of iron: one bowl gives a fourth of the iron I need in a day. 2. T-shirt: 60% cotton: 60 of every 100 parts of the fabric are cotton. 3. Phone: 82% battery: 82 of every 100 parts of a full charge are left. 4. Sign: 30% off shoes: you pay $30 less for every $100 of the price. 5. Juice: 100% juice: no added water or sugar."},
+   {"t":"open","key":"receipt","q":"Show your list with prices, mark each item tax-free or taxed in August, and calculate the August tax, the October tax at 7.5% and the savings.","min":40,"rows":5,"rubric":["A list with prices","Each item correctly marked using the August limits","August and October tax calculated correctly","Savings found"],"model":"Backpack $40, notebooks and pens $22, sneakers $110, tablet $300 = $472. August: only the sneakers are taxed (over $100): $110 × 0.075 = $8.25. October: $472 × 0.075 = $35.40. Savings: $27.15."}]},
  "think": {
   "intro": "Show your reasoning. Your teacher scores these.",
   "items": [
    {"t":"open","key":"budgettax","q":"You have exactly $50 to spend at a store in a county with 7.5% sales tax. What is the most expensive item you can buy so that the total with tax is $50 or less? Explain your method and check your answer.","min":50,"rows":5,"rubric":["Price × 1.075 ≤ $50, so price ≤ $50 ÷ 1.075 ≈ $46.51","Check: $46.51 × 1.075 ≈ $50.00 (and $46.52 goes over)","Clear explanation"],"model":"The total is the price times 1.075, so the price can be at most $50 ÷ 1.075 ≈ $46.51. Check: $46.51 × 0.075 = $3.49 in tax, and $46.51 + $3.49 = $50.00. A $46.52 item would go just over $50."},
-   {"t":"open","key":"rain","q":"A forecast says there is a 30% chance of rain on Saturday and a 30% chance on Sunday. Kofi says that means a 60% chance of rain this weekend. Is he right? Explain using what a percent means.","min":45,"rows":4,"rubric":["Not right: you cannot simply add the two percents","Each percent is a chance out of 100 for its own day; the chance of rain on at least one day is more than 30% but less than 60% (about 51%)","Reasoning about what each percent refers to"],"model":"No. Each 30% is a chance out of 100 for its own day, so you can't just add them. If you could, two days of 60% would make 120%, which is impossible. The chance of rain on at least one day is higher than 30% but less than 60%; it works out to about 51%."}]},
+   {"t":"open","key":"rain","q":"A forecast says there is a 30% chance of rain on Saturday and a 30% chance on Sunday. Mateo says that means a 60% chance of rain this weekend. Is he right? Explain using what a percent means.","min":45,"rows":4,"rubric":["Not right: you cannot simply add the two percents","Each percent is a chance out of 100 for its own day; the chance of rain on at least one day is more than 30% but less than 60%","Reasoning about what each percent refers to"],"model":"No. Each 30% is a chance out of 100 for its own day, so you can't just add them. If you could, two days of 60% would make 120%, which is impossible. The chance of rain on at least one day is higher than 30% but less than 60%."}]},
  "exit": [
   {"t":"blanks","q":"Complete.","sent":"0.6 = ___% &nbsp; 45% = ___ (decimal)","blanks":[["60"],["0.45",".45"]],"show":"60; 0.45","pts":2,"why":"0.6 × 100 = 60%; 45 ÷ 100 = 0.45."},
   {"t":"num","q":"What is 25% of 64?","a":16,"pts":2,"why":"25% is one fourth: 64 ÷ 4 = 16."},
@@ -133,7 +133,7 @@ TEACHER = {
   "MA.K12.MTR.2.1: Demonstrate understanding by representing problems in multiple ways.",
   "MA.K12.MTR.7.1: Apply mathematics to real-world contexts.",
   "Financial literacy: sales tax, tax-exempt items and sales tax holidays (Jump$tart Spending)."],
- "materials": ["The interactive lesson", "A hundred grid (drawn or printed) and dry beans", "A real store receipt with sales tax", "Food labels, clothing tags and ads", "Printable practice page"],
+ "materials": ["The interactive lesson", "A hundred grid (drawn or printed) and dry beans", "A store flyer or website with school supplies", "Food labels, clothing tags and ads", "Printable practice page"],
  "flow": [
   [6, "Reconnect", "Run the Week 11 Reconnect questions."],
   [5, "Hook", "Compare the two spelling scores. Ask the student to guess before converting."],
@@ -141,7 +141,7 @@ TEACHER = {
   [12, "Percent of a number", "Build the double number line for $40. Practice benchmark shortcuts."],
   [8, "Finding the whole", "Use a ratio table: find 10% first, then 100%."],
   [12, "Sales tax", "Complete the receipt. Discuss DeSoto County's 7.5%, groceries and the August holiday."],
-  [7, "Assign", "Start the percent hunt together; assign the receipt check, Think Deeper and the Exit Check."]],
+  [7, "Assign", "Start the percent hunt together; assign the tax-holiday planner, Think Deeper and the Exit Check."]],
  "key_questions": ["Percent of what? What is the whole?", "Is your answer reasonable compared with a benchmark?", "Is this item taxed?", "Can a percent be more than 100? When?"],
  "misconceptions": ["Adding percents that refer to different wholes.", "Moving the decimal point the wrong way.", "Confusing finding the part with finding the whole.", "Thinking percents can never exceed 100."],
  "support": ["Keep a benchmark card: 50% = 1/2, 25% = 1/4, 10% = 1/10, 1% = 1/100.", "Use hundred grids for every conversion at first.", "Use a percent ratio table template."],

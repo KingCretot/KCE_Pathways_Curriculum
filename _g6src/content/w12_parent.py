@@ -2,8 +2,8 @@ GUIDE = {
  "headline": "Week 12: The Indus Valley, Classification, Percents and the Sound of Poetry",
  "intro": "This week your child explores the planned cities of the Indus Valley and their unread script, learns how scientists classify and name living things, works with percents and Florida sales tax, and listens to how poems by Robert Louis Stevenson, Sarojini Naidu, William Shakespeare and two Japanese haiku masters use sound and structure.",
  "time": "About 60 minutes of live lessons per subject, plus 30 to 45 minutes of after-class work per subject.",
- "gather": "A shallow baking pan or storage lid, sand or soil, drinking straws or foil, small blocks or LEGO bricks, a cup of water, towels, and a world map or globe (Social Studies); 15 to 20 buttons, dry pasta shapes, bolts or shells, index cards, a paper bag and a heavy book for pressing leaves (Science); a recent store receipt with sales tax, food labels, clothing tags or ads, paper and pencil, and optionally dry beans and a 10 by 10 grid (Math); a table, drum or pot and wooden spoon to tap a beat, space to walk, and optionally a phone to record (ELA).",
- "heads_up": "Science includes a short walk to collect 6 to 8 fallen leaves; please go along, avoid poison ivy, and help press the leaves in a heavy book, because they are used next week. Social Studies uses water and sand, so the drain model works best outdoors or in a sink. Math looks at a real receipt, so please share one you are comfortable with.",
+ "gather": "A shallow baking pan or storage lid, sand or soil, drinking straws or foil, small blocks or LEGO bricks, a cup of water, a measuring cup, a piece of cardboard, towels, and a world map or globe (Social Studies); 15 to 20 buttons, dry pasta shapes, bolts or shells, index cards, a paper bag, gloves and a heavy book for pressing leaves; keep buttons and small pasta away from toddlers and pets (Science); a store flyer or website with school supplies, a calculator (for checking only), food labels, clothing tags or ads, paper and pencil, and optionally dry beans and a 10 by 10 grid (Math); a table, drum or pot and wooden spoon to tap a beat, space to walk, paper and pencil, and optionally a phone to record (ELA).",
+ "heads_up": "Science includes a short walk to collect 6 to 8 fallen leaves; please go along, avoid poison ivy (even fallen leaves), bring gloves, wash hands afterward, and help press the leaves in a heavy book, because they are used next week. Social Studies uses water and sand, so the drain model works best outdoors or in a sink. Math uses a store flyer or website to plan a back-to-school list.",
  "ela": {
   "topic": "Sound and Structure in Poetry",
   "what": "Your child learns rhyme scheme, rhythm, repetition, refrain, alliteration, assonance and onomatopoeia, reads Stevenson's \"From a Railway Carriage,\" Naidu's \"Palanquin Bearers,\" Shakespeare's Sonnet 18 and two haiku, and writes a poem whose rhythm imitates a motion.",
@@ -15,7 +15,7 @@ GUIDE = {
   "topic": "Understanding Percents",
   "what": "Your child learns that percent means per hundred, converts among percents, fractions and decimals, finds a percent of a number and the whole from a part, and calculates sales tax, including DeSoto County's 7.5% and Florida's August back-to-school tax holiday.",
   "ask": "\"What is 10% of this price? What is the tax?\"",
-  "try": "Look at a receipt together and have your child check the sales tax.",
+  "try": "Plan a short shopping list together and have your child work out the sales tax.",
   "clicking": "They use benchmarks like 10% and 25% to estimate before calculating.",
   "help": "They move the decimal point the wrong way. Ask: should 45% be more or less than 1?"},
  "science": {
