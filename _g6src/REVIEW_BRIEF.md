@@ -60,7 +60,15 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 
 ## Week 8 additions
 - Florida B.E.S.T. Grade 6 ratio benchmarks are MA.6.AR.3.1 to 3.5 (there is no AR.4).
-- The only Grade 6 Florida SS benchmark naming Kush is SS.6.E.3.3; SS.6.W.2.8 is Mesopotamian key figures.
+- Grade 6 SS benchmarks naming Kush: SS.6.W.3.18 (Kush and Axum) and SS.6.E.3.3 (economies). SS.6.W.2.8 is Mesopotamian key figures.
 - Bessie Coleman's same-gate refusal was in Waxahachie, Texas (and Houston), not Orlando.
 - Timelines need uniform scale; check bar positions against real dates.
 - Blanks must not accept a word already printed in the sentence (circular answers).
+
+## Week 9 additions
+- MA.6.AR.3.3 is the ratio-table benchmark. Cell theory is SC.6.L.14.2; SC.6.L.14.3 is homeostasis.
+- MLA 9: when an organization is author and publisher, start with the title; in-text uses a short title.
+- Quote statistics as published (Ferrario 2014: an average of 97 percent, not "up to").
+- Quote poems in the version you name (Coleridge 1798 vs 1817 wording).
+- No circular accepts (a name printed in the question). No animal-cruelty examples.
+- Salt dough and other craft materials: add no-tasting and pet-safety notes.

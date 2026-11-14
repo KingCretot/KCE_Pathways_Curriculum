@@ -1,4 +1,4 @@
-NILE_K = [(32.53, 14.6), (32.53, 15.6), (32.67, 16.35), (33.2, 16.7), (33.7, 16.95), (33.98, 17.68), (33.95, 18.4), (33.6, 19.1), (33.32, 19.53), (32.7, 19.35), (32.2, 19.1), (31.8, 18.55), (30.95, 18.05), (30.6, 18.4), (30.48, 19.17), (30.42, 19.63), (30.35, 19.9), (30.6, 20.6), (30.9, 21.2), (31.33, 21.8), (31.62, 22.34), (32.0, 22.8), (32.6, 23.5), (32.9, 24.08), (32.6, 25.7), (32.7, 26.2), (31.8, 27.2), (31.2, 28.5), (31.25, 30.0), (31.0, 31.3)]
+NILE_K = [(32.53, 14.6), (32.53, 15.6), (32.67, 16.35), (33.2, 16.7), (33.7, 16.95), (33.98, 17.68), (33.95, 18.4), (33.6, 19.1), (33.32, 19.53), (32.7, 19.35), (32.2, 19.1), (31.8, 18.55), (30.95, 18.05), (30.6, 18.4), (30.48, 19.17), (30.42, 19.63), (30.35, 19.9), (30.6, 20.6), (30.9, 21.2), (31.33, 21.8), (31.62, 22.34), (32.0, 22.8), (32.6, 23.5), (32.9, 24.08), (32.6, 25.7), (32.7, 26.2), (32.25, 26.05), (31.7, 26.55), (31.18, 27.18), (30.75, 28.1), (31.1, 29.07), (31.25, 30.0), (31.0, 31.55)]
 BLUE = [(32.53, 15.6), (33.6, 13.5), (35.0, 12.0), (37.3, 11.6)]
 ATBARA = [(33.98, 17.68), (35.5, 16.0), (36.5, 14.5)]
 
@@ -8,18 +8,18 @@ def worldmap():
     pl = lambda L: ' '.join('%s,%s' % P(*p) for p in L)
     mw = (lon1 - lon0) * k; mh = (lat1 - lat0) * k; lx = ox + mw + 18
     W = int(lx + 200); H = int(mh + 56)
-    red_sea = [(32.5, 29.9), (33.8, 27.2), (35.5, 23.9), (37.2, 19.6), (38.6, 17.0), (39.45, 15.6), (40.6, 14.7), (42.7, 13.0), (43.4, 12.6), (43.5, 12.7), (43.3, 13.3), (42.5, 16.9), (41.0, 19.2), (39.2, 21.5), (38.0, 24.0), (36.5, 26.0), (35.2, 28.0), (35.0, 29.5), (34.9, 29.5), (34.4, 28.0), (34.25, 27.73), (33.6, 28.3), (32.6, 29.9)]
+    red_sea = [(32.5, 29.9), (33.8, 27.2), (35.5, 23.9), (37.2, 19.6), (38.6, 17.0), (39.45, 15.6), (40.6, 14.7), (42.7, 13.0), (43.3, 12.45), (43.15, 11.6), (43.47, 11.35), (44.0, 11.0), (44.0, 12.75), (43.5, 12.7), (43.3, 13.3), (42.5, 16.9), (41.0, 19.2), (39.2, 21.5), (38.0, 24.0), (36.5, 26.0), (35.2, 28.0), (35.0, 29.5), (34.9, 29.5), (34.4, 28.0), (34.25, 27.73), (33.6, 28.3), (32.6, 29.9)]
     med = [(29.0, 31.3), (31.0, 31.6), (32.3, 31.3), (34.3, 31.3), (35.0, 32.0), (29.0, 32.0)]
     gulf = [(43.3, 12.3), (44.0, 12.0), (44.0, 10.0), (43.0, 11.2)]
     s = (f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Map of Kush, Meroe and Aksum">'
          f'<text x="{W/2}" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Three great kingdoms of northeast Africa</text>'
          f'<rect x="{ox}" y="34" width="{mw}" height="{mh}" fill="#efe1bd"/>'
-         f'<polygon points="{pl(red_sea)}" fill="#bfe3f5"/><polygon points="{pl(med)}" fill="#bfe3f5"/><polygon points="{pl(gulf)}" fill="#bfe3f5"/>'
+         f'<polygon points="{pl(red_sea)}" fill="#bfe3f5"/><polygon points="{pl(med)}" fill="#bfe3f5"/>'
          f'<polyline points="{pl(NILE_K)}" fill="none" stroke="#0047BA" stroke-width="2.5" stroke-linejoin="round"/>'
          f'<polyline points="{pl(BLUE)}" fill="none" stroke="#0047BA" stroke-width="2.5"/><polyline points="{pl(ATBARA)}" fill="none" stroke="#0047BA" stroke-width="1.8"/>')
-    x, y = P(37.0, 22.0); s += f'<text x="{x}" y="{y}" font-size="12" fill="#0047BA" font-style="italic" transform="rotate(-58 {x} {y})">Red Sea</text>'
+    x, y = P(35.6, 24.4); s += f'<text x="{x}" y="{y}" font-size="12" fill="#0047BA" font-style="italic" transform="rotate(58 {x} {y})">Red Sea</text>'
     x, y = P(29.4, 31.7); s += f'<text x="{x}" y="{y}" font-size="10" fill="#0047BA" font-style="italic">Mediterranean Sea</text>'
-    for lon, lat, lab, c in [(30.2, 27.8, 'EGYPT', '#0047BA'), (30.0, 20.8, 'KUSH', '#8a6d1f'), (37.6, 15.4, 'AKSUM', '#DB2F30')]:
+    for lon, lat, lab, c in [(30.2, 27.8, 'EGYPT', '#0047BA'), (30.0, 20.8, 'KUSH', '#8a6d1f'), (36.0, 13.2, 'AKSUM', '#DB2F30')]:
         x, y = P(lon, lat); s += f'<text x="{x}" y="{y}" font-weight="bold" font-size="12" fill="{c}" style="paint-order:stroke;stroke:#efe1bd;stroke-width:4">{lab}</text>'
     marks = [(31.25, 29.85, 'Memphis'), (32.65, 25.7, 'Thebes (Karnak)'), (31.8, 18.55, 'Napata, Jebel Barkal, El-Kurru, Nuri'), (33.75, 16.94, 'Meroe'), (39.65, 15.27, 'Adulis (Red Sea port)'), (38.72, 14.13, 'Aksum')]
     last = -99
@@ -27,7 +27,7 @@ def worldmap():
     for lon, lat, lab in order:
         x, y = P(lon, lat); ly = max(y, last + 19); last = ly
         s += f'<circle cx="{x}" cy="{y}" r="3.8" fill="#0A1F3D" stroke="#fff"/><path d="M{x+4} {y} L{lx-4} {ly}" stroke="#8a8f99" stroke-width=".8"/><text x="{lx}" y="{ly+4}" font-size="11">{lab}</text>'
-    s += f'<text x="{ox}" y="{H-6}" font-size="10" fill="#5b6676">Dates differ: Napata about 750 BCE, Meroe about 300 BCE to 350 CE, Aksum about 100 to 940 CE.</text></svg>'
+    s += f'<text x="{ox}" y="{H-6}" font-size="10" fill="#5b6676">Dates differ: Kushite kings in Egypt about 747 to 656 BCE, Meroe about 300 BCE to 350 CE, Aksum about 100 to 940 CE.</text></svg>'
     return s
 
 PYR = ('<svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Pyramid shapes of Giza and Meroe compared">'
@@ -39,100 +39,384 @@ PYR = ('<svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg" font-famil
   '<text x="420" y="214" text-anchor="middle" font-weight="bold">Royal pyramids of Meroe (about 300 BCE to 350 CE)</text><text x="420" y="226" text-anchor="middle" font-size="10">most under 30 m tall, steep sides about 70°, in groups</text>'
   '<text x="420" y="120" text-anchor="middle" font-size="11">Nubia has more pyramids</text><text x="420" y="134" text-anchor="middle" font-size="11">than Egypt: more than 200.</text></svg>')
 
-COIN = ('<svg viewBox="0 0 600 212" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Diagram of an Aksumite gold coin">'
-  '<text x="300" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">An Aksumite gold coin (drawing based on coins of King Ezana)</text>'
-  '<circle cx="150" cy="100" r="62" fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/><circle cx="450" cy="100" r="62" fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/>'
-  '<circle cx="150" cy="92" r="20" fill="none" stroke="#8a6d1f" stroke-width="2"/><path d="M134 120 q16 14 32 0" fill="none" stroke="#8a6d1f" stroke-width="2"/><path d="M132 74 l6 -12 l6 8 l6 -10 l6 10 l6 -8 l6 12" fill="none" stroke="#8a6d1f" stroke-width="2"/>'
-  '<path d="M150 46 v-2 M118 58 l-2 -2" stroke="#8a6d1f"/><text x="150" y="180" text-anchor="middle" font-size="10" fill="#8a6d1f">king\'s name in Greek letters around the edge</text>'
-  '<path d="M450 70 v60 M420 100 h60" stroke="#8a6d1f" stroke-width="7"/><text x="450" y="180" text-anchor="middle" font-size="10" fill="#8a6d1f">cross (after Ezana became Christian)</text>'
-  '<text x="150" y="200" text-anchor="middle" font-weight="bold">Front: crowned king</text><text x="450" y="200" text-anchor="middle" font-weight="bold">Back: religious symbol</text>'
-  '<text x="300" y="100" text-anchor="middle" font-size="11">Early coins showed a</text><text x="300" y="114" text-anchor="middle" font-size="11">crescent and disk; later</text><text x="300" y="128" text-anchor="middle" font-size="11">ones, a cross.</text></svg>')
+def _bust(cx, cy, sym):
+    b = (f'<path d="M{cx-14} {cy+44} q2 -20 12 -26 q-8 -6 -6 -18 q2 -14 14 -14 q12 1 13 12 l4 6 l-4 2 q2 8 -4 12 q12 6 16 26z" fill="#d9b04d" stroke="#8a6d1f" stroke-width="1.5"/>'
+         f'<path d="M{cx-10} {cy-12} q8 -12 22 -4" fill="none" stroke="#8a6d1f" stroke-width="3"/>')
+    if sym == 'cross':
+        b += f'<path d="M{cx} {cy-40} v14 M{cx-6} {cy-34} h12" stroke="#8a6d1f" stroke-width="2.5"/>'
+    else:
+        b += f'<path d="M{cx-6} {cy-36} a7 7 0 1 0 12 0 a5 5 0 1 1 -12 0z" fill="#8a6d1f"/><circle cx="{cx}" cy="{cy-40}" r="2.5" fill="#8a6d1f"/>'
+    b += f'<path d="M{cx-40} {cy+30} q-8 -30 4 -56" fill="none" stroke="#8a6d1f" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M{cx+40} {cy+30} q8 -30 -4 -56" fill="none" stroke="#8a6d1f" stroke-width="1.5" stroke-dasharray="3 3"/>'
+    return b
 
-LESSON = {
- "unit": "Unit 2: The Nile Valley and Ancient Africa",
- "title": "The Kushite Pharaohs, Meroe and Aksum",
- "subtitle": "Kings from Kush ruled all of Egypt. Their kingdom later thrived at Meroe, an iron-working city led by powerful queens, and then Aksum rose as a trading empire known across the ancient world.",
- "objectives": [
-  "Explain how Kush's kings came to rule Egypt as the 25th Dynasty, and identify Piye and Taharqa.",
-  "Describe Meroe's achievements: iron working, the Meroitic script and its pyramids.",
-  "Explain the role of the kandakes and the war between Queen Amanirenas and Rome.",
-  "Describe how Aksum grew rich through Red Sea trade, minted its own coins and adopted Christianity.",
-  "Use evidence to explain the rise and fall of Kush and Aksum."],
- "vocab": [
-  ["dynasty", "A series of rulers from the same family."],
-  ["stela", "An upright carved stone slab with writing or pictures (plural: stelae)."],
-  ["kandake", "The Meroitic title for a royal woman, a queen mother or ruling queen; the Greeks wrote it as Candace."],
-  ["Meroitic", "The writing system and language of Meroe; scholars can read its sounds but understand only some of its words."],
-  ["slag", "Waste rock left over when iron is melted out of ore."],
-  ["obelisk", "A tall stone pillar; at Aksum, giant carved stelae marked royal tombs."],
-  ["Ge'ez", "The ancient language and script of Aksum, still used in the Ethiopian Orthodox Church."],
-  ["decline", "A gradual loss of power or wealth."]],
- "reconnect": {
-  "title": "Week 8: Nubia and the Kingdom of Kush",
-  "intro": "Last week ended with Kush rising again at Napata. Review first.",
-  "items": [
-   {"t":"text","q":"Which Kushite capital stood beside Jebel Barkal, the \"Pure Mountain\"?","a":["napata"],"show":"Napata","pts":2,"why":"Napata, near the Fourth Cataract. Today its kings march north."},
-   {"t":"text","q":"Which god did both Kushites and Egyptians believe lived inside Jebel Barkal?","a":["amun","amon","amen"],"show":"Amun","pts":2,"why":"Amun. Kush's kings saw themselves as Amun's chosen rulers, which helped justify their conquest of Egypt."},
-   {"t":"open","key":"rc_balance","q":"Last week you saw that whenever one kingdom on the Nile was weak, the other grew stronger. Give one example from Week 8.","min":15,"rows":2,"rubric":["Accurate example: Kush attacked when Egypt was divided (about 1575 BCE), Egypt conquered Kerma (about 1500 BCE), or Kush became independent when Egypt weakened (about 1070 BCE)"],"model":"When Egypt was weak and divided around 1575 BCE, Kush's army attacked deep into Egypt, as the Sobeknakht inscription shows."},
-   {"t":"open","key":"rc_borrow","q":"Kush borrowed Egyptian gods and hieroglyphs but kept its own customs. In your own words, does borrowing make a culture less important? Why?","min":15,"rows":2,"rubric":["No; all cultures borrow and adapt ideas; borrowing shows contact and choice, not weakness"],"model":"No. Every culture borrows from its neighbors and adapts what it takes. Kush chose what to borrow and made it its own."}]},
- "hook": {
-  "title": "The Black Pharaohs",
-  "visual": worldmap(),
-  "html": "<p>Around 728 BCE, a king named <b>Piye</b> sailed north from Napata with his army. Egypt was split among quarreling rulers. Piye defeated them one by one, captured the great city of Memphis and received the surrender of Egypt's princes. He carved the story on a granite <b>stela</b> at Jebel Barkal. In it, he is furious with one defeated prince, not for fighting him, but for letting his horses go hungry.</p><p>For about 90 years, kings from Kush ruled an empire stretching from the Mediterranean Sea deep into what is now Sudan, the largest empire on the Nile up to that time. Historians call them the <b>25th Dynasty</b>. Some books call them \"the Black Pharaohs.\" They were Black Africans from Nubia who ruled Egypt as pharaohs.</p><div class='callout'><b>Big question:</b> What made Kush and later Aksum so powerful, and what led to their decline?</div>"},
- "learn": [
-  {"title": "The 25th Dynasty: Kush Rules Egypt",
-   "html": "<p>The Kushite kings did not see themselves as foreign invaders. They worshiped Amun and believed they were restoring Egypt's ancient traditions, which they felt Egypt's own rulers had neglected. They repaired old temples, revived classic art styles and built new monuments at Karnak in Thebes.</p><p>Piye's brother <b>Shabaka</b> brought all of Egypt under Kushite control. He ordered an old, worm-eaten religious text copied onto a stone so it would last, and that stone, the <b>Shabaka Stone</b>, is now in the British Museum. The greatest of these kings, <b>Taharqa</b> (ruled about 690 to 664 BCE), built at Karnak, Jebel Barkal and dozens of other sites. He is mentioned in the Hebrew Bible as Tirhakah, king of Kush.</p><p>The dynasty ended when the <b>Assyrian Empire</b>, from what is now Iraq, invaded Egypt with iron weapons. The Assyrians took Memphis in 671 BCE and sacked Thebes in 663 BCE. The Kushite kings withdrew south to Napata, but they kept calling themselves kings of Egypt and Kush, and they were buried in Nubia under pyramids, a tradition Egypt had stopped about 800 years earlier.</p>",
-   "checks": [
-    {"t":"open","key":"restorers","q":"The Kushite kings saw themselves as restorers, not invaders. Give two pieces of evidence from the lesson that support that view.","min":20,"rows":3,"rubric":["Worshiped Amun and believed they were restoring tradition","Repaired temples, revived classic art styles, built at Karnak, preserved the old text on the Shabaka Stone"],"model":"They worshiped Amun, the same god as the Egyptians, and repaired old Egyptian temples. Shabaka even had an old religious text copied onto stone so it would not be lost."},
-    {"t":"num","q":"The 25th Dynasty ruled Egypt from about 747 to 656 BCE. About how many years is that?","a":91,"tol":1,"unit":"years","pts":2,"why":"747 − 656 = 91 years, so about 90 years."},
-    {"t":"open","key":"assyria","q":"What caused the end of Kushite rule in Egypt? Use the idea of balance of power from last week.","min":20,"rows":3,"rubric":["The Assyrian Empire invaded with iron weapons, took Memphis (671 BCE) and sacked Thebes (663 BCE)","A stronger power rose, so Kush pulled back south"],"model":"A stronger power, the Assyrian Empire, invaded Egypt with iron weapons. They took Memphis in 671 BCE and sacked Thebes in 663 BCE, so the Kushite kings pulled back to Napata. The balance of power had shifted again."},
-    {"t":"text","q":"Which Kushite king is mentioned in the Hebrew Bible as Tirhakah?","a":["taharqa","taharka","tirhakah"],"show":"Taharqa","pts":2,"why":"Taharqa, who ruled about 690 to 664 BCE."}]},
-  {"title": "Meroe: City of Iron and Queens",
-   "visual": PYR,
-   "html": "<p>Around 590 BCE, after an Egyptian army raided Napata, the royal center of Kush gradually moved south to <b>Meroe</b>, between the Nile and the Atbara River. Meroe had good farmland, rain in summer, trade routes to the Red Sea, and two treasures for iron making: <b>iron ore</b> and <b>acacia forests</b> to burn for fuel. Today, huge mounds of <b>slag</b> still surround the city. Iron tools helped farmers clear land, and iron weapons made Kush's army strong.</p><p>Meroe's people created their own writing, <b>Meroitic</b>, with a cursive form and a hieroglyphic form. In 1909, British scholar Francis Llewellyn Griffith worked out the sounds of its letters, so we can read Meroitic aloud. But the language itself is still only partly understood, a puzzle scholars are working on today.</p><p>Meroe's kings and queens were buried under groups of steep, narrow pyramids, about 200 of them in the royal cemeteries. In 1834, an Italian treasure hunter, Giuseppe Ferlini, smashed the tops off many pyramids looking for gold. Some of the jewelry he took from Queen Amanishakheto's pyramid is now in museums in Munich and Berlin.</p>",
-   "checks": [
-    {"t":"open","key":"meroewhy","q":"Explain why Meroe was a good location for the capital of Kush. Give at least three reasons.","min":30,"rows":3,"rubric":["Iron ore and acacia forests for fuel","Farmland and summer rain","Trade routes to the Red Sea; farther from Egyptian and Assyrian armies"],"model":"Meroe had iron ore and acacia forests to fuel furnaces, so it could make iron. It had farmland and summer rain to grow food, and it was on trade routes to the Red Sea. It was also farther from the armies that had attacked Napata."},
-    {"t":"open","key":"meroitic","q":"Scholars can read Meroitic aloud but cannot fully understand it. Explain the difference, and why it makes Meroe harder to study.","min":25,"rows":3,"rubric":["Knowing the sounds of the letters is not the same as knowing what the words mean","Many Meroitic texts cannot be fully translated, so historians rely more on archaeology and outside sources"],"model":"Knowing what sound each letter makes lets you pronounce a word, but not know what it means, just as you could read a Swahili word aloud without understanding it. Because many Meroitic texts cannot be translated, historians depend on archaeology and on what Egyptians, Greeks and Romans wrote about Meroe."},
-    {"t":"open","key":"ferlini","q":"Ferlini destroyed pyramids and took jewelry that is now in European museums. Some people argue these objects should be returned to Sudan. Using what you learned about the Benin Bronzes in Week 5, give one argument for returning them and one question that would need to be answered first.","min":30,"rows":3,"rubric":["Argument for return: taken through destruction without permission; belongs to Sudanese heritage","A reasonable question: who would receive and care for them, how to keep them safe during conflict in Sudan, what the museums and Sudan agree"],"model":"They were taken by destroying royal tombs without anyone's permission, so they belong to Sudan's heritage. But first we would need to answer how they could be kept safe, since Sudan has been at war, and which museum or group in Sudan would care for them."}]},
-  {"title": "The Kandakes: Queens Who Faced Rome",
-   "html": "<p>In Meroe, royal women held great power. The title <b>kandake</b> (written Candace by the Greeks and Romans) belonged to queen mothers and to queens who ruled in their own right. Carvings show them as large, powerful figures, sometimes in battle, wearing royal regalia.</p><p>The most famous is <b>Kandake Amanirenas</b>. After Rome conquered Egypt in 30 BCE, the Roman governor pushed south and tried to tax Kush. Around 25 BCE, Kushite forces attacked Roman forts and towns at Egypt's southern border, including Aswan, and pulled down statues of the Roman emperor Augustus. The Roman writer Strabo described the queen as \"a masculine sort of woman, and blind in one eye.\" The Romans counterattacked and sacked Napata, but Kush fought on.</p><p>Finally, around 21 to 20 BCE, Kushite ambassadors met Augustus on the island of Samos. Rome agreed to cancel the tax and pull back its border. A bronze head of Augustus, taken in the raid, was buried beneath the steps of a temple in Meroe, so that every visitor walked over Rome's emperor. Archaeologists found it in 1910; it is now in the British Museum.</p>",
-   "checks": [
-    {"t":"open","key":"samos","q":"Who won the war between Kush and Rome? Support your answer with evidence from the peace agreement.","min":25,"rows":3,"rubric":["Kush gained most of what it wanted, so it can be seen as a Kushite success (or a draw)","Evidence: Rome canceled the tax and pulled its border back at Samos"],"model":"Kush came out ahead. Even though Rome sacked Napata, at the peace talks on Samos Rome agreed to cancel the tax and pull back its border, which is what Kush had been fighting for."},
-    {"t":"open","key":"strabo","q":"Strabo called Amanirenas \"a masculine sort of woman, and blind in one eye.\" What does this description tell us about Strabo's point of view? What can we still learn from it?","min":25,"rows":3,"rubric":["Point of view: a Roman enemy who did not expect a woman to lead in war","Still learn: she was a real ruler who led in war, may have lost an eye, and Rome took her seriously"],"model":"Strabo was a Roman writing about an enemy, and he seemed surprised that a woman led an army, so he called her masculine. We still learn that she was a real queen who led Kush in war, may have lost an eye in battle, and was important enough for Rome to write about."},
-    {"t":"open","key":"augustus","q":"Why do you think the Kushites buried the head of Augustus under the steps of a temple? What message did it send?","min":20,"rows":2,"rubric":["To show victory over Rome; everyone walking in stepped on the emperor","Message: Kush was not afraid of Rome; pride and power"],"model":"Burying the emperor's head under the steps meant everyone walking into the temple stepped on him. It sent the message that Kush had defeated Rome and was not afraid of it."}]},
-  {"title": "Aksum: A Trading Empire on the Red Sea",
-   "visual": COIN,
-   "html": "<p>Southeast of Meroe, in the highlands of what are now northern Ethiopia and Eritrea, the kingdom of <b>Aksum</b> grew powerful from about the first century CE. Its port of <b>Adulis</b> on the Red Sea linked Africa with the Roman Empire, Arabia and India. Traders brought ivory, gold, incense and tortoiseshell from Africa and left with cloth, glass, wine and iron goods.</p><p>Aksum was one of the few ancient kingdoms to mint its own coins in gold, silver and bronze, starting in the late 200s CE. Coins with Greek writing helped it trade with foreign merchants. A Persian writer of the 200s named Aksum one of the four great kingdoms of the world, along with Rome, Persia and China.</p><p>Aksum's kings marked royal tombs with enormous carved stone <b>stelae</b>. The tallest ever raised, about 33 meters, fell and broke. Another, about 24 meters tall, was taken to Rome by Italian soldiers in 1937 and returned to Ethiopia in 2005, where it was raised again in 2008.</p><p>Around 340 CE, <b>King Ezana</b> became a Christian, making Aksum one of the first states in the world to adopt Christianity. His coins changed from a crescent and disk to a cross. Ezana's own inscriptions also describe a military campaign into the land of Kush around 350 CE, about the time Meroe declined. Aksum itself lasted until about 940 CE, weakened as Red Sea trade shifted and its land was worn out. Its written language, <b>Ge'ez</b>, is still used in Ethiopian church services today.</p>",
-   "checks": [
-    {"t":"open","key":"aksumrich","q":"Explain two ways Aksum's location and choices made it rich.","min":25,"rows":3,"rubric":["Location: port of Adulis on the Red Sea, linking Africa, Rome, Arabia and India","Choices: minting its own coins (with Greek writing) to trade with foreign merchants; trading ivory, gold, incense"],"model":"Aksum controlled the port of Adulis on the Red Sea, where African goods like ivory and gold met traders from Rome, Arabia and India. It also minted its own gold coins with Greek writing, which made trading with foreign merchants easier."},
-    {"t":"open","key":"coinevidence","q":"Look at the coin drawing. How can coins be used as historical evidence? Give two things historians learned about Aksum from its coins.","min":25,"rows":3,"rubric":["Coins show kings' names, titles, symbols and dates","Learned: names of rulers; trade with Greek-speaking merchants; change of religion from crescent and disk to cross (Christianity)"],"model":"Coins carry names, pictures and symbols chosen by rulers. From Aksum's coins historians learned the names of its kings, that they traded with Greek-speaking merchants, and that Aksum became Christian, because the crescent and disk were replaced by a cross."},
-    {"t":"open","key":"obelisk","q":"The Aksum stela taken to Rome in 1937 was returned in 2005. How is this case like the Benin Bronzes (Week 5)? How is it different?","min":25,"rows":3,"rubric":["Alike: taken from Africa by a European power without consent; returned or demanded after many years","Different: the stela was returned and re-erected; many Benin Bronzes are still in European museums (or other accurate difference)"],"model":"Both were taken from Africa by European powers without permission and became symbols of the fight to return heritage. The difference is that the stela was fully returned and raised again in Aksum, while many Benin Bronzes are still held in European museums."},
-    {"t":"order","q":"Put these events in time order, earliest first.","items":["Piye conquers Egypt","The Assyrians sack Thebes","The royal center of Kush moves to Meroe","Amanirenas's forces raid Roman Egypt","Ezana makes Aksum a Christian kingdom","Aksum's stela is returned from Rome"],"pts":4,"why":"About 728 BCE, 663 BCE, after 590 BCE, about 25 BCE, about 340 CE and 2005 CE."}]}],
- "handson": {
-  "title": "Mint an Aksumite Coin",
-  "intro": "Aksum's rulers chose every symbol on their coins to send a message. Design and make your own coin, then explain its message the way a historian would.",
-  "materials": ["Air-dry clay, salt dough (1 cup flour, 1/2 cup salt, 1/2 cup water) or a circle of cardboard", "A jar lid or cup to cut circles about 6 cm wide", "A toothpick, pencil or paper clip for carving", "Gold or yellow paint, or aluminum foil and a marker", "Paper and pencil"],
-  "steps": [
-   "Study the coin drawing. List what the front and back show and what each symbol means.",
-   "Sketch your own coin for an imaginary African trading kingdom: a ruler on the front, a symbol of its beliefs or values on the back, and a short name or motto around the edge.",
-   "Roll out the clay or dough and cut two circles. Carve the front design into one and the back into the other, then press them together. (With cardboard, draw and cover with foil, then press the design in with a pencil.)",
-   "Let it dry, then paint it gold.",
-   "Trade coins with a family member: each of you writes what the other's coin reveals about its kingdom without being told."],
-  "record": [
-   {"t":"open","key":"coinplan","q":"Describe your coin: what is on each side, and what message does each symbol send about your kingdom?","min":40,"rows":4,"rubric":["Both sides described","Each symbol explained with its message","Connects to how Aksum used coins"],"model":"Front: a crowned queen holding a spear, to show strong leadership. Back: a ship and a star, because my kingdom trades by sea and guides ships by the stars. Edge: \"Peace through trade.\" Like Aksum's coins, it tells foreign traders who rules and what the kingdom values."},
-   {"t":"open","key":"coinread","q":"What did your family member conclude from your coin without being told? What did they get right, and what did they miss? What does that teach you about using objects as evidence?","min":40,"rows":4,"rubric":["Reports the other person's reading","Compares with intended meaning","Lesson: objects show some things clearly but can be misread; historians combine evidence"],"model":"My mom guessed it was a sea-trading kingdom ruled by a queen, which was right, but she thought the star meant a religion. That shows objects can tell us a lot but can also be misread, so historians compare coins with writing and other evidence."}]},
- "think": {
-  "intro": "Use evidence and explain your reasoning. Your teacher scores these.",
-  "items": [
-   {"t":"open","key":"risefall","q":"Write a paragraph comparing the rise and fall of Kush (including Meroe) and Aksum. For each, give one cause of its rise and one cause of its decline, then explain one way they were alike.","min":120,"rows":10,"rubric":["Kush rise: gold, iron, trade, strong armies, Egypt's division; decline: Assyrian invasion ended rule in Egypt; Meroe declined around 350 CE as trade shifted and Aksum attacked","Aksum rise: Red Sea trade, port of Adulis, coins; decline: trade shifted, land worn out (about 940 CE)","A sound comparison (trade, resources, outside powers)","Organized paragraph with transitions"],"model":"Kush and Aksum both grew rich by controlling trade, but each fell when conditions changed. Kush rose because it had gold, iron and control of the Nile trade routes, and in 728 BCE it took advantage of a divided Egypt to conquer it. Its rule in Egypt ended when the Assyrians invaded, and later Meroe declined around 350 CE as trade shifted and Aksum's army attacked. Aksum rose because its port of Adulis linked Africa with Rome, Arabia and India, and its gold coins made trade easier. It declined by about 940 CE as Red Sea trade moved away and its farmland wore out. The two kingdoms were alike because their power depended on trade: when trade routes changed, their strength faded."},
-   {"t":"open","key":"remember","q":"Taharqa, Amanirenas and Ezana are far less famous in many schools than Tutankhamun or Cleopatra. Choose one of them and write a short argument for why every student should learn about this person.","min":70,"rows":6,"rubric":["Accurate facts about the chosen ruler","A clear reason the person matters","Persuasive reasoning about why the story should be taught"],"model":"Every student should learn about Kandake Amanirenas. When Rome, the most powerful empire in the world, tried to tax Kush, she led her army against it, and at Samos Rome agreed to cancel the tax and move its border. Her story shows that African women led nations and stood up to empires, a fact that is often left out of history books, and it gives a fuller picture of the ancient world."}]},
- "exit": [
-  {"t":"text","q":"Which Kushite king conquered Egypt around 728 BCE and carved his victory on a stela at Jebel Barkal?","a":["piye","piankhi","piankhy"],"show":"Piye","pts":2,"why":"Piye, also spelled Piankhi."},
-  {"t":"open","key":"exit_iron","q":"Why was Meroe a center of iron making?","min":10,"rows":2,"rubric":["It had iron ore and acacia forests for fuel"],"model":"It had iron ore and acacia forests to burn as fuel for the furnaces."},
-  {"t":"open","key":"exit_kandake","q":"What was a kandake, and what did Kandake Amanirenas achieve?","min":15,"rows":2,"rubric":["A royal woman, queen mother or ruling queen of Meroe","Fought Rome; peace at Samos canceled the tax and moved the border back"],"model":"A kandake was a queen or queen mother of Meroe. Amanirenas fought Rome, and the peace at Samos made Rome cancel its tax and move its border back."},
-  {"t":"open","key":"exit_aksum","q":"Name two achievements of Aksum.","min":10,"rows":2,"rubric":["Any two: Red Sea trade through Adulis, its own coins, giant stelae, early Christian state, Ge'ez script"],"model":"Aksum minted its own gold coins and became one of the first Christian kingdoms."}],
- "next": "Week 10: the Unit 2 checkpoint and your Nile Valley Project."
-}
+def _rim(cx, cy, txt, r=55):
+    import math
+    n = len(txt); span = 9.5 * n; out = ''
+    for i, ch in enumerate(txt):
+        ang = -90 - span / 2 + span * (i + .5) / n
+        x = cx + r * math.cos(math.radians(ang)); y = cy + r * math.sin(math.radians(ang))
+        out += f'<text x="{x:.1f}" y="{y:.1f}" font-size="11" fill="#8a6d1f" text-anchor="middle" transform="rotate({ang+90:.1f} {x:.1f} {y:.1f})">{ch}</text>'
+    return out
+
+COIN = ('<svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="11" role="img" aria-label="A coin design based on Aksumite gold coins of King Ezana">'
+  '<text x="300" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">A coin design based on Aksumite coins of King Ezana</text>'
+  '<circle cx="150" cy="102" r="66" fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/><circle cx="450" cy="102" r="66" fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/>'
+  + _rim(150, 102, 'ΕΖΑΝΑ ΒΑΣΙΛΕΥΣ') + _rim(450, 102, 'ΒΙΣΙ ΑΛΗΝ')
+  + _bust(150, 108, 'cross') + _bust(450, 108, 'cross') +
+  '<text x="150" y="190" text-anchor="middle" font-weight="bold">Front: the king, crowned</text><text x="150" y="204" text-anchor="middle" font-size="10" fill="#8a6d1f">Greek letters: \"Ezana, king\"</text>'
+  '<text x="450" y="190" text-anchor="middle" font-weight="bold">Back: the king again</text><text x="450" y="204" text-anchor="middle" font-size="10" fill="#8a6d1f">small symbol above his head; grain stalks around</text>'
+  '<text x="300" y="96" text-anchor="middle" font-size="11">Early coins showed a</text><text x="300" y="110" text-anchor="middle" font-size="11">small crescent and disk</text><text x="300" y="124" text-anchor="middle" font-size="11">above the king; later</text><text x="300" y="138" text-anchor="middle" font-size="11">ones, a small cross.</text></svg>')
+
+LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
+ 'title': 'The Kushite Pharaohs, Meroe and Aksum',
+ 'subtitle': 'Kings from Kush ruled all of Egypt. Their kingdom later thrived at Meroe, an iron-working city led by powerful queens, and then Aksum rose as a trading empire known across the ancient '
+             'world.',
+ 'objectives': ["Explain how Kush's kings came to rule Egypt as the 25th Dynasty, and identify Piye and Taharqa.",
+                "Describe Meroe's achievements: iron working, the Meroitic script and its pyramids.",
+                'Explain the role of the kandakes and the war between Queen Amanirenas and Rome.',
+                'Describe how Aksum grew rich through Red Sea trade, minted its own coins and adopted Christianity.',
+                'Use evidence to explain the rise and fall of Kush and Aksum.'],
+ 'vocab': [['dynasty', 'A series of rulers from the same family.'],
+           ['stela', 'An upright carved stone slab with writing or pictures (plural: stelae).'],
+           ['kandake', 'The Meroitic title for a royal woman, a queen mother or ruling queen; the Greeks wrote it as Candace.'],
+           ['Meroitic', 'The writing system and language of Meroe; scholars can read its sounds but understand only some of its words.'],
+           ['slag', 'The glassy waste left over when iron is separated from its ore by heating.'],
+           ['obelisk', "A tall, narrow stone pillar; Aksum's giant carved stelae are often called obelisks."],
+           ["Ge'ez", 'The ancient language and script of Aksum, still used in the Ethiopian and Eritrean Orthodox churches.'],
+           ['decline', 'A gradual loss of power or wealth.']],
+ 'reconnect': {'title': 'Week 8: Nubia and the Kingdom of Kush',
+               'intro': 'Last week ended with Kush rising again at Napata. Review first.',
+               'items': [{'t': 'text',
+                          'q': 'Which Kushite capital stood beside Jebel Barkal, the "Pure Mountain"?',
+                          'a': ['napata'],
+                          'show': 'Napata',
+                          'pts': 2,
+                          'why': 'Napata, near the Fourth Cataract. Today its kings march north.'},
+                         {'t': 'text',
+                          'q': 'Which god did both Kushites and Egyptians believe lived inside Jebel Barkal?',
+                          'a': ['amun', 'amon', 'amen'],
+                          'show': 'Amun',
+                          'pts': 2,
+                          'why': "Amun. Kush's kings saw themselves as Amun's chosen rulers, which helped justify their conquest of Egypt."},
+                         {'t': 'open',
+                          'key': 'rc_balance',
+                          'q': 'Last week you saw that whenever one kingdom on the Nile was weak, the other grew stronger. Give one example from Week 8.',
+                          'min': 15,
+                          'rows': 2,
+                          'rubric': ['Accurate example: Kush attacked when Egypt was divided (about 1575 BCE), Egypt conquered Kerma (about 1500 BCE), or Kush became independent when Egypt weakened '
+                                     '(about 1070 BCE)'],
+                          'model': "When Egypt was weak and divided around 1575 BCE, Kush's army attacked deep into Egypt, as the Sobeknakht inscription shows."},
+                         {'t': 'open',
+                          'key': 'rc_borrow',
+                          'q': 'Kush borrowed Egyptian gods and hieroglyphs but kept its own customs. In your own words, does borrowing make a culture less important? Why?',
+                          'min': 15,
+                          'rows': 2,
+                          'rubric': ['No; all cultures borrow and adapt ideas; borrowing shows contact and choice, not weakness'],
+                          'model': 'No. Every culture borrows from its neighbors and adapts what it takes. Kush chose what to borrow and made it its own.'}]},
+ 'hook': {'title': 'The Black Pharaohs',
+          'visual': '<svg viewBox="0 0 568 540" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Map of Kush, Meroe and Aksum"><text x="284.0" y="20" '
+                    'text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Three great kingdoms of northeast Africa</text><rect x="20" y="34" width="330.0" height="484.0" '
+                    'fill="#efe1bd"/><polygon points="97.0,80.2 125.6,139.6 163.0,212.2 200.4,306.8 231.2,364.0 249.9,394.8 275.2,414.6 321.4,452.0 336.8,460.8 339.0,458.6 334.6,445.4 317.0,366.2 '
+                    '284.0,315.6 244.4,265.0 218.0,210.0 185.0,166.0 156.4,122.0 152.0,89.0 149.8,89.0 138.8,122.0 135.5,127.9 121.2,115.4 99.2,80.2" fill="#bfe3f5"/><polygon points="20.0,49.4 '
+                    '64.0,42.8 92.6,49.4 136.6,49.4 152.0,34.0 20.0,34.0" fill="#bfe3f5"/><polygon points="334.6,467.4 350.0,474.0 350.0,518.0 328.0,491.6" fill="#bfe3f5"/><polyline '
+                    'points="97.7,416.8 97.7,394.8 100.7,378.3 112.4,370.6 123.4,365.1 129.6,349.0 128.9,333.2 121.2,317.8 115.0,308.3 101.4,312.3 90.4,317.8 81.6,329.9 62.9,340.9 55.2,333.2 '
+                    '52.6,316.3 51.2,306.1 49.7,300.2 55.2,284.8 61.8,271.6 71.3,258.4 77.6,246.5 86.0,236.4 99.2,221.0 105.8,208.2 99.2,172.6 101.4,161.6 81.6,139.6 68.4,111.0 69.5,78.0 64.0,49.4" '
+                    'fill="none" stroke="#0047BA" stroke-width="2.5" stroke-linejoin="round"/><polyline points="97.7,394.8 121.2,441.0 152.0,474.0 202.6,482.8" fill="none" stroke="#0047BA" '
+                    'stroke-width="2.5"/><polyline points="129.6,349.0 163.0,386.0 185.0,419.0" fill="none" stroke="#0047BA" stroke-width="1.8"/><text x="196.0" y="254.0" font-size="12" '
+                    'fill="#0047BA" font-style="italic" transform="rotate(-58 196.0 254.0)">Red Sea</text><text x="28.8" y="40.6" font-size="10" fill="#0047BA" font-style="italic">Mediterranean '
+                    'Sea</text><text x="46.4" y="126.4" font-weight="bold" font-size="12" fill="#0047BA" style="paint-order:stroke;stroke:#efe1bd;stroke-width:4">EGYPT</text><text x="42.0" y="280.4" '
+                    'font-weight="bold" font-size="12" fill="#8a6d1f" style="paint-order:stroke;stroke:#efe1bd;stroke-width:4">KUSH</text><text x="209.2" y="399.2" font-weight="bold" font-size="12" '
+                    'fill="#DB2F30" style="paint-order:stroke;stroke:#efe1bd;stroke-width:4">AKSUM</text><circle cx="69.5" cy="81.3" r="3.8" fill="#0A1F3D" stroke="#fff"/><path d="M73.5 81.3 L364.0 '
+                    '81.3" stroke="#8a8f99" stroke-width=".8"/><text x="368.0" y="85.3" font-size="11">Memphis</text><circle cx="100.3" cy="172.6" r="3.8" fill="#0A1F3D" stroke="#fff"/><path '
+                    'd="M104.3 172.6 L364.0 172.6" stroke="#8a8f99" stroke-width=".8"/><text x="368.0" y="176.6" font-size="11">Thebes (Karnak)</text><circle cx="81.6" cy="329.9" r="3.8" '
+                    'fill="#0A1F3D" stroke="#fff"/><path d="M85.6 329.9 L364.0 329.9" stroke="#8a8f99" stroke-width=".8"/><text x="368.0" y="333.9" font-size="11">Napata, Jebel Barkal, El-Kurru, '
+                    'Nuri</text><circle cx="124.5" cy="365.3" r="3.8" fill="#0A1F3D" stroke="#fff"/><path d="M128.5 365.3 L364.0 365.3" stroke="#8a8f99" stroke-width=".8"/><text x="368.0" y="369.3" '
+                    'font-size="11">Meroe</text><circle cx="254.3" cy="402.1" r="3.8" fill="#0A1F3D" stroke="#fff"/><path d="M258.3 402.1 L364.0 402.1" stroke="#8a8f99" stroke-width=".8"/><text '
+                    'x="368.0" y="406.1" font-size="11">Adulis (Red Sea port)</text><circle cx="233.8" cy="427.1" r="3.8" fill="#0A1F3D" stroke="#fff"/><path d="M237.8 427.1 L364.0 427.1" '
+                    'stroke="#8a8f99" stroke-width=".8"/><text x="368.0" y="431.1" font-size="11">Aksum</text><text x="20" y="534" font-size="10" fill="#5b6676">Dates differ: Kushite kings in Egypt about 747 to 656 BCE, '
+                    'Meroe about 300 BCE to 350 CE, Aksum about 100 to 940 CE.</text></svg>',
+          'html': '<p>Around 728 BCE, a king named <b>Piye</b> sailed north from Napata with his army. Egypt was split among quarreling rulers. Piye defeated them one by one, captured the great city '
+                  "of Memphis and received the surrender of Egypt's princes. He carved the story on a granite <b>stela</b> at Jebel Barkal. In it, he is furious with one defeated prince, not for "
+                  'fighting him, but for letting his horses go hungry.</p><p>For about 90 years, kings from Kush ruled an empire stretching from the Mediterranean Sea deep into what is now Sudan, '
+                  'the largest Egyptian empire since the New Kingdom, centuries earlier. Historians call them the <b>25th Dynasty</b>. Some books call them "the Black Pharaohs." The Kushite kings '
+                  'were Black Africans from Nubia, but be careful with that label. As you learned in Week 7, Kemet was also an African civilization, and Egyptians and Nubians had been neighbors, '
+                  "trading partners, rivals and relatives for thousands of years. What was new was not that Egypt had African rulers. It was that these rulers came from Kush, south of Egypt's old "
+                  "border at Aswan.</p><div class='callout'><b>Big question:</b> What made Kush and later Aksum so powerful, and what led to their decline?</div>"},
+ 'learn': [{'title': 'The 25th Dynasty: Kush Rules Egypt',
+            'html': "<p>The Kushite kings did not see themselves as foreign invaders. They worshiped Amun and believed they were restoring Egypt's ancient traditions, which they felt Egypt's own "
+                    "rulers had neglected. They repaired old temples, revived classic art styles and built new monuments at Karnak in Thebes.</p><p>Piye's brother <b>Shabaka</b> brought all of Egypt "
+                    'under Kushite control. He ordered an old, worm-eaten religious text copied onto a stone so it would last, and that stone, the <b>Shabaka Stone</b>, is now in the British Museum. '
+                    'The greatest of these kings, <b>Taharqa</b> (ruled about 690 to 664 BCE), built at Karnak, Jebel Barkal and dozens of other sites. He is mentioned in the Hebrew Bible as '
+                    'Tirhakah, king of Kush.</p><p>The dynasty ended when the <b>Assyrian Empire</b>, from what is now Iraq, invaded Egypt with iron weapons. The Assyrians took Memphis in 671 BCE '
+                    'and sacked Thebes in 663 BCE. The Kushite kings withdrew south to Napata, but they kept calling themselves kings of Egypt and Kush, and they were buried in Nubia under pyramids, '
+                    'a tradition Egypt had stopped about 800 years earlier.</p><p>Historians count the 25th Dynasty from about 747 BCE, when Piye became king and already controlled southern Egypt '
+                    'around Thebes, to 656 BCE, when Kushite kings were last recognized at Thebes.</p>',
+            'checks': [{'t': 'open',
+                        'key': 'restorers',
+                        'q': 'The Kushite kings saw themselves as restorers, not invaders. Give two pieces of evidence from the lesson that support that view.',
+                        'min': 20,
+                        'rows': 3,
+                        'rubric': ['Worshiped Amun and believed they were restoring tradition',
+                                   'Repaired temples, revived classic art styles, built at Karnak, preserved the old text on the Shabaka Stone'],
+                        'model': 'They worshiped Amun, the same god as the Egyptians, and repaired old Egyptian temples. Shabaka even had an old religious text copied onto stone so it would not be '
+                                 'lost.'},
+                       {'t': 'num',
+                        'q': 'The 25th Dynasty ruled Egypt from about 747 to 656 BCE. About how many years is that?',
+                        'a': 91,
+                        'tol': 1,
+                        'unit': 'years',
+                        'pts': 2,
+                        'why': '747 − 656 = 91 years, so about 90 years.'},
+                       {'t': 'open',
+                        'key': 'assyria',
+                        'q': 'What caused the end of Kushite rule in Egypt? Use the idea of balance of power from last week.',
+                        'min': 20,
+                        'rows': 3,
+                        'rubric': ['The Assyrian Empire invaded with iron weapons, took Memphis (671 BCE) and sacked Thebes (663 BCE)', 'A stronger power rose, so Kush pulled back south'],
+                        'model': 'A stronger power, the Assyrian Empire, invaded Egypt with iron weapons. They took Memphis in 671 BCE and sacked Thebes in 663 BCE, so the Kushite kings pulled back '
+                                 'to Napata. The balance of power had shifted again.'},
+                       {'t': 'text',
+                        'q': 'Which Kushite king is mentioned in the Hebrew Bible as Tirhakah?',
+                        'a': ['taharqa', 'taharka', 'taharqo'],
+                        'show': 'Taharqa',
+                        'pts': 2,
+                        'why': 'Taharqa, who ruled about 690 to 664 BCE.'}]},
+           {'title': 'Meroe: City of Iron and Queens',
+            'visual': '<svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Pyramid shapes of Giza and Meroe compared"><text '
+                      'x="300" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Two pyramid traditions (drawn to the same scale)</text><rect x="0" y="190" width="600" '
+                      'height="14" fill="#e3c99a"/><path d="M40 190 L148 52 L256 190Z" fill="#d9b77a" stroke="#8a6d1f" stroke-width="1.5"/><text x="148" y="214" text-anchor="middle" '
+                      'font-weight="bold">Great Pyramid, Giza (about 2560 BCE)</text><text x="148" y="226" text-anchor="middle" font-size="10">about 146 m tall when built, sides about '
+                      '52°</text><path d="M330 190 L337.0 172 L344 190Z" fill="#b8763e" stroke="#7a4a1f"/><rect x="334.0" y="183.7" width="6" height="6.3" fill="#7a4a1f"/><path d="M360 190 L365.0 '
+                      '176 L370 190Z" fill="#b8763e" stroke="#7a4a1f"/><rect x="362.0" y="185.1" width="6" height="4.8999999999999995" fill="#7a4a1f"/><path d="M385 190 L394.0 164 L403 190Z" '
+                      'fill="#b8763e" stroke="#7a4a1f"/><rect x="391.0" y="180.9" width="6" height="9.1" fill="#7a4a1f"/><path d="M420 190 L426.0 172 L432 190Z" fill="#b8763e" '
+                      'stroke="#7a4a1f"/><rect x="423.0" y="183.7" width="6" height="6.3" fill="#7a4a1f"/><path d="M445 190 L453.0 168 L461 190Z" fill="#b8763e" stroke="#7a4a1f"/><rect x="450.0" '
+                      'y="182.3" width="6" height="7.699999999999999" fill="#7a4a1f"/><path d="M475 190 L480.0 176 L485 190Z" fill="#b8763e" stroke="#7a4a1f"/><rect x="477.0" y="185.1" width="6" '
+                      'height="4.8999999999999995" fill="#7a4a1f"/><path d="M500 190 L507.0 170 L514 190Z" fill="#b8763e" stroke="#7a4a1f"/><rect x="504.0" y="183.0" width="6" height="7.0" '
+                      'fill="#7a4a1f"/><text x="420" y="214" text-anchor="middle" font-weight="bold">Royal pyramids of Meroe (about 300 BCE to 350 CE)</text><text x="420" y="226" '
+                      'text-anchor="middle" font-size="10">most under 30 m tall, steep sides about 70°, in groups</text><text x="420" y="120" text-anchor="middle" font-size="11">Nubia has more '
+                      'pyramids</text><text x="420" y="134" text-anchor="middle" font-size="11">than Egypt: more than 200.</text></svg>',
+            'html': '<p>Around 593 BCE, after an Egyptian army raided Napata, the royal center of Kush gradually moved south to <b>Meroe</b>, on the east bank of the Nile, south of where the Atbara '
+                    'River joins it. Meroe had good farmland, rain in summer, trade routes to the Red Sea, and two treasures for iron making: <b>iron ore</b> and <b>acacia forests</b> to burn for '
+                    "fuel. Today, huge mounds of <b>slag</b> still surround the city. Iron tools helped farmers clear land, and iron weapons made Kush's army strong.</p><p>Meroe's people created "
+                    'their own writing, <b>Meroitic</b>, with a cursive form and a hieroglyphic form. In 1909, British scholar Francis Llewellyn Griffith worked out the sounds of its letters, so we '
+                    'can read Meroitic aloud. But the language itself is still only partly understood, a puzzle scholars are working on today.</p><p>As you saw in the Week 7 ELA passage comparing '
+                    "Kemet and Kush, Meroe's kings and queens were buried under groups of steep, narrow pyramids, about 200 of them in the royal cemeteries. In 1834, an Italian treasure hunter, "
+                    "Giuseppe Ferlini, smashed the tops off many pyramids looking for gold. Some of the jewelry he took from Queen Amanishakheto's pyramid is now in museums in Munich and Berlin.</p>",
+            'checks': [{'t': 'open',
+                        'key': 'meroewhy',
+                        'q': 'Explain why Meroe was a good location for the capital of Kush. Give at least three reasons.',
+                        'min': 30,
+                        'rows': 3,
+                        'rubric': ['Iron ore and acacia forests for fuel', 'Farmland and summer rain', 'Trade routes to the Red Sea; farther from Egyptian and Assyrian armies'],
+                        'model': 'Meroe had iron ore and acacia forests to fuel furnaces, so it could make iron. It had farmland and summer rain to grow food, and it was on trade routes to the Red '
+                                 'Sea. It was also farther from the armies that had attacked Napata.'},
+                       {'t': 'open',
+                        'key': 'meroitic',
+                        'q': 'Scholars can read Meroitic aloud but cannot fully understand it. Explain the difference, and why it makes Meroe harder to study.',
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ['Knowing the sounds of the letters is not the same as knowing what the words mean',
+                                   'Many Meroitic texts cannot be fully translated, so historians rely more on archaeology and outside sources'],
+                        'model': 'Knowing what sound each letter makes lets you pronounce a word, but not know what it means, just as you could read a Swahili word aloud without understanding it. '
+                                 'Because many Meroitic texts cannot be translated, historians depend on archaeology and on what Egyptians, Greeks and Romans wrote about Meroe.'},
+                       {'t': 'open',
+                        'key': 'ferlini',
+                        'q': 'Ferlini destroyed pyramids and took jewelry that is now in European museums. Some people argue these objects should be returned to Sudan. Using what you learned about '
+                             'the Benin Bronzes in Week 5, give one argument for returning them and one question that would need to be answered first.',
+                        'min': 30,
+                        'rows': 3,
+                        'rubric': ['Argument for return: taken through destruction without permission; belongs to Sudanese heritage',
+                                   'A reasonable question: who would receive and care for them, how to keep them safe during conflict in Sudan, what the museums and Sudan agree'],
+                        'model': "They were taken by destroying royal tombs without anyone's permission, so they belong to Sudan's heritage. But first we would need to answer how they could be kept "
+                                 'safe, since Sudan has been at war, and which museum or group in Sudan would care for them.'}]},
+           {'title': 'The Kandakes: Queens Who Faced Rome',
+            'html': '<p>In Meroe, royal women held great power. The title <b>kandake</b> (written Candace by the Greeks and Romans) belonged to queen mothers and to queens who ruled in their own '
+                    'right. Carvings show them as large, powerful figures, sometimes in battle, wearing royal regalia.</p><p>The most famous is <b>Kandake Amanirenas</b>. After Rome conquered Egypt '
+                    "in 30 BCE, Roman governors pushed Rome's power south toward Kush. Around 25 BCE, while the Roman governor was away fighting in Arabia, Kushite forces attacked Roman forts and "
+                    'towns at Egypt\'s southern border, including Aswan, and pulled down statues of the Roman emperor Augustus. The Roman writer Strabo called the queen only "Candace"; most '
+                    'historians identify her as Amanirenas. He described her as "a masculine sort of woman, and blind in one eye." The Romans counterattacked and sacked Napata, but Kush fought '
+                    'on.</p><p>Finally, around 21 to 20 BCE, Kushite ambassadors met Augustus on the island of Samos. Rome agreed to cancel the tribute it had demanded and pull back its border. A '
+                    "bronze head of Augustus, taken in the raid, was buried beneath the steps of a temple in Meroe, so that every visitor walked over Rome's emperor. Archaeologists found it in 1910; "
+                    'it is now in the British Museum.</p>',
+            'checks': [{'t': 'blanks',
+                        'q': 'Complete the peace terms.',
+                        'sent': 'Kushite ambassadors met Augustus on the island of ___, and Rome agreed to cancel its ___.',
+                        'blanks': [['samos'], ['tribute', 'tax', 'taxes']],
+                        'show': 'Samos; tribute',
+                        'pts': 2,
+                        'why': 'The peace of about 21 to 20 BCE.'},
+                       {'t': 'open',
+                        'key': 'samos',
+                        'q': 'Who won the war between Kush and Rome? Support your answer with evidence from the peace agreement.',
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ['Kush gained most of what it wanted, so it can be seen as a Kushite success (or a draw)', 'Evidence: Rome canceled the tax and pulled its border back at Samos'],
+                        'model': 'Kush came out ahead. Even though Rome sacked Napata, at the peace talks on Samos Rome agreed to cancel the tax and pull back its border, which is what Kush had been '
+                                 'fighting for.'},
+                       {'t': 'open',
+                        'key': 'strabo',
+                        'q': 'Strabo called Amanirenas "a masculine sort of woman, and blind in one eye." What does this description tell us about Strabo\'s point of view? What can we still learn '
+                             'from it?',
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ['Point of view: a Roman enemy who did not expect a woman to lead in war',
+                                   'Still learn: she was a real ruler who led in war, may have lost an eye, and Rome took her seriously'],
+                        'model': 'Strabo was a Roman writing about an enemy, and he seemed surprised that a woman led an army, so he called her masculine. We still learn that she was a real queen '
+                                 'who led Kush in war, may have lost an eye in battle, and was important enough for Rome to write about.'},
+                       {'t': 'open',
+                        'key': 'augustus',
+                        'q': 'Why do you think the Kushites buried the head of Augustus under the steps of a temple? What message did it send?',
+                        'min': 20,
+                        'rows': 2,
+                        'rubric': ['To show victory over Rome; everyone walking in stepped on the emperor', 'Message: Kush was not afraid of Rome; pride and power'],
+                        'model': "Burying the emperor's head under the steps meant everyone walking into the temple stepped on him. It sent the message that Kush had defeated Rome and was not afraid "
+                                 'of it.'}]},
+           {'title': 'Aksum: A Trading Empire on the Red Sea',
+            'visual': '<svg viewBox="0 0 600 212" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Diagram of an Aksumite gold coin"><text x="300" y="18" '
+                      'text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">An Aksumite gold coin (drawing based on coins of King Ezana)</text><circle cx="150" cy="100" r="62" '
+                      'fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/><circle cx="450" cy="100" r="62" fill="#F2D27A" stroke="#C9A84C" stroke-width="5"/><circle cx="150" cy="92" r="20" '
+                      'fill="none" stroke="#8a6d1f" stroke-width="2"/><path d="M134 120 q16 14 32 0" fill="none" stroke="#8a6d1f" stroke-width="2"/><path d="M132 74 l6 -12 l6 8 l6 -10 l6 10 l6 -8 l6 '
+                      '12" fill="none" stroke="#8a6d1f" stroke-width="2"/><path d="M150 46 v-2 M118 58 l-2 -2" stroke="#8a6d1f"/><text x="150" y="180" text-anchor="middle" font-size="10" '
+                      'fill="#8a6d1f">king\'s name in Greek letters around the edge</text><path d="M450 70 v60 M420 100 h60" stroke="#8a6d1f" stroke-width="7"/><text x="450" y="180" '
+                      'text-anchor="middle" font-size="10" fill="#8a6d1f">cross (after Ezana became Christian)</text><text x="150" y="200" text-anchor="middle" font-weight="bold">Front: crowned '
+                      'king</text><text x="450" y="200" text-anchor="middle" font-weight="bold">Back: religious symbol</text><text x="300" y="100" text-anchor="middle" font-size="11">Early coins '
+                      'showed a</text><text x="300" y="114" text-anchor="middle" font-size="11">crescent and disk; later</text><text x="300" y="128" text-anchor="middle" font-size="11">ones, a '
+                      'cross.</text></svg>',
+            'html': '<p>Southeast of Meroe, in the highlands of what are now northern Ethiopia and Eritrea, the kingdom of <b>Aksum</b> grew powerful from about the first century CE. Aksum was built '
+                    'by African peoples of the Horn of Africa, ancestors of many Ethiopians and Eritreans today. Some older books claimed settlers from southern Arabia founded it. Archaeologists now '
+                    'find that Aksum grew out of local highland farming towns that traded and shared ideas, including an early form of writing, with southern Arabia across the Red Sea. Its port of '
+                    '<b>Adulis</b> on the Red Sea linked Africa with the Roman Empire, Arabia and India. Traders brought ivory, gold, incense and tortoiseshell from Africa and left with cloth, '
+                    'glass, wine and iron goods.</p><p>Aksum was one of the few ancient kingdoms to mint its own coins in gold, silver and bronze, starting in the late 200s CE. Coins with Greek '
+                    'writing helped it trade with foreign merchants. Mani, a Persian religious teacher of the 200s, named Aksum one of the four great kingdoms of the world, along with Rome, Persia '
+                    "and China.</p><p>Aksum's kings marked royal tombs with enormous carved stone <b>stelae</b>. The tallest, about 33 meters, fell and broke, perhaps soon after it was raised. "
+                    'Another, about 24 meters tall, was taken to Rome by Italian soldiers in 1937 and returned to Ethiopia in 2005, where it was raised again in 2008.</p><p>Around 340 CE, <b>King '
+                    'Ezana</b> became a Christian, making Aksum one of the first states in the world to adopt Christianity. His coins changed from a crescent and disk to a cross. By then Meroe was '
+                    "weakening as more Red Sea trade passed through Aksum's ports instead of along the Nile. Ezana's own inscriptions also describe a military campaign into the land of Kush around "
+                    "350 CE, about the time Meroe declined. Aksum itself lasted until about 940 CE, weakened as Red Sea trade shifted and its land was worn out. Its written language, <b>Ge'ez</b>, "
+                    'is still used in Ethiopian church services today.</p>',
+            'checks': [{'t': 'open',
+                        'key': 'aksumrich',
+                        'q': "Explain two ways Aksum's location and choices made it rich.",
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ['Location: port of Adulis on the Red Sea, linking Africa, Rome, Arabia and India',
+                                   'Choices: minting its own coins (with Greek writing) to trade with foreign merchants; trading ivory, gold, incense'],
+                        'model': 'Aksum controlled the port of Adulis on the Red Sea, where African goods like ivory and gold met traders from Rome, Arabia and India. It also minted its own gold '
+                                 'coins with Greek writing, which made trading with foreign merchants easier.'},
+                       {'t': 'open',
+                        'key': 'coinevidence',
+                        'q': 'Look at the coin drawing. How can coins be used as historical evidence? Give two things historians learned about Aksum from its coins.',
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ["Coins show kings' names, titles, symbols and dates",
+                                   'Learned: names of rulers; trade with Greek-speaking merchants; change of religion from crescent and disk to cross (Christianity)'],
+                        'model': "Coins carry names, pictures and symbols chosen by rulers. From Aksum's coins historians learned the names of its kings, that they traded with Greek-speaking "
+                                 'merchants, and that Aksum became Christian, because the crescent and disk were replaced by a cross.'},
+                       {'t': 'open',
+                        'key': 'obelisk',
+                        'q': 'The Aksum stela taken to Rome in 1937 was returned in 2005. How is this case like the Benin Bronzes (Week 5)? How is it different?',
+                        'min': 25,
+                        'rows': 3,
+                        'rubric': ['Alike: taken from Africa by a European power without consent; returned or demanded after many years',
+                                   'Different: the stela was returned and re-erected; many Benin Bronzes are still in European museums (or other accurate difference)'],
+                        'model': 'Both were taken from Africa by European powers without permission and became symbols of the fight to return heritage. The difference is that the stela was fully '
+                                 'returned and raised again in Aksum, while many Benin Bronzes are still held in European museums.'},
+                       {'t': 'order',
+                        'q': 'Put these events in time order, earliest first.',
+                        'items': ['Piye conquers Egypt',
+                                  'The Assyrians sack Thebes',
+                                  'The royal center of Kush moves to Meroe',
+                                  "Amanirenas's forces raid Roman Egypt",
+                                  'Ezana makes Aksum a Christian kingdom',
+                                  "Aksum's stela is returned from Rome"],
+                        'pts': 4,
+                        'why': 'About 728 BCE, 663 BCE, after 590 BCE, about 25 BCE, about 340 CE and 2005 CE.'}]}],
+ 'handson': {'title': 'Mint an Aksumite Coin',
+             'intro': "Aksum's rulers chose every symbol on their coins to send a message. Design and make your own coin, then explain its message the way a historian would.",
+             'materials': ['Air-dry clay, salt dough (1 cup flour, 1/2 cup salt, 1/2 cup water) or a circle of cardboard',
+                           'A jar lid or cup to cut circles about 6 cm wide',
+                           'A toothpick, pencil or paper clip for carving',
+                           'Gold or yellow paint, or aluminum foil and a marker',
+                           'Paper and pencil'],
+             'steps': ['Study the coin drawing. List what the front and back show and what each symbol means.',
+                       'Sketch your own coin for an imaginary African trading kingdom: a ruler on the front, a symbol of its beliefs or values on the back, and a short name or motto around the edge.',
+                       'Roll out the clay or dough and cut two circles. Carve the front design into one and the back into the other, then press them together. (With cardboard, draw and cover with '
+                       'foil, then press the design in with a pencil.)',
+                       'Let it air-dry for 2 to 3 days, turning it each day, or with an adult bake it at 200°F for 2 to 3 hours until hard. Then paint it gold.',
+                       "Trade coins with a family member: each of you writes what the other's coin reveals about its kingdom without being told.",
+                       'Salt dough is not food: do not taste it, and keep it away from pets.'],
+             'record': [{'t': 'open',
+                         'key': 'coinplan',
+                         'q': 'Describe your coin: what is on each side, and what message does each symbol send about your kingdom?',
+                         'min': 40,
+                         'rows': 4,
+                         'rubric': ['Both sides described', 'Each symbol explained with its message', 'Connects to how Aksum used coins'],
+                         'model': 'Front: a crowned queen holding a spear, to show strong leadership. Back: a ship and a star, because my kingdom trades by sea and guides ships by the stars. Edge: '
+                                  '"Peace through trade." Like Aksum\'s coins, it tells foreign traders who rules and what the kingdom values.'},
+                        {'t': 'open',
+                         'key': 'coinread',
+                         'q': 'What did your family member conclude from your coin without being told? What did they get right, and what did they miss? What does that teach you about using objects '
+                              'as evidence?',
+                         'min': 40,
+                         'rows': 4,
+                         'rubric': ["Reports the other person's reading", 'Compares with intended meaning', 'Lesson: objects show some things clearly but can be misread; historians combine evidence'],
+                         'model': 'My mom guessed it was a sea-trading kingdom ruled by a queen, which was right, but she thought the star meant a religion. That shows objects can tell us a lot but '
+                                  'can also be misread, so historians compare coins with writing and other evidence.'}]},
+ 'think': {'intro': 'Use evidence and explain your reasoning. Your teacher scores these.',
+           'items': [{'t': 'open',
+                      'key': 'risefall',
+                      'q': 'Write a paragraph comparing the rise and fall of Kush (including Meroe) and Aksum. For each, give one cause of its rise and one cause of its decline, then explain one way '
+                           'they were alike.',
+                      'min': 120,
+                      'rows': 10,
+                      'rubric': ["Kush rise: gold, iron, trade, strong armies, Egypt's division; decline: Assyrian invasion ended rule in Egypt; Meroe declined around 350 CE as trade shifted and "
+                                 'Aksum attacked',
+                                 'Aksum rise: Red Sea trade, port of Adulis, coins; decline: trade shifted, land worn out (about 940 CE)',
+                                 'A sound comparison (trade, resources, outside powers)',
+                                 'Organized paragraph with transitions'],
+                      'model': 'Kush and Aksum both grew rich by controlling trade, but each fell when conditions changed. Kush rose because it had gold, iron and control of the Nile trade routes, '
+                               'and in 728 BCE it took advantage of a divided Egypt to conquer it. Its rule in Egypt ended when the Assyrians invaded, and later Meroe declined around 350 CE as trade '
+                               "shifted and Aksum's army attacked. Aksum rose because its port of Adulis linked Africa with Rome, Arabia and India, and its gold coins made trade easier. It declined "
+                               'by about 940 CE as Red Sea trade moved away and its farmland wore out. The two kingdoms were alike because their power depended on trade: when trade routes changed, '
+                               'their strength faded.'},
+                     {'t': 'open',
+                      'key': 'remember',
+                      'q': 'Taharqa, Amanirenas and Ezana are far less famous in many schools than Tutankhamun or Cleopatra. Choose one of them and write a short argument for why every student '
+                           'should learn about this person.',
+                      'min': 70,
+                      'rows': 6,
+                      'rubric': ['Accurate facts about the chosen ruler', 'A clear reason the person matters', 'Persuasive reasoning about why the story should be taught'],
+                      'model': 'Every student should learn about Kandake Amanirenas. When Rome, the most powerful empire in the world, tried to tax Kush, she led her army against it, and at Samos '
+                               'Rome agreed to cancel the tax and move its border. Her story shows that African women led nations and stood up to empires, a fact that is often left out of history '
+                               'books, and it gives a fuller picture of the ancient world.'}]},
+ 'exit': [{'t': 'text',
+           'q': 'Which Kushite king conquered Egypt around 728 BCE and carved his victory on a stela at Jebel Barkal?',
+           'a': ['piye', 'piankhi', 'piankhy'],
+           'show': 'Piye',
+           'pts': 2,
+           'why': 'Piye, also spelled Piankhi.'},
+          {'t': 'blanks',
+           'q': 'Why was Meroe a center of iron making?',
+           'sent': 'It had iron ___ and ___ forests to burn for fuel.',
+           'blanks': [['ore'], ['acacia']],
+           'show': 'ore; acacia',
+           'pts': 2,
+           'why': 'Iron ore plus acacia wood for furnaces.'},
+          {'t': 'open',
+           'key': 'exit_kandake',
+           'q': 'What was a kandake, and what did Kandake Amanirenas achieve?',
+           'min': 15,
+           'rows': 2,
+           'rubric': ['A royal woman, queen mother or ruling queen of Meroe', 'Fought Rome; peace at Samos canceled the tax and moved the border back'],
+           'model': 'A kandake was a queen or queen mother of Meroe. Amanirenas fought Rome, and the peace at Samos made Rome cancel its tax and move its border back.'},
+          {'t': 'open',
+           'key': 'exit_aksum',
+           'q': 'Name two achievements of Aksum.',
+           'min': 10,
+           'rows': 2,
+           'rubric': ["Any two: Red Sea trade through Adulis, its own coins, giant stelae, early Christian state, Ge'ez script"],
+           'model': 'Aksum minted its own gold coins and became one of the first Christian kingdoms.'}],
+ 'next': 'Week 10: the Unit 2 checkpoint and your Nile Valley Project.'}
 
 TEACHER = {
  "standards": [
@@ -153,9 +437,9 @@ TEACHER = {
  "key_questions": ["Were the Kushite kings invaders or restorers? Who would answer each way?", "What can a coin tell us that a book cannot?", "Whose point of view does Strabo give?", "What made each kingdom rise, and what made it decline?"],
  "misconceptions": ["Thinking the 25th Dynasty were foreigners who did not respect Egyptian culture.", "Believing pyramids are only Egyptian; Nubia has more of them.", "Assuming Meroitic is fully understood.", "Thinking Christianity came to Africa only through European missionaries; Aksum adopted it in the 300s CE."],
  "support": ["Provide a three-column chart: Napata (25th Dynasty), Meroe, Aksum.", "Give a timeline card from 728 BCE to 940 CE.", "Read Strabo's quotation together and underline the opinion words."],
- "challenge": ["Research the black granite statues of Taharqa and other Kushite kings found at Dukki Gel (Kerma) in 2003.", "Read about Henry Aubin's argument in The Rescue of Jerusalem (2002) that a Kushite army helped save Jerusalem from Assyria in 701 BCE, and explain why historians debate it."],
- "background": "<p>Piye's campaign is dated to about 728 BCE (his Victory Stela, Cairo JE 48862, from Jebel Barkal, includes his rebuke of Nimlot for starving his horses). Shabaka (about 716 or 705 to 690s BCE) completed control of Egypt; the Shabaka Stone (British Museum EA 498) preserves the Memphite Theology. Taharqa (690 to 664 BCE) is the Tirhakah of 2 Kings 19:9 and Isaiah 37:9; his pyramid at Nuri is the largest in Nubia. Esarhaddon took Memphis in 671 BCE; Ashurbanipal's army sacked Thebes in 663 BCE under Tantamani. Psamtik II's campaign reached Napata about 593 BCE; the royal center moved to Meroe over the following centuries (royal burials at Meroe from about 270 BCE). F. Ll. Griffith deciphered the Meroitic phonetic values in 1909. Ferlini looted the pyramid of Amanishakheto in 1834 (collections in Munich and Berlin). The war with Rome (about 25 to 21/20 BCE) is described by Strabo (Geography 17.1.54) and Cassius Dio; the Meroe Head of Augustus (British Museum 1911,0901.1) was excavated by John Garstang in 1910. Aksum's coinage began under Endubis (about 270s CE); Mani's Kephalaia names Aksum among four great kingdoms. Ezana's conversion (about 330s to 340s CE, through Frumentius) is shown on his coins; his Ge'ez and Greek inscriptions record a campaign against the Noba and Kasu around 350 CE. The Obelisk of Aksum was taken in 1937, returned in April 2005 and re-erected in 2008. Note that \"Black Pharaohs\" is a popular modern label; use it with the explanation given in the lesson.</p>",
- "sources": ["Morkot, R. G. (2000), The Black Pharaohs: Egypt's Nubian Rulers, Rubicon Press.", "Welsby, D. A. (1996), The Kingdom of Kush: The Napatan and Meroitic Empires, British Museum Press.", "Munro-Hay, S. (1991), Aksum: An African Civilisation of Late Antiquity, Edinburgh University Press.", "British Museum, The Meroe Head of Augustus.", "Strabo, Geography 17.1.54 (Loeb translation)."]
+ "challenge": ["Research Musawwarat es-Sufra, the Meroitic temple complex with elephant carvings, and explain what it suggests about elephants in Kush.", "Read about Henry Aubin's argument in The Rescue of Jerusalem (2002) that a Kushite army helped save Jerusalem from Assyria in 701 BCE, and explain why historians debate it."],
+ "background": "<p>Piye's campaign is dated to about 728 BCE (his Victory Stela, Cairo JE 48862, from Jebel Barkal, includes his rebuke of Nimlot for starving his horses). Shabaka (about 716 or 705 to 690s BCE) completed control of Egypt; the Shabaka Stone (British Museum EA 498) preserves the Memphite Theology. Taharqa (690 to 664 BCE) is the Tirhakah of 2 Kings 19:9 and Isaiah 37:9; his pyramid at Nuri is the largest in Nubia. Esarhaddon took Memphis in 671 BCE; Ashurbanipal's army sacked Thebes in 663 BCE under Tantamani. Psamtik II's campaign reached Napata about 593 BCE; the royal center moved to Meroe over the following centuries (royal burials at Meroe from about 270 BCE). F. Ll. Griffith deciphered the Meroitic phonetic values in 1909. Ferlini looted the pyramid of Amanishakheto in 1834 (collections in Munich and Berlin). The war with Rome (about 25 to 21/20 BCE) is described by Strabo (Geography 17.1.54) and Cassius Dio; the Meroe Head of Augustus (British Museum 1911,0901.1) was excavated by John Garstang in 1910. Aksum's coinage began under Endubis (about 270s CE); Mani's Kephalaia names Aksum among four great kingdoms. Ezana's conversion (about 330s to 340s CE, through Frumentius) is shown on his coins; his Ge'ez and Greek inscriptions record a campaign against the Noba and Kasu around 350 CE. Aksum grew from local highland societies of the northern Horn with strong Red Sea ties to South Arabia (Phillipson 2012); older theories of South Arabian founders are no longer accepted. The Obelisk of Aksum was taken in 1937, returned in April 2005 and re-erected in 2008. Note that \"Black Pharaohs\" is a popular modern label; use it with the explanation given in the lesson.</p>",
+ "sources": ["Morkot, R. G. (2000), The Black Pharaohs: Egypt's Nubian Rulers, Rubicon Press.", "Welsby, D. A. (1996), The Kingdom of Kush: The Napatan and Meroitic Empires, British Museum Press.", "Phillipson, D. W. (2012), Foundations of an African Civilisation: Aksum and the Northern Horn, James Currey.", "Munro-Hay, S. (1991), Aksum: An African Civilisation of Late Antiquity, Edinburgh University Press.", "British Museum, The Meroe Head of Augustus.", "Strabo, Geography 17.1.54 (Loeb translation)."]
 }
 
 PRINT = {
