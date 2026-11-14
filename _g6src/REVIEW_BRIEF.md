@@ -109,3 +109,4 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - ENGINE: norm() strips < > ≤ ≥ and drops the variable "a" (treated as an article). Never key inequalities with symbols; ask for the symbol in words and anchor ("^y is greater than or equal to 13"). Never use "a" as a variable in a keyed item.
 - INDEX: the hub must follow the Grade 3 blueprint (collapsible week cards, 2x2 lesson cards with kicker, title, blurb, subject tag, Open lesson button, Printable and Teacher plan pills). Do not change this layout.
 - ENGINE: norm() lowercases everything, so keys cannot tell Tt from tt or PP from pp. Never key typed genotypes; ask for counts, percents or phenotype words instead.
+- BUILD: always run PYTHONDONTWRITEBYTECODE=1 python3 -B build.py; stale __pycache__ files with matching mtimes can publish old content.
