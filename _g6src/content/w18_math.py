@@ -46,15 +46,15 @@ LESSON = {
   "Add integers with the same sign and with different signs fluently, and explain the rules.",
   "Subtract integers by adding the opposite, and explain why it works.",
   "Find the change between two integers (temperature, elevation, balance) by subtracting.",
-  "Track a small business's income and expenses as positive and negative integers to find profit or loss."],
+  "Track a loan and a credit card balance below zero, and explain how debt and interest work."],
  "vocab": [
   ["zero pair", "A positive and a negative of the same size, such as 1 and −1, that add to zero."],
   ["additive inverse", "A number's opposite; a number plus its additive inverse equals 0."],
   ["sum", "The result of adding."],
   ["difference", "The result of subtracting."],
-  ["profit", "Money left after expenses when income is greater than expenses (a positive result)."],
-  ["loss", "When expenses are greater than income (a negative result)."],
-  ["expense", "Money a business spends, such as on supplies."]],
+  ["debt", "Money you owe; it can be shown as a negative balance."],
+  ["credit", "Trust that lets you borrow now and pay later."],
+  ["interest", "Extra money charged for borrowing, added to a debt over time."]],
  "reconnect": {
   "title": "Week 17: The coordinate plane",
   "intro": "Last week you found distances on the grid with absolute value. Those distances are differences between integers, today's topic.",
@@ -65,7 +65,7 @@ LESSON = {
    {"t":"open","key":"rc_distance","q":"Last week, to find the distance from −4 to 5 you added 4 + 5. Explain in your own words why you added instead of subtracted.","min":15,"rows":2,"rubric":["The numbers are on opposite sides of zero, so you travel 4 to reach zero, then 5 more"],"model":"−4 and 5 are on opposite sides of zero. You go 4 units to reach zero, then 5 more, so you add 4 + 5 = 9."}]},
  "hook": {
   "title": "The Coldest Morning",
-  "html": "<p>On January 15, 1972, the temperature in Loma, Montana, rose from −54°F to 49°F in 24 hours, the biggest one-day temperature change ever recorded in the United States. How many degrees is that? You can't just subtract 54 from 49.</p><p>Meanwhile, Maya, the 12-year-old sourdough baker from last week, is reviewing her October: she earned money from sales, but spent money on flour, jars and gas. Did she make a profit or a loss? Both questions need the same skill: adding and subtracting integers.</p><div class='callout'><b>Big question:</b> What happens when positive and negative quantities combine?</div>"},
+  "html": "<p>On January 15, 1972, the temperature in Loma, Montana, rose from −54°F to 49°F in 24 hours, the biggest one-day temperature change ever recorded in the United States. How many degrees is that? You can't just subtract 54 from 49.</p><p>Meanwhile, Maya, the 12-year-old sourdough baker from last week, wants to borrow $60 for a stand mixer. How do you keep track of money you owe? Both questions need the same skill: adding and subtracting integers.</p><div class='callout'><b>Big question:</b> What happens when positive and negative quantities combine?</div>"},
  "learn": [
   {"title": "Adding Integers with Counters",
    "visual": CHIPS,
@@ -90,24 +90,25 @@ LESSON = {
     {"t":"num","q":"−3 − (−10) = ?","a":7,"pts":2,"why":"−3 + 10 = 7."},
     {"t":"num","q":"The highest point in Africa, Mount Kilimanjaro in Tanzania, is about 19,341 feet above sea level. The shore of Lake Assal in Djibouti, Africa's lowest point, is about 509 feet below sea level. What is the difference in elevation?","a":19850,"tol":1,"unit":"feet","pts":2,"why":"19,341 − (−509) = 19,341 + 509 = 19,850 feet."},
     {"t":"open","key":"debtcancel","q":"Explain with a money story why 10 − (−4) = 14.","min":20,"rows":2,"rubric":["Subtracting a negative = removing a debt or loss","So the total goes up by 4"],"model":"I have $10 but also an IOU saying I owe my brother $4. If he tears up the IOU, a −4 is taken away, and I'm worth $14 now. Taking away a negative makes the total bigger."}]},
-  {"title": "Money: Profit or Loss?",
-   "html": "<p>Maya records income as positive and expenses as negative:</p><div class='card' style='font-family:Courier New,monospace;font-size:14px'>Week 1 &nbsp; bread sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+$72<br>Week 1 &nbsp; flour and salt &nbsp;&nbsp;&nbsp;−$18<br>Week 2 &nbsp; bread sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+$54<br>Week 2 &nbsp; new banneton baskets −$64<br>Week 3 &nbsp; gas for deliveries &nbsp;−$9<br>Week 3 &nbsp; bread sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+$45<br>Week 4 &nbsp; market stall fee &nbsp;&nbsp;&nbsp;−$25<br>Week 4 &nbsp; bread sales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+$81</div><p>The sum of all the entries is her <b>profit</b> (if positive) or <b>loss</b> (if negative) for the month. Some months can show a loss because of a one-time purchase, like baskets she will use for years.</p>",
+  {"title": "Money: Debt and Credit, Going Below Zero",
+   "html": "<p>When you borrow money, your balance goes <b>below zero</b>: you have a <b>debt</b>. Maya wants a $60 stand mixer for her bakery. Her parents lend her the money, and she agrees to repay $15 each Saturday.</p><div class='card' style='font-family:Courier New,monospace;font-size:14px'>Start &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; borrow for mixer &nbsp;&nbsp; −$60<br>Sat 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repay &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +$15 &nbsp;&nbsp; balance −$45<br>Sat 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repay &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +$15 &nbsp;&nbsp; balance −$30</div><p>A <b>credit card</b> works the same way: each purchase adds debt (a negative amount), and each payment brings the balance back toward zero. But a credit card company charges <b>interest</b> on debt you don't pay off each month, so the debt can grow even if you buy nothing more. Many cards charge more than 20 percent a year.</p><p><b>Credit</b> means a lender trusts you to pay back later. Paying on time builds a good credit history; missing payments makes borrowing harder and more expensive.</p>",
    "checks": [
-    {"t":"num","q":"What is Maya's total for Week 2 alone (+$54 and −$64)?","a":-10,"unit":"dollars","pts":2,"why":"54 + (−64) = −10: a $10 loss that week."},
-    {"t":"num","q":"What is Maya's profit or loss for the whole month? Use a negative number for a loss.","a":136,"unit":"dollars","pts":2,"why":"Income: 72 + 54 + 45 + 81 = 252. Expenses: 18 + 64 + 9 + 25 = 116. 252 + (−116) = 136."},
-    {"t":"open","key":"weeklossok","q":"Maya was upset about her Week 2 loss. Explain to her why one week with a loss isn't necessarily bad for her business.","min":30,"rows":3,"rubric":["The baskets are a one-time purchase she'll use for many weeks (an investment)","The month overall shows a profit of $136"],"model":"The baskets cost a lot once, but she'll use them for years, so it's an investment, not a weekly cost. And the whole month still made a $136 profit, so the business is doing fine."}]}],
+    {"t":"num","q":"After Saturday 2, Maya's balance is −$30. What is her balance after two more $15 payments?","a":0,"unit":"dollars","pts":2,"why":"−30 + 15 + 15 = 0: the loan is paid off."},
+    {"t":"num","q":"A credit card balance is −$120. The owner pays $50, then buys a $35 bike helmet. What is the new balance?","a":-105,"unit":"dollars","pts":2,"why":"−120 + 50 + (−35) = −105."},
+    {"t":"num","q":"In January a card balance was −$240. In February it was −$95. What was the change in the balance? (February − January)","a":145,"unit":"dollars","pts":2,"why":"−95 − (−240) = −95 + 240 = 145: the debt shrank by $145."},
+    {"t":"open","key":"interestwhy","q":"Two friends each owe $200 on credit cards that charge interest. One pays it off this month; the other pays only $10 a month. Explain, using what you know about negative balances, why the second friend could end up paying much more than $200.","min":30,"rows":3,"rubric":["Interest adds to the negative balance each month the debt remains","Small payments barely reduce it, so interest keeps being added for a long time"],"model":"Every month the debt stays, interest is added, making the balance more negative. Paying only $10 barely brings it toward zero, so interest keeps getting added for many months, and the total paid ends up much more than $200."}]}],
  "handson": {
-  "title": "Counter Game and the Integer Budget Walk",
-  "intro": "Play an integer card game, then walk a month of business transactions on a floor number line.",
+  "title": "Counter Game and the Debt Walk",
+  "intro": "Play an integer card game, then walk a loan and a credit card on a floor number line.",
   "materials": ["A deck of playing cards (remove face cards) or 20 index cards numbered 1 to 10 twice", "Two colors of counters (beans, coins or paper squares), about 20 of each", "Painter's tape or chalk number line from −20 to 20 (or paper)", "A family member", "Paper and pencil"],
   "steps": [
    "Integer card game: black cards are positive, red cards are negative. Each player draws 2 cards and adds them. The greater sum wins the round. Model each sum with counters at least three times, removing zero pairs.",
    "Subtraction round: draw 2 cards and subtract the second from the first (first − second). Rewrite each as adding the opposite before calculating.",
-   "Budget walk: make a number line from −20 to 20 on the floor. Start at 0. A family member reads a transaction list for a lemonade stand: +12 (sales), −8 (lemons and sugar), −6 (cups), +15 (sales), −20 (a new cooler), +9 (sales). Walk each one and say your total.",
-   "Write your own 6-transaction list for a real or imagined business you could run (pet sitting, crafts, yard work) and walk it."],
+   "Debt walk: make a number line from −20 to 20 on the floor. Start at 0. A family member reads a list for a pretend credit card (each step is $1): −12 (art supplies), −6 (a book), +10 (payment), −8 (a game), −3 (interest), +15 (payment). Walk each one and say your balance.",
+   "Write your own 6-step list for borrowing and repaying money for something you would like to buy, and walk it."],
   "record": [
    {"t":"open","key":"cardrec","q":"Write three addition and two subtraction problems from your card game, with answers. For one subtraction, show how you rewrote it as adding the opposite.","min":30,"rows":4,"rubric":["Five problems with correct answers","One subtraction rewritten correctly as adding the opposite"],"model":"Black 7 + red 9: 7 + (−9) = −2. Red 4 + red 6: −10. Black 8 + red 3: 5. Red 5 − black 2: −5 − 2 = −5 + (−2) = −7. Black 3 − red 8: 3 − (−8) = 3 + 8 = 11."},
-   {"t":"open","key":"budgetrec","q":"What was the lemonade stand's final total? Then share your own business transaction list and its profit or loss.","min":30,"rows":4,"rubric":["Lemonade total: 2","Own list of six transactions with a correct total","States profit or loss"],"model":"Lemonade stand: 12 − 8 − 6 + 15 − 20 + 9 = 2, a $2 profit. My pet-sitting list: +20, −5 (treats), +15, +20, −12 (leash), −3 (bags) = 35, a $35 profit."}]},
+   {"t":"open","key":"budgetrec","q":"What was the credit card's final balance? Then share your own borrowing-and-repaying list and its final balance.","min":30,"rows":4,"rubric":["Card balance: −4","Own list of six steps with a correct final balance","Says whether the debt is paid off"],"model":"Credit card: −12 − 6 + 10 − 8 − 3 + 15 = −4, so $4 is still owed. My list: borrow $18 for a skateboard (−18), pay +5, +5, borrow $4 for wheels (−4), pay +6, +6: final balance 0, paid off."}]},
  "think": {
   "intro": "Explain your reasoning. Your teacher scores these.",
   "items": [
@@ -126,7 +127,7 @@ TEACHER = {
   "MA.6.NSO.4.1: Apply and extend previous understandings of operations with whole numbers to add and subtract integers with procedural fluency.",
   "MA.6.NSO.1.2: Given a mathematical or real-world context, represent quantities that have opposite direction using rational numbers. Compare them on a number line and explain the meaning of zero within its context.",
   "MA.K12.MTR.2.1: Demonstrate understanding by representing problems in multiple ways.",
-  "Financial literacy: income, expenses, profit and loss (Jump$tart Earning Income; Spending and Saving)."],
+  "Financial literacy: borrowing, debt, credit and interest (Jump$tart Managing Credit)."],
  "materials": ["The interactive lesson", "Playing cards or numbered index cards", "Two colors of counters (about 20 each)", "Tape or chalk number line from −20 to 20", "Paper and pencil", "Printable practice page"],
  "flow": [
   [6, "Reconnect", "Run the Week 17 warm-up questions."],
@@ -134,14 +135,14 @@ TEACHER = {
   [12, "Counters", "Model sums with zero pairs; derive the same-sign and different-sign rules."],
   [9, "Number line", "Model sums as moves; group positives and negatives."],
   [13, "Subtraction", "Add the opposite; the debt story; finding change; Kilimanjaro and Lake Assal."],
-  [10, "Profit or loss", "Total Maya's month; discuss one-time purchases."],
+  [10, "Debt and credit", "Track Maya's loan and a credit card balance; discuss interest."],
   [6, "Assign", "Play two rounds of the card game; assign the budget walk, Think Deeper and the Exit Check."]],
  "key_questions": ["Are there more positives or more negatives?", "What is the opposite of the number being subtracted?", "Which way does this move on the number line?", "Is the change a rise or a drop?"],
  "misconceptions": ["Two negatives always make a positive (true for multiplying, not adding).", "Subtracting always makes a number smaller.", "−9 + 4 = −13 or 13 (adding absolute values with different signs).", "Change means start minus final."],
  "support": ["Keep counters available for every problem.", "Use a vertical number line (thermometer) for temperature problems.", "Color-code positive and negative numbers."],
  "challenge": ["Create a magic square where every row, column and diagonal of integers sums to −3.", "Find the record low and high temperatures for your county and compute the range."],
- "background": "<p>The Loma, Montana, record (January 14-15, 1972: −54°F to 49°F, a 103-degree rise in 24 hours) is listed by NOAA's National Centers for Environmental Information. Kilimanjaro is commonly given as 5,895 m (19,341 ft); Lake Assal's surface is about 155 m (509 ft) below sea level. Maya's figures are practice data. The rules here are taught as summaries of counter and number-line models, not memorized first.</p>",
- "sources": ["NOAA National Centers for Environmental Information, State Climate Extremes.", "Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "Jump$tart Coalition, National Standards for Personal Financial Education (2021)."]
+ "background": "<p>The Loma, Montana, record (January 14-15, 1972: −54°F to 49°F, a 103-degree rise in 24 hours) is listed by NOAA's National Centers for Environmental Information. Kilimanjaro is commonly given as 5,895 m (19,341 ft); Lake Assal's surface is about 155 m (509 ft) below sea level. Maya's loan and the card figures are practice data; typical U.S. credit card interest rates have been above 20 percent a year since 2023 (Federal Reserve G.19). The rules here are taught as summaries of counter and number-line models, not memorized first.</p>",
+ "sources": ["NOAA National Centers for Environmental Information, State Climate Extremes.", "Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "Jump$tart Coalition, National Standards for Personal Financial Education (2021).", "Federal Reserve, Consumer Credit G.19 release (credit card interest rates)."]
 }
 
 PRINT = {
@@ -151,6 +152,6 @@ PRINT = {
   {"q":"Find each difference: (a) 6 − 14 (b) −7 − 9 (c) −12 − (−20)","a":"(a) −8 (b) −16 (c) 8","lines":2},
   {"q":"A hiker starts at 125 feet below sea level in Death Valley and climbs to 410 feet above sea level. How many feet did she climb?","a":"410 − (−125) = 535 feet.","lines":2},
   {"q":"A temperature falls from 5°F to −12°F. What is the change?","a":"−12 − 5 = −17 degrees (a drop of 17).","lines":2},
-  {"q":"A craft business has: +$40, −$15, −$22, +$35, −$48. Find the profit or loss.","a":"75 − 85 = −10, a $10 loss.","lines":2},
+  {"q":"A loan balance is −$85. The borrower pays $30, then borrows $12 more, then pays $40. What is the balance?","a":"−85 + 30 − 12 + 40 = −27; $27 is still owed.","lines":2},
   {"q":"Explain why subtracting a negative number gives a greater result.","a":"Subtracting a negative is adding its opposite (a positive), like canceling a debt.","lines":2}]
 }

@@ -9,10 +9,10 @@ HEART = ('<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-fam
   '<path d="M378 92 Q440 100 378 122" fill="none" stroke="#DB2F30" stroke-width="4" marker-end="url(#hr)"/>'
   '<path d="M378 202 Q470 220 392 246" fill="none" stroke="#DB2F30" stroke-width="4" marker-end="url(#hr)"/>'
   '<path d="M250 250 Q170 220 262 202" fill="none" stroke="#0047BA" stroke-width="4" marker-end="url(#hb)"/>'
-  '<text x="150" y="100" font-size="11" fill="#0047BA">oxygen-poor blood</text><text x="150" y="114" font-size="11" fill="#0047BA">to the lungs</text>'
+  '<text x="196" y="100" text-anchor="end" font-size="11" fill="#0047BA">oxygen-poor blood</text><text x="196" y="114" text-anchor="end" font-size="11" fill="#0047BA">to the lungs</text>'
   '<text x="440" y="100" font-size="11" fill="#DB2F30">oxygen-rich blood</text><text x="440" y="114" font-size="11" fill="#DB2F30">back to the heart</text>'
   '<text x="440" y="224" font-size="11" fill="#DB2F30">arteries carry oxygen-rich</text><text x="440" y="238" font-size="11" fill="#DB2F30">blood to the body</text>'
-  '<text x="70" y="224" font-size="11" fill="#0047BA">veins bring oxygen-poor</text><text x="70" y="238" font-size="11" fill="#0047BA">blood back to the heart</text>'
+  '<text x="166" y="224" text-anchor="end" font-size="11" fill="#0047BA">veins bring oxygen-poor</text><text x="166" y="238" text-anchor="end" font-size="11" fill="#0047BA">blood back to the heart</text>'
   '<text x="320" y="296" text-anchor="middle" font-size="10" fill="#5b6676">Blue and red show oxygen-poor and oxygen-rich blood. All blood is actually red. Simplified diagram.</text></svg>')
 
 ALV = ('<svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Air path from the nose to the alveoli, where oxygen passes into capillaries">'
@@ -20,7 +20,7 @@ ALV = ('<svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" font-famil
   + ''.join(f'<rect x="{20+i*124}" y="40" width="110" height="60" rx="10" fill="{c}"/><text x="{75+i*124}" y="66" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">{a}</text><text x="{75+i*124}" y="84" text-anchor="middle" fill="#fff" font-size="10">{b}</text>'
             + (f'<path d="M{132+i*124} 70 h10" stroke="#0A1F3D" stroke-width="3"/>' if i < 4 else '')
             for i, (a, b, c) in enumerate([("nose, mouth", "warm, filter air", "#5b6676"), ("trachea", "windpipe", "#0047BA"), ("bronchi", "two branches", "#1d6fb8"), ("bronchioles", "tiny tubes", "#3d7fc2"), ("alveoli", "air sacs", "#DB2F30")])) +
-  '<circle cx="250" cy="160" r="40" fill="#fde3e3" stroke="#DB2F30" stroke-width="2"/><text x="250" y="164" text-anchor="middle" font-size="11">alveolus</text>'
+  '<circle cx="250" cy="160" r="40" fill="#fde3e3" stroke="#DB2F30" stroke-width="2"/><text x="250" y="146" text-anchor="middle" font-size="11">alveolus</text>'
   '<path d="M190 205 Q250 120 310 205" fill="none" stroke="#b8322a" stroke-width="7"/><text x="320" y="214" font-size="11" fill="#b8322a">capillary</text>'
   '<path d="M262 150 l40 -10" stroke="#0047BA" stroke-width="2"/><text x="306" y="140" font-size="11" fill="#0047BA">O2 into blood</text>'
   '<path d="M238 170 l-44 6" stroke="#5b6676" stroke-width="2"/><text x="90" y="182" font-size="11" fill="#5b6676">CO2 out to air</text>'
@@ -85,14 +85,14 @@ LESSON = {
  "handson": {
   "title": "Heart-Rate Lab and a Model Lung",
   "intro": "Measure how your heart and breathing respond to exercise, then build a model that shows how the diaphragm works.",
-  "materials": ["A timer or stopwatch", "Graph paper and a pencil", "An empty clear plastic bottle (about 16 to 20 ounces)", "2 balloons", "A rubber band", "Scissors (used by an adult)", "Tape", "Optional: a drinking straw and modeling clay"],
+  "materials": ["A timer or stopwatch", "Graph paper and a pencil", "An empty clear plastic bottle (about 16 to 20 ounces)", "2 balloons", "A rubber band", "Scissors (used by an adult)", "Tape"],
   "steps": [
    "Find your pulse on the thumb side of your wrist with two fingers (not your thumb). Sit quietly for 2 minutes, then count beats for 15 seconds and multiply by 4. Count breaths for 30 seconds and multiply by 2.",
    "Do jumping jacks for 1 minute (or march in place if you need a gentler option). Immediately measure your heart rate and breathing rate again.",
    "Measure again after 1, 2 and 3 minutes of rest. Record everything in a table, then make a line graph of heart rate over time.",
    "Model lung: an adult cuts off the bottom of the bottle. Push one balloon into the bottle's neck and stretch its opening over the bottle mouth (the lung). Tie a knot in the second balloon, cut off its top half and stretch the remaining half over the open bottom, taping it with the rubber band (the diaphragm).",
    "Pull down gently on the knot of the bottom balloon. Watch the inside balloon. Push up and watch again.",
-   "Stop exercising if you feel dizzy, short of breath or have pain, and tell an adult. Skip the exercise part if a doctor has told you to avoid hard exercise."],
+   "Stop exercising if you feel dizzy, short of breath or have pain, and tell an adult. Skip the exercise part if a doctor has told you to avoid hard exercise. Balloons: check for latex allergies, and keep balloons and pieces away from young children and pets."],
   "record": [
    {"t":"open","key":"hrrec","q":"Record your resting, after-exercise and recovery heart rates and breathing rates. Describe the pattern on your graph and explain it using the circulatory, respiratory and muscular systems.","min":50,"rows":5,"rubric":["Data at rest, after exercise and during recovery","Describes the pattern: a rise, then a gradual fall","Explains: muscles need more oxygen and make more CO2, so heart and breathing rates rise; they return to normal (homeostasis)"],"model":"Resting: 76 beats per minute and 16 breaths per minute. After jumping jacks: 132 and 34. After 1 minute: 104; 2 minutes: 92; 3 minutes: 80. My graph shoots up and then curves back down. My muscles needed more oxygen and made more carbon dioxide, so my heart pumped faster and I breathed faster. When I rested, my body returned to its normal balance."},
    {"t":"open","key":"lungrec","q":"What happened to the inside balloon when you pulled the bottom balloon down, and when you pushed it up? Which body part does each balloon stand for, and how is the model unlike real lungs?","min":40,"rows":4,"rubric":["Pulling down: balloon inflates; pushing up: it deflates","Inside balloon = lung, bottom balloon = diaphragm, bottle = chest","A limit (one balloon vs. two lungs; no alveoli or blood; ribs don't move)"],"model":"When I pulled the bottom balloon down, the inside balloon filled with air; when I pushed up, it emptied. The inside balloon is a lung, the bottom balloon is the diaphragm and the bottle is the chest. Unlike real lungs, there is only one balloon, it has no alveoli or blood vessels, and the bottle can't expand the way ribs do."}]},
