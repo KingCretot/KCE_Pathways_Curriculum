@@ -1,0 +1,145 @@
+def routes():
+    s = ('<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Schematic diagram of the land Silk Roads and the Indian Ocean sea routes">'
+         '<text x="340" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Two great trade networks (about 100 BCE to 200 CE)</text>'
+         '<text x="20" y="48" font-weight="bold" fill="#8a6d1f" font-size="12">THE SILK ROADS (by land)</text>'
+         '<text x="20" y="182" font-weight="bold" fill="#0047BA" font-size="12">THE SEA ROADS (across the Indian Ocean)</text>')
+    land = [(640, 90, "Chang'an", "Han capital"), (545, 90, "Dunhuang", "oasis, desert edge"), (450, 90, "Kashgar", "below the Pamirs"), (355, 90, "Samarkand", "Sogdian traders"), (260, 90, "Merv", "Parthian empire"), (165, 90, "Antioch", "Roman Syria"), (60, 90, "Rome", "")]
+    sea = [(640, 230, "South China", "coast"), (530, 230, "Southeast Asia", "spice ports"), (430, 230, "Muziris", "India: pepper"), (330, 230, "Arabia", "frankincense"), (230, 230, "Adulis", "Aksum: ivory"), (140, 230, "Berenice", "Egypt, Red Sea"), (60, 230, "Alexandria", "to Rome")]
+    for path, col in [(land, "#C9A84C"), (sea, "#0047BA")]:
+        pts = ' '.join(f'{x},{y}' for x, y, _, _ in path)
+        s += f'<polyline points="{pts}" fill="none" stroke="{col}" stroke-width="5" stroke-dasharray="{"" if col=="#C9A84C" else "10 5"}"/>'
+        for x, y, a, b in path:
+            fill = "#DB2F30" if a in ("Adulis",) else "#0A1F3D"
+            s += f'<circle cx="{x}" cy="{y}" r="6" fill="{fill}" stroke="#fff" stroke-width="2"/><text x="{x}" y="{y-14}" text-anchor="middle" font-weight="bold">{a}</text><text x="{x}" y="{y+22}" text-anchor="middle" fill="#5b6676">{b}</text>'
+    s += ('<text x="497" y="130" text-anchor="middle" font-size="10" fill="#8a6d1f">Taklamakan Desert</text><text x="402" y="130" text-anchor="middle" font-size="10" fill="#8a6d1f">Pamir Mountains</text>'
+          '<path d="M420 268 q40 16 80 0" fill="none" stroke="#3d9a2f" stroke-width="2" marker-end="url(#mw)"/><path d="M500 282 q-40 14 -80 0" fill="none" stroke="#3d9a2f" stroke-width="2" marker-end="url(#mw)"/>'
+          '<defs><marker id="mw" viewBox="0 0 10 10" markerWidth="5" markerHeight="5" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#3d9a2f"/></marker></defs>'
+          '<text x="512" y="270" font-size="10" fill="#2c6e22">monsoon winds blow one way</text><text x="512" y="282" font-size="10" fill="#2c6e22">in summer, the other in winter</text>'
+          '<text x="20" y="296" font-size="10" fill="#5b6676">Schematic diagram, not a map: stops are in order, not to scale. Red dot: Aksum\'s port, studied in Week 9.</text></svg>')
+    return s
+
+RELAY = ('<svg viewBox="0 0 660 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Bar chart showing the price of one bolt of silk rising at each stop of a relay trade">'
+  '<text x="330" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Relay trade: one bolt of silk changes hands (example prices)</text>'
+  + ''.join(f'<rect x="{50+i*120}" y="{190-h*2}" width="70" height="{h*2}" fill="{c}"/><text x="{85+i*120}" y="{184-h*2}" text-anchor="middle" font-weight="bold">{h} coins</text><text x="{85+i*120}" y="206" text-anchor="middle" font-weight="bold">{a}</text><text x="{85+i*120}" y="221" text-anchor="middle" font-size="10" fill="#5b6676">{b}</text>'
+            for i, (h, a, b, c) in enumerate([(10, "Chang'an", "silk weaver sells", "#C9A84C"), (15, "Dunhuang", "Chinese trader", "#C9A84C"), (24, "Samarkand", "Sogdian trader", "#a5552a"), (36, "Antioch", "Parthian trader", "#a5552a"), (72, "Rome", "Roman shop", "#DB2F30")])) +
+  '<line x1="40" y1="190" x2="640" y2="190" stroke="#0A1F3D"/></svg>')
+
+LESSON = {
+ "unit": "Unit 3: Ancient Asia",
+ "title": "The Silk Road and the Sea Roads",
+ "subtitle": "For more than a thousand years, caravans and ships carried silk, spices, ivory, glass and gold between China, India, Africa, Arabia and Rome. They also carried something you cannot pack in a bag: ideas.",
+ "objectives": [
+  "Trace the land Silk Roads and the Indian Ocean sea routes and explain how geography shaped each one.",
+  "Explain how Zhang Qian's missions helped open the Silk Roads under the Han dynasty.",
+  "Describe the goods traded and explain how relay trade made prices rise.",
+  "Explain how monsoon winds and East African ports such as Adulis connected Africa to Asia and the Mediterranean, using a primary source.",
+  "Analyze how religions, inventions and diseases spread along trade routes (cultural diffusion)."],
+ "vocab": [
+  ["Silk Roads", "Networks of land routes linking China with Central Asia, Persia, India and the Mediterranean."],
+  ["caravan", "A group of traders traveling together with pack animals, for safety."],
+  ["oasis", "A place in a desert with water, where plants grow and travelers can rest."],
+  ["relay trade", "Trade in which goods pass from merchant to merchant along a route instead of one trader carrying them all the way."],
+  ["monsoon", "A seasonal wind that blows from one direction in summer and the opposite direction in winter."],
+  ["cultural diffusion", "The spread of ideas, beliefs, inventions and customs from one culture to another."],
+  ["pilgrim", "A person who travels to a holy place for religious reasons."]],
+ "reconnect": {
+  "title": "Week 13: Ancient China",
+  "intro": "The Han dynasty you studied last week is the one that opened the Silk Roads.",
+  "items": [
+   {"t":"text","q":"Shang priests carved questions to the ancestors on turtle shells and ox bones. What are these objects called?","a":[{"all":[["oracle"]],"none":["not"]}],"show":"oracle bones","pts":2,"why":"They hold the oldest known Chinese writing."},
+   {"t":"blanks","q":"Complete the Confucian idea.","sent":"Respect and care for one's parents is called filial ___.","blanks":[[{"all":[["piety"]],"none":["not"]}]],"show":"piety","pts":1,"why":"Filial piety was central to Confucius's teaching."},
+   {"t":"open","key":"rc_cycle","q":"In the dynastic cycle, what comes after a dynasty declines? What did people say had happened to the Mandate of Heaven?","min":12,"rows":2,"rubric":["Rebellion follows decline","People said the dynasty had lost the Mandate of Heaven, and a new dynasty claimed it"],"model":"After decline comes rebellion. People said the rulers had lost the Mandate of Heaven, and a new dynasty claimed it."},
+   {"t":"text","q":"Which dynasty followed the Qin and ruled China from 206 BCE to 220 CE?","a":[{"all":[["han"]],"none":["not","qin","fei","hanfei"]}],"show":"the Han dynasty","pts":2,"why":"The Han kept Qin's unity but ruled with Confucian ideas."}]},
+ "hook": {
+  "title": "Rome's Silk Problem",
+  "visual": routes(),
+  "html": "<p>Around 70 CE, the Roman writer Pliny the Elder grumbled that Rome was sending about 100 million sesterces (silver coins) every year to India, China and Arabia, just to buy luxuries like silk, pepper and perfume. Romans loved silk so much that they called the faraway people who made it the <i>Seres</i>, the \"silk people.\"</p><p>Yet almost no Roman ever met a Chinese silk weaver, and almost no Chinese merchant ever saw Rome. So how did a bolt of silk travel more than 4,000 miles from China to a shop in Rome?</p><div class='callout'><b>Big question:</b> How did trade routes connect distant civilizations, and what besides goods traveled along them?</div>"},
+ "learn": [
+  {"title": "Opening the Road: Zhang Qian",
+   "html": "<p>In about 138 BCE, the Han emperor Wudi sent an officer named <b>Zhang Qian</b> west to find allies against the Xiongnu, horse-riding raiders from the northern steppes. The Xiongnu captured Zhang Qian and held him for about ten years. He escaped, kept going, and finally returned to the Han court about thirteen years after he left, with reports of kingdoms no Chinese official had seen.</p><p>Zhang Qian described the powerful horses of Ferghana, in Central Asia, which the Chinese came to call \"heavenly horses,\" and markets full of goods. The Han soon sent more missions and armies west, and trade along the routes grew. Historians call Zhang Qian the person who \"opened\" the Silk Roads.</p><p>The routes were dangerous. Caravans of two-humped Bactrian camels skirted the Taklamakan Desert, moving from oasis to oasis, then climbed passes in the Pamir Mountains. The name \"Silk Road\" is modern: a German geographer, Ferdinand von Richthofen, used it in 1877. There was never one road, but a web of routes.</p>",
+   "checks": [
+    {"t":"text","q":"Who was the Han officer whose journeys west, starting about 138 BCE, helped open the Silk Roads?","a":[{"all":[["zhang qian","zhang chien","qian"]],"none":["not"]}],"show":"Zhang Qian","pts":2,"why":"Zhang Qian's reports to Emperor Wudi led to more missions and trade."},
+    {"t":"open","key":"oasis","q":"Why were oases so important on the Silk Roads? Explain using the geography of the route.","min":25,"rows":3,"rubric":["Routes crossed or skirted deserts like the Taklamakan with little water","Oases gave water, food, rest and markets, so caravans traveled from oasis to oasis and towns grew there"],"model":"The routes skirted the Taklamakan Desert, where there is almost no water. Oases provided water, food and rest for people and camels, so caravans moved from one oasis to the next, and trading towns like Dunhuang grew there."},
+    {"t":"open","key":"oneroad","q":"Historians often say \"Silk Roads\" instead of \"the Silk Road.\" Why is the plural more accurate?","min":20,"rows":2,"rubric":["There was no single road but a web of many routes (and sea routes too)","Routes changed with politics, weather and danger"],"model":"There was never one road. Traders used a web of different routes that changed with wars, weather and danger, and there were sea routes too, so \"roads\" is more accurate."},
+    {"t":"text","q":"What kind of camel, with two humps, carried goods through the cold deserts and mountains of Central Asia?","a":[{"all":[["bactrian"]],"none":["not","dromedary"]}],"show":"the Bactrian camel","pts":2,"why":"Bactrian camels handle cold and drought well."}]},
+  {"title": "Silk, Spices and Relay Trade",
+   "visual": RELAY,
+   "html": "<p>China sent <b>silk</b>, lacquerware and iron goods west. India sent pepper, cotton cloth and gems. Central Asia sent horses and jade. Persia and Rome sent glass, silver, wool and gold coins. Africa supplied ivory, gold and frankincense.</p><p>Few traders traveled the whole way. Instead, goods moved by <b>relay trade</b>: a Chinese merchant sold silk at Dunhuang, a <b>Sogdian</b> trader from Samarkand carried it across Central Asia, a Parthian merchant took it to Syria, and so on. Each merchant paid for camels, food, guards and tolls and added a profit, so the price rose at every stop. Silk worth 10 coins in China might cost 72 in Rome.</p><p>The Sogdians, from the region around Samarkand in today's Uzbekistan, became the great middlemen of the Silk Roads. Their language became a common trade language across Central Asia.</p>",
+   "checks": [
+    {"t":"num","q":"Use the bar chart. By what percent did the silk's price rise between Antioch (36 coins) and Rome (72 coins)?","a":100,"unit":"%","pts":2,"why":"It rose by 36, and 36 is 100% of 36: the price doubled."},
+    {"t":"num","q":"How many times the Chang'an price is the Rome price? (72 ÷ 10)","a":7.2,"unit":"times","pts":2,"why":"72 ÷ 10 = 7.2."},
+    {"t":"open","key":"relaywhy","q":"Give two reasons the price of silk rose at each stop along the route.","min":20,"rows":2,"rubric":["Costs: camels, food, guards, tolls, taxes, risk of loss","Each merchant added a profit (markup)"],"model":"Each merchant had to pay for camels, food, guards and tolls, and each one added a profit for himself, so the price grew at every stop."},
+    {"t":"blanks","q":"Match the region to a good it sent along the routes.","sent":"India: ___ &nbsp; Rome: ___ &nbsp; Ferghana (Central Asia): ___","blanks":[[{"all":[["pepper","cotton","gems","spice"]],"none":["not","silk"]}],[{"all":[["glass","gold","silver","wool","coin"]],"none":["not","silk"]}],[{"all":[["horse"]],"none":["not"]}]],"show":"pepper (or cotton, gems); glass (or gold, silver, wool); horses","pts":3,"why":"India: pepper, cotton, gems. Rome: glass, gold, silver, wool. Ferghana: \"heavenly horses.\""}]},
+  {"title": "The Sea Roads and the Monsoon",
+   "html": "<p>Ships carried even more goods than camels did. The key was the <b>monsoon</b>: across the Indian Ocean, winds blow from the southwest from about May to September and from the northeast from about November to March. Sailors learned to ride the summer wind east to India and the winter wind back west. A round trip took about a year.</p><p>Indian ports such as Muziris sold pepper by the shipload. In Week 9 you learned that Aksum grew rich through its Red Sea port of <b>Adulis</b>. A merchant guidebook written in Greek in the first century CE, the <i>Periplus of the Erythraean Sea</i>, describes it:</p><div class='card'><b>Primary source: Periplus of the Erythraean Sea</b> (first century CE; translated by Wilfred H. Schoff, 1912), sections 4 and 5<br>\"From that place to the city of the people called Auxumites there is a five days' journey more; to that place all the ivory is brought from the country beyond the Nile...\"<br>The ruler of the coast, Zoscales, is described as \"miserly in his ways and always striving for more, but otherwise upright, and acquainted with Greek literature.\"<br><span class='muted'>Auxumites: the people of Aksum. Erythraean Sea: the Red Sea and the Indian Ocean.</span></div><p>Notice what this source shows: an African kingdom at the center of world trade, with a ruler who read Greek, sending ivory to Rome and trading with India and Arabia.</p>",
+   "checks": [
+    {"t":"text","q":"What seasonal winds let sailors cross the Indian Ocean one way in summer and back in winter?","a":[{"all":[["monsoon"]],"none":["not"]}],"show":"the monsoon winds","pts":2,"why":"Southwest in summer, northeast in winter."},
+    {"t":"text","q":"According to the Periplus, what valuable good was brought to the Auxumites from beyond the Nile and then shipped from Adulis?","a":[{"all":[["ivory"]],"none":["not"]}],"show":"ivory","pts":2,"why":"\"all the ivory is brought from the country beyond the Nile\""},
+    {"t":"open","key":"zoscales","q":"The Periplus says Zoscales was \"acquainted with Greek literature.\" What does this detail suggest about Aksum's place in the ancient world?","min":25,"rows":3,"rubric":["Aksum was connected to the Greek-speaking Mediterranean world through trade","Its leaders were educated and cosmopolitan; an African kingdom at the center of international trade"],"model":"It suggests Aksum was closely connected to the Greek-speaking Mediterranean world through trade. Its ruler was educated and could deal with foreign merchants in their own language, which shows an African kingdom at the center of international trade."},
+    {"t":"open","key":"source","q":"The Periplus was written by a merchant, not a historian. Name one way that could make it a useful source and one way it could be limited.","min":25,"rows":3,"rubric":["Useful: firsthand knowledge of ports, goods, distances and prices","Limited: a merchant's point of view (interested in profit, may judge local people unfairly, may not see inland life)"],"model":"It is useful because the writer saw the ports himself and knew exactly what goods were traded and where. It is limited because he cared mostly about trade and profit, so he says little about ordinary people's lives and sometimes describes local people unfairly."}]},
+  {"title": "Ideas on the Move",
+   "html": "<p>Trade routes carried <b>ideas</b> as well as goods. This spread of beliefs, inventions and customs is called <b>cultural diffusion</b>.</p><ul><li><b>Religion:</b> Buddhism began in India and traveled with merchants and monks along the Silk Roads to China, where it became a major religion. At Dunhuang, people carved hundreds of cave temples, the Mogao Caves, starting in the 300s CE. The Chinese monk Faxian walked to India in 399 CE to bring back Buddhist texts.</li><li><b>Inventions:</b> Chinese papermaking slowly moved west and reached the Islamic world by the 700s and Europe centuries later. Glassmaking moved east.</li><li><b>Foods and art:</b> grapes and alfalfa reached China from Central Asia; Greek styles influenced Buddhist sculpture in Gandhara, in today's Pakistan and Afghanistan.</li><li><b>Disease:</b> sickness traveled too. Historians think the plague that struck the Mediterranean in 541 CE spread along trade routes.</li></ul>",
+   "checks": [
+    {"t":"text","q":"Which religion began in India and spread to China along the Silk Roads?","a":[{"all":[["buddhism","buddhist"]],"none":["not"]}],"show":"Buddhism","pts":2,"why":"Merchants and monks carried Buddhism east; the Mogao Caves at Dunhuang are evidence."},
+    {"t":"open","key":"diffusion","q":"Give one example of cultural diffusion from the lesson and explain how trade made it possible.","min":20,"rows":2,"rubric":["An accurate example (Buddhism to China, paper west, grapes to China, Greek art in Gandhara)","Explains the role of traders, monks or travelers on the routes"],"model":"Buddhism spread from India to China because merchants and monks traveled the same routes as the silk caravans, bringing teachings and texts with them."},
+    {"t":"open","key":"disease","q":"Trade routes spread religions and inventions, but also disease. What does this tell you about connecting distant parts of the world?","min":25,"rows":3,"rubric":["Connection brings both benefits and risks","A thoughtful comparison to today (travel, pandemics, global trade)"],"model":"Connecting the world brings good things like new ideas, foods and beliefs, but it also brings risks, because sickness can travel as fast as goods. The same is true today, when airplanes spread both trade and diseases quickly."}]}],
+ "handson": {
+  "title": "Relay Run: Silk and a Message",
+  "intro": "Turn your home into the Silk Roads. Carry a bolt of \"silk\" from station to station, pay the costs, and see how both prices and messages change along the way.",
+  "materials": ["A scarf, ribbon or strip of fabric (the silk)", "6 index cards or sheets of paper for station signs", "Paper and pencil", "A timer or phone", "Optional: a calculator for checking only"],
+  "steps": [
+   "Set up six stations in different rooms or corners: Chang'an, Dunhuang, Kashgar, Samarkand, Antioch and Rome. Put a sign at each. Clear the path so no one trips.",
+   "Write these rules on the signs. Chang'an: buy the silk for 10 coins. Dunhuang: pay 2 coins for water and camels, then add 25% profit. Kashgar: pay a 3-coin mountain toll, then add 25%. Samarkand: add 50%. Antioch: pay a 4-coin tax, then add 50%. Rome: sell it.",
+   "Carry the silk from station to station. At each one, work out the new price on paper before you move on. Record the price in Rome.",
+   "Message relay: at Chang'an, write this sentence on a card: \"Monks from India carried the teachings of the Buddha east, and the people of Dunhuang carved temples into the cliffs.\" Read it for 5 seconds, then walk to the next station and write it from memory on a new card without looking back. Repeat at every station.",
+   "Compare the first and last cards."],
+  "record": [
+   {"t":"open","key":"relayprice","q":"Show the silk's price at each station and the final price in Rome. How many times the starting price was it?","min":30,"rows":4,"rubric":["Correct prices: Dunhuang 15, Kashgar 22.50, Samarkand 33.75, Antioch 56.63, Rome 56.63","Final price compared with 10 coins (about 5.7 times)"],"model":"Chang'an 10. Dunhuang: 10 + 2 = 12, then 25% more = 15. Kashgar: 15 + 3 = 18, then 25% more = 22.50. Samarkand: 50% more = 33.75. Antioch: 33.75 + 4 = 37.75, then 50% more = 56.625, about 56.63. Rome sells it for 56.63 coins, about 5.7 times the starting price."},
+   {"t":"open","key":"relaymsg","q":"How did the message change from the first card to the last? What does this suggest about how ideas changed as they traveled the Silk Roads?","min":30,"rows":3,"rubric":["Specific changes described","Connects to real diffusion: ideas were adapted, simplified or blended with local beliefs as they traveled (Buddhism in China took on Chinese features)"],"model":"By Rome, my message said \"Monks carried Buddha's teachings and people carved temples.\" Details like India and Dunhuang dropped out. Real ideas changed the same way: as Buddhism traveled, people adapted it to their own languages and customs, so Chinese Buddhism looked different from Indian Buddhism."}]},
+ "think": {
+  "intro": "Use evidence and explain your reasoning. Your teacher scores these.",
+  "items": [
+   {"t":"open","key":"goodsideas","q":"Were the Silk Roads and sea roads more important for the goods they carried or for the ideas they spread? Take a position and support it with at least two pieces of evidence from the lesson.","min":100,"rows":8,"rubric":["Clear position","At least two accurate pieces of evidence","Acknowledges the other side","Logical conclusion"],"model":"I think the ideas were more important. Silk and pepper were used up long ago, but Buddhism, which traveled from India to China along the routes, still shapes the lives of hundreds of millions of people. Papermaking, which spread west from China, changed how the whole world records knowledge. Goods mattered too, because trade made cities like Samarkand and Adulis rich, and without the goods no one would have made the journey. But the goods were the reason for the trip, while the ideas were the lasting result."},
+   {"t":"open","key":"landsea","q":"You are a merchant in 100 CE. You have 1,000 kilograms of Indian pepper to send to Rome. Would you choose the land route or the sea route? Explain using at least three factors (cost, amount, speed, danger, timing).","min":80,"rows":6,"rubric":["A clear choice (sea is the stronger answer for heavy bulk goods)","At least three factors explained accurately (ships carry far more; fewer tolls and middlemen; monsoon timing; storms and pirates; deserts and raiders)","Reasoning connects factors to the decision"],"model":"I would choose the sea route. A ship can carry far more than a camel caravan, so moving 1,000 kilograms costs much less per kilogram. By sea there are fewer middlemen and tolls than on the land route. The risks are storms and pirates, and I would have to wait for the right monsoon wind, but with good timing a ship can reach Egypt within months, while camels would need many more animals, guards and border taxes."}]},
+ "exit": [
+  {"t":"text","q":"Which seasonal wind pattern made sea trade across the Indian Ocean possible?","a":[{"all":[["monsoon"]],"none":["not"]}],"show":"the monsoon","pts":2,"why":"Ships sailed east in summer and west in winter."},
+  {"t":"text","q":"Silk passed from Chinese to Sogdian to Parthian merchants before reaching Rome. What is this kind of trade called?","a":[{"all":[["relay"]],"none":["not"]}],"show":"relay trade","pts":2,"why":"Goods passed from merchant to merchant."},
+  {"t":"text","q":"What is the term for the spread of beliefs, inventions and customs from one culture to another?","a":[{"all":[["cultural diffusion","diffusion"]],"none":["not"]}],"show":"cultural diffusion","pts":2,"why":"Example: Buddhism spreading from India to China."},
+  {"t":"open","key":"exit_aksum","q":"Explain how Aksum was connected to the trade routes you studied this week.","min":15,"rows":2,"rubric":["Through its Red Sea port of Adulis on the sea routes","Sent ivory (and gold) and traded with Rome, Arabia and India"],"model":"Aksum's port of Adulis on the Red Sea linked it to the sea routes. It sent ivory brought from beyond the Nile to Rome and traded with Arabia and India."}],
+ "next": "Week 15: mid-year review and the Ancient Asia Project."
+}
+
+TEACHER = {
+ "standards": [
+  "SS.6.W.4.10: Explain the significance of the silk roads and maritime routes across the Indian Ocean to the movement of goods and ideas among Asia, East Africa, and the Mediterranean Basin.",
+  "SS.6.W.4.4: Explain the teachings of Buddha, the importance of Asoka, and how Buddhism spread in India, Ceylon, and other parts of Asia (spread along trade routes).",
+  "SS.6.W.3.18: Describe the rise and fall of the ancient east African kingdoms of Kush and Axum and Christianity's development in Ethiopia (reconnect: Aksum's trade).",
+  "SS.6.G.2.6: Explain the concept of cultural diffusion, and identify the influences of different ancient cultures on one another.",
+  "SS.6.W.1.3: Interpret primary and secondary sources."],
+ "materials": ["The interactive lesson", "A scarf or ribbon, 6 index cards, paper and pencil, a timer", "A world map or globe", "Printable practice page"],
+ "flow": [
+  [6, "Reconnect", "Run the Week 13 Reconnect questions."],
+  [5, "Hook", "Read Pliny's complaint. Trace both networks on the diagram and a globe."],
+  [10, "Zhang Qian", "Tell his story. Discuss deserts, oases and why \"Silk Roads\" is plural."],
+  [10, "Relay trade", "Read the bar chart. Connect to Week 13 markups."],
+  [12, "Sea roads", "Explain the monsoon. Read the Periplus source and weigh it as evidence."],
+  [10, "Ideas on the move", "Discuss Buddhism, paper and disease as examples of cultural diffusion."],
+  [7, "Assign", "Set up the first two stations together; assign the relay run, Think Deeper and the Exit Check."]],
+ "key_questions": ["Why did prices rise along the route?", "What besides goods moved along trade routes?", "How did geography shape each route?", "What can a merchant's guidebook tell us, and what can't it?"],
+ "misconceptions": ["The Silk Road was one paved road.", "Merchants traveled the whole route from China to Rome.", "Only silk was traded.", "Africa was outside ancient world trade."],
+ "support": ["Give a station chart with columns for cost, profit and new price.", "Pre-teach monsoon with a two-arrow drawing.", "Read the Periplus excerpt aloud and define Auxumites first."],
+ "challenge": ["Read more of the Periplus (free online) and list five goods traded at one port.", "Research the Mogao Caves and the Diamond Sutra (868 CE), the oldest dated printed book."],
+ "background": "<p>Pliny the Elder (Natural History 12.84, about 77 CE) estimated that India, the Seres and Arabia drew 100 million sesterces a year from the empire. Zhang Qian left about 138 BCE, was held by the Xiongnu for about ten years and returned about 126/125 BCE; Sima Qian's Shiji records his report, including the Ferghana horses. Ferdinand von Richthofen coined Seidenstrasse in 1877. Sogdian was a lingua franca of the Silk Roads. The Periplus of the Erythraean Sea dates to the mid-first century CE; quotations are from W. H. Schoff's 1912 translation, sections 4 and 5. Monsoon timing: southwest winds about May to September, northeast about November to March. Mogao cave carving began in 366 CE; Faxian set out in 399 CE. Paper reached the Islamic world in the 700s (Samarkand). The Plague of Justinian began in 541 CE; trade-route spread is the mainstream view. Relay prices in the chart are illustrative examples, not historical figures.</p>",
+ "sources": ["Schoff, W. H., trans. (1912), The Periplus of the Erythraean Sea (Wikisource).", "Hansen, V. (2012), The Silk Road: A New History, Oxford University Press.", "Metropolitan Museum of Art, Heilbrunn Timeline: Trade between Arabia and the Empires of Rome and Asia.", "UNESCO, Silk Roads Programme.", "Dunhuang Academy, Mogao Caves."]
+}
+
+PRINT = {
+ "directions": "Use complete sentences and evidence.",
+ "items": [
+  {"q":"Who was Zhang Qian, and why is he important?","a":"A Han officer sent west about 138 BCE; his reports led to Han missions and trade, opening the Silk Roads.","lines":2},
+  {"q":"Explain relay trade and why it made silk expensive in Rome.","a":"Goods passed from merchant to merchant; each added costs and profit.","lines":2},
+  {"q":"How did the monsoon winds make Indian Ocean trade possible?","a":"Ships sailed east with the summer southwest wind and back west with the winter northeast wind.","lines":2},
+  {"q":"What does the Periplus tell us about Aksum?","a":"Ivory was brought to the Auxumites and shipped from Adulis; its ruler knew Greek literature; Aksum was a major trading power.","lines":2},
+  {"q":"Give two examples of cultural diffusion along trade routes.","a":"Buddhism from India to China; papermaking west; grapes to China; Greek styles in Gandhara.","lines":2},
+  {"q":"A silk bolt cost 20 coins in Dunhuang and 50 coins in Antioch. By what percent did the price rise?","a":"Rose by 30; 30 ÷ 20 = 150%.","lines":2}]
+}
