@@ -57,3 +57,10 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - No bare common-word accepts (e.g. "just" for E. E. Just). Keyword keys need "none" lists for negation and wrong regions.
 - "Upper Egypt in the south" not "from the south" when the meaning is inside Egypt.
 - Do not modify geo.NILE for one map; use a local, more detailed river line when a map zooms in.
+
+## Week 8 additions
+- Florida B.E.S.T. Grade 6 ratio benchmarks are MA.6.AR.3.1 to 3.5 (there is no AR.4).
+- The only Grade 6 Florida SS benchmark naming Kush is SS.6.E.3.3; SS.6.W.2.8 is Mesopotamian key figures.
+- Bessie Coleman's same-gate refusal was in Waxahachie, Texas (and Houston), not Orlando.
+- Timelines need uniform scale; check bar positions against real dates.
+- Blanks must not accept a word already printed in the sentence (circular answers).

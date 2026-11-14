@@ -2,7 +2,7 @@ GUIDE = {
  "headline": "Week 8: Nubia and Kush, Plant Cells, Ratios and Summarizing",
  "intro": "This week your child travels south of Egypt to Nubia and the Kingdom of Kush, discovers how plant cells make food from sunlight, learns the language of ratios and uses it to compare deals, and learns to summarize a text in their own words without copying.",
  "time": "About 60 minutes of live lessons per subject, plus 30 to 45 minutes of after-class work per subject.",
- "gather": "About 4 cups of soil with some clay in it, water, dry grass or straw, an ice cube tray or small paper cups, a bowl and spoon, a ruler and a few books (Social Studies; start the mud bricks early in the week because they need 3 to 5 days to dry); fresh spinach, a drinking straw or hole punch, baking soda, dish soap, a plastic syringe without a needle, two clear cups and a bright lamp (Science); lemonade or juice concentrate, water, a measuring scoop, four clear cups and a grocery ad with \"3 for $5\" style prices (Math); a short article from home or the library, sticky notes, index cards in three sizes and a timer (ELA).",
+ "gather": "About 4 cups of soil with some clay in it, water, dry grass or straw, an ice cube tray or small paper cups, a bowl and spoon, a ruler, a few books and a map of Africa (Social Studies; start the mud bricks early in the week because they need 3 to 5 days to dry); fresh spinach, a drinking straw or hole punch, baking soda, dish soap, a plastic syringe without a needle, two clear cups, a bright lamp, a timer, and aluminum foil or a box for the dark trial (Science); 20 dry beans or counters in two colors, lemonade or juice concentrate, water, a measuring scoop, four clear cups, a marker and paper, and a grocery ad with \"3 for $5\" style prices (Math); a pencil and highlighter, a short article from home or the library, sticky notes, index cards in three sizes and a timer (ELA).",
  "heads_up": "The ELA article tells how pilot Bessie Coleman was refused by American flight schools because she was Black and a woman, and that she died in a plane crash in Jacksonville in 1926. Science opens with the 2021 manatee deaths in Florida. Both are handled with care.",
  "ela": {
   "topic": "Summarizing Without Copying",
@@ -17,7 +17,7 @@ GUIDE = {
   "ask": "\"Which deal is better, and how do you know without finding the price of one?\"",
   "try": "Taste-test the juice mixes together, and find one multi-buy deal in a grocery ad for your child to check.",
   "clicking": "They multiply both parts of a ratio by the same number and keep the order straight.",
-  "help": "They add the same number to both parts. Ask: does 2 cups rice to 3 cups water taste like 1 to 2?"},
+  "help": "They add the same number to both parts. Ask: is 2 scoops sugar to 5 scoops water as sweet as 1 to 4?"},
  "science": {
   "topic": "Plant Cells and Photosynthesis",
   "what": "Your child learns the three parts plant cells have that animal cells lack (cell wall, chloroplasts and a central vacuole), compares plant and animal cells, learns the inputs and outputs of photosynthesis, and runs the floating leaf-disk investigation.",
