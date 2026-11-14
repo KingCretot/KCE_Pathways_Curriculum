@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Build KCE Pathways Grade 6 pages from content/*.py into the repo's grade6/ folder."""
-import importlib.util, json, os, re, sys, glob, html
+import importlib.util, json, os, re, sys, glob, html, shutil
+sys.dont_write_bytecode = True
+shutil.rmtree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content", "__pycache__"), ignore_errors=True)
 from scope import UNITS, SUBJECT_NAMES, weeks
 
 HERE = os.path.dirname(os.path.abspath(__file__))
