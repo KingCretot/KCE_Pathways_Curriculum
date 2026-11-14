@@ -20,7 +20,7 @@ for w in range(6, 11):
         mats = list(L.get("handson", {}).get("materials", []))
         T = _load(p).TEACHER
         def _w(x): return set(w.strip(',.()') for w in x.lower().split() if len(w) > 3)
-        for t in T.get("materials", []):
+        for t in ([] if mats else T.get("materials", [])):
             tl = t.lower()
             if tl.startswith("the interactive lesson") or "printable" in tl or "checkpoint" in tl or "rubric" in tl or "real event" in tl or "the student's" in tl: continue
             if any(len(_w(t) & _w(x)) >= max(2, len(_w(t)) // 2) for x in mats): continue
@@ -29,6 +29,6 @@ for w in range(6, 11):
         if mats:
             rows += f"<tr><td>Week {w}</td><td>{NAMES[s]}</td><td><b>{L['handson']['title']}</b><ul>" + "".join(f"<li>{m}</li>" for m in mats) + "</ul></td></tr>"
 HTML = ("<h1>Unit 2 Supply List</h1><p>Almost everything comes from a normal home kitchen, pantry or junk drawer. Gather each week's items before Monday. "
-        "Items marked optional can be skipped.</p><h2>Every week</h2><ul>" + "".join(f"<li>{e}</li>" for e in EVERY) + "</ul>"
+        "Items marked optional can be skipped. <b>Cell model safety:</b> never taste craft materials (hair gel, clay, glue, dried beans); keep small pieces and gel away from pets and young children; check food allergies before an edible model; an adult does any cutting.</p><h2>Every week</h2><ul>" + "".join(f"<li>{e}</li>" for e in EVERY) + "</ul>"
         "<h2>Week by week</h2><table class='t'><tr><th>Week</th><th>Subject</th><th>Activity and supplies</th></tr>" + rows + "</table>"
         "<style>.t tr{break-inside:avoid}.t td{vertical-align:top;font-size:13px}.t ul{margin:4px 0 0 18px;padding:0}</style>")

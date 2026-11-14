@@ -46,13 +46,13 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                           'a': [{'all': [['short']], 'none': ['long', 'not']}],
                           'show': 'shorter',
                           'pts': 2,
-                          'why': 'Water moves out of its cells toward the saltier water, so the cells shrink and the strip gets shorter.'},
+                          'why': 'The strip gets shorter. You will explain why on the checkpoint.'},
                          {'t': 'open',
                           'key': 'rc_active',
                           'q': 'Which kind of transport needs energy, and which organelle supplies that energy?',
                           'min': 10,
                           'rows': 2,
-                          'rubric': ['Active transport', 'Mitochondria release energy from glucose'],
+                          'rubric': ['Names the energy-using kind of transport and the organelle that releases energy from glucose'],
                           'model': 'Active transport needs energy, and the mitochondria supply it by releasing energy from glucose.'},
                          {'t': 'open',
                           'key': 'rc_mito',
@@ -82,10 +82,10 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                     'marker-end="url(#cm)"/><text x="228" y="204" text-anchor="middle" font-size="10" fill="#DB2F30">fuel</text><path d="M450 230 L417 230" stroke="#DB2F30" stroke-width="2" '
                     'marker-end="url(#cm)"/><text x="433" y="196" text-anchor="middle" font-size="10" fill="#DB2F30">CO₂ and</text><text x="433" y="207" text-anchor="middle" font-size="10" '
                     'fill="#DB2F30">water in</text><text x="330" y="266" text-anchor="middle" font-size="11" fill="#5b6676">Red arrows show how processes depend on each other.</text></svg>',
-          'html': '<p>Over five weeks, you learned that all living things are made of cells (Week 6), that organelles inside cells do jobs (Week 7), that plant cells make food from light (Week 8) '
-                  'and that the membrane controls what crosses (Week 9). These are not four separate topics. They are one connected story.</p><p>Follow a single carbon atom: it enters a leaf as '
-                  'carbon dioxide by diffusion, becomes part of glucose in a chloroplast, travels to a mitochondrion where its energy is released, and leaves the cell again as carbon dioxide. Every '
-                  "week of this unit is part of that journey.</p><div class='callout'><b>This week:</b> connect the ideas, build a cell model, and take the Unit 2 checkpoint.</div>"},
+          'html': '<p>Over the last four weeks, you learned that all living things are made of cells (Week 6), that organelles inside cells do jobs (Week 7), that plant cells make food from light '
+                  '(Week 8) and that the membrane controls what crosses (Week 9). These are not four separate topics. They are one connected story.</p><p>Follow a single carbon atom: it enters a '
+                  'leaf as carbon dioxide by diffusion, becomes part of glucose in a chloroplast, travels to a mitochondrion where its energy is released, and leaves the cell again as carbon '
+                  "dioxide. Every week of this unit is part of that journey.</p><div class='callout'><b>This week:</b> connect the ideas, build a cell model, and take the Unit 2 checkpoint.</div>"},
  'learn': [{'title': 'Connecting the Big Ideas',
             'html': '<p>A <b>concept map</b> shows how ideas connect. Each arrow should be readable as a sentence. For example: "Cell theory says organelles do jobs" is weak. "Cells are the basic '
                     'unit of life, so the jobs that keep an organism alive are carried out by the parts inside its cells" explains the link.</p><p>Look at the red arrows in the map. Photosynthesis '
@@ -132,13 +132,14 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                       'Over time it</text><text x="580" y="96" text-anchor="middle" font-weight="bold" fill="#a5552a">becomes a</text><text x="580" y="112" text-anchor="middle" font-weight="bold" '
                       'fill="#a5552a">mitochondrion</text><text x="580" y="134" text-anchor="middle" font-size="11">(chloroplasts formed</text><text x="580" y="148" text-anchor="middle" '
                       'font-size="11">the same way)</text></svg>',
-            'html': '<p>In 1967, American biologist <b>Lynn Margulis</b> published a bold idea. She argued that mitochondria and chloroplasts were once free-living bacteria. Long ago, a large cell '
-                    'took in smaller cells but did not digest them. The small cells lived inside, making energy or food, and the partnership helped both. Over a very long time, they became '
-                    'organelles. This is called <b>endosymbiosis</b> ("living together inside").</p><p>Many scientists rejected her paper at first; it was turned down by many journals before one '
-                    'published it. But evidence piled up:</p><ul><li>Mitochondria and chloroplasts have their <b>own DNA</b>, in a loop like the DNA of bacteria.</li><li>They make new copies of '
-                    'themselves by <b>dividing in two</b>, the way bacteria do.</li><li>They are about the <b>same size</b> as bacteria and have their own ribosomes, which are like bacterial '
-                    'ribosomes.</li><li>They are wrapped in <b>two membranes</b>, as if one cell had been wrapped inside another.</li></ul><p>Today endosymbiosis is accepted by nearly all '
-                    "biologists. Margulis's story shows that science changes when new evidence supports a new explanation, even one that seemed strange at first.</p>",
+            'html': '<p>Earlier scientists, such as Konstantin Mereschkowski in 1905, had guessed at this idea, but in 1967 American biologist <b>Lynn Margulis</b> brought it back with evidence. She '
+                    'argued that mitochondria and chloroplasts were once free-living bacteria. Long ago, a large cell took in smaller cells but did not digest them. The small cells lived inside, '
+                    'making energy or food, and the partnership helped both. Over a very long time, they became organelles. This is called <b>endosymbiosis</b> ("living together inside").</p><p>Many '
+                    'scientists rejected her paper at first; it was turned down by many journals before one published it. But evidence piled up:</p><ul><li>Mitochondria and chloroplasts have their '
+                    '<b>own DNA</b>, in a loop like the DNA of bacteria.</li><li>They make new copies of themselves by <b>dividing in two</b>, the way bacteria do.</li><li>They are about the <b>same '
+                    'size</b> as bacteria and have their own ribosomes, which are like bacterial ribosomes.</li><li>They are wrapped in <b>two membranes</b>, as if one cell had been wrapped inside '
+                    "another.</li></ul><p>Today endosymbiosis is accepted by nearly all biologists. Margulis's story shows that science changes when new evidence supports a new explanation, even one "
+                    'that seemed strange at first.</p>',
             'checks': [{'t': 'open',
                         'key': 'endoev',
                         'q': 'Choose the two pieces of evidence for endosymbiosis that you find most convincing, and explain why each one supports the idea.',
@@ -156,7 +157,7 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                         'model': 'Scientific knowledge changes when new evidence supports a better explanation. At first many scientists doubted Margulis, but as studies found DNA, ribosomes and '
                                  'double membranes that matched bacteria, the evidence became strong enough that most scientists changed their minds.'},
                        {'t': 'text',
-                        'q': 'Which American biologist proposed in 1967 that mitochondria and chloroplasts began as bacteria?',
+                        'q': 'Which American biologist argued in 1967, with evidence, that mitochondria and chloroplasts began as bacteria?',
                         'a': ['lynn margulis', 'margulis', 'lynn sagan'],
                         'show': 'Lynn Margulis',
                         'pts': 2,
@@ -270,7 +271,15 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                                       'model': 'All living things are made of cells, the cell is the basic unit of life, and all cells come from existing cells.'},
                                      {'t': 'text',
                                       'q': 'Which scientist, in the 1670s, was the first to see living single-celled organisms through a microscope he made himself?',
-                                      'a': ['leeuwenhoek', 'van leeuwenhoek', 'antonie van leeuwenhoek', 'anton van leeuwenhoek'],
+                                      'a': ['leeuwenhoek',
+                                            'van leeuwenhoek',
+                                            'antonie van leeuwenhoek',
+                                            'anton van leeuwenhoek',
+                                            'leewenhoek',
+                                            'leeuwenhook',
+                                            'leuwenhoek',
+                                            'lewenhoek',
+                                            'leeuwenhoeck'],
                                       'show': 'Antonie van Leeuwenhoek',
                                       'pts': 2,
                                       'why': 'Antonie van Leeuwenhoek.'}]},
@@ -311,13 +320,12 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                                       'pts': 3,
                                       'rubric': ['Cell wall: support and protection', 'Chloroplasts: photosynthesis', 'Central vacuole: stores water, keeps cell firm'],
                                       'model': 'The cell wall supports and protects the cell, chloroplasts carry out photosynthesis, and the central vacuole stores water and keeps the cell firm.'},
-                                     {'t': 'blanks',
-                                      'q': 'Complete the word equation for photosynthesis.',
-                                      'sent': 'carbon dioxide + ___ + light energy → ___ + oxygen',
-                                      'blanks': [['water'], ['glucose']],
-                                      'show': 'water; glucose',
+                                     {'t': 'text',
+                                      'q': 'What is the green pigment in chloroplasts that captures light energy for photosynthesis?',
+                                      'a': ['chlorophyll', 'chlorophyl'],
+                                      'show': 'chlorophyll',
                                       'pts': 2,
-                                      'why': 'carbon dioxide + water + light energy → glucose + oxygen.'},
+                                      'why': 'Chlorophyll (Week 8).'},
                                      {'t': 'open',
                                       'key': 'cp_mass',
                                       'q': "Where does most of a tree's mass come from? Explain.",
@@ -329,7 +337,7 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                           {'title': 'Part D: Moving in and out of cells',
                            'items': [{'t': 'text',
                                       'q': 'A plant cell is placed in fresh water. Will water move into the cell or out of it?',
-                                      'a': [{'all': [['into', 'in']], 'none': ['out', 'not']}],
+                                      'a': [{'all': [['into', 'in', 'enter', 'inward', 'inside']], 'none': ['out', 'not', 'balance', 'equilibrium', 'neither', 'same', 'nothing', 'both']}],
                                       'show': 'into the cell',
                                       'pts': 2,
                                       'why': 'The cell has more dissolved particles than fresh water, so water moves in.'},

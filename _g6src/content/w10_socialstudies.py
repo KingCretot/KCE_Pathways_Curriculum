@@ -67,7 +67,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                     'x="90" y="176" text-anchor="middle" font-size="11">ox head</text><path d="M150 100 h30" stroke="#0A1F3D" stroke-width="2" marker-end="url(#aa)"/><g '
                     'transform="translate(205,70)"><path d="M0 20 q24 -20 48 0 l-24 34z" fill="none" stroke="#0A1F3D" stroke-width="3"/><path d="M2 18 l-6 -16 M46 18 l6 -16" stroke="#0A1F3D" '
                     'stroke-width="3"/></g><text x="230" y="160" text-anchor="middle" font-weight="bold">Proto-Sinaitic</text><text x="230" y="176" text-anchor="middle" font-size="11">\'alp (ox), '
-                    'about 1800 BCE</text><path d="M285 100 h30" stroke="#0A1F3D" stroke-width="2" marker-end="url(#aa)"/><g transform="translate(340,70)"><path d="M10 0 L44 22 L10 44 M0 22 h30" '
+                    'about 1800 BCE</text><path d="M285 100 h30" stroke="#0A1F3D" stroke-width="2" marker-end="url(#aa)"/><g transform="translate(340,70)"><path d="M44 0 L4 22 L44 44 M30 -4 L30 48" '
                     'fill="none" stroke="#0A1F3D" stroke-width="3"/></g><text x="365" y="160" text-anchor="middle" font-weight="bold">Phoenician</text><text x="365" y="176" text-anchor="middle" '
                     'font-size="11">aleph, about 1050 BCE</text><path d="M420 100 h30" stroke="#0A1F3D" stroke-width="2" marker-end="url(#aa)"/><text x="485" y="118" text-anchor="middle" '
                     'font-size="54" font-family="Georgia">Α</text><text x="485" y="160" text-anchor="middle" font-weight="bold">Greek alpha</text><text x="485" y="176" text-anchor="middle" '
@@ -100,7 +100,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                         'blanks': [['6'], ['3']],
                         'show': '6; 3',
                         'pts': 3,
-                        'why': '2/3 − 1/2 = 4/6 − 3/6 = 1/6. 5/6 − 1/2 = 5/6 − 3/6 = 2/6 = 1/3. (Egyptians actually had a special sign for 2/3, but they wrote 5/6 as 1/2 + 1/3.)'},
+                        'why': '2/3 − 1/2 = 4/6 − 3/6 = 1/6. 5/6 − 1/2 = 5/6 − 3/6 = 2/6 = 1/3. (Egyptians also had a special sign for 2/3.)'},
                        {'t': 'open',
                         'key': 'smith',
                         'q': 'Why do historians consider the Edwin Smith Papyrus an important step in medicine? Use details from the lesson.',
@@ -111,12 +111,12 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                                  'cannot be treated, and it is one of the oldest medical texts known.'}]},
            {'title': 'Gifts from Kush and Aksum',
             'html': "<p>The Nile Valley's legacy is not only Egyptian.</p><ul><li><b>Kush</b> revived pyramid building centuries after Egypt's last royal pyramids and kept building them for about a "
-                    "thousand years, leaving more than 200 pyramids in Nubia. Meroe's ironworkers made it one of the great iron-producing centers of the ancient world, and Meroitic is one of the "
-                    'oldest written languages in Africa after Egyptian.</li><li><b>Kandake Amanirenas</b> showed that an African kingdom could stand up to Rome and win a favorable '
-                    "peace.</li><li><b>Aksum</b> minted its own coins, linked Africa, the Mediterranean and India through trade, and became one of the first Christian kingdoms. Its Ge'ez script grew "
-                    'into the writing used for Amharic and Tigrinya, which millions of people in Ethiopia and Eritrea read today.</li></ul><p>Like the alphabet in the hook, these legacies traveled. '
-                    'Ideas from the Nile Valley moved along the river, across the Red Sea and around the Mediterranean, and other peoples adapted them, just as Kush and Kemet had borrowed from each '
-                    'other.</p>',
+                    "thousand years, leaving more than 200 pyramids in Nubia. Meroe's ironworkers made it one of the great iron-producing centers of the ancient world, and Meroitic, written in "
+                    "Kush's own script, is the oldest known written language south of the Sahara.</li><li><b>Kandake Amanirenas</b> showed that an African kingdom could stand up to Rome and win a "
+                    "favorable peace.</li><li><b>Aksum</b> minted its own coins, linked Africa, the Mediterranean and India through trade, and became one of the first Christian kingdoms. Its Ge'ez "
+                    'script grew into the writing used for Amharic and Tigrinya, which millions of people in Ethiopia and Eritrea read today.</li></ul><p>Like the alphabet in the hook, these '
+                    'legacies traveled. Ideas from the Nile Valley moved along the river, across the Red Sea and around the Mediterranean, and other peoples adapted them, just as Kush and Kemet had '
+                    'borrowed from each other.</p>',
             'checks': [{'t': 'open',
                         'key': 'legacy3',
                         'q': 'Choose one legacy each from Kemet, Kush and Aksum, and explain how each one still matters today or changed how we understand history.',
@@ -154,7 +154,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
             'checks': [{'t': 'num',
                         'q': 'If your timeline uses 1 cm for every 50 years, how many centimeters long must it be to run from 5000 BCE to 940 CE? (Hint: 5000 BCE to 1 CE is 5,000 years.)',
                         'a': 118.8,
-                        'tol': 1,
+                        'tol': 1.2,
                         'unit': 'cm',
                         'show': 'about 119 cm (5,940 years ÷ 50)',
                         'pts': 3,
@@ -247,7 +247,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                                       'why': 'The Nile flows north, from the highlands of East and Central Africa to the Mediterranean.'},
                                      {'t': 'text',
                                       'q': "Kemet, Egypt's own name for itself, means what in English?",
-                                      'a': [{'all': [['black'], ['land', 'soil', 'earth']]}],
+                                      'a': [{'all': [['black'], ['land', 'soil', 'earth']], 'none': ['red', 'desert', 'not']}],
                                       'show': 'the Black Land',
                                       'pts': 2,
                                       'why': 'Kemet means the Black Land, for the dark, fertile silt left by the flood.'},
@@ -289,7 +289,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                           {'title': 'Part C: Nubia and Kush',
                            'items': [{'t': 'text',
                                       'q': 'What does Ta-Seti mean?',
-                                      'a': ['land of the bow', 'land of bow', 'bow land'],
+                                      'a': ['land of the bow', 'land of bow', 'bow land', 'land of the bows'],
                                       'show': 'the Land of the Bow',
                                       'pts': 2,
                                       'why': 'Nubian archers were famous for their skill.'},

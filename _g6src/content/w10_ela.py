@@ -47,7 +47,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                           'pts': 2,
                           'why': 'Works Cited.'},
                          {'t': 'text',
-                          'q': 'Week 8: A summary should be objective. What must it leave out? Type one word.',
+                          'q': 'Week 8: What kind of statement must a summary leave out? Type one word.',
                           'a': [{'all': [['opinion']]}],
                           'show': 'opinions',
                           'pts': 2,
@@ -212,21 +212,21 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                            'items': [{'t': 'open',
                                       'key': 'cp_central',
                                       'q': '<div class=\'cp-text\'><div class="card" style="border-left-color:#0047BA"><h3>Why the Ground Opens Up in Florida</h3><p class="muted">An original article '
-                                           'by KingCretot Experience</p><p><b>[1]</b> On a May evening in 1981, a sinkhole opened in Winter Park, Florida. Over the next day it grew to about 350 feet '
-                                           'wide and 75 feet deep, swallowing a house, several cars and part of a city swimming pool. Television crews from around the world came to watch. To many '
-                                           'viewers, it looked like the earth itself was collapsing.</p><p><b>[2]</b> Sinkholes are common in Florida because of what lies beneath the state. Much of '
-                                           'Florida sits on thick layers of limestone, a rock made long ago from the shells and skeletons of sea creatures. Rainwater picks up carbon dioxide from the '
-                                           'air and soil, which makes it slightly acidic. As this water seeps underground over thousands of years, it slowly dissolves the limestone, leaving cracks, '
-                                           'tunnels and caves.</p><p><b>[3]</b> Usually, groundwater fills these spaces and helps hold up the soil above. When the water level drops, however, the '
-                                           'support disappears. Then the sand and clay on top can sag slowly or collapse all at once. Droughts can lower the water level, and so can heavy pumping of '
-                                           'groundwater. In January 2010, farmers near Plant City pumped huge amounts of water to spray on their strawberries and protect them from a freeze. As a '
-                                           'result, the water level dropped sharply, and dozens of sinkholes opened in the area.</p><p><b>[4]</b> Not all sinkholes are disasters. Some formed long '
-                                           "ago and have become beautiful natural places. At Devil's Millhopper Geological State Park near Gainesville, visitors walk down a staircase into a sinkhole "
-                                           "about 120 feet deep, where small waterfalls trickle down the green walls. Many of Florida's crystal-clear springs also flow from openings in the "
-                                           'limestone.</p><p><b>[5]</b> Scientists cannot predict exactly where the next sinkhole will open, but they can map areas at higher risk. Homeowners can '
-                                           'watch for warning signs, such as new cracks in walls or floors, doors that suddenly stick, or a circular depression forming in the yard. Understanding the '
-                                           'rock beneath our feet helps Floridians live safely on a landscape that is always slowly changing.</p></div></div>What is the central idea of the article? '
-                                           'Write it as one sentence.',
+                                           'by KingCretot Experience · KCE Practice Reader, 2026</p><p><b>[1]</b> On a May evening in 1981, a sinkhole opened in Winter Park, Florida. Over the next '
+                                           'day it grew to about 350 feet wide and 75 feet deep, swallowing a house, several cars and part of a city swimming pool. Television crews from around the '
+                                           'world came to watch. To many viewers, it looked like the earth itself was collapsing.</p><p><b>[2]</b> Sinkholes are common in Florida because of what '
+                                           'lies beneath the state. Much of Florida sits on thick layers of limestone, a rock made long ago from the shells and skeletons of sea creatures. Rainwater '
+                                           'picks up carbon dioxide from the air and soil, which makes it slightly acidic. As this water seeps underground over thousands of years, it slowly '
+                                           'dissolves the limestone, leaving cracks, tunnels and caves.</p><p><b>[3]</b> Usually, groundwater fills these spaces and helps hold up the soil above. '
+                                           'When the water level drops, however, the support disappears. Then the sand and clay on top can sag slowly or collapse all at once. Droughts can lower the '
+                                           'water level, and so can heavy pumping of groundwater. In January 2010, farmers near Plant City pumped huge amounts of water to spray on their strawberries '
+                                           'and protect them from a freeze. As a result, the water level dropped sharply, and dozens of sinkholes opened in the area.</p><p><b>[4]</b> Not all '
+                                           "sinkholes are disasters. Some formed long ago and have become beautiful natural places. At Devil's Millhopper Geological State Park near Gainesville, "
+                                           "visitors walk down a staircase into a sinkhole about 120 feet deep, where small waterfalls trickle down the green walls. Many of Florida's crystal-clear "
+                                           'springs also flow from openings in the limestone.</p><p><b>[5]</b> Scientists cannot predict exactly where the next sinkhole will open, but they can map '
+                                           'areas at higher risk. Homeowners can watch for warning signs, such as new cracks in walls or floors, doors that suddenly stick, or a circular depression '
+                                           'forming in the yard. Understanding the rock beneath our feet helps Floridians live safely on a landscape that is always slowly '
+                                           'changing.</p></div></div>What is the central idea of the article? Write it as one sentence.',
                                       'min': 15,
                                       'rows': 2,
                                       'pts': 4,
@@ -234,7 +234,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                                                  'the topic, not just "sinkholes")'],
                                       'model': 'Sinkholes are common in Florida because acidic water dissolves the limestone underground, and understanding this helps people stay safe.'},
                                      {'t': 'text',
-                                      'q': 'Which text structure does paragraph 3 mainly use? (Hint: look for "as a result.")',
+                                      'q': 'Which text structure does paragraph 3 mainly use?',
                                       'a': [{'all': [['cause', 'effect']], 'none': ['not', 'compare', 'sequence']}],
                                       'show': 'cause and effect',
                                       'pts': 2,
@@ -289,7 +289,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                                      {'t': 'text',
                                       'q': 'A student writes in a summary: "I think sinkholes are the scariest thing in Florida." What rule of summarizing does this break? Type the word that names '
                                            'the rule.',
-                                      'a': [{'all': [['objective']]}],
+                                      'a': [{'all': [['objective']]}, 'objectivity'],
                                       'show': 'objective',
                                       'pts': 2,
                                       'why': 'A summary must be objective: no opinions.'}]},
@@ -324,7 +324,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                           {'title': 'Part D: Vocabulary from Unit 2',
                            'items': [{'t': 'text',
                                       'q': 'Scientists who study groundwater like the water in paragraph 3 are called hydrogeologists. Using the roots hydr and geo, what does a hydrogeologist study?',
-                                      'a': [{'all': [['water'], ['earth', 'ground', 'underground', 'rock', 'land', 'soil']]}],
+                                      'a': [{'all': [['water'], ['earth', 'ground', 'underground', 'rock', 'land', 'soil']], 'none': ['not']}],
                                       'show': 'water in the ground (water and the earth)',
                                       'pts': 2,
                                       'why': 'hydr (water) + geo (earth) + -logist (one who studies): a scientist who studies water underground.'},

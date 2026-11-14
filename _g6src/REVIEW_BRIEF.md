@@ -72,3 +72,5 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Quote poems in the version you name (Coleridge 1798 vs 1817 wording).
 - No circular accepts (a name printed in the question). No animal-cruelty examples.
 - Salt dough and other craft materials: add no-tasting and pet-safety notes.
+- After the first save(), LESSON dicts are frozen literals; edit passages and SVGs inside LESSON (constants at the top may be unused).
+- Engine: numeric phrase accepts no longer match inside fractions or decimals (10 does not match 1/10).

@@ -105,7 +105,8 @@ function textOk(val, accepts){
     } else if(norm(a)===v) return true;
     else if(typeof a==='string' && a.length>1 && a!=='yes' && a!=='no'){
       var na = norm(a), words = v.split(' ').length, aw = na.split(' ').length;
-      var re = new RegExp('(^|[^a-z0-9])' + na.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '($|[^a-z0-9])');
+      var bd = /[0-9]/.test(na) ? '[^a-z0-9./]' : '[^a-z0-9]';
+      var re = new RegExp('(^|' + bd + ')' + na.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '($|' + bd + ')');
       var mt = re.exec(v); if(words <= aw + 6 && mt && !/\b(not|isn't|isnt|never|no)\b/.test(v.slice(0, mt.index + 1))) return true;
     }
     else if((a==='yes'||a==='no') && new RegExp('^'+a+'\\b').test(v)) return true;

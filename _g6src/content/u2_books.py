@@ -14,7 +14,7 @@ FREE = [
 
 BORROW = [
  ("Fly High! The Story of Bessie Coleman", "Louise Borden and Mary Kay Kroeger", "ELA", "A biography of the pilot from the Week 8 article, good for comparing details with the summary you wrote.", ""),
- ("Nobody Owns the Sky: The Story of Brave Bessie Coleman", "Reeve Lindbergh", "ELA", "A short illustrated biography of Bessie Coleman in verse, good for a family read-aloud.", ""),
+ ("Nobody Owns the Sky: The Story of \"Brave Bessie\" Coleman", "Reeve Lindbergh", "ELA", "A short illustrated biography of Bessie Coleman in verse, good for a family read-aloud.", ""),
  ("Cells: An Owner's Handbook", "Carolyn Fisher", "Science", "A funny, illustrated guide to the cells in your body, matching Weeks 6, 7 and 9.", ""),
  ("Coral Reefs", "Seymour Simon", "Science and ELA", "Photographs and facts about coral reefs, a good extra source for the Week 9 note-taking practice.", "Coral Reefs Seymour Simon"),
  ("The African Origin of Civilization: Myth or Reality", "Cheikh Anta Diop", "Social Studies (parents)", "The English translation (1974) of Diop's argument from Week 7. Adult reading, for parents who want to go deeper.", ""),
