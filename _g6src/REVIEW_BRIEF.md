@@ -94,3 +94,8 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - scope.py is the authority for unit names and week titles; "next" lines must match it.
 - Standards text must match CPALMS word for word (ELA.6.R.2.4 says "identifying"; ELA.6.C.1.3 is "Write and support a claim using logical reasoning, relevant evidence from sources, elaboration, and a logical organizational structure with varied transitions.").
 - Integer operations (MA.6.NSO.4.1, 4.2) are Grade 6 B.E.S.T., taught in Weeks 18 and 19.
+- Ordered-pair answers: key as plain strings ("(−6, −1)") so order matters; keyword groups accept swapped pairs.
+- Never put a word printed in the question into its key (circular accept).
+- CPALMS: SS.6.W.3.2 = Greek democratic concepts; SS.6.W.3.4 = Persian and Peloponnesian Wars; ELA.6.R.3.4 = "Identify rhetorical appeals in a text."
+- scope.py also sets the math money thread for each week (math_money); follow it.
+- Pet and young-child safety notes for food, bones, balloons and small parts.

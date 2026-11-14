@@ -125,7 +125,7 @@ LESSON = {
 
 TEACHER = {
  "standards": [
-  "SS.6.W.3.2: Explain the causes and effects of the Persian and Peloponnesian Wars (background: this week builds the Persian side before the Greek wars in Week 17).",
+  "SS.6.W.3.4: Explain the causes and effects of the Persian and Peloponnesian Wars (background: this week builds the Persian side before the Greek wars in Week 17).",
   "SS.6.W.2.9: Identify key figures and basic beliefs of the Israelites and determine how these beliefs compared with those of others in the geographic area.",
   "SS.6.G.2.5: Interpret how geographic boundaries invite or limit interaction with other regions and cultures.",
   "SS.6.G.2.6: Explain the concept of cultural diffusion, and identify the influences of different ancient cultures on one another.",
