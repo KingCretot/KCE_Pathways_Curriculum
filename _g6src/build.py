@@ -174,34 +174,66 @@ def simple_page(title, kicker, inner, home='../index.html'):
             f"<main><div class='sheet'>{PB}<p class='kicker'>{kicker}</p>{inner}</div></main>" + FOOT + LEGAL + '</body></html>')
 
 
-def hub(built, unit_pages):
+def hub(built, unit_pages, blurbs=None):
+    blurbs = blurbs or {}
+    TAG = {'ela': ('#e8f3ec', '#2c6e22'), 'math': ('#eaf0fb', '#0047BA'), 'science': ('#f1ecfa', '#5b3fa0'), 'socialstudies': ('#fbf3df', '#8a6d1f')}
     cards = ''
     for (n, unit, _) in weeks('math'):
         if (n - 1) % 5 == 0:
             u = (n - 1) // 5 + 1
-            extras = ''.join(f"<a href='{p}'>{t}</a>" for p, t in unit_pages.get(u, []))
-            cards += f"<h2 class='uh'>{UNITS['math'][u-1][0].split(':')[0]}</h2>" + (f"<div class='uextra'>{extras}</div>" if extras else '')
-        links = ''
-        for s in SUBJ_ORDER:
-            t = dict((w, tt) for w, _, tt in weeks(s))[n]
-            if (n, s) in built:
-                links += (f"<div class='sub'><b>{SUBJECT_NAMES[s]}</b><a class='go' href='week{n}/{s}.html'>{t}</a>"
-                          f"<span class='mini'><a href='week{n}/{s}-print.html'>Printable</a> &middot; <a href='week{n}/{s}-teacher.html'>Teacher plan</a></span></div>")
+            extras = ''.join(f"<a class='ulink' href='{p}'>{t}</a>" for p, t in unit_pages.get(u, []))
+            cards += f"<h2 class='uh'>Unit {u}</h2>" + (f"<div class='uextra'>{extras}</div>" if extras else '')
+        tiles = ''
+        for s_ in SUBJ_ORDER:
+            t = dict((w, tt) for w, _, tt in weeks(s_))[n]
+            bg, fg = TAG[s_]
+            name = SUBJECT_NAMES[s_]
+            if (n, s_) in built:
+                b = html.escape(blurbs.get((n, s_), ''))
+                tiles += (f"<div class='lc'><p class='lk'>WEEK {n} &middot; {name.upper()}</p><h3>{t}</h3><p class='lb'>{b}</p>"
+                          f"<span class='tag' style='background:{bg};color:{fg}'>{name.upper()}</span>"
+                          f"<a class='open' href='week{n}/{s_}.html'>Open lesson</a>"
+                          f"<div class='lbtns'><a class='pill gold' href='week{n}/{s_}-print.html'>&#128196; Printable</a><a class='pill navy' href='week{n}/{s_}-teacher.html'>Teacher plan</a></div></div>")
             else:
-                links += f"<div class='sub soon'><b>{SUBJECT_NAMES[s]}</b><span>{t}</span><span class='mini'>Being built</span></div>"
-        pg = f"<a class='pg' href='week{n}/parent-guide.html'>Parent guide</a>" if os.path.exists(os.path.join(OUT, f'week{n}/parent-guide.html')) else ''
-        cards += f"<div class='wk'><div class='wh'>Week {n}{pg}</div>{links}</div>"
-    css = CSS + '''.uh{margin:26px 0 8px}.uextra a{margin-right:14px;font-weight:bold}.wk{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
-.wh{font-family:Georgia,serif;font-size:19px;color:var(--navy);display:flex;justify-content:space-between}.pg{font-family:Arial;font-size:14px}
-.sub{display:grid;grid-template-columns:170px 1fr auto;gap:10px;padding:7px 0;border-top:1px solid #f0ebdf;align-items:center}.sub.soon{color:var(--muted)}
-.go{font-weight:bold;color:var(--blue)}.mini{font-size:13px}@media(max-width:700px){.sub{grid-template-columns:1fr}}'''
-    intro = ('<h1>KCE Pathways: Grade 6</h1><p class="sub">A full school year in ELA, Math, Life Science, and World and American History. '
-             'Thirty weeks, six units, built for homeschool families and global thinkers.</p>'
+                tiles += (f"<div class='lc soon'><p class='lk'>WEEK {n} &middot; {name.upper()}</p><h3>{t}</h3><p class='lb'>Being built</p>"
+                          f"<span class='tag' style='background:{bg};color:{fg}'>{name.upper()}</span></div>")
+        has_pg = os.path.exists(os.path.join(OUT, f'week{n}/parent-guide.html'))
+        bar = (f"<div class='wbar'><a class='pill navy' href='week{n}/parent-guide.html'>Parent guide</a>"
+               f"<button class='pill gold setwk' data-w='{n}'>Set as this week</button></div>") if has_pg else ''
+        subs = ' &middot; '.join(SUBJECT_NAMES[x] for x in SUBJ_ORDER)
+        cards += (f"<details class='wk' id='w{n}'><summary><span class='wn'>Week {n}</span><span class='ws'>{subs}</span>"
+                  f"<span class='badge'>This week</span><span class='car'></span></summary>{bar}<div class='grid'>{tiles}</div></details>")
+    css = CSS + HUB_CSS
+    intro = ('<div class="hero"><h1>KCE Pathways: Grade 6</h1><p class="lead">A full school year in ELA, Math, Life Science, and World and American History. '
+             'Thirty weeks, six units, built for homeschool families and global thinkers.</p></div>'
              '<div class="card"><b>How it works:</b> each week has an interactive lesson for every subject, a printable practice page, a detailed teacher plan, '
              'and a parent guide. Every unit ends with a checkpoint, and ELA, Science and Social Studies end each unit with a project scored by rubric. '
              'Mastery is 85.</div>')
     return (HEAD.format(title='KCE Pathways Grade 6', css=css, extra='') + TOP.format(home='index.html', right='') +
-            f'<main>{intro}{cards}</main>' + FOOT + LEGAL + '</body></html>')
+            f'<main>{intro}{cards}</main>' + HUB_JS + FOOT + LEGAL + '</body></html>')
+
+
+HUB_CSS = """.hero p.lead{max-width:none;font-size:17px;color:#3d4b5c;margin:6px 0 16px}
+.uh{margin:30px 0 6px;font-family:Georgia,serif;color:#0A1F3D}.uextra{margin:0 0 10px}.ulink{margin-right:16px;font-weight:bold;color:#0047BA}
+details.wk{background:#fff;border:1px solid #e6dfcc;border-radius:16px;margin:14px 0;overflow:hidden}details.wk[open]{border:2px solid #0047BA}
+details.wk summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:22px;padding:16px 22px;background:#faf8f2}details.wk summary::-webkit-details-marker{display:none}
+.wn{font-family:Georgia,serif;font-size:26px;font-weight:bold;color:#0A1F3D}.ws{color:#3d4b5c;font-size:16px;flex:1}
+.badge{display:none;background:#0047BA;color:#fff;border-radius:999px;padding:6px 14px;font-weight:bold;font-size:14px}details.wk.cur .badge{display:inline-block}
+.car{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid #C9A84C}details.wk[open] .car{border-top:0;border-bottom:9px solid #C9A84C}
+.wbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:14px 22px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:16px 22px 22px}@media(max-width:760px){.grid{grid-template-columns:1fr}.ws{display:none}}
+.lc{border:1px solid #e6dfcc;border-radius:14px;padding:22px 26px;display:flex;flex-direction:column;align-items:flex-start;background:#fff}.lc.soon{opacity:.6}
+.lk{font-family:"Courier New",monospace;letter-spacing:.14em;font-size:13px;font-weight:bold;color:#8a6d1f;margin:0}
+.lc h3{font-family:Georgia,serif;font-size:24px;color:#0A1F3D;margin:8px 0 6px;line-height:1.2}.lb{color:#3d4b5c;margin:0 0 12px;font-size:15px}
+.tag{font-family:"Courier New",monospace;letter-spacing:.1em;font-size:12px;font-weight:bold;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.open{display:block;width:100%;box-sizing:border-box;text-align:center;background:#0A1F3D;color:#fff!important;font-weight:bold;font-size:17px;padding:14px;border-radius:10px;text-decoration:none;margin-top:auto}
+.lbtns{display:flex;gap:10px;justify-content:center;width:100%;margin-top:12px}
+.pill{display:inline-block;border:0;border-radius:999px;padding:9px 18px;font-weight:bold;font-size:15px;text-decoration:none;cursor:pointer;font-family:Arial}
+.pill.gold{background:#C9A84C;color:#0A1F3D!important}.pill.navy{background:#0A1F3D;color:#fff!important}"""
+
+HUB_JS = ('<script>(function(){var k="kce-g6-week",w=1;try{w=parseInt(localStorage.getItem(k))||1}catch(e){}'
+          'function mark(n){document.querySelectorAll("details.wk").forEach(function(d){d.classList.remove("cur")});var d=document.getElementById("w"+n);if(d){d.classList.add("cur");d.open=true}}'
+          'mark(w);document.querySelectorAll(".setwk").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();var n=b.getAttribute("data-w");try{localStorage.setItem(k,n)}catch(x){}mark(n)})})})();</script>')
 
 
 def main():
@@ -215,13 +247,20 @@ def main():
         write(f'week{week}/{subj}-teacher.html', teacher_page(mod.LESSON, mod.TEACHER, mod.PRINT, week, subj))
         write(f'week{week}/{subj}-print.html', print_page(mod.LESSON, mod.PRINT, week, subj), fit=True)
         built.add((week, subj))
+    blurbs = {}
+    for f in sorted(glob.glob(os.path.join(HERE, 'content', 'w*_*.py'))):
+        m = re.match(r'w(\d+)_(\w+)\.py', os.path.basename(f))
+        if m.group(2) == 'parent': continue
+        sub = load(f).LESSON.get('subtitle', '')
+        first = re.split(r'(?<=[.!?])\s', sub, maxsplit=1)[0]
+        blurbs[(int(m.group(1)), m.group(2))] = first if len(first) < 140 else first[:137].rsplit(' ', 1)[0] + '...'
     unit_pages = {}
     for f in sorted(glob.glob(os.path.join(HERE, 'content', 'u*_*.py'))):
         m = re.match(r'u(\d+)_(\w+)\.py', os.path.basename(f)); u, name = int(m.group(1)), m.group(2)
         mod = load(f)
         write(f'unit{u}/{name}.html', simple_page(mod.TITLE, mod.KICKER, mod.HTML), fit=False)
         unit_pages.setdefault(u, []).append((f'unit{u}/{name}.html', mod.LINK))
-    write('index.html', hub(built, unit_pages))
+    write('index.html', hub(built, unit_pages, blurbs))
     print('built', len(built), 'lessons;', sum(len(v) for v in unit_pages.values()), 'unit pages')
 
 
