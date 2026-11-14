@@ -85,3 +85,5 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Engine norm() strips the words a/an/the: never key letter patterns with spaces ("a b a b"); key rhyme schemes as one token ("abab") and ask for letters with no spaces.
 - Quotations (Jonathan, Nov 14): if the original text is British, quote it exactly in its British spelling (e.g., Legge's "labour") and add a short note or gloss; never Americanize a quotation. All of KCE's own writing stays American English.
 - Checkpoint open items never show their rubric to the student (engine fix Nov 14); do not put answers in checkpoint question text either.
+- Engine (Nov 14): norm() and parseNum() turn the Unicode minus (−) and en dash into a hyphen, so −18 and -18 grade the same; keys for negatives may use either.
+- Never key the symbols < or > (norm strips them). Ask for the words less/greater instead.
