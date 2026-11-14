@@ -8,7 +8,7 @@ def ol(t): return f"https://openlibrary.org/search?q={quote_plus(t)}"
 
 FREE = [
  ("Micrographia", "Robert Hooke (1665)", "Science", "The book where Hooke first used the word \"cell,\" with his famous drawings of cork and insects seen through a microscope (Week 6). Look at the pictures together.", gut("Micrographia Hooke")),
- ("The Rime of the Ancient Mariner", "Samuel Taylor Coleridge (1798)", "ELA and Science", "The poem behind \"Water, water, every where, / Nor any drop to drink\" from the Week 9 osmosis lesson.", gut("Rime of the Ancient Mariner")),
+ ("The Rime of the Ancient Mariner", "Samuel Taylor Coleridge (1798)", "ELA and Science", "The poem behind \"Water, water, every where, / Nor any drop to drink\" (1817 wording) from the Week 9 osmosis lesson.", gut("Rime of the Ancient Mariner")),
  ("The Negro", "W. E. B. Du Bois (1915)", "Social Studies (parents and strong readers)", "Du Bois's early history of Africa, with chapters on Egypt, Ethiopia and Kush written to answer the racist histories of his time (Week 7). Some language is dated.", gut("The Negro Du Bois")),
  ("The Histories, Book II", "Herodotus, translated by G. C. Macaulay (1890)", "Social Studies (parents and strong readers)", "The Greek visitor's description of Egypt from Week 7, a primary source to read with a critical eye.", gut("Herodotus Macaulay"))]
 
