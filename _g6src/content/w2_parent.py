@@ -2,8 +2,8 @@ GUIDE = {
  "headline": "Week 2: Looking Closer",
  "intro": "This week every subject asks your child to look more carefully: at decimal places, at who is telling a story, at what makes an experiment fair, and at how maps can mislead.",
  "time": "About 60 minutes of live lessons per subject, plus 30 to 45 minutes of after-class work per subject.",
- "gather": "coins and bills (real or play money) and 5 household items to price; a phone or camera; two brands of paper towel, a paper napkin, three identical cups, a measuring cup with milliliter marks and a timer; an orange, a permanent marker and a paper plate.",
- "heads_up": "The paper towel test takes about 30 minutes and gets a little wet. A cookie sheet or tray under the cups makes cleanup easy.",
+ "gather": "coins and bills (real or play money) and 5 household items to price; a phone or camera; two brands of paper towel, a paper napkin, a kitchen scale that shows grams, a bowl and a timer; an orange, a permanent marker and a paper plate.",
+ "heads_up": "The paper towel test takes about 30 minutes and gets a little wet; a tray makes cleanup easy. Permanent marker and orange juice can stain, so cover the table for the orange activity. Personal narrative project: by the end of this week your child should have chosen a true story and built a story mountain (Week 1), and should now be thinking about which person in that story to retell it as.",
  "ela": {
   "topic": "Character and Point of View",
   "what": "Your child reads Moving Day, one moment told by two different kids, and learns first person, third person limited and third person omniscient. They study how writers reveal character through speech, thoughts, effect on others, actions and looks, and they rewrite a scene from a new point of view.",

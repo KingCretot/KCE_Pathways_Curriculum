@@ -76,8 +76,9 @@ function norm(s){
   return String(s||'').replace(/(\d),(\d)/g,'$1$2').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
     .replace(/[^a-z0-9\s'\-\/\.]/g,' ').replace(/\b(the|a|an)\b/g,' ').replace(/\s+/g,' ').trim().replace(/\.$/,'');
 }
+function lightNorm(s){ return String(s||'').replace(/[\u201c\u201d]/g,'"').replace(/[\u2018\u2019]/g,"'").replace(/\s+/g,' ').trim().replace(/\s+([,.!?])/g,'$1'); }
 function parseNum(s){
-  s = String(s||'').trim().replace(/[$,]/g,'').replace(/\s+/g,' ').replace(/\s*[a-z°%.]*[a-z°%][a-z°%.\s]*$/i,'').trim();
+  s = String(s||'').trim().replace(/^(about|approximately|approx\.?|around|roughly|nearly|≈|~)\s*/i,'').replace(/[$,]/g,'').replace(/\s+/g,' ').replace(/\s*[a-z°%.²³]*[a-z°%][a-z°%.²³\s]*$/i,'').trim();
   if(!s) return NaN;
   var m = s.match(/^(-?\d+)\s+(\d+)\/(\d+)$/);            // mixed number 2 1/2
   if(m){ var w=+m[1]; var f=+m[2]/+m[3]; return w<0? w-f : w+f; }
@@ -93,9 +94,18 @@ function textOk(val, accepts){
   for(var i=0;i<accepts.length;i++){
     var a = accepts[i];
     if(a && typeof a==='object' && a.all){            // every keyword group must appear
-      var ok = a.all.every(function(group){ return group.some(function(k){ return v.indexOf(norm(k))>-1; }); });
+      var ok = a.all.every(function(group){ return group.some(function(k){ var nk = norm(k); if(!nk) return false; var re = new RegExp('(^|[^a-z0-9])' + nk.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')); return re.test(v); }); });
+      if(ok && a.none && a.none.some(function(k){ var nk = norm(k); return nk && new RegExp('(^|[^a-z0-9])' + nk.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(v); })) ok = false;
       if(ok) return true;
+    } else if(typeof a==='string' && a.charAt(0)==='^'){   // answer must begin with this phrase
+      var ns = norm(a.slice(1));
+      if(ns && (v===ns || v.indexOf(ns+' ')===0)) return true;
     } else if(norm(a)===v) return true;
+    else if(typeof a==='string' && a.length>1 && a!=='yes' && a!=='no'){
+      var na = norm(a), words = v.split(' ').length, aw = na.split(' ').length;
+      var re = new RegExp('(^|[^a-z0-9])' + na.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '($|[^a-z0-9])');
+      var mt = re.exec(v); if(words <= aw + 6 && mt && !/\b(not|isn't|isnt|never|no)\b/.test(v.slice(0, mt.index + 1))) return true;
+    }
     else if((a==='yes'||a==='no') && new RegExp('^'+a+'\\b').test(v)) return true;
   }
   return false;
@@ -107,8 +117,11 @@ function checkQ(q, el){
     return !isNaN(n) && answers.some(function(a){ return Math.abs(n-a)<=tol; });
   }
   if(q.t==='text') return textOk($('input,textarea',el).value, q.a);
+  if(q.t==='punct'){ var lv = lightNorm($('input',el).value); return q.a.some(function(a){ var la = lightNorm(a); return lv===la || lv.replace(/\.$/,'')===la.replace(/\.$/,''); }); }
   if(q.t==='blanks'){
     var ins = el.querySelectorAll('input.blank');
+    var vals = Array.prototype.map.call(ins,function(inp){ return norm(inp.value); });
+    if(q.distinct && vals.some(function(x,i){ return vals.indexOf(x)!==i; })) return false;
     return Array.prototype.every.call(ins,function(inp,i){ return textOk(inp.value, q.blanks[i]); });
   }
   if(q.t==='label'){
@@ -126,7 +139,7 @@ function checkQ(q, el){
 }
 function answerText(q){
   if(q.t==='num') return q.show || String([].concat(q.a)[0]) + (q.unit?' '+q.unit:'');
-  if(q.t==='text') return q.show || (typeof q.a[0]==='string'? q.a[0] : '');
+  if(q.t==='text'||q.t==='punct') return q.show || (typeof q.a[0]==='string'? q.a[0] : '');
   if(q.t==='blanks') return q.show || q.blanks.map(function(b){return typeof b[0]==='string'?b[0]:'';}).join(' / ');
   if(q.t==='label') return q.labels.map(function(l){ return l[0]+' = '+l[1][0]; }).join(', ');
   if(q.t==='order') return q.items.map(function(it,i){ return (i+1)+'. '+it; }).join('  ');
@@ -143,7 +156,7 @@ function qHTML(q, group){
   var h = '<div class="q" id="'+id+'">'+pts+'<div class="qtext">'+q.q+'</div>';
   if(q.visual) h += '<div class="visual">'+q.visual+'</div>';
   if(q.t==='num') h += '<div class="row"><input type="text" inputmode="decimal" autocomplete="off" aria-label="answer">'+(q.unit?'<span class="unit">'+esc(q.unit)+'</span>':'')+'</div>';
-  if(q.t==='text') h += '<div class="row"><input type="text" autocomplete="off" aria-label="answer" class="wide"></div>';
+  if(q.t==='text'||q.t==='punct') h += '<div class="row"><input type="text" autocomplete="off" aria-label="answer" class="wide"></div>';
   if(q.t==='blanks'){ var k=0; h += '<div class="sent">'+q.sent.replace(/___/g,function(){ return '<input type="text" class="blank" autocomplete="off" aria-label="blank '+(++k)+'">'; })+'</div>'; }
   if(q.t==='label'){ h += '<div class="labs">'+q.labels.map(function(l,i){ return '<label>'+esc(l[0])+' <input type="text" class="lab" autocomplete="off"></label>'; }).join('')+'</div>'; }
   if(q.t==='order'){

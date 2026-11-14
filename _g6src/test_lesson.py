@@ -24,8 +24,8 @@ FILL = r'''
       if (!/Not yet/.test(el.querySelector('.fb').textContent)) issues.push('wrong answer accepted at q' + (i+1));
     }
     if (q.t === 'num') el.querySelector('input').value = String([].concat(q.a)[0]);
-    if (q.t === 'text') el.querySelector('input').value = first(q.a);
-    if (q.t === 'blanks') el.querySelectorAll('input.blank').forEach((inp, k) => inp.value = first(q.blanks[k]));
+    if (q.t === 'text' || q.t === 'punct') el.querySelector('input').value = first(q.a);
+    if (q.t === 'blanks') el.querySelectorAll('input.blank').forEach((inp, k) => { let v = first(q.blanks[k]); if (q.distinct) { const b = q.blanks[k]; v = typeof b[0] === 'string' ? (b[k] || b[0]) : b[0].all[0][k]; } inp.value = v; });
     if (q.t === 'label') el.querySelectorAll('input.lab').forEach((inp, k) => inp.value = first(q.labels[k][1]));
     if (q.t === 'order') el.querySelectorAll('select.ord').forEach(s => s.value = s.getAttribute('data-ix'));
     if (q.t === 'mc') el.querySelector('input[value="' + q.a + '"]').checked = true;

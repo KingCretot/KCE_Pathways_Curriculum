@@ -12,6 +12,36 @@ VARS = '''<svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg" font-fam
 <text x="460" y="64" text-anchor="middle" font-weight="bold" fill="#8a6d1f">CONTROLLED</text><text x="460" y="82" text-anchor="middle">What I keep the same</text>
 <text x="460" y="106" text-anchor="middle">amount of water</text><text x="460" y="124" text-anchor="middle">amount of sugar</text><text x="460" y="142" text-anchor="middle">type of sugar</text><text x="460" y="160" text-anchor="middle">stirring</text></svg>'''
 
+def bean(x, h, food):
+    return (f'<rect x="{x-14}" y="160" width="28" height="22" fill="#b5651d"/><line x1="{x}" y1="160" x2="{x}" y2="{160-h}" stroke="#2f7d32" stroke-width="3"/>'
+            f'<ellipse cx="{x-8}" cy="{160-h+8}" rx="8" ry="4" fill="#3d8a30"/><ellipse cx="{x+8}" cy="{160-h+14}" rx="8" ry="4" fill="#3d8a30"/>' + (f'<circle cx="{x+16}" cy="152" r="4" fill="#C9A84C"/>' if food else ''))
+GROUPS = ('<svg viewBox="0 0 540 220" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Control group and experimental group of bean plants">'
+  '<text x="270" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Does plant food help bean plants grow?</text>'
+  '<rect x="10" y="30" width="250" height="180" rx="8" fill="#fff" stroke="#5b6676"/><rect x="280" y="30" width="250" height="180" rx="8" fill="#fff" stroke="#C9A84C" stroke-width="2"/>'
+  '<text x="135" y="50" text-anchor="middle" font-weight="bold">Control group: plain water</text><text x="405" y="50" text-anchor="middle" font-weight="bold">Experimental group: plant food</text>'
+  + bean(60, 60, False) + bean(135, 66, False) + bean(210, 58, False) + bean(330, 84, True) + bean(405, 90, True) + bean(480, 80, True) +
+  '<text x="270" y="204" text-anchor="middle" font-size="11" fill="#5b6676">Same soil, pots, light, water amount and bean type. Only the plant food changes.</text></svg>')
+def avgbar():
+    s = '<svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Bar graph of paper towel averages with trial dots">'
+    s += '<text x="260" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Water absorbed (mL): averages and every trial</text>'
+    s += '<line x1="70" y1="190" x2="480" y2="190" stroke="#0A1F3D"/><line x1="70" y1="30" x2="70" y2="190" stroke="#0A1F3D"/>'
+    for v in (0, 20, 40, 60):
+        y = 190 - v * 2.5; s += f'<text x="62" y="{y+4}" text-anchor="end" fill="#5b6676">{v}</text><line x1="70" y1="{y}" x2="480" y2="{y}" stroke="#eee"/>'
+    for x, lab, trials, avg, c in [(170, 'Brand A', (42, 45, 39), 42, '#0047BA'), (360, 'Brand B', (38, 51, 41), 43.33, '#C9A84C')]:
+        s += f'<rect x="{x-45}" y="{190-avg*2.5}" width="90" height="{avg*2.5}" fill="{c}" opacity=".85"/><text x="{x}" y="208" text-anchor="middle" font-weight="bold">{lab}</text>'
+        for i, t in enumerate(trials): s += f'<circle cx="{x-20+i*20}" cy="{190-t*2.5}" r="5" fill="#DB2F30" stroke="#fff"/>'
+    s += '<circle cx="400" cy="40" r="5" fill="#DB2F30"/><text x="410" y="44">= one trial</text></svg>'
+    return s
+def tree(x, y, treated):
+    return (f'<circle cx="{x}" cy="{y}" r="11" fill="{"#3d8a30" if treated else "#8fb07a"}"/><rect x="{x-2}" y="{y+9}" width="4" height="7" fill="#6b4f2a"/>' +
+            (f'<circle cx="{x+4}" cy="{y-2}" r="3" fill="#f39c12"/>' if treated else ''))
+GROVE = ('<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Layout of a citrus field trial">'
+  '<text x="260" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">A citrus greening field trial (one test block)</text>'
+  + ''.join(tree(60 + c * 45, 50 + r * 40, r % 2 == 0) for r in range(4) for c in range(6)) +
+  '<rect x="340" y="40" width="14" height="14" fill="#3d8a30"/><text x="360" y="52">rows that get the treatment</text>'
+  '<rect x="340" y="70" width="14" height="14" fill="#8fb07a"/><text x="360" y="82">control rows: no treatment</text>'
+  '<text x="340" y="112">Rows alternate so soil, sun</text><text x="340" y="128">and water are the same for both.</text><text x="340" y="152">Measured for several seasons:</text><text x="340" y="168">fruit count, fruit size, tree health.</text></svg>')
+
 LESSON = {
  "unit": "Unit 1: Thinking Like a Scientist",
  "title": "Designing a Fair Test: Variables",
@@ -37,7 +67,7 @@ LESSON = {
   "intro": "A fair test begins with a testable question. Check what you remember from last week.",
   "items": [
    {"t":"text","q":"\"The plant grew 4 centimeters in a week.\" Observation or inference?","a":["observation"],"pts":2,"why":"It was measured directly."},
-   {"t":"text","q":"\"The plant grew because it had more sunlight.\" Observation or inference?","a":["inference"],"pts":2,"why":"It explains the growth using reasoning; nobody observed the cause directly."},
+   {"t":"open","key":"rc_backobs","q":"\"The plant grew because it had more sunlight\" is an inference. Write one observation that could support it.","min":8,"rows":2,"rubric":["A direct observation or measurement","Connected to sunlight or growth"],"model":"The plant by the window grew 6 cm in two weeks, while the plant in the hallway grew 2 cm."},
    {"t":"text","q":"\"The water is cloudy.\" Qualitative or quantitative?","a":["qualitative"],"pts":2,"why":"It describes a quality with no number."},
    {"t":"text","q":"Is this testable? <i>Do heavier paper airplanes fly shorter distances?</i> Type yes or no.","a":["yes"],"pts":2,"why":"You can change the plane's mass and measure the distance it flies."},
    {"t":"text","q":"A testable question names what you change and what you ___.","a":["measure","measure.","observe"],"show":"measure","pts":2,"why":"Change one thing, measure the result."},
@@ -50,51 +80,53 @@ LESSON = {
    "visual": VARS,
    "html": "<p>Every fair test has three kinds of variables:</p><ul><li>The <b>independent variable</b> is the one thing you change on purpose.</li><li>The <b>dependent variable</b> is what you measure. It <i>depends</i> on the independent variable.</li><li>The <b>controlled variables</b> are everything you keep the same.</li></ul><p>A memory trick: <i>I change the Independent; the Dependent is the Data.</i></p>",
    "checks": [
-    {"t":"text","q":"In a fair version of Jaylen's test, what should the independent variable be?","a":[{"all":[["brand","type","kind","towel"]]}],"show":"the brand (type) of paper towel","pts":3,"why":"The question is about brands, so brand is the only thing that should change."},
+    {"t":"text","q":"In a fair version of Jaylen's test, what should the independent variable be?","a":[{"all":[["brand","type","kind"]]}],"show":"the brand (type) of paper towel","pts":3,"why":"The question is about brands, so brand is the only thing that should change."},
     {"t":"text","q":"What should Jaylen measure (the dependent variable)?","a":[{"all":[["water","liquid","absorb","soak","ml","milliliter","spoon"]]}],"show":"the amount of water each towel absorbs","pts":3,"why":"The question asks how much each towel absorbs."},
-    {"t":"text","q":"Name two variables Jaylen must keep the same.","a":[{"all":[["time","second","water","container","bowl","size","amount","temperature","sheet","how long"],["time","second","water","container","bowl","size","amount","temperature","sheet","how long"]]}],"show":"For example: the amount of water, the soaking time, the container, and the size of the towel","pts":3,"why":"Water amount, soaking time, container and sheet size must all be controlled."},
+    {"t":"text","q":"Name two variables Jaylen must keep the same.","a":[{"all":[["time","second","how long","minute"],["water","container","bowl","size","amount","temperature","sheet","cup"]]},{"all":[["water","amount"],["container","bowl","cup","size","sheet","temperature"]]}],"show":"For example: the amount of water, the soaking time, the container, and the size of the towel","pts":3,"why":"Water amount, soaking time, container and sheet size must all be controlled."},
     {"t":"text","q":"A student tests whether the height a ball is dropped from changes how high it bounces. What is the dependent variable?","a":[{"all":[["bounce"]]}],"show":"how high the ball bounces","pts":2,"why":"Bounce height is measured; drop height is changed."}]},
   {"title": "Control Groups and Repeated Trials",
+   "visual": GROUPS + avgbar(),
    "html": "<p>A <b>control group</b> gets no change at all. It gives you something to compare against. To test whether plant food helps beans grow, one group of plants gets plant food and the control group gets plain water, with everything else the same.</p><p>Scientists also repeat each test several times, called <b>trials</b>, then find the <b>average</b> (the mean). One trial might be a fluke; three or more trials make results reliable.</p><table class='t'><tr><th>Towel</th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Average</th></tr><tr><td>Brand A</td><td>42 mL</td><td>45 mL</td><td>39 mL</td><td>?</td></tr><tr><td>Brand B</td><td>38 mL</td><td>51 mL</td><td>41 mL</td><td>?</td></tr></table><p>To average: add the trials and divide by the number of trials.</p>",
    "checks": [
     {"t":"num","q":"What is the average for Brand A?","a":42,"unit":"mL","pts":3,"why":"42 + 45 + 39 = 126, and 126 ÷ 3 = 42 mL."},
-    {"t":"num","q":"What is the average for Brand B?","a":43.33,"tol":0.01,"show":"43.33 (about 43.3)","unit":"mL","pts":3,"hint":"Add the three trials, then divide by 3. Round to the hundredths.","why":"38 + 51 + 41 = 130, and 130 ÷ 3 = 43.33 mL."},
-    {"t":"text","q":"Look at Brand B's trials. Why is it a good thing the student did not stop after Trial 1?","a":[{"all":[["one","single","first","fluke","different","vary","varied","51","change","reliable","accident","mistake","wrong"]]}],"show":"Trial 1 alone (38 mL) would have made Brand B look worse; the trials varied, so one result could be a fluke.","pts":3,"why":"Brand B's results ranged from 38 to 51. One trial could have led to the wrong conclusion."},
-    {"t":"text","q":"In the bean plant test, which group is the control group?","a":[{"all":[["water","no plant food","without","no food","plain"]]}],"show":"the plants that get plain water and no plant food","pts":2,"why":"The control group gets no change, so it is the plants without plant food."}]},
+    {"t":"num","q":"What is the average for Brand B?","a":43.33,"tol":0.04,"show":"43.33 (about 43.3)","unit":"mL","pts":3,"hint":"Add the three trials, then divide by 3. Round to the hundredths.","why":"38 + 51 + 41 = 130, and 130 ÷ 3 = 43.33 mL."},
+    {"t":"text","q":"Look at Brand B's trials. Why is it a good thing the student did not stop after Trial 1?","a":[{"all":[["fluke","vary","varied","different results","51","38","reliable","accident","mistake","wrong","inconsistent","spread","not the same","luck","misleading","worse"]]}],"show":"Trial 1 alone (38 mL) would have made Brand B look worse; the trials varied, so one result could be a fluke.","pts":3,"why":"Brand B's results ranged from 38 to 51. One trial could have led to the wrong conclusion."},
+    {"t":"text","q":"In the bean plant test, which group is the control group?","a":[{"all":[["no plant food","without","plain water","only water","just water","no food","don't get","do not get","doesn't get","no fertilizer"]]}],"show":"the plants that get plain water and no plant food","pts":2,"why":"The control group gets no change, so it is the plants without plant food."}]},
   {"title": "Writing a Hypothesis",
-   "html": "<p>A <b>hypothesis</b> is a testable prediction with a reason. Scientists often write it in three parts:</p><div class='example'><b>If</b> I use hotter water, <b>then</b> the sugar will dissolve faster, <b>because</b> water molecules move faster when they are hot and break the sugar apart more quickly.</div><p>The <b>if</b> names the independent variable. The <b>then</b> names the dependent variable. The <b>because</b> gives your reasoning. A hypothesis can turn out to be wrong, and that is still useful science.</p>",
+   "html": "<p>A <b>hypothesis</b> is a testable prediction with a reason. Scientists often write it in three parts:</p><div class='example'><b>If</b> I use hotter water, <b>then</b> the sugar will dissolve faster, <b>because</b> water molecules move faster when they are hot and pull sugar molecules away from the crystal more quickly.</div><p>The <b>if</b> names the independent variable. The <b>then</b> names the dependent variable. The <b>because</b> gives your reasoning. A hypothesis can turn out to be wrong, and that is still useful science.</p>",
    "checks": [
     {"t":"blanks","q":"Complete the hypothesis for the ball experiment.","sent":"If I drop the ball from a ___ height, then it will bounce ___, because it has more energy when it hits the ground.","blanks":[["higher","greater","taller","bigger"],["higher","more","taller"]],"pts":3,"why":"If I drop it from a higher height, then it will bounce higher."},
-    {"t":"text","q":"Write your own hypothesis for the paper towel test in if, then, because form.","a":[{"all":[["if"],["then"],["because"]]}],"show":"For example: If I test the thicker brand, then it will absorb more water, because thicker towels have more fibers and spaces to hold water.","pts":3,"why":"A complete hypothesis has all three parts: if, then and because."},
-    {"t":"text","q":"Jaylen's test shows his hypothesis was wrong. Did his experiment fail? Type yes or no.","a":["no"],"pts":2,"why":"A hypothesis that turns out wrong still teaches something. The experiment only fails if it was not a fair test."}]},
+    {"t":"open","key":"towelhyp","q":"Write your own hypothesis for the paper towel test in if, then, because form.","min":15,"rows":2,"rubric":["Has all three parts: if, then, because","Names the paper type as the change and water absorbed as the result","Gives a reason"],"model":"If I test the thicker, more expensive brand, then it will absorb more water, because thicker towels have more fibers and spaces to hold water."},
+    {"t":"text","q":"Jaylen redoes his test fairly, and the results show his hypothesis was wrong: the store brand absorbed more. Did his experiment fail? Type yes or no.","a":["no"],"pts":2,"why":"A fair test that disproves a hypothesis still teaches something true. It saved his family money, too."}]},
   {"title": "Fair Tests in the Real World",
+   "visual": GROVE,
    "html": "<p>Since 2005, a disease called <b>citrus greening</b> has damaged orange groves across Florida. A tiny insect called the Asian citrus psyllid spreads bacteria that make oranges small, bitter and green, and eventually kill the trees.</p><p>Scientists at the University of Florida and in other labs test possible treatments the same way you will test paper towels. They treat one group of trees, keep a <b>control group</b> of untreated trees, keep the soil, water and fertilizer the same, and measure results over many seasons with many trees.</p><div class='callout'>Why many trees and many seasons? The same reason you run three trials: a single tree or a single year could give a misleading result.</div>",
    "checks": [
     {"t":"text","q":"In a citrus greening treatment test, what is the independent variable?","a":[{"all":[["treat","medicine","spray","whether"]]}],"show":"whether the tree gets the treatment","pts":3,"why":"Scientists change whether the trees get the treatment."},
     {"t":"text","q":"Name a dependent variable scientists could measure in that test.","a":[{"all":[["fruit","orange","size","yield","health","leaves","green","sweet","alive","die","survive","bacteria","number","weight","sugar"]]}],"show":"For example: number or size of oranges, or how many trees stay healthy","pts":3,"why":"They could measure fruit yield, fruit size or tree health."},
-    {"t":"text","q":"Why do scientists keep the soil, water and fertilizer the same for both groups of trees?","a":[{"all":[["fair","only","one","same","cause","know","difference","because of","treatment","control"]]}],"show":"So any difference can only be caused by the treatment","pts":3,"why":"Controlled variables make sure the treatment is the only difference between the groups."}]}],
+    {"t":"text","q":"Why do scientists keep the soil, water and fertilizer the same for both groups of trees?","a":[{"all":[["cause","difference","fair","treatment","only thing","only variable","know what","because of the","responsible","made the"]]}],"show":"So any difference can only be caused by the treatment","pts":3,"why":"Controlled variables make sure the treatment is the only difference between the groups."}]}],
  "handson": {
   "title": "The Fair Paper Towel Test",
   "intro": "Redo Jaylen's test the right way. Use real data and averages.",
-  "materials": ["Three kinds of paper: two brands of paper towel and a paper napkin (or toilet paper)", "A measuring cup with milliliter marks (or measuring spoons: 1 tablespoon is about 15 mL)", "Three identical cups or bowls", "A timer and scissors", "A cookie sheet or tray to keep things tidy"],
+  "materials": ["Three kinds of paper: two brands of paper towel and a paper napkin (or toilet paper)", "A kitchen scale that shows grams", "A bowl of water", "A timer and scissors", "A cookie sheet or tray to keep things tidy"],
   "steps": [
    "Write your hypothesis in if, then, because form before you start.",
-   "Cut every sheet to the same size, about 10 cm by 10 cm.",
-   "Pour exactly 100 mL of water into a cup. Dip one sheet in for exactly 10 seconds, lift it, and let it drip over the cup for 10 seconds.",
-   "Measure the water left in the cup. Absorbed water = 100 mL minus what is left.",
-   "Repeat three trials for each kind of paper with fresh water and fresh sheets each time.",
+   "Use half of a full sheet for every test so all pieces are the same size.",
+   "Weigh the dry half sheet on a kitchen scale in grams. Dip it in a bowl of water for exactly 10 seconds, lift it, and let it drip for exactly 10 seconds.",
+   "Weigh the wet sheet. Water absorbed = wet mass − dry mass. One gram of water is about one milliliter, so grams and milliliters match.",
+   "Repeat three trials for each kind of paper with a fresh half sheet each time.",
    "Make a data table and find the average for each kind of paper."],
   "record": [
    {"t":"open","key":"hyp","q":"Write your hypothesis and list your independent variable, dependent variable and at least three controlled variables.","min":35,"rows":5},
    {"t":"open","key":"data","q":"Type your data table: every trial for every kind of paper and each average. Which absorbed the most? Was your hypothesis supported?","min":40,"rows":7}]},
  "think": {
   "items": [
-   {"t":"open","key":"flawed","q":"Kayla wants to know whether music helps plants grow. She puts one plant by a sunny window with music playing and another plant in a dark closet with no music. After two weeks the music plant is taller, so she says music helps plants grow. Explain what is wrong with her experiment and redesign it as a fair test.","min":70,"rows":7,"rubric":["Identifies that two variables changed (music and light)","Explains why the conclusion cannot be trusted","Redesign changes only music","Lists controlled variables (light, water, soil, plant type, pot size)","Includes a control group and repeated trials or several plants"]},
-   {"t":"open","key":"design","q":"Go back to the testable question you wrote in Week 1 about your home or neighborhood. Write a full plan: hypothesis, independent variable, dependent variable, at least three controlled variables, control group, and number of trials.","min":60,"rows":6,"rubric":["Hypothesis in if, then, because form","Correct independent and dependent variables","Three or more sensible controlled variables","Identifies a control group","Plans repeated trials"]}]},
+   {"t":"open","key":"flawed","model":"Kayla changed two things at once: music and light. The window plant got sunlight and the closet plant got none, so the light could explain the growth. A fair test would put several plants of the same type in the same sunny room, with the same soil, pot and water, and play music for only half of them. She should measure height over several weeks and compare the averages.","q":"Kayla wants to know whether music helps plants grow. She puts one plant by a sunny window with music playing and another plant in a dark closet with no music. After two weeks the music plant is taller, so she says music helps plants grow. Explain what is wrong with her experiment and redesign it as a fair test.","min":70,"rows":7,"rubric":["Identifies that two variables changed (music and light)","Explains why the conclusion cannot be trusted","Redesign changes only music","Lists controlled variables (light, water, soil, plant type, pot size)","Includes a control group and repeated trials or several plants"]},
+   {"t":"open","key":"design","model":"(Example built on the question: Does the brand of bird seed change how many birds visit the feeder?) Hypothesis: If I use seed with sunflower hearts, then more birds will visit in one hour, because many birds prefer sunflower seeds. Independent: brand of seed. Dependent: number of birds that land in one hour. Controlled: same feeder, location, time of day, amount of seed. Control group: the seed we usually buy. Trials: five mornings for each seed.","q":"Go back to the testable question you wrote in Week 1 about your home or neighborhood. Write a full plan: hypothesis, independent variable, dependent variable, at least three controlled variables, control group, and number of trials.","min":60,"rows":6,"rubric":["Hypothesis in if, then, because form","Correct independent and dependent variables","Three or more sensible controlled variables","Identifies a control group","Plans repeated trials"]}]},
  "exit": [
   {"t":"text","q":"A student tests whether the amount of salt changes how fast ice melts. What is the independent variable?","a":[{"all":[["salt"]]}],"show":"the amount of salt","pts":2,"why":"The amount of salt is what the student changes."},
   {"t":"text","q":"In that test, what is the dependent variable?","a":[{"all":[["time","melt","fast","how long","speed","minutes"]]}],"show":"how long the ice takes to melt","pts":2,"why":"Melting time is measured."},
-  {"t":"text","q":"Name one controlled variable for the salt and ice test.","a":["size of ice","ice size","temperature","room temperature","type of salt","amount of ice","size","container","same ice","shape","ice cube size","kind of salt"],"show":"For example: size of the ice cubes, room temperature or type of salt","pts":2,"why":"These must stay the same so only the salt amount changes."},
+  {"t":"text","q":"Name one controlled variable for the salt and ice test.","a":[{"all":[["size","temperat","type of salt","kind of salt","amount of ice","container","shape","cube","room","same ice"]]}],"show":"For example: size of the ice cubes, room temperature or type of salt","pts":2,"why":"These must stay the same so only the salt amount changes."},
   {"t":"num","q":"Three trials gave melting times of 12, 15 and 18 minutes. What is the average?","a":15,"unit":"minutes","pts":3,"why":"12 + 15 + 18 = 45, and 45 ÷ 3 = 15 minutes."},
   {"t":"text","q":"What is the purpose of a control group?","a":[{"all":[["compar","normal","baseline","no change","without","difference"]]}],"show":"To give a group with no change to compare against","pts":3,"why":"The control group shows what happens without the change being tested."},
   {"t":"text","q":"What three words begin the three parts of a hypothesis in the form you learned?","a":[{"all":[["if"],["then"],["because"]]}],"show":"if, then, because","pts":2,"why":"If (change), then (result), because (reason)."}],
@@ -105,7 +137,6 @@ TEACHER = {
  "standards": [
   "SC.6.N.1.1: Define a problem, plan and carry out scientific investigations of various types, identify variables, collect and organize data, interpret data in charts, tables and graphics, analyze information, make predictions and defend conclusions.",
   "SC.6.N.1.2: Explain why scientific investigations should be replicable.",
-  "SC.6.N.1.3: Explain the difference between an experiment and other types of scientific investigation.",
   "MA.6 connection: finding the mean of a data set (formally taught in Math Unit 6).",
   "NGSS Science and Engineering Practice 3: planning and carrying out investigations."],
  "materials": ["The interactive lesson", "Paper towels, napkins, three identical cups, a measuring cup in milliliters, a timer", "Printable practice page"],

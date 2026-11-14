@@ -51,7 +51,7 @@ def write(rel, text, fit=False):
 def answer_text(q):
     t = q['t']
     if t == 'num': return q.get('show') or (str(q['a'][0] if isinstance(q['a'], list) else q['a']) + (' ' + q['unit'] if q.get('unit') else ''))
-    if t == 'text': return q.get('show') or next((a for a in q['a'] if isinstance(a, str)), 'see rubric')
+    if t in ('text', 'punct'): return q.get('show') or next((a for a in q['a'] if isinstance(a, str)), 'see rubric')
     if t == 'blanks': return q.get('show') or ' / '.join(next((a for a in b if isinstance(a, str)), '') for b in q['blanks'])
     if t == 'label': return ', '.join(f"{l[0]} = {l[1][0]}" for l in q['labels'])
     if t == 'order': return ' → '.join(q['items'])

@@ -12,13 +12,13 @@ PV = '''<svg viewBox="0 0 540 150" xmlns="http://www.w3.org/2000/svg" font-famil
 
 RECEIPT = '''<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" font-family="Courier New, monospace" font-size="14" role="img" aria-label="Grocery receipt">
 <rect x="10" y="5" width="280" height="290" fill="#fff" stroke="#999"/>
-<text x="150" y="30" text-anchor="middle" font-weight="bold">FRESH MARKET</text><text x="150" y="48" text-anchor="middle" font-size="11">Lakeland, FL</text>
-<text x="25" y="80">Bananas (3 lb)</text><text x="275" y="80" text-anchor="end">4.89</text>
-<text x="25" y="102">Butter (2 lb)</text><text x="275" y="102" text-anchor="end">12.50</text>
-<text x="25" y="124">Baking soda</text><text x="275" y="124" text-anchor="end">2.35</text>
+<text x="150" y="30" text-anchor="middle" font-weight="bold">SUNSHINE SUPPLY CO.</text><text x="150" y="48" text-anchor="middle" font-size="11">Lakeland, FL</text>
+<text x="25" y="80">Parchment paper</text><text x="275" y="80" text-anchor="end">4.89</text>
+<text x="25" y="102">Loaf pans (2)</text><text x="275" y="102" text-anchor="end">12.50</text>
+<text x="25" y="124">Paper loaf liners</text><text x="275" y="124" text-anchor="end">2.35</text>
 <line x1="25" y1="136" x2="275" y2="136" stroke="#999" stroke-dasharray="4 3"/>
 <text x="25" y="158">SUBTOTAL</text><text x="275" y="158" text-anchor="end">?</text>
-<text x="25" y="180">TAX</text><text x="275" y="180" text-anchor="end">1.38</text>
+<text x="25" y="180">TAX 7%</text><text x="275" y="180" text-anchor="end">1.38</text>
 <text x="25" y="204" font-weight="bold">TOTAL</text><text x="275" y="204" text-anchor="end" font-weight="bold">?</text>
 <text x="25" y="236">CASH</text><text x="275" y="236" text-anchor="end">25.00</text>
 <text x="25" y="258">CHANGE</text><text x="275" y="258" text-anchor="end">?</text>
@@ -54,7 +54,7 @@ LESSON = {
    {"t":"blanks","q":"Vocabulary from Week 1.","sent":"In 72 ÷ 9 = 8, the number 9 is the ___ and 8 is the ___. A plan for money coming in and going out is a ___.","blanks":[["divisor"],["quotient"],["budget"]],"pts":3,"why":"Divisor, quotient, budget."}]},
  "hook": {
   "title": "The Receipt That Did Not Add Up",
-  "html": "<p>Amara's banana bread business is growing, so this week she shops for supplies herself. At the checkout, the cashier hands her a receipt and her change. On the drive home, her mom asks, \"Did you check it?\"</p><p>Stores make mistakes: a price scans twice, a sale price does not ring up, a cashier counts change wrong. People who can work with decimals quickly catch those mistakes and keep their money.</p><div class='callout'><b>Big idea:</b> Decimals are place value continued to the right. If you line up the places, adding and subtracting decimals works exactly like whole numbers.</div>"},
+  "html": "<p>Amara's banana bread business is growing, so this week she shops for supplies herself. She buys baking supplies at a kitchen store, and at the checkout the cashier hands her a receipt and her change. On the drive home, her mom asks, \"Did you check it?\"</p><p>Stores make mistakes: a price scans twice, a sale price does not ring up, a cashier counts change wrong. People who can work with decimals quickly catch those mistakes and keep their money.</p><div class='callout'><b>Big idea:</b> Decimals are place value continued to the right. If you line up the places, adding and subtracting decimals works exactly like whole numbers.</div>"},
  "learn": [
   {"title": "Decimal Place Value",
    "visual": PV,
@@ -68,13 +68,13 @@ LESSON = {
    "html": "<p>Line up the <b>decimal points</b> so each place is in the same column. Fill empty places with <b>placeholder zeros</b>. Then add like whole numbers and bring the decimal point straight down.</p><div class='example'><pre style='font-size:18px;margin:0'>  12.75\n+  8.60   (8.6 written as 8.60)\n-------\n  21.35</pre></div><p>Estimate to check: 13 + 9 = 22, so 21.35 is reasonable.</p>",
    "checks": [
     {"t":"num","q":"4.37 + 12.8 = ?","a":17.17,"pts":3,"why":"4.37 + 12.80 = 17.17. Estimate: 4 + 13 = 17."},
-    {"t":"num","q":"0.95 + 3.408 + 7 = ?","a":11.358,"pts":3,"hint":"Write 7 as 7.000 and 0.95 as 0.950.","why":"0.950 + 3.408 + 7.000 = 11.358."},
+    {"t":"num","q":"A receipt's subtotal is $25.08. Two items cost $8.49 and $11.20. The third price is smudged. What is it?","a":5.39,"unit":"dollars","show":"$5.39","pts":4,"hint":"Add the two prices you know, then subtract from the subtotal.","why":"8.49 + 11.20 = 19.69. 25.08 − 19.69 = $5.39. Check: 19.69 + 5.39 = 25.08."},
     {"t":"num","q":"Amara buys 2.25 kg of flour, 0.75 kg of sugar and 1.5 kg of bananas. What is the total mass?","a":4.5,"unit":"kg","pts":3,"why":"2.25 + 0.75 = 3.00, and 3.00 + 1.50 = 4.50 kg."},
     {"t":"num","q":"Estimate first, then add: $19.99 + $4.89 + $0.65","a":25.53,"unit":"dollars","show":"$25.53","pts":3,"why":"Estimate 20 + 5 + 1 = 26. Exact: 19.99 + 4.89 = 24.88, plus 0.65 = $25.53."}]},
   {"title": "Subtracting Decimals",
    "html": "<p>Subtracting works the same way: line up the decimal points, add placeholder zeros, and regroup when you need to.</p><div class='example'><pre style='font-size:18px;margin:0'>  20.00   (20 written as 20.00)\n-  7.46\n-------\n  12.54</pre></div><p>Check by adding back: 12.54 + 7.46 = 20.00.</p>",
    "checks": [
-    {"t":"num","q":"50 − 23.68 = ?","a":26.32,"pts":3,"why":"50.00 − 23.68 = 26.32. Check: 26.32 + 23.68 = 50."},
+    {"t":"num","q":"Amara has $20.00. She wants items costing $6.79, $8.45 and $3.99, and the tax will be $1.34. How much <b>more</b> money does she need?","a":0.57,"unit":"dollars","show":"$0.57","pts":4,"why":"6.79 + 8.45 + 3.99 = 19.23, and 19.23 + 1.34 = $20.57. 20.57 − 20.00 = $0.57 short."},
     {"t":"num","q":"8.3 − 2.755 = ?","a":5.545,"pts":3,"hint":"Write 8.3 as 8.300.","why":"8.300 − 2.755 = 5.545."},
     {"t":"num","q":"Tampa got 6.42 inches of rain in June and 4.9 inches in May. How many more inches fell in June?","a":1.52,"unit":"inches","pts":3,"why":"6.42 − 4.90 = 1.52 inches."},
     {"t":"num","q":"A runner's times were 58.47 seconds and 61.2 seconds. What is the difference?","a":2.73,"unit":"seconds","pts":3,"why":"61.20 − 58.47 = 2.73 seconds."}]},
@@ -92,7 +92,7 @@ LESSON = {
   "materials": ["Real coins and bills, or play money (cut paper bills work)", "5 household items with price tags you write, using cents (for example $3.79)", "A family member to be the customer", "Paper for receipts"],
   "steps": [
    "Price 5 items with decimal prices. At least two prices should end in amounts like .47 or .99.",
-   "Your customer buys 2 or 3 items. Write a receipt: list the items, add them to find the subtotal, and add $0.50 tax for every $10 (or simply add $1.00 tax to keep it simple).",
+   "Your customer buys 2 or 3 items. Write a receipt: list the items, add them to find the subtotal, and add $0.70 tax for every $10 (7 percent, the Polk County rate) or simply add $1.00 tax to keep it simple.",
    "Your customer pays with a bill larger than the total. Count up out loud to make change using coins and bills.",
    "Your customer checks your receipt and change with a calculator. Switch roles for one more transaction, and make one deliberate mistake on the receipt for them to catch.",
    "Complete at least three transactions."],
@@ -102,12 +102,12 @@ LESSON = {
  "think": {
   "items": [
    {"t":"num","q":"Devon added 3.5 + 1.25 and got 1.60. What is the correct sum?","a":4.75,"pts":3,"why":"Lining up the decimal points: 3.50 + 1.25 = 4.75."},
-   {"t":"open","key":"devon","q":"Explain Devon's mistake and how an estimate would have warned him.","min":25,"rubric":["Identifies that he lined up the last digits instead of the decimal points","Shows the correct alignment 3.50 + 1.25","Uses an estimate (about 3 + 1 = 4) to show 1.60 is impossible"]},
-   {"t":"open","key":"younger","q":"Your younger cousin insists 0.45 is bigger than 0.5 because 45 is bigger than 5. Explain why they are wrong in a way a 9-year-old would understand. Use money or a drawing in words.","min":35,"rubric":["Uses place value or a money comparison (50 cents versus 45 cents)","Rewrites 0.5 as 0.50 to compare","Explanation is clear for a younger child"]}]},
+   {"t":"open","key":"devon","q":"Explain Devon's mistake and how an estimate would have warned him.","min":25,"model":"Devon lined up the last digits instead of the decimal points, so he added 3.5 as if it were 0.35. Written correctly, 3.50 + 1.25 = 4.75. An estimate of 3 + 1 = 4 shows 1.60 is impossible, because the answer must be more than 3.5.","rubric":["Identifies that he lined up the last digits instead of the decimal points","Shows the correct alignment 3.50 + 1.25","Uses an estimate (about 3 + 1 = 4) to show 1.60 is impossible"]},
+   {"t":"open","key":"younger","model":"Think of money. 0.5 is the same as 0.50, which is 50 cents, and 0.45 is 45 cents. Fifty cents is more than forty-five cents, so 0.5 is bigger. The 45 looks bigger only because it has more digits, but the first digit after the point (5 tenths versus 4 tenths) decides.","q":"Your younger cousin insists 0.45 is bigger than 0.5 because 45 is bigger than 5. Explain why they are wrong in a way a 9-year-old would understand. Use money or a drawing in words.","min":35,"rubric":["Uses place value or a money comparison (50 cents versus 45 cents)","Rewrites 0.5 as 0.50 to compare","Explanation is clear for a younger child"]}]},
  "exit": [
   {"t":"num","q":"In 6.209, what digit is in the thousandths place?","a":9,"pts":2,"why":"Tenths 2, hundredths 0, thousandths 9."},
-  {"t":"num","q":"15.6 + 4.375 = ?","a":19.975,"pts":3,"why":"15.600 + 4.375 = 19.975."},
-  {"t":"num","q":"30 − 12.84 = ?","a":17.16,"pts":3,"why":"30.00 − 12.84 = 17.16."},
+  {"t":"num","q":"A receipt lists $3.25, $4.80 and $2.15, and prints a subtotal of $11.20. What should the subtotal be?","a":10.2,"unit":"dollars","show":"$10.20","pts":3,"why":"3.25 + 4.80 + 2.15 = $10.20. The store overcharged by $1.00, which is why checking matters."},
+  {"t":"num","q":"A cashier owes you $0.68 in coins. What is the fewest number of coins she can use? (quarters, dimes, nickels, pennies)","a":7,"unit":"coins","pts":3,"why":"2 quarters (50¢) + 1 dime (60¢) + 1 nickel (65¢) + 3 pennies (68¢) = 7 coins. Using the largest coin first gives the fewest."},
   {"t":"num","q":"9.07 − 3.6 = ?","a":5.47,"pts":3,"why":"9.07 − 3.60 = 5.47."},
   {"t":"order","q":"Order from least to greatest.","items":["0.307","0.37","0.703","0.73"],"pts":3,"why":"0.307, 0.370, 0.703, 0.730."},
   {"t":"num","q":"A receipt shows $8.49, $3.75 and $11.20, plus $1.64 tax. What is the total?","a":25.08,"unit":"dollars","show":"$25.08","pts":3,"why":"8.49 + 3.75 + 11.20 = 23.44. 23.44 + 1.64 = $25.08."},
@@ -135,7 +135,8 @@ TEACHER = {
  "misconceptions": ["Thinking longer decimals are larger (0.45 > 0.5).", "Right-aligning digits instead of decimal points.", "Forgetting to regroup across a zero in 20.00 − 7.46.", "Dropping the decimal point in the answer."],
  "support": ["Use grid paper so each digit sits in one square.", "Model with real coins: $0.50 versus $0.45.", "Have the student write every number to the same number of decimal places before calculating."],
  "challenge": ["Ask the student to find a receipt at home with tax and work out what percent the tax was (preview of Unit 3).", "Have the student create a receipt with an error that is hard to spot and trade with you."],
- "background": "<p>In Florida the state sales tax rate is 6 percent, and many counties add a local surtax; groceries such as most food items are exempt. The receipt in the lesson uses a fixed tax amount to keep the focus on decimal operations.</p>"
+ "length": "60 minutes live on Zoom, plus 35 to 45 minutes for the after-class interactive lesson and store activity",
+ "background": "<p>Florida's state sales tax is 6 percent, and counties may add a surtax; Polk County (Lakeland) adds 1 percent for a total of 7 percent. Most grocery food is tax-exempt in Florida, so the receipt shows taxable baking supplies. The $1.38 tax is exactly 7 percent of $19.74, which makes the challenge question come out evenly.</p>"
 }
 
 PRINT = {
@@ -148,5 +149,5 @@ PRINT = {
   {"q":"40 − 18.25","a":"21.75","lines":2},
   {"q":"7.2 − 4.836","a":"2.364","lines":2},
   {"q":"A receipt lists $14.29, $6.50 and $2.88 with $1.42 tax. Find the subtotal, the total, and the change from $30.","a":"Subtotal $23.67; total $25.09; change $4.91","lines":3},
-  {"q":"Jada says 0.8 − 0.25 = 0.63. Is she right? Explain and correct her.","a":"No. 0.80 − 0.25 = 0.55. She did not line up the places (or did not write 0.8 as 0.80).","lines":2}]
+  {"q":"Jada says 0.8 − 0.25 = 0.65. Is she right? Explain and correct her.","a":"No. Write 0.8 as 0.80 and regroup: 0.80 − 0.25 = 0.55. She subtracted 0 from 5 instead of regrouping.","lines":2}]
 }

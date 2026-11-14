@@ -1,0 +1,142 @@
+SHIFT = ('<svg viewBox="0 0 540 170" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="14" role="img" aria-label="Making the divisor a whole number">'
+  '<text x="270" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Make the divisor a whole number: 3.6 ÷ 0.4</text>'
+  '<g font-family="Georgia" font-size="26"><text x="40" y="80">3.6 ÷ 0.4</text><text x="300" y="80">36 ÷ 4 = 9</text></g>'
+  '<path d="M195 70 H280" stroke="#DB2F30" stroke-width="3"/><path d="M280 70 l-10 -7 v14z" fill="#DB2F30"/><text x="238" y="58" text-anchor="middle" fill="#DB2F30" font-size="12">× 10 both</text>'
+  '<text x="40" y="118" font-size="13">Multiplying both numbers by 10 moves both decimal points one place right.</text>'
+  '<text x="40" y="140" font-size="13">The quotient does not change: 3.6 ÷ 0.4 and 36 ÷ 4 both equal 9.</text>'
+  '<text x="40" y="162" font-size="13" fill="#5b6676">Check: 0.4 × 9 = 3.6.</text></svg>')
+
+SHELF = ('<svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Store shelf tags for rice">'
+  '<text x="270" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Which is the better buy?</text>'
+  '<rect x="40" y="40" width="200" height="140" rx="8" fill="#fff" stroke="#0047BA" stroke-width="2"/><rect x="300" y="40" width="200" height="140" rx="8" fill="#fff" stroke="#C9A84C" stroke-width="2"/>'
+  '<rect x="90" y="56" width="100" height="70" fill="#f1e2bd" stroke="#8a6d1f"/><text x="140" y="96" text-anchor="middle">RICE 5 lb</text><text x="140" y="152" text-anchor="middle" font-size="20" font-weight="bold">$4.29</text>'
+  '<rect x="330" y="50" width="140" height="80" fill="#f1e2bd" stroke="#8a6d1f"/><text x="400" y="96" text-anchor="middle">RICE 20 lb</text><text x="400" y="152" text-anchor="middle" font-size="20" font-weight="bold">$14.80</text>'
+  '<text x="140" y="172" text-anchor="middle" fill="#5b6676" font-size="11">unit price: ?</text><text x="400" y="172" text-anchor="middle" fill="#5b6676" font-size="11">unit price: ?</text></svg>')
+
+LESSON = {
+ "unit": "Unit 1: Number Power",
+ "title": "Dividing Decimals",
+ "subtitle": "The price tag tells you the total. Division tells you whether it is actually a good deal.",
+ "objectives": [
+  "Divide a decimal by a whole number using long division.",
+  "Divide by a decimal by first making the divisor a whole number.",
+  "Estimate quotients to check where the decimal point belongs.",
+  "Calculate and compare unit prices to find the better buy.",
+  "Decide when buying in bulk is and is not a smart choice."],
+ "vocab": [
+  ["dividend", "The number being divided."],
+  ["divisor", "The number you divide by."],
+  ["quotient", "The answer to a division problem."],
+  ["unit price", "The cost of one unit, such as one pound, one ounce or one item. Unit price = total price ÷ number of units."],
+  ["bulk", "A large quantity bought at once, often for a lower unit price."],
+  ["better buy", "The option with the lower unit price, if both items meet your needs."],
+  ["repeating decimal", "A decimal in which a digit or group of digits repeats forever, such as 0.333..."]],
+ "reconnect": {
+  "title": "Week 3: multiplying decimals",
+  "intro": "Division and multiplication undo each other, so you will check every quotient with last week's skill.",
+  "items": [
+   {"t":"num","q":"2.6 × 1.5 = ?","a":3.9,"pts":2,"why":"26 × 15 = 390, with 2 decimal places: 3.90 = 3.9."},
+   {"t":"num","q":"0.4 × 0.07 = ?","a":0.028,"pts":3,"why":"4 × 7 = 28, with 3 decimal places: 0.028."},
+   {"t":"num","q":"3.25 × 100 = ?","a":325,"pts":2,"why":"Each digit moves two places left."},
+   {"t":"num","q":"Kwame earns $15.25 an hour and works 6.5 hours on Saturday. What is his pay, rounded to the nearest cent?","a":99.13,"tol":0.006,"unit":"dollars","show":"$99.13","pts":3,"why":"15.25 × 6.5 = 99.125, which rounds to $99.13."},
+   {"t":"num","q":"Apples are $2.49 per pound. What do 3.2 pounds cost, rounded to the nearest cent?","a":7.97,"tol":0.006,"unit":"dollars","show":"$7.97","pts":3,"why":"2.49 × 3.2 = 7.968, which rounds to $7.97."},
+   {"t":"open","key":"rc_predict","q":"Without calculating, will 40 × 0.85 be greater or less than 40? Explain your reasoning in one sentence.","min":8,"rows":2,"rubric":["Says less","Explains that 0.85 is less than 1, so the product is only part of 40"],"model":"Less, because 0.85 is less than 1, so I am taking only part of 40 (it is 34)."}]},
+ "hook": {
+  "title": "The Bulk Aisle Question",
+  "visual": SHELF,
+  "html": "<p>Amara uses a lot of rice in the family dinners she helps cook, and her mom has given her a challenge: figure out whether the big bag is really cheaper. The 20-pound bag costs more than three times as much as the 5-pound bag. Is it a better deal, or just a bigger bill?</p><p>Stores often print a <b>unit price</b> on the shelf tag in tiny letters, and sometimes they use different units on different tags so comparing is hard. Shoppers who can divide decimals do not have to trust the tag.</p><div class='callout'><b>Big idea:</b> Unit price = total price ÷ number of units. The lower unit price is the better buy, but only if you will actually use what you buy.</div>"},
+ "learn": [
+  {"title": "Dividing a Decimal by a Whole Number",
+   "html": "<p>Use long division just like Week 1. Place the decimal point in the quotient <b>directly above</b> the decimal point in the dividend, then divide as usual.</p><div class='example'><b>7.65 ÷ 5</b><br>5 goes into 7 once (1). Remainder 2, bring down 6: 26 ÷ 5 = 5. Remainder 1, bring down 5: 15 ÷ 5 = 3.<br>Place the decimal point above: <b>1.53</b>. Check: 5 × 1.53 = 7.65.</div><p>If there is a remainder at the end, write a 0 after the last decimal digit and keep dividing: 6.3 ÷ 4 becomes 6.30 ÷ 4 = 1.575 (6.300 ÷ 4).</p>",
+   "checks": [
+    {"t":"num","q":"8.4 ÷ 4 = ?","a":2.1,"pts":2,"why":"8 ÷ 4 = 2, then 4 ÷ 4 = 1: 2.1. Check: 4 × 2.1 = 8.4."},
+    {"t":"num","q":"38.40 ÷ 12 = ?","a":3.2,"pts":3,"why":"38 ÷ 12 = 3 R2, bring down 4: 24 ÷ 12 = 2, then 0: 3.20 = 3.2."},
+    {"t":"num","q":"6.48 ÷ 24 = ?","a":0.27,"pts":3,"hint":"24 does not go into 6, so the ones digit is 0. Then try 64.","why":"64 ÷ 24 = 2 R16, 168 ÷ 24 = 7: 0.27. Check: 24 × 0.27 = 6.48."},
+    {"t":"num","q":"6.3 ÷ 4 = ?","a":1.575,"pts":3,"hint":"Keep adding zeros after the last digit until the remainder is 0.","why":"6.300 ÷ 4 = 1.575. Check: 4 × 1.575 = 6.3."}]},
+  {"title": "Dividing by a Decimal",
+   "visual": SHIFT,
+   "html": "<p>Long division needs a whole-number divisor. So multiply <b>both</b> the divisor and the dividend by the same power of ten until the divisor is a whole number. The quotient stays the same, like doubling both the number of cookies and the number of friends: everyone still gets the same amount.</p><div class='example'><b>1.5 ÷ 0.03</b>: multiply both by 100 to get 150 ÷ 3 = <b>50</b>.<br>Estimate: 0.03 is about 3 cents. How many 3-cent pieces are in $1.50? Fifty.</div><div class='callout'>Dividing by a number less than 1 gives a quotient <b>bigger</b> than the dividend, because you are asking how many small pieces fit.</div>",
+   "checks": [
+    {"t":"num","q":"24.8 ÷ 0.8 = ?","a":31,"pts":3,"why":"Multiply both by 10: 248 ÷ 8 = 31."},
+    {"t":"num","q":"45.6 ÷ 0.12 = ?","a":380,"pts":3,"hint":"Multiply both by 100.","why":"4,560 ÷ 12 = 380. Check: 0.12 × 380 = 45.6."},
+    {"t":"num","q":"0.96 ÷ 1.2 = ?","a":0.8,"pts":3,"why":"Multiply both by 10: 9.6 ÷ 12 = 0.8."},
+    {"t":"text","q":"Without calculating, will 18 ÷ 0.45 be greater than or less than 18? Type greater or less.","a":["greater","greater than","more"],"show":"greater","pts":2,"why":"Dividing by a number less than 1 asks how many small pieces fit, so the quotient (40) is greater than 18."},
+    {"t":"num","q":"A 9.75-meter rope is cut into pieces 2.5 meters long. How many full pieces can be cut?","a":3,"unit":"pieces","pts":3,"why":"9.75 ÷ 2.5 = 3.9. Only 3 full pieces can be cut; 0.9 of a piece (2.25 m) is left over."}]},
+  {"title": "Unit Prices and the Better Buy",
+   "html": "<p><b>Unit price = total price ÷ number of units.</b> Round money unit prices to the nearest cent, or to the nearest tenth of a cent when the numbers are close.</p><table class='t'><tr><th>Item</th><th>Option A</th><th>Option B</th></tr><tr><td>Rice</td><td>5 lb for $4.29</td><td>20 lb for $14.80</td></tr><tr><td>Juice</td><td>64 fl oz bottle for $3.84</td><td>12 cans of 12 fl oz for $7.20</td></tr><tr><td>Eggs</td><td>12 for $3.60</td><td>18 for $5.22</td></tr></table>",
+   "checks": [
+    {"t":"num","q":"What is the unit price of the 5-pound bag of rice, per pound, to the nearest cent?","a":0.86,"tol":0.006,"unit":"dollars per lb","show":"$0.86 per pound","pts":3,"why":"4.29 ÷ 5 = 0.858, which rounds to $0.86 per pound."},
+    {"t":"num","q":"What is the unit price of the 20-pound bag, per pound?","a":0.74,"unit":"dollars per lb","show":"$0.74 per pound","pts":3,"why":"14.80 ÷ 20 = $0.74 per pound. The big bag is the better buy."},
+    {"t":"num","q":"The 12 cans of juice hold 144 fluid ounces in total. What is the price per fluid ounce?","a":0.05,"unit":"dollars per fl oz","show":"$0.05 per fl oz","pts":3,"why":"7.20 ÷ 144 = $0.05. The bottle is 3.84 ÷ 64 = $0.06, so the cans are cheaper per ounce."},
+    {"t":"num","q":"What is the price of one egg in the 18-pack?","a":0.29,"unit":"dollars","show":"$0.29","pts":3,"why":"5.22 ÷ 18 = $0.29, compared with 3.60 ÷ 12 = $0.30 in the dozen."},
+    {"t":"num","q":"If Amara's family uses 20 pounds of rice, how much money does buying the big bag save compared with buying four 5-pound bags?","a":2.36,"unit":"dollars","show":"$2.36","pts":4,"why":"Four small bags cost 4 × 4.29 = $17.16. 17.16 − 14.80 = $2.36 saved."}]},
+  {"title": "When Bulk Is Not a Bargain",
+   "html": "<p>A lower unit price is only a better deal if the purchase fits your life. Ask:</p><ul><li><b>Will we use it before it spoils?</b> A giant bag of bananas that turns brown wastes money.</li><li><b>Do we have space to store it?</b></li><li><b>Can we afford the larger total today?</b> A family with $10 left in the weekly budget cannot buy the $14.80 bag, even though it is the better unit price.</li><li><b>Do we actually need that much?</b> Buying extra just because it is cheap is still spending.</li></ul>",
+   "checks": [
+    {"t":"open","key":"bananas","q":"A 3-pound bag of bananas costs $1.47 ($0.49 per pound). Loose bananas cost $0.59 per pound. Amara's family eats about 1 pound of bananas before they turn brown. Which should they buy, and why? Use unit price <b>and</b> real life in your answer.","min":30,"rows":4,"rubric":["Compares unit prices correctly ($0.49 vs $0.59)","Recognizes most of the bag would spoil","Calculates or explains the true cost of what they actually eat","Makes a clear recommendation"],"model":"The bag has the lower unit price, $0.49 versus $0.59 per pound, but they would eat only 1 of the 3 pounds before it turns brown. Buying 1 pound loose costs $0.59, while the bag costs $1.47 for the same amount eaten, so loose bananas are the better choice for them."},
+    {"t":"num","q":"A family has $12.00 left in its grocery budget. Can they buy the 20-pound rice bag for $14.80? How much more would they need?","a":2.8,"unit":"dollars","show":"$2.80","pts":3,"why":"14.80 − 12.00 = $2.80 short, so they would need to buy a smaller bag this week."}]}],
+ "handson": {
+  "title": "Pantry Unit Price Detective",
+  "intro": "Become the family's best shopper. Use real packages from your own pantry.",
+  "materials": ["Four packaged foods from your pantry or fridge with the price (from a receipt, the store app or website, or a store flyer)", "Paper and pencil; a calculator only for checking"],
+  "steps": [
+   "For each package, find the total price and the amount (ounces, pounds, count, or fluid ounces). Write them down.",
+   "Estimate the unit price, then divide to find it to the nearest cent.",
+   "Find a different size or brand of one item (online or in a flyer) and compare unit prices.",
+   "Decide which is the better buy for your family, considering spoilage, storage and budget.",
+   "Share your finding with whoever does the shopping."],
+  "record": [
+   {"t":"open","key":"pantry","q":"Type a table with each item, its price, its amount and its unit price. Show the division for one of them.","min":40,"rows":6},
+   {"t":"open","key":"pantry2","q":"Which comparison did you make, and which is the better buy for your family? Explain using the unit price and at least one real-life factor.","min":30,"rows":4}]},
+ "think": {
+  "intro": "Explain your reasoning carefully. Your teacher scores these.",
+  "items": [
+   {"t":"num","q":"Andre says 2.1 ÷ 0.07 = 3. What is the correct quotient?","a":30,"pts":3,"why":"Multiply both by 100: 210 ÷ 7 = 30."},
+   {"t":"open","key":"andre","q":"Explain Andre's mistake and show two ways to check the correct answer.","min":30,"rubric":["Identifies that he did not move both decimal points the same number of places","Shows the correct shift (210 ÷ 7)","Checks by multiplying (0.07 × 30 = 2.1)","Checks with an estimate or reasoning (how many 7-cent pieces in $2.10)"],"model":"Andre probably moved the decimal in 0.07 two places but in 2.1 only one place, so he divided 21 by 7. Both must move two places: 210 ÷ 7 = 30. Check by multiplying: 0.07 × 30 = 2.10. Or think of money: there are 30 seven-cent pieces in $2.10."},
+   {"t":"open","key":"tag","q":"A store labels one cereal box \"$0.27 per ounce\" and the other \"$4.32 per pound.\" Which is the better buy? Explain how you compared them. (There are 16 ounces in a pound.)","min":35,"rubric":["Converts to the same unit","Correct comparison: $4.32 per pound is $0.27 per ounce, so they are the same price","Explains why stores might use different units"],"model":"I converted $4.32 per pound to ounces: 4.32 ÷ 16 = $0.27 per ounce. They cost exactly the same per ounce, so neither is a better buy on price. Stores sometimes use different units on tags, which makes comparing harder, so it is smart to convert."}]},
+ "exit": [
+  {"t":"num","q":"7.92 ÷ 3.3 = ?","a":2.4,"pts":3,"why":"Multiply both by 10: 79.2 ÷ 33 = 2.4."},
+  {"t":"num","q":"12.6 ÷ 0.35 = ?","a":36,"pts":3,"why":"Multiply both by 100: 1,260 ÷ 35 = 36."},
+  {"t":"num","q":"5.04 ÷ 0.9 = ?","a":5.6,"pts":3,"why":"Multiply both by 10: 50.4 ÷ 9 = 5.6."},
+  {"t":"num","q":"A 32-ounce bottle of olive oil costs $15.99. What is the price per ounce, to the nearest cent?","a":0.5,"tol":0.006,"unit":"dollars per oz","show":"$0.50 per ounce","pts":3,"why":"15.99 ÷ 32 = 0.4996..., which rounds to $0.50 per ounce."},
+  {"t":"num","q":"A 16-ounce jar of peanut butter costs $3.99 and a 40-ounce jar costs $8.80. What is the unit price of the 40-ounce jar, per ounce?","a":0.22,"unit":"dollars per oz","show":"$0.22 per ounce","pts":3,"why":"8.80 ÷ 40 = $0.22 per ounce, compared with 3.99 ÷ 16 ≈ $0.25 for the small jar."},
+  {"t":"num","q":"A runner finished 94.5 kilometers of training in 3.5 weeks. What was her average distance per week?","a":27,"unit":"km","pts":3,"why":"94.5 ÷ 3.5 = 945 ÷ 35 = 27 km per week."}],
+ "next": "Week 5: factors, multiples, GCF and LCM, plus saving goals and the Unit 1 checkpoint."
+}
+
+TEACHER = {
+ "standards": [
+  "MA.6.NSO.2.1: Multiply and divide positive multi-digit numbers with decimals to the thousandths, including using a standard algorithm with procedural fluency.",
+  "MA.6.AR.1 and MA.6.NSO.3 connections: reasoning about operations with rational numbers.",
+  "MA.K12.MTR.6.1: Assess the reasonableness of solutions.",
+  "MA.K12.MTR.7.1: Apply mathematics to real-world contexts.",
+  "Financial literacy: comparison shopping, unit pricing and smart buying (Jump$tart Spending and Saving)."],
+ "materials": ["The interactive lesson", "Two or three grocery items or flyer pages with prices and package sizes", "Printable practice page"],
+ "flow": [
+  [6, "Reconnect", "Run the Week 3 Reconnect questions."],
+  [5, "Hook", "Show the two rice bags. Ask the student to guess the better buy before calculating."],
+  [10, "Decimal ÷ whole number", "Model 7.65 ÷ 5 with long division. Stress placing the decimal point straight up. Work 6.48 ÷ 24 to show the leading zero."],
+  [14, "Dividing by a decimal", "Use the cookies-and-friends analogy for why multiplying both numbers by 10 keeps the quotient the same. Work 1.5 ÷ 0.03 with the money estimate."],
+  [12, "Unit prices", "Calculate all three comparisons. Have the student explain each better buy in a sentence."],
+  [8, "When bulk is not a bargain", "Discuss the bananas problem. Push the student to weigh spoilage, storage and budget."],
+  [5, "Assign", "Assign the Pantry Unit Price Detective, Think Deeper and the Exit Check."]],
+ "key_questions": ["Where does the decimal point go in the quotient, and why?", "Why can we multiply both numbers by 10 without changing the answer?", "Will the quotient be bigger or smaller than the dividend? How do you know?", "Is the lower unit price always the better choice for your family?"],
+ "misconceptions": ["Moving the decimal point in the divisor but not in the dividend.", "Forgetting the leading zero (writing 6.48 ÷ 24 as 2.7).", "Believing division always makes numbers smaller.", "Assuming the bigger package is always cheaper per unit."],
+ "support": ["Use money language: how many 3-cent pieces in $1.50?", "Provide a place-value chart to show both decimal points moving.", "Check every quotient by multiplying."],
+ "challenge": ["Compare unit prices across three sizes where the middle size is the best deal.", "Find a real shelf tag that uses a different unit than its neighbor and convert to compare."],
+ "background": "<p>Many states require unit pricing on shelf tags, but rules on units vary, so comparing requires care. Unit price, savings and budget constraints prepare students for ratios and rates in Unit 3.</p>",
+ "length": "60 minutes live on Zoom, plus 35 to 45 minutes for the after-class interactive lesson and pantry activity"
+}
+
+PRINT = {
+ "directions": "Estimate, then divide. Check by multiplying. No calculator.",
+ "items": [
+  {"q":"9.12 ÷ 6","a":"1.52","lines":2},
+  {"q":"4.5 ÷ 0.09","a":"50","lines":2},
+  {"q":"27 ÷ 0.6","a":"45","lines":2},
+  {"q":"56.25 ÷ 7.5","a":"7.5","lines":2},
+  {"q":"Which is the better buy: 3 lb of chicken for $8.97 or 5 lb for $14.45? Show both unit prices.","a":"8.97 ÷ 3 = $2.99/lb; 14.45 ÷ 5 = $2.89/lb. The 5 lb package is the better buy.","lines":3},
+  {"q":"A 24-pack of water costs $4.56. What is the cost of one bottle?","a":"4.56 ÷ 24 = $0.19","lines":2},
+  {"q":"Explain why 8 ÷ 0.5 is greater than 8.","a":"Dividing by 0.5 asks how many halves are in 8; there are 16 halves, so the quotient is greater.","lines":2},
+  {"q":"Give one reason a family might NOT choose the item with the lowest unit price.","a":"It might spoil before they use it, they may not have storage space, or they may not be able to afford the larger total right now.","lines":2}]
+}
