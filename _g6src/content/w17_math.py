@@ -85,7 +85,7 @@ LESSON = {
    "checks": [
     {"t":"num","q":"How many units apart are (−6, −2) and (−6, 5)?","a":7,"unit":"units","pts":2,"why":"Opposite sides of the x-axis: |−2| + |5| = 7."},
     {"t":"num","q":"How many units apart are (−8, 4) and (−3, 4)?","a":5,"unit":"units","pts":2,"why":"Same side of the y-axis: |−8| − |−3| = 8 − 3 = 5."},
-    {"t":"open","key":"addorsub","q":"Explain how to decide whether to add or subtract absolute values when finding the distance between (−4, 9) and (−4, −2). Then find the distance.","min":25,"rows":3,"rubric":["The y-coordinates have opposite signs (opposite sides of the x-axis), so add","Distance: 9 + 2 = 11 units"],"model":"The y-coordinates, 9 and −2, are on opposite sides of the x-axis, so I add their absolute values: 9 + 2 = 11 units."}]},
+    {"t":"open","key":"addorsub","q":"Explain how to decide whether to add or subtract absolute values when finding the distance between (−4, 9) and (−4, −2). Then find the distance.","min":20,"rows":3,"rubric":["The y-coordinates have opposite signs (opposite sides of the x-axis), so add","Distance: 9 + 2 = 11 units"],"model":"The y-coordinates, 9 and −2, are on opposite sides of the x-axis, so I add their absolute values: 9 + 2 = 11 units."}]},
   {"title": "Money: Mapping a Delivery Route",
    "visual": ROUTE,
    "html": "<p>Maya lives in the country, where the roads run in a grid, east-west and north-south, about a mile apart, so they travel in straight horizontal and vertical lines. Each mile of driving costs about <b>$0.25</b> for gas and wear on the car. Maya charges $9 per loaf.</p><p>This Saturday's stops: the library at (−5, 3), Ms. Ortiz at (−5, −4) and Mr. Bell at (6, −4). The colored lines show the drive from the library to Ms. Ortiz and on to Mr. Bell.</p>",

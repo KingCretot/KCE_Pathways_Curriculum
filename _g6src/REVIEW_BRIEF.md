@@ -102,3 +102,4 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Engine: parseNum now accepts a leading "+" (e.g., "+145").
 - Name Indigenous nations specifically; say "Indigenous Peoples." Present debated attributions as debated.
 - CPALMS: SS.6.C.1.2 is archived; use SS.6.CG.1.2-1.4 for Rome's influence, rule of law, civic virtue.
+- Every open item's model answer must meet its own min word count (the engine's word gate); keep min at or below about 85% of the model's length.
