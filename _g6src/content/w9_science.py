@@ -124,7 +124,7 @@ LESSON = {
 
 TEACHER = {
  "standards": [
-  "SC.6.L.14.3: Investigate and explain the components of the scientific theory of cells (cell theory): all organisms are composed of cells (single-celled or multi-cellular), all cells come from pre-existing cells, and cells are the basic unit of life.",
+  "SC.6.L.14.3: Recognize and explore how cells of all organisms undergo similar processes to maintain homeostasis, including extracting energy from food, getting rid of waste, and reproducing.",
   "SC.6.L.14.4: Compare and contrast the structure and function of major organelles of plant and animal cells, including cell wall, cell membrane, nucleus, cytoplasm, chloroplasts, mitochondria, and vacuoles.",
   "SC.6.N.1.1: Define a problem from the sixth grade curriculum, use appropriate reference materials to support scientific understanding, plan and carry out scientific investigation of various types, such as systematic observations or experiments, identify variables, collect and organize data, interpret data in charts, tables, and graphics, analyze information, make predictions, and defend conclusions.",
   "SC.6.N.1.4: Discuss, compare, and negotiate methods used, results obtained, and explanations among groups of students conducting the same investigation.",
