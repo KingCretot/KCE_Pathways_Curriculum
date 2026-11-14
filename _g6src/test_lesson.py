@@ -20,7 +20,8 @@ FILL = r'''
     const q = qs[i];
     if (q.t === 'open') { el.querySelector('textarea').value = 'This is a test response with enough words to pass the minimum length check for the lesson engine and confirm saving works correctly every time it is used today in this automated run of the lesson.'; el.querySelector('.save').click(); return; }
     // wrong answer first on one in three questions
-    if (i % 3 === 0 && (q.t === 'num' || q.t === 'text')) {
+    const isCP = el.closest('section') && el.closest('section').querySelector('h3.cp-part, h2') && /Checkpoint/.test(el.closest('section').querySelector('h2').textContent);
+    if (!isCP && i % 3 === 0 && (q.t === 'num' || q.t === 'text')) {
       el.querySelector('input').value = q.t === 'num' ? '-99999' : 'zzzz'; el.querySelector('.check').click();
       if (!/Not yet/.test(el.querySelector('.fb').textContent)) issues.push('wrong answer accepted at q' + (i+1));
     }
@@ -32,6 +33,7 @@ FILL = r'''
     if (q.t === 'mc') el.querySelector('input[value="' + q.a + '"]').checked = true;
     el.querySelector('.check').click();
     const fb = el.querySelector('.fb').textContent;
+    if (isCP) { if (!/recorded/.test(fb)) issues.push('checkpoint q' + (i+1) + ' not recorded'); return; }
     if (!/Correct/.test(fb)) issues.push('q' + (i+1) + ' (' + q.t + ') not accepted: ' + fb + ' | ' + q.q.slice(0, 60));
   });
   return {n: els.length, issues, score: document.getElementById('hudScore').textContent};
@@ -50,6 +52,11 @@ async def run(path, shots=None):
         res = await pg.evaluate(FILL)
         n = await pg.evaluate('document.querySelectorAll("#nav button").length')
         await pg.evaluate(f'document.querySelectorAll("#nav button")[{n-1}].click()'); await pg.wait_for_timeout(200)
+        cptxt = await pg.evaluate('(document.getElementById("result")||{}).textContent||""')
+        import re as _re
+        mcp = _re.search(r'(\d+(?:\.\d+)?) of (\d+) auto-scored', cptxt)
+        if mcp and mcp.group(1) != mcp.group(2): res.setdefault('issues', []).append('checkpoint auto score ' + mcp.group(0) + ' (a correct answer was not accepted)')
+        if mcp: res['checkpoint'] = mcp.group(0)
         has_send = await pg.evaluate('!!document.getElementById("sendBtn")')
         if has_send:
             await pg.click('#sendBtn'); await pg.wait_for_timeout(300)

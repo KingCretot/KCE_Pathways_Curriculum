@@ -35,3 +35,10 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Grade 6 decimal work must include thousandths and multi-step real-world problems.
 - "Name two" items must use two distinct blanks, never one text box with duplicate keyword groups.
 - Hands-on record items need model answers too.
+
+## Added after Week 5 review
+- Checkpoints: one try, no answer reveal, separate checkpoint score in the payload; open checkpoint items carry pts; teacher adds rubric points.
+- A checkpoint must not repeat an item or answer shown earlier on the same page.
+- No content before it is taught (percents arrive in Unit 3; rhyme scheme in Unit 3).
+- Printable items need model answers, never "Answers vary".
+- Brand names include software (Zoom, Libby, IBM, Formspree) in student- or parent-facing text.

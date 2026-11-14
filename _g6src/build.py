@@ -14,7 +14,7 @@ LEGAL = ('<div id="kce-legal" style="background:#0A1F3D;color:#C9A84C;font:12px/
 FOOT = ('<footer class="f">KingCretot Experience, LLC &middot; Approved Provider: <span class="g">Step Up For Students</span> &middot; '
         '<span class="g">Arizona ESA</span> &middot; <span class="g">West Virginia Hope Scholarship</span> &middot; kingcretot.com</footer>')
 TOP = ('<header class="top"><div class="bar"><a class="brand" href="{home}"><span class="kc">KC</span><span><span class="nm">KingCretot Experience</span>'
-       '<span class="tg"><span style="color:#5b8def">EDUCATE.</span> <span style="color:#C9A84C">EMPOWER.</span> <span style="color:#DB2F30">EXCEL.</span></span></span></a>{right}</div>'
+       '<span class="tg"><span style="color:#FFFFFF">EDUCATE.</span> <span style="color:#C9A84C">EMPOWER.</span> <span style="color:#DB2F30">EXCEL.</span></span></span></a>{right}</div>'
        '<div class="rule"><i style="background:#0047BA"></i><i style="background:#C9A84C"></i><i style="background:#DB2F30"></i></div></header>')
 HEAD = ('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         '<meta name="robots" content="noindex,nofollow"><title>{title} | KingCretot Experience</title><style>{css}</style>{extra}</head><body>')
@@ -56,7 +56,7 @@ def answer_text(q):
     if t == 'label': return ', '.join(f"{l[0]} = {l[1][0]}" for l in q['labels'])
     if t == 'order': return ' → '.join(q['items'])
     if t == 'mc': return q['opts'][q['a']]
-    return 'Written response: score with the rubric.'
+    return f"Written response: score with the rubric{' (' + str(q.get('pts', 4)) + ' points toward the checkpoint)' if q.get('_cp') else ''}."
 
 
 def all_questions(L):
@@ -67,6 +67,7 @@ def all_questions(L):
     if L.get('think'): groups.append(('Think Deeper', L['think']['items']))
     if L.get('checkpoint'):
         for pt in L['checkpoint'].get('parts', [{'title': '', 'items': L['checkpoint'].get('items', [])}]):
+            for q in pt['items']: q['_cp'] = True
             groups.append(('Checkpoint' + (': ' + pt['title'] if pt.get('title') else ''), pt['items']))
     if L.get('exit'): groups.append(('Exit Check', L['exit']))
     return groups
@@ -101,6 +102,11 @@ body.c3{font-size:10px;line-height:1.18}body.c3 .lines{height:15px}body.c3 .blk{
 .plan h3{margin-top:18px;border-bottom:2px solid var(--gold);padding-bottom:3px}.plan table.t td{vertical-align:top}.key li{margin:6px 0}'''
 
 
+CPRULE = ('<h3>Checkpoint scoring</h3><p>Checkpoint questions are scored separately from the lesson. The student gets <b>one try</b> per question and the answers are <b>not shown</b>, so the checkpoint measures independent mastery and a retake stays fair. '
+          'Your results email shows the auto-scored checkpoint points, a list of each item marked correct or MISSED, and the points available for the written items. Score the written items with their rubrics, then: '
+          '<b>checkpoint score = (auto points + rubric points) / total possible &times; 100</b>. Mastery is 85. Below 85: teach a targeted review lesson on the parts missed (A to D), then the student retakes the checkpoint. Record both attempts in the Weekly Score Log.</p>')
+
+
 def teacher_page(L, T, P, week, subj):
     rows = ''.join(f"<tr><td style='white-space:nowrap'>{m} min</td><td><b>{h}</b><br>{d}</td></tr>" for m, h, d in T['flow'])
     keys = ''
@@ -127,8 +133,8 @@ def teacher_page(L, T, P, week, subj):
 {('<h3>Background for the teacher</h3>' + T['background']) if T.get('background') else ''}
 {('<h3>Sources</h3>' + lst(T['sources'])) if T.get('sources') else ''}
 <h3>How the lesson runs</h3><p>During the live lesson, the student shares their screen and answers the Reconnect questions and the Learn checks live while you teach. The Hands-On activity, Think Deeper and Exit Check are completed after class.</p>
-<h3>Scoring</h3><p>The interactive lesson scores itself: full points on the first try, half points on the second try, then the answer and explanation appear. Mastery is 85. Written responses arrive in your Formspree email with the score; score them with the rubric below before the student moves on.</p>
-<h3>Answer key: interactive lesson</h3>{keys}
+<h3>Scoring</h3><p>The interactive lesson scores itself: full points on the first try, half points on the second try, then the answer and explanation appear. Mastery is 85. Written responses arrive in your results email with the score; score them with the rubric below before the student moves on.</p>
+{CPRULE if L.get('checkpoint') else ''}<h3>Answer key: interactive lesson</h3>{keys}
 <h3>Answer key: printable page</h3><ol class="key">{pkey}</ol>
 </div>'''
     return (HEAD.format(title=f"Teacher Plan G6 W{week} {SUBJECT_NAMES[subj]}", css=CSS + PRINT_CSS, extra='') +
@@ -155,6 +161,7 @@ def parent_page(G, week):
                    f"<p><b>Signs it's clicking:</b> {G[s]['clicking']} <b>Signs they need help:</b> {G[s]['help']}</p></div>" for s in SUBJ_ORDER if s in G)
     extra = ''
     extra += "<p><b>How scoring works:</b> each lesson scores itself. Your child gets two tries per question: full points on the first try, half points on the second, then the answer and explanation appear. A score of 85 or higher means the lesson is mastered. Written answers go to Jonathan, who scores them with a rubric.</p>"
+    if week % 5 == 0: extra += "<p><b>Checkpoint scoring:</b> checkpoint questions give one try and do not show answers, so the checkpoint fairly measures what your child can do alone. Jonathan adds the points for written answers and shares the checkpoint score. Mastery is 85; below 85 means a review lesson, then a retake. Projects below 85 are returned with feedback and revised once.</p>"
     if G.get('time'): extra += f"<p><b>Time this week:</b> {G['time']}</p>"
     if G.get('gather'): extra += f"<p><b>Gather this week:</b> {G['gather']}</p>"
     if G.get('heads_up'): extra += f"<p><b>Heads up:</b> {G['heads_up']}</p>"

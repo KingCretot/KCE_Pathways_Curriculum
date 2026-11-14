@@ -6,7 +6,7 @@
 'use strict';
 var L = window.LESSON, FORMSPREE_ID = 'mojgzadl', MASTERY = 85;
 var NAME_KEY = 'kcePathwaysStudentName', PROG_KEY = 'kce_pathways_progress';
-var state = { earned:0, possible:0, answered:{}, written:{}, slide:0 };
+var state = { earned:0, possible:0, answered:{}, written:{}, slide:0, cpEarned:0, cpPossible:0, cpOpenPts:0 };
 var $ = function(s,r){ return (r||document).querySelector(s); };
 function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 
@@ -118,7 +118,10 @@ function qHTML(q, group){
 function wire(root){
   root.querySelectorAll('.q').forEach(function(el){
     var rec = QS[el.id]; if(!rec || el._wired) return; el._wired = 1;
-    if(rec.q.t!=='open') state.possible += (rec.q.pts||2);
+    var isCP = rec.group==='checkpoint';
+    if(isCP){ if(rec.q.t!=='open') state.cpPossible += (rec.q.pts||2); else state.cpOpenPts += (rec.q.pts||4); }
+    else if(rec.q.t!=='open') state.possible += (rec.q.pts||2);
+    if(isCP && b) b.textContent = 'Submit answer';
     var b = el.querySelector('.check'), s = el.querySelector('.save');
     if(s) s.addEventListener('click', function(){
       var v = el.querySelector('textarea').value.trim(), words = v? v.split(/\s+/).length : 0, min = rec.q.min||0;
@@ -131,6 +134,11 @@ function wire(root){
       if(rec.done) return;
       var ok = checkQ(rec.q, el), fb = el.querySelector('.fb'), why = el.querySelector('.why'), p = rec.q.pts||2;
       rec.tries++;
+      if(rec.group==='checkpoint'){   // one try, no answer shown: the checkpoint measures independent mastery
+        if(ok) state.cpEarned += p; rec.done = true; rec.ok = ok;
+        fb.className='fb'; fb.textContent='Answer recorded.'; lock(el);
+        state.answered[el.id] = { ok: ok, tries: 1 }; hud(); save(); return;
+      }
       if(ok){
         var got = rec.tries===1 ? p : p/2; state.earned += got; rec.done = true;
         fb.className='fb ok'; fb.textContent = rec.tries===1 ? 'Correct! +'+p : 'Correct on try 2. +'+got;
@@ -159,7 +167,7 @@ function build(){
     (L.subtitle?'<p class="sub">'+esc(L.subtitle)+'</p>':'')+
     '<div class="card"><h3>Before you start</h3><p>Type your first and last name so your work goes to KingCretot Experience and your parent or teacher.</p>'+
     '<div class="row"><input id="fn" placeholder="First name" autocomplete="given-name"> <input id="ln" placeholder="Last name" autocomplete="family-name"></div></div>'+
-    '<div class="card"><h3>How this lesson works</h3><ul><li>Most questions ask you to <b>work out and type</b> the answer, not pick it. For number answers, type the number; the unit is shown for you.</li><li>You get <b>2 tries</b>. Full points on try 1, half points on try 2, then the answer and the reason appear.</li><li>Written responses go to your teacher, who scores them with the rubric.</li><li>Mastery is <b>85</b> or higher.</li></ul></div>'+
+    '<div class="card"><h3>How this lesson works</h3><ul><li>Most questions ask you to <b>work out and type</b> the answer, not pick it. For number answers, type the number; the unit is shown for you.</li><li>You get <b>2 tries</b>. Full points on try 1, half points on try 2, then the answer and the reason appear.'+(L.checkpoint?' <b>Checkpoint questions are different: one try, and answers are not shown.</b>':'')+'</li><li>Written responses go to your teacher, who scores them with the rubric.</li><li>Mastery is <b>85</b> or higher.</li></ul></div>'+
     (L.objectives?'<div class="card"><h3>By the end of this lesson you can</h3><ul>'+L.objectives.map(function(o){return '<li>'+o+'</li>';}).join('')+'</ul></div>':''));
   if(L.reconnect) addSlide('reconnect','Reconnect',
     '<h2>Reconnect: '+esc(L.reconnect.title)+'</h2><p>'+L.reconnect.intro+'</p>'+L.reconnect.items.map(function(q){return qHTML(q,'reconnect');}).join(''));
@@ -203,6 +211,7 @@ function go(i){
   window.scrollTo(0,0);
 }
 function score(){ return state.possible ? Math.round(state.earned/state.possible*100) : 0; }
+function cpScore(){ return state.cpPossible ? Math.round(state.cpEarned/state.cpPossible*100) : 0; }
 function hud(){
   var done = Object.keys(state.answered).length, total = Object.keys(QS).filter(function(k){return QS[k].q.t!=='open';}).length;
   $('#hudScore').textContent = score(); $('#hudDone').textContent = done+'/'+total;
@@ -223,12 +232,16 @@ function finish(){
     r.innerHTML = '<div class="card warn"><p>You have answered <b>'+done+' of '+total+'</b> scored questions. Go back and finish them, then return here to send your results.</p></div>';
     return;
   }
-  var mastered = s>=MASTERY;
-  r.innerHTML = '<div class="bigscore '+(mastered?'ok':'bad')+'">'+s+'<span>/100</span></div>'+
+  var mastered = s>=MASTERY, cp = L.checkpoint ? cpScore() : null;
+  r.innerHTML = '<h3 class="center">Lesson score</h3><div class="bigscore '+(mastered?'ok':'bad')+'">'+s+'<span>/100</span></div>'+
     '<p class="center">'+(mastered?'Mastered! You are ready for the next lesson.':'Not mastered yet. Review the parts you missed, then replay this lesson to reach 85.')+'</p>'+
+    (cp!==null?'<div class="card"><h3>Checkpoint</h3><p>Your checkpoint answers are recorded: <b>'+state.cpEarned+' of '+state.cpPossible+'</b> auto-scored points ('+cp+'%). Your teacher adds the points for your written answers'+(state.cpOpenPts?' (worth '+state.cpOpenPts+' points)':'')+' and tells you your checkpoint score. Mastery is 85. Below 85, your teacher reviews with you first, then you retake the checkpoint.</p></div>':'')+
     (savedW<opens?'<div class="card warn"><p>You saved '+savedW+' of '+opens+' written responses. Save them before sending so your teacher can score them.</p></div>':'')+
     '<div class="center"><button class="btn" id="sendBtn">Send my results to KingCretot Experience</button><p id="sendStatus" class="muted"></p></div>';
   $('#sendBtn').addEventListener('click', function(){ report(s, mastered); });
+}
+function cpDetail(){
+  return Object.keys(QS).filter(function(k){ return QS[k].group==='checkpoint' && QS[k].q.t!=='open'; }).map(function(k,i){ var r=QS[k]; return (i+1)+'. '+(r.ok?'correct':'MISSED')+' ('+(r.q.pts||2)+' pts): '+r.q.q.replace(/<div class=.cp-text.>[\s\S]*?<\/div><\/div>/,'').replace(/<[^>]+>/g,'').slice(0,90); }).join('\n');
 }
 function report(s, mastered){
   var name = (localStorage.getItem(NAME_KEY)||'').trim() || 'Unnamed Student', all = {};
@@ -237,6 +250,7 @@ function report(s, mastered){
   all[L.id] = rec; try{ localStorage.setItem(PROG_KEY, JSON.stringify(all)); }catch(e){}
   var written = Object.keys(state.written).map(function(k,i){ return (i+1)+'. '+state.written[k].prompt+'\n>> '+state.written[k].response; }).join('\n\n');
   var payload = { _subject: 'Grade 6 '+L.subjectName+' W'+L.week+' — '+name+' — '+s, student:name, module:L.id, lesson:L.title, score:s, mastered:mastered, attempts:rec.attempts, written_responses: written || '(none)', timestamp:new Date().toISOString() };
+  if(L.checkpoint){ payload.checkpoint_auto = state.cpEarned+' of '+state.cpPossible+' points ('+cpScore()+'%)'; payload.checkpoint_written_points_to_add = state.cpOpenPts; payload.checkpoint_total_possible = state.cpPossible + state.cpOpenPts; payload.checkpoint_rule = 'Checkpoint score = (auto points + rubric points for written items) / total possible x 100. Mastery 85.'; payload.checkpoint_items = cpDetail(); payload._subject += ' | Checkpoint auto '+state.cpEarned+'/'+state.cpPossible; }
   var st = $('#sendStatus'); st.textContent = 'Sending...';
   fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
     .then(function(r){ st.textContent = r.ok ? 'Sent to KingCretot Experience.' : 'Could not send. Tell your parent or teacher your score: '+s; })
