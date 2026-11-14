@@ -80,7 +80,7 @@ LESSON = {
     {"t":"open","key":"whymarkup","q":"A shopper says, \"The store buys this lamp for $20 and sells it for $35. That's a rip-off!\" Explain why stores need a markup, using at least two costs from the lesson.","min":25,"rows":3,"rubric":["The store must pay for more than the item: rent, workers, shipping","Some profit is needed to stay in business"],"model":"The $15 markup is not all profit. The store has to pay rent for the building, wages for workers and shipping to get the lamp there. If it sold the lamp for $20, it would lose money and close."}]},
   {"title": "Tips: Paying for Good Service",
    "visual": TIPS,
-   "html": "<p>At a sit-down restaurant in the United States, diners usually leave a <b>tip</b> of 15% to 20% of the bill, figured on the amount before tax. Tips are a large part of servers' pay; in Florida, restaurants may pay tipped workers a lower hourly wage because tips are expected to make up the difference.</p><p>You can find most tips in your head by starting with 10%:</p><ul><li>10%: move the decimal point one place left. 10% of $48 = $4.80.</li><li>5%: half of 10%. 5% of $48 = $2.40.</li><li>15% = 10% + 5% = $7.20.</li><li>20% = double 10% = $9.60.</li></ul><p>Many people round a tip to a convenient amount, such as $7.25 or $10.</p>",
+   "html": "<p>At a sit-down restaurant in the United States, diners usually leave a <b>tip</b> of 15% to 20% of the bill, figured on the amount before tax. Tips are a large part of servers' pay; in Florida, restaurants may pay tipped workers a lower hourly wage ($11.98 instead of $15.00 since September 30, 2026) because tips are expected to make up the difference; if tips fall short, the employer must pay the rest.</p><p>You can find most tips in your head by starting with 10%:</p><ul><li>10%: move the decimal point one place left. 10% of $48 = $4.80.</li><li>5%: half of 10%. 5% of $48 = $2.40.</li><li>15% = 10% + 5% = $7.20.</li><li>20% = double 10% = $9.60.</li></ul><p>Many people round a tip to a convenient amount, such as $7.25 or $10.</p>",
    "checks": [
     {"t":"num","q":"Find a 20% tip on a $45 bill.","a":9,"unit":"dollars","show":"$9","pts":2,"why":"10% = $4.50; double it: $9."},
     {"t":"num","q":"Find a 15% tip on a $38 bill.","a":5.7,"unit":"dollars","show":"$5.70","pts":2,"why":"10% = $3.80; 5% = $1.90; total $5.70."},
@@ -139,13 +139,13 @@ TEACHER = {
  "support": ["Use 10-block tape diagrams for every discount.", "Start each problem by writing \"percent of ___.\"", "Practice tips only with 10% and 20% before adding 15%."],
  "challenge": ["Find the single discount equal to 25% off followed by 20% off (40%), and explain why.", "Research the tip credit for tipped workers in Florida and calculate a server's hourly pay with and without tips for one evening."],
  "background": "<p>Discount: sale price = original × (1 − rate). Markup: price = cost × (1 + rate); markup percent is based on cost (retailers sometimes quote margin, a percent of price, instead; this lesson uses markup on cost only). Successive discounts multiply: 0.7 × 0.8 = 0.56, a 44% total discount. Discount and tax commute because both are multiplications: 80 × 0.75 × 1.075 = 80 × 1.075 × 0.75 = 64.5. In Florida, sales tax applies to the price after a store discount; manufacturers' coupons are handled differently, which this lesson does not address. U.S. tipping convention at sit-down restaurants is about 15% to 20% of the pre-tax bill. Florida allows employers a tip credit, so tipped employees may be paid a lower direct hourly wage than the state minimum, with tips making up the difference.</p>",
- "sources": ["Florida Department of Revenue, Sales and Use Tax on retail sales (discounts and coupons).", "FloridaCommerce, Florida Minimum Wage notice (tipped employees).", "Jump$tart Coalition, National Standards for Personal Financial Education (Spending)."]
+ "sources": ["Florida Department of Revenue, Sales and Use Tax on retail sales (discounts and coupons).", "FloridaCommerce (Florida Department of Commerce), Florida Minimum Wage notice (tipped employees).", "Jump$tart Coalition, National Standards for Personal Financial Education (Spending)."]
 }
 
 PRINT = {
  "directions": "Show your work.",
  "items": [
-  {"q":"A $80 scooter is 15% off. Find the sale price in two ways.","a":"Discount $12, $80 − $12 = $68; or 85% of $80 = $68.","lines":2},
+  {"q":"An $80 scooter is 15% off. Find the sale price in two ways.","a":"Discount $12, $80 − $12 = $68; or 85% of $80 = $68.","lines":2},
   {"q":"A sale price of $42 is 30% off. What was the original price?","a":"$42 is 70%; 10% = $6; original $60.","lines":2},
   {"q":"A shop pays $30 for a lamp and uses a 50% markup. Find the selling price and the profit.","a":"Price $45; profit $15.","lines":2},
   {"q":"A craft fair seller buys supplies for $5 and sells the item for $8. What is the markup percent?","a":"$3 ÷ $5 = 60%.","lines":2},

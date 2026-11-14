@@ -83,3 +83,4 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Present debated attributions as debated (Enheduanna). Add a primary-source excerpt when SS.6.W.1.3 is listed.
 
 - Engine norm() strips the words a/an/the: never key letter patterns with spaces ("a b a b"); key rhyme schemes as one token ("abab") and ask for letters with no spaces.
+- Quotations from old translations (Legge): print with American spelling and say so in the credit ("spelling Americanized"), pending Jonathan's decision Nov 14.
