@@ -15,7 +15,7 @@ GUIDE = {
   "topic": "Symbols and Theme",
   "what": "Your child explains how the club, the fire and the trail work as symbols, tells a topic from a theme and writes a theme as a full sentence, traces how a theme grows across chapters with evidence, and compares the skilled drivers François and Perrault with the unprepared Hal, Charles and Mercedes.",
   "ask": "\"What do you think London is saying about survival, and which moment shows it?\"",
-  "try": "Ask your child to explain the symbol poster to you object by object.",
+  "try": "Ask your child to explain the symbol museum to you object by object.",
   "clicking": "They write a theme as a sentence, such as \"Knowledge of a place matters more than wealth when surviving it,\" instead of one word like \"survival.\"",
   "help": "They give a topic (\"nature\") instead of a theme. Ask, \"What does the story say about nature?\""},
  "science": {

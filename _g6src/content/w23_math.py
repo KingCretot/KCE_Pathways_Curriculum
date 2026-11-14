@@ -44,7 +44,7 @@ LESSON = {
   {"title": "Expressions, Equations and Solutions",
    "html": "<p>An <b>expression</b> like s + 14 has no equal sign; it names a value. An <b>equation</b> like s + 14 = 67 says two expressions are equal. A <b>solution</b> is a value that makes the equation true: s = 53, because 53 + 14 = 67.</p><p>You can test any value by substituting it. If both sides are equal, it's a solution; if not, it isn't.</p>",
    "checks": [
-    {"t":"text","q":"Is 3x + 1 an expression or an equation?","a":[{"all":[["expression"]],"none":["not expression","equation"]}],"show":"an expression","pts":2,"why":"It has no equal sign."},
+    {"t":"text","q":"Is 3x + 1 an expression or an equation?","a":["^expression",{"all":[["expression"]],"none":["not expression","equation"]}],"show":"an expression","pts":2,"why":"It has no equal sign."},
     {"t":"text","q":"Is n = 8 a solution of 6n = 42? Type yes or no.","a":[{"all":[["no"]],"none":["yes"]}],"show":"no","pts":2,"why":"6(8) = 48, not 42. The solution is n = 7."},
     {"t":"open","key":"exprvseq","q":"Explain the difference between an expression and an equation in your own words, with an example of each from shopping.","min":20,"rows":2,"rubric":["An expression names a value (no equal sign); an equation says two things are equal","A shopping example of each"],"model":"An expression is like a price formula, such as 4p + 3 for 4 shirts plus $3 shipping. An equation says two things are equal, such as 4p + 3 = 39, which tells me the total was $39."}]},
   {"title": "Solving with Inverse Operations",
@@ -59,7 +59,7 @@ LESSON = {
    "html": "<p>To write an equation from a word problem:</p><ol><li>Decide what the variable stands for, and write it down: \"Let c = the cost of one notebook.\"</li><li>Find the relationship and write the equation.</li><li>Solve and check, then answer in a sentence with units.</li></ol><p>Example: A Florida spring's water temperature is 72°F, which is 19 degrees warmer than the nearby river. Let r = the river's temperature. r + 19 = 72, so r = 53°F.</p>",
    "checks": [
     {"t":"text","q":"Five friends split a $65 kayak rental equally. Let s = each person's share. Write the equation.","a":["5s=65","5s = 65","65=5s","65 = 5s","5 s = 65"],"show":"5s = 65","pts":2,"why":"Five shares make $65. (Each share is $13.)"},
-    {"t":"num","q":"A spider plant grew 4.5 inches this month and is now 18.25 inches tall. How tall was it at the start of the month? (h + 4.5 = 18.25)","a":13.75,"tol":0.01,"unit":"inches","pts":2,"why":"Subtract 4.5: h = 13.75 inches."},
+    {"t":"num","q":"A spider plant grew 4.5 inches this month and is now 18.25 inches tall. How tall was it at the start of the month? Write and solve an equation.","a":13.75,"tol":0.01,"unit":"inches","pts":2,"why":"Subtract 4.5: h = 13.75 inches."},
     {"t":"open","key":"writeeq","q":"Write your own one-step word problem about something in your home or homeschool, write its equation with a defined variable, solve it and check it.","min":36,"rows":4,"rubric":["A realistic word problem","A defined variable and correct one-step equation","Correct solution and check"],"model":"Problem: We need 48 cupcakes for a co-op party, and each pan holds 12. How many pans do we need? Let p = number of pans. 12p = 48. Divide both sides by 12: p = 4. Check: 12 × 4 = 48."}]},
   {"title": "Money: Solving for a Missing Price",
    "html": "<p>Shoppers and business owners often know a total and need a missing piece:</p><ul><li><b>Missing item price:</b> a receipt shows $42.80 for 4 identical books: 4b = 42.80, so b = $10.70 each.</li><li><b>Missing original price:</b> after a $15 discount, a jacket costs $49: p − 15 = 49, so p = $64.</li><li><b>Missing quantity:</b> Maya made $108 selling $9 loaves: 9n = 108, so n = 12 loaves.</li></ul>",
@@ -89,14 +89,16 @@ LESSON = {
   {"t":"num","q":"Solve: n + 23 = 51","a":28,"pts":2,"why":"Subtract 23: n = 28."},
   {"t":"num","q":"Solve: 7y = 84","a":12,"pts":2,"why":"Divide by 7: y = 12."},
   {"t":"num","q":"Four tickets cost $46. What is the price of one ticket?","a":11.5,"tol":0.001,"unit":"dollars","pts":2,"why":"4t = 46, so t = $11.50."},
-  {"t":"open","key":"exit_check","q":"Why should you always check your solution, and how do you do it?","min":12,"rows":2,"rubric":["Substitute the value into the original equation to see whether both sides are equal","Catches mistakes"],"model":"Substitute your answer into the original equation; if both sides are equal, it's right. Checking catches mistakes like using the wrong operation."}],
+  {"t":"open","key":"exit_check","q":"Why should you always check your solution, and how do you do it?","min":12,"rows":2,"rubric":["Explains how to check a solution","Explains why checking matters"],"model":"Substitute your answer into the original equation; if both sides are equal, it's right. Checking catches mistakes like using the wrong operation."}],
  "next": "Week 24: inequalities, and staying within a budget."
 }
 
 TEACHER = {
  "standards": [
   "MA.6.AR.2.1: Given an equation or inequality and a specified set of integer values, determine which values make the equation or inequality true or false.",
-  "MA.6.AR.2.2: Write and solve one-step equations in one variable within a mathematical or real-world context using addition, subtraction, multiplication and division, where all terms and solutions are integers, fractions or decimals.",
+  "MA.6.AR.2.2: Write and solve one-step equations in one variable within a mathematical or real-world context using addition and subtraction, where all terms and solutions are integers.",
+  "MA.6.AR.2.3: Write and solve one-step equations in one variable within a mathematical or real-world context using multiplication and division, where all terms and solutions are integers.",
+  "MA.6.AR.2.4: Determine the unknown decimal or fraction in an equation involving any of the four operations, relating three numbers, with the unknown in any position.",
   "MA.6.AR.1.1: Given a mathematical or real-world context, translate written descriptions into algebraic expressions and translate algebraic expressions into written descriptions.",
   "Financial literacy: unit prices, discounts and checking receipts (Jump$tart Spending and Saving)."],
  "materials": ["The interactive lesson", "A clothes hanger, 2 cups and string, about 30 pennies or beans, an envelope", "Paper, pencil, optional real receipts", "Printable practice page"],
@@ -111,8 +113,8 @@ TEACHER = {
  "key_questions": ["What operation is being done to the variable?", "What undoes it?", "Did you do the same thing to both sides?", "Does your answer make the original equation true?"],
  "misconceptions": ["Using the same operation instead of the inverse.", "Doing an operation to only one side.", "An expression can be solved.", "Forgetting to answer the question with units."],
  "support": ["Use the hanger balance or a drawn balance for every problem.", "Provide an inverse-operations chart.", "Allow guess-and-check before formal solving."],
- "challenge": ["Solve (5/6)x = 2.5 and explain each step.", "Write a two-step equation for Maya's 9n + 4 = 85 and solve it."],
- "background": "<p>Two-step equations are not required by Grade 6 B.E.S.T. (MA.6.AR.2.2 is one-step); the reconnect and challenge preview them informally. Inequalities follow in Week 24. Prices are practice figures.</p>",
+ "challenge": ["Solve (5/6)x = 2.5 and explain each step.", "Solve Maya's two-step equation 9n + 4 = 85 and explain each step."],
+ "background": "<p>Two-step equations are not required by Grade 6 B.E.S.T. (MA.6.AR.2.2 and 2.3 are one-step; 2.4 covers decimal and fraction unknowns); the reconnect and challenge preview them informally. Inequalities follow in Week 24. Prices are practice figures.</p>",
  "sources": ["Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "Jump$tart Coalition, National Standards for Personal Financial Education (2021)."]
 }
 
