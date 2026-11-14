@@ -87,3 +87,10 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Checkpoint open items never show their rubric to the student (engine fix Nov 14); do not put answers in checkpoint question text either.
 - Engine (Nov 14): norm() and parseNum() turn the Unicode minus (−) and en dash into a hyphen, so −18 and -18 grade the same; keys for negatives may use either.
 - Never key the symbols < or > (norm strips them). Ask for the words less/greater instead.
+
+## Added Nov 14 (Week 16 review)
+- Matching treats "-" as a word boundary: a bare key "75" also accepts "-75", and a none term "6" also rejects "-6". Anchor positive-number keys with "^" ("^75") and never put a bare number in a none list when the correct answer is its negative.
+- A none term matches at any word start: "ii" in a none list rejects the correct answer "iii". Check every none term against the correct answer.
+- scope.py is the authority for unit names and week titles; "next" lines must match it.
+- Standards text must match CPALMS word for word (ELA.6.R.2.4 says "identifying"; ELA.6.C.1.3 is "Write and support a claim using logical reasoning, relevant evidence from sources, elaboration, and a logical organizational structure with varied transitions.").
+- Integer operations (MA.6.NSO.4.1, 4.2) are Grade 6 B.E.S.T., taught in Weeks 18 and 19.

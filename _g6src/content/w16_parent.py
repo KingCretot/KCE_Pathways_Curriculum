@@ -6,7 +6,7 @@ GUIDE = {
  "heads_up": "Science: start the food-coloring test on the first day, because it needs 24 hours. Food coloring stains skin and fabric, so use old clothes; an adult does all cutting, and the stained plant should not be eaten. Social Studies includes running a relay: choose a clear, safe path away from streets and driveways, and walk through doorways and corners. ELA's argument lesson mentions drowning statistics for young children in a practice essay about swim lessons; if water is a sensitive topic in your family, you may want to read it together.",
  "math": {
   "topic": "Integers, Opposites and Absolute Value",
-  "what": "Your child uses positive and negative numbers to describe elevations, temperatures and money, places integers on a number line, compares and orders them, finds opposites and absolute value, and tracks a bank balance that goes below zero.",
+  "what": "Your child uses positive and negative numbers to describe elevations, temperatures and money, places integers on a number line, compares and orders them, finds opposites and absolute value, and tracks a bank balance that goes below zero by counting on a number line (adding and subtracting integers comes in Week 18).",
   "ask": "\"What does zero mean in this situation, and which side of zero is this number on?\"",
   "try": "Check a weather app for a cold city and compare its temperature with yours using \"less than\" and \"greater than.\"",
   "clicking": "They explain that -8 is less than -3 because it is farther left on the number line.",
@@ -31,5 +31,5 @@ GUIDE = {
   "ask": "\"Was Persian tolerance kindness, a smart strategy or both?\"",
   "try": "Run the relay together and compare the walking time with the relay time.",
   "clicking": "They ask who wrote a source and why before trusting it.",
-  "help": "They mix up Persians and Arabs. Explain that Persians speak Persian (Farsi), a different language, and are the main people of Iran."}
+  "help": "They mix up Persians and Arabs. Explain that Persians speak Persian (Farsi), a different language, and are the largest of the many peoples of Iran."}
 }
