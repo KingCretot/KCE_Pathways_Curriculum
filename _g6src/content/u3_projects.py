@@ -25,7 +25,7 @@ ELA = """<div class='proj first'><h2>ELA: Poetry Analysis Project</h2>
  ("Recitation", ["Fully memorized; confident voice, varied pace and pauses that bring out meaning; eye contact.", "Memorized with few slips; clear voice; pauses at punctuation.", "Several slips or reading; rushed or too quiet.", "Not memorized or not recorded."])]) + "</div>"
 
 SCI = """<div class='proj'><h2>Science: Field Guide Project</h2>
-<p><b>Task:</b> Create a field guide to at least 8 living things near your home: at least 5 you observed in person, at least 1 fungus, and 1 microorganism page. Fieldwork and drafting in Week 15.</p>
+<p><b>Task:</b> Create a field guide to at least 6 living things near your home, at least 5 of them observed in person and at least 1 of them a fungus (such as a mushroom or a bracket fungus on a log), plus 1 microorganism page. Fieldwork and drafting in Week 15.</p>
 <p><b>Must include:</b> a cover and a table of contents; one page per organism with a labeled drawing or your own photo, the common name, the scientific name written correctly, classification as far as you can find it (domain to genus), at least two observable identifying traits, where and when you saw it, one fact about how it lives, and whether it is native to Florida or invasive; a microorganism page (for example, the mold from your bread test or Karenia brevis); a tested dichotomous key to all of your organisms; a sources page.</p>
 <p><b>Safety:</b> observe with an adult; look but don't touch unknown plants and animals; no collecting in state parks; wash hands after fieldwork.</p>
 <p><b>Turn in:</b> the field guide (paper, photos of the pages, or a slide file), your Week 15 field notes and your key-test notes.</p>""" + rubric([

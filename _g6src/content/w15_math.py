@@ -29,9 +29,9 @@ LESSON = {
   "title": "Weeks 11 to 14: Unit 3 warm-up",
   "intro": "One question from each week of the unit.",
   "items": [
-   {"t":"num","q":"Week 11: a 32-ounce jar of peanut butter costs $5.12. What is the unit price in cents per ounce? (Type the number of cents.)","a":16,"unit":"cents per ounce","pts":2,"why":"$5.12 ÷ 32 = $0.16 = 16 cents per ounce."},
+   {"t":"num","q":"Week 11: a 32-ounce bottle of laundry detergent costs $5.12. What is the unit price in cents per ounce? (Type the number of cents.)","a":16,"unit":"cents per ounce","pts":2,"why":"$5.12 ÷ 32 = $0.16 = 16 cents per ounce."},
    {"t":"num","q":"Week 12: 21 is 35% of what number?","a":60,"pts":2,"why":"35% → 21, so 5% → 3, so 100% → 60."},
-   {"t":"num","q":"Week 13: a $70 tent is 30% off. What is the sale price?","a":49,"unit":"dollars","show":"$49","pts":2,"why":"Pay 70%: 0.7 × $70 = $49."},
+   {"t":"num","q":"Week 13: a $70 sleeping bag is 30% off. What is the sale price?","a":49,"unit":"dollars","show":"$49","pts":2,"why":"Pay 70%: 0.7 × $70 = $49."},
    {"t":"num","q":"Week 14: how many ounces are in 4 pounds?","a":64,"unit":"ounces","pts":2,"why":"4 × 16 = 64 ounces."}]},
  "hook": {
   "title": "A Care Package to a Pen Pal",
@@ -49,7 +49,7 @@ LESSON = {
    "checks": [
     {"t":"num","q":"A $36 box of chapter books is 25% off. Then 7.5% sales tax is added to the sale price. What is the total? Round to the nearest cent.","a":29.03,"unit":"dollars","show":"$29.03","pts":3,"why":"Sale: 0.75 × $36 = $27. Tax: $27 × 0.075 = $2.025, about $2.03. Total $29.03."},
     {"t":"num","q":"A bookstore buys a dictionary for $16 and sells it for $28. What is the markup percent?","a":75,"unit":"%","pts":2,"why":"Markup $12; $12 ÷ $16 = 0.75 = 75%."},
-    {"t":"num","q":"After a 20% discount, a backpack costs $32. What was the original price?","a":40,"unit":"dollars","show":"$40","pts":3,"why":"$32 is 80%: 80% → 32, 10% → 4, 100% → 40."},
+    {"t":"num","q":"After a 20% discount, a microscope kit costs $32. What was the original price?","a":40,"unit":"dollars","show":"$40","pts":3,"why":"$32 is 80%: 80% → 32, 10% → 4, 100% → 40."},
     {"t":"num","q":"The co-op parents' lunch bill is $86 before tax. They leave an 18% tip on that amount. How much is the tip?","a":15.48,"unit":"dollars","show":"$15.48","pts":2,"why":"0.18 × $86 = $15.48."}]},
   {"title": "Review: Converting Units and Currency",
    "html": "<p>Going to a smaller unit, multiply; going to a larger unit, divide. Metric conversions move the decimal point. For money, multiply by the exchange rate to convert dollars into the other currency, and divide to convert back.</p><div class='card' style='font-family:Georgia,serif'>Example rate for this lesson: 1 U.S. dollar = 155 Jamaican dollars (JMD). Real rates change daily.</div>",
@@ -59,7 +59,7 @@ LESSON = {
     {"t":"num","q":"A storybook costs $12 in Florida. At 1 USD = 155 JMD, how many Jamaican dollars is that?","a":1860,"unit":"Jamaican dollars","pts":2,"why":"12 × 155 = 1,860 JMD."},
     {"t":"open","key":"rv_convert","q":"Tomás converts 2,400 grams to kilograms and gets 2,400,000. Explain his mistake and give the correct answer.","min":15,"rows":2,"rubric":["Kilograms are larger, so he should divide by 1,000, not multiply","Correct answer: 2.4 kg"],"model":"A kilogram is bigger than a gram, so there should be fewer kilograms. He should divide by 1,000: 2,400 g = 2.4 kg."}]},
   {"title": "Money: Mid-Year Money Review",
-   "html": "<p>Shipping companies often offer two choices:</p><ul><li><b>By weight:</b> a price per pound (or part of a pound).</li><li><b>Flat rate:</b> one price for a box, whatever it weighs, as long as everything fits.</li></ul><p>Example: international shipping to Jamaica costs $9.50 plus $3.25 per pound, or a flat-rate box costs $44. For a 6-pound package, the weight price is $9.50 + 6 × $3.25 = $29. The flat rate is better only for heavy packages.</p>",
+   "html": "<p>Shipping companies often offer two choices:</p><ul><li><b>By weight:</b> a starting fee plus a price per pound. (Real carriers often round up to the next whole pound; this lesson uses exact weights.)</li><li><b>Flat rate:</b> one price for a box, whatever it weighs, as long as everything fits.</li></ul><p>Example: international shipping to Jamaica costs $9.50 plus $3.25 per pound, or a flat-rate box costs $44. For a 6-pound package, the weight price is $9.50 + 6 × $3.25 = $29. The flat rate is better only for heavy packages.</p>",
    "checks": [
     {"t":"num","q":"Using the example prices ($9.50 plus $3.25 per pound), what does it cost to ship a 10-pound package by weight?","a":42,"unit":"dollars","show":"$42","pts":2,"why":"$9.50 + 10 × $3.25 = $9.50 + $32.50 = $42."},
     {"t":"num","q":"At what weight in pounds does shipping by weight cost the same as the $44 flat-rate box? Round to the nearest tenth of a pound.","a":10.6,"unit":"pounds","pts":3,"why":"$44 − $9.50 = $34.50; $34.50 ÷ $3.25 ≈ 10.6 pounds."},
@@ -90,24 +90,24 @@ LESSON = {
    {"title": "Part A: Unit rates", "items": [
     {"t":"num","q":"A farm stand sells 5 pounds of oranges for $6.25. What is the price per pound?","a":1.25,"unit":"dollars per pound","show":"$1.25","pts":3,"why":"$6.25 ÷ 5 = $1.25."},
     {"t":"num","q":"A cyclist rides 27 miles in 1 1/2 hours. What is her speed in miles per hour?","a":18,"unit":"miles per hour","pts":3,"why":"27 ÷ 1.5 = 18."},
-    {"t":"text","q":"Which is the better buy: A) 20 ounces of rice for $2.40 or B) 32 ounces for $3.52? Type A or B.","a":[{"all":[["b"]],"none":["not"]}],"show":"B ($0.11 per ounce vs. $0.12)","pts":3,"why":"A: $2.40 ÷ 20 = $0.12 per ounce. B: $3.52 ÷ 32 = $0.11 per ounce."}]},
+    {"t":"text","q":"Which is the better buy: A) 20 ounces of rice for $2.40 or B) 32 ounces for $3.52? Type A or B.","a":["^b","option b","choice b"],"show":"B ($0.11 per ounce vs. $0.12)","pts":3,"why":"A: $2.40 ÷ 20 = $0.12 per ounce. B: $3.52 ÷ 32 = $0.11 per ounce."}]},
    {"title": "Part B: Percents", "items": [
-    {"t":"blanks","q":"Complete the conversions.","sent":"0.35 = ___% &nbsp; 3/8 = ___%","blanks":[["35"],["37.5"]],"show":"35; 37.5","pts":3,"why":"0.35 × 100 = 35%; 3 ÷ 8 = 0.375 = 37.5%."},
+    {"t":"blanks","q":"Complete the conversions.","sent":"0.35 = ___% &nbsp; 5/8 = ___%","blanks":[["35"],["62.5"]],"show":"35; 62.5","pts":3,"why":"0.35 × 100 = 35%; 5 ÷ 8 = 0.625 = 62.5%."},
     {"t":"num","q":"What is 45% of 80?","a":36,"pts":3,"why":"0.45 × 80 = 36 (or 10% = 8, 40% = 32, 5% = 4)."},
     {"t":"num","q":"27 is 60% of what number?","a":45,"pts":3,"why":"60% → 27, 20% → 9, 100% → 45."},
     {"t":"num","q":"Nadia answered 42 out of 48 questions correctly. What percent is that?","a":87.5,"unit":"%","pts":3,"why":"42 ÷ 48 = 0.875 = 87.5%."}]},
    {"title": "Part C: Discounts, tax, tips and markups", "items": [
     {"t":"num","q":"A $64 pair of hiking boots is 35% off. What is the sale price?","a":41.6,"unit":"dollars","show":"$41.60","pts":3,"why":"Pay 65%: 0.65 × $64 = $41.60."},
     {"t":"num","q":"Find the total cost of a $48 item with 7.5% sales tax.","a":51.6,"unit":"dollars","show":"$51.60","pts":3,"why":"Tax $3.60; total $51.60."},
-    {"t":"num","q":"A shop pays $24 for a lamp and uses a 60% markup. What is the selling price?","a":38.4,"unit":"dollars","show":"$38.40","pts":3,"why":"60% of $24 = $14.40; $24 + $14.40 = $38.40."},
+    {"t":"num","q":"A sporting goods store pays $40 for a soccer ball and uses a 45% markup. What is the selling price?","a":58,"unit":"dollars","show":"$58","pts":3,"why":"45% of $40 = $18; $40 + $18 = $58 (or 1.45 × $40)."},
     {"t":"num","q":"A sale price of $63 is 30% off the original. What was the original price?","a":90,"unit":"dollars","show":"$90","pts":3,"why":"$63 is 70%: 10% → $9, 100% → $90."},
     {"t":"open","key":"cp_tip","q":"A family's restaurant bill is $54 before tax. Explain how to find a 15% tip using mental math, and give the tip.","pts":3,"min":15,"rows":2,"rubric":["10% = $5.40, 5% = half of that = $2.70","Tip = $8.10"],"model":"10% of $54 is $5.40. Half of that is 5%, $2.70. Add them: 15% is $8.10."}]},
    {"title": "Part D: Converting units and currency", "items": [
     {"t":"num","q":"How many inches are in 3 1/2 feet?","a":42,"unit":"inches","pts":3,"why":"3.5 × 12 = 42."},
-    {"t":"num","q":"How many cups are in 3 gallons?","a":48,"unit":"cups","pts":3,"why":"3 × 16 = 48 cups."},
+    {"t":"num","q":"How many quarts are in 7 1/2 gallons?","a":30,"unit":"quarts","pts":3,"why":"Smaller unit, so multiply: 7.5 × 4 = 30 quarts."},
     {"t":"num","q":"Convert 875 centimeters to meters.","a":8.75,"unit":"meters","pts":3,"why":"875 ÷ 100 = 8.75 m."},
     {"t":"num","q":"At 1 USD = 18 Mexican pesos, how many U.S. dollars is 630 pesos?","a":35,"unit":"dollars","show":"$35","pts":3,"why":"630 ÷ 18 = $35."},
-    {"t":"open","key":"cp_reason","q":"A fence needs 240 feet of wire. Wire is sold in 25-yard rolls for $30 each. How many rolls are needed and what is the cost? Explain each step.","pts":4,"min":25,"rows":3,"rubric":["240 ft ÷ 3 = 80 yards","80 ÷ 25 = 3.2, so 4 rolls (you cannot buy part of a roll)","4 × $30 = $120"],"model":"240 feet ÷ 3 = 80 yards. Each roll is 25 yards, and 80 ÷ 25 = 3.2, so they need 4 whole rolls, because 3 rolls would be too short. Cost: 4 × $30 = $120."}]}]},
+    {"t":"open","key":"cp_reason","q":"The co-op needs 5 liters of fruit punch for a picnic. Each packet of mix makes 750 milliliters and costs $1.20. How many packets must they buy, and what is the cost? Explain each step.","pts":4,"min":25,"rows":3,"rubric":["5 L = 5,000 mL","5,000 ÷ 750 ≈ 6.7, so 7 packets (6 packets make only 4,500 mL)","7 × $1.20 = $8.40"],"model":"5 liters = 5,000 milliliters. 5,000 ÷ 750 is about 6.7, and 6 packets make only 4,500 mL, which is not enough, so they must buy 7 packets. Cost: 7 × $1.20 = $8.40."}]}]},
  "next": "Unit 4: integers and the coordinate plane, starting with integers, opposites and absolute value."
 }
 
@@ -141,8 +141,8 @@ PRINT = {
  "items": [
   {"q":"Find the unit price: 18 ounces of cereal for $4.14.","a":"$0.23 per ounce.","lines":1},
   {"q":"What is 35% of $140? 28 is 70% of what number?","a":"$49; 40.","lines":2},
-  {"q":"A $90 bike helmet is 40% off, and 7.5% tax is added to the sale price. What is the total?","a":"Sale $54; tax $4.05; total $58.05.","lines":2},
-  {"q":"A shop buys a game for $20 and sells it for $32. What is the markup percent?","a":"60%.","lines":1},
+  {"q":"A $90 telescope is 40% off, and 7.5% tax is added to the sale price. What is the total?","a":"Sale $54; tax $4.05; total $58.05.","lines":2},
+  {"q":"A shop buys a board game for $25 and sells it for $35. What is the markup percent?","a":"$10 ÷ $25 = 40%.","lines":1},
   {"q":"Convert: 5 yards to inches; 2.6 kilograms to grams; 10 quarts to gallons.","a":"180 inches; 2,600 grams; 2.5 gallons.","lines":2},
-  {"q":"At 1 USD = 0.90 EUR, how many euros is $150? How many dollars is 81 euros?","a":"135 euros; $90.","lines":2}]
+  {"q":"At 1 USD = 1.40 Canadian dollars (CAD), how many Canadian dollars is $150? How many U.S. dollars is 84 CAD?","a":"150 × 1.40 = 210 CAD; 84 ÷ 1.40 = $60.","lines":2}]
 }
