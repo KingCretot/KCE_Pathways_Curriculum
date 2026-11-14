@@ -2,7 +2,7 @@ GUIDE = {
  "headline": "Week 7: Kemet in Africa, Cells Up Close, Dividing Fractions and Text Structures",
  "intro": "This week your child weighs the evidence that ancient Egypt (Kemet) was an African civilization and learns how some writers tried to separate Egypt from Africa, explores the parts of an animal cell, divides fractions to figure out servings and cost per serving, and learns how authors organize information.",
  "time": "About 60 minutes of live lessons per subject, plus 30 to 45 minutes of after-class work per subject.",
- "gather": "Sticky notes or index cards in two colors, tape, markers and a map of Africa (Social Studies); index cards, tape, a marker and a small toy or ball (Science); three pantry packages with nutrition labels and their prices, plus measuring cups (Math); five sheets of paper, index cards, scissors, tape, markers and a recipe, manual or news article from home (ELA).",
+ "gather": "12 or more sticky notes or index cards, tape, markers in two colors, a wall, door or poster board, and a map of Africa (Social Studies); index cards, tape, a marker, a small toy or ball and optional yarn (Science); three pantry packages with nutrition labels and their prices, measuring cups, and paper and pencil (Math); five sheets of paper, index cards, scissors, tape, markers and a recipe, manual or news article from home (ELA).",
  "heads_up": "Social Studies this week discusses racism in how history was written, and Science tells the story of Henrietta Lacks, whose cells were taken without her permission in 1951. Both are handled with care and focus on evidence and fairness. Your child may want to talk about them with you.",
  "ela": {
   "topic": "Text Structures",
