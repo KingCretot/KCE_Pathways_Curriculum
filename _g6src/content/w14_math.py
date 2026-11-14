@@ -1,4 +1,4 @@
-LADDER = ('<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Conversion ladders for customary length and capacity">'
+LADDER = ('<svg viewBox="0 0 680 262" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Conversion ladders for customary length and capacity">'
   '<text x="330" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Customary units: each step is a ratio</text>'
   '<text x="165" y="44" text-anchor="middle" font-weight="bold" fill="#0047BA">Length</text><text x="495" y="44" text-anchor="middle" font-weight="bold" fill="#3d9a2f">Capacity</text>'
   + ''.join(f'<rect x="{x}" y="{y}" width="{w}" height="30" rx="6" fill="{c}"/><text x="{x+w/2}" y="{y+20}" text-anchor="middle" fill="#fff" font-weight="bold">{t}</text>'
@@ -9,13 +9,13 @@ LADDER = ('<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-fa
   '<path d="M90 70 v150" stroke="#DB2F30" stroke-width="2.5" marker-end="url(#ld)"/><text x="82" y="136" text-anchor="end" font-size="11" fill="#DB2F30">to a</text><text x="82" y="150" text-anchor="end" font-size="11" fill="#DB2F30">smaller</text><text x="82" y="164" text-anchor="end" font-size="11" fill="#DB2F30">unit:</text><text x="82" y="178" text-anchor="end" font-size="11" fill="#DB2F30" font-weight="bold">multiply</text>'
   '<path d="M420 220 v-150" stroke="#0A1F3D" stroke-width="2.5" marker-end="url(#lu)"/><text x="412" y="136" text-anchor="end" font-size="11">to a</text><text x="412" y="150" text-anchor="end" font-size="11">larger</text><text x="412" y="164" text-anchor="end" font-size="11">unit:</text><text x="412" y="178" text-anchor="end" font-size="11" font-weight="bold">divide</text>'
   '<defs><marker id="ld" viewBox="0 0 10 10" markerWidth="6" markerHeight="6" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#DB2F30"/></marker><marker id="lu" viewBox="0 0 10 10" markerWidth="6" markerHeight="6" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#0A1F3D"/></marker></defs>'
-  '<text x="330" y="246" text-anchor="middle" font-size="11" fill="#5b6676">Weight: 1 pound = 16 ounces. Capacity: 1 cup = 8 fluid ounces.</text></svg>')
+  '<text x="330" y="256" text-anchor="middle" font-size="11" fill="#5b6676">Weight: 1 pound = 16 ounces. Capacity: 1 cup = 8 fluid ounces.</text></svg>')
 
 METRIC = ('<svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Metric prefixes as powers of ten">'
   '<text x="330" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Metric units: every step is a power of 10</text>'
   + ''.join(f'<rect x="{30+i*150}" y="40" width="130" height="78" rx="10" fill="{c}"/><text x="{95+i*150}" y="64" text-anchor="middle" fill="#fff" font-weight="bold" font-size="16">{p}</text><text x="{95+i*150}" y="84" text-anchor="middle" fill="#fff" font-size="11">{m}</text><text x="{95+i*150}" y="104" text-anchor="middle" fill="#fff" font-size="11">{ex}</text>'
             for i, (p, m, ex, c) in enumerate([("kilo-", "1,000 of the base", "1 km = 1,000 m", "#0A1F3D"), ("(base)", "meter, liter, gram", "m, L, g", "#0047BA"), ("centi-", "1/100 of the base", "100 cm = 1 m", "#3d9a2f"), ("milli-", "1/1,000 of the base", "1,000 mL = 1 L", "#DB2F30")])) +
-  '<text x="330" y="146" text-anchor="middle" font-size="12">Converting is moving the decimal point: 2.5 km = 2,500 m; 350 cm = 3.5 m; 1.2 L = 1,200 mL</text>'
+  '<text x="330" y="146" text-anchor="middle" font-size="12">Converting is moving the decimal point: 4.8 km = 4,800 m; 260 cm = 2.6 m; 0.75 L = 750 mL</text>'
   '<text x="330" y="170" text-anchor="middle" font-size="11" fill="#5b6676">Roots: kilo (Greek, thousand), centi (Latin, hundred), milli (Latin, thousand).</text></svg>')
 
 LESSON = {
@@ -41,34 +41,34 @@ LESSON = {
    {"t":"num","q":"A $48 jacket is 25% off. What is the sale price?","a":36,"unit":"dollars","show":"$36","pts":2,"why":"Pay 75%: 0.75 × $48 = $36."},
    {"t":"num","q":"Find a 20% tip on a $55 bill.","a":11,"unit":"dollars","show":"$11","pts":2,"why":"10% = $5.50; double it: $11."},
    {"t":"num","q":"A craft seller's supplies cost $14. She uses a 50% markup. What is her selling price?","a":21,"unit":"dollars","show":"$21","pts":2,"why":"50% of $14 = $7; $14 + $7 = $21."},
-   {"t":"open","key":"rc_stack","q":"Explain why 30% off followed by an extra 20% off is not the same as 50% off.","min":15,"rows":2,"rubric":["The second discount is a percent of the smaller sale price, not the original","Example: $100 → $70 → $56, a 44% total discount"],"model":"The extra 20% comes off the sale price, not the original price. On $100 you pay $70, then $56, which is only 44% off."}]},
+   {"t":"open","key":"rc_stack","q":"A store takes 40% off a $50 pair of boots, then an extra 10% off the sale price. A shopper says that is 50% off. Is she right? Show the prices.","min":15,"rows":2,"rubric":["The second discount is a percent of the smaller sale price, not the original","$50 → $30 → $27, which is 46% off (not $25)"],"model":"No. 40% off $50 leaves $30. The extra 10% is taken from $30, so it is $3, and she pays $27. That is $23 off, or 46%, not 50%."}]},
  "hook": {
-  "title": "The $125-Million Unit Mistake",
-  "html": "<p>In 1999, NASA's Mars Climate Orbiter flew 416 million miles to Mars and then disappeared. Investigators found the cause: one team had calculated the spacecraft's thruster force in pounds (customary units), while another team's software expected newtons (metric units). Nobody converted. The orbiter flew too close to Mars and was lost.</p><p>Units mistakes happen at home, too: a fence that comes up three yards short, a recipe with three times too much salt, a vacation budget that runs out because of an exchange fee. Today you will learn to convert units and money with confidence.</p><div class='callout'><b>Big idea:</b> A conversion factor is a ratio of two equal amounts. Multiplying or dividing by it changes the units, not the amount.</div>"},
+  "title": "Unit Mistakes Cost Real Money",
+  "html": "<p>In Week 3 Science you met the Mars Climate Orbiter, lost in 1999 because one team worked in pounds and another expected newtons, and nobody converted. Scientists learned to label every unit. Today you learn the math that catches those mistakes: converting with ratios, so you can check whether a number should get bigger or smaller.</p><p>Units mistakes happen at home, too: a fence that comes up three yards short, a recipe with three times too much salt, a vacation budget that runs out because of an exchange fee. Today you will learn to convert units and money with confidence.</p><div class='callout'><b>Big idea:</b> A conversion factor is a ratio of two equal amounts. Multiplying or dividing by it changes the units, not the amount.</div>"},
  "learn": [
   {"title": "Customary Length: Ratio Tables and Conversion Factors",
    "visual": LADDER,
    "html": "<p>Because 1 foot = 12 inches, the ratio of inches to feet is always 12 : 1. You can use a ratio table:</p><div class='card' style='font-family:Georgia,serif'>feet: 1, 2, 5, 7 <br>inches: 12, 24, 60, 84</div><p>Or multiply by the conversion factor. Going to a <b>smaller</b> unit, you need <b>more</b> of them, so multiply: 7 feet × 12 = 84 inches. Going to a <b>larger</b> unit, you need <b>fewer</b>, so divide: 54 inches ÷ 12 = 4.5 feet.</p><p><b>Check:</b> ask, \"Should my number get bigger or smaller?\" Inches are small, so a length in inches should be a bigger number than the same length in feet.</p>",
    "checks": [
-    {"t":"num","q":"A homeschool garden bed is 7 feet long. How many inches is that?","a":84,"unit":"inches","pts":2,"why":"Smaller unit, so multiply: 7 × 12 = 84."},
-    {"t":"num","q":"A child is 54 inches tall. How many feet is that? Write a decimal.","a":4.5,"unit":"feet","pts":2,"why":"Larger unit, so divide: 54 ÷ 12 = 4.5 feet (4 feet 6 inches)."},
+    {"t":"num","q":"A homeschool bookshelf is 9 feet tall. How many inches is that?","a":108,"unit":"inches","pts":2,"why":"Smaller unit, so multiply: 9 × 12 = 108."},
+    {"t":"num","q":"A child is 57 inches tall. How many feet is that? Write a decimal.","a":4.75,"unit":"feet","pts":2,"why":"Larger unit, so divide: 57 ÷ 12 = 4.75 feet (4 feet 9 inches)."},
     {"t":"num","q":"A family hikes 2 miles. How many feet is that?","a":10560,"unit":"feet","pts":2,"why":"2 × 5,280 = 10,560 feet."},
     {"t":"num","q":"A soccer field is 120 yards long. How many feet is that?","a":360,"unit":"feet","pts":2,"why":"120 × 3 = 360 feet."},
     {"t":"open","key":"biggersmaller","q":"Leo converts 15 feet to yards and gets 45 yards. Explain his mistake and give the correct answer.","min":20,"rows":2,"rubric":["He multiplied instead of dividing; yards are larger, so the number should be smaller","Correct answer: 5 yards"],"model":"He multiplied by 3, but yards are bigger than feet, so there should be fewer of them. He should divide: 15 ÷ 3 = 5 yards."}]},
   {"title": "Capacity and Weight in the Kitchen and Barn",
-   "html": "<p>Capacity units build on one another: 2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon. So 1 gallon = 4 quarts = 8 pints = 16 cups. Weight: 16 ounces = 1 pound.</p><p>For a multi-step conversion, chain the ratios: 3 gallons → 3 × 4 = 12 quarts → 12 × 2 = 24 pints → 24 × 2 = 48 cups.</p><p>Watch out: a <b>fluid ounce</b> measures capacity (1 cup = 8 fluid ounces), but an <b>ounce</b> on a scale measures weight. They are not the same thing.</p>",
+   "html": "<p>Capacity units build on one another: 2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon. So 1 gallon = 4 quarts = 8 pints = 16 cups. Weight: 16 ounces = 1 pound.</p><p>For a multi-step conversion, chain the ratios: 3 gallons → 3 × 4 = 12 quarts → 12 × 2 = 24 pints → 24 × 2 = 48 cups.</p><p>Watch out: a <b>fluid ounce</b> measures capacity (1 cup = 8 fluid ounces), but an <b>ounce</b> on a scale measures weight. They are not the same thing. A cup of water weighs about 8 ounces, but a cup of honey weighs about 12 ounces, because honey is denser (heavier for its size).</p>",
    "checks": [
     {"t":"num","q":"A canning recipe needs 3 quarts of water. How many cups is that?","a":12,"unit":"cups","pts":2,"why":"3 × 2 = 6 pints; 6 × 2 = 12 cups (or 1 quart = 4 cups)."},
     {"t":"num","q":"A family's goats give 2 gallons of milk a day. How many pints is that?","a":16,"unit":"pints","pts":2,"why":"2 × 4 = 8 quarts; 8 × 2 = 16 pints."},
     {"t":"num","q":"A bag of chicken feed weighs 50 pounds. How many ounces is that?","a":800,"unit":"ounces","pts":2,"why":"50 × 16 = 800 ounces."},
-    {"t":"num","q":"A package of ground turkey weighs 40 ounces. How many pounds is that?","a":2.5,"unit":"pounds","pts":2,"why":"40 ÷ 16 = 2.5 pounds."},
+    {"t":"num","q":"A block of cheddar cheese weighs 40 ounces. How many pounds is that?","a":2.5,"unit":"pounds","pts":2,"why":"40 ÷ 16 = 2.5 pounds."},
     {"t":"open","key":"flozoz","q":"A recipe says \"8 ounces of honey.\" Ana pours 1 cup (8 fluid ounces) of honey. Is that the same thing? Explain.","min":20,"rows":2,"rubric":["Not necessarily: fluid ounces measure volume, ounces measure weight","Honey is heavier than water, so 1 cup of honey weighs more than 8 ounces (she should weigh it)"],"model":"No. Fluid ounces measure how much space something takes up, but ounces on a scale measure weight. Honey is heavier than water, so a cup of honey weighs more than 8 ounces. She should weigh it."}]},
   {"title": "The Metric System: Powers of 10",
    "visual": METRIC,
    "html": "<p>Most of the world, and scientists everywhere, use the <b>metric system</b>. Every unit is 10, 100 or 1,000 times another, so converting means moving the decimal point.</p><ul><li>1 kilometer (km) = 1,000 meters (m)</li><li>1 meter = 100 centimeters (cm) = 1,000 millimeters (mm)</li><li>1 liter (L) = 1,000 milliliters (mL)</li><li>1 kilogram (kg) = 1,000 grams (g)</li></ul><p>Multiply by 1,000: move the decimal 3 places right. Divide by 100: move it 2 places left. You used centimeters to measure leaves in Science and milliliters in the Indus drain test.</p>",
    "checks": [
     {"t":"num","q":"A cross-country race is 2.5 kilometers. How many meters is that?","a":2500,"unit":"meters","pts":2,"why":"2.5 × 1,000 = 2,500 m."},
-    {"t":"num","q":"A sunflower is 350 centimeters tall. How many meters is that?","a":3.5,"unit":"meters","pts":2,"why":"350 ÷ 100 = 3.5 m."},
+    {"t":"num","q":"A climbing rope at the co-op gym is 350 centimeters long. How many meters is that?","a":3.5,"unit":"meters","pts":2,"why":"350 ÷ 100 = 3.5 m."},
     {"t":"num","q":"A water bottle holds 1.2 liters. How many milliliters is that?","a":1200,"unit":"mL","pts":2,"why":"1.2 × 1,000 = 1,200 mL."},
     {"t":"open","key":"whymetric","q":"Compare converting 3.2 kilometers to meters with converting 3.2 miles to feet. Which is easier, and why?","min":20,"rows":2,"rubric":["Kilometers is easier: multiply by 1,000 (move the decimal) = 3,200 m","Miles needs 5,280, a harder number (16,896 feet); metric uses powers of 10"],"model":"Kilometers is easier: 3.2 × 1,000 = 3,200 meters, just a decimal move. Miles to feet means 3.2 × 5,280 = 16,896, which takes real multiplication, because customary units don't use powers of 10."}]},
   {"title": "Money: Currency Exchange",
@@ -81,14 +81,14 @@ LESSON = {
  "handson": {
   "title": "Measure Your Home Three Ways",
   "intro": "Measure, pour and pace around your home, then convert every measurement with ratios.",
-  "materials": ["A tape measure or yardstick (inches and centimeters)", "A 1-cup measure and a clean gallon jug or pitcher", "Water (work in a sink or outdoors)", "Paper and pencil", "A calculator for checking only", "Optional: a kitchen scale"],
+  "materials": ["A tape measure or yardstick (inches and centimeters)", "A 1-cup measure and a clean gallon jug or pitcher", "Water (work in a sink or outdoors)", "Paper and pencil", "A calculator for checking only", "Optional: a kitchen scale", "Optional: a bag of flour or rice with the weight on the label"],
   "steps": [
    "Length: measure three things in inches (a door, a table, your bed). Convert each to feet and to yards. Then measure one in centimeters and convert to meters.",
    "Capacity: count how many cups of water it takes to fill the gallon jug. Use your count to find how many cups are in a quart and a pint. Pour the water onto plants afterward and wipe up spills.",
    "Pacing: walk 10 normal steps and measure the total distance in inches. Find the length of one step. Then count the steps across your yard or a hallway and convert the distance to feet and yards.",
    "Optional: weigh a bag of flour or rice in ounces and convert to pounds; compare with the label."],
   "record": [
-   {"t":"open","key":"measurerec","q":"Record your measurements and conversions for length, capacity and pacing. Show the ratio or operation you used for each.","min":40,"rows":6,"rubric":["Three length measurements converted to feet and yards, one to meters","Cups to fill a gallon recorded and used for quarts and pints","Step length and paced distance converted","Correct multiply or divide each time"],"model":"Door: 80 in ÷ 12 = 6 2/3 ft; ÷ 36 = 2 2/9 yd. Table: 72 in = 6 ft = 2 yd. Bed: 75 in = 6.25 ft. Door in cm: 203 cm ÷ 100 = 2.03 m. Gallon: 16 cups, so a quart is 16 ÷ 4 = 4 cups and a pint is 2 cups. 10 steps = 240 in, so 1 step = 24 in = 2 ft. Yard: 45 steps × 2 ft = 90 ft = 30 yd."},
+   {"t":"open","key":"measurerec","q":"Record your measurements and conversions for length, capacity and pacing. Show the ratio or operation you used for each.","min":40,"rows":6,"rubric":["Three length measurements converted to feet and yards, one to meters","Cups to fill a gallon recorded and used for quarts and pints","Step length and paced distance converted","Correct multiply or divide each time"],"model":"Door: 80 in ÷ 12 = 6 2/3 ft; ÷ 36 = 2 2/9 yd. Table: 72 in = 6 ft = 2 yd. Bed: 75 in = 6.25 ft. Door in cm: 203 cm ÷ 100 = 2.03 m. Gallon: 16 cups, so a quart is 16 ÷ 4 = 4 cups and a pint is 2 cups. 10 steps = 240 in, so 1 step = 24 in = 2 ft. Backyard: 45 steps × 2 ft = 90 ft = 30 yd."},
    {"t":"open","key":"measurecheck","q":"Did your gallon count match the 16 cups in the lesson? If not, give two reasons your count might be off.","min":20,"rows":2,"rubric":["Compares the count with 16","Two sensible sources of error (cups not filled exactly, spills, jug not exactly a gallon, foam or bubbles)"],"model":"I counted 16 1/2 cups. My cups were probably not filled exactly to the line, and some water spilled, so my count was a little off."}]},
  "think": {
   "intro": "Show your calculations, then explain your reasoning. Your teacher scores these.",
@@ -109,10 +109,10 @@ TEACHER = {
   "MA.K12.MTR.2.1: Demonstrate understanding by representing problems in multiple ways.",
   "MA.K12.MTR.7.1: Apply mathematics to real-world contexts.",
   "Financial literacy: exchange rates and exchange fees (Jump$tart Spending)."],
- "materials": ["The interactive lesson", "A tape measure or yardstick, a 1-cup measure, a gallon jug, water", "Paper, pencil, a calculator for checking only", "Optional: a kitchen scale", "Printable practice page"],
+ "materials": ["The interactive lesson", "A tape measure or yardstick, a 1-cup measure, a gallon jug, water", "Paper, pencil, a calculator for checking only", "Optional: a kitchen scale and a bag of flour or rice", "Printable practice page"],
  "flow": [
   [6, "Reconnect", "Run the Week 13 Reconnect questions."],
-  [4, "Hook", "Tell the Mars Climate Orbiter story."],
+  [4, "Hook", "Recall the Mars Climate Orbiter from Week 3 Science; list everyday unit mistakes."],
   [13, "Customary length", "Use ratio tables and the bigger-or-smaller check. Fix Leo's mistake."],
   [10, "Capacity and weight", "Chain ratios from gallons to cups. Discuss fluid ounces versus ounces."],
   [9, "Metric", "Move decimals by powers of 10. Connect the prefixes to roots."],

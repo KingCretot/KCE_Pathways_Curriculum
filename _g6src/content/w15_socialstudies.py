@@ -1,0 +1,136 @@
+COMPARE = ('<svg viewBox="0 0 680 270" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Comparison chart of four river civilizations">'
+  '<text x="340" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Four river civilizations compared</text>'
+  + ''.join(f'<rect x="{10+i*134}" y="34" width="130" height="30" fill="{c}"/><text x="{75+i*134}" y="54" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">{h}</text>'
+            for i, (h, c) in enumerate([("", "#ffffff"), ("Kemet", "#0A1F3D"), ("Mesopotamia", "#a5552a"), ("Indus Valley", "#3d9a2f"), ("Ancient China", "#DB2F30")]))
+  + ''.join(f'<rect x="10" y="{66+r*38}" width="130" height="36" fill="#f6f1e3"/><text x="18" y="{88+r*38}" font-weight="bold" font-size="11">{row}</text>'
+            + ''.join(f'<rect x="{144+j*134}" y="{66+r*38}" width="130" height="36" fill="{"#fff" if r % 2 else "#fafafa"}" stroke="#e3e3e3"/><text x="{209+j*134}" y="{88+r*38}" text-anchor="middle" font-size="10.5">{cell}</text>' for j, cell in enumerate(cells))
+            for r, (row, cells) in enumerate([
+              ("River(s)", ["Nile", "Tigris, Euphrates", "Indus (Ghaggar-Hakra)", "Yellow, Yangtze"]),
+              ("Began about", ["3100 BCE (unified)", "3500 BCE (cities)", "2600 BCE (cities)", "1600 BCE (Shang)"]),
+              ("Writing", ["hieroglyphs", "cuneiform", "Indus script (unread)", "characters (oracle bones)"]),
+              ("Rulers", ["pharaohs, seen as divine", "kings, law codes", "unknown; no palaces found", "kings, Mandate of Heaven"]),
+              ("Known for", ["pyramids, calendar", "first cities, Hammurabi", "planned cities, drains", "bronze, Confucius"])])) +
+  '<text x="340" y="264" text-anchor="middle" font-size="10" fill="#5b6676">Dates are approximate. Kemet was studied in Weeks 6 to 10; the others in Weeks 11 to 13.</text></svg>')
+
+LESSON = {
+ "unit": "Unit 3: Ancient Asia",
+ "title": "Mid-Year Review and Ancient Asia Project",
+ "subtitle": "Compare the river civilizations of Africa and Asia, trace how writing and ideas connected them, then create a historically accurate Silk Roads travel journal and take the Unit 3 checkpoint.",
+ "objectives": [
+  "Compare the economic, political, social and religious features of Kemet, Mesopotamia, the Indus Valley and ancient China.",
+  "Compare early writing systems and explain what each lets historians know.",
+  "Explain how the Silk Roads and sea roads connected Asia, East Africa and the Mediterranean.",
+  "Separate historical fact from fiction and cite evidence in a creative project.",
+  "Show mastery of Unit 3 on the checkpoint."],
+ "vocab": [
+  ["civilization", "A complex society with cities, government, specialized jobs, social classes, religion and often writing."],
+  ["historical fiction", "A made-up story set in a real time and place, built on accurate historical facts."],
+  ["primary source", "A source created at the time being studied, such as an inscription or a merchant's guidebook."],
+  ["secondary source", "A later source that explains or interprets the past, such as a textbook or museum website."],
+  ["anachronism", "Something placed in the wrong time period, such as a compass in Hammurabi's Babylon."]],
+ "reconnect": {
+  "title": "Week 14: The Silk Road and the sea roads",
+  "intro": "Start with last week's trade routes.",
+  "items": [
+   {"t":"text","q":"Which Han officer's journeys west, beginning about 138 BCE, helped open the Silk Roads?","a":[{"all":[["zhang qian","qian"]],"none":["not"]}],"show":"Zhang Qian","pts":2,"why":"His reports led to Han missions and trade."},
+   {"t":"text","q":"What seasonal winds carried ships across the Indian Ocean?","a":[{"all":[["monsoon"]],"none":["not"]}],"show":"the monsoon","pts":2,"why":"Southwest in summer, northeast in winter."},
+   {"t":"text","q":"Which religion spread from India to China along the Silk Roads?","a":[{"all":[["buddhism","buddhist"]],"none":["not"]}],"show":"Buddhism","pts":2,"why":"The Mogao Caves at Dunhuang are evidence."},
+   {"t":"open","key":"rc_periplus","q":"What does the Periplus tell us about Aksum's place in world trade?","min":15,"rows":2,"rubric":["Ivory came to Aksum and was shipped from Adulis","Aksum traded widely; its ruler knew Greek literature"],"model":"Ivory from beyond the Nile came to Aksum and was shipped from Adulis, and its ruler knew Greek literature, so Aksum was a major, connected trading power."}]},
+ "hook": {
+  "title": "Four Rivers, One Story",
+  "visual": COMPARE,
+  "html": "<p>Over ten weeks you have followed four great rivers: the Nile, the Tigris and Euphrates, the Indus and the Yellow River. On each one, people learned to farm the floodplain, built cities, created governments and invented ways to keep records. Then trade routes stitched these worlds together.</p><p>This week you pull it all together. You will compare the four civilizations, review how their writing works, and then step into history yourself by writing a travel journal as a traveler on the Silk Roads, where every detail must be true to the time.</p><div class='callout'><b>Big question:</b> What did the early civilizations of Africa and Asia have in common, and what made each one unique?</div>"},
+ "learn": [
+  {"title": "Comparing River Civilizations",
+   "html": "<p>Historians compare civilizations by looking at the same features in each:</p><ul><li><b>Economic:</b> farming on river floodplains, trade (Kemet with Nubia and Punt; Mesopotamia with the Indus, called Meluhha; China along the Silk Roads), and standard weights or money.</li><li><b>Political:</b> pharaohs seen as divine in Kemet; kings with written law codes in Mesopotamia; unknown rulers in the Indus cities; kings and emperors claiming the Mandate of Heaven in China.</li><li><b>Social:</b> classes of rulers, priests, scribes, craftworkers, farmers and enslaved people, though the Indus cities show fewer signs of great differences in wealth.</li><li><b>Religious:</b> many gods in Kemet and Mesopotamia; ancestor worship in Shang China; later, Confucian ideas and Buddhism.</li></ul>",
+   "checks": [
+    {"t":"blanks","q":"Use the comparison chart.","sent":"The civilization whose writing has not been deciphered: ___. The civilization whose rulers claimed the Mandate of Heaven: ___.","blanks":[[{"all":[["indus","harappa"]],"none":["not"]}],[{"all":[["china","chinese","zhou","shang","han"]],"none":["not"]}]],"show":"Indus Valley; ancient China","pts":2,"why":"The Indus script is unread; the Zhou introduced the Mandate of Heaven."},
+    {"t":"open","key":"rv_compare","q":"Choose two of the four civilizations. Give one similarity and one difference in how they were governed.","min":30,"rows":3,"rubric":["An accurate similarity (rulers with great power, written records, officials)","An accurate difference (divine pharaoh vs. Mandate that could be lost; law code vs. unknown rulers)"],"model":"Kemet and China both had powerful rulers who claimed support from the gods or Heaven. But the pharaoh was seen as divine himself, while a Chinese king could lose the Mandate of Heaven if he ruled badly."},
+    {"t":"text","q":"Which king of Babylon set up a stone pillar with 282 laws around 1754 BCE?","a":[{"all":[["hammurabi"]],"none":["not"]}],"show":"Hammurabi","pts":2,"why":"Week 11."},
+    {"t":"open","key":"rv_river","q":"Why did all four civilizations begin on river floodplains? Explain using geography.","min":20,"rows":2,"rubric":["Rivers brought water and fertile soil (silt or loess) for farming","Food surpluses allowed cities, specialized jobs and trade; rivers were also routes"],"model":"River floods left fertile soil and provided water for crops, so farmers grew extra food. That surplus let people live in cities and take other jobs, and the rivers were highways for trade."}]},
+  {"title": "Writing and Records Across Africa and Asia",
+   "html": "<p>Writing let rulers keep records, collect taxes, write laws and remember history. Compare the systems you studied:</p><ul><li><b>Hieroglyphs</b> (Kemet): pictures standing for sounds and ideas; deciphered in 1822 using the Rosetta Stone.</li><li><b>Cuneiform</b> (Mesopotamia): wedge-shaped marks pressed into clay; first used for records of grain and animals.</li><li><b>Indus script</b>: about 400 to 600 signs on seals; very short inscriptions and no bilingual text, so it is still unread.</li><li><b>Chinese characters</b>: first known on Shang oracle bones; still used today, so the line from ancient to modern writing is unbroken.</li></ul>",
+   "checks": [
+    {"t":"text","q":"What object helped scholars decipher Egyptian hieroglyphs in 1822, because it carried the same text in three scripts?","a":[{"all":[["rosetta"]],"none":["not"]}],"show":"the Rosetta Stone","pts":2,"why":"It included Greek, which scholars could read."},
+    {"t":"text","q":"Which writing system was pressed into clay with a reed, making wedge-shaped marks?","a":[{"all":[["cuneiform"]],"none":["not"]}],"show":"cuneiform","pts":2,"why":"Cuneus is Latin for wedge."},
+    {"t":"open","key":"rv_writing","q":"Chinese characters have been used for over 3,000 years, but cuneiform and the Indus script are no longer used. How does that difference affect what historians can learn about each civilization?","min":30,"rows":3,"rubric":["Continuous use means ancient Chinese texts can be read and linked to later records","Cuneiform had to be deciphered; the Indus script cannot be read, so historians rely on archaeology for the Indus Valley"],"model":"Because Chinese writing never stopped being used, scholars can read oracle bones and trace ideas across 3,000 years. Cuneiform had to be deciphered before it could be read, and the Indus script still cannot be read at all, so for the Indus Valley historians depend almost entirely on objects and city ruins."}]},
+  {"title": "Planning Your Ancient Asia Project: A Silk Roads Travel Journal",
+   "html": "<p>Your Unit 3 project is a <b>historical fiction travel journal</b>. You invent a traveler around 100 CE (a Sogdian merchant's apprentice, a Han envoy, a Buddhist monk or an Aksumite sailor) and write at least five journal entries as they travel the land or sea routes.</p><p>The journey is fiction, but every fact must be true: real places, goods, animals, foods, dangers, beliefs and people of the time. Your traveler must also visit or hear about at least two of the civilizations from this unit, for example seeing the ruins of Babylon in Mesopotamia or hearing a Chinese official discuss Confucius.</p><p><b>Avoid anachronisms:</b> no compasses on caravans (Chinese navigators used magnetic compasses about a thousand years later), no paper money (it came centuries later), and no one reading the Indus script (it was forgotten long before 100 CE).</p><p>At the end, write a <b>Historian's Note</b> that lists which details are real and which you invented, with at least three sources, including one primary source.</p>",
+   "checks": [
+    {"t":"text","q":"What is the term for a detail placed in the wrong time period, such as a magnetic compass on a Silk Roads caravan in 100 CE?","a":[{"all":[["anachronism"]],"none":["not"]}],"show":"anachronism","pts":2,"why":"Ana (against) + chron (time)."},
+    {"t":"open","key":"factfiction","q":"A student's journal says, \"In Samarkand I bought silk, then paid for it with paper money.\" Which part is a historical error, and how would you fix it?","min":20,"rows":2,"rubric":["Paper money is the anachronism (it came centuries later)","A fix: paid with silver or bronze coins, or traded goods"],"model":"Paper money did not exist in 100 CE, so that is an anachronism. The traveler should pay with silver or bronze coins or trade goods like horses or cloth."},
+    {"t":"text","q":"Is the Periplus of the Erythraean Sea a primary source or a secondary source for first-century trade?","a":[{"all":[["primary"]],"none":["not","secondary"]}],"show":"a primary source","pts":2,"why":"A merchant wrote it at the time."}]}],
+ "handson": {
+  "title": "Ancient Asia Project Workshop: Map Your Journey",
+  "intro": "Plan your Silk Roads traveler's journey on a hand-drawn map, then research and draft your journal entries. See the Unit 3 project rubric.",
+  "materials": ["A large sheet of paper or an opened paper bag", "Colored pencils or markers", "A world map, atlas or globe", "Index cards for research notes", "Paper and pencil or a computer", "Optional: string and tape to trace the route"],
+  "steps": [
+   "Choose your traveler, starting city, destination and route (land, sea or both).",
+   "Draw a map of the route with at least six labeled stops, deserts, mountains, rivers and seas. Lay a string along the route to compare land and sea distances on the globe.",
+   "Make one research note card for each stop: a real fact about the place, the goods traded there, and a danger or challenge.",
+   "Draft at least five journal entries (100 to 200 words each), dated with the season, each using your note cards.",
+   "Write your Historian's Note with at least three sources, including one primary source (such as the Periplus or the Analects)."],
+  "record": [
+   {"t":"open","key":"journalplan","q":"Describe your traveler, route and the six stops on your map. For each stop, write one real fact you will use.","min":50,"rows":8,"rubric":["A believable traveler for 100 CE","A route with at least six real stops in order","An accurate fact for each stop"],"model":"Traveler: Nanai, 14, apprentice to a Sogdian merchant, around 100 CE. Route: Chang'an → Dunhuang (oasis at the edge of the Taklamakan) → Kashgar (market below the Pamirs) → Samarkand (Sogdian home city) → Merv (Parthian city) → near the ruins of Babylon (old Mesopotamian capital, where cuneiform tablets were still being written in temples until about 75 CE). Facts: Chang'an was the Han capital; Dunhuang's oasis gave caravans water; Kashgar's passes are among the highest on the route."},
+   {"t":"open","key":"journalentry","q":"Paste your best journal entry and its Historian's Note line explaining which details are real.","min":100,"rows":10,"rubric":["A vivid first-person entry set in 100 CE","At least three accurate historical details","No anachronisms","A Historian's Note separating fact from fiction"],"model":"Entry 3, Kashgar, late spring. Our camels groaned as we climbed toward the Pamirs. Master Wakhshu bargained for jade at the market while I counted bronze coins with square holes from Chang'an. A monk from Gandhara told me of a teacher called the Buddha... Historian's Note: Kashgar's market, jade trading, Han square-holed coins and Buddhist monks traveling east are real; Nanai and Wakhshu are invented."}]},
+ "think": {
+  "intro": "Use evidence and explain your reasoning. Your teacher scores this.",
+  "items": [
+   {"t":"open","key":"legacy","q":"Which achievement from the civilizations of Unit 3 (Mesopotamia, the Indus Valley, China, or the Silk Roads) has most shaped the world you live in today? Support your choice with evidence and compare it with one other achievement.","min":90,"rows":7,"rubric":["A clear choice","Accurate evidence about the achievement and its legacy","A comparison with another achievement","Logical reasoning"],"model":"Writing, which began in Mesopotamia with cuneiform, has shaped my world the most. Without writing there would be no laws, history books or science, and Hammurabi's code shows how writing let a whole society share the same rules. Paper from Han China comes close, because it made writing cheap and spread across the Silk Roads, but paper only mattered because writing already existed."}]},
+ "checkpoint": {
+  "title": "Unit 3 Checkpoint: Ancient Asia",
+  "intro": "This checkpoint covers Weeks 11 to 15. Mastery is 85 or higher. If you score below 85, your teacher will review with you, then you will retake it.",
+  "parts": [
+   {"title": "Part A: Mesopotamia", "items": [
+    {"t":"text","q":"Mesopotamia means \"land between the rivers.\" Name one of the two rivers.","a":[{"all":[["tigris","euphrates"]],"none":["not","nile","indus"]}],"show":"the Tigris or the Euphrates","pts":3,"why":"Mesopotamia lies between the Tigris and Euphrates."},
+    {"t":"text","q":"Who was the priestess of Ur, often called the world's first known author by name?","a":[{"all":[["enheduanna"]],"none":["not"]}],"show":"Enheduanna","pts":3,"why":"Week 11."},
+    {"t":"open","key":"cp_hammurabi","q":"Hammurabi's laws punished people differently depending on whether they were nobles, free commoners or enslaved. What does this tell historians about Babylonian society?","pts":4,"min":20,"rows":2,"rubric":["Babylonian society had a strict social hierarchy (classes)","Justice was not equal; a person's class determined punishment and value"],"model":"It shows Babylonian society was divided into classes, and justice was not equal: harming a noble brought a harsher penalty than harming a commoner or an enslaved person."}]},
+   {"title": "Part B: The Indus Valley", "items": [
+    {"t":"text","q":"Name one of the two best-known Indus cities.","a":[{"all":[["harappa","mohenjo"]],"none":["not"]}],"show":"Harappa or Mohenjo-daro","pts":3,"why":"Both are in today's Pakistan."},
+    {"t":"open","key":"cp_planning","q":"Give two pieces of evidence that Indus cities were carefully planned.","pts":3,"min":15,"rows":2,"rubric":["Two of: grid streets, standard-size bricks, covered drains, wells, the Great Bath, standard weights"],"model":"The streets were laid out in a grid, and covered brick drains ran under them."},
+    {"t":"text","q":"What do most archaeologists now think was the main cause of the Indus cities' decline?","a":[{"all":[["climate","monsoon","drought","dried","drying","shifted","less rain","weaker rain"]],"none":["not","invasion","invader","war","flood"]}],"show":"climate change: weaker monsoons and shifting or drying rivers","pts":3,"why":"There is little evidence of invasion."}]},
+   {"title": "Part C: Ancient China", "items": [
+    {"t":"text","q":"What is the Chinese belief that Heaven gives a just ruler the right to rule and takes it from an unjust one?","a":[{"all":[["mandate of heaven","mandate"]],"none":["not"]}],"show":"the Mandate of Heaven","pts":3,"why":"Introduced by the Zhou."},
+    {"t":"blanks","q":"Match each teaching to its thinker: Confucius, Laozi or Han Feizi.","sent":"Strict laws and harsh punishments: ___. Respect for parents and leading by example: ___. Harmony with nature and the Way: ___.","blanks":[[{"all":[["han fei","hanfei"]],"none":["not"]}],[{"all":[["confucius","kongzi"]],"none":["not"]}],[{"all":[["laozi","lao tzu","lao-tzu"]],"none":["not"]}]],"show":"Han Feizi; Confucius; Laozi","pts":3,"why":"Legalism, Confucianism, Daoism."},
+    {"t":"open","key":"cp_qin","q":"Name one achievement and one cost of Qin Shi Huang's rule.","pts":4,"min":15,"rows":2,"rubric":["Achievement: unification, standardized writing, money, weights, axles, early Great Wall, roads","Cost: forced labor, harsh punishments, book burning, short dynasty"],"model":"He united China and standardized writing and money, but hundreds of thousands of people were forced to labor on his projects."}]},
+   {"title": "Part D: The Silk Roads and sea roads", "items": [
+    {"t":"text","q":"Silk passed from Chinese to Sogdian to Parthian merchants before reaching Rome. What is this kind of trade called?","a":[{"all":[["relay"]],"none":["not"]}],"show":"relay trade","pts":3,"why":"Each merchant added costs and profit."},
+    {"t":"text","q":"What term means the spread of ideas, beliefs and inventions from one culture to another?","a":[{"all":[["cultural diffusion","diffusion"]],"none":["not"]}],"show":"cultural diffusion","pts":3,"why":"Buddhism spreading to China is an example."},
+    {"t":"open","key":"cp_source","q":"<div class='cp-text'><div class='card'><b>Primary source: Periplus of the Erythraean Sea</b> (first century CE; translated by W. H. Schoff, 1912)<br>\"...there is Adulis, a port established by law, lying at the inner end of a bay that runs in toward the south.\"</div></div>A port \"established by law\" was officially recognized for trade. What does this suggest about Aksum's government and its place in Red Sea trade? Use one detail from Week 9 or Week 14.","pts":4,"min":25,"rows":3,"rubric":["Suggests an organized government that controlled and regulated trade","Uses a detail: Aksum's coins, ivory exports, trade with Rome, India and Arabia, or Zoscales knowing Greek"],"model":"It suggests Aksum had an organized government that officially controlled trade at its port. That fits what we learned in Week 9: Aksum minted its own coins and grew rich shipping ivory from Adulis to Rome, India and Arabia."}]}]},
+ "next": "Unit 4: the Mediterranean world, starting with Persia, an empire of many peoples."
+}
+
+TEACHER = {
+ "standards": [
+  "SS.6.W.2.4: Compare the economic, political, social, and religious institutions of ancient river civilizations.",
+  "SS.6.W.4.10: Explain the significance of the silk roads and maritime routes across the Indian Ocean to the movement of goods and ideas among Asia, East Africa, and the Mediterranean Basin.",
+  "SS.6.W.1.3: Interpret primary and secondary sources.",
+  "SS.6.W.1.6: Describe how history transmits culture and heritage and provides models of human character.",
+  "SS.6.G.2.6: Explain the concept of cultural diffusion, and identify the influences of different ancient cultures on one another."],
+ "materials": ["The interactive lesson", "Large paper, colored pencils, a world map or globe, index cards", "Optional: string and tape", "The Unit 3 project rubric", "The Unit 3 checkpoint (in the lesson)"],
+ "flow": [
+  [6, "Reconnect", "Run the Week 14 Reconnect questions."],
+  [4, "Hook", "Walk through the four-civilization chart."],
+  [12, "Comparing civilizations", "Compare economic, political, social and religious features."],
+  [10, "Writing systems", "Compare hieroglyphs, cuneiform, the Indus script and Chinese characters."],
+  [12, "Planning the project", "Explain the travel journal; practice spotting anachronisms."],
+  [6, "Assign", "Assign the map, journal entries, Historian's Note and Think Deeper."],
+  [10, "Checkpoint preview", "Explain that the checkpoint is completed after class, independently, one try per item, with no answers shown until you review it. Mastery is 85; below 85 means a review lesson and a retake."]],
+ "key_questions": ["What did these civilizations share, and what made each unique?", "What can writing tell us, and what can objects tell us?", "Is this detail true to 100 CE?", "Which sources prove it?"],
+ "misconceptions": ["All ancient civilizations were ruled the same way.", "The Indus script has been deciphered.", "Historical fiction can change the facts.", "Africa was cut off from Asian trade."],
+ "support": ["Provide a journal entry frame: date and place, what I saw, what was traded, a danger, what I learned.", "Allow four entries instead of five.", "Give a list of approved sources."],
+ "challenge": ["Write one entry from the point of view of a second traveler on the sea route.", "Add a short glossary of terms your traveler would know."],
+ "background": "<p>Approximate starting dates in the comparison chart: unified Kemet about 3100 BCE; Mesopotamian cities such as Uruk about 3500 BCE; mature Harappan cities about 2600 BCE; Shang dynasty about 1600 BCE. The latest known datable cuneiform tablet is an astronomical text from about 75 CE, so a traveler in 100 CE might hear of the old writing but not see it in daily use. Magnetic compasses for navigation are documented in China in the 11th century CE; paper money appeared in China in the 11th century (Song). Han wuzhu coins had square holes. Checkpoint total: 42 points (Part A 10, Part B 9, Part C 10, Part D 10) plus Part D's source item; score written items with their rubrics.</p>",
+ "sources": ["Metropolitan Museum of Art, Heilbrunn Timeline of Art History (Mesopotamia, Indus, China, Silk Roads).", "Schoff, W. H., trans. (1912), The Periplus of the Erythraean Sea.", "British Museum, The Rosetta Stone.", "Hansen, V. (2012), The Silk Road: A New History."]
+}
+
+PRINT = {
+ "directions": "Mid-year review. Use complete sentences.",
+ "items": [
+  {"q":"Name the river or rivers and one achievement of Kemet, Mesopotamia, the Indus Valley and ancient China.","a":"Nile: pyramids; Tigris and Euphrates: cuneiform, law code; Indus: planned cities and drains; Yellow and Yangtze: bronze, oracle bones, Confucian ideas.","lines":4},
+  {"q":"Compare cuneiform and the Indus script.","a":"Cuneiform: wedge marks in clay, deciphered; Indus script: short inscriptions on seals, still unread.","lines":2},
+  {"q":"Explain the Mandate of Heaven and the dynastic cycle.","a":"Heaven gives a just ruler the right to rule and takes it away from an unjust one; dynasties rise, prosper, decline, face rebellion and are replaced.","lines":3},
+  {"q":"How did relay trade and the monsoon shape ancient trade?","a":"Goods passed through many merchants, raising prices; monsoon winds let ships cross the Indian Ocean each season.","lines":2},
+  {"q":"What is an anachronism? Give an example for 100 CE.","a":"A detail in the wrong time period; for example, a magnetic compass or paper money on the Silk Roads in 100 CE.","lines":2},
+  {"q":"Give one example of cultural diffusion and its evidence.","a":"Buddhism spread from India to China; the Mogao Caves at Dunhuang.","lines":2}]
+}
