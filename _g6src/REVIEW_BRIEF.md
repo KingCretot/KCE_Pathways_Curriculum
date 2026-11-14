@@ -84,3 +84,4 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 
 - Engine norm() strips the words a/an/the: never key letter patterns with spaces ("a b a b"); key rhyme schemes as one token ("abab") and ask for letters with no spaces.
 - Quotations (Jonathan, Nov 14): if the original text is British, quote it exactly in its British spelling (e.g., Legge's "labour") and add a short note or gloss; never Americanize a quotation. All of KCE's own writing stays American English.
+- Checkpoint open items never show their rubric to the student (engine fix Nov 14); do not put answers in checkpoint question text either.

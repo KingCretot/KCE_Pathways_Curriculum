@@ -29,7 +29,7 @@ LESSON = {
   "title": "Weeks 11 to 14: Unit 3 warm-up",
   "intro": "One question from each week of the unit.",
   "items": [
-   {"t":"num","q":"Week 11: a 32-ounce bottle of laundry detergent costs $5.12. What is the unit price in cents per ounce? (Type the number of cents.)","a":16,"unit":"cents per ounce","pts":2,"why":"$5.12 ÷ 32 = $0.16 = 16 cents per ounce."},
+   {"t":"num","q":"Week 11: a 32-ounce bottle of laundry detergent costs $5.12. What is the unit price in cents per ounce? (Type the number of cents.)","a":[16,0.16],"unit":"cents per ounce","pts":2,"why":"$5.12 ÷ 32 = $0.16 = 16 cents per ounce."},
    {"t":"num","q":"Week 12: 21 is 35% of what number?","a":60,"pts":2,"why":"35% → 21, so 5% → 3, so 100% → 60."},
    {"t":"num","q":"Week 13: a $70 sleeping bag is 30% off. What is the sale price?","a":49,"unit":"dollars","show":"$49","pts":2,"why":"Pay 70%: 0.7 × $70 = $49."},
    {"t":"num","q":"Week 14: how many ounces are in 4 pounds?","a":64,"unit":"ounces","pts":2,"why":"4 × 16 = 64 ounces."}]},
@@ -41,7 +41,7 @@ LESSON = {
   {"title": "Review: Unit Rates and Comparing Deals",
    "html": "<p>A <b>unit rate</b> compares a quantity to 1 of another quantity. To find it, divide: total ÷ number of units. Compare deals only when the unit rates use the same unit.</p><p>Example: crayons cost $3.60 for 24 or $5.40 for 48. Unit prices: $0.15 and about $0.11 per crayon, so the 48-pack is the better buy, if you will use them.</p>",
    "checks": [
-    {"t":"num","q":"A 12-pack of pencils costs $3.00 and a 30-pack costs $6.00. What is the unit price of the 30-pack in cents per pencil? (Type the number of cents.)","a":20,"unit":"cents per pencil","pts":2,"why":"$6.00 ÷ 30 = $0.20; the 12-pack is $0.25 each."},
+    {"t":"num","q":"A 12-pack of pencils costs $3.00 and a 30-pack costs $6.00. What is the unit price of the 30-pack in cents per pencil? (Type the number of cents.)","a":[20,0.2],"unit":"cents per pencil","pts":2,"why":"$6.00 ÷ 30 = $0.20; the 12-pack is $0.25 each."},
     {"t":"num","q":"A mail carrier drives 84 miles in 3 1/2 hours. What is the average speed in miles per hour?","a":24,"unit":"miles per hour","pts":2,"why":"84 ÷ 3.5 = 24."},
     {"t":"open","key":"rv_deal","q":"The 30-pack of pencils is the better unit price. Give one reason a family might still buy the 12-pack.","min":15,"rows":2,"rubric":["A sensible reason: they only need a few, limited budget today, storage, the extra would go to waste"],"model":"If they only need 10 pencils, the 12-pack costs less money overall, and the extra 18 pencils might just get lost."}]},
   {"title": "Review: Percents, Discounts, Tax, Tips and Markups",
@@ -92,7 +92,7 @@ LESSON = {
     {"t":"num","q":"A cyclist rides 27 miles in 1 1/2 hours. What is her speed in miles per hour?","a":18,"unit":"miles per hour","pts":3,"why":"27 ÷ 1.5 = 18."},
     {"t":"text","q":"Which is the better buy: A) 20 ounces of rice for $2.40 or B) 32 ounces for $3.52? Type A or B.","a":["^b","option b","choice b"],"show":"B ($0.11 per ounce vs. $0.12)","pts":3,"why":"A: $2.40 ÷ 20 = $0.12 per ounce. B: $3.52 ÷ 32 = $0.11 per ounce."}]},
    {"title": "Part B: Percents", "items": [
-    {"t":"blanks","q":"Complete the conversions.","sent":"0.35 = ___% &nbsp; 5/8 = ___%","blanks":[["35"],["62.5"]],"show":"35; 62.5","pts":3,"why":"0.35 × 100 = 35%; 5 ÷ 8 = 0.625 = 62.5%."},
+    {"t":"blanks","q":"Complete the conversions.","sent":"0.35 = ___% &nbsp; 5/8 = ___%","blanks":[["35"],["62.5","62 1/2"]],"show":"35; 62.5","pts":3,"why":"0.35 × 100 = 35%; 5 ÷ 8 = 0.625 = 62.5%."},
     {"t":"num","q":"What is 45% of 80?","a":36,"pts":3,"why":"0.45 × 80 = 36 (or 10% = 8, 40% = 32, 5% = 4)."},
     {"t":"num","q":"27 is 60% of what number?","a":45,"pts":3,"why":"60% → 27, 20% → 9, 100% → 45."},
     {"t":"num","q":"Nadia answered 42 out of 48 questions correctly. What percent is that?","a":87.5,"unit":"%","pts":3,"why":"42 ÷ 48 = 0.875 = 87.5%."}]},
@@ -132,8 +132,8 @@ TEACHER = {
  "misconceptions": ["Subtracting percents of different wholes (discount minus tax).", "Taking markup as a percent of the selling price.", "Multiplying when converting to a larger unit.", "Rounding down when you must buy whole rolls or boxes."],
  "support": ["Keep the toolkit chart visible.", "Allow ratio tables for every percent and conversion problem.", "Break the care package into one step per line."],
  "challenge": ["Find a real shipping rate to Jamaica online with a parent and redo the comparison.", "Write two checkpoint-style problems of your own, with answer keys."],
- "background": "<p>Shipping prices, the $60 budget and the 155 JMD exchange rate are illustrative examples, not real carrier rates or current market rates. Checkpoint total: 52 points (Parts A to D). Rounding: Florida computes sales tax with a bracket system that rounds a half cent up, so $2.025 becomes $2.03.</p>",
- "sources": ["Florida Department of Revenue, Sales and Use Tax (bracket system).", "NIST Handbook 44, Appendix C.", "Jump$tart Coalition, National Standards for Personal Financial Education."]
+ "background": "<p>Shipping prices, the $60 budget and the 155 JMD exchange rate are illustrative examples, not real carrier rates or current market rates. Checkpoint total: 52 points (Parts A to D). Rounding: Florida carries sales tax to the third decimal place and rounds up to the next whole cent when the third decimal place is greater than 4, so $2.025 becomes $2.03.</p>",
+ "sources": ["Florida Department of Revenue, Florida Sales and Use Tax (GT-800013).", "NIST Handbook 44, Appendix C.", "Jump$tart Coalition, National Standards for Personal Financial Education."]
 }
 
 PRINT = {
