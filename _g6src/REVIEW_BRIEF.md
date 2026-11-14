@@ -29,3 +29,9 @@ rule violation; MEDIUM = weak pedagogy, unclear wording, answer acceptance too s
 the exact location (file, question text), the problem, and the specific fix. Verify every math answer by computing it.
 Verify historical/scientific facts; flag anything doubtful and say what is accurate, citing a reliable source if you check one.
 End with an overall verdict per lesson: ready / ready after fixes / needs rework.
+
+## Added after Week 3 review
+- Florida minimum wage is $15.00 since Sept 30, 2026: every wage in a Florida setting must be at least that.
+- Grade 6 decimal work must include thousandths and multi-step real-world problems.
+- "Name two" items must use two distinct blanks, never one text box with duplicate keyword groups.
+- Hands-on record items need model answers too.

@@ -14,7 +14,7 @@ GUIDE = {
  "math": {
   "topic": "Multiplying Decimals",
   "what": "Your child models decimal multiplication on a grid, uses the standard algorithm, multiplies by powers of ten, and calculates a teenager's paycheck from an hourly wage, then figures out why his own total is one cent off from the paycheck.",
-  "ask": "\"If you earned $12.75 an hour for 6.5 hours, about how much would you make?\"",
+  "ask": "\"If you earned $15.75 an hour for 6.5 hours, about how much would you make?\"",
   "try": "At the store or with produce at home, have your child find the cost of fruit priced by the pound.",
   "clicking": "They predict whether a product will be bigger or smaller before they calculate.",
   "help": "They line up decimal points as if adding, or believe multiplying always makes a number bigger."},

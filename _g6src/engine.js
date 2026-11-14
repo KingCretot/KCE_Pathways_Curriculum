@@ -12,7 +12,7 @@ function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){retur
 
 /* ---------- answer checking ---------- */
 function norm(s){
-  return String(s||'').replace(/(\d),(\d)/g,'$1$2').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
+  return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/(\d),(\d)/g,'$1$2').toLowerCase().replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
     .replace(/[^a-z0-9\s'\-\/\.]/g,' ').replace(/\b(the|a|an)\b/g,' ').replace(/\s+/g,' ').trim().replace(/\.$/,'');
 }
 function lightNorm(s){ return String(s||'').replace(/[\u201c\u201d]/g,'"').replace(/[\u2018\u2019]/g,"'").replace(/\s+/g,' ').trim().replace(/\s+([,.!?])/g,'$1'); }
@@ -173,6 +173,8 @@ function build(){
     '<div class="card"><h3>Steps</h3><ol>'+H.steps.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol></div>'+
     (H.visual?'<div class="visual">'+H.visual+'</div>':'')+(H.record||[]).map(function(q){return qHTML(q,'handson');}).join('')); }
   if(L.think) addSlide('think','Think Deeper','<h2>Think Deeper</h2>'+(L.think.intro?'<p>'+L.think.intro+'</p>':'')+L.think.items.map(function(q){return qHTML(q,'think');}).join(''));
+  if(L.checkpoint){ var C=L.checkpoint; addSlide('checkpoint','Checkpoint','<h2>'+esc(C.title)+'</h2>'+(C.intro?'<p>'+C.intro+'</p>':'')+
+    (C.parts||[{items:C.items}]).map(function(pt){ return (pt.title?'<h3 class="cp-part">'+esc(pt.title)+'</h3>':'')+pt.items.map(function(q){return qHTML(q,'checkpoint');}).join(''); }).join('')); }
   if(L.exit) addSlide('exit','Exit Check','<h2>Exit Check</h2><p>Show what you learned today. Work it out, then type your answer.</p>'+L.exit.map(function(q){return qHTML(q,'exit');}).join(''));
   addSlide('done','Results','<h2>Your Results</h2><div id="result"></div>'+
     (V.length?'<div class="card"><h3>Vocabulary from this lesson</h3><dl class="vocab">'+V.map(function(v){return '<dt>'+esc(v[0])+'</dt><dd>'+v[1]+'</dd>';}).join('')+'</dl></div>':'')+

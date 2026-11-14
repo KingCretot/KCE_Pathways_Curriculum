@@ -135,7 +135,7 @@ LESSON = {
 
 TEACHER = {
  "standards": [
-  "SC.6.N.1.1: Define a problem, plan and carry out scientific investigations of various types, identify variables, collect and organize data, interpret data in charts, tables and graphics, analyze information, make predictions and defend conclusions.",
+  "SC.6.N.1.1: Define a problem from the sixth grade curriculum, use appropriate reference materials to support scientific understanding, plan and carry out scientific investigation of various types, such as systematic observations or experiments, identify variables, collect and organize data, interpret data in charts, tables, and graphics, analyze information, make predictions, and defend conclusions.",
   "SC.6.N.1.2: Explain why scientific investigations should be replicable.",
   "MA.6 connection: finding the mean of a data set (formally taught in Math Unit 6).",
   "NGSS Science and Engineering Practice 3: planning and carrying out investigations."],

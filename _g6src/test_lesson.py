@@ -10,6 +10,7 @@ FILL = r'''
   (L.learn||[]).forEach(b => qs.push(...(b.checks||[])));
   if (L.handson) qs.push(...(L.handson.record||[]));
   if (L.think) qs.push(...L.think.items);
+  if (L.checkpoint) (L.checkpoint.parts || [{items: L.checkpoint.items}]).forEach(p => qs.push(...p.items));
   if (L.exit) qs.push(...L.exit);
   const els = [...document.querySelectorAll('.q')];
   if (els.length !== qs.length) return {err: 'count mismatch ' + els.length + ' vs ' + qs.length};

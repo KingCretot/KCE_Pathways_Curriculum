@@ -2,8 +2,8 @@ GUIDE = {
  "headline": "Week 4: Writers, Shoppers and the First Farmers",
  "intro": "This week your child drafts a full personal narrative, uses decimal division to find the better buy, graphs real temperature data, and discovers that farming began independently on several continents, including Africa.",
  "time": "About 60 minutes of live lessons per subject, plus 35 to 45 minutes of after-class work per subject. The narrative draft takes longer: plan about 60 minutes.",
- "gather": "Four packaged foods with their prices (a receipt, store app or flyer); one or two thermometers, a sunny spot and a shady spot, graph paper and two colored pencils; a flat stone or cutting board with a smooth stone (or a mortar and pestle) and 1/4 cup of dry grain such as rice, popcorn or oats; space to act out a story scene.",
- "heads_up": "Science needs temperature readings spread across several hours, so plan a day when your child is home. Personal narrative project: your child writes the full first draft this week and revises it for the Week 5 project. Read it with them and point out one moment you would like to hear more about.",
+ "gather": "Four packaged foods with their prices (a receipt, store app or flyer) and internet or a flyer to find a second size; the Week 1 story mountain cards; one or two thermometers, a sunny spot and a shady spot, graph paper, two colored pencils and a clock or timer; a flat stone or cutting board with a smooth stone (or a mortar and pestle) and 1/4 cup of dry grain such as rice, popcorn or oats, a timer, a tablespoon, a fine strainer and a towel; space to act out a story scene.",
+ "heads_up": "Science needs temperature readings spread across several hours, so plan a day when your child is home. Personal narrative project: your child writes the full first draft this week and revises it for the Week 5 project. Read it with them and point out one moment you would like to hear more about. Week 5 also brings the Science investigation project and the Social Studies museum exhibit, so keep this week's temperature graph and flour sample.",
  "ela": {
   "topic": "Crafting Narrative: Dialogue, Pacing and Description",
   "what": "Your child learns to punctuate dialogue, slow down the most important moment of a story, use strong verbs and sensory details, and connect events with transitions. They act out the climax of their own story in slow motion, then write the complete first draft of their personal narrative.",
@@ -27,8 +27,8 @@ GUIDE = {
   "help": "They put time on the up-and-down axis, or use uneven spacing. The TAILS checklist helps."},
  "socialstudies": {
   "topic": "Farming, Villages and the First Towns",
-  "what": "Your child learns how people domesticated plants and animals, finds the ten or more places where farming began independently, explores early towns such as Jericho and Çatalhöyük, and weighs the gains and costs of farming. They grind grain by hand to feel the daily work of the first farmers.",
-  "ask": "\"Which foods on our table first came from Africa, the Americas or Asia?\" (Coffee, okra, watermelon and sorghum came from Africa; corn, potatoes and tomatoes from the Americas; rice from Asia.)",
+  "what": "Your child learns how people domesticated plants and animals, finds at least seven places where farming began independently, explores early towns such as Jericho and Çatalhöyük, and weighs the gains and costs of farming. They grind grain by hand to feel the daily work of the first farmers.",
+  "ask": "\"Which foods on our table first came from Africa, the Americas or Asia?\" (Okra, watermelon and sorghum came from Africa; corn, potatoes and tomatoes from the Americas; rice from Asia.)",
   "try": "Time the grinding together and do the math for how long one loaf of bread would take.",
   "clicking": "They can argue for a side using evidence, and they know farming did not start in only one place.",
   "help": "They assume farming made everyone healthier right away. Ask what the skeletons of early farmers showed."}

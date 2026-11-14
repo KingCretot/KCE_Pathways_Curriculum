@@ -136,7 +136,7 @@ LESSON = {
 
 TEACHER = {
  "standards": [
-  "SC.6.N.1.1: Define a problem, use appropriate reference materials to support scientific understanding, plan and carry out scientific investigations.",
+  "SC.6.N.1.1: Define a problem from the sixth grade curriculum, use appropriate reference materials to support scientific understanding, plan and carry out scientific investigation of various types, such as systematic observations or experiments, identify variables, collect and organize data, interpret data in charts, tables, and graphics, analyze information, make predictions, and defend conclusions.",
   "SC.6.N.1.4: Discuss, compare and negotiate methods used, results obtained and explanations among groups of students conducting the same investigation.",
   "SC.6.N.2.3: Recognize that scientists who make contributions to scientific knowledge come from all kinds of backgrounds and possess varied talents, interests and goals.",
   "SC.7.N.1.6 (preview): Explain that empirical evidence is the cumulative body of observations of a natural phenomenon on which scientific explanations are based.",

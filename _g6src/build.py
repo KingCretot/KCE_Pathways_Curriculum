@@ -65,6 +65,9 @@ def all_questions(L):
     for i, b in enumerate(L.get('learn', [])): groups.append((f"Learn {i+1}: {b['title']}", b.get('checks', [])))
     if L.get('handson'): groups.append(('Hands-On', L['handson'].get('record', [])))
     if L.get('think'): groups.append(('Think Deeper', L['think']['items']))
+    if L.get('checkpoint'):
+        for pt in L['checkpoint'].get('parts', [{'title': '', 'items': L['checkpoint'].get('items', [])}]):
+            groups.append(('Checkpoint' + (': ' + pt['title'] if pt.get('title') else ''), pt['items']))
     if L.get('exit'): groups.append(('Exit Check', L['exit']))
     return groups
 
