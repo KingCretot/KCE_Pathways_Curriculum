@@ -3,7 +3,7 @@ def tape(total, pct, title, label_left, label_right):
     each = total / parts; shaded = int(pct / 10)
     s = (f'<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="{title}">'
          f'<text x="320" y="22" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">{title}</text>'
-         f'<text x="{x0 + parts*w/2}" y="50" text-anchor="middle" font-weight="bold">Original price: ${total:g} = 100%</text>'
+         f'<text x="{x0 + parts*w/2}" y="44" text-anchor="middle" font-weight="bold">Original price: ${total:g} = 100%</text>'
          f'<path d="M{x0} 58 v-6 h{parts*w} v6" fill="none" stroke="#0A1F3D"/>')
     for i in range(parts):
         fill = "#DB2F30" if i < shaded else "#cfe0f7"
@@ -13,8 +13,8 @@ def tape(total, pct, title, label_left, label_right):
           f'<text x="320" y="176" text-anchor="middle" font-size="12" fill="#5b6676">Each block is 10% of the price. Two ways: subtract the discount, or pay the percent that is left.</text></svg>')
     return s
 
-MARKUP = ('<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Markup bar model: cost plus markup equals selling price">'
-  '<text x="320" y="22" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Markup: from what it costs to what it sells for</text>'
+MARKUP = ('<svg viewBox="0 0 640 224" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Markup bar model: cost plus markup equals selling price">'
+  '<text x="320" y="22" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Markup: from what it costs to what it sells for</text><g transform="translate(0,24)">'
   + ''.join(f'<rect x="{60+i*48}" y="50" width="48" height="44" fill="#3d9a2f" stroke="#0A1F3D"/><text x="{84+i*48}" y="77" text-anchor="middle" fill="#fff" font-size="12">25%</text>' for i in range(4))
   + ''.join(f'<rect x="{252+i*48}" y="50" width="48" height="44" fill="#C9A84C" stroke="#0A1F3D"/><text x="{276+i*48}" y="77" text-anchor="middle" font-size="12">25%</text>' for i in range(3)) +
   '<path d="M60 100 v6 h192 v-6" fill="none" stroke="#3d9a2f"/><text x="156" y="124" text-anchor="middle" font-weight="bold" fill="#2c6e22">Cost: $8 (100%)</text>'
@@ -22,7 +22,7 @@ MARKUP = ('<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" font-fa
   '<path d="M60 40 v-6 h336 v6" fill="none" stroke="#0A1F3D"/><text x="228" y="30" text-anchor="middle" font-weight="bold">Selling price: $14 (175% of cost)</text>'
   '<text x="420" y="62" font-size="12">Each block = 25% of $8 = $2</text><text x="420" y="80" font-size="12">Cost: 4 blocks = $8</text><text x="420" y="98" font-size="12">Markup: 3 blocks = $6</text>'
   '<text x="320" y="164" text-anchor="middle" font-size="12" fill="#5b6676">The markup percent is always a percent of the COST, not of the selling price.</text>'
-  '<text x="320" y="182" text-anchor="middle" font-size="12" fill="#5b6676">Kiara\'s crocheted plant hanger: $8 of supplies, sold for $14.</text></svg>')
+  '<text x="320" y="182" text-anchor="middle" font-size="12" fill="#5b6676">Kiara\'s crocheted plant hanger: $8 of supplies, sold for $14.</text></g></svg>')
 
 TIPS = ('<svg viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Tip shortcuts built from 10 percent">'
   '<text x="320" y="22" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Tip shortcuts on a $48 bill: start with 10%</text>'

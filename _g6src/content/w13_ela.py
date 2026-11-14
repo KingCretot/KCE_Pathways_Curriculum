@@ -1,0 +1,160 @@
+def poem(title, author, lines, note="", epigraph=""):
+    body = "<br>".join(l if l else "&nbsp;" for l in lines)
+    return (f"<div class='card' style='border-left-color:#C9A84C'><h3 style='margin-top:0'>{title}</h3><p class='muted' style='margin-top:-6px'>{author}</p>{epigraph}"
+            f"<p style='font-family:Georgia,serif;font-size:17px;line-height:1.7'>{body}</p>{note}</div>")
+
+RIVERS = poem("The Negro Speaks of Rivers", "Langston Hughes (first published in <i>The Crisis</i>, June 1921; this text from <i>The Weary Blues</i>, 1926, where it is dedicated \"To W. E. B. DuBois\")", [
+ "I've known rivers:", "",
+ "I've known rivers ancient as the world and older than the flow of human blood in human veins.", "",
+ "My soul has grown deep like the rivers.", "",
+ "I bathed in the Euphrates when dawns were young.",
+ "I built my hut near the Congo and it lulled me to sleep.",
+ "I looked upon the Nile and raised the pyramids above it.",
+ "I heard the singing of the Mississippi when Abe Lincoln went down to New Orleans, and I've seen its muddy bosom turn all golden in the sunset.", "",
+ "I've known rivers:", "Ancient, dusky rivers.", "",
+ "My soul has grown deep like the rivers."],
+ "<p class='muted' style='font-size:12px'>lulled: gently soothed. bosom: chest; here, the river's surface. dusky: dark, like dusk. In 1921, <i>Negro</i> was the respectful, standard word for Black Americans, and Hughes used it with pride.</p>")
+
+TIRED = poem("The Tired Worker", "Claude McKay (text from <i>The Book of American Negro Poetry</i>, 1922)", [
+ "O whisper, O my soul!—the afternoon", "Is waning into evening—whisper soft!", "Peace, O my rebel heart! for soon the moon", "From out its misty veil will swing aloft!",
+ "Be patient, weary body, soon the night", "Will wrap thee gently in her sable sheet,", "And with a leaden sigh thou wilt invite", "To rest thy tired hands and aching feet.",
+ "The wretched day was theirs, the night is mine;", "Come, tender sleep, and fold me to thy breast.", "But what steals out the gray clouds red like wine?", "O dawn! O dreaded dawn! O let me rest!",
+ "Weary my veins, my brain, my life,—have pity!", "No! Once again the hard, the ugly city."],
+ "<p class='muted' style='font-size:12px'>waning: fading. aloft: high up. thee, thy, thou: old words for you and your. sable: black. leaden: heavy, like lead. wretched: miserable.</p>")
+
+ORIFLAMME = poem("Oriflamme", "Jessie Redmon Fauset (first published in <i>The Crisis</i>, January 1920; text from <i>The Book of American Negro Poetry</i>, 1922)", [
+ "I think I see her sitting bowed and black,", "Stricken and seared with slavery's mortal scars,", "Reft of her children, lonely, anguished, yet", "Still looking at the stars.", "",
+ "Symbolic mother, we thy myriad sons,", "Pounding our stubborn hearts on Freedom's bars,", "Clutching our birthright, fight with faces set,", "Still visioning the stars!"],
+ "<p class='muted' style='font-size:12px'>oriflamme: a red-gold banner once carried into battle by French kings; any symbol that inspires people to keep going. seared: burned. reft: robbed. myriad: countless. birthright: what belongs to a person from birth.</p>",
+ "<p style='font-size:14px;font-style:italic;margin:4px 0 0'>\"I can remember when I was a little, young girl, how my old mammy would sit out of doors in the evenings and look up at the stars and groan, and I would say, 'Mammy, what makes you groan so?' And she would say, 'I am groaning to think of my poor children; they do not know where I be and I don't know where they be. I look up at the stars and they look up at the stars!'\"—Sojourner Truth</p><p class='muted' style='font-size:12px;margin-top:2px'>The epigraph: Sojourner Truth's words about her mother. <i>Mammy</i> is the old word for mother that Truth used.</p>")
+
+MIGRATION = ('<svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Diagram of the Great Migration from the South to northern and western cities">'
+  '<text x="320" y="22" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">The Great Migration (about 1910 to 1970)</text>'
+  '<defs><marker id="gm" viewBox="0 0 10 10" markerWidth="6" markerHeight="6" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#DB2F30"/></marker></defs>'
+  '<rect x="200" y="186" width="240" height="46" rx="10" fill="#C9A84C"/><text x="320" y="206" text-anchor="middle" font-weight="bold">The rural South</text><text x="320" y="223" text-anchor="middle" font-size="11">farms and small towns</text>'
+  + ''.join(f'<rect x="{x-62}" y="{y-20}" width="124" height="40" rx="8" fill="{c}"/><text x="{x}" y="{y+5}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">{t}</text><path d="M{320 + (x-320)*0.25} 184 L{x} {y+24}" stroke="#DB2F30" stroke-width="2.5" marker-end="url(#gm)"/>'
+            for x, y, t, c in [(80, 70, "Los Angeles", "#0047BA"), (220, 60, "Chicago", "#0047BA"), (360, 60, "Detroit", "#0047BA"), (500, 60, "New York: Harlem", "#0A1F3D"), (580, 130, "Philadelphia", "#0047BA")]) +
+  '<text x="452" y="202" font-size="10" fill="#5b6676">About 6 million Black Southerners</text><text x="452" y="215" font-size="10" fill="#5b6676">moved north and west for work</text><text x="452" y="228" font-size="10" fill="#5b6676">and to escape unjust laws.</text>'
+  '<text x="320" y="246" text-anchor="middle" font-size="10" fill="#5b6676">Simplified diagram, not a map. Harlem, in New York City, became the center of the Harlem Renaissance.</text></svg>')
+
+LESSON = {
+ "unit": "Unit 3: The Power of Poetry",
+ "title": "Harlem Renaissance Poets",
+ "subtitle": "In the 1920s, Black writers, musicians and artists in Harlem created a burst of work that changed American culture. Their poems spoke of history, labor, pride and hope, in forms both brand-new and centuries old.",
+ "objectives": [
+  "Explain what the Harlem Renaissance was and how the Great Migration made it possible.",
+  "Analyze how Langston Hughes uses repetition, history and a collective speaker in free verse.",
+  "Analyze how Claude McKay uses the sonnet form, its rhyme scheme and its turn to express a worker's experience.",
+  "Analyze how Jessie Redmon Fauset uses an epigraph, a symbol and parallel stanzas to connect past and present.",
+  "Use the roots migr, nat, voc and liber, and write a poem modeled on Hughes's structure."],
+ "vocab": [
+  ["Harlem Renaissance", "A flowering of Black art, music and writing centered in Harlem, New York, in the 1920s and early 1930s."],
+  ["Great Migration", "The movement of about 6 million Black Southerners to cities in the North and West between about 1910 and 1970."],
+  ["speaker", "The voice that talks in a poem; it is not always the poet."],
+  ["collective voice", "A speaker who speaks for a whole group of people, not just one person."],
+  ["free verse", "Poetry without a regular rhyme scheme or meter."],
+  ["volta", "The turn in a sonnet, where the thought or feeling shifts."],
+  ["epigraph", "A quotation placed at the beginning of a poem or book to set its theme."],
+  ["symbol", "Something concrete, like stars or a river, that stands for a bigger idea."]],
+ "reconnect": {
+  "title": "Week 12: Sound and structure",
+  "intro": "Today's poets use the forms you learned last week. Check that you have them ready.",
+  "items": [
+   {"t":"text","q":"A Shakespearean sonnet ends with two rhyming lines. What are two rhyming lines in a row called?","a":[{"all":[["couplet"]],"none":["not","quatrain"]}],"show":"a couplet","pts":2,"why":"Sonnet 18 ends with the gg couplet."},
+   {"t":"blanks","q":"Complete the facts about haiku.","sent":"In Japanese, a haiku has ___ sound units in a ___ pattern.","blanks":[["17","seventeen"],["5-7-5","575"]],"show":"17; 5-7-5","pts":2,"why":"Bashō's \"furu ike ya / kawazu tobikomu / mizu no oto\" counts 5-7-5."},
+   {"t":"open","key":"rc_refrain","q":"What is a refrain? Give an example from any Week 12 poem.","min":12,"rows":2,"rubric":["A line or phrase repeated at regular places","A correct example (\"We bear her along like a pearl on a string\")"],"model":"A refrain is a line repeated at regular places in a poem, like \"We bear her along like a pearl on a string\" in \"Palanquin Bearers.\""},
+   {"t":"text","q":"Which root inside the word symphony means sound?","a":[{"all":[["phon"]],"none":["not"]}],"show":"phon","pts":2,"why":"sym (together) + phon (sound)."}]},
+ "hook": {
+  "title": "A Poem Written Crossing a River",
+  "visual": MIGRATION,
+  "html": "<p>In the summer of 1920, an 18-year-old named Langston Hughes was riding a train across the Mississippi River near St. Louis, on his way to visit his father in Mexico. Watching the wide, muddy water in the late-afternoon light, he thought about what rivers had meant to Black people across history. He took out an envelope and, in about fifteen minutes, wrote a poem on the back of it.</p><p>The next year, that poem appeared in <i>The Crisis</i>, a national magazine. It became one of the most famous poems in American literature, and its young author became a leading voice of a movement called the <b>Harlem Renaissance</b>.</p><div class='callout'><b>Big question:</b> How did poets of the Harlem Renaissance use both new and old poetic forms to speak about history, work and hope?</div>"},
+ "learn": [
+  {"title": "Harlem in the 1920s: A Rebirth",
+   "html": "<p>Between about 1910 and 1970, some 6 million Black Southerners moved to cities in the North and West in the <b>Great Migration</b>. They came for factory jobs and to escape segregation laws and racial violence in the South. Many settled in <b>Harlem</b>, a neighborhood in New York City.</p><p>In the 1920s, Harlem filled with writers, musicians, painters and thinkers. Jazz and blues poured out of its clubs. The NAACP's magazine <i>The Crisis</i>, edited by <b>W. E. B. Du Bois</b>, published new Black writers; its literary editor, <b>Jessie Redmon Fauset</b>, helped launch the career of Langston Hughes. Writers such as Zora Neale Hurston, Countee Cullen and Claude McKay and painters such as Aaron Douglas showed the beauty, depth and struggles of Black life. People called it a <b>renaissance</b>, a rebirth.</p><p><b>Roots:</b> <i>migr</i> means move (migrate, migration, immigrant). <i>Nat</i> means born (native, nation; <i>renaissance</i> comes from the same Latin word for being born). <i>Voc</i> means voice or call (vocal, advocate). <i>Liber</i> means free (liberty, liberate).</p>",
+   "checks": [
+    {"t":"text","q":"What does the word renaissance mean?","a":[{"all":[["rebirth","reborn","born again","new birth"]],"none":["not"]}],"show":"rebirth","pts":2,"why":"Re (again) + nat/naiss (born): born again."},
+    {"t":"open","key":"whyharlem","q":"Why do you think so many artists and writers gathered in one neighborhood at the same time? Give two reasons.","min":25,"rows":3,"rubric":["Connects to the Great Migration bringing many people to Harlem","A second reason: magazines and publishers nearby, artists inspiring each other, audiences for music and art, freedom to create"],"model":"The Great Migration brought thousands of Black people to Harlem, so there was a large community and audience. Being close together, artists could inspire and support each other, and magazines like The Crisis were there to publish their work."},
+    {"t":"blanks","q":"Complete the facts.","sent":"The magazine published by the NAACP and edited by W. E. B. Du Bois was called The ___. Its literary editor, Jessie Redmon ___, helped launch Langston Hughes's career.","blanks":[[{"all":[["crisis"]],"none":["not"]}],[{"all":[["fauset"]],"none":["not"]}]],"show":"Crisis; Fauset","pts":2,"why":"The Crisis published Hughes's first famous poem in 1921."},
+    {"t":"blanks","q":"Use the roots.","sent":"A person who moves from one region to another is a ___ (root migr). To set someone free is to ___ them (root liber).","blanks":[["migrant","migrator","emigrant","immigrant"],["liberate","free"]],"show":"migrant; liberate","pts":2,"why":"migr = move; liber = free."}]},
+  {"title": "Langston Hughes: A Voice as Old as Rivers",
+   "html": RIVERS + "<p>The \"I\" in this poem bathed in the Euphrates thousands of years ago, built a hut by the Congo, helped raise the pyramids by the Nile, and heard the Mississippi in Abraham Lincoln's time. No single person could do all that. Hughes's speaker is a <b>collective voice</b>: the voice of Black people across all of history, from the first civilizations to America.</p><p>The poem is in <b>free verse</b>, with no regular rhyme or meter. Instead, it is held together by <b>repetition</b>: \"I've known rivers\" and the refrain \"My soul has grown deep like the rivers.\" The four river lines all begin the same way (I bathed, I built, I looked, I heard), a pattern called <b>parallel structure</b>.</p><p>The Lincoln line refers to a story that the young Lincoln, traveling by flatboat to New Orleans, saw enslaved people sold at a market there. The river that carried people into slavery also carries a story of freedom.</p>",
+   "checks": [
+    {"t":"blanks","q":"Connect the poem to Social Studies. Which river in the poem flows through each civilization you studied?","sent":"Mesopotamia (Week 11): ___ &nbsp; Kemet, ancient Egypt (Weeks 6 to 10): ___","blanks":[[{"all":[["euphrates"]],"none":["not"]}],[{"all":[["nile"]],"none":["not"]}]],"show":"Euphrates; Nile","pts":2,"why":"The Euphrates (with the Tigris) watered Mesopotamia; the Nile was the life of Kemet."},
+    {"t":"open","key":"collective","q":"Who is the \"I\" in this poem? Use two details from the poem to prove your answer.","min":30,"rows":3,"rubric":["A collective voice: Black people (or African peoples) across history","Two details showing the speaker spans thousands of years and many places (Euphrates when dawns were young, the pyramids, Lincoln)"],"model":"The \"I\" is a collective voice for Black people throughout history. The speaker bathed in the Euphrates \"when dawns were young\" and raised the pyramids by the Nile thousands of years ago, but also heard the Mississippi in Lincoln's time. Only a whole people, not one person, could live through all of that."},
+    {"t":"open","key":"deep","q":"What does \"My soul has grown deep like the rivers\" mean? Why do you think Hughes repeats it?","min":30,"rows":3,"rubric":["Meaning: the people's spirit has gained wisdom, strength or endurance over a long history, like a river cut deep over time","Repetition emphasizes this main idea or theme and gives the poem a song-like or spiritual feeling"],"model":"It means the speaker's spirit has become wise and strong over thousands of years of history, the way a river carves a deep channel over time. Hughes repeats it because it is the poem's main idea, and the repetition makes it sound like a song or a prayer."},
+    {"t":"text","q":"This poem has no regular rhyme scheme or meter. What is this kind of poetry called?","a":[{"all":[["free verse"]],"none":["not"]}],"show":"free verse","pts":2,"why":"Free verse is held together by other patterns, like repetition and parallel structure."}]},
+  {"title": "Claude McKay: A Worker's Sonnet",
+   "html": TIRED + "<p><b>Claude McKay</b> was born in Jamaica in 1889 and came to the United States in 1912. He worked hard jobs, including as a waiter on railroad dining cars, while he wrote poetry. He often chose the <b>sonnet</b>, a form that is hundreds of years old and was used by Shakespeare, to write about the lives of Black workers in the modern city.</p><p>\"The Tired Worker\" follows the Shakespearean pattern you learned in Week 12: three quatrains and a final couplet, rhyming abab cdcd efef gg. For ten lines the worker longs for rest and welcomes the night. Then comes the <b>volta</b>, the turn: dawn is already arriving, and the poem ends in the \"hard, the ugly city.\" The worker also speaks to his own soul, heart and body as if they were people, and the night \"wraps\" him in her sheet: personification.</p>",
+   "checks": [
+    {"t":"text","q":"What is the rhyme scheme of lines 1 to 4? Type the four letters with no spaces.","a":["abab"],"show":"abab","pts":2,"why":"afternoon/moon (a), soft/aloft (b)."},
+    {"t":"text","q":"Type the one-word conjunction that begins line 11, where the sonnet turns.","a":[{"all":[["but"]],"none":["not","and"]}],"show":"But","pts":2,"why":"\"But what steals out the gray clouds red like wine?\" Dawn is coming."},
+    {"t":"open","key":"theirs","q":"\"The wretched day was theirs, the night is mine.\" Who might \"they\" be? What does this line reveal about the worker's life?","min":30,"rows":3,"rubric":["They: the bosses, employers or the people the worker labors for","The worker's days belong to others; only the night (rest) is his own, so he has little freedom or control"],"model":"\"They\" are probably the bosses or employers who own his workday. The line shows that his days do not belong to him; the only time that is truly his is the night, when he can rest, and even that is short."},
+    {"t":"text","q":"Type the two words that rhyme in the final couplet.","a":[{"all":[["pity"],["city"]]}],"show":"pity; city","pts":2,"why":"The gg couplet: pity / city."},
+    {"t":"open","key":"oldform","q":"Why might McKay have chosen the sonnet, an old form used by Shakespeare, to write about a modern Black worker? Give one possible reason and explain it.","min":30,"rows":3,"rubric":["A reasonable purpose (to show a worker's feelings deserve the same respect as any subject; to prove mastery of a respected form; the strict form feels like the worker's trapped routine)","Explanation linked to the poem"],"model":"By using the same form Shakespeare used for love and beauty, McKay shows that a tired worker's feelings deserve just as much respect. The strict 14 lines and set rhymes also feel like the worker's routine, which repeats every day with no escape."}]},
+  {"title": "Jessie Redmon Fauset: Still Looking at the Stars",
+   "html": ORIFLAMME + "<p><b>Jessie Redmon Fauset</b> (1882 to 1961) was a teacher, poet, novelist and the literary editor of <i>The Crisis</i>, where she published the early work of Langston Hughes and many others. \"Oriflamme\" begins with an <b>epigraph</b> from Sojourner Truth, who was born into slavery in New York and became a famous speaker for freedom and women's rights. Truth remembers her mother looking at the stars and grieving for children who had been sold away.</p><p>Fauset builds the poem in two <b>parallel stanzas</b>. The first looks back at the mother; the second turns to \"we thy myriad sons\" in Fauset's own time, still fighting for freedom. Each stanza ends with the stars: a <b>symbol</b> of hope that cannot be taken away.</p>",
+   "checks": [
+    {"t":"open","key":"lastlines","q":"Compare the last lines of the two stanzas: \"Still looking at the stars.\" and \"Still visioning the stars!\" What changes, and what does the change show?","min":30,"rows":3,"rubric":["Notices the change from looking to visioning and from a period to an exclamation point","Explains the shift from sorrowful, passive watching to active hope, determination or imagining the future"],"model":"\"Looking\" becomes \"visioning,\" and the period becomes an exclamation point. The mother quietly looked at the stars in her grief, but her descendants actively imagine a free future and fight for it, so the poem moves from sorrow to determination."},
+    {"t":"text","q":"Whose words appear in the epigraph at the start of the poem?","a":[{"all":[["sojourner","truth"]],"none":["not"]}],"show":"Sojourner Truth","pts":2,"why":"Truth's memory of her mother looking at the stars sets the poem's theme."},
+    {"t":"open","key":"stars","q":"What do the stars symbolize in \"Oriflamme\"? Explain how the epigraph helps you understand the symbol.","min":30,"rows":3,"rubric":["Stars: hope, freedom, connection to loved ones or a future that cannot be taken away","Uses the epigraph: the mother and her children looked at the same stars, so the stars connect separated people"],"model":"The stars stand for hope and connection. In the epigraph, Truth's mother says her children, sold far away, look up at the same stars she does. So the stars connect people who were separated and stand for a hope that slavery could not take."},
+    {"t":"blanks","q":"Find the rhymes.","sent":"In stanza 1, the word ___ rhymes with stars. In stanza 2, the word ___ rhymes with stars.","blanks":[[{"all":[["scars"]],"none":["not"]}],[{"all":[["bars"]],"none":["not"]}]],"show":"scars; bars","pts":2,"why":"scars/stars and bars/stars: pain and prison bars both answered by hope."}]}],
+ "handson": {
+  "title": "Rivers of My Story",
+  "intro": "Map the places that shaped your family or your own life, then write a poem modeled on Hughes's structure and perform it.",
+  "materials": ["A large sheet of paper or a paper bag cut open", "Markers or colored pencils", "Paper and pencil", "Optional: a jazz or blues recording to play softly while you read", "Optional: a family member to interview"],
+  "steps": [
+   "Choose four places that matter to your family's story or your own: rivers, lakes, oceans, cities, a grandparent's town or a place you have lived. Ask a family member if you can.",
+   "Draw them on the large paper, connected by a winding \"river\" line. Lay the paper on the floor and walk the river from the oldest place to the newest.",
+   "Write a 10- to 14-line poem modeled on Hughes's structure: an opening line (\"I've known ___\"), a refrain, and four parallel lines that each begin with I + a past-tense verb.",
+   "Perform your poem aloud, standing at each place on your map as you reach it. Use pauses and volume to bring out your refrain."],
+  "record": [
+   {"t":"open","key":"mypoem","q":"Write your finished poem.","min":60,"rows":10,"rubric":["10 to 14 lines","An opening line and a refrain that repeats","Four parallel lines beginning with I + a past-tense verb","Specific places and vivid images"],"model":"I've known oceans:\nI've known oceans wider than my grandmother's stories and older than the islands.\n\nMy heart has grown wide like the oceans.\n\nI waded in the Caribbean when my mother was small.\nI crossed the Atlantic in a crowded airplane at night.\nI fished in the Peace River with my father at dawn.\nI watched the Gulf turn orange over the Tampa sky.\n\nI've known oceans:\nSalt-bright, restless oceans.\n\nMy heart has grown wide like the oceans."},
+   {"t":"open","key":"mychoices","q":"Explain your refrain. What does it say about you or your family, and why did you choose those four places?","min":30,"rows":3,"rubric":["Explains the meaning of the refrain","Explains why the places matter"],"model":"My refrain, \"My heart has grown wide like the oceans,\" means my family's story stretches across many places, and that made me open to the world. I chose the places where my family came from and where we live now, from the oldest to the newest."}]},
+ "think": {
+  "intro": "Use evidence from the poems. Your teacher scores these.",
+  "items": [
+   {"t":"open","key":"pastpresent","q":"Both Hughes and Fauset connect the present to the past. Compare how each poet does it. Use at least one quotation from each poem.","min":100,"rows":8,"rubric":["Accurate explanation for Hughes (a collective speaker who has lived through all of history; rivers from ancient times to America)","Accurate explanation for Fauset (the epigraph and the first stanza look back; the second stanza applies the mother's hope to the present)","At least one accurate quotation from each","A clear comparison (similarity and difference)"],"model":"Hughes connects past and present through a single collective speaker who has lived through all of history, from \"I bathed in the Euphrates when dawns were young\" to hearing the Mississippi in Lincoln's time. Fauset connects them through two generations: the first stanza shows Sojourner Truth's mother \"still looking at the stars,\" and the second shows her descendants \"still visioning the stars!\" Both poets show that Black history is long and that its strength continues. The difference is that Hughes's past stretches across thousands of years and many lands, while Fauset focuses on slavery in America and the fight for freedom that followed."},
+   {"t":"open","key":"owns","q":"McKay's worker says, \"the night is mine.\" Hughes's speaker says, \"My soul has grown deep.\" What does each speaker claim to own that no one can take away? Why would that matter to writers of the Harlem Renaissance?","min":80,"rows":6,"rubric":["McKay: rest, private time, the night (even if brief)","Hughes: a deep soul, history and wisdom","A thoughtful link to the Harlem Renaissance (claiming dignity, identity and pride when others controlled work, laws or opportunities)"],"model":"McKay's worker owns only the night, the few hours of rest when no boss controls him. Hughes's speaker owns something bigger: a soul made deep by thousands of years of history. This mattered to Harlem Renaissance writers because Black Americans faced unfair laws and jobs that others controlled. Their poems claimed the things no one could take, such as rest, history, dignity and pride."}]},
+ "exit": [
+  {"t":"text","q":"Which magazine first published \"The Negro Speaks of Rivers\" in 1921?","a":[{"all":[["crisis"]],"none":["not"]}],"show":"The Crisis","pts":2,"why":"The NAACP's magazine, edited by W. E. B. Du Bois."},
+  {"t":"text","q":"What is the name for a 14-line poem made of three quatrains and a couplet, like \"The Tired Worker\"?","a":[{"all":[["sonnet"]],"none":["not","haiku"]}],"show":"a sonnet (Shakespearean)","pts":2,"why":"abab cdcd efef gg."},
+  {"t":"open","key":"exit_epigraph","q":"What is an epigraph, and why did Fauset begin \"Oriflamme\" with one?","min":15,"rows":2,"rubric":["A quotation at the start of a poem that sets its theme","Fauset's epigraph from Sojourner Truth introduces the mother and the stars that the poem builds on"],"model":"An epigraph is a quotation at the start of a poem. Fauset used Sojourner Truth's memory of her mother looking at the stars to introduce the image and theme her poem builds on."},
+  {"t":"text","q":"What does the root migr mean, as in migration?","a":[{"all":[["move","moving","moves"]],"none":["not"]}],"show":"move","pts":2,"why":"migr = move: migrate, migration, immigrant."}],
+ "next": "Week 14: poems in conversation across time, including a villanelle."
+}
+
+TEACHER = {
+ "standards": [
+  "ELA.6.R.1.4: Describe the impact of various poetic forms on meaning and style.",
+  "ELA.6.R.1.2: Analyze the development of stated or implied theme(s) throughout a literary text.",
+  "ELA.6.R.3.1: Explain how figurative language contributes to tone and meaning in text(s).",
+  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine meanings of words and phrases in grade-level content.",
+  "ELA.6.C.2.1: Present information orally, in a logical sequence, using nonverbal cues, appropriate volume, clear pronunciation, and appropriate pacing.",
+  "ELA.K12.EE.1.1: Cite evidence to explain and justify reasoning."],
+ "materials": ["The interactive lesson", "Large paper, markers, paper and pencil", "Optional: a jazz or blues recording", "Printable practice page"],
+ "flow": [
+  [6, "Reconnect", "Run the Week 12 Reconnect questions."],
+  [5, "Hook", "Tell the story of Hughes on the train. Look at the Great Migration diagram."],
+  [9, "Harlem in the 1920s", "Discuss the Great Migration and The Crisis. Teach the four roots."],
+  [12, "Hughes", "Read the poem aloud twice. Identify the collective speaker, the refrain and the parallel lines. Connect the rivers to Social Studies."],
+  [12, "McKay", "Read the sonnet aloud. Mark the rhyme scheme. Find the volta. Discuss \"theirs\" and \"mine.\""],
+  [10, "Fauset", "Read the epigraph, then the poem. Compare the two stanzas line by line."],
+  [6, "Assign", "Start the river map together; assign the poem, the performance, Think Deeper and the Exit Check."]],
+ "key_questions": ["Who is speaking, and for whom?", "Why might a poet choose free verse? A sonnet?", "How does the form match the feeling?", "How do these poems connect past and present?"],
+ "misconceptions": ["The speaker is always the poet.", "Free verse has no structure (it uses repetition and parallelism instead).", "The Harlem Renaissance was only about Harlem (it influenced the whole country and the world).", "Old forms like the sonnet are only for old-fashioned subjects."],
+ "support": ["Read each poem aloud first; the student follows along.", "Provide a two-column chart: what the poem says / what it means.", "Give sentence frames: \"The speaker is ___ because ___.\""],
+ "challenge": ["Read Hughes's autobiography passage about writing the poem (The Big Sea, 1940) at a library, and compare his account with the poem.", "Find another poem from The Book of American Negro Poetry (1922, free online) and present it."],
+ "background": "<p>Hughes (1901 to 1967) wrote \"The Negro Speaks of Rivers\" in 1920 at age 18 while crossing the Mississippi near St. Louis by train; he describes this in The Big Sea (1940). It appeared in The Crisis in June 1921; the text here is from The Weary Blues (Knopf, 1926), where it carries the dedication to W. E. B. Du Bois. The Lincoln line refers to the traditional account of Lincoln's flatboat trips to New Orleans (1828 and 1831). McKay (1889 to 1948) was born in Jamaica, came to the United States in 1912 to study, and worked as a railroad dining-car waiter among other jobs; \"The Tired Worker\" appears in Harlem Shadows (1922) and in The Book of American Negro Poetry (1922), the source of this text. Fauset (1882 to 1961) was literary editor of The Crisis from 1919 to 1926; \"Oriflamme\" appeared in The Crisis in January 1920. Sojourner Truth (about 1797 to 1883) was born enslaved in Ulster County, New York. The Great Migration figure of about 6 million (1910 to 1970) follows the U.S. National Archives and the Smithsonian. All three poem texts were published before 1929 and are in the public domain in the United States.</p>",
+ "sources": ["Hughes, L. (1926), The Weary Blues, Knopf (Project Gutenberg eBook 74745).", "Johnson, J. W., ed. (1922), The Book of American Negro Poetry, Harcourt, Brace (Project Gutenberg eBook 11986).", "Hughes, L. (1940), The Big Sea, Knopf.", "National Archives, The Great Migration (1910 to 1970).", "Smithsonian National Museum of African American History and Culture, The Harlem Renaissance."]
+}
+
+PRINT = {
+ "directions": "Write in complete sentences and use evidence from the poems.",
+ "items": [
+  {"q":"What was the Harlem Renaissance, and how did the Great Migration help make it possible?","a":"A 1920s flowering of Black art and writing in Harlem; the Great Migration brought many Black Southerners to northern cities like New York.","lines":3},
+  {"q":"Name the four rivers in \"The Negro Speaks of Rivers.\" Why does Hughes choose these rivers?","a":"Euphrates, Congo, Nile, Mississippi; they trace Black history from the first civilizations and Africa to America.","lines":3},
+  {"q":"Mark the rhyme scheme of \"The Tired Worker\" and name the line where it turns.","a":"abab cdcd efef gg; the turn is at line 11 (\"But\").","lines":2},
+  {"q":"Explain the symbol of the stars in \"Oriflamme.\"","a":"Hope and connection that cannot be taken away; separated families looked at the same stars.","lines":2},
+  {"q":"Define and give an example word for each root: migr, nat, voc, liber.","a":"migr = move (migrate); nat = born (native); voc = voice or call (vocal); liber = free (liberty).","lines":2},
+  {"q":"Which poem's form best fits its feeling? Explain.","a":"Model: McKay's strict sonnet fits the worker's unchanging daily routine, and the turn at line 11 matches the shock of dawn arriving.","lines":3}]
+}

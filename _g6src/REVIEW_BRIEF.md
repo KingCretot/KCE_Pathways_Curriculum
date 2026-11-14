@@ -81,3 +81,5 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Public-domain text only: Dickinson from the 1891 printing, not Johnson or Franklin editions.
 - ELA.6.R.1.4 names the sonnet and the villanelle: sonnet taught Week 12, villanelle Week 14.
 - Present debated attributions as debated (Enheduanna). Add a primary-source excerpt when SS.6.W.1.3 is listed.
+
+- Engine norm() strips the words a/an/the: never key letter patterns with spaces ("a b a b"); key rhyme schemes as one token ("abab") and ask for letters with no spaces.
