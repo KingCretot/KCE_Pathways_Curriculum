@@ -9,8 +9,8 @@ SQ = ('<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" font-family
 GROW = ('<svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Bar chart comparing simple interest growth of 500 dollars at 4 percent per year over 5 years">'
   '<text x="300" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="14">$500 saved at 4% simple interest per year</text>'
   '<line x1="60" y1="220" x2="570" y2="220" stroke="#0A1F3D"/><line x1="60" y1="40" x2="60" y2="220" stroke="#0A1F3D"/>'
-  + ''.join(f'<rect x="{90+i*90}" y="{220-(500+20*i)*0.3}" width="50" height="{500*0.3}" fill="#0047BA"/><rect x="{90+i*90}" y="{220-(500+20*i)*0.3}" width="50" height="{20*i*0.3}" fill="#C9A84C"/><text x="{115+i*90}" y="{214-(500+20*i)*0.3}" text-anchor="middle" font-weight="bold" fill="#0A1F3D">${500+20*i}</text><text x="{115+i*90}" y="236" text-anchor="middle">Year {i}</text>' for i in range(6)) +
-  '<rect x="420" y="44" width="12" height="12" fill="#0047BA"/><text x="438" y="54">principal ($500)</text><rect x="420" y="62" width="12" height="12" fill="#C9A84C"/><text x="438" y="72">interest earned</text>'
+  + ''.join(f'<rect x="{90+i*90}" y="{220-500*0.3}" width="50" height="{500*0.3}" fill="#0047BA"/><rect x="{90+i*90}" y="{220-(500+20*i)*0.3}" width="50" height="{20*i*0.3}" fill="#C9A84C"/><text x="{115+i*90}" y="{214-(500+20*i)*0.3}" text-anchor="middle" font-weight="bold" fill="#0A1F3D">${500+20*i}</text><text x="{115+i*90}" y="236" text-anchor="middle">Year {i}</text>' for i in range(6)) +
+  '<rect x="80" y="34" width="12" height="12" fill="#0047BA"/><text x="98" y="44">principal ($500)</text><rect x="200" y="34" width="12" height="12" fill="#C9A84C"/><text x="218" y="44">interest earned</text>'
   '<text x="300" y="254" text-anchor="middle" font-size="10" fill="#5b6676">Simple interest adds the same $20 every year. Bars start at $0 (scale: 0.3 pixel per dollar).</text></svg>')
 
 LESSON = {

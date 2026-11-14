@@ -103,3 +103,4 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Name Indigenous nations specifically; say "Indigenous Peoples." Present debated attributions as debated.
 - CPALMS: SS.6.C.1.2 is archived; use SS.6.CG.1.2-1.4 for Rome's influence, rule of law, civic virtue.
 - Every open item's model answer must meet its own min word count (the engine's word gate); keep min at or below about 85% of the model's length.
+- Positive answers whose negative is a likely wrong answer need "^" anchors, even in plain-string keys ("^(4, 7)", "^-7" for "only the greater").

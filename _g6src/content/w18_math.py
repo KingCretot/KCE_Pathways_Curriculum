@@ -61,7 +61,7 @@ LESSON = {
   "items": [
    {"t":"text","q":"Which quadrant is (−3, −8) in? Type the Roman numeral.","a":[{"all":[["iii","3"]],"none":["iv"]}],"show":"III","pts":2,"why":"Both coordinates are negative."},
    {"t":"num","q":"How many units apart are (−4, 6) and (5, 6)?","a":9,"unit":"units","pts":2,"why":"|−4| + |5| = 9."},
-   {"t":"text","q":"Reflect (2, −9) across the x-axis. Type the ordered pair.","a":["(2, 9)","(2,9)","2, 9"],"show":"(2, 9)","pts":2,"why":"Across the x-axis, y changes sign."},
+   {"t":"text","q":"Reflect (2, −9) across the x-axis. Type the ordered pair.","a":["^(2, 9)","^(2,9)","^2, 9"],"show":"(2, 9)","pts":2,"why":"Across the x-axis, y changes sign."},
    {"t":"open","key":"rc_distance","q":"Last week, to find the distance from −4 to 5 you added 4 + 5. Explain in your own words why you added instead of subtracted.","min":15,"rows":2,"rubric":["The numbers are on opposite sides of zero, so you travel 4 to reach zero, then 5 more"],"model":"−4 and 5 are on opposite sides of zero. You go 4 units to reach zero, then 5 more, so you add 4 + 5 = 9."}]},
  "hook": {
   "title": "The Coldest Morning",

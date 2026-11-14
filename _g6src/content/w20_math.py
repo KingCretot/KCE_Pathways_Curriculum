@@ -31,7 +31,7 @@ LESSON = {
   "intro": "Warm up with one question from each week of the unit.",
   "items": [
    {"t":"num","q":"Week 16: What is |−38|?","a":38,"pts":2,"why":"Distance from zero."},
-   {"t":"text","q":"Week 17: Reflect (−4, 7) across the y-axis. Type the ordered pair.","a":["(4, 7)","(4,7)","4, 7"],"show":"(4, 7)","pts":2,"why":"Across the y-axis, x changes sign."},
+   {"t":"text","q":"Week 17: Reflect (−4, 7) across the y-axis. Type the ordered pair.","a":["^(4, 7)","^(4,7)","^4, 7"],"show":"(4, 7)","pts":2,"why":"Across the y-axis, x changes sign."},
    {"t":"num","q":"Week 18: −13 − (−20) = ?","a":7,"pts":2,"why":"−13 + 20 = 7."},
    {"t":"num","q":"Week 19: (−48) ÷ 6 × (−2) = ?","a":16,"pts":2,"why":"−48 ÷ 6 = −8; −8 × (−2) = 16."}]},
  "hook": {
@@ -63,7 +63,7 @@ LESSON = {
  "handson": {
   "title": "Integer Escape Room",
   "intro": "Solve a chain of integer clues to \"escape,\" moving around your home for each clue.",
-  "materials": ["5 envelopes or folded papers", "Paper, pencil and tape", "A family member to hide the clues", "A small treat or prize (optional)"],
+  "materials": ["5 envelopes or folded papers", "Paper, pencil and tape", "A family member to hide the clues", "A small treat or prize (optional; check for food allergies and keep treats away from pets)"],
   "steps": [
    "A family member copies the five clues below onto papers, puts each in an envelope, and hides them around the house. The answer to each clue tells where the next one is hidden (for example, 5 = bookshelf, −17 = kitchen, 12 = front door, −12 = closet, −3 = the prize spot). The family member makes a key.",
    "Clue 1: Find |−9| − |4|. Clue 2: A diver at −14 feet rises 6 feet, then dives 9 more. Where is she? Clue 3: What is the distance between (−5, 2) and (7, 2)? Clue 4: (−2) × (−3) × (−1) × 2 = ? Clue 5: The temperature changed −24 degrees over 8 hours. What was the average change per hour?",
@@ -81,17 +81,17 @@ LESSON = {
   "parts": [
    {"title": "Part A: Integers and absolute value", "items": [
     {"t":"num","q":"The bottom of a Florida spring is 42 feet below the water's surface. Write the bottom as an integer, with the water's surface as 0.","a":-42,"unit":"feet","pts":3,"why":"Below the surface is negative."},
-    {"t":"text","q":"Which is greater, −11 or −7? Type the number.","a":["-7","−7"],"show":"−7","pts":3,"why":"−7 is to the right of −11."},
+    {"t":"text","q":"Which is greater, −11 or −7? Type only the greater number.","a":["^-7","^−7"],"show":"−7","pts":3,"why":"−7 is to the right of −11."},
     {"t":"num","q":"What is the opposite of |−16|?","a":-16,"pts":3,"why":"|−16| = 16; its opposite is −16."},
     {"t":"open","q":"A diver is at −35 feet and a pelican is flying at 28 feet. Which is farther from sea level, and by how many feet? Explain using absolute value.","key":"cpdiver","min":19,"rows":2,"pts":4,"rubric":["The diver","|−35| = 35 and |28| = 28; 35 − 28 = 7 feet farther"],"model":"The diver is farther from sea level: |−35| = 35 feet and |28| = 28 feet, so the diver is 7 feet farther."}]},
    {"title": "Part B: The coordinate plane", "items": [
     {"t":"text","q":"Which quadrant contains (6, −2.5)? Type the Roman numeral.","a":[{"all":[["iv","4"]],"none":["iii"]}],"show":"IV","pts":3,"why":"(+, −)."},
     {"t":"text","q":"Reflect (−8, −3) across the x-axis. Type the ordered pair.","a":["(−8, 3)","(-8,3)","-8, 3"],"show":"(−8, 3)","pts":3,"why":"Across the x-axis, y changes sign."},
-    {"t":"num","q":"How many units apart are (−9, 4) and (−2, 4)?","a":7,"unit":"units","pts":3,"why":"Same side: 9 − 2 = 7."},
+    {"t":"num","q":"How many units apart are (−9, 4) and (−1, 4)?","a":8,"unit":"units","pts":3,"why":"Same side: 9 − 1 = 8."},
     {"t":"open","q":"A rectangle has corners at (−5, 2), (3, 2), (3, −4) and (−5, −4). Find its perimeter and area. Show how you found each side length.","key":"cprect","min":25,"rows":3,"pts":4,"rubric":["Sides 8 and 6 found with absolute values","Perimeter 28 units","Area 48 square units"],"model":"Top side: |−5| + |3| = 8 units. Right side: |2| + |−4| = 6 units. Perimeter: 8 + 6 + 8 + 6 = 28 units. Area: 8 × 6 = 48 square units."}]},
    {"title": "Part C: Operations with integers", "items": [
     {"t":"num","q":"−17 + 9 = ?","a":-8,"pts":3,"why":"Different signs: 17 − 9 = 8, negative."},
-    {"t":"num","q":"−6 − 14 = ?","a":-20,"pts":3,"why":"−6 + (−14) = −20."},
+    {"t":"num","q":"−8 − 14 = ?","a":-22,"pts":3,"why":"−8 + (−14) = −22."},
     {"t":"num","q":"(−7) × (−9) = ?","a":63,"pts":3,"why":"Same signs: positive."},
     {"t":"num","q":"Evaluate: 20 ÷ (−4) − 3 × (−6)","a":13,"pts":3,"why":"−5 − (−18) = −5 + 18 = 13."},
     {"t":"open","q":"Explain why −5 − (−8) equals 3. Use a number line, counters or a real-life example.","key":"cpwhy","min":20,"rows":2,"pts":4,"rubric":["Subtracting −8 means adding 8 (or removing a debt)","Correct model or story reaching 3"],"model":"Subtracting −8 is the same as adding 8. Start at −5 on a number line and move 8 to the right: you land on 3. It's like owing $5 and then having an $8 debt canceled."}]},

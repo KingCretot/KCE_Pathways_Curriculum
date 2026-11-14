@@ -7,7 +7,7 @@ ROUTE = ('<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-fam
   '<path d="M330 150 L640 150" stroke="#b9a77a" stroke-dasharray="4 3"/>'
   '<path d="M405 280 Q390 230 360 190 Q330 150 300 130 Q270 105 250 82 Q262 68 285 58" fill="none" stroke="#DB2F30" stroke-width="3" stroke-dasharray="7 4"/>'
   + ''.join(f'<circle cx="{x}" cy="{y}" r="5" fill="#0A1F3D"/><text x="{x+tx}" y="{y+ty}" font-weight="bold" fill="#0A1F3D">{n}</text>' for x, y, n, tx, ty in [
-    (405, 280, "Santa Clara Valley, California (Judge Miller\'s place)", -250, 4), (380, 236, "San Francisco", 8, 4), (310, 140, "Seattle", 8, 4), (250, 82, "Skagway and Dyea", -110, 4), (285, 58, "Dawson, Klondike (Yukon)", 8, 4)]) +
+    (405, 280, "Santa Clara Valley (Judge Miller\'s place)", -230, 4), (380, 236, "San Francisco", 8, 4), (310, 140, "Seattle", 8, 4), (250, 82, "Skagway and Dyea", -110, 4), (285, 58, "Dawson, Klondike (Yukon)", 8, 4)]) +
   '<text x="190" y="190" font-size="12" fill="#0047BA" font-style="italic">Pacific Ocean</text>'
   '<text x="210" y="110" font-size="10" fill="#5b6676">by steamship</text><text x="300" y="74" font-size="10" fill="#5b6676">over the passes</text>'
   '<text x="630" y="294" text-anchor="end" font-size="9" fill="#5b6676">Schematic map, not to scale.</text></svg>')
