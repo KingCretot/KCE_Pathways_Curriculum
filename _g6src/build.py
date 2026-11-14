@@ -216,7 +216,7 @@ def main():
     for f in sorted(glob.glob(os.path.join(HERE, 'content', 'u*_*.py'))):
         m = re.match(r'u(\d+)_(\w+)\.py', os.path.basename(f)); u, name = int(m.group(1)), m.group(2)
         mod = load(f)
-        write(f'unit{u}/{name}.html', simple_page(mod.TITLE, mod.KICKER, mod.HTML))
+        write(f'unit{u}/{name}.html', simple_page(mod.TITLE, mod.KICKER, mod.HTML), fit=False)
         unit_pages.setdefault(u, []).append((f'unit{u}/{name}.html', mod.LINK))
     write('index.html', hub(built, unit_pages))
     print('built', len(built), 'lessons;', sum(len(v) for v in unit_pages.values()), 'unit pages')
