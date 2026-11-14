@@ -32,8 +32,8 @@ LESSON = {
   "intro": "Warm up with one question from each week of the unit.",
   "items": [
    {"t":"open","key":"rc_rq","q":"Week 26: Rewrite \"What is a manatee?\" as a strong research question.","min":8,"rows":2,"rubric":["An open, focused question that needs several sources"],"model":"How do warm-water springs help Florida manatees survive cold winters?"},
-   {"t":"text","q":"Week 27: In SIFT, which move means leaving the page to see what other sources say about the website or author?","a":[{"all":[["investigate"]],"none":["not"]}],"show":"Investigate the source","pts":2,"why":"Read laterally."},
-   {"t":"text","q":"Week 28: What do we call your list of every source used, at the end of a report?","a":[{"all":[["works cited","bibliography","reference"]],"none":["not"]}],"show":"the works-cited list","pts":2,"why":"In-text citations point to it."},
+   {"t":"text","q":"Week 27: In SIFT, which move means leaving the page to see what other sources say about the website or author?","a":[{"all":[["investigat"]],"none":["not"]}],"show":"Investigate the source","pts":2,"why":"Read laterally."},
+   {"t":"text","q":"Week 28: What do we call your list of every source used, at the end of a report?","a":[{"all":[["works cited","works-cited","work cited","bibliography","reference"]],"none":["not"]}],"show":"the works-cited list","pts":2,"why":"In-text citations point to it."},
    {"t":"open","key":"rc_signpost","q":"Week 29: Write the signpost you'll use to begin your conclusion.","min":4,"rows":1,"rubric":["A phrase that signals the conclusion"],"model":"So, what's the answer to my question?"}]},
  "hook": {
   "title": "Look How Far You've Come",
@@ -93,7 +93,7 @@ TEACHER = {
   "ELA.6.C.2.1: Present information orally, in a logical sequence, using nonverbal cues, appropriate volume, clear pronunciation, and appropriate pacing.",
   "ELA.6.C.4.1: Conduct research to answer a question, drawing on multiple reliable and valid sources, and refocusing the inquiry when appropriate.",
   "ELA.6.C.5.1: Integrate diverse digital media to enhance audience engagement in oral or written tasks.",
-  "ELA.6.C.1.4: Write expository texts to explain and/or analyze information from multiple sources, using relevant supporting details and a logical organizational pattern.",
+  "ELA.6.C.1.4: Write expository texts to explain and/or analyze information from multiple sources, using a logical organizational structure, relevant elaboration, and varied transitions.",
   "ELA.K12.EE.1.1: Cite evidence to explain and justify reasoning."],
  "materials": ["The interactive lesson", "The student's slides or poster and note cards, a device to show slides, a timer, optional recording device, an audience", "The Unit 6 project rubric", "Printable practice page"],
  "flow": [

@@ -66,7 +66,7 @@ LESSON = {
  "handson": {
   "title": "Summer Business Plan",
   "intro": "Plan a real summer business, using at least one skill from each unit of the year.",
-  "materials": ["Paper and pencil", "Graph paper and a ruler", "A measuring tape", "Grocery flyers or store websites (with a parent)", "A calculator for checking (optional)", "A family member"],
+  "materials": ["Paper and pencil", "Graph paper and a ruler", "A measuring tape", "Grocery flyers or store websites (with a parent)", "A calculator for checking (optional)", "A family member", "At least 10 family members or friends to survey (a parent approves)"],
   "steps": [
    "Choose a business: a lemonade stand, bake sale table, pet-sitting service, craft booth or another idea your parent approves.",
    "Supplies (Units 1 to 3): list your supplies and find each unit price from flyers or websites. Use a ratio to scale one recipe or supply list for your expected customers.",
@@ -117,8 +117,8 @@ TEACHER = {
   "MA.6.GR.2.4: Given a mathematical or real-world context, find the surface area of right rectangular prisms and right rectangular pyramids using the figure's net.",
   "MA.6.DP.1.1: Recognize and formulate a statistical question that would generate numerical data.",
   "MA.6.DP.1.2: Given a numerical data set within a real-world context, find and interpret mean, median, mode and range.",
-  "MA.6.DP.1.3: Given a box plot within a real-world context, determine the minimum, the lower quartile, the median, the upper quartile and maximum. Use this summary of the data to describe the spread and distribution of the data.",
-  "MA.6.DP.1.5: Create a histogram or line plot to represent numerical data.",
+  "MA.6.DP.1.3: Given a box plot within a real-world context, determine the minimum, the lower quartile, the median, the upper quartile and the maximum. Use this summary of the data to describe the spread and distribution of the data.",
+  "MA.6.DP.1.5: Create box plots and histograms to represent sets of numerical data within real-world contexts.",
   "MA.6.DP.1.6: Given a real-world scenario, determine and describe how changes in data values impact measures of center and variation.",
   "Financial literacy: spending, saving, budgeting and earning income (Jump$tart National Standards)."],
  "materials": ["The interactive lesson", "Paper and pencil, graph paper and a ruler, a measuring tape, grocery flyers or store websites, optional calculator", "Printable practice page"],
