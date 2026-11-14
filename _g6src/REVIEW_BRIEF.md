@@ -74,3 +74,10 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Salt dough and other craft materials: add no-tasting and pet-safety notes.
 - After the first save(), LESSON dicts are frozen literals; edit passages and SVGs inside LESSON (constants at the top may be unused).
 - Engine: numeric phrase accepts no longer match inside fractions or decimals (10 does not match 1/10).
+
+## Week 11 additions
+- Check earlier weeks before adding a scientist or context (Turner was Week 1). Keep levels of organization brief: Unit 4 Week 1 covers it in depth.
+- Do not use percents before Week 12. Name the correct week in "next" lines (check scope.py).
+- Public-domain text only: Dickinson from the 1891 printing, not Johnson or Franklin editions.
+- ELA.6.R.1.4 names the sonnet and the villanelle: sonnet taught Week 12, villanelle Week 14.
+- Present debated attributions as debated (Enheduanna). Add a primary-source excerpt when SS.6.W.1.3 is listed.
