@@ -31,7 +31,7 @@ LESSON = {
   "intro": "Warm up with one question from each week of the unit.",
   "items": [
    {"t":"num","q":"Week 21: 18 − 2³ × 2 = ?","a":2,"pts":2,"why":"2³ = 8; 8 × 2 = 16; 18 − 16 = 2."},
-   {"t":"num","q":"Week 22: Evaluate 4a + 3b when a = 5 and b = 2.","a":26,"pts":2,"why":"20 + 6 = 26."},
+   {"t":"num","q":"Week 22: Evaluate 4m + 3n when m = 5 and n = 2.","a":26,"pts":2,"why":"20 + 6 = 26."},
    {"t":"num","q":"Week 23: Solve: x/4 = 9","a":36,"pts":2,"why":"Multiply both sides by 4."},
    {"t":"text","q":"Week 24: Write an inequality for \"no more than 30 people.\" Use p. Write the symbol in words (for example, \"x is less than 5\").","a":["^p is less than or equal to 30","^30 is greater than or equal to p"],"show":"p ≤ 30 (p is less than or equal to 30)","pts":2,"why":"No more than means 30 or fewer."}]},
  "hook": {
@@ -53,7 +53,7 @@ LESSON = {
    "html": "<p>To solve, undo the operation with its inverse on both sides, then check by substituting. An inequality has many solutions: test values, graph with an open or closed circle and, in budget problems, round down for limits and up for goals.</p>",
    "checks": [
     {"t":"num","q":"Twelve identical prizes cost $54. What is the price of one prize?","a":4.5,"tol":0.001,"unit":"dollars","pts":2,"why":"12p = 54, so p = $4.50."},
-    {"t":"open","key":"solvevsineq","q":"Explain when you would write an equation and when you would write an inequality for a fair-planning problem. Give one example of each.","min":25,"rows":3,"rubric":["Explains when an exact amount calls for an equation","Explains when a limit or goal calls for an inequality","One fair example of each"],"model":"Use an equation when the amount is exact, such as finding the price of one prize when 12 cost $54: 12p = 54. Use an inequality for a limit or goal, such as buying balloons at $0.40 each with at most $20: 0.40b ≤ 20."}]},
+    {"t":"open","key":"solvevsineq","q":"Explain when you would write an equation and when you would write an inequality for a fair-planning problem. Give one example of each.","min":25,"rows":3,"rubric":["Explains when to use an equation", "Explains when to use an inequality", "One fair example of each"],"model":"Use an equation when the amount is exact, such as finding the price of one prize when 12 cost $54: 12p = 54. Use an inequality for a limit or goal, such as buying balloons at $0.40 each with at most $20: 0.40b ≤ 20."}]},
   {"title": "Money: Planning the Fair Budget",
    "html": "<p>The fair has a <b>$300 budget</b>. Fixed costs: a $75 park pavilion and $40 for signs. Supplies: craft kits at $3.50 each. Booths will charge a fee to cover costs.</p><ul><li>Spending inequality: 75 + 40 + 3.50k ≤ 300, so 3.50k ≤ 185, k ≤ 52.86: at most <b>52 kits</b>.</li><li>Booth fees: 15 booths at $f each must raise at least $300: 15f ≥ 300, f ≥ 20.</li></ul>",
    "checks": [
@@ -78,7 +78,7 @@ LESSON = {
    {"t":"open","key":"unitreflect","q":"Unit 5 moved from evaluating expressions to solving equations to working with inequalities. Explain how these three ideas are connected, using one example that uses all three.","min":60,"rows":5,"rubric":["Explains how expressions are the building blocks of equations and inequalities","Explains how solving and testing are related","One example that uses all three ideas"],"model":"An expression like 5n + 20 can describe the cost of n tickets plus parking. Setting it equal to a total, 5n + 20 = 60, makes an equation with one solution, n = 8. Comparing it to a limit, 5n + 20 ≤ 60, makes an inequality with many solutions, 8 tickets or fewer. All three use the same expression; the equal sign or inequality symbol decides what kind of answer you get."}]},
  "checkpoint": {
   "title": "Unit 5 Checkpoint: Expressions and Equations",
-  "intro": "This checkpoint covers Weeks 21 to 24. Work each problem on paper, then type your answer. Mastery is 85 or higher. If you score below 85, your teacher will review with you, then you will retake it.",
+  "intro": "This checkpoint covers Weeks 21 to 24. Work each problem on paper, then type your answer. Type only the number (for example, 36, not x = 36). Mastery is 85 or higher. If you score below 85, your teacher will review with you, then you will retake it.",
   "parts": [
    {"title": "Part A: Exponents, order of operations and interest", "items": [
     {"t":"num","q":"Evaluate: 6² − 4 × 5","a":16,"pts":3,"why":"36 − 20 = 16."},
@@ -86,7 +86,7 @@ LESSON = {
     {"t":"blanks","q":"Write 7 × 7 × 7 × 7 × 7 in exponent form.","sent":"Base: ___ &nbsp; Exponent: ___","blanks":[["^7"],["^5"]],"show":"7; 5","pts":3,"why":"Seven used as a factor five times."},
     {"t":"num","q":"$1,200 is borrowed at 6% simple interest for 3 years. How much interest is owed?","a":216,"unit":"dollars","pts":4,"why":"1,200 × 0.06 × 3 = 216."}]},
    {"title": "Part B: Expressions", "items": [
-    {"t":"text","q":"Write an expression for \"8 less than three times a number n.\"","a":["3n-8","3n − 8","3n - 8","3 n - 8"],"show":"3n − 8","pts":3,"why":"Three times n, then subtract 8."},
+    {"t":"text","q":"Write an expression for \"8 less than three times a number n.\"","a":["3n-8","3n − 8","3n - 8","3n -8","3n- 8"],"show":"3n − 8","pts":3,"why":"Three times n, then subtract 8."},
     {"t":"num","q":"Evaluate 2x² + 3y when x = 4 and y = 5.","a":47,"pts":3,"why":"2(16) + 15 = 47."},
     {"t":"text","q":"Simplify: 5(y + 2) + 3y − 4","a":["8y+6","8y + 6","6+8y","6 + 8y"],"show":"8y + 6","pts":3,"why":"5y + 10 + 3y − 4 = 8y + 6."},
     {"t":"open","key":"cpformula","q":"A bike shop charges $15 per hour plus a $12 helmet fee to rent a bike. Write a cost formula, find the cost for 4 hours, and explain what each part of the formula means.","min":20,"rows":3,"pts":4,"rubric":["Correct formula 15h + 12","Correct cost $72","Explains the rate and the fixed fee"],"model":"C = 15h + 12. For 4 hours: 15(4) + 12 = 60 + 12 = $72. The 15 is the hourly rate, which changes with time, and the 12 is the fixed helmet fee, paid once."}]},
@@ -94,12 +94,12 @@ LESSON = {
     {"t":"num","q":"Solve: x + 27 = 63","a":36,"pts":3,"why":"Subtract 27."},
     {"t":"num","q":"Solve: 9m = 108","a":12,"pts":3,"why":"Divide by 9."},
     {"t":"num","q":"Solve: (2/3)k = 16","a":24,"pts":3,"why":"Multiply by 3/2."},
-    {"t":"open","key":"cpmissing","q":"A receipt shows 5 identical notebooks and a $3.25 pen, for a total of $16.75. Write an equation for the price of one notebook, solve it, and check it.","min":18,"rows":3,"pts":4,"rubric":["Correct equation","Correct price $2.70","A correct check"],"model":"5n + 3.25 = 16.75. Subtract 3.25: 5n = 13.50. Divide by 5: n = $2.70. Check: 5 × 2.70 + 3.25 = 13.50 + 3.25 = 16.75."}]},
+    {"t":"open","key":"cpmissing","q":"A receipt shows 5 identical notebooks for a total of $13.50. Write an equation for the price of one notebook, solve it, and check it.","min":14,"rows":3,"pts":4,"rubric":["Correct equation","Correct price $2.70","A correct check"],"model":"5n = 13.50. Divide both sides by 5: n = $2.70. Check: 5 × 2.70 = 13.50."}]},
    {"title": "Part D: Inequalities", "items": [
-    {"t":"text","q":"Write an inequality for \"Riders must be at least 42 inches tall.\" Use h. Write the symbol in words (for example, \"x is less than 5\").","a":["^h is greater than or equal to 42","^42 is less than or equal to h"],"show":"h ≥ 42 (h is greater than or equal to 42)","pts":3,"why":"At least means 42 or more."},
+    {"t":"text","q":"Write an inequality for \"A ride's minimum height is 42 inches.\" Use h. Write the symbol in words (for example, \"x is less than 5\").","a":["^h is greater than or equal to 42","^42 is less than or equal to h"],"show":"h ≥ 42 (h is greater than or equal to 42)","pts":3,"why":"At least means 42 or more."},
     {"t":"num","q":"Test x = 3, 4, 5 and 6 in 7x − 5 > 23. Which is the smallest of these that makes it true?","a":5,"pts":3,"why":"7(4) − 5 = 23, not greater than 23; 7(5) − 5 = 30."},
-    {"t":"blanks","q":"Describe the graph of n < −2.","sent":"Circle: ___ (open or closed). Shade: ___ (left or right).","blanks":[[{"all":[["open"]],"none":["not","closed"]}],[{"all":[["left"]],"none":["not","right"]}]],"show":"open; left","pts":3,"why":"< does not include −2; smaller numbers are to the left."},
-    {"t":"open","key":"cpbudget","q":"You have $45 for a gift basket. The basket costs $9 and each jar of jam costs $4.75. Write an inequality, solve it, and explain the greatest number of jars you can buy.","min":18,"rows":3,"pts":4,"rubric":["Correct inequality","Correct solving steps","Correct answer with rounding explained"],"model":"9 + 4.75j ≤ 45, so 4.75j ≤ 36 and j ≤ 7.58. I can buy at most 7 jars, rounding down because 8 jars would go over the $45 limit."}]}]},
+    {"t":"text","q":"A number line has an open circle at −2 and is shaded to the left. Write the inequality for variable n, with the symbol in words (for example, \"x is less than 5\").","a":["^n is less than -2","^-2 is greater than n"],"show":"n < −2 (n is less than −2)","pts":3,"why":"Open circle: −2 not included; shaded left: smaller numbers."},
+    {"t":"open","key":"cpbudget","q":"You have $36 to spend on jars of jam for a gift basket. Each jar costs $4.75. Write an inequality, solve it, and explain the greatest number of jars you can buy.","min":18,"rows":3,"pts":4,"rubric":["Correct inequality","Correct solving steps","Correct answer with rounding explained"],"model":"4.75j ≤ 36, so j ≤ 7.58. I can buy at most 7 jars, rounding down because 8 jars would go over the $36 limit."}]}]},
  "next": "Unit 6: geometry and data, starting with the area of triangles, quadrilaterals and composite figures."
 }
 
@@ -110,6 +110,7 @@ TEACHER = {
   "MA.6.AR.1.4: Apply the properties of operations to generate equivalent algebraic expressions with integer coefficients.",
   "MA.6.AR.1.1: Given a mathematical or real-world context, translate written descriptions into algebraic expressions and translate algebraic expressions into written descriptions.",
   "MA.6.AR.2.1: Given an equation or inequality and a specified set of integer values, determine which values make the equation or inequality true or false.",
+  "MA.6.AR.2.2: Write and solve one-step equations in one variable within a mathematical or real-world context using addition and subtraction, where all terms and solutions are integers.",
   "MA.6.AR.2.3: Write and solve one-step equations in one variable within a mathematical or real-world context using multiplication and division, where all terms and solutions are integers.",
   "MA.6.AR.2.4: Determine the unknown decimal or fraction in an equation involving any of the four operations, relating three numbers, with the unknown in any position.",
   "Financial literacy: budgeting and simple interest (Jump$tart Spending and Saving; Credit and Borrowing)."],
@@ -126,8 +127,8 @@ TEACHER = {
  "key_questions": ["Am I evaluating, simplifying, solving or comparing?", "What operation undoes this one?", "Is the boundary included?", "Does my answer make sense with whole items?"],
  "misconceptions": ["2³ means 2 × 3.", "Solving means doing the same operation that appears.", "Inequalities have one answer.", "Budget answers are always rounded to the nearest whole number."],
  "support": ["Provide the toolkit chart during review (not during the checkpoint).", "Use the balance model for equations.", "Let the student explain a problem aloud before writing."],
- "challenge": ["Plan a full fair budget with five cost lines and a booth fee that raises at least $50 profit.", "Solve the two-step problem 5n + 3.25 = 16.75 two different ways."],
- "background": "<p>The checkpoint includes two two-step items (Part C notebooks and Part D gift basket); Week 23's challenge previewed this, and both are scored with rubrics that allow partial credit. Checkpoint totals: Part A 13, Part B 13, Part C 13, Part D 13, total 52. Prices are practice figures.</p>",
+ "challenge": ["Plan a full fair budget with five cost lines and a booth fee that raises at least $50 profit.", "Solve 4n + 2.50 = 14.50 two different ways."],
+ "background": "<p>Part D items 1 and 4 use Week 24's extension content (inequality solving is Grade 7, MA.7.AR.2.1). Mastery is about 45 of 52; open items are scored with the rubric after submission. Checkpoint totals: Part A 13, Part B 13, Part C 13, Part D 13, total 52. Prices are practice figures.</p>",
  "sources": ["Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "Jump$tart Coalition, National Standards for Personal Financial Education (2021)."]
 }
 
