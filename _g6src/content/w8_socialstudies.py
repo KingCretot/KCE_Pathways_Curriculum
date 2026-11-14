@@ -1,27 +1,30 @@
-from geo import NILE, BLUE_NILE
+
+NILE_N = [(32.53, 14.6), (32.53, 15.6), (32.67, 16.35), (33.2, 16.7), (33.7, 16.95), (33.98, 17.68), (33.95, 18.4), (33.6, 19.1), (33.32, 19.53), (32.7, 19.35), (32.2, 19.1), (31.8, 18.55), (30.95, 18.05), (30.6, 18.4), (30.48, 19.17), (30.42, 19.63), (30.35, 19.9), (30.6, 20.6), (30.9, 21.2), (31.33, 21.8), (31.62, 22.34), (32.0, 22.8), (32.6, 23.5), (32.9, 24.08), (32.9, 24.6)]
 
 def nubiamap():
-    k = 16.0
-    P = lambda lon, lat: (round((lon - 27) * k + 20, 1), round((26 - lat) * k + 34, 1))
-    pts = lambda L: ' '.join('%s,%s' % P(*p) for p in L)
-    mapw = 12 * k; W = int(mapw + 40 + 220); H = int(12 * k + 50)
+    k = 27.0; lon0, lon1, lat0, lat1 = 29.6, 34.6, 14.6, 24.6
+    ox = 130
+    P = lambda lon, lat: (round((lon - lon0) * k + ox, 1), round((lat1 - lat) * k + 34, 1))
+    pts = ' '.join('%s,%s' % P(*p) for p in NILE_N)
+    mw = (lon1 - lon0) * k; mh = (lat1 - lat0) * k; lx = ox + mw + 24
+    W = int(lx + 190); H = int(mh + 58)
     s = (f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="12" role="img" aria-label="Map of Nubia with the cataracts of the Nile">'
          f'<text x="{W/2}" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Nubia: the land of the cataracts</text>'
-         f'<rect x="20" y="34" width="{mapw}" height="{12*k}" fill="#efe1bd"/>')
-    s += f'<polyline points="{pts(NILE[3:-2])}" fill="none" stroke="#0047BA" stroke-width="3"/><polyline points="{pts(BLUE_NILE)}" fill="none" stroke="#0047BA" stroke-width="3"/>'
-    cats = [(32.9, 24.1, "1st"), (31.3, 21.8, "2nd"), (30.4, 19.9, "3rd"), (31.0, 18.6, "4th"), (33.9, 18.0, "5th"), (32.7, 16.4, "6th")]
+         f'<rect x="{ox}" y="34" width="{mw}" height="{mh}" fill="#efe1bd"/>'
+         f'<polyline points="{pts}" fill="none" stroke="#0047BA" stroke-width="3" stroke-linejoin="round"/>')
+    cats = [(32.9, 24.08, "1st"), (31.33, 21.8, "2nd"), (30.35, 19.9, "3rd"), (32.2, 19.1, "4th"), (33.95, 18.4, "5th"), (32.67, 16.35, "6th")]
     for lon, lat, n in cats:
         x, y = P(lon, lat)
-        s += f'<path d="M{x-7} {y-3} l4 6 l4 -6 l4 6" fill="none" stroke="#DB2F30" stroke-width="2"/><text x="{x-10}" y="{y+4}" text-anchor="end" font-size="10" fill="#DB2F30" style="paint-order:stroke;stroke:#efe1bd;stroke-width:3">{n}</text>'
-    marks = [(32.9, 24.1, 'Aswan (Egypt\'s border)'), (32.0, 22.3, 'Qustul (A-Group)'), (31.3, 21.8, 'Buhen'), (30.4, 19.7, 'Kerma'), (31.8, 18.5, 'Napata, Jebel Barkal'), (33.75, 16.94, 'Meroe'), (32.5, 15.6, 'Khartoum')]
-    lx = mapw + 34; last = -99
+        s += f'<path d="M{x-7} {y-3} l3.5 6 l3.5 -6 l3.5 6 l3.5 -6" fill="none" stroke="#DB2F30" stroke-width="2.2" transform="translate(0,0)"/><text x="{x-10}" y="{y+4}" text-anchor="end" font-size="10" font-weight="bold" fill="#DB2F30" style="paint-order:stroke;stroke:#efe1bd;stroke-width:3">{n}</text>'
+    marks = [(32.9, 24.08, "Aswan (Egypt's southern border)"), (31.55, 22.15, 'Qustul (A-Group)'), (31.33, 21.85, 'Buhen'), (30.42, 19.6, 'Kerma'), (31.8, 18.55, 'Napata, Jebel Barkal'), (33.72, 16.93, 'Meroe'), (32.53, 15.6, 'Khartoum')]
+    last = -99
     for lon, lat, lab in marks:
-        x, y = P(lon, lat); ly = max(y, last + 18); last = ly
-        s += f'<circle cx="{x}" cy="{y}" r="4" fill="#0A1F3D" stroke="#fff"/><path d="M{x+4} {y} L{lx-4} {ly}" stroke="#8a8f99" stroke-width=".8"/><text x="{lx}" y="{ly+4}" font-size="11">{lab}</text>'
-    a, b = P(27.6, 24.2), P(27.6, 21.6); c, d = P(27.6, 21.3), P(27.6, 15.5)
-    s += (f'<path d="M{a[0]} {a[1]} v{b[1]-a[1]}" stroke="#0A1F3D" stroke-width="3"/><text x="{a[0]+6}" y="{(a[1]+b[1])/2}" font-weight="bold" font-size="11">LOWER NUBIA</text><text x="{a[0]+6}" y="{(a[1]+b[1])/2+13}" font-size="10">Wawat (north)</text>'
-          f'<path d="M{c[0]} {c[1]} v{d[1]-c[1]}" stroke="#0A1F3D" stroke-width="3"/><text x="{c[0]+6}" y="{(c[1]+d[1])/2}" font-weight="bold" font-size="11">UPPER NUBIA</text><text x="{c[0]+6}" y="{(c[1]+d[1])/2+13}" font-size="10">Kush (south)</text>'
-          f'<text x="20" y="{H-4}" font-size="10" fill="#DB2F30">Zigzags mark the six cataracts (rapids).</text></svg>')
+        x, y = P(lon, lat); ly = max(y, last + 19); last = ly
+        s += f'<circle cx="{x}" cy="{y}" r="4" fill="#0A1F3D" stroke="#fff"/><path d="M{x+5} {y} L{lx-4} {ly}" stroke="#8a8f99" stroke-width=".8"/><text x="{lx}" y="{ly+4}" font-size="11">{lab}</text>'
+    for la, lb, t1, t2 in [(24.08, 21.8, 'LOWER NUBIA', 'Wawat'), (21.6, 15.0, 'UPPER NUBIA', 'Kush')]:
+        y1 = P(0, la)[1]; y2 = P(0, lb)[1]; bx = ox - 10
+        s += f'<path d="M{bx+6} {y1} h-6 v{y2-y1} h6" fill="none" stroke="#0A1F3D" stroke-width="2"/><text x="{bx-6}" y="{(y1+y2)/2-2}" text-anchor="end" font-weight="bold" font-size="11">{t1}</text><text x="{bx-6}" y="{(y1+y2)/2+12}" text-anchor="end" font-size="10">({t2})</text>'
+    s += (f'<text x="{ox}" y="{H-6}" font-size="10" fill="#DB2F30">Red zigzags mark the six cataracts (rapids). The Nile flows north.</text></svg>')
     return s
 
 TIMELINE = ('<svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Timeline of Nubia and Kemet">'
@@ -33,20 +36,19 @@ TIMELINE = ('<svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg" font-
   ''.join(f'<rect x="{x}" y="{y}" width="{w}" height="22" rx="4" fill="{c}"/><text x="{x+w/2}" y="{y+15}" text-anchor="middle" fill="#fff" font-size="10">{t}</text>'
           for x, y, w, c, t in [(70, 44, 98, "#C9A84C", "A-Group"), (235, 44, 110, "#C9A84C", "Kerma: first Kush"), (345, 70, 55, "#8a6d1f", "Egypt rules"), (412, 44, 32, "#DB2F30", "25th"), (402, 70, 120, "#C9A84C", "Napata, then Meroe")]) +
   ''.join(f'<rect x="{x}" y="{y}" width="{w}" height="22" rx="4" fill="{c}"/><text x="{x+w/2}" y="{y+15}" text-anchor="middle" fill="#fff" font-size="10">{t}</text>'
-          for x, y, w, c, t in [(70, 130, 125, "#0047BA", "Badarian and Naqada"), (196, 130, 110, "#0047BA", "Old and Middle Kingdoms"), (330, 130, 85, "#0047BA", "New Kingdom"), (415, 130, 30, "#DB2F30", "Kush"), (445, 130, 75, "#0047BA", "Late Period")]) +
+          for x, y, w, c, t in [(70, 130, 125, "#0047BA", "Badarian and Naqada"), (196, 130, 110, "#0047BA", "Old to Middle Kingdom"), (330, 130, 85, "#0047BA", "New Kingdom"), (415, 130, 30, "#DB2F30", "Kush"), (445, 130, 75, "#0047BA", "Late Period")]) +
   '<text x="280" y="186" text-anchor="middle" font-size="11">The red bars line up: around 750 to 664 BCE, kings from Kush ruled both lands.</text>'
   '<text x="280" y="202" text-anchor="middle" font-size="10" fill="#5b6676">Bars are approximate.</text></svg>')
 
-DEFFUFA = ('<svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="The Western Deffufa at Kerma">'
+DEFFUFA = ('<svg viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="The Western Deffufa at Kerma">'
   '<text x="280" y="18" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">The Western Deffufa: a mud-brick temple at Kerma</text>'
-  '<rect x="0" y="178" width="560" height="42" fill="#e3c99a"/>'
+  '<rect x="0" y="178" width="560" height="30" fill="#e3c99a"/>'
   '<path d="M150 178 L170 70 L390 70 L410 178Z" fill="#b8763e" stroke="#7a4a1f" stroke-width="2"/>'
-  + ''.join(f'<line x1="{160+j*2}" y1="{80+j*12}" x2="{400-j*2}" y2="{80+j*12}" stroke="#7a4a1f" stroke-width=".7"/>' for j in range(8)) +
+  + ''.join(f'<line x1="{round(172-20*(10+j*12)/108,1)}" y1="{80+j*12}" x2="{round(388+20*(10+j*12)/108,1)}" y2="{80+j*12}" stroke="#7a4a1f" stroke-width=".7"/>' for j in range(8)) +
   '<rect x="262" y="134" width="36" height="44" fill="#5a3a1a"/>'
-  '<path d="M390 70 L420 70 L420 64 L388 64Z" fill="#7a4a1f"/>'
-  '<g fill="#0A1F3D"><circle cx="100" cy="164" r="5"/><rect x="97" y="169" width="6" height="12"/></g><text x="100" y="200" text-anchor="middle" font-size="10">a person</text>'
-  '<text x="470" y="96" font-size="11">about 18 m (60 ft) tall</text><path d="M462 70 v108" stroke="#DB2F30"/><path d="M458 70 h8 M458 178 h8" stroke="#DB2F30"/>'
-  '<text x="280" y="212" text-anchor="middle" font-size="11">Built of sun-dried mud brick. Its base is about 52 m by 27 m. Still standing after more than 3,500 years.</text></svg>')
+    '<g fill="#0A1F3D"><circle cx="100" cy="170" r="3"/><rect x="98" y="173" width="4" height="6"/></g><text x="100" y="196" text-anchor="middle" font-size="10">a person, to scale</text>'
+  '<path d="M440 70 v108" stroke="#DB2F30"/><path d="M436 70 h8 M436 178 h8" stroke="#DB2F30"/><text x="450" y="118" font-size="11">about 18 m</text><text x="450" y="133" font-size="11">(60 ft) tall</text>'
+  '<text x="280" y="232" text-anchor="middle" font-size="11">Built of sun-dried mud brick. Its base is about 52 m by 27 m. Still standing after more than 3,500 years.</text></svg>')
 
 LESSON = {
  "unit": "Unit 2: The Nile Valley and Ancient Africa",

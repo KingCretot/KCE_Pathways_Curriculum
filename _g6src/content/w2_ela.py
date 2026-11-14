@@ -113,7 +113,7 @@ TEACHER = {
  "standards": [
   "ELA.6.R.1.3: Explain the influence of multiple narrators and/or shifts in point of view in a literary text.",
   "ELA.6.R.1.1: Analyze how the interaction between characters contributes to the development of a plot in a literary text.",
-  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine the meanings of words.",
+  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine meanings of words and phrases in grade-level content.",
   "ELA.6.C.3.1: Follow the rules of standard English grammar, punctuation, capitalization and spelling (pronoun consistency).",
   "ELA.6.C.1.2: Write personal or fictional narratives using narrative techniques, precise words and phrases, and figurative language."],
  "materials": ["The interactive lesson", "Moving Day text (print for annotating if helpful)", "A phone or camera for the photo walk", "Printable practice page"],

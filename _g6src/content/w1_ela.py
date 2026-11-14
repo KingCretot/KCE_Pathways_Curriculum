@@ -126,7 +126,7 @@ TEACHER = {
  "standards": [
   "ELA.6.R.1.1: Analyze how the interaction between characters contributes to the development of a plot.",
   "Review of ELA.5.R.1.1: Explain how setting, events, conflict and characterization contribute to the plot in a literary text.",
-  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine the meanings of words.",
+  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine meanings of words and phrases in grade-level content.",
   "ELA.6.C.1.2: Write personal or fictional narratives using narrative techniques, precise words and phrases, and figurative language.",
   "ELA.6.V.1.3: Apply knowledge of context clues, figurative language, word relationships, reference materials and/or background knowledge to determine and clarify the meaning of words and phrases.",
   "ELA.K12.EE.2.1: Read and comprehend grade-level complex texts proficiently."],

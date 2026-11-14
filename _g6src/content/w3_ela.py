@@ -296,7 +296,7 @@ TEACHER = {
   "ELA.6.R.1.2: Analyze the development of stated or implied theme(s) throughout a literary text.",
   "ELA.6.R.3.1: Explain how figurative language contributes to tone and meaning in text(s).",
   "ELA.K12.EE.1.1: Cite evidence to explain and justify reasoning.",
-  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine the meanings of words.",
+  "ELA.6.V.1.2: Apply knowledge of Greek and Latin roots and affixes to determine meanings of words and phrases in grade-level content.",
   "ELA.6.C.3.1: Follow the rules of standard English grammar, punctuation, capitalization and spelling.",
   "ELA.K12.EE.2.1: Read and comprehend grade-level complex texts proficiently."],
  "materials": ["The interactive lesson", "The poem printed for annotating", "Index cards and a staircase (or cards on the floor)", "Optional: a recording of Langston Hughes reading his work (the Library of Congress and Academy of American Poets host recordings)", "Printable practice page"],

@@ -49,3 +49,11 @@ End with an overall verdict per lesson: ready / ready after fixes / needs rework
 - Do not score students on content the lesson did not teach (every rubric line must trace to the lesson text).
 - Egypt is never set apart from "the rest of Africa" in wording.
 - Use realistic amounts (a 40-person reunion is not $96).
+
+## Week 7 additions
+- Never present an etymology without checking it (ferry is Germanic, not Latin fer).
+- Copy standard wording from CPALMS exactly; ELA roots = ELA.6.V.1.2 (V.1.3 is context clues).
+- Model answers may use only facts that appear in the lesson text when the rubric says "from the passage".
+- No bare common-word accepts (e.g. "just" for E. E. Just). Keyword keys need "none" lists for negation and wrong regions.
+- "Upper Egypt in the south" not "from the south" when the meaning is inside Egypt.
+- Do not modify geo.NILE for one map; use a local, more detailed river line when a map zooms in.
