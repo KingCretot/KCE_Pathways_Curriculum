@@ -7,7 +7,7 @@ def grid(n, title, color="#0047BA"):
     return s + '</svg>'
 
 def three():
-    s = '<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Three hundred grids: 25, 60 and 7.5 percent">'
+    s = '<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="13" role="img" aria-label="Three hundred-square grids: 25, 60 and 7.5 percent">'
     for k, (n, t, c) in enumerate([(25, "25% = 25/100 = 1/4", "#0047BA"), (60, "60% = 60/100 = 3/5", "#3d9a2f"), (7.5, "7.5% = 0.075", "#DB2F30")]):
         ox = 10 + k * 212
         s += f'<text x="{ox+100}" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D">{t}</text>'
@@ -64,7 +64,7 @@ LESSON = {
   "intro": "A percent is a special unit rate: a rate per 100. Warm up first.",
   "items": [
    {"t":"num","q":"A car travels 210 miles in 3 1/2 hours. What is its speed in miles per hour?","a":60,"unit":"miles per hour","pts":2,"why":"210 ÷ 3 1/2 = 210 ÷ 7/2 = 210 × 2/7 = 60."},
-   {"t":"num","q":"A 24-ounce bag of granola costs $4.80. What is the unit price in cents per ounce?","a":20,"unit":"cents per ounce","pts":2,"why":"$4.80 ÷ 24 = $0.20, which is 20 cents per ounce."},
+   {"t":"num","q":"A 24-ounce bag of granola costs $4.80. What is the unit price in cents per ounce? (Type the number of cents.)","a":20,"unit":"cents per ounce","pts":2,"why":"$4.80 ÷ 24 = $0.20, which is 20 cents per ounce."},
    {"t":"open","key":"rc_pace","q":"Explain why a pace of 12 minutes per mile is slower than a pace of 9 minutes per mile.","min":12,"rows":2,"rubric":["More minutes for each mile means it takes longer to cover the same distance"],"model":"At 12 minutes per mile, each mile takes 3 more minutes than at 9, so the runner covers the same distance more slowly."},
    {"t":"blanks","q":"Complete the ratio table: 3 out of every 5 students walk to the park.","sent":"Walkers: 3, 6, ___, 60. Students: 5, 10, 50, ___.","blanks":[["30"],["100"]],"show":"30; 100","pts":2,"why":"3 : 5 = 30 : 50 = 60 : 100. 60 out of 100 is today's topic: a percent."}]},
  "hook": {
@@ -76,8 +76,8 @@ LESSON = {
    "html": "<p>The word <b>percent</b> comes from Latin <i>per centum</i>, \"for each hundred.\" On a hundred grid, 25% means 25 of the 100 squares are shaded. That is the same as the fraction 25/100, which simplifies to 1/4, and the decimal 0.25.</p><div class='callout'><b>Percent to decimal:</b> divide by 100 (move the decimal point two places left): 60% = 0.60 = 0.6; 7.5% = 0.075.<br><b>Decimal to percent:</b> multiply by 100: 0.38 = 38%; 1.2 = 120%.<br><b>Fraction to percent:</b> make the denominator 100, or divide: 3/5 = 60/100 = 60%; 1/8 = 0.125 = 12.5%.</div><p>Percents can be greater than 100% (a plant that grew to 150% of its height) or less than 1% (0.5% is half of one square).</p>",
    "checks": [
     {"t":"blanks","q":"Complete the conversions.","sent":"40% = ___ (decimal). &nbsp; 0.07 = ___% &nbsp; 3/4 = ___%","blanks":[["0.4","0.40",".4",".40"],["7"],["75"]],"show":"0.4; 7; 75","pts":3,"why":"40 ÷ 100 = 0.4; 0.07 × 100 = 7; 3/4 = 75/100."},
-    {"t":"text","q":"Write 35% as a fraction in simplest form.","a":["7/20"],"show":"7/20","pts":2,"why":"35/100; the GCF is 5, so 7/20."},
-    {"t":"num","q":"Jamal scored 21 out of 25. What percent is that?","a":84,"unit":"%","pts":2,"why":"21/25 = 84/100 = 84% (multiply top and bottom by 4)."},
+    {"t":"text","q":"Write 35% as a fraction in simplest form.","a":["7/20","7 / 20"],"show":"7/20","pts":2,"why":"35/100; the GCF is 5, so 7/20."},
+    {"t":"num","q":"Rosa scored 27 out of 30 on a quiz. What percent is that?","a":90,"unit":"%","pts":2,"why":"27/30 = 9/10 = 90/100 = 90%."},
     {"t":"open","key":"over100","q":"A sunflower was 40 inches tall in June and 60 inches tall in August. Its August height is 150% of its June height. Explain how a percent can be more than 100.","min":20,"rows":2,"rubric":["100% is the whole original amount (40 inches); more than 100% means more than the original","60 is 1 1/2 times 40, which is 150%"],"model":"100% means the whole June height, 40 inches. The plant grew taller than that, to 60 inches, which is 1 1/2 times as tall, so it is 150% of its June height."}]},
   {"title": "Finding a Percent of a Number",
    "visual": dnl_pct(),
@@ -92,14 +92,14 @@ LESSON = {
    "checks": [
     {"t":"num","q":"Amara has saved $45, which is 25% of the cost of a bike. How much does the bike cost?","a":180,"unit":"dollars","show":"$180","pts":3,"why":"25% → $45, so 100% → 4 × $45 = $180."},
     {"t":"num","q":"A water tank is 40% full and holds 120 gallons right now. How many gallons does it hold when full?","a":300,"unit":"gallons","pts":3,"why":"40% → 120, 10% → 30, 100% → 300."},
-    {"t":"open","key":"wholecheck","q":"Priya says, \"If 20 is 50% of a number, the number is 10.\" Explain his mistake and give the correct answer.","min":15,"rows":2,"rubric":["He took 50% of 20 instead of finding the whole","20 is half of the number, so the number is 40"],"model":"He found 50% of 20 instead of finding the whole. If 20 is half of the number, the whole number is 40."}]},
+    {"t":"open","key":"wholecheck","q":"Priya says, \"If 20 is 50% of a number, the number is 10.\" Explain her mistake and give the correct answer.","min":15,"rows":2,"rubric":["She took 50% of 20 instead of finding the whole","20 is half of the number, so the number is 40"],"model":"She found 50% of 20 instead of finding the whole. If 20 is half of the number, the whole number is 40."}]},
   {"title": "Money: Sales Tax",
    "visual": RECEIPT,
    "html": "<p><b>Sales tax</b> is a percent of the price added at the register. Florida's state sales tax is 6%. Most Florida counties add a small county tax (called a discretionary sales surtax). In DeSoto County it is 1.5%, so the total is <b>7.5%</b>. Across Florida, the total ranges from 6% to 8%, depending on the county.</p><p>To find the tax, multiply the subtotal by the rate as a decimal: $40.00 × 0.075 = $3.00. The total is $40.00 + $3.00 = $43.00. A shortcut: multiply by 1.075 to find the total in one step.</p><p>Not everything is taxed. In Florida, most groceries and prescription medicines are exempt. And every August, Florida holds a <b>back-to-school sales tax holiday</b>: school supplies priced at $50 or less, clothing at $100 or less, learning aids at $30 or less and personal computers at $1,500 or less can be bought without sales tax.</p>",
    "checks": [
-    {"t":"num","q":"Find the tax on the $40.00 subtotal at 7.5%.","a":3,"unit":"dollars","show":"$3.00","pts":2,"why":"$40 × 0.075 = $3.00."},
+    {"t":"num","q":"Find the tax on the paint brush set alone ($12.00) at 7.5%.","a":0.9,"unit":"dollars","show":"$0.90","pts":2,"why":"$12 × 0.075 = $0.90."},
     {"t":"num","q":"A $24 garden hose is bought in a county with 7% total sales tax. What is the total cost?","a":25.68,"unit":"dollars","show":"$25.68","pts":3,"why":"Tax: $24 × 0.07 = $1.68. Total: $24 + $1.68 = $25.68 (or $24 × 1.07)."},
-    {"t":"num","q":"In August, a family buys $90 of school supplies (every item under $50) and a $120 pair of shoes in DeSoto County. Only the shoes are taxed, because they cost more than $100. How much sales tax do they pay?","a":9,"unit":"dollars","show":"$9.00","pts":3,"why":"Supplies under $50 each are tax-free in August. The $120 shoes are over the $100 limit: $120 × 0.075 = $9.00."},
+    {"t":"num","q":"In August, a family buys $90 of school supplies (every item under $50) and a $120 pair of shoes in DeSoto County. How much sales tax do they pay?","a":9,"unit":"dollars","show":"$9.00","pts":3,"why":"Supplies under $50 each are tax-free in August. The $120 shoes are over the $100 clothing limit, so the whole price is taxed: $120 × 0.075 = $9.00."},
     {"t":"open","key":"taxwhy","q":"Sales tax pays for things like roads, schools and emergency services. Why do you think Florida exempts most groceries from sales tax?","min":20,"rows":2,"rubric":["Gives a reason linked to food being a basic need or to fairness for families","A reasonable explanation"],"model":"Food is a basic need that every family must buy. Taxing groceries would take a bigger share of the money of families who earn less, so exempting them makes the tax fairer."}]}],
  "handson": {
   "title": "Percent Hunt and Tax-Holiday Planner",
@@ -111,8 +111,8 @@ LESSON = {
    "Which item on your list is taxed even in August, and why?",
    "Optional: shade or cover squares on a 10 by 10 grid with beans to model three of the percents you found."],
   "record": [
-   {"t":"open","key":"hunt","q":"List the five percents you found, what each is a percent of, and what it means in your own words.","min":40,"rows":6,"rubric":["Five real percents","Correct whole identified for each","Clear meaning in own words"],"model":"1. Cereal: 25% Daily Value of iron: one bowl gives a fourth of the iron I need in a day. 2. T-shirt: 60% cotton: 60 of every 100 parts of the fabric are cotton. 3. Phone: 82% battery: 82 of every 100 parts of a full charge are left. 4. Sign: 30% off shoes: you pay $30 less for every $100 of the price. 5. Juice: 100% juice: no added water or sugar."},
-   {"t":"open","key":"receipt","q":"Show your list with prices, mark each item tax-free or taxed in August, and calculate the August tax, the October tax at 7.5% and the savings.","min":40,"rows":5,"rubric":["A list with prices","Each item correctly marked using the August limits","August and October tax calculated correctly","Savings found"],"model":"Backpack $40, notebooks and pens $22, sneakers $110, tablet $300 = $472. August: only the sneakers are taxed (over $100): $110 × 0.075 = $8.25. October: $472 × 0.075 = $35.40. Savings: $27.15."}]},
+   {"t":"open","key":"hunt","q":"List the five percents you found, what each is a percent of, and what it means in your own words.","min":40,"rows":6,"rubric":["Five real percents","Correct whole identified for each","Clear meaning in own words"],"model":"1. Cereal: 25% Daily Value of iron: one bowl gives a fourth of the iron I need in a day. 2. T-shirt: 60% cotton: 60 of every 100 parts of the fabric are cotton. 3. Phone: 82% battery: 82 of every 100 parts of a full charge are left. 4. Sign: 30% off shoes: you pay $30 less for every $100 of the price. 5. Juice: 100% juice: all of the drink is fruit juice, not a juice drink with added sugar."},
+   {"t":"open","key":"receipt","q":"Show your list with prices, mark each item tax-free or taxed in August, and calculate the August tax, the October tax at 7.5% and the savings.","min":40,"rows":5,"rubric":["A list with prices","Each item correctly marked using the August limits","August and October tax calculated correctly","Savings found"],"model":"Backpack $28, notebooks and pens $12, sneakers $110 = $150. August: only the sneakers are taxed (over the $100 clothing limit): $110 × 0.075 = $8.25. October: $150 × 0.075 = $11.25. Savings: $3.00."}]},
  "think": {
   "intro": "Show your reasoning. Your teacher scores these.",
   "items": [
