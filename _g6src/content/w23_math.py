@@ -27,7 +27,7 @@ LESSON = {
   ["inverse operations", "Operations that undo each other: addition and subtraction, multiplication and division."],
   ["isolate", "To get the variable alone on one side of an equation."],
   ["properties of equality", "Rules saying that doing the same operation to both sides keeps an equation true."],
-  ["unit price", "The price for one item or one unit of measure."]],
+  ["unit price (review)", "The price for one item or one unit of measure, from Units 1 and 3."]],
  "reconnect": {
   "title": "Week 22: Writing and evaluating expressions",
   "intro": "Last week you put numbers into expressions. This week you work backward: you know the result and find the input.",
@@ -35,7 +35,7 @@ LESSON = {
    {"t":"num","q":"Evaluate 9n + 4 when n = 6.","a":58,"pts":2,"why":"9(6) + 4 = 54 + 4 = 58."},
    {"t":"text","q":"Write an expression for \"a number decreased by 15.\"","a":["n-15","n − 15","n - 15","x-15","x − 15","x - 15"],"show":"n − 15","pts":2,"why":"Start with the number, then subtract 15."},
    {"t":"text","q":"Simplify: 5(x + 2) − 3x","a":["2x+10","2x + 10","10+2x","10 + 2x"],"show":"2x + 10","pts":2,"why":"5x + 10 − 3x = 2x + 10."},
-   {"t":"open","key":"rc_backward","q":"Maya's order formula is 9n + 4. A customer paid $40. Without solving formally, how could you figure out how many loaves they bought?","min":14,"rows":2,"rubric":["A sensible backward strategy (undo the fee, then the price per loaf) or guess and check","A correct number of loaves"],"model":"Take away the $4 delivery fee to get $36, then divide by $9 a loaf: 4 loaves."}]},
+   {"t":"open","key":"rc_backward","q":"Maya's order formula is 9n + 4. A customer paid $40. Without solving formally, how could you figure out how many loaves they bought?","min":14,"rows":2,"rubric":["A sensible backward strategy or guess and check","A correct number of loaves"],"model":"Take away the $4 delivery fee to get $36, then divide by $9 a loaf: 4 loaves."}]},
  "hook": {
   "title": "The Mystery Price",
   "visual": SCALE,
@@ -44,9 +44,9 @@ LESSON = {
   {"title": "Expressions, Equations and Solutions",
    "html": "<p>An <b>expression</b> like s + 14 has no equal sign; it names a value. An <b>equation</b> like s + 14 = 67 says two expressions are equal. A <b>solution</b> is a value that makes the equation true: s = 53, because 53 + 14 = 67.</p><p>You can test any value by substituting it. If both sides are equal, it's a solution; if not, it isn't.</p>",
    "checks": [
-    {"t":"text","q":"Is 3x + 1 an expression or an equation?","a":["^expression",{"all":[["expression"]],"none":["not expression","equation"]}],"show":"an expression","pts":2,"why":"It has no equal sign."},
-    {"t":"text","q":"Is n = 8 a solution of 6n = 42? Type yes or no.","a":[{"all":[["no"]],"none":["yes"]}],"show":"no","pts":2,"why":"6(8) = 48, not 42. The solution is n = 7."},
-    {"t":"open","key":"exprvseq","q":"Explain the difference between an expression and an equation in your own words, with an example of each from shopping.","min":20,"rows":2,"rubric":["An expression names a value (no equal sign); an equation says two things are equal","A shopping example of each"],"model":"An expression is like a price formula, such as 4p + 3 for 4 shirts plus $3 shipping. An equation says two things are equal, such as 4p + 3 = 39, which tells me the total was $39."}]},
+    {"t":"text","q":"3x + 1 is an expression. Turn it into an equation whose solution is x = 4.","a":["3x+1=13","3x + 1 = 13","13=3x+1","13 = 3x + 1"],"show":"3x + 1 = 13","pts":2,"why":"3(4) + 1 = 13, so set the expression equal to 13."},
+    {"t":"num","q":"Test n = 5, 6, 7 and 8 in 6n = 42. Which value is the solution?","a":7,"pts":2,"why":"6(7) = 42; 6(8) = 48."},
+    {"t":"open","key":"exprvseq","q":"Explain the difference between an expression and an equation in your own words, with an example of each from shopping.","min":20,"rows":2,"rubric":["Explains the difference in your own words", "A shopping example of each"],"model":"An expression is like a price formula, such as 4p + 3 for 4 shirts plus $3 shipping. An equation says two things are equal, such as 4p + 3 = 39, which tells me the total was $39."}]},
   {"title": "Solving with Inverse Operations",
    "html": "<p>To <b>solve</b> an equation, <b>isolate</b> the variable by using the <b>inverse operation</b> on both sides:</p><ul><li>x + 9 = 23 → subtract 9 from both sides → x = 14.</li><li>y − 6.5 = 10 → add 6.5 to both sides → y = 16.5.</li><li>4m = 52 → divide both sides by 4 → m = 13.</li><li>k/3 = 7 → multiply both sides by 3 → k = 21.</li><li>(2/5)w = 8 → multiply both sides by 5/2 (the reciprocal) → w = 20.</li></ul><p>Always <b>check</b>: substitute your answer into the original equation.</p>",
    "checks": [
@@ -70,10 +70,10 @@ LESSON = {
  "handson": {
   "title": "Balance Scale Equations and the Mystery Receipt",
   "intro": "Build a balance from a hanger, solve equations with real objects, then crack mystery receipts.",
-  "materials": ["A clothes hanger with notches", "2 identical paper or plastic cups and string (or 2 bags)", "About 30 identical small objects (pennies, paper clips or dried beans)", "An envelope or small opaque bag (the \"x\")", "A family member", "Paper and pencil", "A few real store receipts (optional)"],
+  "materials": ["A clothes hanger with notches", "2 identical paper or plastic cups, string and a hole punch or tape (or 2 bags with handles)", "About 30 identical small objects (pennies, paper clips or dried beans)", "2 identical envelopes or small opaque bags (one is the \"x\")", "A family member", "Paper and pencil", "A few real store receipts (optional)"],
   "steps": [
    "Hang the two cups from the hanger's notches with string so they balance. Hang the hanger from a doorknob or have someone hold it.",
-   "Your partner secretly puts some pennies in the envelope (this is x) and places it in the left cup with a few loose pennies. They add pennies to the right cup until it balances. Write the equation (for example, x + 4 = 11).",
+   "Your partner secretly puts some pennies in the envelope (this is x) and places it in the left cup with a few loose pennies, and puts the second, empty envelope in the right cup so the envelopes cancel out. They add pennies to the right cup until it balances. Write the equation (for example, x + 4 = 11).",
    "Solve it by removing the same number of loose pennies from both sides until only the envelope is left on one side. Open the envelope to check.",
    "Mystery receipts: your partner covers one price on a real (or made-up) receipt and tells you the total. Write and solve an equation to find the hidden price.",
    "Keep pennies and beans away from young children and pets."],
@@ -83,8 +83,8 @@ LESSON = {
  "think": {
   "intro": "Explain your reasoning. Your teacher scores these.",
   "items": [
-   {"t":"open","key":"pricedecide","q":"Maya wants to earn $135 this week selling loaves. She is deciding between charging $9 or $10 a loaf. Write and solve an equation for each price to find how many loaves she must sell. Then use what you know about running a business to recommend a price.","min":49,"rows":5,"rubric":["Correct equations and solutions for both prices","Recommends a price with a business reason (customers, ingredients, time, competition)"],"model":"At $9: 9n = 135, so n = 15 loaves. At $10: 10n = 135, so n = 13.5, which means 14 loaves to reach at least $135. I'd recommend $10 if her customers are happy to pay it, since she'd bake fewer loaves, saving flour and time. If raising the price loses customers, $9 might sell more."},
-   {"t":"open","key":"samesolution","q":"Write three different one-step equations, using three different operations, that all have the solution x = 12. Explain how you created them.","min":39,"rows":4,"rubric":["Three correct equations with solution 12","Three different operations","Explains the method (start with x = 12 and apply an operation to both sides)"],"model":"x + 5 = 17, x − 3 = 9 and 4x = 48. I started with x = 12 and did the same operation to both sides: added 5, subtracted 3, multiplied by 4. Because I kept it balanced, 12 is the solution to all three."}]},
+   {"t":"open","key":"pricedecide","q":"Maya wants to earn $135 this week selling loaves. She is deciding between charging $9 or $10 a loaf. Write and solve an equation for each price to find how many loaves she must sell. Then use what you know about running a business to recommend a price.","min":49,"rows":5,"rubric":["Correct equations and solutions for both prices","Recommends a price with a business reason"],"model":"At $9: 9n = 135, so n = 15 loaves. At $10: 10n = 135, so n = 13.5, which means 14 loaves to reach at least $135. I'd recommend $10 if her customers are happy to pay it, since she'd bake fewer loaves, saving flour and time. If raising the price loses customers, $9 might sell more."},
+   {"t":"open","key":"samesolution","q":"Write three different one-step equations, using three different operations, that all have the solution x = 12. Explain how you created them.","min":39,"rows":4,"rubric":["Three correct equations with solution 12","Three different operations","Explains the method"],"model":"x + 5 = 17, x − 3 = 9 and 4x = 48. I started with x = 12 and did the same operation to both sides: added 5, subtracted 3, multiplied by 4. Because I kept it balanced, 12 is the solution to all three."}]},
  "exit": [
   {"t":"num","q":"Solve: n + 23 = 51","a":28,"pts":2,"why":"Subtract 23: n = 28."},
   {"t":"num","q":"Solve: 7y = 84","a":12,"pts":2,"why":"Divide by 7: y = 12."},
