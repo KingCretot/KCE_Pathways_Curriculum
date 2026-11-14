@@ -239,7 +239,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                       'key': 'rewrite',
                       'q': 'Take the facts from Passage C (Kemet and Kush) and rewrite them as a short paragraph with a different structure: either sequence or cause and effect. Use at least three '
                            'signal words for your new structure and underline them by writing them in capital letters.',
-                      'min': 80,
+                      'min': 47,
                       'rows': 8,
                       'rubric': ['Uses the chosen new structure throughout', 'Accurate facts from the passage', 'Three or more correct signal words', 'Clear paragraph'],
                       'model': 'Sequence: FIRST, around 2560 BCE, Kemet built the Great Pyramid, a huge pyramid with gently sloping sides. LATER, after about 500 BCE, iron working grew at Meroe in '
@@ -248,7 +248,7 @@ LESSON = {'unit': 'Unit 2: Explaining the World (Informational)',
                      {'t': 'open',
                       'key': 'purpose',
                       'q': "Why do you think the author of Passage B (Florida's springs) chose cause and effect instead of description? What does that choice help readers understand?",
-                      'min': 40,
+                      'min': 39,
                       'rows': 4,
                       'rubric': ['Purpose: explain why springs are in trouble', 'Cause and effect shows human actions lead to harm', 'Suggests readers can change the causes'],
                       'model': 'The author wanted readers to understand why the springs are in trouble, not just what they look like. Cause and effect shows that human actions like overpumping and '

@@ -203,7 +203,7 @@ LESSON = {'unit': 'Unit 1: Number Power',
              'record': [{'t': 'open',
                          'key': 'pantry',
                          'q': 'Type a table with each item, its price, its amount and its unit price. Show the division for one of them.',
-                         'min': 40,
+                         'min': 32,
                          'rows': 6,
                          'rubric': ['Four items with price, amount and unit price', 'Division shown for at least one', 'Unit prices rounded to the cent and labeled with units'],
                          'model': 'Oats: $4.79 for 42 oz, 4.79 ÷ 42 ≈ 0.114, so $0.11 per oz. Rice: $3.49 for 32 oz, $0.11 per oz. Milk: $3.89 for 128 fl oz, $0.03 per fl oz. Eggs: $3.60 for 12, '

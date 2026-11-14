@@ -220,7 +220,7 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
              'record': [{'t': 'open',
                          'key': 'walk',
                          'q': 'List each organelle, the home location you chose, its job and why the location fits.',
-                         'min': 60,
+                         'min': 58,
                          'rows': 8,
                          'rubric': ['All eight organelles', 'Correct jobs', 'Sensible reasons for locations'],
                          'model': 'Nucleus: my desk with the family calendar, because it holds the plans. Ribosome: the kitchen counter, where things are made. ER: the hallway, the path things '
@@ -248,7 +248,7 @@ LESSON = {'unit': 'Unit 2: Cells, the Building Blocks of Life',
                       'key': 'ethics',
                       'q': 'Today, many hospitals ask patients for permission before using leftover tissue in research. Write two rules you think scientists should follow when using human cells, and '
                            'explain why each rule is fair.',
-                      'min': 45,
+                      'min': 39,
                       'rubric': ['Two clear rules (ask consent, explain how cells will be used, protect privacy, share benefits, let people say no)', 'Explains fairness for each'],
                       'model': "Rule 1: Always ask permission and explain how the cells will be used, because people have the right to decide about their own bodies. Rule 2: Protect people's names "
                                "and medical information, because their families deserve privacy, which Henrietta Lacks's family did not get for many years."}]},

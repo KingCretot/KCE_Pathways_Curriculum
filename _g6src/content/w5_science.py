@@ -217,7 +217,7 @@ LESSON = {'unit': 'Unit 1: Thinking Like a Scientist',
                         {'t': 'open',
                          'key': 'projcer',
                          'q': 'Write your conclusion using CER. Then name two limits of your investigation and one question you would test next.',
-                         'min': 80,
+                         'min': 73,
                          'rows': 8,
                          'rubric': ['Clear claim that answers the question', 'Evidence with specific averages and units', 'Reasoning with a science idea', 'Two limits', 'A next question'],
                          'model': 'Claim: Raising the ramp made the toy car roll farther. Evidence: At 10 cm the car rolled an average of 91.7 cm, at 20 cm 151.3 cm, and at 30 cm 204 cm. Reasoning: '

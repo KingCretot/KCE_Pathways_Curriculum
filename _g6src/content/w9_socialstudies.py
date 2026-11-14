@@ -348,7 +348,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
              'record': [{'t': 'open',
                          'key': 'coinplan',
                          'q': 'Describe your coin: what is on each side, and what message does each symbol send about your kingdom?',
-                         'min': 40,
+                         'min': 39,
                          'rows': 4,
                          'rubric': ['Both sides described', 'Each symbol explained with its message', 'Connects to how Aksum used coins'],
                          'model': 'Front: a crowned queen holding a spear, to show strong leadership. Back: a ship and a star, because my kingdom trades by sea and guides ships by the stars. Edge: '
@@ -357,7 +357,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                          'key': 'coinread',
                          'q': 'What did your family member conclude from your coin without being told? What did they get right, and what did they miss? What does that teach you about using objects '
                               'as evidence?',
-                         'min': 40,
+                         'min': 38,
                          'rows': 4,
                          'rubric': ["Reports the other person's reading", 'Compares with intended meaning', 'Lesson: objects show some things clearly but can be misread; historians combine evidence'],
                          'model': 'My mom guessed it was a sea-trading kingdom ruled by a queen, which was right, but she thought the star meant a religion. That shows objects can tell us a lot but '
@@ -367,7 +367,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                       'key': 'risefall',
                       'q': 'Write a paragraph comparing the rise and fall of Kush (including Meroe) and Aksum. For each, give one cause of its rise and one cause of its decline, then explain one way '
                            'they were alike.',
-                      'min': 120,
+                      'min': 103,
                       'rows': 10,
                       'rubric': ["Kush rise: gold, iron, trade, strong armies, Egypt's division; decline: Assyrian invasion ended rule in Egypt; Meroe declined around 350 CE as trade shifted and "
                                  'Aksum attacked',
@@ -383,7 +383,7 @@ LESSON = {'unit': 'Unit 2: The Nile Valley and Ancient Africa',
                       'key': 'remember',
                       'q': 'Taharqa, Amanirenas and Ezana are far less famous in many schools than Tutankhamun or Cleopatra. Choose one of them and write a short argument for why every student '
                            'should learn about this person.',
-                      'min': 70,
+                      'min': 61,
                       'rows': 6,
                       'rubric': ['Accurate facts about the chosen ruler', 'A clear reason the person matters', 'Persuasive reasoning about why the story should be taught'],
                       'model': 'Every student should learn about Kandake Amanirenas. When Rome, the most powerful empire in the world, tried to tax Kush, she led her army against it, and at Samos '

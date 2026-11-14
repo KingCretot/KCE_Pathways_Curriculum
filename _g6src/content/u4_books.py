@@ -28,7 +28,7 @@ BORROW = [
  ("The Ancient Roman World", "Ronald Mellor and Marni McGee", "Social Studies", "Also from the World in Ancient Times series; includes Carthage and Roman Africa.", "Ancient Roman World Mellor McGee"),
 ]
 
-HTML = ("<h1>Unit 3 Book List</h1><p>Every book here can be read free. The first group is in the public domain and free to read online. "
+HTML = ("<h1>Unit 4 Book List</h1><p>Every book here can be read free. The first group is in the public domain and free to read online. "
         "The second group is free to borrow with a public library card: look for it in your library's catalog or its free e-book apps, "
         "or borrow a digital copy through Open Library when one is available. Availability varies by library.</p>"
         "<h2>Free to read online (public domain)</h2><table class='t'><tr><th>Book</th><th>Subject</th><th>Why read it</th></tr>" +

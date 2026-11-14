@@ -228,7 +228,7 @@ LESSON = {'unit': 'Unit 1: Stories That Shape Us (Narrative)',
                       'key': 'themepara',
                       'q': 'Write a paragraph that answers: <b>What is the theme of "Mother to Son," and how does Hughes develop it?</b> Begin with a theme statement. Support it with at least two '
                            'exact quotations from the poem, and explain how each one develops the theme.',
-                      'min': 110,
+                      'min': 79,
                       'rows': 10,
                       'rubric': ['Ideas: a clear, universal theme statement',
                                  'Evidence: two or more exact quotations, each explained',

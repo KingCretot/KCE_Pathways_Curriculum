@@ -210,7 +210,7 @@ LESSON = {'unit': 'Unit 3: Rates and Percents',
                          'key': 'ratepredict',
                          'q': 'Use your walking rate to predict how long it would take you to walk 1 kilometer (1,000 meters). Then use your reading rate to predict how long a 180-page book would '
                               'take. Are your predictions reasonable? Why might they be off?',
-                         'min': 40,
+                         'min': 39,
                          'rows': 4,
                          'rubric': ['Correct predictions from their unit rates',
                                     'Reasonableness check',
@@ -222,7 +222,7 @@ LESSON = {'unit': 'Unit 3: Rates and Percents',
                       'key': 'roadtrip',
                       'q': 'A family drives from Arcadia to Tallahassee, about 300 miles. Their car goes 30 miles per gallon, and gas costs $3.20 per gallon. If they average 60 miles per hour, how '
                            'long will the drive take, and how much will the gas cost? Show each unit rate you use.',
-                      'min': 50,
+                      'min': 39,
                       'rows': 6,
                       'rubric': ['Time: 300 ÷ 60 = 5 hours', 'Gas used: 300 ÷ 30 = 10 gallons', 'Cost: 10 × $3.20 = $32.00', 'Unit rates named and used correctly'],
                       'model': 'Time: at 60 miles per hour, 300 ÷ 60 = 5 hours. Gas: at 30 miles per gallon, 300 ÷ 30 = 10 gallons. Cost: at $3.20 per gallon, 10 × $3.20 = $32.00. So the trip takes '

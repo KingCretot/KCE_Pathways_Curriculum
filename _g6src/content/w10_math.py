@@ -208,7 +208,7 @@ LESSON = {'unit': 'Unit 2: Fractions and Ratios',
                      {'t': 'open',
                       'key': 'reflect',
                       'q': 'Look back at Unit 2. Which skill do you feel strongest in, and which do you want more practice with? Give an example problem for each and explain why.',
-                      'min': 50,
+                      'min': 39,
                       'rows': 5,
                       'rubric': ['Names a strong skill with an example', 'Names a skill to practice with an example', 'Honest, specific reflection'],
                       'model': 'I am strongest at ratio tables, because doubling and adding columns makes sense, like scaling 3 : 2 to 15 : 10. I want more practice dividing mixed numbers, like 2 '
