@@ -1,0 +1,150 @@
+MED = ('<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Schematic map of the western Mediterranean showing Carthage, Rome, Hannibal&apos;s route over the Alps, and Roman Africa">'
+  '<rect width="680" height="330" fill="#eaf2fb"/>'
+  '<text x="340" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Carthage, Hannibal\'s march and Roman Africa</text>'
+  # Europe
+  '<path d="M20 40 L660 40 L660 120 L560 110 L500 150 L470 120 L430 160 L380 150 L330 110 L300 140 L260 100 L200 110 L160 150 L110 160 L60 140 L20 150Z" fill="#f4ecd8" stroke="#b9a77a"/>'
+  # Spain block bigger
+  '<path d="M20 150 L110 160 L120 200 L60 215 L20 205Z" fill="#f4ecd8" stroke="#b9a77a"/><text x="40" y="190" font-size="10" fill="#5b6676">Iberia (Spain)</text>'
+  # Africa
+  '<path d="M20 260 L120 248 L230 236 L300 228 L330 250 L420 262 L520 268 L600 262 L660 270 L660 330 L20 330Z" fill="#e9dcc0" stroke="#b9a77a"/>'
+  '<text x="80" y="300" font-size="12" fill="#8a6d1f" font-weight="bold">AFRICA</text><text x="80" y="314" font-size="10" fill="#8a6d1f">Numidians and other Amazigh (Berber) peoples</text>'
+  '<path d="M200 70 Q230 56 270 70" fill="none" stroke="#8a6d1f" stroke-width="7"/><text x="214" y="58" font-size="10" fill="#8a6d1f">Alps</text>'
+  # Hannibal route
+  '<path d="M300 232 Q200 230 110 220 Q70 200 80 175 Q120 140 180 110 Q215 90 240 72 Q262 90 280 118" fill="none" stroke="#DB2F30" stroke-width="3" stroke-dasharray="7 4"/>'
+  '<text x="120" y="135" font-size="10" fill="#DB2F30" font-weight="bold">Hannibal, 218 BCE</text>'
+  + ''.join(f'<circle cx="{x}" cy="{y}" r="5" fill="{c}"/><text x="{x+tx}" y="{y+ty}" font-weight="bold" fill="{c}">{n}</text>' for x, y, n, tx, ty, c in [
+    (300, 232, "Carthage", 8, 4, "#0A1F3D"), (300, 110, "Rome", 8, -4, "#0A1F3D"), (330, 125, "Cannae", 8, 14, "#0A1F3D"), (420, 264, "Leptis Magna", -30, 18, "#0A1F3D"), (250, 238, "Hippo", -38, -6, "#0A1F3D"), (640, 268, "Alexandria", -70, 18, "#0A1F3D")]) +
+  '<text x="380" y="210" font-size="12" fill="#0047BA" font-style="italic">Mediterranean Sea</text><text x="300" y="170" font-size="10" fill="#5b6676">Sicily</text>'
+  '<text x="670" y="326" text-anchor="end" font-size="9" fill="#5b6676">Schematic map, not to scale.</text></svg>')
+
+HARBOR = ('<svg viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial" font-size="11" role="img" aria-label="Carthage&apos;s two harbors: a rectangular merchant harbor and a circular naval harbor with an island headquarters">'
+  '<text x="280" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="14">Carthage\'s double harbor (reconstruction)</text>'
+  '<rect x="20" y="180" width="520" height="40" fill="#9fc6e8"/><text x="40" y="204" font-size="11" fill="#0047BA">the sea</text>'
+  '<rect x="250" y="110" width="40" height="70" fill="#9fc6e8"/>'
+  '<rect x="200" y="70" width="140" height="44" fill="#9fc6e8" stroke="#0A1F3D"/><text x="270" y="96" text-anchor="middle" font-size="10">merchant harbor</text>'
+    '<circle cx="270" cy="36" r="0" />'
+  '<circle cx="420" cy="80" r="56" fill="#9fc6e8" stroke="#0A1F3D"/><circle cx="420" cy="80" r="18" fill="#f4ecd8" stroke="#0A1F3D"/><text x="420" y="84" text-anchor="middle" font-size="9">HQ</text>'
+  '<path d="M340 90 h24" stroke="#9fc6e8" stroke-width="12"/>'
+  + ''.join(f'<line x1="{420+46*__import__("math").cos(a*0.314)}" y1="{80+46*__import__("math").sin(a*0.314)}" x2="{420+56*__import__("math").cos(a*0.314)}" y2="{80+56*__import__("math").sin(a*0.314)}" stroke="#0A1F3D"/>' for a in range(20)) +
+  '<text x="420" y="152" text-anchor="middle" font-size="10">naval harbor: sheds for about 170 to 220 warships</text>'
+  '<text x="16" y="60" font-size="10" fill="#0A1F3D">Ships entered from the sea,</text><text x="16" y="74" font-size="10" fill="#0A1F3D">passed through the merchant</text><text x="16" y="88" font-size="10" fill="#0A1F3D">harbor, then into the hidden</text><text x="16" y="102" font-size="10" fill="#0A1F3D">naval harbor.</text>'
+  '<text x="280" y="226" text-anchor="middle" font-size="9" fill="#0A1F3D">Simplified drawing based on archaeology and the Greek historian Appian. Not to scale.</text></svg>')
+
+LIVYH = ("<div class='card' style='border-left-color:#C9A84C'><h3 style='margin-top:0'>Livy on Hannibal Crossing the Alps</h3><p class='muted' style='margin-top:-6px'>Livy, History of Rome, Book 21, section 37 (written about 25 BCE, nearly 200 years after the events), translated by Cyrus R. Edmonds (1850).</p>"
+         "<p style='font-family:Georgia,serif'>The soldiers being then set to make a way down the cliff by which alone a passage could be effected, and it being necessary that they should cut through the rocks, having felled and lopped a number of large trees which grew around, they make a huge pile of timber; and as soon as a strong wind fit for exciting the flames arose, they set fire to it, and, pouring vinegar on the heated stones, they render them soft and crumbling. They then open a way with iron instruments through the rock thus heated by the fire, and soften its declivities by gentle windings, so that not only the beasts of burden, but also the elephants could be led down it.</p>"
+         "<p class='muted' style='font-size:12px'>effected: made to happen. felled and lopped: cut down and trimmed. render: make. declivities: downward slopes. beasts of burden: pack animals such as mules.</p></div>")
+
+LESSON = {
+ "unit": "Unit 4: The Mediterranean World",
+ "title": "Carthage and Roman Africa",
+ "subtitle": "For more than a century, the African city of Carthage was Rome's greatest rival, and its general Hannibal nearly conquered Italy. After Rome destroyed Carthage, North Africa became one of the richest parts of the Roman Empire and produced an emperor, great writers and one of history's most important thinkers.",
+ "objectives": [
+  "Describe the founding of Carthage by Phoenician settlers and its growth into a North African trading power.",
+  "Explain the Phoenicians' contributions to Mediterranean trade and the alphabet.",
+  "Explain the causes and effects of the Punic Wars, including Hannibal's campaign.",
+  "Describe Roman Africa and identify African-born Romans who shaped the empire.",
+  "Evaluate Livy's account of Hannibal as a source written by an enemy, long after the events."],
+ "vocab": [
+  ["Phoenicians", "Seafaring traders from the eastern Mediterranean coast (modern Lebanon) who spread an early alphabet."],
+  ["Punic", "From the Roman word for Carthaginian; the Punic Wars were Rome's wars with Carthage."],
+  ["Amazigh (Berber)", "The Indigenous peoples of North Africa, including the Numidians."],
+  ["Numidia", "An Amazigh kingdom west of Carthage, famous for its cavalry."],
+  ["province", "A territory outside Italy ruled by a Roman governor."],
+  ["breadbasket", "A region that produces large amounts of grain for others."],
+  ["siege", "Surrounding a city to cut off supplies and force it to surrender."]],
+ "reconnect": {
+  "title": "Week 18: Rome, republic to empire",
+  "intro": "Last week Rome grew from a city into an empire. Its biggest test came from Africa.",
+  "items": [
+   {"t":"text","q":"In the Roman Republic, what were the two elected leaders who served one-year terms called?","a":[{"all":[["consul"]],"none":["not"]}],"show":"consuls","pts":2,"why":"Each could veto the other."},
+   {"t":"text","q":"Which leader became Rome's first emperor in 27 BCE?","a":[{"all":[["augustus","octavian"]],"none":["not"]}],"show":"Augustus","pts":2,"why":"He defeated Antony and Cleopatra VII of Egypt first."},
+   {"t":"text","q":"Last week's map marked a North African city across the sea from Sicily as Rome's rival. What was it?","a":[{"all":[["carthage"]],"none":["not"]}],"show":"Carthage","pts":2,"why":"Today's lesson."},
+   {"t":"open","key":"rc_dictator","q":"In the Republic, a dictator held power for at most six months. Why might a long war against a powerful enemy put the Republic's limits on power under strain?","min":15,"rows":2,"rubric":["Long wars need steady leadership and big armies","Generals and leaders may stay in power longer or armies become loyal to generals"],"model":"A long war needs the same leaders and armies for years, so generals can build armies loyal to them and stay powerful longer than the rules allow."}]},
+ "hook": {
+  "title": "Elephants in the Snow",
+  "visual": MED,
+  "html": "<p>In 218 BCE, a 29-year-old general named <b>Hannibal Barca</b> led an army of tens of thousands of soldiers, thousands of horses and about 37 war elephants out of Spain, over the Pyrenees, across the Rhône River and up into the Alps, in snow, against attacks by mountain peoples. Thousands died on the way. Then he marched into Italy and defeated Rome in battle after battle. At <b>Cannae</b> in 216 BCE, his smaller army surrounded and destroyed a huge Roman force, one of the worst defeats in Roman history.</p><p>Hannibal came from <b>Carthage</b>, a great city on the coast of North Africa, in what is now Tunisia. How did an African city become strong enough to threaten Rome, and what happened after it lost?</p><div class='callout'><b>Big question:</b> How did Africa shape the Roman world, and how did Rome shape Africa?</div>"},
+ "learn": [
+  {"title": "Carthage: An African Trading Power",
+   "visual": HARBOR,
+   "html": "<p>Carthage was founded, according to tradition, in 814 BCE by settlers from the Phoenician city of Tyre, on the coast of modern Lebanon. The <b>Phoenicians</b> were the great sea traders of the ancient Mediterranean. They traded purple dye, cedar wood, glass and metals, and spread a simple alphabet of about 22 letters, each standing for a sound. The Greeks adapted it, the Romans adapted the Greek version, and the letters you are reading descend from it.</p><p>Carthage grew into a powerful North African city of perhaps several hundred thousand people. Its people mixed Phoenician and Indigenous North African (Amazigh, or Berber) roots, and they spoke and wrote the <b>Punic</b> language. Carthage's farms were famous: a Carthaginian writer named Mago wrote a farming guide so respected that, after Carthage fell, the Roman Senate ordered it translated into Latin. Carthage's navy controlled sea trade in the western Mediterranean, using an amazing circular harbor that could shelter a war fleet.</p>",
+   "checks": [
+    {"t":"text","q":"From which Phoenician city did the founders of Carthage come?","a":[{"all":[["tyre"]],"none":["not"]}],"show":"Tyre","pts":2,"why":"On the coast of modern Lebanon."},
+    {"t":"open","key":"alphabetwhy","q":"Earlier writing systems, like Egyptian hieroglyphs and Mesopotamian cuneiform, used hundreds of signs. Why was an alphabet of about 22 letters such a powerful tool for traders?","min":25,"rows":3,"rubric":["Few signs, each for a sound, so it was quick to learn","More people (merchants, not just trained scribes) could read and write records, contracts and letters"],"model":"With only about 22 letters, each standing for a sound, people could learn to read and write much faster than with hundreds of signs. Merchants could keep their own records and write contracts without hiring trained scribes."},
+    {"t":"open","key":"harborwhy","q":"Look at the harbor drawing. Why would hiding the naval harbor behind the merchant harbor be a smart design?","min":20,"rows":2,"rubric":["Enemies and visitors couldn't see the size of the war fleet","It protected the warships and kept trade separate from the navy"],"model":"Visitors and enemy spies sailing into the merchant harbor couldn't see how many warships Carthage had, and the fleet was protected deep inside the city."}]},
+  {"title": "The Punic Wars",
+   "html": "<p>Rome and Carthage fought three wars, called the <b>Punic Wars</b>:</p><ul><li><b>First Punic War (264 to 241 BCE):</b> a fight over the island of Sicily. Rome, a land power, built its first big navy and won. Carthage lost Sicily.</li><li><b>Second Punic War (218 to 201 BCE):</b> Hannibal invaded Italy over the Alps and won great victories, but Rome refused to surrender. Rome's general Scipio attacked Africa itself, and with the help of the Numidian king <b>Masinissa</b> and his cavalry, defeated Hannibal at <b>Zama</b> in 202 BCE.</li><li><b>Third Punic War (149 to 146 BCE):</b> a Roman politician, Cato the Elder, is said to have ended speeches with \"Carthage must be destroyed.\" After a three-year siege, Rome captured and destroyed the city in 146 BCE and enslaved the survivors.</li></ul><p>Effects: Rome became the strongest power in the Mediterranean, gained Spain and North Africa, and grew rich from conquest, which also worsened the gap between rich and poor you studied last week.</p>",
+   "checks": [
+    {"t":"order","q":"Put these events in order.","items":["Carthage is founded","First Punic War begins","Hannibal crosses the Alps","Battle of Zama","Rome destroys Carthage"],"pts":3,"why":"814 (traditional), 264, 218, 202 and 146 BCE."},
+    {"t":"text","q":"Which Numidian king helped Rome defeat Hannibal at Zama?","a":[{"all":[["masinissa","massinissa"]],"none":["not"]}],"show":"Masinissa","pts":2,"why":"His cavalry was decisive."},
+    {"t":"open","key":"punicfx","q":"Explain two effects of the Punic Wars on Rome.","min":25,"rows":3,"rubric":["Two valid effects (control of the Mediterranean; new provinces in Spain and Africa; great wealth and enslaved captives; a growing gap between rich and poor that strained the Republic)"],"model":"Rome became the strongest power in the Mediterranean and took over Spain and North Africa. The flood of wealth and enslaved people also made rich landowners richer while small farmers lost out, which helped weaken the Republic."}]},
+  {"title": "Livy on Hannibal: Reading an Enemy's Account",
+   "html": LIVYH + "<p>Almost everything we know about Hannibal was written by his enemies: Greek and Roman historians. No Carthaginian history survives, because Rome destroyed the city and its libraries. Livy wrote nearly 200 years later, for Roman readers. Notice how much admiration for Hannibal's skill comes through anyway.</p><p>Could vinegar really soften rock? Historians and scientists debate it. Heating rock with fire and then dousing it with liquid can make it crack, a real ancient mining method called fire-setting, and acids like vinegar react with limestone. But an army probably couldn't carry enough vinegar to matter much; it may have been sour wine the soldiers already had.</p>",
+   "checks": [
+    {"t":"open","key":"livybias","q":"Give two reasons a historian should read Livy's account of Hannibal carefully.","min":25,"rows":3,"rubric":["Livy was Roman, Carthage's enemy","He wrote nearly 200 years later","No Carthaginian side survives to compare"],"model":"Livy was a Roman writing about Rome's greatest enemy, so he might exaggerate or shape the story for Roman readers. He also wrote almost 200 years later, and no Carthaginian account survives to compare it with."},
+    {"t":"open","key":"vinegartest","q":"Design a simple, safe test you could do at home to see whether vinegar affects limestone or chalk. What would you observe, and what wouldn't your test prove about Hannibal?","min":40,"rows":4,"rubric":["A safe test (a piece of chalk or limestone in vinegar vs. in water)","Expected observation (bubbles, crumbling of chalk)","Limit: it doesn't show an army could carry enough vinegar or that Alpine rock is limestone; fire was also used"],"model":"Put one piece of chalk in a cup of vinegar and another in water. The chalk in vinegar should fizz and slowly crumble. But that doesn't prove Hannibal's army did it: the Alpine rock might not be limestone, the army probably couldn't carry enough vinegar, and the fire did much of the work."}]},
+  {"title": "Roman Africa",
+   "html": "<p>After 146 BCE, Rome made the land around Carthage the province of <b>Africa</b>, the name that later spread to the whole continent. Rome later added Numidia, Mauretania and, in 30 BCE, Egypt. North Africa became the empire's <b>breadbasket</b>: ships carried grain and olive oil from Africa and Egypt to feed the city of Rome. Julius Caesar and Augustus founded a new Roman Carthage, which became one of the largest cities in the empire.</p><p>North Africans shaped Rome:</p><ul><li><b>Terence</b> (Publius Terentius Afer), born in Carthage, was brought to Rome enslaved, freed, and became a famous playwright in the 160s BCE. One of his characters says, \"I am human; I think nothing human is foreign to me.\"</li><li><b>Septimius Severus</b>, born in Leptis Magna in what is now Libya, became emperor in 193 CE. His son Caracalla in 212 CE granted Roman citizenship to nearly all free people in the empire.</li><li><b>Augustine of Hippo</b> (354 to 430 CE), born in Thagaste in what is now Algeria to a mother of Amazigh background, became one of the most influential Christian thinkers in history.</li></ul>",
+   "checks": [
+    {"t":"text","q":"Which emperor, born in Leptis Magna in North Africa, began ruling in 193 CE?","a":[{"all":[["severus","septimius"]],"none":["not"]}],"show":"Septimius Severus","pts":2,"why":"Founder of the Severan dynasty."},
+    {"t":"text","q":"The Roman province around Carthage gave its name to an entire continent. What name?","a":[{"all":[["africa"]],"none":["not"]}],"show":"Africa","pts":2,"why":"The province of Africa."},
+    {"t":"open","key":"terencemeaning","q":"Terence was born in Carthage, enslaved, freed and became a famous writer in Rome. His character says, \"I am human; I think nothing human is foreign to me.\" What does this mean, and why might it be especially powerful coming from Terence?","min":30,"rows":3,"rubric":["Meaning: all human experiences concern me; we share a common humanity","Powerful because Terence was an outsider, African-born and once enslaved, yet speaks for all humanity"],"model":"It means that anything that happens to any person matters to me, because we're all human. It's powerful from Terence because he was an outsider in Rome, born in Africa and once enslaved, yet he became a voice for everyone's shared humanity."}]}],
+ "handson": {
+  "title": "Phoenician Alphabet Code and the Grain Fleet",
+  "intro": "Write a message in a Phoenician-style alphabet, then calculate how much grain Africa sent to Rome.",
+  "materials": ["Paper, pencil and a fine marker", "A printed or hand-drawn Phoenician alphabet chart (from a library book or museum website, with a parent)", "Optional: a piece of chalk, a cup of white vinegar and a cup of water", "A calculator for checking"],
+  "steps": [
+   "Copy a Phoenician alphabet chart. Phoenician writing ran right to left and had no vowel letters. Write your name and a short message to a family member in Phoenician letters, right to left, skipping the vowels.",
+   "Trade messages and decode each other's. Discuss: was it hard to read without vowels? What helped?",
+   "Grain fleet math: historians estimate the city of Rome needed about 200,000 to 400,000 tons of grain a year, and that Africa and Egypt together supplied much of it. If a large grain ship carried about 350 tons, about how many shiploads would 300,000 tons take? If the sailing season was about 6 months (180 days), about how many ships a day would arrive?",
+   "Optional chalk test: put one piece of chalk in vinegar and one in water. Watch for 10 minutes and record what happens. Pour the liquids down the sink afterward and don't drink them."],
+  "record": [
+   {"t":"open","key":"phoenrec","q":"Paste or describe your Phoenician message and its translation. What was hardest about reading a writing system with no vowels, and how did context help?","min":30,"rows":4,"rubric":["A message and translation","A thoughtful reflection about missing vowels and using context"],"model":"I wrote \"MT M T TH PRK\" for \"Meet me at the park,\" right to left. Without vowels, \"PRK\" could be park or pork, but my brother guessed park because \"meet me at\" made sense. Context does the work the vowels would do."},
+   {"t":"open","key":"grainrec","q":"Show your grain fleet calculations. What does the number of ships tell you about how important Africa was to Rome?","min":30,"rows":4,"rubric":["300,000 ÷ 350 ≈ 857 shiploads","857 ÷ 180 ≈ 4.8, about 5 ships a day","Interpretation: Rome depended heavily on Africa; losing that grain would mean hunger"],"model":"300,000 ÷ 350 ≈ 857 shiploads. Over 180 days, 857 ÷ 180 ≈ 4.8, about 5 ships every day. Rome depended on Africa so much that if the grain ships stopped, the city would go hungry, which gave North Africa real power in the empire."}]},
+ "think": {
+  "intro": "Use evidence from the lesson. Your teacher scores these.",
+  "items": [
+   {"t":"open","key":"hannibalwin","q":"Hannibal won great battles in Italy for about 15 years but still lost the war. Using evidence, explain why. Consider geography, allies and Rome's government.","min":80,"rows":6,"rubric":["Geography: far from home, hard to resupply across the sea and Alps","Allies: most Italian allies stayed loyal to Rome; Numidia's Masinissa helped Rome","Rome's resources and refusal to surrender; Scipio attacked Africa","Uses evidence from the lesson"],"model":"Hannibal was far from home, and getting soldiers and supplies across the sea or over the Alps was very hard. Most of Rome's Italian allies stayed loyal, so Rome could keep raising new armies even after losing at Cannae. Then Scipio attacked Carthage itself, forcing Hannibal home, and the Numidian king Masinissa's cavalry helped Rome win at Zama. Winning battles wasn't enough without supplies, allies and a home base."},
+   {"t":"open","key":"africarome","q":"Some people imagine the Roman Empire as a European empire. Using at least three pieces of evidence from this lesson, argue that Africa was central to the Roman world.","min":100,"rows":8,"rubric":["A clear claim","Three pieces of evidence (Carthage as Rome's great rival; Africa and Egypt as breadbasket; Roman Carthage one of the largest cities; Septimius Severus; Terence; Augustine; Caracalla's citizenship law; the name Africa)","Explains how each shows Africa's importance"],"model":"Africa was central to the Roman world. First, the African city of Carthage was Rome's greatest rival, and Hannibal nearly conquered Italy. Second, after Rome won, North Africa and Egypt became the breadbasket that fed the city of Rome, with roughly five grain ships arriving a day during the sailing season. Third, Africans led and shaped the empire: Septimius Severus, born in Libya, became emperor; Terence, born in Carthage, became a great playwright; and Augustine of Hippo became one of history's most important thinkers. Even the continent's name comes from the Roman province of Africa."}]},
+ "exit": [
+  {"t":"text","q":"What were the three wars between Rome and Carthage called?","a":[{"all":[["punic"]],"none":["not"]}],"show":"the Punic Wars","pts":2,"why":"From the Roman word for Carthaginian."},
+  {"t":"text","q":"Which Carthaginian general crossed the Alps with elephants in 218 BCE?","a":[{"all":[["hannibal"]],"none":["not"]}],"show":"Hannibal","pts":2,"why":"He won at Cannae in 216 BCE."},
+  {"t":"text","q":"Which seafaring people spread an early alphabet across the Mediterranean?","a":[{"all":[["phoenician"]],"none":["not"]}],"show":"the Phoenicians","pts":2,"why":"Carthage was founded by Phoenician settlers."},
+  {"t":"open","key":"exit_breadbasket","q":"Why was North Africa called Rome's breadbasket, and why did that make it important?","min":12,"rows":2,"rubric":["It supplied much of the grain that fed Rome","Rome depended on it; losing it would cause hunger"],"model":"North Africa and Egypt grew much of the grain that fed the city of Rome, so Rome depended on Africa to avoid hunger."}],
+ "next": "Week 20: the Unit 4 checkpoint and Mediterranean project."
+}
+
+TEACHER = {
+ "standards": [
+  "SS.6.W.3.1: Analyze the cultural impact the ancient Phoenicians had on the Mediterranean world with specific regard to trade and the development of an alphabet.",
+  "SS.6.W.3.9: Explain the impact of the Punic Wars on the development of the Roman Empire.",
+  "SS.6.W.3.12: Explain the causes for the growth and longevity of the Roman Empire.",
+  "SS.6.G.2.6: Explain the concept of cultural diffusion, and identify the influences of different ancient cultures on one another.",
+  "SS.6.W.1.3: Interpret primary and secondary sources."],
+ "materials": ["The interactive lesson", "Paper, pencil, a fine marker", "A Phoenician alphabet chart", "Optional: chalk, white vinegar, water", "A calculator for checking", "Printable practice page"],
+ "flow": [
+  [6, "Reconnect", "Run the Week 18 warm-up questions."],
+  [5, "Hook", "Trace Hannibal's march on the map."],
+  [11, "Carthage", "Phoenicians, the alphabet, Amazigh roots, Mago, the double harbor."],
+  [11, "Punic Wars", "Build the timeline; Masinissa and Zama; effects on Rome."],
+  [10, "Livy", "Read the Alps passage; discuss bias and the vinegar debate."],
+  [11, "Roman Africa", "Breadbasket; Terence, Septimius Severus, Caracalla, Augustine."],
+  [6, "Assign", "Show the Phoenician chart; assign the code and grain fleet, Think Deeper and the Exit Check."]],
+ "key_questions": ["Who wrote this account, when and for whom?", "How did geography shape the Punic Wars?", "How did Africans shape the Roman Empire?", "Why does it matter that no Carthaginian history survives?"],
+ "misconceptions": ["Carthage was a European or Middle Eastern city (it was an African city with Phoenician and Amazigh roots).", "Hannibal was defeated in Italy.", "The Roman Empire was only European.", "Rome salted the earth at Carthage (a modern legend with no ancient source)."],
+ "support": ["Provide a map of the Mediterranean to label.", "Use a timeline strip for the three Punic Wars.", "Read the Livy excerpt with the glossary, one sentence at a time."],
+ "challenge": ["Research the archaeology of Carthage's circular harbor (UNESCO World Heritage Site).", "Read about the Numidian king Jugurtha and compare him with Masinissa."],
+ "background": "<p>Carthage's traditional founding date of 814/813 BCE comes from Greek writers; archaeology confirms settlement by the late 9th or 8th century BCE. Hannibal set out in 218 BCE with about 37 elephants (Polybius and Appian); army size estimates vary widely. Cannae: August 216 BCE. Zama: 202 BCE. Carthage destroyed in 146 BCE; the story that Rome salted the earth is a modern invention. Appian (Punica 96) describes the circular naval harbor with sheds for 220 ships; archaeologists estimate roughly 170 to 220. Mago's agricultural treatise was translated into Latin by order of the Senate (Pliny, Natural History 18.22). Terence (about 195 to 159 BCE); the line \"Homo sum, humani nihil a me alienum puto\" is from Heauton Timorumenos (The Self-Tormentor); translation by KCE. Septimius Severus reigned 193 to 211 CE; the Constitutio Antoniniana (212 CE). Augustine's mother Monica is traditionally described as Amazigh (Berber). Grain estimates for imperial Rome vary (about 200,000 to 400,000 tons a year); ship capacities ranged widely, with large grain ships around 340 tons or more. The Livy excerpt follows Edmonds's 1850 translation (Project Gutenberg).</p>",
+ "sources": ["Livy, History of Rome, Books 9-26, translated by Cyrus R. Edmonds (1850), Project Gutenberg.", "UNESCO World Heritage Centre, Archaeological Site of Carthage.", "Miles, Richard, Carthage Must Be Destroyed (2010).", "British Museum, the Phoenicians and the alphabet."]
+}
+
+PRINT = {
+ "directions": "Answer in complete sentences.",
+ "items": [
+  {"q":"Who founded Carthage, and where was it?","a":"Phoenician settlers from Tyre; on the coast of North Africa in modern Tunisia.","lines":2},
+  {"q":"Why was the Phoenician alphabet important?","a":"About 22 letters for sounds, easy to learn; adapted by Greeks and Romans; ancestor of our alphabet.","lines":2},
+  {"q":"Summarize the cause and result of each Punic War.","a":"First: fight over Sicily, Rome won Sicily. Second: Hannibal invaded Italy, Rome won at Zama with Masinissa's help. Third: Rome besieged and destroyed Carthage in 146 BCE.","lines":4},
+  {"q":"Why should historians be careful with Livy's account of Hannibal?","a":"He was Roman, wrote about 200 years later, and no Carthaginian account survives.","lines":2},
+  {"q":"Name three North Africans who shaped the Roman world and what each did.","a":"Terence (playwright), Septimius Severus (emperor), Augustine of Hippo (Christian thinker); also Caracalla (citizenship law), Masinissa (ally at Zama).","lines":3},
+  {"q":"Explain why North Africa was called Rome's breadbasket.","a":"It (with Egypt) supplied much of the grain that fed the city of Rome.","lines":2}]
+}
