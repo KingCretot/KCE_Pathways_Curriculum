@@ -38,7 +38,7 @@ LESSON = {
    {"t":"num","q":"Find the volume of a box 8 in by 5 in by 4 in.","a":160,"unit":"cubic inches","pts":2,"why":"8 × 5 × 4 = 160."},
    {"t":"num","q":"Find the surface area of the same box.","a":184,"unit":"square inches","pts":2,"why":"2(40) + 2(32) + 2(20) = 80 + 64 + 40 = 184."},
    {"t":"num","q":"Maya saves $4.20 per order with a smaller box. How much does she save on 40 orders?","a":168,"unit":"dollars","pts":2,"why":"40 × 4.20 = 168."},
-   {"t":"open","key":"rc_choice","q":"Maya wondered whether her customers would pay more for a bigger box with a gift card. How could she find out what her customers want instead of guessing?","min":12,"rows":2,"rubric":["Suggests asking customers, such as a survey"],"model":"She could survey her customers, asking a sample of them whether they'd pay extra for a gift box, and use their answers to decide."}]},
+   {"t":"open","key":"rc_choice","q":"Maya wondered whether her customers would pay more for a bigger box with a gift card. How could she find out what her customers want instead of guessing?","min":12,"rows":2,"rubric":["A practical way to get information from customers"],"model":"She could survey her customers, asking a sample of them whether they'd pay extra for a gift box, and use their answers to decide."}]},
  "hook": {
   "title": "Ask Your Customers",
   "visual": DOTPLOT,
@@ -84,7 +84,7 @@ LESSON = {
  "think": {
   "intro": "Explain your reasoning. Your teacher scores these.",
   "items": [
-   {"t":"open","key":"pollbias","q":"A cereal company's website reports that \"9 out of 10 kids prefer our cereal!\" based on an online poll on its own website. Explain at least two reasons to be skeptical, connecting to Week 27's source-checking moves.","min":50,"rows":4,"rubric":["At least two sources of bias in the poll","Connects to judging sources (purpose, who made it)"],"model":"First, the company made the poll and wants to sell cereal, so it has a reason to report good results. Second, people visiting the company's own site probably already like the cereal, which is sampling bias, and anyone can answer, so it's a voluntary response. Like we learned in Week 27, I'd look for an independent survey before trusting the claim."},
+   {"t":"open","key":"pollbias","q":"A cereal company's website reports that \"9 out of 10 kids prefer our cereal!\" based on an online poll on its own website. Explain at least two reasons to be skeptical, connecting to Week 27 ELA's SIFT moves.","min":50,"rows":4,"rubric":["At least two sources of bias in the poll", "Connects to judging sources"],"model":"First, the company made the poll and wants to sell cereal, so it has a reason to report good results. Second, people visiting the company's own site probably already like the cereal, which is sampling bias, and anyone can answer, so it's a voluntary response. Like we learned with SIFT in Week 27 ELA, I'd look for an independent survey before trusting the claim."},
    {"t":"open","key":"designq","q":"Design a statistical question you could investigate about your homeschool or community, explain how you'd choose a fair sample, and which display you'd use and why.","min":47,"rows":4,"rubric":["A real statistical question","A fair sampling plan","A justified display choice"],"model":"Question: How many minutes do families at our co-op spend reading together each week? I'd randomly pick 20 families from the co-op directory by drawing names, so I don't only ask my friends. I'd use a histogram, because the minutes would vary widely, from 0 to 400, and grouping by 60 minutes would show the shape."}]},
  "exit": [
   {"t":"open","key":"exit_stat","q":"Write one statistical question about pets.","min":6,"rows":2,"rubric":["A question that expects many different answers from a group"],"model":"How many pets do the families in our neighborhood have?"},
@@ -96,7 +96,7 @@ LESSON = {
 TEACHER = {
  "standards": [
   "MA.6.DP.1.1: Recognize and formulate a statistical question that would generate numerical data.",
-  "MA.6.DP.1.3: Given a numerical data set within a real-world context, find and interpret mean, median, mode and range (preview only; taught Week 29).",
+  "MA.6.DP.1.4: Given a histogram or line plot within a real-world context, qualitatively describe and interpret the spread and distribution of the data, including any symmetry, skewness, gaps, clusters, outliers and the range.",
   "MA.6.DP.1.5: Create box plots and histograms to represent sets of numerical data within real-world contexts.",
   "Financial literacy: using data to make business decisions (Jump$tart Spending and Saving)."],
  "materials": ["The interactive lesson", "Paper, graph paper, colored pencils, a ruler", "At least 15 survey respondents (with parent permission)", "Printable practice page"],
@@ -112,7 +112,7 @@ TEACHER = {
  "misconceptions": ["Any question is a statistical question.", "A bigger sample always fixes bias.", "Histogram bars should have gaps like bar graphs.", "A histogram shows each individual value."],
  "support": ["Provide a frequency table template.", "Build a dot plot with sticky notes first.", "Offer sentence frames for center, spread and shape."],
  "challenge": ["Compare two dot plots, such as loaves bought by subscribers and non-subscribers.", "Find a real survey in the news and evaluate its sample and question wording."],
- "background": "<p>Florida's Grade 6 data benchmarks are MA.6.DP.1.1 to 1.6; check the exact wording of 1.3 and 1.5 against CPALMS before release. Box plots are introduced in Week 29 with the median. Maya's data are practice figures; the hands-on uses real survey data.</p>",
+ "background": "<p>Florida's Grade 6 data benchmarks are MA.6.DP.1.1 to 1.6; Florida's benchmarks call dot plots &quot;line plots.&quot; Box plots are introduced in Week 29 with the median. Maya's data are practice figures; the hands-on uses real survey data.</p>",
  "sources": ["Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "American Statistical Association, GAISE II: Pre-K–12 Guidelines for Assessment and Instruction in Statistics Education (2020)."]
 }
 

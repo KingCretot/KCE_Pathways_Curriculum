@@ -47,9 +47,9 @@ LESSON = {
     {"t":"open","key":"fixslide","q":"A classmate's slide has the title \"Manatees,\" three paragraphs of small text and a photo copied from a news website with no credit. Give three specific fixes.","min":30,"rows":3,"rubric":["Three specific, correct fixes"],"model":"Change the title to a headline that states the idea, like \"Manatees need warm water to survive winter.\" Cut the paragraphs to a few key words and say the rest aloud. Replace the photo with one that's free to use, or credit it, and add a source line."},
     {"t":"open","key":"chartchoice","q":"Which kind of visual (photo, map, bar graph, line graph, dot plot or diagram) would best show each: (a) how Silver Springs' flow changed from 1940 to 2020, (b) where algae blooms spread, (c) how a spring is connected to the aquifer?","min":20,"rows":3,"rubric":["A sensible visual for each with a reason"],"model":"(a) A line graph, because it shows change over time. (b) A map, because it shows places. (c) A diagram, because it shows how parts connect underground."}]},
   {"title": "Speaking with Data and Sources",
-   "html": "<p>Numbers are hard to remember when you only hear them. Make them land:</p><ul><li>Round and compare: \"about one-third less water\" is easier than \"31.6 percent.\"</li><li>Point to the visual: \"See how the line drops after 1970?\"</li><li>Explain what it means: \"That's like losing a whole swimming pool every few seconds.\"</li></ul><p>Use <b>oral citations</b> so listeners can trust you: \"According to the U.S. Geological Survey...\", \"A 2023 study from the University of Florida found...\". Include a final slide or handout listing all your sources.</p>",
+   "html": "<p>Numbers are hard to remember when you only hear them. Make them land:</p><ul><li>Round and compare: \"about one-third less water\" is easier than \"32.4 percent.\"</li><li>Point to the visual: \"See how the line drops after 1970?\"</li><li>Explain what it means: \"That's like losing a whole swimming pool every few seconds.\"</li></ul><p>Use <b>oral citations</b> so listeners can trust you: \"According to the U.S. Geological Survey...\", \"A 2023 study from the University of Florida found...\". Include a final slide or handout listing all your sources.</p>",
    "checks": [
-    {"t":"open","key":"speakdata","q":"Rewrite this sentence so it works better when spoken aloud, with an oral citation: \"Flow declined 32.4% from the 1933-2010 mean.\"","min":14,"rows":2,"rubric":["Rounds or simplifies the number","Adds an oral citation","Easy to understand when heard"],"model":"According to the U.S. Geological Survey, Silver Springs now flows about one-third less than it used to."}]},
+    {"t":"open","key":"speakdata","q":"Rewrite this sentence so it works better when spoken aloud, with an oral citation: \"Flow declined 32.4% from the 1933-2010 mean.\"","min":14,"rows":2,"rubric":["Rounds or simplifies the number","Adds an oral citation","Easy to understand when heard"],"model":"According to the St. Johns River Water Management District, Silver Springs now flows about one-third less than it used to."}]},
   {"title": "Delivery and Questions",
    "html": "<p>In Week 20 you practiced eye contact, voice and pauses. For a research talk, add:</p><ul><li><b>Face the audience, not the screen.</b> Glance at the visual, then turn back.</li><li><b>Pause after key facts</b> so they sink in.</li><li><b>Handle Q&A:</b> listen to the whole question, repeat or rephrase it, answer briefly, and if you don't know, say \"I didn't find that in my research, but I'd look in...\" Honesty builds trust.</li></ul><p>Practice with a timer at least twice, and ask a listener for specific feedback: one thing that worked and one thing to change.</p>",
    "checks": [
@@ -83,8 +83,8 @@ LESSON = {
 
 TEACHER = {
  "standards": [
-  "ELA.6.C.2.1: Present information orally, in a logical sequence, emphasizing key points that support the central idea.",
-  "ELA.6.C.5.1: Integrate diverse digital media to build cohesion in a presentation.",
+  "ELA.6.C.2.1: Present information orally, in a logical sequence, using nonverbal cues, appropriate volume, clear pronunciation, and appropriate pacing.",
+  "ELA.6.C.5.1: Integrate diverse digital media to enhance audience engagement in oral or written tasks.",
   "ELA.6.C.4.1: Conduct research to answer a question, drawing on multiple reliable and valid sources, and refocusing the inquiry when appropriate.",
   "ELA.K12.EE.1.1: Cite evidence to explain and justify reasoning."],
  "materials": ["The interactive lesson", "The student's report draft", "Slide software or poster board and markers", "5 to 8 index cards, a timer, optional recording device", "Printable practice page"],
@@ -100,7 +100,7 @@ TEACHER = {
  "misconceptions": ["A presentation is the report read aloud.", "More text on slides is more helpful.", "Admitting you don't know looks bad.", "Any image online is free to use."],
  "support": ["Provide a slide template with headline, visual and source boxes.", "Let the student rehearse first to a pet or stuffed animal, then a person.", "Provide note-card frames for each section."],
  "challenge": ["Add a short demonstration or object to the presentation.", "Present to an audience outside the family, such as a co-op class or library group."],
- "background": "<p>The final research presentation is delivered in Week 30 and scored with the Unit 6 project rubric. Week 20 introduced speech delivery (eye contact, volume, pauses, note cards); this week builds research-presentation skills: audience analysis, visual design, speaking with data, oral citations and Q&A. Verify ELA.6.C.2.1 and C.5.1 wording against CPALMS before release.</p>",
+ "background": "<p>The final research presentation is delivered in Week 30 and scored with the Unit 6 project rubric. Week 20 introduced speech delivery (eye contact, volume, pauses, note cards); this week builds research-presentation skills: audience analysis, visual design, speaking with data, oral citations and Q&A.</p>",
  "sources": ["Florida Department of Education, B.E.S.T. Standards for English Language Arts (2020).", "Duarte, Nancy, slide:ology (2008).", "Reynolds, Garr, Presentation Zen (3rd ed., 2019)."]
 }
 
@@ -109,7 +109,7 @@ PRINT = {
  "items": [
   {"q":"Write your hook and research question as you'll say them.","a":"Model: In 2018, families couldn't swim at their beaches because of thick green algae. Why do these blooms keep spreading, and what could stop them?","lines":3},
   {"q":"List your three findings and the visual you'll use for each.","a":"Model: causes (diagram of runoff), spread (map of releases), solutions (photo of the reservoir site).","lines":3},
-  {"q":"Write one sentence that explains a number from your research in a way listeners will remember.","a":"Model: Silver Springs now flows about one-third less than it did in the 1930s, according to the U.S. Geological Survey.","lines":2},
+  {"q":"Write one sentence that explains a number from your research in a way listeners will remember.","a":"Model: Silver Springs now flows about one-third less than it did in the 1930s, according to the St. Johns River Water Management District.","lines":2},
   {"q":"List three rules for clear slides.","a":"One idea per slide; big readable text; a source line on every slide with outside data or images.","lines":2},
   {"q":"Write what you'll say if someone asks a question you can't answer.","a":"Model: I didn't find that in my research, but I'd look in the water district's reports.","lines":2}]
 }

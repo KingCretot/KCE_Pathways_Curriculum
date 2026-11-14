@@ -2,9 +2,9 @@ BOX = ('<svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" font-famil
   '<text x="330" y="20" text-anchor="middle" font-weight="bold" fill="#0A1F3D" font-size="15">Box plot: price of a sourdough loaf at 11 bakeries</text>'
   '<path d="M60 150 H620" stroke="#0A1F3D" stroke-width="2"/>'
   + ''.join(f'<path d="M{60+(p-5)*56} 145 v10" stroke="#0A1F3D" stroke-width="2"/><text x="{60+(p-5)*56}" y="172" text-anchor="middle" fill="#0A1F3D">${p}</text>' for p in range(5, 16)) +
-  '<path d="M116 90 H172 M340 90 H508" stroke="#0A1F3D" stroke-width="2"/><path d="M116 76 V104 M508 76 V104" stroke="#0A1F3D" stroke-width="2"/>'
+  '<path d="M116 90 H172 M340 90 H564" stroke="#0A1F3D" stroke-width="2"/><path d="M116 76 V104 M564 76 V104" stroke="#0A1F3D" stroke-width="2"/>'
   '<rect x="172" y="66" width="168" height="48" fill="#C9A84C" fill-opacity="0.45" stroke="#8a6d1f" stroke-width="2"/><path d="M228 66 V114" stroke="#DB2F30" stroke-width="3"/>'
-  '<text x="116" y="62" text-anchor="middle" fill="#0A1F3D" font-size="11">min $6</text><text x="172" y="128" text-anchor="middle" fill="#0A1F3D" font-size="11">Q1 $7</text><text x="228" y="58" text-anchor="middle" fill="#DB2F30" font-size="11" font-weight="bold">median $8</text><text x="340" y="128" text-anchor="middle" fill="#0A1F3D" font-size="11">Q3 $10</text><text x="508" y="62" text-anchor="middle" fill="#0A1F3D" font-size="11">max $14</text>'
+  '<text x="116" y="62" text-anchor="middle" fill="#0A1F3D" font-size="11">min $6</text><text x="172" y="128" text-anchor="middle" fill="#0A1F3D" font-size="11">Q1 $7</text><text x="228" y="58" text-anchor="middle" fill="#DB2F30" font-size="11" font-weight="bold">median $8</text><text x="340" y="128" text-anchor="middle" fill="#0A1F3D" font-size="11">Q3 $10</text><text x="564" y="62" text-anchor="middle" fill="#0A1F3D" font-size="11">max $14</text>'
   '<text x="330" y="192" text-anchor="middle" fill="#5b6676" font-size="11">The box holds the middle half of the prices; each whisker holds about a quarter.</text></svg>')
 
 LESSON = {
@@ -35,7 +35,7 @@ LESSON = {
  "hook": {
   "title": "What's a Fair Price?",
   "visual": BOX,
-  "html": "<p>Maya is setting the price of her sourdough. She checks 11 bakeries in her area: $6, $7, $7, $7.50, $8, $8, $8.50, $9.50, $10, $11 and $14 (a fancy downtown shop). What's a \"typical\" price? The average comes out to about $8.77, but the middle price is $8, and the most common is $7.</p><p>Three different answers! Each is a different <b>measure of center</b>, and choosing the right one matters, especially when one bakery charges $14.</p><div class='callout'><b>Big question:</b> How can one or two numbers describe a whole data set, and how can they mislead?</div>"},
+  "html": "<p>Maya is setting the price of her sourdough. She checks 11 bakeries in her area: $6, $7, $7, $7.50, $8, $8, $8.50, $9.50, $10, $11 and $14 (a fancy downtown shop). What's a \"typical\" price? The average comes out to about $8.77, but the middle price is $8, and the most common prices are $7 and $8 (two modes).</p><p>Three different answers! Each is a different <b>measure of center</b>, and choosing the right one matters, especially when one bakery charges $14.</p><div class='callout'><b>Big question:</b> How can one or two numbers describe a whole data set, and how can they mislead?</div>"},
  "learn": [
   {"title": "Mean, Median and Mode",
    "html": "<ul><li><b>Mean:</b> add all values and divide by how many. Bakery prices: 96.50 ÷ 11 ≈ $8.77. The mean is the \"fair share\" amount if everything were evened out.</li><li><b>Median:</b> put the values in order and find the middle. With 11 prices, the 6th is the middle: $8. With an even number of values, find the mean of the two middle ones.</li><li><b>Mode:</b> the most frequent value: $7 (it appears twice, as does $8; this set has two modes, $7 and $8).</li></ul>",
@@ -52,7 +52,7 @@ LESSON = {
    "html": "<p>A <b>box plot</b> shows the <b>five-number summary</b>: minimum, Q1, median, Q3 and maximum. The box stretches from Q1 to Q3 (the middle half), a line marks the median, and whiskers reach to the minimum and maximum.</p><p>Box plots make it easy to compare groups and spot skew. In the bakery box plot, the right whisker is long because of the $14 shop.</p><p><i>Note: calculators and apps sometimes use slightly different methods for quartiles, so their answers can differ a little.</i></p>",
    "checks": [
     {"t":"blanks","q":"Find the five-number summary of: 2, 4, 5, 7, 8, 9, 12.","sent":"Min: ___ &nbsp; Q1: ___ &nbsp; Median: ___ &nbsp; Q3: ___ &nbsp; Max: ___","blanks":[["^2"],["^4"],["^7"],["^9"],["^12"]],"show":"2; 4; 7; 9; 12","pts":3,"why":"Median 7; lower half 2, 4, 5 (Q1 4); upper half 8, 9, 12 (Q3 9)."},
-    {"t":"open","key":"readbox","q":"A box plot of game scores has a median of 15, Q1 of 10, Q3 of 18 and whiskers from 4 to 30. What fraction of scores were between 10 and 18, and what does the long right whisker suggest?","min":20,"rows":2,"rubric":["About half the scores","Explains that a few scores were much higher"],"model":"About half of the scores were between 10 and 18. The long right whisker means a few games had much higher scores than usual, up to 30."}]},
+    {"t":"open","key":"readbox","q":"A box plot of game scores has a median of 15, Q1 of 10, Q3 of 18 and whiskers from 4 to 30. What fraction of scores were between 10 and 18, and what does the long right whisker suggest?","min":20,"rows":2,"rubric":["States the correct fraction of scores in the box", "Explains that a few scores were much higher"],"model":"About half of the scores were between 10 and 18. The long right whisker means a few games had much higher scores than usual, up to 30."}]},
   {"title": "Outliers and Choosing a Measure; Money: Comparing Prices",
    "html": "<p>An <b>outlier</b> pulls the mean toward it but barely moves the median. Without the $14 shop, the mean price drops from $8.77 to $8.25, but the median stays at $8.</p><ul><li>Use the <b>median</b> when there are outliers or the data are lopsided (house prices, incomes, the bakery prices).</li><li>Use the <b>mean</b> when data are fairly balanced with no outliers (test scores in a consistent class).</li><li>Use the <b>mode</b> for the most popular choice (the most-ordered flavor or T-shirt size).</li></ul><p>Smart shoppers use averages too. A unit price below the median means a good deal; a price far above the median is an outlier you may want to skip.</p>",
    "checks": [
@@ -83,15 +83,15 @@ LESSON = {
   {"t":"num","q":"Find the mean of 4, 7, 9, 10, 15.","a":9,"pts":2,"why":"45 ÷ 5 = 9."},
   {"t":"num","q":"Find the median of 3, 8, 1, 6, 9, 4.","a":5,"pts":2,"why":"In order: 1, 3, 4, 6, 8, 9; (4 + 6) ÷ 2 = 5."},
   {"t":"num","q":"Find the range of 12, 5, 19, 8, 14.","a":14,"pts":2,"why":"19 − 5 = 14."},
-  {"t":"open","key":"exit_outlier","q":"Which measure of center is least affected by an outlier, and why?","min":10,"rows":2,"rubric":["Names the median","Explains why"],"model":"The median, because it depends only on the middle value, not on how extreme the largest or smallest values are."}],
+  {"t":"open","key":"exit_outlier","q":"Which measure of center is least affected by an outlier, and why?","min":10,"rows":2,"rubric":["Names the correct measure", "Explains why"],"model":"The median, because it depends only on the middle value, not on how extreme the largest or smallest values are."}],
  "next": "Week 30: end-of-year review."
 }
 
 TEACHER = {
  "standards": [
   "MA.6.DP.1.2: Given a numerical data set within a real-world context, find and interpret mean, median, mode and range.",
-  "MA.6.DP.1.3: Given a box plot within a real-world context, determine the minimum, the lower quartile, the median, the upper quartile and maximum. Use this summary of the data to describe the spread and distribution of the data.",
-  "MA.6.DP.1.4: Given a histogram or line plot within a real-world context, qualitatively describe and interpret the spread and distribution of the data, including any symmetry, skewness, gaps, clusters, outliers and the range.",
+  "MA.6.DP.1.3: Given a box plot within a real-world context, determine the minimum, the lower quartile, the median, the upper quartile and the maximum. Use this summary of the data to describe the spread and distribution of the data.",
+  "MA.6.DP.1.5: Create box plots and histograms to represent sets of numerical data within real-world contexts.",
   "MA.6.DP.1.6: Given a real-world scenario, determine and describe how changes in data values impact measures of center and variation.",
   "Financial literacy: comparing prices to make spending decisions (Jump$tart Spending and Saving)."],
  "materials": ["The interactive lesson", "Grocery flyers or store websites, paper and pencil, graph paper and a ruler, optional calculator", "Printable practice page"],
@@ -107,7 +107,7 @@ TEACHER = {
  "misconceptions": ["The median is the middle of the unordered list.", "The mean is always the best average.", "Range tells you everything about spread.", "A data set must have exactly one mode."],
  "support": ["Have students write data in order on sticky notes and physically find the middle.", "Provide a five-number summary template.", "Use small data sets with whole numbers first."],
  "challenge": ["Compute the mean absolute deviation for the bakery prices.", "Compare box plots of prices at two different stores and decide which is more consistent."],
- "background": "<p>Quartile methods vary; this lesson uses the halves method that excludes the median for odd counts. With that method the bakery quartiles are $7 and $10. Verify MA.6.DP.1.2 to 1.6 wording against CPALMS. Prices are practice figures except in the hands-on.</p>",
+ "background": "<p>Quartile methods vary; this lesson uses the halves method that excludes the median for odd counts. With that method the bakery quartiles are $7 and $10. By the 1.5×IQR rule (fence $14.50) the $14 price is not technically an outlier; here &quot;outlier&quot; means a value far from the rest. The milk data in the model ($6.49 vs. fence $5.27) is a true outlier. Prices are practice figures except in the hands-on.</p>",
  "sources": ["Florida Department of Education, B.E.S.T. Standards for Mathematics (2020).", "American Statistical Association, GAISE II (2020)."]
 }
 
